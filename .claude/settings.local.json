@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "Bash(ping:*)",
+      "Bash(copy \"D:\\\\İsimler\\\\zafer_arif kalindayapı\\\\zafersoylu.png\" \"C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\public\\\\zafersoylu.png\")",
+      "Bash(copy \"D:\\\\İsimler\\\\zafer_arif kalindayapı\\\\arifdagdelen.png\" \"C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\public\\\\arifdagdelen.png\")",
+      "Bash(magick:*)",
+      "Bash(convert:*)",
+      "Bash(pdftoppm:*)",
+      "Bash(curl:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

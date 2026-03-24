@@ -1,0 +1,425 @@
+{
+  "ilanlar": [
+    {
+      "id": "1",
+      "baslik": "Ortaca Merkezde Satılık 3+1 Daire",
+      "slug": "ortaca-merkezde-satilik-3-1-daire",
+      "kategori": "satilik",
+      "tip": "daire",
+      "fiyat": 2850000,
+      "paraBirimi": "TL",
+      "konum": {
+        "il": "Muğla",
+        "ilce": "Ortaca",
+        "mahalle": "Cumhuriyet Mahallesi",
+        "koordinatlar": {
+          "lat": 36.8384,
+          "lng": 28.7667
+        }
+      },
+      "ozellikler": {
+        "metrekare": 145,
+        "odaSayisi": "3+1",
+        "banyoSayisi": 2,
+        "kat": 3,
+        "toplamKat": 5,
+        "binaYasi": 3,
+        "isitma": "Doğalgaz Kombi",
+        "esyali": false,
+        "balkon": true,
+        "asansor": true,
+        "otopark": true,
+        "guvenlik": false
+      },
+      "aciklama": "Ortaca merkezde, tüm sosyal olanaklara yakın, güneş alan ferah daire. Amerikan mutfak, geniş salon, ebeveyn banyosu mevcut. Site içerisinde kapalı otopark ve çocuk oyun alanı bulunmaktadır.",
+      "fotograflar": [
+        "/images/listings/daire-1.jpg",
+        "/images/listings/daire-2.jpg",
+        "/images/listings/daire-3.jpg",
+        "/images/listings/daire-4.jpg"
+      ],
+      "oneCikan": true,
+      "yayinTarihi": "2024-01-15",
+      "guncellenmeTarihi": "2024-01-20",
+      "durum": "aktif",
+      "ilanNo": "KY-2024-001"
+    },
+    {
+      "id": "2",
+      "baslik": "Dalyan'da Satılık Müstakil Villa",
+      "slug": "dalyanda-satilik-mustakil-villa",
+      "kategori": "satilik",
+      "tip": "villa",
+      "fiyat": 8500000,
+      "paraBirimi": "TL",
+      "konum": {
+        "il": "Muğla",
+        "ilce": "Ortaca",
+        "mahalle": "Dalyan",
+        "koordinatlar": {
+          "lat": 36.8333,
+          "lng": 28.6333
+        }
+      },
+      "ozellikler": {
+        "metrekare": 280,
+        "odaSayisi": "4+1",
+        "banyoSayisi": 3,
+        "kat": 2,
+        "toplamKat": 2,
+        "binaYasi": 5,
+        "isitma": "Yerden Isıtma",
+        "esyali": true,
+        "balkon": true,
+        "asansor": false,
+        "otopark": true,
+        "guvenlik": true,
+        "havuz": true,
+        "bahce": true,
+        "bahceMetrekare": 500
+      },
+      "aciklama": "Dalyan'ın en güzel lokasyonunda, özel havuzlu, geniş bahçeli müstakil villa. Doğa manzaralı, sessiz ve huzurlu bir ortamda. Yüzme havuzu, barbekü alanı ve peyzaj düzenlemesi tamamlanmış bahçe. Yazlık veya yatırım için ideal.",
+      "fotograflar": [
+        "/images/listings/villa-1.jpg",
+        "/images/listings/villa-2.jpg",
+        "/images/listings/villa-3.jpg",
+        "/images/listings/villa-4.jpg"
+      ],
+      "oneCikan": true,
+      "yayinTarihi": "2024-01-10",
+      "guncellenmeTarihi": "2024-01-18",
+      "durum": "aktif",
+      "ilanNo": "KY-2024-002"
+    },
+    {
+      "id": "3",
+      "baslik": "Köyceğiz Gölü Manzaralı Kiralık Daire",
+      "slug": "koycegiz-golu-manzarali-kiralik-daire",
+      "kategori": "kiralik",
+      "tip": "daire",
+      "fiyat": 18000,
+      "paraBirimi": "TL",
+      "konum": {
+        "il": "Muğla",
+        "ilce": "Köyceğiz",
+        "mahalle": "Merkez",
+        "koordinatlar": {
+          "lat": 36.9667,
+          "lng": 28.6833
+        }
+      },
+      "ozellikler": {
+        "metrekare": 120,
+        "odaSayisi": "2+1",
+        "banyoSayisi": 1,
+        "kat": 4,
+        "toplamKat": 6,
+        "binaYasi": 8,
+        "isitma": "Doğalgaz Kombi",
+        "esyali": true,
+        "balkon": true,
+        "asansor": true,
+        "otopark": false,
+        "guvenlik": false
+      },
+      "aciklama": "Köyceğiz Gölü'ne nazır, eşşiz manzaralı kiralık daire. Tam eşyalı, klimalı, hemen taşınmaya hazır. Göl kenarındaki yürüyüş yoluna 200 metre mesafede.",
+      "fotograflar": [
+        "/images/listings/daire-5.jpg",
+        "/images/listings/daire-6.jpg",
+        "/images/listings/daire-7.jpg"
+      ],
+      "oneCikan": true,
+      "yayinTarihi": "2024-01-12",
+      "guncellenmeTarihi": "2024-01-19",
+      "durum": "aktif",
+      "ilanNo": "KY-2024-003"
+    },
+    {
+      "id": "4",
+      "baslik": "Dalaman'da Satılık Ticari İşyeri",
+      "slug": "dalamanda-satilik-ticari-isyeri",
+      "kategori": "satilik",
+      "tip": "ticari",
+      "fiyat": 4200000,
+      "paraBirimi": "TL",
+      "konum": {
+        "il": "Muğla",
+        "ilce": "Dalaman",
+        "mahalle": "Merkez",
+        "koordinatlar": {
+          "lat": 36.7667,
+          "lng": 28.8000
+        }
+      },
+      "ozellikler": {
+        "metrekare": 180,
+        "odaSayisi": "Açık Plan",
+        "banyoSayisi": 2,
+        "kat": 0,
+        "toplamKat": 4,
+        "binaYasi": 10,
+        "isitma": "Klima",
+        "esyali": false,
+        "balkon": false,
+        "asansor": true,
+        "otopark": true,
+        "guvenlik": true
+      },
+      "aciklama": "Dalaman ana cadde üzerinde, yoğun yaya trafiği olan bölgede satılık işyeri. Geniş cephe, yüksek tavan, depo alanı mevcut. Market, mağaza veya ofis olarak kullanıma uygun.",
+      "fotograflar": [
+        "/images/listings/isyeri-1.jpg",
+        "/images/listings/isyeri-2.jpg",
+        "/images/listings/isyeri-3.jpg"
+      ],
+      "oneCikan": false,
+      "yayinTarihi": "2024-01-08",
+      "guncellenmeTarihi": "2024-01-15",
+      "durum": "aktif",
+      "ilanNo": "KY-2024-004"
+    },
+    {
+      "id": "5",
+      "baslik": "Ortaca'da Satılık İmarlı Arsa",
+      "slug": "ortacada-satilik-imarli-arsa",
+      "kategori": "satilik",
+      "tip": "arsa",
+      "fiyat": 1650000,
+      "paraBirimi": "TL",
+      "konum": {
+        "il": "Muğla",
+        "ilce": "Ortaca",
+        "mahalle": "Atatürk Mahallesi",
+        "koordinatlar": {
+          "lat": 36.8400,
+          "lng": 28.7700
+        }
+      },
+      "ozellikler": {
+        "metrekare": 550,
+        "imarDurumu": "Konut İmarlı",
+        "gabari": "5 Kat",
+        "yolCephesi": 20,
+        "altyapi": true
+      },
+      "aciklama": "Ortaca'da konut imarlı, 5 kat gabari izinli satılık arsa. Elektrik, su, doğalgaz altyapısı mevcut. Ana yola cepheli, köşe parsel. İnşaat firmaları ve yatırımcılar için ideal fırsat.",
+      "fotograflar": [
+        "/images/listings/arsa-1.jpg",
+        "/images/listings/arsa-2.jpg"
+      ],
+      "oneCikan": true,
+      "yayinTarihi": "2024-01-05",
+      "guncellenmeTarihi": "2024-01-20",
+      "durum": "aktif",
+      "ilanNo": "KY-2024-005"
+    },
+    {
+      "id": "6",
+      "baslik": "Dalyan Kanalı Yakını Kiralık Villa",
+      "slug": "dalyan-kanali-yakini-kiralik-villa",
+      "kategori": "kiralik",
+      "tip": "villa",
+      "fiyat": 45000,
+      "paraBirimi": "TL",
+      "konum": {
+        "il": "Muğla",
+        "ilce": "Ortaca",
+        "mahalle": "Dalyan",
+        "koordinatlar": {
+          "lat": 36.8350,
+          "lng": 28.6400
+        }
+      },
+      "ozellikler": {
+        "metrekare": 200,
+        "odaSayisi": "3+1",
+        "banyoSayisi": 2,
+        "kat": 2,
+        "toplamKat": 2,
+        "binaYasi": 6,
+        "isitma": "Klima",
+        "esyali": true,
+        "balkon": true,
+        "asansor": false,
+        "otopark": true,
+        "guvenlik": false,
+        "havuz": true,
+        "bahce": true,
+        "bahceMetrekare": 300
+      },
+      "aciklama": "Dalyan kanalına yürüme mesafesinde, özel havuzlu kiralık villa. Yıllık veya sezonluk kiralama seçenekleri mevcut. Bahçe bakımı ve havuz temizliği dahil.",
+      "fotograflar": [
+        "/images/listings/villa-5.jpg",
+        "/images/listings/villa-6.jpg",
+        "/images/listings/villa-7.jpg"
+      ],
+      "oneCikan": true,
+      "yayinTarihi": "2024-01-14",
+      "guncellenmeTarihi": "2024-01-21",
+      "durum": "aktif",
+      "ilanNo": "KY-2024-006"
+    },
+    {
+      "id": "7",
+      "baslik": "Ortaca'da Satılık 2+1 Sıfır Daire",
+      "slug": "ortacada-satilik-2-1-sifir-daire",
+      "kategori": "satilik",
+      "tip": "daire",
+      "fiyat": 2100000,
+      "paraBirimi": "TL",
+      "konum": {
+        "il": "Muğla",
+        "ilce": "Ortaca",
+        "mahalle": "Kemaliye Mahallesi",
+        "koordinatlar": {
+          "lat": 36.8370,
+          "lng": 28.7650
+        }
+      },
+      "ozellikler": {
+        "metrekare": 95,
+        "odaSayisi": "2+1",
+        "banyoSayisi": 1,
+        "kat": 2,
+        "toplamKat": 4,
+        "binaYasi": 0,
+        "isitma": "Doğalgaz Kombi",
+        "esyali": false,
+        "balkon": true,
+        "asansor": true,
+        "otopark": true,
+        "guvenlik": false
+      },
+      "aciklama": "Yeni teslim, sıfır daire. Modern mimari, kaliteli malzeme. Açık mutfak, geniş balkon. Merkeze 5 dakika yürüme mesafesinde. Kredi kullanıma uygun.",
+      "fotograflar": [
+        "/images/listings/daire-8.jpg",
+        "/images/listings/daire-3.jpg",
+        "/images/listings/daire-2.jpg"
+      ],
+      "oneCikan": false,
+      "yayinTarihi": "2024-01-16",
+      "guncellenmeTarihi": "2024-01-22",
+      "durum": "aktif",
+      "ilanNo": "KY-2024-007"
+    },
+    {
+      "id": "8",
+      "baslik": "Köyceğiz Merkezde Kiralık İşyeri",
+      "slug": "koycegiz-merkezde-kiralik-isyeri",
+      "kategori": "kiralik",
+      "tip": "ticari",
+      "fiyat": 25000,
+      "paraBirimi": "TL",
+      "konum": {
+        "il": "Muğla",
+        "ilce": "Köyceğiz",
+        "mahalle": "Merkez",
+        "koordinatlar": {
+          "lat": 36.9680,
+          "lng": 28.6850
+        }
+      },
+      "ozellikler": {
+        "metrekare": 120,
+        "odaSayisi": "Açık Plan",
+        "banyoSayisi": 1,
+        "kat": 0,
+        "toplamKat": 3,
+        "binaYasi": 15,
+        "isitma": "Klima",
+        "esyali": false,
+        "balkon": false,
+        "asansor": false,
+        "otopark": false,
+        "guvenlik": false
+      },
+      "aciklama": "Köyceğiz çarşı içinde, işlek caddede kiralık dükkan. Restoran, kafe veya mağaza için uygun. Turist bölgesinde, yaz sezonunda yoğun müşteri potansiyeli.",
+      "fotograflar": [
+        "/images/listings/isyeri-4.jpg",
+        "/images/listings/isyeri-5.jpg"
+      ],
+      "oneCikan": false,
+      "yayinTarihi": "2024-01-11",
+      "guncellenmeTarihi": "2024-01-18",
+      "durum": "aktif",
+      "ilanNo": "KY-2024-008"
+    },
+    {
+      "id": "9",
+      "baslik": "Dalaman Havalimanı Yakını Satılık Arsa",
+      "slug": "dalaman-havalimani-yakini-satilik-arsa",
+      "kategori": "satilik",
+      "tip": "arsa",
+      "fiyat": 3200000,
+      "paraBirimi": "TL",
+      "konum": {
+        "il": "Muğla",
+        "ilce": "Dalaman",
+        "mahalle": "Merkez",
+        "koordinatlar": {
+          "lat": 36.7700,
+          "lng": 28.7900
+        }
+      },
+      "ozellikler": {
+        "metrekare": 1200,
+        "imarDurumu": "Ticari İmarlı",
+        "gabari": "3 Kat",
+        "yolCephesi": 30,
+        "altyapi": true
+      },
+      "aciklama": "Dalaman Havalimanı'na 5 km mesafede, ana yol üzerinde ticari imarlı arsa. Otel, apart otel veya iş merkezi için ideal konum. Yatırım değeri yüksek.",
+      "fotograflar": [
+        "/images/listings/arsa-1.jpg",
+        "/images/listings/arsa-3.jpg"
+      ],
+      "oneCikan": false,
+      "yayinTarihi": "2024-01-09",
+      "guncellenmeTarihi": "2024-01-17",
+      "durum": "aktif",
+      "ilanNo": "KY-2024-009"
+    },
+    {
+      "id": "10",
+      "baslik": "Ortaca'da Kiralık Geniş 3+1 Daire",
+      "slug": "ortacada-kiralik-genis-3-1-daire",
+      "kategori": "kiralik",
+      "tip": "daire",
+      "fiyat": 15000,
+      "paraBirimi": "TL",
+      "konum": {
+        "il": "Muğla",
+        "ilce": "Ortaca",
+        "mahalle": "Cumhuriyet Mahallesi",
+        "koordinatlar": {
+          "lat": 36.8390,
+          "lng": 28.7680
+        }
+      },
+      "ozellikler": {
+        "metrekare": 130,
+        "odaSayisi": "3+1",
+        "banyoSayisi": 2,
+        "kat": 1,
+        "toplamKat": 4,
+        "binaYasi": 5,
+        "isitma": "Doğalgaz Kombi",
+        "esyali": false,
+        "balkon": true,
+        "asansor": true,
+        "otopark": true,
+        "guvenlik": false
+      },
+      "aciklama": "Ortaca merkezde, okullara ve hastaneye yakın, aile için ideal kiralık daire. Geniş odalar, bol dolaplu mutfak. Depozito: 2 ay.",
+      "fotograflar": [
+        "/images/listings/daire-1.jpg",
+        "/images/listings/daire-4.jpg",
+        "/images/listings/daire-7.jpg"
+      ],
+      "oneCikan": true,
+      "yayinTarihi": "2024-01-17",
+      "guncellenmeTarihi": "2024-01-23",
+      "durum": "aktif",
+      "ilanNo": "KY-2024-010"
+    }
+  ]
+}

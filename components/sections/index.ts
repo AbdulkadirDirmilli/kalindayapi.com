@@ -1,0 +1,9 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as HizmetKartlari } from "./HizmetKartlari";
+export { default as OneCikanIlanlar } from "./OneCikanIlanlar";
+export { default as IstatistikSayaclari } from "./IstatistikSayaclari";
+export { default as ReferansGaleri } from "./ReferansGaleri";
+export { default as OrtaklarBolumu } from "./OrtaklarBolumu";
+export { default as NedenBiz } from "./NedenBiz";
+export { default as IletisimFormKisa } from "./IletisimFormKisa";
+export { default as FaqSection } from "./FaqSection";
