@@ -142,7 +142,7 @@ export default function HakkimizdaPage() {
                 { yil: "2015", baslik: "Büyüme", aciklama: "İlk 100 projeyi tamamladık" },
                 { yil: "2018", baslik: "Genişleme", aciklama: "Dalyan ve Köyceğiz'e hizmet alanımızı genişlettik" },
                 { yil: "2022", baslik: "10. Yıl", aciklama: "500+ proje ve %98 müşteri memnuniyeti" },
-                { yil: "2024", baslik: "Dijitalleşme", aciklama: "AK Universe ile web sitesi ve dijital dönüşüm" },
+                { yil: "2024", baslik: "Dijitalleşme", aciklama: "AKD Universe ile web sitesi ve dijital dönüşüm" },
               ].map((item, index) => (
                 <div key={item.yil} className="flex gap-4">
                   <div className="flex flex-col items-center">
@@ -284,7 +284,7 @@ export default function HakkimizdaPage() {
                 rel="noopener noreferrer"
                 className="text-[#C9A84C] hover:text-[#0B1F3A] font-semibold transition-colors"
               >
-                AK Universe
+                AKD Universe
               </a>
               {" "}tarafından tasarlanmış ve geliştirilmiştir.
             </p>

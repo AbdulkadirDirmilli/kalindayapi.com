@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import SideContactBar from "@/components/layout/SideContactBar";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -103,6 +104,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0B1F3A" />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        <ScrollToTop />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

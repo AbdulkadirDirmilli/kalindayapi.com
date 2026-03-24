@@ -239,7 +239,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-[#C9A84C] hover:text-white transition-colors"
               >
-                AK Universe
+                AKD Universe
               </a>
             </p>
           </div>

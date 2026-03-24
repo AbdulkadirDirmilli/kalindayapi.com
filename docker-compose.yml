@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  kalindayapi:
+    build: .
+    container_name: kalindayapi-app
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    networks:
+      - akduniverse-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3001"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+networks:
+  akduniverse-network:
+    external: true
+    name: akduniversecom_akduniverse-network
