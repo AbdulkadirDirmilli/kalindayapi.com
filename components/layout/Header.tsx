@@ -18,6 +18,7 @@ const navigation = [
       { name: "Emlak Danışmanlığı", href: "/hizmetler/emlak-danismanligi" },
       { name: "Tadilat & Dekorasyon", href: "/hizmetler/tadilat-dekorasyon" },
       { name: "Taahhüt & İnşaat", href: "/hizmetler/taahhut-insaat" },
+      { name: "Plan & Proje", href: "/hizmetler/plan-proje" },
     ],
   },
   { name: "İlanlar", href: "/ilanlar" },

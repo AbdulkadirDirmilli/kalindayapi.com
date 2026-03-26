@@ -23,6 +23,8 @@ import {
   Factory,
   Hammer,
   FileCheck,
+  FileText,
+  Zap,
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
@@ -52,7 +54,34 @@ const ikonlar: { [key: string]: React.ComponentType<{ className?: string }> } = 
   Factory,
   Hammer,
   FileCheck,
+  FileText,
+  Zap,
 };
+
+// Ekip bilgileri - tüm hizmetler için ortak
+const ekip = [
+  {
+    ad: "Zafer SOYLU",
+    unvan: "Gayrimenkul & Yapı Danışmanı",
+    telefon: "+90 537 053 07 54",
+    whatsapp: "905370530754",
+    foto: "/zafersoylu.png",
+  },
+  {
+    ad: "Arif DAĞDELEN",
+    unvan: "Gayrimenkul & Yapı Danışmanı",
+    telefon: "+90 532 159 15 56",
+    whatsapp: "905321591556",
+    foto: "/arifdagdelen.png",
+  },
+  {
+    ad: "Hikmet KARAOĞLAN",
+    unvan: "Gayrimenkul & Yapı Danışmanı",
+    telefon: "+90 555 453 12 07",
+    whatsapp: "905554531207",
+    foto: "/hikmetkaraoglan.svg",
+  },
+];
 
 export async function generateMetadata({
   params,
@@ -167,75 +196,58 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
             {/* Contact Card */}
             <Card padding="lg" className="bg-white">
               <h3 className="text-lg font-bold text-[#0B1F3A] mb-6">
-                Hemen İletişime Geçin
+                Ekibimizle İletişime Geçin
               </h3>
 
-              {/* Agent Info */}
-              <div className="flex items-center gap-4 mb-6 p-4 bg-[#F5F5F5] rounded-xl">
-                <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-[#C9A84C]">
-                  <Image
-                    src={hizmet.yetkili.ad.includes("Zafer") ? "/zafersoylu.png" : "/arifdagdelen.png"}
-                    alt={hizmet.yetkili.ad}
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <p className="font-bold text-[#0B1F3A]">{hizmet.yetkili.ad}</p>
-                  <p className="text-sm text-[#666666]">{hizmet.yetkili.unvan}</p>
-                  <a
-                    href={`tel:${hizmet.yetkili.telefon.replace(/\s/g, "")}`}
-                    className="text-[#C9A84C] font-medium text-sm hover:underline"
-                  >
-                    {hizmet.yetkili.telefon}
-                  </a>
-                </div>
+              {/* Team Members */}
+              <div className="space-y-3 mb-6">
+                {ekip.map((kisi) => (
+                  <div key={kisi.whatsapp} className="flex items-center gap-3 p-3 bg-[#F5F5F5] rounded-xl">
+                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-[#C9A84C]">
+                      <Image
+                        src={kisi.foto}
+                        alt={kisi.ad}
+                        width={48}
+                        height={48}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-bold text-[#0B1F3A] text-sm truncate">{kisi.ad}</p>
+                      <a
+                        href={`tel:${kisi.telefon.replace(/\s/g, "")}`}
+                        className="text-[#C9A84C] font-medium text-xs hover:underline"
+                      >
+                        {kisi.telefon}
+                      </a>
+                    </div>
+                    <a
+                      href={createWhatsAppLink(
+                        kisi.whatsapp,
+                        `Merhaba ${kisi.ad}, ${hizmet.baslik} hakkında bilgi almak istiyorum.`
+                      )}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0"
+                    >
+                      <Button variant="whatsapp" size="sm">
+                        <MessageCircle className="w-4 h-4" />
+                      </Button>
+                    </a>
+                  </div>
+                ))}
               </div>
 
               {/* Buttons */}
               <div className="space-y-3">
-                <a
-                  href={createWhatsAppLink(
-                    hizmet.yetkili.whatsapp,
-                    `Merhaba ${hizmet.yetkili.ad}, ${hizmet.baslik} hakkında bilgi almak istiyorum.`
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <Button
-                    variant="whatsapp"
-                    size="lg"
-                    className="w-full"
-                    leftIcon={<MessageCircle className="w-5 h-5" />}
-                  >
-                    WhatsApp ile Yazın
-                  </Button>
-                </a>
-
-                <a
-                  href={`tel:${hizmet.yetkili.telefon.replace(/\s/g, "")}`}
-                  className="block"
-                >
+                <Link href="/iletisim" className="block">
                   <Button
                     variant="primary"
                     size="lg"
                     className="w-full"
-                    leftIcon={<Phone className="w-5 h-5" />}
-                  >
-                    Hemen Arayın
-                  </Button>
-                </a>
-
-                <Link href="/iletisim" className="block">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full"
                     leftIcon={<Mail className="w-5 h-5" />}
                   >
-                    E-posta Gönderin
+                    İletişim Formu
                   </Button>
                 </Link>
               </div>
@@ -339,7 +351,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {digerHizmetler.map((diger) => {
               const DigerIcon = ikonlar[diger.ikon] || Home;
               return (
@@ -379,7 +391,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={createWhatsAppLink(
-                hizmet.yetkili.whatsapp,
+                "905370530754",
                 `Merhaba, ${hizmet.baslik} için teklif almak istiyorum.`
               )}
               target="_blank"
@@ -393,15 +405,15 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                 WhatsApp ile Teklif Al
               </Button>
             </a>
-            <a href={`tel:${hizmet.yetkili.telefon.replace(/\s/g, "")}`}>
+            <Link href="/iletisim">
               <Button
                 variant="accent"
                 size="lg"
                 leftIcon={<Phone className="w-5 h-5" />}
               >
-                {hizmet.yetkili.telefon}
+                İletişime Geç
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -21,6 +21,7 @@ import { Input, Textarea, Select } from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 import { createWhatsAppLink } from "@/lib/utils";
 import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/jsonld";
+import { Users } from "lucide-react";
 
 const hizmetSecenekleri = [
   { value: "", label: "Hizmet Seçin" },
@@ -28,13 +29,14 @@ const hizmetSecenekleri = [
   { value: "emlak-kiralik", label: "Emlak - Kiralık" },
   { value: "tadilat", label: "Tadilat & Dekorasyon" },
   { value: "taahhut", label: "Taahhüt & İnşaat" },
+  { value: "plan-proje", label: "Plan & Proje" },
   { value: "diger", label: "Diğer" },
 ];
 
 const yetkililer = [
   {
     ad: "Zafer SOYLU",
-    unvan: "Emlak Danışmanı",
+    unvan: "Gayrimenkul & Yapı Danışmanı",
     telefon: "+90 537 053 07 54",
     whatsapp: "905370530754",
     email: "zafer@kalindayapi.com",
@@ -44,13 +46,23 @@ const yetkililer = [
   },
   {
     ad: "Arif DAĞDELEN",
-    unvan: "Yapı & Taahhüt Uzmanı",
+    unvan: "Gayrimenkul & Yapı Danışmanı",
     telefon: "+90 532 159 15 56",
     whatsapp: "905321591556",
     email: "arif@kalindayapi.com",
     foto: "/arifdagdelen.png",
     ikon: HardHat,
     renk: "#0B1F3A",
+  },
+  {
+    ad: "Hikmet KARAOĞLAN",
+    unvan: "Gayrimenkul & Yapı Danışmanı",
+    telefon: "+90 555 453 12 07",
+    whatsapp: "905554531207",
+    email: "hikmet@kalindayapi.com",
+    foto: "/hikmetkaraoglan.svg",
+    ikon: Users,
+    renk: "#2E7D32",
   },
 ];
 
@@ -204,67 +216,54 @@ export default function IletisimPage() {
 
               {/* Team Contacts */}
               <div>
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-6">
+                <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">
                   Yetkililerimiz
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-2">
                   {yetkililer.map((yetkili) => (
-                      <Card key={yetkili.ad} padding="lg">
-                        <div className="flex items-center gap-4 mb-4">
+                      <Card key={yetkili.ad} padding="md" className="!p-3">
+                        <div className="flex items-center gap-3">
                           <div
-                            className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 border-2"
+                            className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2"
                             style={{ borderColor: yetkili.renk }}
                           >
                             <Image
                               src={yetkili.foto}
                               alt={yetkili.ad}
-                              width={56}
-                              height={56}
+                              width={40}
+                              height={40}
                               className="w-full h-full object-cover"
                             />
                           </div>
-                          <div>
-                            <h3 className="font-bold text-[#0B1F3A]">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-bold text-[#0B1F3A] text-sm">
                               {yetkili.ad}
                             </h3>
-                            <p className="text-sm text-[#666666]">{yetkili.unvan}</p>
+                            <a
+                              href={`tel:${yetkili.telefon.replace(/\s/g, "")}`}
+                              className="text-xs text-[#666666] hover:text-[#C9A84C] transition-colors"
+                            >
+                              {yetkili.telefon}
+                            </a>
                           </div>
-                        </div>
-
-                        <div className="space-y-2 mb-4">
                           <a
-                            href={`tel:${yetkili.telefon.replace(/\s/g, "")}`}
-                            className="flex items-center gap-2 text-[#0B1F3A] hover:text-[#C9A84C] transition-colors"
+                            href={createWhatsAppLink(
+                              yetkili.whatsapp,
+                              `Merhaba ${yetkili.ad}, bilgi almak istiyorum.`
+                            )}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-shrink-0"
                           >
-                            <Phone className="w-4 h-4" />
-                            <span>{yetkili.telefon}</span>
-                          </a>
-                          <a
-                            href={`mailto:${yetkili.email}`}
-                            className="flex items-center gap-2 text-[#0B1F3A] hover:text-[#C9A84C] transition-colors"
-                          >
-                            <Mail className="w-4 h-4" />
-                            <span>{yetkili.email}</span>
+                            <Button
+                              variant="whatsapp"
+                              size="sm"
+                              className="!px-3 !py-1.5"
+                            >
+                              <MessageCircle className="w-4 h-4" />
+                            </Button>
                           </a>
                         </div>
-
-                        <a
-                          href={createWhatsAppLink(
-                            yetkili.whatsapp,
-                            `Merhaba ${yetkili.ad}, bilgi almak istiyorum.`
-                          )}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Button
-                            variant="whatsapp"
-                            size="sm"
-                            className="w-full"
-                            leftIcon={<MessageCircle className="w-4 h-4" />}
-                          >
-                            WhatsApp ile Yaz
-                          </Button>
-                        </a>
                       </Card>
                   ))}
                 </div>
@@ -309,16 +308,16 @@ export default function IletisimPage() {
 
             {/* Right Side - Form */}
             <div>
-              <Card padding="lg">
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-6">
+              <Card padding="md" className="!p-5">
+                <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">
                   Bize Mesaj Gönderin
                 </h2>
 
                 {isSubmitted ? (
-                  <div className="text-center py-12">
-                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <svg
-                        className="w-10 h-10 text-green-500"
+                        className="w-8 h-8 text-green-500"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -331,16 +330,16 @@ export default function IletisimPage() {
                         />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
+                    <h3 className="text-lg font-bold text-[#0B1F3A] mb-2">
                       Mesajınız Gönderildi!
                     </h3>
-                    <p className="text-[#666666]">
+                    <p className="text-sm text-[#666666]">
                       En kısa sürede size dönüş yapacağız.
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid sm:grid-cols-2 gap-4">
+                  <form onSubmit={handleSubmit} className="space-y-3">
+                    <div className="grid sm:grid-cols-2 gap-3">
                       <Input
                         label="Adınız"
                         name="ad"
@@ -359,7 +358,7 @@ export default function IletisimPage() {
                       />
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="grid sm:grid-cols-2 gap-3">
                       <Input
                         label="Telefon"
                         name="telefon"
@@ -394,17 +393,17 @@ export default function IletisimPage() {
                       value={formData.mesaj}
                       onChange={handleChange}
                       placeholder="Projeniz veya sorunuz hakkında detaylı bilgi verin..."
-                      rows={5}
+                      rows={4}
                       required
                     />
 
                     <Button
                       type="submit"
                       variant="accent"
-                      size="lg"
+                      size="md"
                       className="w-full"
                       isLoading={isSubmitting}
-                      rightIcon={<Send className="w-5 h-5" />}
+                      rightIcon={<Send className="w-4 h-4" />}
                     >
                       Mesaj Gönder
                     </Button>

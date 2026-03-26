@@ -191,12 +191,6 @@ export interface Hizmet {
   kisaAciklama: string;
   uzunAciklama: string;
   ikon: string;
-  yetkili: {
-    ad: string;
-    unvan: string;
-    telefon: string;
-    whatsapp: string;
-  };
   altHizmetler: {
     baslik: string;
     aciklama: string;

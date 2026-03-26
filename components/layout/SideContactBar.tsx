@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 import { Instagram, Facebook, Youtube } from "@/components/icons/SocialIcons";
@@ -27,8 +28,9 @@ const socialLinks = [
 ];
 
 const phoneNumbers = [
-  { name: "Zafer Bey", phone: "+905370530754", label: "Emlak" },
-  { name: "Arif Bey", phone: "+905321591556", label: "Yapı" },
+  { name: "Zafer Bey", phone: "+905370530754", label: "Danışman", foto: "/zafersoylu.png" },
+  { name: "Arif Bey", phone: "+905321591556", label: "Danışman", foto: "/arifdagdelen.png" },
+  { name: "Hikmet Bey", phone: "+905554531207", label: "Danışman", foto: null },
 ];
 
 export default function SideContactBar() {
@@ -84,9 +86,21 @@ export default function SideContactBar() {
                     className="flex items-center gap-3 p-2 rounded-lg hover:bg-[#F5F5F5] transition-colors group"
                     title={`${item.name} - ${item.label}`}
                   >
-                    <div className="w-8 h-8 rounded-full bg-[#0B1F3A] flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-4 h-4 text-white" />
-                    </div>
+                    {item.foto ? (
+                      <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-[#C9A84C]">
+                        <Image
+                          src={item.foto}
+                          alt={item.name}
+                          width={32}
+                          height={32}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-[#0B1F3A] flex items-center justify-center flex-shrink-0">
+                        <Phone className="w-4 h-4 text-white" />
+                      </div>
+                    )}
                     <AnimatePresence>
                       {isExpanded && (
                         <motion.div

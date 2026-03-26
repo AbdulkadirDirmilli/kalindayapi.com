@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { Home, Paintbrush, HardHat, ArrowRight, MessageCircle } from "lucide-react";
+import { Home, Paintbrush, HardHat, ArrowRight, MessageCircle, FileText } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { createWhatsAppLink } from "@/lib/utils";
@@ -16,8 +16,6 @@ const hizmetler = [
       "Ortaca ve çevresinde satılık, kiralık gayrimenkul hizmetleri. Profesyonel değerleme ve yatırım danışmanlığı.",
     ikon: Home,
     renk: "#C9A84C",
-    yetkili: "Zafer SOYLU",
-    telefon: "905370530754",
     href: "/hizmetler/emlak-danismanligi",
   },
   {
@@ -27,8 +25,6 @@ const hizmetler = [
       "İç mimari, mutfak-banyo yenileme, boya ve kaplama işleri. Evinizi hayalinizdeki gibi dönüştürüyoruz.",
     ikon: Paintbrush,
     renk: "#0B1F3A",
-    yetkili: "Arif DAĞDELEN",
-    telefon: "905321591556",
     href: "/hizmetler/tadilat-dekorasyon",
   },
   {
@@ -38,9 +34,16 @@ const hizmetler = [
       "Sıfırdan bina inşaatı, restorasyon projeleri ve anahtar teslim yapı çözümleri.",
     ikon: HardHat,
     renk: "#1a3a5c",
-    yetkili: "Arif DAĞDELEN",
-    telefon: "905321591556",
     href: "/hizmetler/taahhut-insaat",
+  },
+  {
+    id: "plan-proje",
+    baslik: "Plan & Proje",
+    aciklama:
+      "Mimari, statik, elektrik-mekanik proje çizimleri ve ruhsat danışmanlığı hizmetleri.",
+    ikon: FileText,
+    renk: "#2E7D32",
+    href: "/hizmetler/plan-proje",
   },
 ];
 
@@ -94,7 +97,7 @@ export default function HizmetKartlari() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
         >
           {hizmetler.map((hizmet) => {
             const Icon = hizmet.ikon;
@@ -122,17 +125,12 @@ export default function HizmetKartlari() {
                   </h3>
                   <p className="text-[#666666] mb-6 flex-1">{hizmet.aciklama}</p>
 
-                  {/* Contact Info */}
+                  {/* Actions */}
                   <div className="pt-4 border-t border-[#e0e0e0]">
-                    <p className="text-sm text-[#999999] mb-3">
-                      Yetkili: <span className="text-[#0B1F3A] font-medium">{hizmet.yetkili}</span>
-                    </p>
-
-                    {/* Actions */}
                     <div className="flex flex-col sm:flex-row gap-2">
                       <a
                         href={createWhatsAppLink(
-                          hizmet.telefon,
+                          "905370530754",
                           `Merhaba, ${hizmet.baslik} hakkında bilgi almak istiyorum.`
                         )}
                         target="_blank"

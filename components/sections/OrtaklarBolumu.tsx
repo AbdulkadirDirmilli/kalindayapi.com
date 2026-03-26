@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { Phone, Mail, MessageCircle, Building2, HardHat } from "lucide-react";
+import { Phone, Mail, MessageCircle, Building2, HardHat, Users } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { createWhatsAppLink } from "@/lib/utils";
 
@@ -11,30 +11,44 @@ const ortaklar = [
   {
     id: "zafer-soylu",
     ad: "Zafer SOYLU",
-    unvan: "Emlak Danışmanı & Kurucu Ortak",
+    unvan: "Gayrimenkul & Yapı Danışmanı",
     telefon: "+90 537 053 07 54",
     whatsapp: "905370530754",
     email: "zafer@kalindayapi.com",
     foto: "/zafersoylu.png",
     biyografi:
       "15 yılı aşkın emlak sektörü deneyimiyle bölgenin en tanınan emlak danışmanlarından biridir. Müşteri memnuniyetini her şeyin üstünde tutan anlayışıyla hizmet vermektedir.",
-    uzmanlikAlanlari: ["Konut Satış", "Kiralama", "Yatırım Danışmanlığı"],
+    uzmanlikAlanlari: ["Gayrimenkul", "Yapı Danışmanlığı", "Proje Takibi"],
     ikon: Building2,
     renk: "#C9A84C",
   },
   {
     id: "arif-dagdelen",
     ad: "Arif DAĞDELEN",
-    unvan: "Yapı & Taahhüt Uzmanı & Kurucu Ortak",
+    unvan: "Gayrimenkul & Yapı Danışmanı",
     telefon: "+90 532 159 15 56",
     whatsapp: "905321591556",
     email: "arif@kalindayapi.com",
     foto: "/arifdagdelen.png",
     biyografi:
       "20 yılı aşkın inşaat sektörü deneyimiyle sayısız konut, villa ve ticari proje tamamlamıştır. Kalite odaklı çalışma prensibi ve detaylara verdiği önemle tanınmaktadır.",
-    uzmanlikAlanlari: ["İnşaat Taahhüt", "Tadilat", "Proje Yönetimi"],
+    uzmanlikAlanlari: ["Gayrimenkul", "Yapı Danışmanlığı", "Proje Takibi"],
     ikon: HardHat,
     renk: "#0B1F3A",
+  },
+  {
+    id: "hikmet-karaoglan",
+    ad: "Hikmet KARAOĞLAN",
+    unvan: "Gayrimenkul & Yapı Danışmanı",
+    telefon: "+90 555 453 12 07",
+    whatsapp: "905554531207",
+    email: "hikmet@kalindayapi.com",
+    foto: "/hikmetkaraoglan.svg",
+    biyografi:
+      "Gayrimenkul ve yapı sektöründe geniş deneyime sahip Hikmet Karaoğlan, çözüm odaklı yaklaşımıyla projelerinizde güvenilir bir partner olmaktadır.",
+    uzmanlikAlanlari: ["Gayrimenkul", "Yapı Danışmanlığı", "Proje Takibi"],
+    ikon: Users,
+    renk: "#2E7D32",
   },
 ];
 
@@ -59,14 +73,13 @@ export default function OrtaklarBolumu() {
             Kurucu Ortaklarımız
           </h2>
           <p className="text-[#666666] max-w-2xl mx-auto">
-            Kalinda Yapı'nın arkasındaki deneyimli isimler. Her iki ortağımız da
-            kendi alanlarında uzman ve müşteri memnuniyetini en üst düzeyde
-            tutmaktadır.
+            Kalinda Yapı'nın arkasındaki deneyimli isimler. Ortaklarımız
+            müşteri memnuniyetini en üst düzeyde tutarak hizmet vermektedir.
           </p>
         </motion.div>
 
         {/* Partners Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
           {ortaklar.map((ortak, index) => {
             const Icon = ortak.ikon;
             return (
@@ -75,7 +88,7 @@ export default function OrtaklarBolumu() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col"
               >
                 {/* Header */}
                 <div
@@ -101,14 +114,14 @@ export default function OrtaklarBolumu() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   {/* Bio */}
-                  <p className="text-[#666666] mb-4 leading-relaxed">
+                  <p className="text-[#666666] mb-4 leading-relaxed min-h-[4.5rem]">
                     {ortak.biyografi}
                   </p>
 
                   {/* Expertise */}
-                  <div className="mb-6">
+                  <div className="mb-6 flex-1">
                     <h4 className="text-sm font-semibold text-[#0B1F3A] mb-2">
                       Uzmanlık Alanları
                     </h4>
@@ -143,7 +156,7 @@ export default function OrtaklarBolumu() {
                   </div>
 
                   {/* CTA */}
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 mt-auto">
                     <a
                       href={createWhatsAppLink(
                         ortak.whatsapp,

@@ -23,6 +23,7 @@ const hizmetler = [
   { name: "Emlak Danışmanlığı", href: "/hizmetler/emlak-danismanligi" },
   { name: "Tadilat & Dekorasyon", href: "/hizmetler/tadilat-dekorasyon" },
   { name: "Taahhüt & İnşaat", href: "/hizmetler/taahhut-insaat" },
+  { name: "Plan & Proje", href: "/hizmetler/plan-proje" },
 ];
 
 const ilanKategorileri = [
@@ -166,7 +167,7 @@ export default function Footer() {
                     >
                       +90 537 053 07 54
                     </a>
-                    <span className="text-gray-500 text-xs">Zafer Bey (Emlak)</span>
+                    <span className="text-gray-500 text-xs">Zafer Bey</span>
                   </div>
                 </div>
               </li>
@@ -180,7 +181,21 @@ export default function Footer() {
                     >
                       +90 532 159 15 56
                     </a>
-                    <span className="text-gray-500 text-xs">Arif Bey (Yapı)</span>
+                    <span className="text-gray-500 text-xs">Arif Bey</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-[#C9A84C] flex-shrink-0" />
+                  <div className="text-sm">
+                    <a
+                      href="tel:+905554531207"
+                      className="text-gray-300 hover:text-[#C9A84C] transition-colors block"
+                    >
+                      +90 555 453 12 07
+                    </a>
+                    <span className="text-gray-500 text-xs">Hikmet Bey</span>
                   </div>
                 </div>
               </li>

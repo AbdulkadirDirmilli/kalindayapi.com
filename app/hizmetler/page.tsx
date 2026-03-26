@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Home, Paintbrush, HardHat, ChevronRight, ArrowRight, MessageCircle } from "lucide-react";
+import { Home, Paintbrush, HardHat, ChevronRight, ArrowRight, MessageCircle, FileText } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { FaqSection } from "@/components/sections";
@@ -15,6 +15,7 @@ const ikonlar: { [key: string]: React.ComponentType<{ className?: string }> } = 
   Home,
   Paintbrush,
   HardHat,
+  FileText,
 };
 
 export default function HizmetlerPage() {
@@ -66,7 +67,7 @@ export default function HizmetlerPage() {
       {/* Services Grid */}
       <section className="py-20 bg-[#F5F5F5]">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {hizmetler.map((hizmet) => {
               const Icon = ikonlar[hizmet.ikon] || Home;
               return (
@@ -100,14 +101,8 @@ export default function HizmetlerPage() {
                     ))}
                   </div>
 
-                  {/* Contact Info */}
+                  {/* Actions */}
                   <div className="pt-4 border-t border-[#e0e0e0]">
-                    <p className="text-sm text-[#999999] mb-3">
-                      Yetkili:{" "}
-                      <span className="text-[#0B1F3A] font-medium">
-                        {hizmet.yetkili.ad}
-                      </span>
-                    </p>
                     <div className="flex gap-2">
                       <Link href={`/hizmetler/${hizmet.slug}`} className="flex-1">
                         <Button
@@ -121,7 +116,7 @@ export default function HizmetlerPage() {
                       </Link>
                       <a
                         href={createWhatsAppLink(
-                          hizmet.yetkili.whatsapp,
+                          "905370530754",
                           `Merhaba, ${hizmet.baslik} hakkında bilgi almak istiyorum.`
                         )}
                         target="_blank"

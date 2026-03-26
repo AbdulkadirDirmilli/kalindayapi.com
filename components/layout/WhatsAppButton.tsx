@@ -17,6 +17,11 @@ const contacts = [
     phone: "905321591556",
     foto: "/arifdagdelen.png",
   },
+  {
+    name: "Hikmet KARAOĞLAN",
+    phone: "905554531207",
+    foto: "/hikmetkaraoglan.svg",
+  },
 ];
 
 export default function WhatsAppButton() {
