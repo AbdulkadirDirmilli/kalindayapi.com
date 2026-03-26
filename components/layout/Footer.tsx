@@ -42,18 +42,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <Link href="/" className="inline-flex items-center gap-3">
-              <div className="relative w-12 h-12">
+            <Link href="/" className="inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <div className="relative w-48 h-12">
                 <Image
-                  src="/logo.svg"
-                  alt="Kalında Yapı Logo"
+                  src="/logo-footer.svg"
+                  alt="Kalinda Yapı Logo"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain"
                 />
-              </div>
-              <div>
-                <span className="font-bold text-xl tracking-tight">KALINDA</span>
-                <span className="font-bold text-xl tracking-tight text-[#C9A84C]"> YAPI</span>
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -218,7 +214,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
             <p>
-              © {currentYear} Kalında Yapı — Ortaca, Muğla | Tüm Hakları Saklıdır
+              © {currentYear} Kalinda Yapı — Ortaca, Muğla | Tüm Hakları Saklıdır
             </p>
             <div className="flex items-center gap-4">
               <Link href="/gizlilik" className="hover:text-[#C9A84C] transition-colors">

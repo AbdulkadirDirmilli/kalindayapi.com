@@ -434,7 +434,7 @@ export default function IletisimPage() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Kalında Yapı Konum - Ortaca, Muğla"
+          title="Kalinda Yapı Konum - Ortaca, Muğla"
         />
       </section>
     </>

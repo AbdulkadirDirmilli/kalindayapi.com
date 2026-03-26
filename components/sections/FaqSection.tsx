@@ -20,7 +20,7 @@ const varsayilanSorular: FaqItem[] = [
   {
     soru: "Ortaca'da ev almak için ne gerekir?",
     cevap:
-      "Ortaca'da ev almak için kimlik belgesi, ikametgah ve gerekli ödeme planı yeterlidir. Yabancı uyruklu alıcılar için ek belgeler talep edilebilir. Kalında Yapı olarak tüm alım sürecinizde size rehberlik ediyoruz. Bankalarla kredi süreçlerinde de yardımcı oluyoruz.",
+      "Ortaca'da ev almak için kimlik belgesi, ikametgah ve gerekli ödeme planı yeterlidir. Yabancı uyruklu alıcılar için ek belgeler talep edilebilir. Kalinda Yapı olarak tüm alım sürecinizde size rehberlik ediyoruz. Bankalarla kredi süreçlerinde de yardımcı oluyoruz.",
   },
   {
     soru: "Ortaca'da m² fiyatları ne kadar?",

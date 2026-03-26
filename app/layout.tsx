@@ -22,8 +22,8 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kalindayapi.com"),
   title: {
-    default: "Kalında Yapı | Ortaca Emlak, Tadilat & Taahhüt",
-    template: "%s | Kalında Yapı",
+    default: "Kalinda Yapı | Ortaca Emlak, Tadilat & Taahhüt",
+    template: "%s | Kalinda Yapı",
   },
   description:
     "Muğla Ortaca'da güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri. Satılık & kiralık daireler, villalar, araziler. Zafer Soylu ve Arif Dağdelen ortaklığıyla 2012'den bu yana hizmetinizdeyiz.",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     "Dalaman emlak",
     "Muğla emlak",
   ],
-  authors: [{ name: "Kalında Yapı" }],
-  creator: "Kalında Yapı",
-  publisher: "Kalında Yapı",
+  authors: [{ name: "Kalinda Yapı" }],
+  creator: "Kalinda Yapı",
+  publisher: "Kalinda Yapı",
   formatDetection: {
     email: false,
     address: false,
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     url: "https://www.kalindayapi.com",
-    siteName: "Kalında Yapı",
-    title: "Kalında Yapı | Ortaca'nın Güvenilir Yapı & Emlak Ortağı",
+    siteName: "Kalinda Yapı",
+    title: "Kalinda Yapı | Ortaca'nın Güvenilir Yapı & Emlak Ortağı",
     description:
       "Muğla Ortaca'da emlak, tadilat ve taahhüt hizmetleri. 12+ yıllık deneyim, 500+ tamamlanan proje.",
     images: [
@@ -60,13 +60,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Kalında Yapı - Ortaca Emlak & Yapı",
+        alt: "Kalinda Yapı - Ortaca Emlak & Yapı",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kalında Yapı | Ortaca Emlak, Tadilat & Taahhüt",
+    title: "Kalinda Yapı | Ortaca Emlak, Tadilat & Taahhüt",
     description:
       "Muğla Ortaca'da güvenilir emlak ve yapı çözümleri. Satılık & kiralık gayrimenkuller.",
     images: ["/og-image.jpg"],

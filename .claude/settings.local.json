@@ -14,7 +14,15 @@
       "Bash(pdftoppm:*)",
       "Bash(curl:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:www.kalindayapi.com)",
+      "WebFetch(domain:kalindayapi.com)",
+      "WebFetch(domain:kalindayapi-com.vercel.app)",
+      "WebFetch(domain:abdulkadirdirmilli.github.io)",
+      "WebFetch(domain:github.com)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)"
     ]
   }
 }

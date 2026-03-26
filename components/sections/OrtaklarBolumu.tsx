@@ -59,7 +59,7 @@ export default function OrtaklarBolumu() {
             Kurucu Ortaklarımız
           </h2>
           <p className="text-[#666666] max-w-2xl mx-auto">
-            Kalında Yapı'nın arkasındaki deneyimli isimler. Her iki ortağımız da
+            Kalinda Yapı'nın arkasındaki deneyimli isimler. Her iki ortağımız da
             kendi alanlarında uzman ve müşteri memnuniyetini en üst düzeyde
             tutmaktadır.
           </p>

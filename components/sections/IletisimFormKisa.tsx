@@ -101,7 +101,7 @@ export default function IletisimFormKisa() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Kalında Yapı Konum"
+                title="Kalinda Yapı Konum"
               />
             </div>
           </motion.div>

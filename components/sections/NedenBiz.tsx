@@ -87,7 +87,7 @@ export default function NedenBiz() {
             Farkımız
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3A] mt-2 mb-4">
-            Neden Kalında Yapı?
+            Neden Kalinda Yapı?
           </h2>
           <p className="text-[#666666] max-w-2xl mx-auto">
             Ortaca ve Muğla bölgesinde güvenle tercih edilmemizin sebepleri.

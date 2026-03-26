@@ -279,7 +279,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-[#0B1F3A] mb-6">
-                Neden Kalında Yapı?
+                Neden Kalinda Yapı?
               </h2>
               <div className="space-y-4">
                 {[

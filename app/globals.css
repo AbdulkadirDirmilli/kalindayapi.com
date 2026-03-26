@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Kalında Yapı Renk Paleti */
+  /* Kalinda Yapı Renk Paleti */
   --color-primary: #0B1F3A;
   --color-primary-light: #1a3a5c;
   --color-primary-dark: #071428;

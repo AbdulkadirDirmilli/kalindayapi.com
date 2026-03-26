@@ -30,7 +30,7 @@ export default function WhatsAppButton() {
             key={contact.phone}
             href={createWhatsAppLink(
               contact.phone,
-              `Merhaba ${contact.name}, Kalında Yapı web sitesinden ulaşıyorum.`
+              `Merhaba ${contact.name}, Kalinda Yapı web sitesinden ulaşıyorum.`
             )}
             target="_blank"
             rel="noopener noreferrer"

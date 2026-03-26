@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Ilan, Hizmet } from "./utils";
 
 const siteConfig = {
-  name: "Kalında Yapı",
+  name: "Kalinda Yapı",
   description: "Muğla Ortaca'da güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri.",
   url: "https://www.kalindayapi.com",
   ogImage: "/og-image.jpg",
@@ -170,12 +170,12 @@ export const pageMetadata = {
   ),
   hakkimizda: generatePageMetadata(
     "Hakkımızda",
-    "Kalında Yapı, 2012'den bu yana Ortaca ve Muğla bölgesinde emlak ve yapı sektöründe hizmet vermektedir. Zafer Soylu ve Arif Dağdelen ortaklığı.",
+    "Kalinda Yapı, 2012'den bu yana Ortaca ve Muğla bölgesinde emlak ve yapı sektöründe hizmet vermektedir. Zafer Soylu ve Arif Dağdelen ortaklığı.",
     "/hakkimizda"
   ),
   iletisim: generatePageMetadata(
     "İletişim",
-    "Kalında Yapı ile iletişime geçin. Ortaca, Muğla. Emlak için Zafer Soylu, yapı & tadilat için Arif Dağdelen.",
+    "Kalinda Yapı ile iletişime geçin. Ortaca, Muğla. Emlak için Zafer Soylu, yapı & tadilat için Arif Dağdelen.",
     "/iletisim"
   ),
 };

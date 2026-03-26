@@ -91,7 +91,7 @@ export default function HakkimizdaPage() {
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              <span className="text-[#C9A84C]">Kalında Yapı</span> Hakkında
+              <span className="text-[#C9A84C]">Kalinda Yapı</span> Hakkında
             </h1>
             <p className="text-gray-300 text-lg leading-relaxed">
               2012 yılından bu yana Muğla'nın Ortaca ilçesinde emlak danışmanlığı,
@@ -116,7 +116,7 @@ export default function HakkimizdaPage() {
               </h2>
               <div className="space-y-4 text-[#666666] leading-relaxed">
                 <p>
-                  Kalında Yapı, 2012 yılında Zafer Soylu ve Arif Dağdelen'in
+                  Kalinda Yapı, 2012 yılında Zafer Soylu ve Arif Dağdelen'in
                   ortaklığıyla Ortaca'da kurulmuştur. Her iki ortağımız da bu
                   topraklarda doğup büyümüş, bölgenin ihtiyaçlarını yakından
                   tanıyan isimlerdir.
@@ -138,7 +138,7 @@ export default function HakkimizdaPage() {
             {/* Timeline */}
             <div className="space-y-6">
               {[
-                { yil: "2012", baslik: "Kuruluş", aciklama: "Kalında Yapı Ortaca'da faaliyete başladı" },
+                { yil: "2012", baslik: "Kuruluş", aciklama: "Kalinda Yapı Ortaca'da faaliyete başladı" },
                 { yil: "2015", baslik: "Büyüme", aciklama: "İlk 100 projeyi tamamladık" },
                 { yil: "2018", baslik: "Genişleme", aciklama: "Dalyan ve Köyceğiz'e hizmet alanımızı genişlettik" },
                 { yil: "2022", baslik: "10. Yıl", aciklama: "500+ proje ve %98 müşteri memnuniyeti" },
@@ -311,7 +311,7 @@ export default function HakkimizdaPage() {
             <a
               href={createWhatsAppLink(
                 "905370530754",
-                "Merhaba, Kalında Yapı hakkında bilgi almak istiyorum."
+                "Merhaba, Kalinda Yapı hakkında bilgi almak istiyorum."
               )}
               target="_blank"
               rel="noopener noreferrer"

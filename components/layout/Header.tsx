@@ -62,24 +62,26 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative z-10">
-            <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12">
-                <Image
-                  src="/logo.svg"
-                  alt="Kalında Yapı Logo"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              <div className={cn(
-                "hidden sm:block transition-colors duration-300",
-                isScrolled ? "text-[#0B1F3A]" : "text-white"
-              )}>
-                <span className="font-bold text-xl tracking-tight">KALINDA</span>
-                <span className="font-bold text-xl tracking-tight text-[#C9A84C]"> YAPI</span>
-              </div>
+          <Link href="/" className="relative z-10" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            {/* Mobile: küçük logo */}
+            <div className="relative w-12 h-12 sm:hidden">
+              <Image
+                src="/logo.svg"
+                alt="Kalinda Yapı Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            {/* Desktop: transparent logo */}
+            <div className="relative w-48 h-12 hidden sm:block">
+              <Image
+                src="/logo-footer.svg"
+                alt="Kalinda Yapı Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </Link>
 

@@ -136,7 +136,7 @@ export default function IstatistikSayaclari() {
           className="text-center mb-12"
         >
           <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
-            Rakamlarla Kalında Yapı
+            Rakamlarla Kalinda Yapı
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
             Güvenin ve Başarının Kanıtı
