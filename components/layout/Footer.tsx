@@ -153,8 +153,8 @@ export default function Footer() {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-[#C9A84C] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300 text-sm">
-                    Cumhuriyet Mah. Atatürk Cad.<br />
-                    No: 45/A, Ortaca / Muğla
+                    Atatürk Mah. 58 Sk. No: 2/B<br />
+                    (Belediye Arkası), Ortaca / Muğla
                   </span>
                 </div>
               </li>

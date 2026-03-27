@@ -5,15 +5,15 @@ const siteConfig = {
   url: "https://www.kalindayapi.com",
   logo: "https://www.kalindayapi.com/logo.svg",
   address: {
-    streetAddress: "Cumhuriyet Mahallesi, Atatürk Caddesi No: 45/A",
+    streetAddress: "Atatürk Mahallesi, 58 Sokak No: 2/B (Belediye Arkası)",
     addressLocality: "Ortaca",
     addressRegion: "Muğla",
     postalCode: "48600",
     addressCountry: "TR",
   },
   geo: {
-    latitude: 36.8384,
-    longitude: 28.7667,
+    latitude: 36.8390448,
+    longitude: 28.7685417,
   },
   employees: [
     {

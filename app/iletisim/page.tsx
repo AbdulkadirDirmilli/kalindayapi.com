@@ -173,9 +173,9 @@ export default function IletisimPage() {
                   <div>
                     <h3 className="font-semibold text-[#0B1F3A]">Adres</h3>
                     <p className="text-[#666666]">
-                      Cumhuriyet Mah. Atatürk Cad.
+                      Atatürk Mah. 58 Sk. No: 2/B
                       <br />
-                      No: 45/A, Ortaca / Muğla
+                      (Belediye Arkası), Ortaca / Muğla
                     </p>
                   </div>
                 </div>
@@ -426,7 +426,7 @@ export default function IletisimPage() {
       {/* Map */}
       <section className="h-[400px] bg-[#e0e0e0]">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25555.36436036367!2d28.75!3d36.8384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c0089a8c48e0c3%3A0x6fd3bf1e56bc0f7c!2sOrtaca%2C%20Mu%C4%9Fla!5e0!3m2!1str!2str!4v1"
+          src="https://maps.google.com/maps?q=36.8390448,28.7685417&t=&z=17&ie=UTF8&iwloc=&output=embed"
           width="100%"
           height="100%"
           style={{ border: 0 }}
