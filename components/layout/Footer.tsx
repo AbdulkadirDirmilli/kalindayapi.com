@@ -14,6 +14,7 @@ import { createWhatsAppLink } from "@/lib/utils";
 
 const quickLinks = [
   { name: "Ana Sayfa", href: "/" },
+  { name: "Blog", href: "/blog" },
   { name: "Hakkımızda", href: "/hakkimizda" },
   { name: "İletişim", href: "/iletisim" },
   { name: "Gizlilik Politikası", href: "/gizlilik" },

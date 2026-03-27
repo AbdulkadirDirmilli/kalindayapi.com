@@ -22,6 +22,7 @@ const navigation = [
     ],
   },
   { name: "İlanlar", href: "/ilanlar" },
+  { name: "Blog", href: "/blog" },
   { name: "Hakkımızda", href: "/hakkimizda" },
   { name: "İletişim", href: "/iletisim" },
 ];

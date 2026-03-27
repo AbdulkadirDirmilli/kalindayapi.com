@@ -7,3 +7,4 @@ export { default as OrtaklarBolumu } from "./OrtaklarBolumu";
 export { default as NedenBiz } from "./NedenBiz";
 export { default as IletisimFormKisa } from "./IletisimFormKisa";
 export { default as FaqSection } from "./FaqSection";
+export { default as SonYazilar } from "./SonYazilar";

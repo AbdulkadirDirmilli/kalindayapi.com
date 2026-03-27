@@ -8,6 +8,7 @@ import {
   NedenBiz,
   IletisimFormKisa,
   FaqSection,
+  SonYazilar,
 } from "@/components/sections";
 import { generateOrganizationSchema, generateWebSiteSchema, generateAISummary } from "@/lib/jsonld";
 
@@ -60,6 +61,9 @@ export default function HomePage() {
 
       {/* Ortaklar Bölümü */}
       <OrtaklarBolumu />
+
+      {/* Son Blog Yazıları */}
+      <SonYazilar />
 
       {/* İletişim Formu */}
       <IletisimFormKisa />
