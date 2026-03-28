@@ -202,7 +202,7 @@ export default function AdminLoginPage() {
       <div className="absolute bottom-0 left-0 right-0 pb-4">
         <p className="text-center text-xs font-medium tracking-wider" suppressHydrationWarning>
           <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
-            2025 KALINDA YAPI
+            2026 KALINDA YAPI
           </span>
           <span className="mx-2 text-gray-300">•</span>
           <span className="text-gray-400">Tum Haklar Saklidir</span>
