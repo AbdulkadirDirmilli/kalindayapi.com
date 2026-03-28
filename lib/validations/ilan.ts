@@ -87,6 +87,9 @@ export const ilanSchema = z.object({
   // Video
   videoUrl: z.string().optional().nullable(),
 
+  // Sorumlu danisman
+  danismanId: z.string().optional().nullable(),
+
   aciklama: z.string().min(20, 'Aciklama en az 20 karakter olmali'),
   oneCikan: z.boolean().default(false),
   durum: z.enum(['aktif', 'pasif', 'satildi', 'kiralandi']).default('aktif'),

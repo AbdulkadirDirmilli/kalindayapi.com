@@ -15,6 +15,7 @@ export async function GET(
         fotograflar: {
           orderBy: { sira: 'asc' },
         },
+        danisman: true,
       },
     })
 
@@ -74,11 +75,21 @@ export async function GET(
       },
       aciklama: ilan.aciklama,
       fotograflar: ilan.fotograflar.map((f) => f.url),
+      videoUrl: ilan.videoUrl,
       oneCikan: ilan.oneCikan,
       yayinTarihi: ilan.yayinTarihi.toISOString(),
       guncellenmeTarihi: ilan.guncellenmeTarihi.toISOString(),
       durum: ilan.durum,
       ilanNo: ilan.ilanNo || '',
+      danisman: ilan.danisman ? {
+        id: ilan.danisman.id,
+        ad: ilan.danisman.ad,
+        unvan: ilan.danisman.unvan,
+        telefon: ilan.danisman.telefon,
+        whatsapp: ilan.danisman.whatsapp,
+        email: ilan.danisman.email,
+        foto: ilan.danisman.foto,
+      } : null,
     }
 
     return NextResponse.json(formattedIlan)

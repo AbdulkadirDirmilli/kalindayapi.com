@@ -18,6 +18,16 @@ import {
 import { konumVerisi, getIlceler, getMahalleler, getIlceKoordinatlari } from '@/data/konum'
 import { getOzelliklerByTip, emlakTipleri, getAllEmlakTipleri } from '@/data/ozellikler'
 
+interface Ortak {
+  id: string
+  ad: string
+  unvan: string
+  telefon: string
+  whatsapp: string | null
+  email: string | null
+  foto: string | null
+}
+
 interface IlanFormData {
   baslik: string
   slug: string
@@ -94,6 +104,8 @@ interface IlanFormData {
   isyeriRuhsati: boolean
   // Video
   videoUrl: string
+  // Danisman
+  danismanId: string | null
   aciklama: string
   oneCikan: boolean
   durum: 'aktif' | 'pasif' | 'satildi' | 'kiralandi'
@@ -174,6 +186,7 @@ const defaultFormData: IlanFormData = {
   takasaUygun: false,
   isyeriRuhsati: false,
   videoUrl: '',
+  danismanId: null,
   aciklama: '',
   oneCikan: false,
   durum: 'aktif',
@@ -291,6 +304,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
   const [uploadingFiles, setUploadingFiles] = useState(false)
   const [uploadProgress, setUploadProgress] = useState<{ name: string; progress: number; status: 'uploading' | 'done' | 'error' }[]>([])
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const [ortaklar, setOrtaklar] = useState<Ortak[]>([])
 
   // Ilce ve mahalle listeleri
   const ilceler = getIlceler()
@@ -334,6 +348,22 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
       generateIlanNo()
     }
   }, [ilanId])
+
+  // Ortaklari (danismanlari) yukle
+  useEffect(() => {
+    const fetchOrtaklar = async () => {
+      try {
+        const response = await fetch('/api/admin/ortaklar')
+        if (response.ok) {
+          const data = await response.json()
+          setOrtaklar(data.filter((o: Ortak & { aktif: boolean }) => o.aktif))
+        }
+      } catch (error) {
+        console.error('Ortaklar yuklenemedi:', error)
+      }
+    }
+    fetchOrtaklar()
+  }, [])
 
   const generateSlug = (text: string) => {
     const turkishMap: { [key: string]: string } = {
@@ -756,6 +786,26 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <option value="pasif">Pasif (Taslak)</option>
               <option value="satildi">Satildi</option>
               <option value="kiralandi">Kiralandi</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-text mb-1">
+              Sorumlu Danisman *
+            </label>
+            <select
+              name="danismanId"
+              value={formData.danismanId || ''}
+              onChange={handleChange}
+              className="input"
+              required
+            >
+              <option value="">Danisman Secin</option>
+              {ortaklar.map((ortak) => (
+                <option key={ortak.id} value={ortak.id}>
+                  {ortak.ad} - {ortak.unvan}
+                </option>
+              ))}
             </select>
           </div>
 

@@ -177,11 +177,21 @@ export interface Ilan {
   };
   aciklama: string;
   fotograflar: string[];
+  videoUrl?: string | null;
   oneCikan: boolean;
   yayinTarihi: string;
   guncellenmeTarihi: string;
   durum: string;
   ilanNo: string;
+  danisman?: {
+    id: string;
+    ad: string;
+    unvan: string;
+    telefon: string;
+    whatsapp?: string | null;
+    email?: string | null;
+    foto?: string | null;
+  } | null;
 }
 
 export interface Hizmet {

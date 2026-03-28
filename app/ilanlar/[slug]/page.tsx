@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   MapPin,
   Maximize2,
@@ -357,12 +358,28 @@ export default function IlanDetayPage() {
 
                 {/* Agent Info */}
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 p-3 sm:p-4 bg-[#F5F5F5] rounded-lg sm:rounded-xl">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
-                    <Building className="w-6 h-6 sm:w-7 sm:h-7 text-[#C9A84C]" />
-                  </div>
+                  {ilan.danisman?.foto ? (
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden flex-shrink-0">
+                      <Image
+                        src={ilan.danisman.foto}
+                        alt={ilan.danisman.ad}
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
+                      <Building className="w-6 h-6 sm:w-7 sm:h-7 text-[#C9A84C]" />
+                    </div>
+                  )}
                   <div className="min-w-0">
-                    <p className="font-bold text-[#0B1F3A] text-sm sm:text-base">Zafer SOYLU</p>
-                    <p className="text-xs sm:text-sm text-[#666666]">Emlak Danismani</p>
+                    <p className="font-bold text-[#0B1F3A] text-sm sm:text-base">
+                      {ilan.danisman?.ad || "Kalinda Yapi"}
+                    </p>
+                    <p className="text-xs sm:text-sm text-[#666666]">
+                      {ilan.danisman?.unvan || "Emlak Danismani"}
+                    </p>
                   </div>
                 </div>
 
@@ -370,7 +387,7 @@ export default function IlanDetayPage() {
                 <div className="space-y-2 sm:space-y-3">
                   <a
                     href={createWhatsAppLink(
-                      "905370530754",
+                      ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905370530754",
                       `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`
                     )}
                     target="_blank"
@@ -387,7 +404,7 @@ export default function IlanDetayPage() {
                     </Button>
                   </a>
 
-                  <a href="tel:+905370530754" className="block">
+                  <a href={`tel:+${ilan.danisman?.telefon?.replace(/\D/g, '') || "905370530754"}`} className="block">
                     <Button
                       variant="primary"
                       size="lg"
@@ -428,18 +445,34 @@ export default function IlanDetayPage() {
               <Card padding="md" className="hidden sm:block lg:hidden">
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
-                      <Building className="w-6 h-6 text-[#C9A84C]" />
-                    </div>
+                    {ilan.danisman?.foto ? (
+                      <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                        <Image
+                          src={ilan.danisman.foto}
+                          alt={ilan.danisman.ad}
+                          width={48}
+                          height={48}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12 rounded-full bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
+                        <Building className="w-6 h-6 text-[#C9A84C]" />
+                      </div>
+                    )}
                     <div>
-                      <p className="font-bold text-[#0B1F3A]">Zafer SOYLU</p>
-                      <p className="text-sm text-[#666666]">Emlak Danismani</p>
+                      <p className="font-bold text-[#0B1F3A]">
+                        {ilan.danisman?.ad || "Kalinda Yapi"}
+                      </p>
+                      <p className="text-sm text-[#666666]">
+                        {ilan.danisman?.unvan || "Emlak Danismani"}
+                      </p>
                     </div>
                   </div>
                   <div className="flex gap-2">
                     <a
                       href={createWhatsAppLink(
-                        "905370530754",
+                        ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905370530754",
                         `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`
                       )}
                       target="_blank"
@@ -449,7 +482,7 @@ export default function IlanDetayPage() {
                         WhatsApp
                       </Button>
                     </a>
-                    <a href="tel:+905370530754">
+                    <a href={`tel:+${ilan.danisman?.telefon?.replace(/\D/g, '') || "905370530754"}`}>
                       <Button variant="primary" size="md" leftIcon={<Phone className="w-4 h-4" />}>
                         Ara
                       </Button>
@@ -492,7 +525,7 @@ export default function IlanDetayPage() {
           <div className="flex gap-2 flex-1 sm:flex-initial justify-end">
             <a
               href={createWhatsAppLink(
-                "905370530754",
+                ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905370530754",
                 `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`
               )}
               target="_blank"
@@ -509,7 +542,7 @@ export default function IlanDetayPage() {
                 <span className="xs:hidden">WA</span>
               </Button>
             </a>
-            <a href="tel:+905370530754" className="flex-1 sm:flex-initial">
+            <a href={`tel:+${ilan.danisman?.telefon?.replace(/\D/g, '') || "905370530754"}`} className="flex-1 sm:flex-initial">
               <Button
                 variant="primary"
                 size="md"
