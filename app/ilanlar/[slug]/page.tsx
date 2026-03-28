@@ -1,7 +1,8 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
+"use client";
+
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import {
   MapPin,
   Maximize2,
@@ -19,6 +20,8 @@ import {
   ChevronRight,
   Home,
   Check,
+  Loader2,
+  Play,
 } from "lucide-react";
 import { IlanGaleri, IlanKart } from "@/components/ilan";
 import Button from "@/components/ui/Button";
@@ -31,122 +34,120 @@ import {
   createWhatsAppLink,
   Ilan,
 } from "@/lib/utils";
-import {
-  generateRealEstateListingSchema,
-  generateBreadcrumbSchema,
-} from "@/lib/jsonld";
-import { generateIlanMetadata } from "@/lib/metadata";
-import ilanlarData from "@/data/ilanlar.json";
 
-interface IlanDetayPageProps {
-  params: Promise<{ id: string }>;
-}
+export default function IlanDetayPage() {
+  const params = useParams();
+  const slug = params.slug as string;
 
-export async function generateMetadata({
-  params,
-}: IlanDetayPageProps): Promise<Metadata> {
-  const { id } = await params;
-  const ilan = (ilanlarData.ilanlar as Ilan[]).find((i) => i.id === id);
+  const [ilan, setIlan] = useState<Ilan | null>(null);
+  const [benzerIlanlar, setBenzerIlanlar] = useState<Ilan[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  if (!ilan) {
-    return {
-      title: "İlan Bulunamadı",
+  useEffect(() => {
+    const fetchIlan = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/ilanlar/${slug}`);
+
+        if (!response.ok) {
+          if (response.status === 404) {
+            setError("Ilan bulunamadi");
+          } else {
+            setError("Ilan yuklenirken hata olustu");
+          }
+          return;
+        }
+
+        const data = await response.json();
+        setIlan(data);
+
+        // Fetch similar listings
+        const similarResponse = await fetch(`/api/ilanlar?kategori=${data.kategori}&limit=3`);
+        if (similarResponse.ok) {
+          const similarData = await similarResponse.json();
+          setBenzerIlanlar(
+            (similarData.ilanlar || []).filter((i: Ilan) => i.slug !== slug).slice(0, 3)
+          );
+        }
+      } catch (err) {
+        setError("Ilan yuklenirken hata olustu");
+      } finally {
+        setLoading(false);
+      }
     };
+
+    if (slug) {
+      fetchIlan();
+    }
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-[#C9A84C]" />
+      </div>
+    );
   }
 
-  return generateIlanMetadata(ilan);
-}
-
-export async function generateStaticParams() {
-  return (ilanlarData.ilanlar as Ilan[]).map((ilan) => ({
-    id: ilan.id,
-  }));
-}
-
-export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
-  const { id } = await params;
-  const allIlanlar = ilanlarData.ilanlar as Ilan[];
-  const ilan = allIlanlar.find((i) => i.id === id);
-
-  if (!ilan) {
-    notFound();
+  if (error || !ilan) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <h1 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+          {error || "Ilan bulunamadi"}
+        </h1>
+        <Link href="/ilanlar">
+          <Button variant="primary">Tum Ilanlara Don</Button>
+        </Link>
+      </div>
+    );
   }
-
-  // Get similar listings
-  const benzerIlanlar = allIlanlar
-    .filter(
-      (i) =>
-        i.id !== ilan.id &&
-        (i.kategori === ilan.kategori || i.tip === ilan.tip)
-    )
-    .slice(0, 3);
-
-  const listingSchema = generateRealEstateListingSchema(ilan);
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Ana Sayfa", url: "/" },
-    { name: "İlanlar", url: "/ilanlar" },
-    { name: ilan.baslik, url: `/ilanlar/${ilan.id}` },
-  ]);
 
   const ozellikler = [
     {
       label: "Metrekare",
-      value: `${ilan.ozellikler.metrekare} m²`,
+      value: `${ilan.ozellikler?.metrekare || 0} m2`,
       icon: Maximize2,
     },
-    ilan.ozellikler.odaSayisi && {
-      label: "Oda Sayısı",
+    ilan.ozellikler?.odaSayisi && {
+      label: "Oda Sayisi",
       value: ilan.ozellikler.odaSayisi,
       icon: BedDouble,
     },
-    ilan.ozellikler.banyoSayisi && {
+    ilan.ozellikler?.banyoSayisi && {
       label: "Banyo",
       value: `${ilan.ozellikler.banyoSayisi} Banyo`,
       icon: Bath,
     },
-    ilan.ozellikler.kat !== undefined && {
+    ilan.ozellikler?.kat !== undefined && {
       label: "Kat",
-      value: `${ilan.ozellikler.kat}/${ilan.ozellikler.toplamKat}`,
+      value: `${ilan.ozellikler.kat}/${ilan.ozellikler.toplamKat || '?'}`,
       icon: Building,
     },
-    ilan.ozellikler.binaYasi !== undefined && {
-      label: "Bina Yaşı",
-      value: ilan.ozellikler.binaYasi === 0 ? "Sıfır" : `${ilan.ozellikler.binaYasi} Yıl`,
+    ilan.ozellikler?.binaYasi !== undefined && {
+      label: "Bina Yasi",
+      value: ilan.ozellikler.binaYasi === 0 ? "Sifir" : `${ilan.ozellikler.binaYasi} Yil`,
       icon: Calendar,
     },
-    ilan.ozellikler.isitma && {
-      label: "Isıtma",
+    ilan.ozellikler?.isitma && {
+      label: "Isitma",
       value: ilan.ozellikler.isitma,
       icon: Thermometer,
     },
   ].filter(Boolean);
 
   const ekOzellikler = [
-    ilan.ozellikler.balkon && { label: "Balkon", icon: Check },
-    ilan.ozellikler.asansor && { label: "Asansör", icon: Check },
-    ilan.ozellikler.otopark && { label: "Otopark", icon: Car },
-    ilan.ozellikler.guvenlik && { label: "Güvenlik", icon: Shield },
-    ilan.ozellikler.havuz && { label: "Havuz", icon: Waves },
-    ilan.ozellikler.bahce && { label: "Bahçe", icon: TreeDeciduous },
-    ilan.ozellikler.esyali && { label: "Eşyalı", icon: Check },
+    ilan.ozellikler?.balkon && { label: "Balkon", icon: Check },
+    ilan.ozellikler?.asansor && { label: "Asansor", icon: Check },
+    ilan.ozellikler?.otopark && { label: "Otopark", icon: Car },
+    ilan.ozellikler?.guvenlik && { label: "Guvenlik", icon: Shield },
+    ilan.ozellikler?.havuz && { label: "Havuz", icon: Waves },
+    ilan.ozellikler?.bahce && { label: "Bahce", icon: TreeDeciduous },
+    ilan.ozellikler?.esyali && { label: "Esyali", icon: Check },
   ].filter(Boolean);
 
   return (
     <>
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(listingSchema),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
-
       {/* Hero */}
       <section className="bg-[#0B1F3A] pt-32 pb-8">
         <div className="container mx-auto px-4">
@@ -157,7 +158,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
             </Link>
             <ChevronRight className="w-4 h-4" />
             <Link href="/ilanlar" className="hover:text-[#C9A84C] transition-colors">
-              İlanlar
+              Ilanlar
             </Link>
             <ChevronRight className="w-4 h-4" />
             <span className="text-[#C9A84C] line-clamp-1">{ilan.baslik}</span>
@@ -170,9 +171,11 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
                   variant={ilan.kategori === "satilik" ? "satilik" : "kiralik"}
                   size="lg"
                 >
-                  {ilan.kategori === "satilik" ? "Satılık" : "Kiralık"}
+                  {ilan.kategori === "satilik" ? "Satilik" : "Kiralik"}
                 </Badge>
-                <span className="text-gray-400 text-sm">İlan No: {ilan.ilanNo}</span>
+                {ilan.ilanNo && (
+                  <span className="text-gray-400 text-sm">Ilan No: {ilan.ilanNo}</span>
+                )}
               </div>
               <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
                 {ilan.baslik}
@@ -180,7 +183,8 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
               <div className="flex items-center gap-1 text-gray-300">
                 <MapPin className="w-5 h-5 text-[#C9A84C]" />
                 <span>
-                  {ilan.konum.mahalle}, {ilan.konum.ilce}, {ilan.konum.il}
+                  {ilan.konum?.mahalle && `${ilan.konum.mahalle}, `}
+                  {ilan.konum?.ilce}, {ilan.konum?.il}
                 </span>
               </div>
             </div>
@@ -192,9 +196,11 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
                   <span className="text-lg font-normal text-gray-400">/ay</span>
                 )}
               </p>
-              <p className="text-gray-400 text-sm mt-1">
-                Yayın Tarihi: {formatDate(ilan.yayinTarihi)}
-              </p>
+              {ilan.yayinTarihi && (
+                <p className="text-gray-400 text-sm mt-1">
+                  Yayin Tarihi: {formatDate(ilan.yayinTarihi)}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -208,13 +214,33 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
             <div className="lg:col-span-2 space-y-8">
               {/* Gallery */}
               <Card padding="lg">
-                <IlanGaleri fotograflar={ilan.fotograflar} baslik={ilan.baslik} />
+                <IlanGaleri fotograflar={ilan.fotograflar || []} baslik={ilan.baslik} />
               </Card>
+
+              {/* Video */}
+              {ilan.videoUrl && (
+                <Card padding="lg">
+                  <h2 className="text-xl font-bold text-[#0B1F3A] mb-4 flex items-center gap-2">
+                    <Play className="w-5 h-5" />
+                    Ilan Videosu
+                  </h2>
+                  <div className="aspect-video rounded-xl overflow-hidden bg-black">
+                    <video
+                      src={ilan.videoUrl}
+                      controls
+                      className="w-full h-full object-contain"
+                      preload="metadata"
+                    >
+                      Tarayiciniz video etiketini desteklemiyor.
+                    </video>
+                  </div>
+                </Card>
+              )}
 
               {/* Description */}
               <Card padding="lg">
                 <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">
-                  İlan Açıklaması
+                  Ilan Aciklamasi
                 </h2>
                 <p className="text-[#666666] leading-relaxed whitespace-pre-line">
                   {ilan.aciklama}
@@ -224,7 +250,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
               {/* Features */}
               <Card padding="lg">
                 <h2 className="text-xl font-bold text-[#0B1F3A] mb-6">
-                  Özellikler
+                  Ozellikler
                 </h2>
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                   {ozellikler.map((ozellik) => {
@@ -253,7 +279,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
                 {ekOzellikler.length > 0 && (
                   <div className="mt-6 pt-6 border-t border-[#e0e0e0]">
                     <h3 className="text-sm font-semibold text-[#0B1F3A] mb-4">
-                      Ek Özellikler
+                      Ek Ozellikler
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {ekOzellikler.map((ozellik) => {
@@ -274,25 +300,28 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
               </Card>
 
               {/* Map */}
-              <Card padding="lg">
-                <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">Konum</h2>
-                <div className="aspect-video rounded-xl overflow-hidden bg-[#e0e0e0]">
-                  <iframe
-                    src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25555.36436036367!2d${ilan.konum.koordinatlar.lng}!3d${ilan.konum.koordinatlar.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM!5e0!3m2!1str!2str!4v1`}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title={`${ilan.baslik} Konum`}
-                  />
-                </div>
-                <p className="mt-4 text-sm text-[#666666]">
-                  <MapPin className="w-4 h-4 inline mr-1 text-[#C9A84C]" />
-                  {ilan.konum.mahalle}, {ilan.konum.ilce}, {ilan.konum.il}
-                </p>
-              </Card>
+              {ilan.konum?.koordinatlar && (
+                <Card padding="lg">
+                  <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">Konum</h2>
+                  <div className="aspect-video rounded-xl overflow-hidden bg-[#e0e0e0]">
+                    <iframe
+                      src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25555.36436036367!2d${ilan.konum.koordinatlar.lng}!3d${ilan.konum.koordinatlar.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM!5e0!3m2!1str!2str!4v1`}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title={`${ilan.baslik} Konum`}
+                    />
+                  </div>
+                  <p className="mt-4 text-sm text-[#666666]">
+                    <MapPin className="w-4 h-4 inline mr-1 text-[#C9A84C]" />
+                    {ilan.konum.mahalle && `${ilan.konum.mahalle}, `}
+                    {ilan.konum.ilce}, {ilan.konum.il}
+                  </p>
+                </Card>
+              )}
             </div>
 
             {/* Sidebar */}
@@ -300,7 +329,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
               {/* Contact Card */}
               <Card padding="lg" className="sticky top-24">
                 <h3 className="text-lg font-bold text-[#0B1F3A] mb-4">
-                  İletişime Geç
+                  Iletisime Gec
                 </h3>
 
                 {/* Agent Info */}
@@ -310,7 +339,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
                   </div>
                   <div>
                     <p className="font-bold text-[#0B1F3A]">Zafer SOYLU</p>
-                    <p className="text-sm text-[#666666]">Emlak Danışmanı</p>
+                    <p className="text-sm text-[#666666]">Emlak Danismani</p>
                   </div>
                 </div>
 
@@ -319,7 +348,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
                   <a
                     href={createWhatsAppLink(
                       "905370530754",
-                      `Merhaba, ${ilan.ilanNo} numaralı "${ilan.baslik}" ilanı hakkında bilgi almak istiyorum.`
+                      `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -348,7 +377,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
 
                   <ShareButton
                     title={ilan.baslik}
-                    text={ilan.aciklama.slice(0, 100)}
+                    text={ilan.aciklama?.slice(0, 100) || ''}
                   />
                 </div>
 
@@ -361,12 +390,14 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
                       {ilan.kategori === "kiralik" && "/ay"}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-[#666666]">m² Fiyatı</span>
-                    <span className="font-bold text-[#0B1F3A]">
-                      {formatPrice(Math.round(ilan.fiyat / ilan.ozellikler.metrekare))}
-                    </span>
-                  </div>
+                  {ilan.ozellikler?.metrekare && ilan.ozellikler.metrekare > 0 && (
+                    <div className="flex justify-between items-center">
+                      <span className="text-[#666666]">m2 Fiyati</span>
+                      <span className="font-bold text-[#0B1F3A]">
+                        {formatPrice(Math.round(ilan.fiyat / ilan.ozellikler.metrekare))}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </Card>
             </div>
@@ -376,7 +407,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
           {benzerIlanlar.length > 0 && (
             <div className="mt-16">
               <h2 className="text-2xl font-bold text-[#0B1F3A] mb-8">
-                Benzer İlanlar
+                Benzer Ilanlar
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {benzerIlanlar.map((benzerIlan, index) => (

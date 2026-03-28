@@ -5,6 +5,18 @@ import { writeFile, mkdir } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 
+// Increase body size limit for video uploads (100MB)
+export const config = {
+  api: {
+    bodyParser: false,
+    responseLimit: false,
+  },
+}
+
+// Export runtime config for app router
+export const maxDuration = 60 // seconds
+export const dynamic = 'force-dynamic'
+
 // POST - Upload file
 export async function POST(request: NextRequest) {
   try {

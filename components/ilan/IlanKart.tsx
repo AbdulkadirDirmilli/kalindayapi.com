@@ -22,7 +22,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: index * 0.05 }}
       >
-        <Link href={`/ilanlar/${ilan.id}`}>
+        <Link href={`/ilanlar/${ilan.slug}`}>
           <Card
             variant="interactive"
             padding="none"
