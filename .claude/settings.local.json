@@ -22,7 +22,25 @@
       "WebFetch(domain:abdulkadirdirmilli.github.io)",
       "WebFetch(domain:github.com)",
       "Bash(git pull:*)",
-      "Bash(git stash:*)"
+      "Bash(git stash:*)",
+      "Bash(npx vercel:*)",
+      "Bash(ssh -o StrictHostKeyChecking=no root@89.252.179.121 \"cd /var/www && ls -la\")",
+      "Bash(ssh -o StrictHostKeyChecking=no root@89.252.179.121 \"ls -la /var/www/ && cat /etc/nginx/sites-enabled/* 2>/dev/null | grep -A5 ''kalinda\\\\|server_name'' | head -50\")",
+      "Bash(ssh -o StrictHostKeyChecking=no root@89.252.179.121 \"find /var/www -name ''*kalinda*'' 2>/dev/null; ls /etc/nginx/sites-available/; pm2 list 2>/dev/null || echo ''pm2 not running''\")",
+      "Bash(ssh -o StrictHostKeyChecking=no root@89.252.179.121 \"cat /var/www/akduniverse.com/nginx/conf.d/kalindayapi.conf\")",
+      "Bash(ssh -o StrictHostKeyChecking=no root@89.252.179.121 \"cat /var/www/akduniverse.com/docker-compose.yml\")",
+      "Bash(ssh -o StrictHostKeyChecking=no root@89.252.179.121 \"find /var/www -name ''docker-compose*'' -o -name ''Dockerfile'' 2>/dev/null | head -20; docker inspect kalindayapi-app 2>/dev/null | grep -E ''Source|Destination|WorkingDir'' | head -10\")",
+      "Bash(ssh -o StrictHostKeyChecking=no root@89.252.179.121 \"find / -type d -name ''kalindayapi*'' 2>/dev/null | head -10; docker volume ls | grep kalinda\")",
+      "Bash(ssh -o StrictHostKeyChecking=no root@89.252.179.121 \"cd /root/kalindayapi.com && ls -la && cat docker-compose.yml 2>/dev/null || cat Dockerfile 2>/dev/null\")",
+      "Bash(ssh:*)",
+      "Bash(git -C \"C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\" log --oneline -10)",
+      "Bash(dir \"C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\public\\\\images\\\\listings\")",
+      "Bash(dir:*)",
+      "Bash(npx prisma:*)",
+      "Bash(node -e:*)",
+      "Bash(npm run db:migrate:*)",
+      "Bash(npm run db:seed:*)",
+      "Bash(npx tsx:*)"
     ]
   }
 }

@@ -1,0 +1,197 @@
+// Kalinda Yapi Admin Panel - Prisma Schema
+// SQLite veritabani ile
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// Admin kullanicilari
+model User {
+  id             String    @id @default(uuid())
+  email          String    @unique
+  hashedPassword String
+  name           String?
+  role           String    @default("admin") // admin, editor
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  lastLogin      DateTime?
+}
+
+// Emlak ilanlari
+model Ilan {
+  id                String      @id @default(uuid())
+  baslik            String
+  slug              String      @unique
+  kategori          String      // satilik, kiralik
+  tip               String      // daire, villa, arsa, ticari
+  fiyat             Int
+  paraBirimi        String      @default("TL")
+
+  // Konum bilgileri
+  il                String
+  ilce              String
+  mahalle           String?
+  koordinatLat      Float?
+  koordinatLng      Float?
+
+  // Temel ozellikler
+  metrekare         Int?
+  odaSayisi         String?     // 2+1, 3+1, Acik Plan
+  banyoSayisi       Int?
+  kat               Int?
+  toplamKat         Int?
+  binaYasi          Int?
+  isitma            String?
+
+  // Boolean ozellikler
+  esyali            Boolean     @default(false)
+  balkon            Boolean     @default(false)
+  asansor           Boolean     @default(false)
+  otopark           Boolean     @default(false)
+  guvenlik          Boolean     @default(false)
+  havuz             Boolean     @default(false)
+  bahce             Boolean     @default(false)
+  bahceMetrekare    Int?
+
+  // Arsa ozellikleri
+  imarDurumu        String?
+  gabari            String?
+  yolCephesi        Int?
+  altyapi           Boolean     @default(false)
+
+  aciklama          String
+  oneCikan          Boolean     @default(false)
+  durum             String      @default("aktif") // aktif, pasif, satildi
+  ilanNo            String?     @unique
+
+  yayinTarihi       DateTime    @default(now())
+  guncellenmeTarihi DateTime    @updatedAt
+  createdAt         DateTime    @default(now())
+
+  fotograflar       IlanFoto[]
+}
+
+// Ilan fotograflari
+model IlanFoto {
+  id        String   @id @default(uuid())
+  ilanId    String
+  url       String
+  sira      Int      @default(0)
+  createdAt DateTime @default(now())
+
+  ilan      Ilan     @relation(fields: [ilanId], references: [id], onDelete: Cascade)
+}
+
+// Hizmetler
+model Hizmet {
+  id            String       @id @default(uuid())
+  slug          String       @unique
+  baslik        String
+  kisaAciklama  String
+  uzunAciklama  String
+  ikon          String
+  sira          Int          @default(0)
+  aktif         Boolean      @default(true)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  altHizmetler  AltHizmet[]
+  sss           HizmetSSS[]
+  bolgeler      HizmetBolge[]
+}
+
+// Alt hizmetler
+model AltHizmet {
+  id        String   @id @default(uuid())
+  hizmetId  String
+  baslik    String
+  aciklama  String
+  ikon      String
+  sira      Int      @default(0)
+  createdAt DateTime @default(now())
+
+  hizmet    Hizmet   @relation(fields: [hizmetId], references: [id], onDelete: Cascade)
+}
+
+// Hizmet SSS
+model HizmetSSS {
+  id        String   @id @default(uuid())
+  hizmetId  String
+  soru      String
+  cevap     String
+  sira      Int      @default(0)
+  createdAt DateTime @default(now())
+
+  hizmet    Hizmet   @relation(fields: [hizmetId], references: [id], onDelete: Cascade)
+}
+
+// Hizmet bolgeleri
+model HizmetBolge {
+  id        String   @id @default(uuid())
+  hizmetId  String
+  bolge     String
+
+  hizmet    Hizmet   @relation(fields: [hizmetId], references: [id], onDelete: Cascade)
+
+  @@unique([hizmetId, bolge])
+}
+
+// Iletisim formlari
+model ContactForm {
+  id          String   @id @default(uuid())
+  ad          String
+  email       String
+  telefon     String?
+  konu        String?
+  mesaj       String
+  durum       String   @default("yeni") // yeni, okundu, cevaplandi, arsivlendi
+  notlar      String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Medya dosyalari
+model Media {
+  id          String   @id @default(uuid())
+  filename    String
+  originalName String
+  mimeType    String
+  size        Int
+  url         String
+  thumbnailUrl String?
+  kategori    String?  // listings, team, general
+  altText     String?
+  createdAt   DateTime @default(now())
+}
+
+// Sirket ortaklari
+model Ortak {
+  id                String   @id @default(uuid())
+  slug              String   @unique
+  ad                String
+  unvan             String
+  telefon           String
+  whatsapp          String?
+  email             String?
+  biyografi         String?
+  foto              String?
+  uzmanlikAlanlari  String   // JSON array olarak saklanacak
+  sira              Int      @default(0)
+  aktif             Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+// Site ayarlari (key-value)
+model SiteSettings {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
