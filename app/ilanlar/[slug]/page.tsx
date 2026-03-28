@@ -22,6 +22,7 @@ import {
   Check,
   Loader2,
   Play,
+  Share2,
 } from "lucide-react";
 import { IlanGaleri, IlanKart } from "@/components/ilan";
 import Button from "@/components/ui/Button";
@@ -149,24 +150,25 @@ export default function IlanDetayPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#0B1F3A] pt-32 pb-8">
+      <section className="bg-[#0B1F3A] pt-24 sm:pt-28 md:pt-32 pb-6 sm:pb-8">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6 flex-wrap">
+          <nav className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-400 mb-4 sm:mb-6 flex-wrap">
             <Link href="/" className="hover:text-[#C9A84C] transition-colors">
-              <Home className="w-4 h-4" />
+              <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </Link>
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <Link href="/ilanlar" className="hover:text-[#C9A84C] transition-colors">
               Ilanlar
             </Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C] line-clamp-1">{ilan.baslik}</span>
+            <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <span className="text-[#C9A84C] line-clamp-1 max-w-[150px] sm:max-w-none">{ilan.baslik}</span>
           </nav>
 
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
+            {/* Title and Badge Row */}
             <div>
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2">
                 <Badge
                   variant={ilan.kategori === "satilik" ? "satilik" : "kiralik"}
                   size="lg"
@@ -174,31 +176,32 @@ export default function IlanDetayPage() {
                   {ilan.kategori === "satilik" ? "Satilik" : "Kiralik"}
                 </Badge>
                 {ilan.ilanNo && (
-                  <span className="text-gray-400 text-sm">Ilan No: {ilan.ilanNo}</span>
+                  <span className="text-gray-400 text-xs sm:text-sm">Ilan No: {ilan.ilanNo}</span>
                 )}
               </div>
-              <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
                 {ilan.baslik}
               </h1>
-              <div className="flex items-center gap-1 text-gray-300">
-                <MapPin className="w-5 h-5 text-[#C9A84C]" />
-                <span>
+              <div className="flex items-center gap-1 text-gray-300 text-sm sm:text-base">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#C9A84C] flex-shrink-0" />
+                <span className="line-clamp-1">
                   {ilan.konum?.mahalle && `${ilan.konum.mahalle}, `}
                   {ilan.konum?.ilce}, {ilan.konum?.il}
                 </span>
               </div>
             </div>
 
-            <div className="text-left md:text-right">
-              <p className="text-3xl md:text-4xl font-bold text-[#C9A84C]">
+            {/* Price Row */}
+            <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-white/10 md:border-0 md:pt-0">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#C9A84C]">
                 {formatPrice(ilan.fiyat)}
                 {ilan.kategori === "kiralik" && (
-                  <span className="text-lg font-normal text-gray-400">/ay</span>
+                  <span className="text-sm sm:text-lg font-normal text-gray-400">/ay</span>
                 )}
               </p>
               {ilan.yayinTarihi && (
-                <p className="text-gray-400 text-sm mt-1">
-                  Yayin Tarihi: {formatDate(ilan.yayinTarihi)}
+                <p className="text-gray-400 text-xs sm:text-sm">
+                  {formatDate(ilan.yayinTarihi)}
                 </p>
               )}
             </div>
@@ -207,24 +210,44 @@ export default function IlanDetayPage() {
       </section>
 
       {/* Content */}
-      <section className="py-12 bg-[#F5F5F5]">
+      <section className="py-6 sm:py-8 md:py-12 bg-[#F5F5F5] pb-24 lg:pb-12">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {/* Main Content */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-4 sm:space-y-6 lg:space-y-8 order-2 lg:order-1">
               {/* Gallery */}
-              <Card padding="lg">
+              <Card padding="md" className="sm:p-6 lg:p-8">
                 <IlanGaleri fotograflar={ilan.fotograflar || []} baslik={ilan.baslik} />
               </Card>
 
+              {/* Quick Info - Mobile Only */}
+              <div className="grid grid-cols-3 gap-2 lg:hidden">
+                {ozellikler.slice(0, 3).map((ozellik) => {
+                  if (!ozellik) return null;
+                  const Icon = ozellik.icon;
+                  return (
+                    <div
+                      key={ozellik.label}
+                      className="flex flex-col items-center justify-center p-3 bg-white rounded-xl text-center"
+                    >
+                      <Icon className="w-5 h-5 text-[#C9A84C] mb-1" />
+                      <p className="text-xs text-[#999999]">{ozellik.label}</p>
+                      <p className="font-semibold text-[#0B1F3A] text-sm">
+                        {ozellik.value}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+
               {/* Video */}
               {ilan.videoUrl && (
-                <Card padding="lg">
-                  <h2 className="text-xl font-bold text-[#0B1F3A] mb-4 flex items-center gap-2">
-                    <Play className="w-5 h-5" />
+                <Card padding="md" className="sm:p-6 lg:p-8">
+                  <h2 className="text-lg sm:text-xl font-bold text-[#0B1F3A] mb-3 sm:mb-4 flex items-center gap-2">
+                    <Play className="w-4 h-4 sm:w-5 sm:h-5" />
                     Ilan Videosu
                   </h2>
-                  <div className="aspect-video rounded-xl overflow-hidden bg-black">
+                  <div className="aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-black">
                     <video
                       src={ilan.videoUrl}
                       controls
@@ -238,35 +261,35 @@ export default function IlanDetayPage() {
               )}
 
               {/* Description */}
-              <Card padding="lg">
-                <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">
+              <Card padding="md" className="sm:p-6 lg:p-8">
+                <h2 className="text-lg sm:text-xl font-bold text-[#0B1F3A] mb-3 sm:mb-4">
                   Ilan Aciklamasi
                 </h2>
-                <p className="text-[#666666] leading-relaxed whitespace-pre-line">
+                <p className="text-sm sm:text-base text-[#666666] leading-relaxed whitespace-pre-line">
                   {ilan.aciklama}
                 </p>
               </Card>
 
               {/* Features */}
-              <Card padding="lg">
-                <h2 className="text-xl font-bold text-[#0B1F3A] mb-6">
+              <Card padding="md" className="sm:p-6 lg:p-8">
+                <h2 className="text-lg sm:text-xl font-bold text-[#0B1F3A] mb-4 sm:mb-6">
                   Ozellikler
                 </h2>
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
                   {ozellikler.map((ozellik) => {
                     if (!ozellik) return null;
                     const Icon = ozellik.icon;
                     return (
                       <div
                         key={ozellik.label}
-                        className="flex items-center gap-3 p-3 bg-[#F5F5F5] rounded-xl"
+                        className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 bg-[#F5F5F5] rounded-lg sm:rounded-xl"
                       >
-                        <div className="w-10 h-10 rounded-lg bg-[#0B1F3A]/10 flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-[#0B1F3A]" />
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#0B1F3A]/10 flex items-center justify-center flex-shrink-0">
+                          <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#0B1F3A]" />
                         </div>
-                        <div>
-                          <p className="text-xs text-[#999999]">{ozellik.label}</p>
-                          <p className="font-semibold text-[#0B1F3A]">
+                        <div className="min-w-0">
+                          <p className="text-[10px] sm:text-xs text-[#999999]">{ozellik.label}</p>
+                          <p className="font-semibold text-[#0B1F3A] text-xs sm:text-sm truncate">
                             {ozellik.value}
                           </p>
                         </div>
@@ -277,19 +300,19 @@ export default function IlanDetayPage() {
 
                 {/* Extra Features */}
                 {ekOzellikler.length > 0 && (
-                  <div className="mt-6 pt-6 border-t border-[#e0e0e0]">
-                    <h3 className="text-sm font-semibold text-[#0B1F3A] mb-4">
+                  <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-[#e0e0e0]">
+                    <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-3 sm:mb-4">
                       Ek Ozellikler
                     </h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {ekOzellikler.map((ozellik) => {
                         if (!ozellik) return null;
                         return (
                           <span
                             key={ozellik.label}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#22c55e]/10 text-[#22c55e] rounded-full text-sm font-medium"
+                            className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#22c55e]/10 text-[#22c55e] rounded-full text-xs sm:text-sm font-medium"
                           >
-                            <Check className="w-4 h-4" />
+                            <Check className="w-3 h-3 sm:w-4 sm:h-4" />
                             {ozellik.label}
                           </span>
                         );
@@ -301,9 +324,9 @@ export default function IlanDetayPage() {
 
               {/* Map */}
               {ilan.konum?.koordinatlar && (
-                <Card padding="lg">
-                  <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">Konum</h2>
-                  <div className="aspect-video rounded-xl overflow-hidden bg-[#e0e0e0]">
+                <Card padding="md" className="sm:p-6 lg:p-8">
+                  <h2 className="text-lg sm:text-xl font-bold text-[#0B1F3A] mb-3 sm:mb-4">Konum</h2>
+                  <div className="aspect-[4/3] sm:aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-[#e0e0e0]">
                     <iframe
                       src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25555.36436036367!2d${ilan.konum.koordinatlar.lng}!3d${ilan.konum.koordinatlar.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM!5e0!3m2!1str!2str!4v1`}
                       width="100%"
@@ -315,8 +338,8 @@ export default function IlanDetayPage() {
                       title={`${ilan.baslik} Konum`}
                     />
                   </div>
-                  <p className="mt-4 text-sm text-[#666666]">
-                    <MapPin className="w-4 h-4 inline mr-1 text-[#C9A84C]" />
+                  <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-[#666666]">
+                    <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1 text-[#C9A84C]" />
                     {ilan.konum.mahalle && `${ilan.konum.mahalle}, `}
                     {ilan.konum.ilce}, {ilan.konum.il}
                   </p>
@@ -324,27 +347,27 @@ export default function IlanDetayPage() {
               )}
             </div>
 
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Contact Card */}
-              <Card padding="lg" className="sticky top-24">
-                <h3 className="text-lg font-bold text-[#0B1F3A] mb-4">
+            {/* Sidebar - Desktop */}
+            <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
+              {/* Contact Card - Hidden on mobile, shown on tablet/desktop */}
+              <Card padding="md" className="hidden lg:block sm:p-6 lg:p-8 lg:sticky lg:top-24">
+                <h3 className="text-base sm:text-lg font-bold text-[#0B1F3A] mb-3 sm:mb-4">
                   Iletisime Gec
                 </h3>
 
                 {/* Agent Info */}
-                <div className="flex items-center gap-4 mb-6 p-4 bg-[#F5F5F5] rounded-xl">
-                  <div className="w-14 h-14 rounded-full bg-[#C9A84C]/20 flex items-center justify-center">
-                    <Building className="w-7 h-7 text-[#C9A84C]" />
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 p-3 sm:p-4 bg-[#F5F5F5] rounded-lg sm:rounded-xl">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
+                    <Building className="w-6 h-6 sm:w-7 sm:h-7 text-[#C9A84C]" />
                   </div>
-                  <div>
-                    <p className="font-bold text-[#0B1F3A]">Zafer SOYLU</p>
-                    <p className="text-sm text-[#666666]">Emlak Danismani</p>
+                  <div className="min-w-0">
+                    <p className="font-bold text-[#0B1F3A] text-sm sm:text-base">Zafer SOYLU</p>
+                    <p className="text-xs sm:text-sm text-[#666666]">Emlak Danismani</p>
                   </div>
                 </div>
 
                 {/* Contact Buttons */}
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <a
                     href={createWhatsAppLink(
                       "905370530754",
@@ -357,8 +380,8 @@ export default function IlanDetayPage() {
                     <Button
                       variant="whatsapp"
                       size="lg"
-                      className="w-full"
-                      leftIcon={<MessageCircle className="w-5 h-5" />}
+                      className="w-full text-sm sm:text-base"
+                      leftIcon={<MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />}
                     >
                       WhatsApp ile Yaz
                     </Button>
@@ -368,8 +391,8 @@ export default function IlanDetayPage() {
                     <Button
                       variant="primary"
                       size="lg"
-                      className="w-full"
-                      leftIcon={<Phone className="w-5 h-5" />}
+                      className="w-full text-sm sm:text-base"
+                      leftIcon={<Phone className="w-4 h-4 sm:w-5 sm:h-5" />}
                     >
                       Hemen Ara
                     </Button>
@@ -382,22 +405,56 @@ export default function IlanDetayPage() {
                 </div>
 
                 {/* Price Info */}
-                <div className="mt-6 pt-6 border-t border-[#e0e0e0]">
+                <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-[#e0e0e0]">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-[#666666]">Fiyat</span>
-                    <span className="font-bold text-[#0B1F3A]">
+                    <span className="text-[#666666] text-sm">Fiyat</span>
+                    <span className="font-bold text-[#0B1F3A] text-sm sm:text-base">
                       {formatPrice(ilan.fiyat)}
                       {ilan.kategori === "kiralik" && "/ay"}
                     </span>
                   </div>
                   {ilan.ozellikler?.metrekare && ilan.ozellikler.metrekare > 0 && (
                     <div className="flex justify-between items-center">
-                      <span className="text-[#666666]">m2 Fiyati</span>
-                      <span className="font-bold text-[#0B1F3A]">
+                      <span className="text-[#666666] text-sm">m2 Fiyati</span>
+                      <span className="font-bold text-[#0B1F3A] text-sm sm:text-base">
                         {formatPrice(Math.round(ilan.fiyat / ilan.ozellikler.metrekare))}
                       </span>
                     </div>
                   )}
+                </div>
+              </Card>
+
+              {/* Tablet Contact Card - Only visible on tablet */}
+              <Card padding="md" className="hidden sm:block lg:hidden">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
+                      <Building className="w-6 h-6 text-[#C9A84C]" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-[#0B1F3A]">Zafer SOYLU</p>
+                      <p className="text-sm text-[#666666]">Emlak Danismani</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <a
+                      href={createWhatsAppLink(
+                        "905370530754",
+                        `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`
+                      )}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button variant="whatsapp" size="md" leftIcon={<MessageCircle className="w-4 h-4" />}>
+                        WhatsApp
+                      </Button>
+                    </a>
+                    <a href="tel:+905370530754">
+                      <Button variant="primary" size="md" leftIcon={<Phone className="w-4 h-4" />}>
+                        Ara
+                      </Button>
+                    </a>
+                  </div>
                 </div>
               </Card>
             </div>
@@ -405,11 +462,11 @@ export default function IlanDetayPage() {
 
           {/* Similar Listings */}
           {benzerIlanlar.length > 0 && (
-            <div className="mt-16">
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-8">
+            <div className="mt-8 sm:mt-12 lg:mt-16">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F3A] mb-4 sm:mb-6 lg:mb-8">
                 Benzer Ilanlar
               </h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {benzerIlanlar.map((benzerIlan, index) => (
                   <IlanKart key={benzerIlan.id} ilan={benzerIlan} index={index} />
                 ))}
@@ -418,6 +475,68 @@ export default function IlanDetayPage() {
           )}
         </div>
       </section>
+
+      {/* Mobile Fixed Contact Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-[#e0e0e0] p-3 sm:p-4 lg:hidden z-50 safe-area-inset-bottom">
+        <div className="container mx-auto flex items-center justify-between gap-2 sm:gap-3">
+          {/* Price on mobile */}
+          <div className="hidden sm:block min-w-0 flex-shrink">
+            <p className="text-xs text-[#666666]">Fiyat</p>
+            <p className="font-bold text-[#0B1F3A] truncate">
+              {formatPrice(ilan.fiyat)}
+              {ilan.kategori === "kiralik" && <span className="text-xs font-normal">/ay</span>}
+            </p>
+          </div>
+
+          {/* Contact Buttons */}
+          <div className="flex gap-2 flex-1 sm:flex-initial justify-end">
+            <a
+              href={createWhatsAppLink(
+                "905370530754",
+                `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 sm:flex-initial"
+            >
+              <Button
+                variant="whatsapp"
+                size="md"
+                className="w-full sm:w-auto"
+                leftIcon={<MessageCircle className="w-4 h-4" />}
+              >
+                <span className="hidden xs:inline">WhatsApp</span>
+                <span className="xs:hidden">WA</span>
+              </Button>
+            </a>
+            <a href="tel:+905370530754" className="flex-1 sm:flex-initial">
+              <Button
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto"
+                leftIcon={<Phone className="w-4 h-4" />}
+              >
+                Ara
+              </Button>
+            </a>
+            <button
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({
+                    title: ilan.baslik,
+                    text: ilan.aciklama?.slice(0, 100) || '',
+                    url: window.location.href,
+                  });
+                }
+              }}
+              className="p-2.5 bg-[#F5F5F5] rounded-lg hover:bg-[#e0e0e0] transition-colors sm:hidden"
+              aria-label="Paylas"
+            >
+              <Share2 className="w-5 h-5 text-[#0B1F3A]" />
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
