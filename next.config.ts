@@ -12,7 +12,19 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "kalindayapi.com",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.kalindayapi.com",
+        pathname: "/uploads/**",
+      },
     ],
+    // Uploaded files are served by nginx, skip optimization for them
+    unoptimized: false,
   },
   experimental: {
     serverActions: {

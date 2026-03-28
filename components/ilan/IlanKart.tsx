@@ -35,6 +35,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                 alt={ilan.baslik}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
+                unoptimized={ilan.fotograflar[0]?.includes('/uploads/')}
               />
               {/* Badge */}
               <div className="absolute top-3 left-3">
@@ -129,6 +130,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
               alt={ilan.baslik}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-110"
+              unoptimized={ilan.fotograflar[0]?.includes('/uploads/')}
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

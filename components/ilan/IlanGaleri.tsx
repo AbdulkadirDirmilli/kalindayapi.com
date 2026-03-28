@@ -79,6 +79,7 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
                   fill
                   className="object-cover"
                   priority={index === 0}
+                  unoptimized={foto?.includes('/uploads/')}
                 />
               </div>
             ))}
@@ -139,6 +140,7 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
                   alt={`${baslik} - Küçük görsel ${index + 1}`}
                   fill
                   className="object-cover"
+                  unoptimized={foto?.includes('/uploads/')}
                 />
               </button>
             ))}

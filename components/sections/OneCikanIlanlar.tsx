@@ -106,6 +106,7 @@ export default function OneCikanIlanlar() {
                           alt={ilan.baslik}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          unoptimized={ilan.fotograflar[0]?.includes('/uploads/')}
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-400">

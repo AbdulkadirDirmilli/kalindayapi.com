@@ -53,7 +53,13 @@
       "Bash(git clean:*)",
       "Bash(python -c \"import os; os.remove\\(r''\\\\\\\\?\\\\C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\nul''\\)\")",
       "Bash(python:*)",
-      "Bash(nslookup:*)"
+      "Bash(nslookup:*)",
+      "Bash(copy \"D:\\\\İsimler\\\\zafer_arif kalindayapı\\\\favicon.png\" \"C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\public\\\\favicon.png\")",
+      "Bash(copy \"D:\\\\İsimler\\\\zafer_arif kalindayapı\\\\favicon.png\" \"C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\app\\\\icon.png\")",
+      "Bash(git rm:*)",
+      "Bash(Get-Content prisma/schema.prisma)",
+      "Bash(Select-String -Pattern \"danismanId|Ilan model\" -Context 0,5)",
+      "Bash(ls:*)"
     ]
   }
 }
