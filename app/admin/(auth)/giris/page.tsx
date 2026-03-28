@@ -173,11 +173,14 @@ export default function AdminLoginPage() {
         {/* Main Card */}
         <div className="relative p-6 rounded-2xl border border-gray-100 shadow-xl shadow-violet-500/5 overflow-hidden">
           {/* Gradient background - top transparent, bottom solid */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-transparent" />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-blue-50 via-blue-100/80 to-transparent rounded-2xl border-2 border-violet-300 shadow-md"
+            style={{ maskImage: 'linear-gradient(to top, black 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top, black 60%, transparent 100%)' }}
+          />
           {/* Logo Section */}
           <div className="relative z-10 text-center mb-6">
             <div className="flex justify-center mb-4">
-              <div className="p-2.5 bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl border border-violet-100">
+              <div className="p-2.5 bg-white rounded-xl border-2 border-violet-300 shadow-md">
                 <Image
                   src="/logo.svg"
                   alt="Kalinda Yapi"
