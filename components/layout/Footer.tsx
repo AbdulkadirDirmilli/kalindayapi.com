@@ -234,20 +234,20 @@ export default function Footer() {
               © {currentYear} Kalinda Yapı — Ortaca, Muğla | Tüm Hakları Saklıdır
             </p>
             <div className="flex items-center gap-4">
-              <Link href="/gizlilik" className="hover:text-[#C9A84C] transition-colors">
-                Gizlilik Politikası
-              </Link>
-              <span className="text-gray-600">|</span>
-              <Link href="/kullanim-kosullari" className="hover:text-[#C9A84C] transition-colors">
-                Kullanım Koşulları
-              </Link>
-              <span className="text-gray-600">|</span>
               <Link
                 href="/admin/giris"
                 className="hover:text-[#C9A84C] transition-colors flex items-center gap-1"
                 title="Yönetim Paneli"
               >
                 <Settings className="w-4 h-4" />
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link href="/gizlilik" className="hover:text-[#C9A84C] transition-colors">
+                Gizlilik Politikası
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link href="/kullanim-kosullari" className="hover:text-[#C9A84C] transition-colors">
+                Kullanım Koşulları
               </Link>
             </div>
           </div>
