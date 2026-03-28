@@ -85,7 +85,7 @@ export const ilanSchema = z.object({
   isyeriRuhsati: z.boolean().default(false),
 
   // Video
-  videoUrl: z.string().url().optional().nullable().or(z.literal('')),
+  videoUrl: z.string().optional().nullable(),
 
   aciklama: z.string().min(20, 'Aciklama en az 20 karakter olmali'),
   oneCikan: z.boolean().default(false),
@@ -93,7 +93,7 @@ export const ilanSchema = z.object({
   ilanNo: z.string().optional().nullable(),
 
   // Fotograflar (URL array)
-  fotograflar: z.array(z.string().url()).optional(),
+  fotograflar: z.array(z.string()).optional(),
 })
 
 export const ilanUpdateSchema = ilanSchema.partial()
