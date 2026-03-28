@@ -76,7 +76,9 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
+    console.log('Gelen veri:', JSON.stringify(body, null, 2))
     const validatedData = ilanSchema.parse(body)
+    console.log('Validated veri:', JSON.stringify(validatedData, null, 2))
 
     const { fotograflar, ...ilanData } = validatedData
 
@@ -125,14 +127,21 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(ilan, { status: 201 })
   } catch (error) {
     console.error('Ilan olusturma hatasi:', error)
-    if (error instanceof Error && error.name === 'ZodError') {
+    console.error('Hata tipi:', error?.constructor?.name)
+    console.error('Hata detay:', JSON.stringify(error, Object.getOwnPropertyNames(error), 2))
+
+    // Zod validation error
+    if (error && typeof error === 'object' && 'issues' in error) {
       return NextResponse.json(
         { error: 'Gecersiz veri', details: error },
         { status: 400 }
       )
     }
+
+    // Prisma or other errors
+    const errorMessage = error instanceof Error ? error.message : 'Bilinmeyen hata'
     return NextResponse.json(
-      { error: 'Ilan olusturulurken hata olustu' },
+      { error: 'Ilan olusturulurken hata olustu', details: errorMessage },
       { status: 500 }
     )
   }

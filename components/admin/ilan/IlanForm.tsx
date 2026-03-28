@@ -567,10 +567,34 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
     setSuccess(null)
 
     try {
-      // Prepare data - stringify arrays
+      // Helper: convert empty strings to null
+      const emptyToNull = (val: string | null | undefined) => val === '' ? null : val
+
+      // Prepare data - stringify arrays and convert empty strings to null
       const dataToSend = {
         ...formData,
         metrekare: formData.brutMetrekare || formData.metrekare,
+        // Convert empty strings to null for optional fields
+        altTip: emptyToNull(formData.altTip),
+        mahalle: emptyToNull(formData.mahalle),
+        binaTipi: emptyToNull(formData.binaTipi),
+        kullanimDurumu: emptyToNull(formData.kullanimDurumu),
+        isitma: emptyToNull(formData.isitma),
+        yakitTipi: emptyToNull(formData.yakitTipi),
+        enerjiSinifi: emptyToNull(formData.enerjiSinifi),
+        imarDurumu: emptyToNull(formData.imarDurumu),
+        emsal: emptyToNull(formData.emsal),
+        gabari: emptyToNull(formData.gabari),
+        arsaTipi: emptyToNull(formData.arsaTipi),
+        egim: emptyToNull(formData.egim),
+        zemin: emptyToNull(formData.zemin),
+        ticariTip: emptyToNull(formData.ticariTip),
+        tapuDurumu: emptyToNull(formData.tapuDurumu),
+        videoUrl: emptyToNull(formData.videoUrl),
+        danismanId: emptyToNull(formData.danismanId),
+        adaNo: emptyToNull(formData.adaNo),
+        parselNo: emptyToNull(formData.parselNo),
+        paftaNo: emptyToNull(formData.paftaNo),
         icOzellikler: JSON.stringify(formData.icOzellikler),
         disOzellikler: JSON.stringify(formData.disOzellikler),
         muhitOzellikleri: JSON.stringify(formData.muhitOzellikleri),
@@ -593,7 +617,8 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
       if (!response.ok) {
         const data = await response.json()
-        throw new Error(data.error || 'Bir hata olustu')
+        const errorDetail = data.details ? ` - ${data.details}` : ''
+        throw new Error((data.error || 'Bir hata olustu') + errorDetail)
       }
 
       setSuccess('Ilan basariyla kaydedildi!')
