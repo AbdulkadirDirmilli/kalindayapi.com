@@ -28,7 +28,8 @@ model Ilan {
   baslik            String
   slug              String      @unique
   kategori          String      // satilik, kiralik
-  tip               String      // daire, villa, arsa, ticari
+  tip               String      // daire, villa, arsa, ticari, vb.
+  altTip            String?     // Detaylı tip (residans, mustakil, tarla, ofis, vb.)
   fiyat             Int
   paraBirimi        String      @default("TL")
 
@@ -39,16 +40,26 @@ model Ilan {
   koordinatLat      Float?
   koordinatLng      Float?
 
-  // Temel ozellikler
-  metrekare         Int?
+  // Temel ozellikler - Konut
+  brutMetrekare     Int?
+  netMetrekare      Int?
+  metrekare         Int?        // Eski alan, geriye uyumluluk için
   odaSayisi         String?     // 2+1, 3+1, Acik Plan
   banyoSayisi       Int?
+  tuvaletSayisi     Int?
+  balkonSayisi      Int?
   kat               Int?
   toplamKat         Int?
   binaYasi          Int?
-  isitma            String?
+  binaTipi          String?     // Apartman, Villa, Site, vb.
+  kullanimDurumu    String?     // Bos, Kiracili, Mal Sahibi
 
-  // Boolean ozellikler
+  // Isitma ve Enerji
+  isitma            String?
+  yakitTipi         String?
+  enerjiSinifi      String?
+
+  // Boolean ozellikler (eski)
   esyali            Boolean     @default(false)
   balkon            Boolean     @default(false)
   asansor           Boolean     @default(false)
@@ -58,15 +69,51 @@ model Ilan {
   bahce             Boolean     @default(false)
   bahceMetrekare    Int?
 
-  // Arsa ozellikleri
+  // Detayli ozellikler (JSON)
+  icOzellikler      String?     // JSON array
+  disOzellikler     String?     // JSON array
+  muhitOzellikleri  String?     // JSON array
+  guvenlikOzellikleri String?   // JSON array
+  cephe             String?     // JSON array
+  manzara           String?     // JSON array
+
+  // Arsa/Tarla ozellikleri
   imarDurumu        String?
+  emsal             String?
   gabari            String?
+  taks              Float?
+  kaks              Float?
   yolCephesi        Int?
+  derinlik          Int?
+  arsaTipi          String?
+  egim              String?
+  zemin             String?
   altyapi           Boolean     @default(false)
+  altyapiDetay      String?     // JSON array
+  tarimOzellikleri  String?     // JSON array
+  adaNo             String?
+  parselNo          String?
+  paftaNo           String?
+
+  // Ticari ozellikler
+  ticariTip         String?
+  cepheGenisligi    Int?
+  tavanYuksekligi   Float?
+  personelKapasitesi Int?
+  depoOzellikleri   String?     // JSON array
+
+  // Tapu ve yasal
+  tapuDurumu        String?
+  krediyeUygun      Boolean     @default(false)
+  takasaUygun       Boolean     @default(false)
+  isyeriRuhsati     Boolean     @default(false)
+
+  // Video URL
+  videoUrl          String?
 
   aciklama          String
   oneCikan          Boolean     @default(false)
-  durum             String      @default("aktif") // aktif, pasif, satildi
+  durum             String      @default("aktif") // aktif, pasif, satildi, kiralandi
   ilanNo            String?     @unique
 
   yayinTarihi       DateTime    @default(now())

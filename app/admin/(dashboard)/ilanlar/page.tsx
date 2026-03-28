@@ -261,22 +261,22 @@ export default function IlanlarPage() {
             </Link>
           </div>
 
-          {/* Filters Row - scrollable on mobile */}
-          <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0">
+          {/* Filters Row */}
+          <div className="flex items-center gap-2">
             <select
               value={kategori}
               onChange={(e) => setKategori(e.target.value)}
-              className="input py-2 px-3 w-auto text-sm flex-shrink-0"
+              className="input py-1.5 px-2 text-sm w-24"
             >
               <option value="">Kategori</option>
-              <option value="satilik">Satilik</option>
-              <option value="kiralik">Kiralik</option>
+              <option value="satilik">Satılık</option>
+              <option value="kiralik">Kiralık</option>
             </select>
 
             <select
               value={tip}
               onChange={(e) => setTip(e.target.value)}
-              className="input py-2 px-3 w-auto text-sm flex-shrink-0"
+              className="input py-1.5 px-2 text-sm w-20"
             >
               <option value="">Tip</option>
               <option value="daire">Daire</option>
@@ -288,12 +288,12 @@ export default function IlanlarPage() {
             <select
               value={durum}
               onChange={(e) => setDurum(e.target.value)}
-              className="input py-2 px-3 w-auto text-sm flex-shrink-0"
+              className="input py-1.5 px-2 text-sm w-20"
             >
               <option value="">Durum</option>
               <option value="aktif">Aktif</option>
               <option value="pasif">Pasif</option>
-              <option value="satildi">Satildi</option>
+              <option value="satildi">Satıldı</option>
             </select>
           </div>
         </div>

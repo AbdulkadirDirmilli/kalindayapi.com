@@ -1,13 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard,
   Building2,
   Briefcase,
   Mail,
-  Image,
+  Image as ImageIcon,
   Users,
   Settings,
   LogOut,
@@ -24,7 +25,7 @@ const menuItems = [
   { href: '/admin/ilanlar', label: 'Ilanlar', icon: Building2 },
   { href: '/admin/hizmetler', label: 'Hizmetler', icon: Briefcase },
   { href: '/admin/iletisim', label: 'Mesajlar', icon: Mail },
-  { href: '/admin/medya', label: 'Medya', icon: Image },
+  { href: '/admin/medya', label: 'Medya', icon: ImageIcon },
   { href: '/admin/ortaklar', label: 'Ortaklar', icon: Users },
   { href: '/admin/ayarlar', label: 'Ayarlar', icon: Settings },
 ]
@@ -85,9 +86,13 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
           )}
         </button>
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-            <Building2 className="w-5 h-5 text-primary" />
-          </div>
+          <Image
+            src="/logo.svg"
+            alt="Kalinda"
+            width={32}
+            height={32}
+            className="w-8 h-8"
+          />
           <span className="font-bold text-white">Kalinda</span>
         </div>
         <div className="w-10" /> {/* Spacer for centering */}
@@ -123,9 +128,13 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
                 isCollapsed && 'justify-center w-full'
               )}
             >
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                <Building2 className="w-6 h-6 text-primary" />
-              </div>
+              <Image
+                src="/logo.svg"
+                alt="Kalinda"
+                width={40}
+                height={40}
+                className="w-10 h-10 flex-shrink-0"
+              />
               {!isCollapsed && (
                 <div>
                   <h1 className="font-bold text-lg">Kalinda</h1>

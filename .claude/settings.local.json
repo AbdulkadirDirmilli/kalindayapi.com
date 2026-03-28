@@ -40,7 +40,20 @@
       "Bash(node -e:*)",
       "Bash(npm run db:migrate:*)",
       "Bash(npm run db:seed:*)",
-      "Bash(npx tsx:*)"
+      "Bash(npx tsx:*)",
+      "Bash(find:*)",
+      "Bash(del \"\\\\?\\\\C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\nul\")",
+      "Bash(cmd /c \"del \\\\?\\\\C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\nul\")",
+      "Bash(cmd /c \"dir C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\nul\")",
+      "Bash(powershell -Command \"Test-Path ''\\\\?\\\\C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\nul''\")",
+      "Bash(powershell -Command:*)",
+      "Bash(cmd /c \"cd /d C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com && del /f /q \\\\.\\\\nul\")",
+      "Bash(cmd /c \"pushd C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com && ren nul deleteme.txt && del deleteme.txt && popd\")",
+      "Bash(cmd.exe /c del /f /a \"\\\\?\\\\C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\nul\")",
+      "Bash(git clean:*)",
+      "Bash(python -c \"import os; os.remove\\(r''\\\\\\\\?\\\\C:\\\\Users\\\\J-17\\\\OneDrive\\\\Belgeler\\\\GitHub\\\\kalindayapi.com\\\\nul''\\)\")",
+      "Bash(python:*)",
+      "Bash(nslookup:*)"
     ]
   }
 }

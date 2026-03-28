@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { IlanKart, IlanFiltresi, IlanPagination } from "@/components/ilan";
 import { generateBreadcrumbSchema } from "@/lib/jsonld";
 import { Ilan } from "@/lib/utils";
-import ilanlarData from "@/data/ilanlar.json";
-import { ChevronRight, Home } from "lucide-react";
+import { ChevronRight, Home, Loader2 } from "lucide-react";
 import Link from "next/link";
 
 const ITEMS_PER_PAGE = 12;
@@ -31,53 +30,50 @@ export default function IlanlarPage() {
   });
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
+  const [ilanlar, setIlanlar] = useState<Ilan[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [totalCount, setTotalCount] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
 
-  const allIlanlar = ilanlarData.ilanlar as Ilan[];
+  // Fetch ilanlar from API
+  useEffect(() => {
+    const fetchIlanlar = async () => {
+      setLoading(true);
+      setError(null);
 
-  // Filter listings
-  const filteredIlanlar = useMemo(() => {
-    return allIlanlar.filter((ilan) => {
-      // Kategori filter
-      if (filters.kategori && ilan.kategori !== filters.kategori) return false;
+      try {
+        const params = new URLSearchParams();
+        params.append("page", currentPage.toString());
+        params.append("limit", ITEMS_PER_PAGE.toString());
 
-      // Tip filter
-      if (filters.tip && ilan.tip !== filters.tip) return false;
+        if (filters.kategori) params.append("kategori", filters.kategori);
+        if (filters.tip) params.append("tip", filters.tip);
+        if (filters.konum) params.append("konum", filters.konum);
+        if (filters.minFiyat) params.append("minFiyat", filters.minFiyat);
+        if (filters.maxFiyat) params.append("maxFiyat", filters.maxFiyat);
+        if (filters.arama) params.append("search", filters.arama);
 
-      // Konum filter
-      if (filters.konum) {
-        const konumMatch =
-          ilan.konum.ilce.toLowerCase().includes(filters.konum.toLowerCase()) ||
-          ilan.konum.mahalle.toLowerCase().includes(filters.konum.toLowerCase());
-        if (!konumMatch) return false;
+        const response = await fetch(`/api/ilanlar?${params.toString()}`);
+
+        if (!response.ok) {
+          throw new Error("Ilanlar yuklenirken hata olustu");
+        }
+
+        const data = await response.json();
+        setIlanlar(data.ilanlar || []);
+        setTotalCount(data.pagination?.total || 0);
+        setTotalPages(data.pagination?.totalPages || 1);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Bir hata olustu");
+        setIlanlar([]);
+      } finally {
+        setLoading(false);
       }
+    };
 
-      // Min price filter
-      if (filters.minFiyat && ilan.fiyat < parseInt(filters.minFiyat)) return false;
-
-      // Max price filter
-      if (filters.maxFiyat && ilan.fiyat > parseInt(filters.maxFiyat)) return false;
-
-      // Search filter
-      if (filters.arama) {
-        const searchLower = filters.arama.toLowerCase();
-        const matchesSearch =
-          ilan.baslik.toLowerCase().includes(searchLower) ||
-          ilan.aciklama.toLowerCase().includes(searchLower) ||
-          ilan.konum.ilce.toLowerCase().includes(searchLower) ||
-          ilan.konum.mahalle.toLowerCase().includes(searchLower);
-        if (!matchesSearch) return false;
-      }
-
-      return true;
-    });
-  }, [allIlanlar, filters]);
-
-  // Pagination
-  const totalPages = Math.ceil(filteredIlanlar.length / ITEMS_PER_PAGE);
-  const paginatedIlanlar = filteredIlanlar.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
+    fetchIlanlar();
+  }, [currentPage, filters]);
 
   // Reset page when filters change
   const handleFilterChange = (newFilters: FilterState) => {
@@ -87,7 +83,7 @@ export default function IlanlarPage() {
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Ana Sayfa", url: "/" },
-    { name: "İlanlar", url: "/ilanlar" },
+    { name: "Ilanlar", url: "/ilanlar" },
   ]);
 
   return (
@@ -109,7 +105,7 @@ export default function IlanlarPage() {
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">İlanlar</span>
+            <span className="text-[#C9A84C]">Ilanlar</span>
           </nav>
 
           <motion.div
@@ -118,10 +114,10 @@ export default function IlanlarPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Emlak İlanları
+              Emlak Ilanlari
             </h1>
             <p className="text-gray-300 max-w-2xl">
-              Muğla'nın tüm ilçelerinde satılık ve kiralık gayrimenkuller.
+              Mugla'nin tum ilcelerinde satilik ve kiralik gayrimenkuller.
               Hayalinizdeki evi bulun.
             </p>
           </motion.div>
@@ -143,12 +139,53 @@ export default function IlanlarPage() {
               onFilterChange={handleFilterChange}
               viewMode={viewMode}
               onViewModeChange={setViewMode}
-              totalCount={filteredIlanlar.length}
+              totalCount={totalCount}
             />
           </motion.div>
 
+          {/* Loading State */}
+          {loading && (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="w-10 h-10 animate-spin text-[#C9A84C]" />
+              <span className="ml-3 text-lg text-gray-600">
+                Ilanlar yukleniyor...
+              </span>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && !loading && (
+            <div className="text-center py-16">
+              <div className="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg
+                  className="w-12 h-12 text-red-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
+                Hata Olustu
+              </h3>
+              <p className="text-[#666666] mb-6">{error}</p>
+              <button
+                onClick={() => window.location.reload()}
+                className="px-6 py-2 bg-[#C9A84C] text-white rounded-lg hover:bg-[#b8973f] transition-colors"
+              >
+                Tekrar Dene
+              </button>
+            </div>
+          )}
+
           {/* Listings */}
-          {paginatedIlanlar.length > 0 ? (
+          {!loading && !error && ilanlar.length > 0 && (
             <>
               <div
                 className={
@@ -157,7 +194,7 @@ export default function IlanlarPage() {
                     : "space-y-4"
                 }
               >
-                {paginatedIlanlar.map((ilan, index) => (
+                {ilanlar.map((ilan, index) => (
                   <IlanKart
                     key={ilan.id}
                     ilan={ilan}
@@ -178,7 +215,10 @@ export default function IlanlarPage() {
                 </div>
               )}
             </>
-          ) : (
+          )}
+
+          {/* Empty State */}
+          {!loading && !error && ilanlar.length === 0 && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -200,10 +240,10 @@ export default function IlanlarPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
-                İlan Bulunamadı
+                Ilan Bulunamadi
               </h3>
               <p className="text-[#666666] mb-6">
-                Arama kriterlerinize uygun ilan bulunamadı. Filtreleri değiştirmeyi
+                Arama kriterlerinize uygun ilan bulunamadi. Filtreleri degistirmeyi
                 deneyin.
               </p>
               <button
@@ -219,7 +259,7 @@ export default function IlanlarPage() {
                 }
                 className="text-[#C9A84C] font-medium hover:underline"
               >
-                Tüm filtreleri temizle
+                Tum filtreleri temizle
               </button>
             </motion.div>
           )}
