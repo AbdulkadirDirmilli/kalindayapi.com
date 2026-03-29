@@ -457,7 +457,7 @@ export default function IletisimPage() {
       {/* Map */}
       <section className="h-[400px] bg-[#e0e0e0]">
         <iframe
-          src="https://maps.google.com/maps?q=36.8390448,28.7685417&t=&z=17&ie=UTF8&iwloc=&output=embed"
+          src="https://maps.google.com/maps?q=36.83947,28.76639&t=&z=17&ie=UTF8&iwloc=&output=embed"
           width="100%"
           height="100%"
           style={{ border: 0 }}
