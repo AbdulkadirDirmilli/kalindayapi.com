@@ -11,6 +11,7 @@ const hizmetSecenekleri = [
   { value: "emlak", label: "Emlak Danışmanlığı" },
   { value: "tadilat", label: "Tadilat & Dekorasyon" },
   { value: "taahhut", label: "Taahhüt & İnşaat" },
+  { value: "plan-proje", label: "Plan & Proje" },
   { value: "diger", label: "Diğer" },
 ];
 
