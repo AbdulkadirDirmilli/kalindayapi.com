@@ -16,9 +16,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (!mesaj || typeof mesaj !== 'string' || mesaj.trim().length < 10) {
+    if (!mesaj || typeof mesaj !== 'string' || mesaj.trim().length < 5) {
       return NextResponse.json(
-        { error: 'Mesaj alanı gereklidir ve en az 10 karakter olmalıdır' },
+        { error: 'Mesaj alanı gereklidir ve en az 5 karakter olmalıdır' },
         { status: 400 }
       )
     }
