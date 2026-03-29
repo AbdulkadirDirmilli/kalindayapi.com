@@ -5,9 +5,14 @@ services:
     build: .
     container_name: kalindayapi-app
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - PORT=3001
+    volumes:
+      - ./prisma/dev.db:/app/prisma/dev.db
+      - ./public/uploads:/app/public/uploads
     networks:
       - akduniverse-network
     healthcheck:

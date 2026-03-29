@@ -14,5 +14,8 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
+# Create prisma directory for SQLite database mount
+RUN mkdir -p /app/prisma
+
 EXPOSE 3001
 CMD ["node", "server.js"]
