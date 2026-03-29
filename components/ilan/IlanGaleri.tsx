@@ -12,7 +12,15 @@ interface IlanGaleriProps {
   baslik: string;
 }
 
+// Video dosyası olup olmadığını kontrol et
+function isVideo(url: string): boolean {
+  return url.includes('/videos/') || /\.(mp4|webm|mov|avi)$/i.test(url);
+}
+
 export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
+  // Videoları filtrele, sadece fotoğrafları göster
+  const sadeceFotograflar = fotograflar.filter(url => !isVideo(url));
+
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
@@ -67,7 +75,7 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
       <div className="relative rounded-2xl overflow-hidden bg-[#F5F5F5]">
         <div className="overflow-hidden" ref={mainRef}>
           <div className="flex">
-            {fotograflar.map((foto, index) => (
+            {sadeceFotograflar.map((foto, index) => (
               <div
                 key={index}
                 className="flex-[0_0_100%] min-w-0 relative aspect-[16/10] cursor-pointer"
@@ -87,7 +95,7 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
         </div>
 
         {/* Navigation Buttons */}
-        {fotograflar.length > 1 && (
+        {sadeceFotograflar.length > 1 && (
           <>
             <button
               onClick={scrollPrev}
@@ -117,15 +125,15 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
 
         {/* Counter */}
         <div className="absolute bottom-4 left-4 bg-black/60 text-white px-3 py-1.5 rounded-full text-sm">
-          {selectedIndex + 1} / {fotograflar.length}
+          {selectedIndex + 1} / {sadeceFotograflar.length}
         </div>
       </div>
 
       {/* Thumbnails */}
-      {fotograflar.length > 1 && (
+      {sadeceFotograflar.length > 1 && (
         <div className="overflow-hidden" ref={thumbRef}>
           <div className="flex gap-3">
-            {fotograflar.map((foto, index) => (
+            {sadeceFotograflar.map((foto, index) => (
               <button
                 key={index}
                 onClick={() => onThumbClick(index)}
@@ -152,16 +160,16 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
       <Lightbox
         isOpen={isLightboxOpen}
         onClose={() => setIsLightboxOpen(false)}
-        images={fotograflar}
+        images={sadeceFotograflar}
         currentIndex={selectedIndex}
         onPrev={() =>
           setSelectedIndex((prev) =>
-            prev === 0 ? fotograflar.length - 1 : prev - 1
+            prev === 0 ? sadeceFotograflar.length - 1 : prev - 1
           )
         }
         onNext={() =>
           setSelectedIndex((prev) =>
-            prev === fotograflar.length - 1 ? 0 : prev + 1
+            prev === sadeceFotograflar.length - 1 ? 0 : prev + 1
           )
         }
       />
