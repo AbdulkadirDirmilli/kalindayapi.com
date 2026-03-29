@@ -57,12 +57,12 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
       value: `${ilan.ozellikler.banyoSayisi} Banyo`,
       icon: Bath,
     },
-    ilan.ozellikler?.kat !== undefined && {
+    ilan.ozellikler?.kat != null && {
       label: "Kat",
-      value: `${ilan.ozellikler.kat}/${ilan.ozellikler.toplamKat || '?'}`,
+      value: `${ilan.ozellikler.kat}/${ilan.ozellikler.toplamKat ?? '?'}`,
       icon: Building,
     },
-    ilan.ozellikler?.binaYasi !== undefined && {
+    ilan.ozellikler?.binaYasi != null && {
       label: "Bina Yasi",
       value: ilan.ozellikler.binaYasi === 0 ? "Sifir" : `${ilan.ozellikler.binaYasi} Yil`,
       icon: Calendar,
