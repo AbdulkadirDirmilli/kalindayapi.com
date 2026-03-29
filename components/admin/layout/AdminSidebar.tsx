@@ -15,6 +15,7 @@ import {
   ChevronLeft,
   Menu,
   X,
+  ExternalLink,
 } from 'lucide-react'
 import { signOut } from 'next-auth/react'
 import { useState, useEffect, useCallback } from 'react'
@@ -225,6 +226,17 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
             </p>
             <p className="text-xs text-white/60 truncate">{user.email}</p>
           </div>
+          <Link
+            href="/"
+            target="_blank"
+            className={clsx(
+              'flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-white/80 hover:bg-white/10 hover:text-white w-full mb-1',
+              isCollapsed && 'lg:justify-center'
+            )}
+          >
+            <ExternalLink className="w-5 h-5 flex-shrink-0" />
+            <span className={clsx(isCollapsed && 'lg:hidden')}>Siteyi Gor</span>
+          </Link>
           <button
             onClick={handleSignOut}
             className={clsx(
