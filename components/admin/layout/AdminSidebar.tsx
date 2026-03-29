@@ -17,14 +17,14 @@ import {
   X,
 } from 'lucide-react'
 import { signOut } from 'next-auth/react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import clsx from 'clsx'
 
 const menuItems = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/ilanlar', label: 'Ilanlar', icon: Building2 },
   { href: '/admin/hizmetler', label: 'Hizmetler', icon: Briefcase },
-  { href: '/admin/iletisim', label: 'Mesajlar', icon: Mail },
+  { href: '/admin/iletisim', label: 'Mesajlar', icon: Mail, badge: 'unreadMessages' },
   { href: '/admin/medya', label: 'Medya', icon: ImageIcon },
   { href: '/admin/ortaklar', label: 'Ortaklar', icon: Users },
   { href: '/admin/ayarlar', label: 'Ayarlar', icon: Settings },
@@ -41,11 +41,34 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
   const pathname = usePathname()
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const [unreadMessages, setUnreadMessages] = useState(0)
+
+  // Fetch unread message count
+  const fetchUnreadCount = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/iletisim?durum=yeni&limit=1')
+      if (response.ok) {
+        const data = await response.json()
+        setUnreadMessages(data.pagination?.total || 0)
+      }
+    } catch (error) {
+      console.error('Okunmamis mesaj sayisi alinamadi:', error)
+    }
+  }, [])
+
+  useEffect(() => {
+    fetchUnreadCount()
+    // Refresh every 60 seconds
+    const interval = setInterval(fetchUnreadCount, 60000)
+    return () => clearInterval(interval)
+  }, [fetchUnreadCount])
 
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileOpen(false)
-  }, [pathname])
+    // Refresh unread count on route change
+    fetchUnreadCount()
+  }, [pathname, fetchUnreadCount])
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -161,22 +184,33 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
           {menuItems.map((item) => {
             const Icon = item.icon
             const active = isActive(item.href)
+            const badgeCount = item.badge === 'unreadMessages' ? unreadMessages : 0
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={clsx(
-                  'flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors',
+                  'flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors relative',
                   active
                     ? 'bg-accent text-primary font-semibold'
                     : 'text-white/80 hover:bg-white/10 hover:text-white',
                   isCollapsed && 'lg:justify-center'
                 )}
               >
-                <Icon className="w-5 h-5 flex-shrink-0" />
-                <span className={clsx(isCollapsed && 'lg:hidden')}>
+                <div className="relative">
+                  <Icon className="w-5 h-5 flex-shrink-0" />
+                  {badgeCount > 0 && isCollapsed && (
+                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full" />
+                  )}
+                </div>
+                <span className={clsx(isCollapsed && 'lg:hidden', 'flex items-center gap-2')}>
                   {item.label}
+                  {badgeCount > 0 && !isCollapsed && (
+                    <span className="bg-red-500 text-white text-xs font-medium px-1.5 py-0.5 rounded-full min-w-[1.25rem] text-center">
+                      {badgeCount > 99 ? '99+' : badgeCount}
+                    </span>
+                  )}
                 </span>
               </Link>
             )

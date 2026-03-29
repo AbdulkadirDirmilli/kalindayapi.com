@@ -149,147 +149,14 @@ export default function IletisimPage() {
     }
   }
 
-  // Mobile: Show detail view when contact is selected
-  if (selectedContact) {
-    return (
-      <div className="lg:hidden">
-        <AdminHeader title="Mesaj Detayi" />
-        <div className="p-4">
-          <button
-            onClick={() => setSelectedContact(null)}
-            className="flex items-center gap-2 text-gray-600 mb-4"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Geri</span>
-          </button>
-
-          <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
-            <div className="space-y-4">
-              <div>
-                <p className="text-xs text-gray-400 mb-1">Gonderen</p>
-                <p className="font-medium text-gray-900">{selectedContact.ad}</p>
-              </div>
-
-              <div>
-                <p className="text-xs text-gray-400 mb-1">Email</p>
-                <a
-                  href={`mailto:${selectedContact.email}`}
-                  className="text-primary hover:underline flex items-center gap-1 text-sm"
-                >
-                  <Mail className="w-4 h-4" />
-                  {selectedContact.email}
-                </a>
-              </div>
-
-              {selectedContact.telefon && (
-                <div>
-                  <p className="text-xs text-gray-400 mb-1">Telefon</p>
-                  <a
-                    href={`tel:${selectedContact.telefon}`}
-                    className="text-primary hover:underline flex items-center gap-1 text-sm"
-                  >
-                    <Phone className="w-4 h-4" />
-                    {selectedContact.telefon}
-                  </a>
-                </div>
-              )}
-
-              <div>
-                <p className="text-xs text-gray-400 mb-1">Konu</p>
-                <p className="text-gray-700">{selectedContact.konu || 'Genel'}</p>
-              </div>
-
-              <div>
-                <p className="text-xs text-gray-400 mb-1">Mesaj</p>
-                <p className="text-sm text-gray-700 whitespace-pre-wrap">
-                  {selectedContact.mesaj}
-                </p>
-              </div>
-
-              <div>
-                <p className="text-xs text-gray-400 mb-1">Tarih</p>
-                <p className="text-sm text-gray-600">
-                  {new Date(selectedContact.createdAt).toLocaleString('tr-TR')}
-                </p>
-              </div>
-
-              {/* Actions */}
-              <div className="pt-4 border-t border-gray-200">
-                <p className="text-xs text-gray-400 mb-2">Durum</p>
-                <div className="flex flex-wrap gap-2">
-                  <button
-                    onClick={() => handleStatusChange(selectedContact.id, 'okundu')}
-                    className={`px-3 py-1.5 text-xs rounded-lg flex items-center gap-1 ${
-                      selectedContact.durum === 'okundu'
-                        ? 'bg-yellow-500 text-white'
-                        : 'bg-gray-100 hover:bg-yellow-100'
-                    }`}
-                  >
-                    <Eye className="w-3 h-3" />
-                    Okundu
-                  </button>
-                  <button
-                    onClick={() => handleStatusChange(selectedContact.id, 'cevaplandi')}
-                    className={`px-3 py-1.5 text-xs rounded-lg flex items-center gap-1 ${
-                      selectedContact.durum === 'cevaplandi'
-                        ? 'bg-green-500 text-white'
-                        : 'bg-gray-100 hover:bg-green-100'
-                    }`}
-                  >
-                    <Check className="w-3 h-3" />
-                    Cevaplandi
-                  </button>
-                  <button
-                    onClick={() => handleStatusChange(selectedContact.id, 'arsivlendi')}
-                    className={`px-3 py-1.5 text-xs rounded-lg flex items-center gap-1 ${
-                      selectedContact.durum === 'arsivlendi'
-                        ? 'bg-gray-500 text-white'
-                        : 'bg-gray-100 hover:bg-gray-200'
-                    }`}
-                  >
-                    <Archive className="w-3 h-3" />
-                    Arsivle
-                  </button>
-                </div>
-              </div>
-
-              {/* Delete */}
-              <div className="pt-4 border-t border-gray-200">
-                <button
-                  onClick={() => setDeleteId(selectedContact.id)}
-                  className="w-full px-3 py-2 text-sm text-red-600 border border-red-200 rounded-lg hover:bg-red-50 flex items-center justify-center gap-2"
-                >
-                  <Trash2 className="w-4 h-4" />
-                  Mesaji Sil
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <ConfirmDialog
-          isOpen={!!deleteId}
-          title="Mesaji Sil"
-          message="Bu mesaji silmek istediginizden emin misiniz?"
-          confirmText="Sil"
-          cancelText="Iptal"
-          onConfirm={handleDelete}
-          onCancel={() => setDeleteId(null)}
-          variant="danger"
-          isLoading={isDeleting}
-        />
-      </div>
-    )
-  }
-
   return (
     <div>
       <AdminHeader title="Mesajlar" subtitle="Iletisim formlarindan gelen mesajlar" />
 
       <div className="p-4 sm:p-6">
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Message List */}
-          <div className="flex-1">
+          {/* Message List - Hide on mobile when contact selected */}
+          <div className={`flex-1 ${selectedContact ? 'hidden lg:block' : ''}`}>
             {/* Filters */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4">
               <select
@@ -415,6 +282,122 @@ export default function IletisimPage() {
               )}
             </div>
           </div>
+
+          {/* Message Detail - Mobile Only */}
+          {selectedContact && (
+            <div className="lg:hidden">
+              <button
+                onClick={() => setSelectedContact(null)}
+                className="flex items-center gap-2 text-gray-600 mb-4"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Geri</span>
+              </button>
+
+              <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">Gonderen</p>
+                    <p className="font-medium text-gray-900">{selectedContact.ad}</p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">Email</p>
+                    <a
+                      href={`mailto:${selectedContact.email}`}
+                      className="text-primary hover:underline flex items-center gap-1 text-sm"
+                    >
+                      <Mail className="w-4 h-4" />
+                      {selectedContact.email}
+                    </a>
+                  </div>
+
+                  {selectedContact.telefon && (
+                    <div>
+                      <p className="text-xs text-gray-400 mb-1">Telefon</p>
+                      <a
+                        href={`tel:${selectedContact.telefon}`}
+                        className="text-primary hover:underline flex items-center gap-1 text-sm"
+                      >
+                        <Phone className="w-4 h-4" />
+                        {selectedContact.telefon}
+                      </a>
+                    </div>
+                  )}
+
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">Konu</p>
+                    <p className="text-gray-700">{selectedContact.konu || 'Genel'}</p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">Mesaj</p>
+                    <p className="text-sm text-gray-700 whitespace-pre-wrap">
+                      {selectedContact.mesaj}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">Tarih</p>
+                    <p className="text-sm text-gray-600">
+                      {new Date(selectedContact.createdAt).toLocaleString('tr-TR')}
+                    </p>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="pt-4 border-t border-gray-200">
+                    <p className="text-xs text-gray-400 mb-2">Durum</p>
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        onClick={() => handleStatusChange(selectedContact.id, 'okundu')}
+                        className={`px-3 py-1.5 text-xs rounded-lg flex items-center gap-1 ${
+                          selectedContact.durum === 'okundu'
+                            ? 'bg-yellow-500 text-white'
+                            : 'bg-gray-100 hover:bg-yellow-100'
+                        }`}
+                      >
+                        <Eye className="w-3 h-3" />
+                        Okundu
+                      </button>
+                      <button
+                        onClick={() => handleStatusChange(selectedContact.id, 'cevaplandi')}
+                        className={`px-3 py-1.5 text-xs rounded-lg flex items-center gap-1 ${
+                          selectedContact.durum === 'cevaplandi'
+                            ? 'bg-green-500 text-white'
+                            : 'bg-gray-100 hover:bg-green-100'
+                        }`}
+                      >
+                        <Check className="w-3 h-3" />
+                        Cevaplandi
+                      </button>
+                      <button
+                        onClick={() => handleStatusChange(selectedContact.id, 'arsivlendi')}
+                        className={`px-3 py-1.5 text-xs rounded-lg flex items-center gap-1 ${
+                          selectedContact.durum === 'arsivlendi'
+                            ? 'bg-gray-500 text-white'
+                            : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                      >
+                        <Archive className="w-3 h-3" />
+                        Arsivle
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Delete */}
+                  <div className="pt-4 border-t border-gray-200">
+                    <button
+                      onClick={() => setDeleteId(selectedContact.id)}
+                      className="w-full px-3 py-2 text-sm text-red-600 border border-red-200 rounded-lg hover:bg-red-50 flex items-center justify-center gap-2"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                      Mesaji Sil
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Message Detail - Desktop Only */}
           <div className="hidden lg:block w-96 flex-shrink-0">
