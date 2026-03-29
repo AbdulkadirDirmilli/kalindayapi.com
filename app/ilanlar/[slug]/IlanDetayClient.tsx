@@ -270,6 +270,197 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     </div>
                   </div>
                 )}
+
+                {/* Detayli Ozellikler */}
+                {(ilan.ozellikler?.icOzellikler?.length ||
+                  ilan.ozellikler?.disOzellikler?.length ||
+                  ilan.ozellikler?.muhitOzellikleri?.length ||
+                  ilan.ozellikler?.guvenlikOzellikleri?.length ||
+                  ilan.ozellikler?.cephe?.length ||
+                  ilan.ozellikler?.manzara?.length ||
+                  ilan.ozellikler?.altyapiDetay?.length ||
+                  ilan.ozellikler?.tarimOzellikleri?.length ||
+                  ilan.ozellikler?.depoOzellikleri?.length) && (
+                  <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-[#e0e0e0] space-y-4">
+                    {/* Ic Ozellikler */}
+                    {ilan.ozellikler?.icOzellikler && ilan.ozellikler.icOzellikler.length > 0 && (
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
+                          Ic Ozellikler
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {ilan.ozellikler.icOzellikler.map((ozellik: string) => (
+                            <span
+                              key={ozellik}
+                              className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#0B1F3A]/10 text-[#0B1F3A] rounded-full text-xs sm:text-sm font-medium"
+                            >
+                              <Check className="w-3 h-3 sm:w-4 sm:h-4" />
+                              {ozellik}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Dis Ozellikler */}
+                    {ilan.ozellikler?.disOzellikler && ilan.ozellikler.disOzellikler.length > 0 && (
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
+                          Dis Ozellikler
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {ilan.ozellikler.disOzellikler.map((ozellik: string) => (
+                            <span
+                              key={ozellik}
+                              className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#0B1F3A]/10 text-[#0B1F3A] rounded-full text-xs sm:text-sm font-medium"
+                            >
+                              <Check className="w-3 h-3 sm:w-4 sm:h-4" />
+                              {ozellik}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Muhit Ozellikleri */}
+                    {ilan.ozellikler?.muhitOzellikleri && ilan.ozellikler.muhitOzellikleri.length > 0 && (
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
+                          Muhit Ozellikleri
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {ilan.ozellikler.muhitOzellikleri.map((ozellik: string) => (
+                            <span
+                              key={ozellik}
+                              className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#0B1F3A]/10 text-[#0B1F3A] rounded-full text-xs sm:text-sm font-medium"
+                            >
+                              <Check className="w-3 h-3 sm:w-4 sm:h-4" />
+                              {ozellik}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Guvenlik Ozellikleri */}
+                    {ilan.ozellikler?.guvenlikOzellikleri && ilan.ozellikler.guvenlikOzellikleri.length > 0 && (
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
+                          Guvenlik Ozellikleri
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {ilan.ozellikler.guvenlikOzellikleri.map((ozellik: string) => (
+                            <span
+                              key={ozellik}
+                              className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#0B1F3A]/10 text-[#0B1F3A] rounded-full text-xs sm:text-sm font-medium"
+                            >
+                              <Check className="w-3 h-3 sm:w-4 sm:h-4" />
+                              {ozellik}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Cephe */}
+                    {ilan.ozellikler?.cephe && ilan.ozellikler.cephe.length > 0 && (
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
+                          Cephe
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {ilan.ozellikler.cephe.map((ozellik: string) => (
+                            <span
+                              key={ozellik}
+                              className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#C9A84C]/10 text-[#C9A84C] rounded-full text-xs sm:text-sm font-medium"
+                            >
+                              {ozellik}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Manzara */}
+                    {ilan.ozellikler?.manzara && ilan.ozellikler.manzara.length > 0 && (
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
+                          Manzara
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {ilan.ozellikler.manzara.map((ozellik: string) => (
+                            <span
+                              key={ozellik}
+                              className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#C9A84C]/10 text-[#C9A84C] rounded-full text-xs sm:text-sm font-medium"
+                            >
+                              {ozellik}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Altyapi Detay - Arsa icin */}
+                    {ilan.ozellikler?.altyapiDetay && ilan.ozellikler.altyapiDetay.length > 0 && (
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
+                          Altyapi
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {ilan.ozellikler.altyapiDetay.map((ozellik: string) => (
+                            <span
+                              key={ozellik}
+                              className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#0B1F3A]/10 text-[#0B1F3A] rounded-full text-xs sm:text-sm font-medium"
+                            >
+                              <Check className="w-3 h-3 sm:w-4 sm:h-4" />
+                              {ozellik}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Tarim Ozellikleri - Arsa icin */}
+                    {ilan.ozellikler?.tarimOzellikleri && ilan.ozellikler.tarimOzellikleri.length > 0 && (
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
+                          Tarim Ozellikleri
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {ilan.ozellikler.tarimOzellikleri.map((ozellik: string) => (
+                            <span
+                              key={ozellik}
+                              className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#0B1F3A]/10 text-[#0B1F3A] rounded-full text-xs sm:text-sm font-medium"
+                            >
+                              <Check className="w-3 h-3 sm:w-4 sm:h-4" />
+                              {ozellik}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Depo Ozellikleri - Ticari icin */}
+                    {ilan.ozellikler?.depoOzellikleri && ilan.ozellikler.depoOzellikleri.length > 0 && (
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
+                          Depo Ozellikleri
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {ilan.ozellikler.depoOzellikleri.map((ozellik: string) => (
+                            <span
+                              key={ozellik}
+                              className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#0B1F3A]/10 text-[#0B1F3A] rounded-full text-xs sm:text-sm font-medium"
+                            >
+                              <Check className="w-3 h-3 sm:w-4 sm:h-4" />
+                              {ozellik}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </Card>
 
               {/* Map */}

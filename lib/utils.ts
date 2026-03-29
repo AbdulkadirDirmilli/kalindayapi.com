@@ -174,6 +174,18 @@ export interface Ilan {
     gabari?: string;
     yolCephesi?: number;
     altyapi?: boolean;
+    // Detayli ozellikler
+    icOzellikler?: string[];
+    disOzellikler?: string[];
+    muhitOzellikleri?: string[];
+    guvenlikOzellikleri?: string[];
+    cephe?: string[];
+    manzara?: string[];
+    // Arsa ozellikleri
+    altyapiDetay?: string[];
+    tarimOzellikleri?: string[];
+    // Ticari ozellikler
+    depoOzellikleri?: string[];
   };
   aciklama: string;
   fotograflar: string[];

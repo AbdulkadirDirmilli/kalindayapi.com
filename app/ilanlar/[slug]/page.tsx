@@ -56,6 +56,18 @@ function formatIlan(ilan: any): Ilan {
       gabari: ilan.gabari,
       yolCephesi: ilan.yolCephesi,
       altyapi: ilan.altyapi,
+      // Detayli ozellikler - JSON string'den array'e cevir
+      icOzellikler: ilan.icOzellikler ? JSON.parse(ilan.icOzellikler) : undefined,
+      disOzellikler: ilan.disOzellikler ? JSON.parse(ilan.disOzellikler) : undefined,
+      muhitOzellikleri: ilan.muhitOzellikleri ? JSON.parse(ilan.muhitOzellikleri) : undefined,
+      guvenlikOzellikleri: ilan.guvenlikOzellikleri ? JSON.parse(ilan.guvenlikOzellikleri) : undefined,
+      cephe: ilan.cephe ? JSON.parse(ilan.cephe) : undefined,
+      manzara: ilan.manzara ? JSON.parse(ilan.manzara) : undefined,
+      // Arsa ozellikleri
+      altyapiDetay: ilan.altyapiDetay ? JSON.parse(ilan.altyapiDetay) : undefined,
+      tarimOzellikleri: ilan.tarimOzellikleri ? JSON.parse(ilan.tarimOzellikleri) : undefined,
+      // Ticari ozellikler
+      depoOzellikleri: ilan.depoOzellikleri ? JSON.parse(ilan.depoOzellikleri) : undefined,
     },
     aciklama: ilan.aciklama,
     fotograflar: ilan.fotograflar.map((f: any) => f.url),
