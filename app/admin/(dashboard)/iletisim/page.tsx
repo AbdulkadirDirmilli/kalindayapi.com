@@ -156,7 +156,7 @@ export default function IletisimPage() {
       <div className="p-4 sm:p-6">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Message List - Hide on mobile when contact selected */}
-          <div className={`flex-1 ${selectedContact ? 'hidden lg:block' : ''}`}>
+          <div className={`flex-1 min-w-0 ${selectedContact ? 'hidden lg:block' : ''}`}>
             {/* Filters */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4">
               <select
@@ -224,8 +224,8 @@ export default function IletisimPage() {
                         selectedContact?.id === contact.id ? 'bg-gray-50' : ''
                       } ${contact.durum === 'yeni' ? 'font-medium' : ''}`}
                     >
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2 overflow-hidden">
+                        <div className="flex-1 min-w-0 overflow-hidden">
                           <div className="flex items-center gap-2 flex-wrap">
                             <span className="text-sm text-gray-900">{contact.ad}</span>
                             <span
