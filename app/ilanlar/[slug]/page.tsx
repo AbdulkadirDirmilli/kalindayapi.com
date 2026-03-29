@@ -219,6 +219,19 @@ export default function IlanDetayPage() {
               {/* Gallery */}
               <Card padding="md" className="sm:p-6 lg:p-8">
                 <IlanGaleri fotograflar={ilan.fotograflar || []} baslik={ilan.baslik} />
+
+                {/* Video Button - only shows if video exists */}
+                {ilan.videoUrl && (
+                  <button
+                    onClick={() => {
+                      document.getElementById('ilan-video')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#0B1F3A] hover:bg-[#0B1F3A]/90 text-white font-semibold rounded-xl transition-colors"
+                  >
+                    <Play className="w-5 h-5" />
+                    İlanın Videosunu İzle
+                  </button>
+                )}
               </Card>
 
               {/* Quick Info - Mobile Only */}
@@ -243,10 +256,10 @@ export default function IlanDetayPage() {
 
               {/* Video */}
               {ilan.videoUrl && (
-                <Card padding="md" className="sm:p-6 lg:p-8">
+                <Card id="ilan-video" padding="md" className="sm:p-6 lg:p-8 scroll-mt-24">
                   <h2 className="text-lg sm:text-xl font-bold text-[#0B1F3A] mb-3 sm:mb-4 flex items-center gap-2">
                     <Play className="w-4 h-4 sm:w-5 sm:h-5" />
-                    Ilan Videosu
+                    İlan Videosu
                   </h2>
                   <div className="aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-black">
                     <video

@@ -570,6 +570,11 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
       // Helper: convert empty strings to null
       const emptyToNull = (val: string | null | undefined) => val === '' ? null : val
 
+      // Extract first video from fotograflar for videoUrl
+      const firstVideoUrl = formData.fotograflar.find(
+        (url: string) => url.includes('/videos/') || /\.(mp4|webm|mov|avi)$/i.test(url)
+      ) || null
+
       // Prepare data - stringify arrays and convert empty strings to null
       const dataToSend = {
         ...formData,
@@ -590,7 +595,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
         zemin: emptyToNull(formData.zemin),
         ticariTip: emptyToNull(formData.ticariTip),
         tapuDurumu: emptyToNull(formData.tapuDurumu),
-        videoUrl: emptyToNull(formData.videoUrl),
+        videoUrl: firstVideoUrl,
         danismanId: emptyToNull(formData.danismanId),
         adaNo: emptyToNull(formData.adaNo),
         parselNo: emptyToNull(formData.parselNo),
