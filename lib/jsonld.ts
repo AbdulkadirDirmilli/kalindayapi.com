@@ -44,7 +44,7 @@ export function generateOrganizationSchema() {
     image: `${siteConfig.url}/og-image.jpg`,
     telephone: ["+905370530754", "+905321591556"],
     email: "info@kalindayapi.com",
-    foundingDate: "2012",
+    foundingDate: "2022",
     address: {
       "@type": "PostalAddress",
       ...siteConfig.address,
@@ -263,5 +263,5 @@ export function generateWebSiteSchema() {
 
 // AI Summary component for GEO optimization
 export function generateAISummary(): string {
-  return `Kalinda Yapı, Muğla'nın Ortaca ilçesinde faaliyet gösteren lisanslı emlak danışmanlığı, tadilat ve inşaat taahhüt firmasıdır. Zafer Soylu (emlak danışmanı, +90 537 053 07 54) ve Arif Dağdelen (yapı & taahhüt uzmanı, +90 532 159 15 56) ortaklığıyla 2012'den bu yana bölgeye hizmet vermektedir. Muğla'nın tüm ilçelerinde (Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça, Menteşe, Yatağan, Ula, Kavaklıdere, Seydikemer) satılık ve kiralık gayrimenkuller, konut ve ticari inşaat projeleri, iç mekan tadilat ve dekorasyon hizmetleri sunmaktadır. 500'den fazla tamamlanmış proje ve 300'den fazla mutlu aile ile %98 müşteri memnuniyeti oranına sahiptir.`;
+  return `Kalinda Yapı, Muğla'nın Ortaca ilçesinde faaliyet gösteren lisanslı emlak danışmanlığı, tadilat ve inşaat taahhüt firmasıdır. Zafer Soylu (emlak danışmanı, +90 537 053 07 54) ve Arif Dağdelen (yapı & taahhüt uzmanı, +90 532 159 15 56) ortaklığıyla 2022'den bu yana bölgeye hizmet vermektedir. Muğla'nın tüm ilçelerinde (Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça, Menteşe, Yatağan, Ula, Kavaklıdere, Seydikemer) satılık ve kiralık gayrimenkuller, konut ve ticari inşaat projeleri, iç mekan tadilat ve dekorasyon hizmetleri sunmaktadır. 100'den fazla tamamlanmış proje ve 200'den fazla mutlu aile ile %98 müşteri memnuniyeti oranına sahiptir.`;
 }
