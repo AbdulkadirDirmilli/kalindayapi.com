@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { sendContactFormNotification } from '@/lib/email'
 
 // POST - Create new contact form submission (public)
 export async function POST(request: NextRequest) {
@@ -44,6 +45,17 @@ export async function POST(request: NextRequest) {
         mesaj: mesaj.trim(),
         durum: 'yeni',
       },
+    })
+
+    // E-posta bildirimi gönder (arka planda, hata olsa bile form başarılı sayılır)
+    sendContactFormNotification({
+      ad: ad.trim(),
+      email: email?.trim(),
+      telefon: telefon?.trim(),
+      konu: konu?.trim(),
+      mesaj: mesaj.trim(),
+    }).catch((err) => {
+      console.error('E-posta bildirimi gönderilemedi:', err)
     })
 
     return NextResponse.json(
