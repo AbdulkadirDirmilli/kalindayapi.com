@@ -191,7 +191,7 @@ export default function IstatistikSayaclari() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center text-gray-500 text-xs mt-8"
+          className="text-center text-accent/80 text-sm mt-8 font-medium"
         >
           * Veriler gerçek işlemlerimizi yansıtmakta olup, her satış ve kiralama sonrası güncellenmektedir.
         </motion.p>

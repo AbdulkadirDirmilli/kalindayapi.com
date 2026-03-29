@@ -1,10 +1,26 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Search, Phone, ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
+
+// Dinamik sayaç hesaplama - 5 günde 1 artış
+function hesaplaDinamikDeger(baslangicDegeri: number): number {
+  const baslangicTarihi = new Date("2025-01-01");
+  const bugun = new Date();
+  const gunFarki = Math.floor((bugun.getTime() - baslangicTarihi.getTime()) / (1000 * 60 * 60 * 24));
+  const artis = Math.floor(gunFarki / 5);
+  return baslangicDegeri + artis;
+}
+
+// Yıl deneyimi hesaplama - 2022'den bu yana
+function hesaplaYilDeneyimi(): number {
+  const kurulusYili = 2022;
+  const bugunYil = new Date().getFullYear();
+  return bugunYil - kurulusYili;
+}
 
 export default function HeroSection() {
   const ref = useRef(null);
@@ -110,9 +126,9 @@ export default function HeroSection() {
             className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mt-16"
           >
             {[
-              { value: "500+", label: "Tamamlanan Proje" },
-              { value: "12+", label: "Yıl Deneyim" },
-              { value: "300+", label: "Mutlu Aile" },
+              { value: `${hesaplaDinamikDeger(102)}+`, label: "Tamamlanan Proje" },
+              { value: `${hesaplaYilDeneyimi()}+`, label: "Yıl Deneyim" },
+              { value: `${hesaplaDinamikDeger(209)}+`, label: "Mutlu Aile" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <p className="text-3xl md:text-4xl font-bold text-accent">
