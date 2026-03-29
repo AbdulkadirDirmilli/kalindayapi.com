@@ -2,8 +2,8 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Bildirim e-postası gönderilecek adres
-const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'info@kalindayapi.com';
+// Bildirim e-postası gönderilecek adresler (virgülle ayrılmış)
+const NOTIFICATION_EMAILS = (process.env.NOTIFICATION_EMAIL || 'info@kalindayapi.com').split(',').map(e => e.trim());
 const FROM_EMAIL = process.env.FROM_EMAIL || 'bildirim@kalindayapi.com';
 
 interface ContactFormData {
@@ -112,7 +112,7 @@ Admin Paneli: https://www.kalindayapi.com/admin/iletisim
 
     const result = await resend.emails.send({
       from: `Kalinda Yapı <${FROM_EMAIL}>`,
-      to: [NOTIFICATION_EMAIL],
+      to: NOTIFICATION_EMAILS,
       subject: `Yeni İletişim Mesajı: ${konu || ad}`,
       html: htmlContent,
       text: textContent,
