@@ -7,10 +7,9 @@ export async function proxy(request: NextRequest) {
   const hostname = request.headers.get('host') || ''
 
   // non-www to www redirect (SEO & favicon icin onemli)
-  if (hostname === 'kalindayapi.com') {
-    const url = request.nextUrl.clone()
-    url.host = 'www.kalindayapi.com'
-    return NextResponse.redirect(url, 301)
+  if (hostname === 'kalindayapi.com' || hostname.startsWith('kalindayapi.com:')) {
+    const redirectUrl = `https://www.kalindayapi.com${pathname}${request.nextUrl.search}`
+    return NextResponse.redirect(redirectUrl, 301)
   }
 
   // Admin rotalarini kontrol et
