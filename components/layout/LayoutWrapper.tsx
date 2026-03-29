@@ -6,6 +6,7 @@ import Footer from './Footer'
 import WhatsAppButton from './WhatsAppButton'
 import SideContactBar from './SideContactBar'
 import ScrollToTop from './ScrollToTop'
+import CookieConsent from '../CookieConsent'
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -25,6 +26,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       <Footer />
       <WhatsAppButton />
       <SideContactBar />
+      <CookieConsent />
     </>
   )
 }
