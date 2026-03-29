@@ -94,6 +94,8 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${inter.variable} ${nunito.variable}`}>
       <head>
+        {/* Preload hero image for better LCP */}
+        <link rel="preload" href="/images/hero/dalyan-hero.jpg" as="image" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />

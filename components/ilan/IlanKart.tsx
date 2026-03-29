@@ -42,8 +42,8 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                 src={kapakFoto}
                 alt={ilan.baslik}
                 fill
+                sizes="(max-width: 640px) 100vw, 288px"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
-                unoptimized={kapakFoto?.includes('/uploads/')}
               />
               {/* Badge */}
               <div className="absolute top-3 left-3">
@@ -137,8 +137,8 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
               src={kapakFoto}
               alt={ilan.baslik}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover transition-transform duration-500 group-hover:scale-110"
-              unoptimized={kapakFoto?.includes('/uploads/')}
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

@@ -112,8 +112,8 @@ export default function OneCikanIlanlar() {
                             src={kapakFoto}
                             alt={ilan.baslik}
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="object-cover transition-transform duration-500 group-hover:scale-110"
-                            unoptimized={kapakFoto?.includes('/uploads/')}
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-gray-400">
