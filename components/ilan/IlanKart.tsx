@@ -8,6 +8,11 @@ import { Card } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import { formatPrice, getRelativeTime, Ilan } from "@/lib/utils";
 
+// Video dosyası olup olmadığını kontrol et
+function isVideo(url: string): boolean {
+  return url.includes('/videos/') || /\.(mp4|webm|mov|avi)$/i.test(url);
+}
+
 interface IlanKartProps {
   ilan: Ilan;
   variant?: "grid" | "list";
@@ -15,6 +20,9 @@ interface IlanKartProps {
 }
 
 export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKartProps) {
+  // Kapak fotoğrafı - sadece fotoğrafları al (videoları hariç tut)
+  const kapakFoto = ilan.fotograflar?.find(f => !isVideo(f)) || ilan.fotograflar?.[0];
+
   if (variant === "list") {
     return (
       <motion.div
@@ -31,11 +39,11 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
             {/* Image */}
             <div className="relative w-full sm:w-72 h-48 sm:h-auto flex-shrink-0">
               <Image
-                src={ilan.fotograflar[0]}
+                src={kapakFoto}
                 alt={ilan.baslik}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
-                unoptimized={ilan.fotograflar[0]?.includes('/uploads/')}
+                unoptimized={kapakFoto?.includes('/uploads/')}
               />
               {/* Badge */}
               <div className="absolute top-3 left-3">
@@ -126,11 +134,11 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
           {/* Image */}
           <div className="relative aspect-[4/3] overflow-hidden">
             <Image
-              src={ilan.fotograflar[0]}
+              src={kapakFoto}
               alt={ilan.baslik}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-110"
-              unoptimized={ilan.fotograflar[0]?.includes('/uploads/')}
+              unoptimized={kapakFoto?.includes('/uploads/')}
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

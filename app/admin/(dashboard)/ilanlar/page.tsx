@@ -209,7 +209,7 @@ export default function IlanlarPage() {
       render: (ilan: Ilan) => (
         <div className="flex items-center justify-end gap-2">
           <Link
-            href={`/ilanlar/${ilan.id}`}
+            href={`/ilanlar/${ilan.slug}`}
             target="_blank"
             className="p-2 hover:bg-surface rounded-lg transition-colors"
             title="Onizle"

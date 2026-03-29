@@ -10,6 +10,11 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { formatPrice, Ilan } from "@/lib/utils";
 
+// Video dosyası olup olmadığını kontrol et
+function isVideo(url: string): boolean {
+  return url.includes('/videos/') || /\.(mp4|webm|mov|avi)$/i.test(url);
+}
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -100,19 +105,22 @@ export default function OneCikanIlanlar() {
                   >
                     {/* Image */}
                     <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
-                      {ilan.fotograflar && ilan.fotograflar[0] ? (
-                        <Image
-                          src={ilan.fotograflar[0]}
-                          alt={ilan.baslik}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                          unoptimized={ilan.fotograflar[0]?.includes('/uploads/')}
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-gray-400">
-                          <Maximize2 className="w-12 h-12" />
-                        </div>
-                      )}
+                      {(() => {
+                        const kapakFoto = ilan.fotograflar?.find(f => !isVideo(f));
+                        return kapakFoto ? (
+                          <Image
+                            src={kapakFoto}
+                            alt={ilan.baslik}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            unoptimized={kapakFoto?.includes('/uploads/')}
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-gray-400">
+                            <Maximize2 className="w-12 h-12" />
+                          </div>
+                        );
+                      })()}
                       {/* Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
