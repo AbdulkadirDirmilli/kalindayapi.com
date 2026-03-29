@@ -8,7 +8,7 @@ module.exports = {
   generateIndexSitemap: true,
   changefreq: 'weekly',
   priority: 0.7,
-  exclude: ['/admin/*', '/api/*', '/icon.png'],
+  exclude: ['/admin/*', '/api/*', '/icon.png', '/icon*', '/*.png', '/*.ico'],
   robotsTxtOptions: {
     policies: [
       {
@@ -27,19 +27,36 @@ module.exports = {
 
     // Blog yazılarını ekle
     try {
-      const blogPostsPath = path.join(process.cwd(), 'data', 'blog-posts.json');
-      if (fs.existsSync(blogPostsPath)) {
-        const blogData = JSON.parse(fs.readFileSync(blogPostsPath, 'utf8'));
-        if (blogData.yazilar) {
-          for (const post of blogData.yazilar) {
-            paths.push({
-              loc: `/blog/${post.slug}`,
-              changefreq: 'weekly',
-              priority: 0.7,
-              lastmod: post.yayinTarihi ? new Date(post.yayinTarihi).toISOString() : new Date().toISOString(),
-            });
+      // Farklı olası yolları dene
+      const possiblePaths = [
+        path.join(process.cwd(), 'data', 'blog-posts.json'),
+        path.join(__dirname, 'data', 'blog-posts.json'),
+        './data/blog-posts.json',
+      ];
+
+      let blogData = null;
+      for (const blogPath of possiblePaths) {
+        try {
+          if (fs.existsSync(blogPath)) {
+            blogData = JSON.parse(fs.readFileSync(blogPath, 'utf8'));
+            console.log('Blog posts bulundu:', blogPath);
+            break;
           }
+        } catch (e) {
+          // Devam et
         }
+      }
+
+      if (blogData && blogData.yazilar) {
+        for (const post of blogData.yazilar) {
+          paths.push({
+            loc: `/blog/${post.slug}`,
+            changefreq: 'weekly',
+            priority: 0.7,
+            lastmod: post.yayinTarihi ? new Date(post.yayinTarihi).toISOString() : new Date().toISOString(),
+          });
+        }
+        console.log(`${paths.length} blog yazisi sitemap'e eklendi`);
       }
     } catch (error) {
       console.error('Blog posts yuklenemedi:', error);
