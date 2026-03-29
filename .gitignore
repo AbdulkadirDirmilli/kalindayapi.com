@@ -45,3 +45,12 @@ next-env.d.ts
 # SQLite database
 *.db
 *.db-journal
+
+# User uploads (stored on server, not in git)
+/public/uploads/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Windows artifacts
+nul
