@@ -101,10 +101,10 @@ export default function Header() {
                   className={cn(
                     "px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-1",
                     isActive(item.href)
-                      ? "text-[#C9A84C]"
+                      ? "text-accent"
                       : isScrolled
-                        ? "text-[#0B1F3A] hover:text-[#C9A84C]"
-                        : "text-white hover:text-[#C9A84C]"
+                        ? "text-primary hover:text-accent"
+                        : "text-white hover:text-accent"
                   )}
                 >
                   {item.name}
@@ -132,8 +132,8 @@ export default function Header() {
                             key={child.name}
                             href={child.href}
                             className={cn(
-                              "block px-4 py-3 text-[#0B1F3A] hover:bg-[#F5F5F5] hover:text-[#C9A84C] transition-colors",
-                              isActive(child.href) && "bg-[#F5F5F5] text-[#C9A84C]"
+                              "block px-4 py-3 text-primary hover:bg-surface hover:text-accent transition-colors",
+                              isActive(child.href) && "bg-surface text-accent"
                             )}
                           >
                             {child.name}
@@ -164,7 +164,7 @@ export default function Header() {
           <button
             className={cn(
               "lg:hidden p-2 rounded-lg transition-colors",
-              isScrolled ? "text-[#0B1F3A]" : "text-white"
+              isScrolled ? "text-primary" : "text-white"
             )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Menü"
@@ -186,7 +186,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-t border-[#e0e0e0] overflow-hidden"
+            className="lg:hidden bg-white border-t border-border overflow-hidden"
           >
             <div className="container mx-auto px-4 py-4">
               {navigation.map((item) => (
@@ -202,8 +202,8 @@ export default function Header() {
                         className={cn(
                           "w-full flex items-center justify-between px-4 py-3 font-medium rounded-lg",
                           isActive(item.href)
-                            ? "text-[#C9A84C] bg-[#F5F5F5]"
-                            : "text-[#0B1F3A]"
+                            ? "text-accent bg-surface"
+                            : "text-primary"
                         )}
                       >
                         {item.name}
@@ -229,8 +229,8 @@ export default function Header() {
                                 className={cn(
                                   "block px-4 py-2 text-sm rounded-lg",
                                   isActive(child.href)
-                                    ? "text-[#C9A84C] bg-[#F5F5F5]"
-                                    : "text-[#666666]"
+                                    ? "text-accent bg-surface"
+                                    : "text-text-light"
                                 )}
                               >
                                 {child.name}
@@ -246,8 +246,8 @@ export default function Header() {
                       className={cn(
                         "block px-4 py-3 font-medium rounded-lg",
                         isActive(item.href)
-                          ? "text-[#C9A84C] bg-[#F5F5F5]"
-                          : "text-[#0B1F3A]"
+                          ? "text-accent bg-surface"
+                          : "text-primary"
                       )}
                     >
                       {item.name}
@@ -257,7 +257,7 @@ export default function Header() {
               ))}
 
               {/* Mobile CTA */}
-              <div className="mt-4 pt-4 border-t border-[#e0e0e0] space-y-3">
+              <div className="mt-4 pt-4 border-t border-border space-y-3">
                 <Link href="/ilanlar" className="block">
                   <Button variant="accent" size="md" className="w-full">
                     <Search className="w-4 h-4" />

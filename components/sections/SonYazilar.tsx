@@ -10,7 +10,7 @@ export default function SonYazilar() {
   const sonYazilar = blogData.yazilar.slice(0, 3);
 
   return (
-    <section className="py-16 md:py-20 bg-[#F5F5F5]">
+    <section className="py-16 md:py-20 bg-surface">
       <div className="container mx-auto px-4">
         {/* Başlık */}
         <div className="text-center mb-12">
@@ -18,7 +18,7 @@ export default function SonYazilar() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 bg-[#C9A84C]/10 text-[#C9A84C] text-sm font-semibold rounded-full mb-3"
+            className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-semibold rounded-full mb-3"
           >
             Blog & Rehber
           </motion.span>
@@ -27,9 +27,9 @@ export default function SonYazilar() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-2xl md:text-4xl font-bold text-[#0B1F3A] mb-4"
+            className="text-2xl md:text-4xl font-bold text-primary mb-4"
           >
-            Son <span className="text-[#C9A84C]">Yazılarımız</span>
+            Son <span className="text-accent">Yazılarımız</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ export default function SonYazilar() {
                   {/* Kapak */}
                   <div className="relative h-44 bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="px-3 py-1 bg-[#C9A84C] text-[#0B1F3A] text-xs font-bold rounded-full">
+                      <span className="px-3 py-1 bg-[#C9A84C] text-primary text-xs font-bold rounded-full">
                         {yazi.kategori}
                       </span>
                     </div>
@@ -66,7 +66,7 @@ export default function SonYazilar() {
 
                   {/* İçerik */}
                   <div className="p-5 flex-1 flex flex-col">
-                    <h3 className="text-base font-bold text-[#0B1F3A] mb-2 line-clamp-2 group-hover:text-[#C9A84C] transition-colors">
+                    <h3 className="text-base font-bold text-primary mb-2 line-clamp-2 group-hover:text-accent transition-colors">
                       {yazi.baslik}
                     </h3>
                     <p className="text-[#666666] text-sm mb-4 line-clamp-2 flex-1">
@@ -83,7 +83,7 @@ export default function SonYazilar() {
                           {yazi.okunmaSuresi} dk
                         </span>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-[#C9A84C] group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>

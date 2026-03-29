@@ -61,7 +61,7 @@ export default function SideContactBar() {
             {/* Toggle Button */}
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="absolute -left-8 top-1/2 -translate-y-1/2 w-8 h-16 bg-[#0B1F3A] text-white rounded-l-lg flex items-center justify-center hover:bg-[#1a3a5c] transition-colors"
+              className="absolute -left-8 top-1/2 -translate-y-1/2 w-8 h-16 bg-primary text-white rounded-l-lg flex items-center justify-center hover:bg-primary-light transition-colors"
               aria-label={isExpanded ? "Kapat" : "Aç"}
             >
               {isExpanded ? (
@@ -78,16 +78,16 @@ export default function SideContactBar() {
               className="bg-white shadow-xl rounded-l-xl overflow-hidden"
             >
               {/* Phone Section */}
-              <div className="p-2 border-b border-[#e0e0e0]">
+              <div className="p-2 border-b border-border">
                 {phoneNumbers.map((item, index) => (
                   <a
                     key={item.phone}
                     href={`tel:${item.phone}`}
-                    className="flex items-center gap-3 p-2 rounded-lg hover:bg-[#F5F5F5] transition-colors group"
+                    className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface transition-colors group"
                     title={`${item.name} - ${item.label}`}
                   >
                     {item.foto ? (
-                      <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-[#C9A84C]">
+                      <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-accent">
                         <Image
                           src={item.foto}
                           alt={item.name}
@@ -97,7 +97,7 @@ export default function SideContactBar() {
                         />
                       </div>
                     ) : (
-                      <div className="w-8 h-8 rounded-full bg-[#0B1F3A] flex items-center justify-center flex-shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
                         <Phone className="w-4 h-4 text-white" />
                       </div>
                     )}
@@ -109,8 +109,8 @@ export default function SideContactBar() {
                           exit={{ opacity: 0, width: 0 }}
                           className="whitespace-nowrap overflow-hidden"
                         >
-                          <p className="text-xs text-[#666666]">{item.label}</p>
-                          <p className="text-sm font-semibold text-[#0B1F3A] group-hover:text-[#C9A84C] transition-colors">
+                          <p className="text-xs text-text-light">{item.label}</p>
+                          <p className="text-sm font-semibold text-primary group-hover:text-accent transition-colors">
                             {item.name}
                           </p>
                         </motion.div>
@@ -121,14 +121,14 @@ export default function SideContactBar() {
               </div>
 
               {/* Email Section */}
-              <div className="p-2 border-b border-[#e0e0e0]">
+              <div className="p-2 border-b border-border">
                 <a
                   href="mailto:info@kalindayapi.com"
-                  className="flex items-center gap-3 p-2 rounded-lg hover:bg-[#F5F5F5] transition-colors group"
+                  className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface transition-colors group"
                   title="E-posta gönder"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#C9A84C] flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-4 h-4 text-[#0B1F3A]" />
+                  <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-4 h-4 text-primary" />
                   </div>
                   <AnimatePresence>
                     {isExpanded && (
@@ -138,8 +138,8 @@ export default function SideContactBar() {
                         exit={{ opacity: 0, width: 0 }}
                         className="whitespace-nowrap overflow-hidden"
                       >
-                        <p className="text-xs text-[#666666]">E-posta</p>
-                        <p className="text-sm font-semibold text-[#0B1F3A] group-hover:text-[#C9A84C] transition-colors">
+                        <p className="text-xs text-text-light">E-posta</p>
+                        <p className="text-sm font-semibold text-primary group-hover:text-accent transition-colors">
                           info@kalindayapi.com
                         </p>
                       </motion.div>
@@ -158,7 +158,7 @@ export default function SideContactBar() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-[#F5F5F5] transition-colors group"
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface transition-colors group"
                       title={item.name}
                     >
                       <div
@@ -173,7 +173,7 @@ export default function SideContactBar() {
                             initial={{ opacity: 0, width: 0 }}
                             animate={{ opacity: 1, width: "auto" }}
                             exit={{ opacity: 0, width: 0 }}
-                            className="text-sm font-medium text-[#0B1F3A] group-hover:text-[#C9A84C] transition-colors whitespace-nowrap overflow-hidden"
+                            className="text-sm font-medium text-primary group-hover:text-accent transition-colors whitespace-nowrap overflow-hidden"
                           >
                             {item.name}
                           </motion.span>

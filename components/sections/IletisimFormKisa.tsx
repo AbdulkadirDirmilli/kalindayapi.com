@@ -16,22 +16,51 @@ const hizmetSecenekleri = [
 
 export default function IletisimFormKisa() {
   const ref = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      ad: formData.get('name') as string,
+      telefon: formData.get('phone') as string,
+      konu: formData.get('service') as string,
+      mesaj: formData.get('message') as string || 'Bilgi talebi',
+      email: '',
+    };
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      const response = await fetch('/api/iletisim', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-    // Reset after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Bir hata oluştu');
+      }
+
+      setIsSubmitted(true);
+      formRef.current?.reset();
+
+      // Reset after 3 seconds
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Mesaj gönderilemedi');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -117,6 +146,12 @@ export default function IletisimFormKisa() {
                 Ücretsiz Danışmanlık Formu
               </h3>
 
+              {error && (
+                <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+                  {error}
+                </div>
+              )}
+
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -146,7 +181,7 @@ export default function IletisimFormKisa() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                   <Input
                     label="Adınız Soyadınız"
                     name="name"

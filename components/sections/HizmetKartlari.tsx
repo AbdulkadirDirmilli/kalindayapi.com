@@ -71,7 +71,7 @@ export default function HizmetKartlari() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 bg-[#F5F5F5]" ref={ref}>
+    <section className="py-20 bg-surface" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -80,13 +80,13 @@ export default function HizmetKartlari() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             Hizmetlerimiz
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3A] mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
             Size Nasıl Yardımcı Olabiliriz?
           </h2>
-          <p className="text-[#666666] max-w-2xl mx-auto">
+          <p className="text-text-light max-w-2xl mx-auto">
             Emlak danışmanlığından inşaat taahhüdüne kadar tüm ihtiyaçlarınız için
             yanınızdayız. Profesyonel ekibimizle kaliteli hizmet sunuyoruz.
           </p>
@@ -120,13 +120,13 @@ export default function HizmetKartlari() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-[#0B1F3A] mb-3 group-hover:text-[#C9A84C] transition-colors">
+                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
                     {hizmet.baslik}
                   </h3>
-                  <p className="text-[#666666] mb-6 flex-1">{hizmet.aciklama}</p>
+                  <p className="text-text-light mb-6 flex-1">{hizmet.aciklama}</p>
 
                   {/* Actions */}
-                  <div className="pt-4 border-t border-[#e0e0e0]">
+                  <div className="pt-4 border-t border-border">
                     <div className="flex flex-col sm:flex-row gap-2">
                       <a
                         href={createWhatsAppLink(

@@ -31,7 +31,7 @@ export default function HeroSection() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 via-[#0B1F3A]/80 to-[#0B1F3A]/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary/90" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
@@ -47,7 +47,7 @@ export default function HeroSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
           >
-            <span className="w-2 h-2 bg-[#C9A84C] rounded-full animate-pulse" />
+            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
             <span className="text-sm font-medium">2012'den Bu Yana Hizmetinizdeyiz</span>
           </motion.div>
 
@@ -60,7 +60,7 @@ export default function HeroSection() {
           >
             Ortaca'nın Güvenilir
             <br />
-            <span className="text-[#C9A84C]">Yapı & Emlak</span> Ortağı
+            <span className="text-accent">Yapı & Emlak</span> Ortağı
           </motion.h1>
 
           {/* Subtitle */}
@@ -95,7 +95,7 @@ export default function HeroSection() {
                 variant="outline"
                 size="lg"
                 leftIcon={<Phone className="w-5 h-5" />}
-                className="border-white text-white hover:bg-white hover:text-[#0B1F3A]"
+                className="border-white text-white hover:bg-white hover:text-primary"
               >
                 Ücretsiz Danışmanlık Al
               </Button>
@@ -115,7 +115,7 @@ export default function HeroSection() {
               { value: "300+", label: "Mutlu Aile" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-[#C9A84C]">
+                <p className="text-3xl md:text-4xl font-bold text-accent">
                   {stat.value}
                 </p>
                 <p className="text-sm text-gray-400 mt-1">{stat.label}</p>
@@ -143,8 +143,8 @@ export default function HeroSection() {
       </motion.button>
 
       {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#C9A84C]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#C9A84C]/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
     </section>
   );
 }

@@ -57,7 +57,7 @@ export default function OrtaklarBolumu() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 bg-[#F5F5F5]" ref={ref}>
+    <section className="py-20 bg-surface" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -66,13 +66,13 @@ export default function OrtaklarBolumu() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             Ekibimiz
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3A] mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
             Kurucu Ortaklarımız
           </h2>
-          <p className="text-[#666666] max-w-2xl mx-auto">
+          <p className="text-text-light max-w-2xl mx-auto">
             Kalinda Yapı'nın arkasındaki deneyimli isimler. Ortaklarımız
             müşteri memnuniyetini en üst düzeyde tutarak hizmet vermektedir.
           </p>
@@ -116,20 +116,20 @@ export default function OrtaklarBolumu() {
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
                   {/* Bio */}
-                  <p className="text-[#666666] mb-4 leading-relaxed min-h-[4.5rem]">
+                  <p className="text-text-light mb-4 leading-relaxed min-h-[4.5rem]">
                     {ortak.biyografi}
                   </p>
 
                   {/* Expertise */}
                   <div className="mb-6 flex-1">
-                    <h4 className="text-sm font-semibold text-[#0B1F3A] mb-2">
+                    <h4 className="text-sm font-semibold text-primary mb-2">
                       Uzmanlık Alanları
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {ortak.uzmanlikAlanlari.map((alan) => (
                         <span
                           key={alan}
-                          className="px-3 py-1 bg-[#F5F5F5] text-[#666666] text-sm rounded-full"
+                          className="px-3 py-1 bg-surface text-text-light text-sm rounded-full"
                         >
                           {alan}
                         </span>
@@ -141,14 +141,14 @@ export default function OrtaklarBolumu() {
                   <div className="space-y-2 mb-6">
                     <a
                       href={`tel:${ortak.telefon.replace(/\s/g, "")}`}
-                      className="flex items-center gap-2 text-[#0B1F3A] hover:text-[#C9A84C] transition-colors"
+                      className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
                     >
                       <Phone className="w-4 h-4" />
                       <span>{ortak.telefon}</span>
                     </a>
                     <a
                       href={`mailto:${ortak.email}`}
-                      className="flex items-center gap-2 text-[#0B1F3A] hover:text-[#C9A84C] transition-colors"
+                      className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
                     >
                       <Mail className="w-4 h-4" />
                       <span>{ortak.email}</span>

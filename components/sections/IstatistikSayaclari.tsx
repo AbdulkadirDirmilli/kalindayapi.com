@@ -86,13 +86,13 @@ function StatCard({
     >
       {/* Icon */}
       <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 mb-4">
-        <Icon className="w-8 h-8 text-[#C9A84C]" />
+        <Icon className="w-8 h-8 text-accent" />
       </div>
 
       {/* Number */}
       <div className="text-4xl md:text-5xl font-bold text-white mb-2">
         {count}
-        <span className="text-[#C9A84C]">{stat.suffix}</span>
+        <span className="text-accent">{stat.suffix}</span>
       </div>
 
       {/* Label */}
@@ -111,7 +111,7 @@ export default function IstatistikSayaclari() {
   return (
     <section
       ref={ref}
-      className="relative py-20 bg-[#0B1F3A] overflow-hidden"
+      className="relative py-20 bg-primary overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -124,8 +124,8 @@ export default function IstatistikSayaclari() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#C9A84C]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#C9A84C]/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
@@ -135,7 +135,7 @@ export default function IstatistikSayaclari() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             Rakamlarla Kalinda Yapı
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">

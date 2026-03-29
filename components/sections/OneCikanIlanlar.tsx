@@ -63,13 +63,13 @@ export default function OneCikanIlanlar() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             One Cikan Ilanlar
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3A] mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
             En Guncel Emlak Firsatlari
           </h2>
-          <p className="text-[#666666] max-w-2xl mx-auto">
+          <p className="text-text-light max-w-2xl mx-auto">
             Mugla'nin tum ilcelerinden seckin ilanlarimizi kesfedin.
             Satilik ve kiralik secenekler.
           </p>
@@ -78,7 +78,7 @@ export default function OneCikanIlanlar() {
         {/* Loading State */}
         {loading && (
           <div className="flex items-center justify-center py-16">
-            <Loader2 className="w-8 h-8 animate-spin text-[#C9A84C]" />
+            <Loader2 className="w-8 h-8 animate-spin text-accent" />
           </div>
         )}
 
@@ -128,7 +128,7 @@ export default function OneCikanIlanlar() {
 
                       {/* Price */}
                       <div className="absolute bottom-4 right-4">
-                        <span className="bg-[#0B1F3A] text-white px-3 py-1.5 rounded-lg font-bold">
+                        <span className="bg-primary text-white px-3 py-1.5 rounded-lg font-bold">
                           {formatPrice(ilan.fiyat, ilan.paraBirimi)}
                           {ilan.kategori === "kiralik" && (
                             <span className="text-xs font-normal">/ay</span>
@@ -140,8 +140,8 @@ export default function OneCikanIlanlar() {
                     {/* Content */}
                     <div className="p-5">
                       {/* Location */}
-                      <div className="flex items-center gap-1 text-[#666666] text-sm mb-2">
-                        <MapPin className="w-4 h-4 text-[#C9A84C]" />
+                      <div className="flex items-center gap-1 text-text-light text-sm mb-2">
+                        <MapPin className="w-4 h-4 text-accent" />
                         <span>
                           {ilan.konum.mahalle ? `${ilan.konum.mahalle}, ` : ""}
                           {ilan.konum.ilce}
@@ -149,12 +149,12 @@ export default function OneCikanIlanlar() {
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-lg font-bold text-[#0B1F3A] mb-3 line-clamp-2 group-hover:text-[#C9A84C] transition-colors">
+                      <h3 className="text-lg font-bold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors">
                         {ilan.baslik}
                       </h3>
 
                       {/* Features */}
-                      <div className="flex items-center gap-4 text-sm text-[#666666]">
+                      <div className="flex items-center gap-4 text-sm text-text-light">
                         {ilan.ozellikler?.metrekare && (
                           <div className="flex items-center gap-1">
                             <Maximize2 className="w-4 h-4" />
@@ -185,7 +185,7 @@ export default function OneCikanIlanlar() {
         {/* Empty State */}
         {!loading && oneCikanIlanlar.length === 0 && (
           <div className="text-center py-16">
-            <p className="text-[#666666]">
+            <p className="text-text-light">
               Henuz one cikan ilan bulunmuyor.
             </p>
           </div>

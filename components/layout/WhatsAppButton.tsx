@@ -51,13 +51,13 @@ export default function WhatsAppButton() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 10 }}
               transition={{ duration: 0.2, delay: index * 0.1 + 0.1 }}
-              className="bg-white text-[#0B1F3A] text-sm font-semibold px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap"
+              className="bg-white text-primary text-sm font-semibold px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap"
             >
               {contact.name}
             </motion.span>
 
             {/* Photo bubble */}
-            <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#25D366] shadow-lg group-hover:scale-110 transition-transform duration-200 flex-shrink-0 bg-white">
+            <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-whatsapp shadow-lg group-hover:scale-110 transition-transform duration-200 flex-shrink-0 bg-white">
               <Image
                 src={contact.foto}
                 alt={contact.name}
@@ -77,7 +77,7 @@ export default function WhatsAppButton() {
           className={`
             relative z-10 w-14 h-14 rounded-full shadow-lg flex items-center justify-center
             transition-all duration-300
-            ${isOpen ? "bg-[#0B1F3A]" : "bg-[#25D366] whatsapp-bounce"}
+            ${isOpen ? "bg-primary" : "bg-whatsapp whatsapp-bounce"}
           `}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -98,7 +98,7 @@ export default function WhatsAppButton() {
 
         {/* Pulse Effect */}
         {!isOpen && (
-          <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25 pointer-events-none" />
+          <span className="absolute inset-0 rounded-full bg-whatsapp animate-ping opacity-25 pointer-events-none" />
         )}
       </div>
     </div>

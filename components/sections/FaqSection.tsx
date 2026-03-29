@@ -65,7 +65,7 @@ export default function FaqSection({
 
   return (
     <section
-      className={`py-20 ${darkMode ? "bg-[#0B1F3A]" : "bg-[#F5F5F5]"}`}
+      className={`py-20 ${darkMode ? "bg-primary" : "bg-surface"}`}
       ref={ref}
     >
       <div className="container mx-auto px-4">
@@ -76,17 +76,17 @@ export default function FaqSection({
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             SSS
           </span>
           <h2
             className={`text-3xl md:text-4xl font-bold mt-2 mb-4 ${
-              darkMode ? "text-white" : "text-[#0B1F3A]"
+              darkMode ? "text-white" : "text-primary"
             }`}
           >
             {baslik}
           </h2>
-          <p className={`max-w-2xl mx-auto ${darkMode ? "text-gray-400" : "text-[#666666]"}`}>
+          <p className={`max-w-2xl mx-auto ${darkMode ? "text-gray-400" : "text-text-light"}`}>
             {altBaslik}
           </p>
         </motion.div>
@@ -113,27 +113,27 @@ export default function FaqSection({
                 className={`w-full flex items-center justify-between p-5 text-left transition-colors ${
                   darkMode
                     ? "hover:bg-white/5"
-                    : "hover:bg-[#F5F5F5]"
+                    : "hover:bg-surface"
                 }`}
               >
                 <div className="flex items-center gap-3 flex-1">
                   <HelpCircle
                     className={`w-5 h-5 flex-shrink-0 ${
-                      openIndex === index ? "text-[#C9A84C]" : darkMode ? "text-gray-400" : "text-[#999999]"
+                      openIndex === index ? "text-accent" : darkMode ? "text-gray-400" : "text-text-muted"
                     }`}
                   />
                   <span
                     className={`font-semibold ${
-                      darkMode ? "text-white" : "text-[#0B1F3A]"
-                    } ${openIndex === index ? "text-[#C9A84C]" : ""}`}
+                      darkMode ? "text-white" : "text-primary"
+                    } ${openIndex === index ? "text-accent" : ""}`}
                   >
                     {soru.soru}
                   </span>
                 </div>
                 <ChevronDown
                   className={`w-5 h-5 transition-transform duration-300 flex-shrink-0 ${
-                    darkMode ? "text-gray-400" : "text-[#666666]"
-                  } ${openIndex === index ? "rotate-180 text-[#C9A84C]" : ""}`}
+                    darkMode ? "text-gray-400" : "text-text-light"
+                  } ${openIndex === index ? "rotate-180 text-accent" : ""}`}
                 />
               </button>
 
@@ -148,7 +148,7 @@ export default function FaqSection({
                   >
                     <div
                       className={`px-5 pb-5 pl-13 ${
-                        darkMode ? "text-gray-300" : "text-[#666666]"
+                        darkMode ? "text-gray-300" : "text-text-light"
                       }`}
                       style={{ paddingLeft: "3.25rem" }}
                     >
@@ -168,11 +168,11 @@ export default function FaqSection({
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <p className={darkMode ? "text-gray-400" : "text-[#666666]"}>
+          <p className={darkMode ? "text-gray-400" : "text-text-light"}>
             Başka sorularınız mı var?{" "}
             <a
               href="/iletisim"
-              className="text-[#C9A84C] font-semibold hover:underline"
+              className="text-accent font-semibold hover:underline"
             >
               Bize ulaşın
             </a>

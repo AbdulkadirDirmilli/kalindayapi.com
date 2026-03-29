@@ -20,14 +20,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-[#0B1F3A] mb-1.5"
+            className="block text-sm font-medium text-primary mb-1.5"
           >
             {label}
           </label>
         )}
         <div className="relative">
           {leftIcon && (
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#999999]">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted">
               {leftIcon}
             </span>
           )}
@@ -35,11 +35,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             id={inputId}
             className={cn(
-              "w-full px-4 py-3 border-2 rounded-lg text-[#1a1a1a] bg-white transition-all duration-300",
-              "placeholder:text-[#999999]",
-              "focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/10",
-              "disabled:bg-[#F5F5F5] disabled:cursor-not-allowed",
-              error ? "border-[#ef4444]" : "border-[#e0e0e0]",
+              "w-full px-4 py-3 border-2 rounded-lg text-text bg-white transition-all duration-300",
+              "placeholder:text-text-muted",
+              "focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10",
+              "disabled:bg-surface disabled:cursor-not-allowed",
+              error ? "border-error" : "border-border",
               leftIcon && "pl-10",
               rightIcon && "pr-10",
               className
@@ -47,14 +47,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
           {rightIcon && (
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[#999999]">
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted">
               {rightIcon}
             </span>
           )}
         </div>
-        {error && <p className="mt-1 text-sm text-[#ef4444]">{error}</p>}
+        {error && <p className="mt-1 text-sm text-error">{error}</p>}
         {helperText && !error && (
-          <p className="mt-1 text-sm text-[#666666]">{helperText}</p>
+          <p className="mt-1 text-sm text-text-light">{helperText}</p>
         )}
       </div>
     );
@@ -78,7 +78,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-[#0B1F3A] mb-1.5"
+            className="block text-sm font-medium text-primary mb-1.5"
           >
             {label}
           </label>
@@ -87,18 +87,18 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "w-full px-4 py-3 border-2 rounded-lg text-[#1a1a1a] bg-white transition-all duration-300 resize-y min-h-[120px]",
-            "placeholder:text-[#999999]",
-            "focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/10",
-            "disabled:bg-[#F5F5F5] disabled:cursor-not-allowed",
-            error ? "border-[#ef4444]" : "border-[#e0e0e0]",
+            "w-full px-4 py-3 border-2 rounded-lg text-text bg-white transition-all duration-300 resize-y min-h-[120px]",
+            "placeholder:text-text-muted",
+            "focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10",
+            "disabled:bg-surface disabled:cursor-not-allowed",
+            error ? "border-error" : "border-border",
             className
           )}
           {...props}
         />
-        {error && <p className="mt-1 text-sm text-[#ef4444]">{error}</p>}
+        {error && <p className="mt-1 text-sm text-error">{error}</p>}
         {helperText && !error && (
-          <p className="mt-1 text-sm text-[#666666]">{helperText}</p>
+          <p className="mt-1 text-sm text-text-light">{helperText}</p>
         )}
       </div>
     );
@@ -124,7 +124,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-[#0B1F3A] mb-1.5"
+            className="block text-sm font-medium text-primary mb-1.5"
           >
             {label}
           </label>
@@ -133,10 +133,10 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "w-full px-4 py-3 border-2 rounded-lg text-[#1a1a1a] bg-white transition-all duration-300 appearance-none cursor-pointer",
-            "focus:outline-none focus:border-[#0B1F3A] focus:ring-2 focus:ring-[#0B1F3A]/10",
-            "disabled:bg-[#F5F5F5] disabled:cursor-not-allowed",
-            error ? "border-[#ef4444]" : "border-[#e0e0e0]",
+            "w-full px-4 py-3 border-2 rounded-lg text-text bg-white transition-all duration-300 appearance-none cursor-pointer",
+            "focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10",
+            "disabled:bg-surface disabled:cursor-not-allowed",
+            error ? "border-error" : "border-border",
             "bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23666666%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:24px] bg-[right_12px_center] bg-no-repeat pr-12",
             className
           )}
@@ -153,9 +153,9 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             </option>
           ))}
         </select>
-        {error && <p className="mt-1 text-sm text-[#ef4444]">{error}</p>}
+        {error && <p className="mt-1 text-sm text-error">{error}</p>}
         {helperText && !error && (
-          <p className="mt-1 text-sm text-[#666666]">{helperText}</p>
+          <p className="mt-1 text-sm text-text-light">{helperText}</p>
         )}
       </div>
     );

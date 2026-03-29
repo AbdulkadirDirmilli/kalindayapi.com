@@ -86,13 +86,13 @@ export default function ReferansGaleri() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             Referans Projeler
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3A] mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
             Öncesi - Sonrası Galeri
           </h2>
-          <p className="text-[#666666] max-w-2xl mx-auto">
+          <p className="text-text-light max-w-2xl mx-auto">
             Tamamladığımız projelerden örnekler. Kaliteli işçilik ve
             profesyonel yaklaşımımızla fark yaratıyoruz.
           </p>
@@ -108,14 +108,14 @@ export default function ReferansGaleri() {
           {/* Navigation Buttons */}
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#0B1F3A] hover:bg-[#0B1F3A] hover:text-white transition-colors hidden md:flex"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors hidden md:flex"
             aria-label="Önceki"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#0B1F3A] hover:bg-[#0B1F3A] hover:text-white transition-colors hidden md:flex"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors hidden md:flex"
             aria-label="Sonraki"
           >
             <ChevronRight className="w-6 h-6" />
@@ -156,7 +156,7 @@ export default function ReferansGaleri() {
 
                       {/* Label */}
                       <div className="absolute top-4 left-4">
-                        <span className="bg-[#0B1F3A] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                        <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full">
                           {showAfter[proje.id] ? "SONRASI" : "ÖNCESİ"}
                         </span>
                       </div>
@@ -168,7 +168,7 @@ export default function ReferansGaleri() {
 
                       {/* Category Badge */}
                       <div className="absolute top-4 right-4">
-                        <span className="bg-[#C9A84C] text-[#0B1F3A] text-xs font-semibold px-3 py-1.5 rounded-full">
+                        <span className="bg-accent text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
                           {proje.kategori}
                         </span>
                       </div>
@@ -176,11 +176,11 @@ export default function ReferansGaleri() {
 
                     {/* Content */}
                     <div className="p-5">
-                      <h3 className="font-bold text-[#0B1F3A] mb-2">
+                      <h3 className="font-bold text-primary mb-2">
                         {proje.baslik}
                       </h3>
-                      <div className="flex items-center gap-1 text-[#666666] text-sm">
-                        <MapPin className="w-4 h-4 text-[#C9A84C]" />
+                      <div className="flex items-center gap-1 text-text-light text-sm">
+                        <MapPin className="w-4 h-4 text-accent" />
                         <span>{proje.konum}</span>
                       </div>
                     </div>
@@ -196,7 +196,7 @@ export default function ReferansGaleri() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center text-sm text-[#999999] mt-6"
+          className="text-center text-sm text-text-muted mt-6"
         >
           Görsellere tıklayarak öncesi-sonrası karşılaştırmasını görebilirsiniz
         </motion.p>

@@ -39,7 +39,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0B1F3A] text-white">
+    <footer className="bg-primary text-white">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -66,7 +66,7 @@ export default function Footer() {
                 href="https://instagram.com/kalindayapi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C9A84C] transition-colors"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -75,7 +75,7 @@ export default function Footer() {
                 href="https://facebook.com/kalindayapi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C9A84C] transition-colors"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -84,7 +84,7 @@ export default function Footer() {
                 href="https://youtube.com/kalindayapi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C9A84C] transition-colors"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="w-5 h-5" />
@@ -95,13 +95,13 @@ export default function Footer() {
           {/* Quick Links & Hizmetler */}
           <div className="grid grid-cols-2 gap-8">
             <div>
-              <h3 className="text-[#C9A84C] font-bold mb-4">Hızlı Linkler</h3>
+              <h3 className="text-accent font-bold mb-4">Hızlı Linkler</h3>
               <ul className="space-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-[#C9A84C] transition-colors text-sm flex items-center gap-1"
+                      className="text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-1"
                     >
                       <ChevronRight className="w-4 h-4" />
                       {link.name}
@@ -111,13 +111,13 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="text-[#C9A84C] font-bold mb-4">Hizmetler</h3>
+              <h3 className="text-accent font-bold mb-4">Hizmetler</h3>
               <ul className="space-y-2">
                 {hizmetler.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-[#C9A84C] transition-colors text-sm flex items-center gap-1"
+                      className="text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-1"
                     >
                       <ChevronRight className="w-4 h-4" />
                       {link.name}
@@ -130,13 +130,13 @@ export default function Footer() {
 
           {/* İlan Kategorileri */}
           <div>
-            <h3 className="text-[#C9A84C] font-bold mb-4">İlan Kategorileri</h3>
+            <h3 className="text-accent font-bold mb-4">İlan Kategorileri</h3>
             <ul className="space-y-2">
               {ilanKategorileri.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-[#C9A84C] transition-colors text-sm flex items-center gap-1"
+                    className="text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-1"
                   >
                     <ChevronRight className="w-4 h-4" />
                     {link.name}
@@ -148,11 +148,11 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-[#C9A84C] font-bold mb-4">İletişim</h3>
+            <h3 className="text-accent font-bold mb-4">İletişim</h3>
             <ul className="space-y-3">
               <li>
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#C9A84C] flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300 text-sm">
                     Atatürk Mah. 58 Sk. No: 2/B<br />
                     (Belediye Arkası), Ortaca / Muğla
@@ -161,11 +161,11 @@ export default function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-[#C9A84C] flex-shrink-0" />
+                  <Phone className="w-5 h-5 text-accent flex-shrink-0" />
                   <div className="text-sm">
                     <a
                       href="tel:+905370530754"
-                      className="text-gray-300 hover:text-[#C9A84C] transition-colors block"
+                      className="text-gray-300 hover:text-accent transition-colors block"
                     >
                       +90 537 053 07 54
                     </a>
@@ -175,11 +175,11 @@ export default function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-[#C9A84C] flex-shrink-0" />
+                  <Phone className="w-5 h-5 text-accent flex-shrink-0" />
                   <div className="text-sm">
                     <a
                       href="tel:+905321591556"
-                      className="text-gray-300 hover:text-[#C9A84C] transition-colors block"
+                      className="text-gray-300 hover:text-accent transition-colors block"
                     >
                       +90 532 159 15 56
                     </a>
@@ -189,11 +189,11 @@ export default function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-[#C9A84C] flex-shrink-0" />
+                  <Phone className="w-5 h-5 text-accent flex-shrink-0" />
                   <div className="text-sm">
                     <a
                       href="tel:+905554531207"
-                      className="text-gray-300 hover:text-[#C9A84C] transition-colors block"
+                      className="text-gray-300 hover:text-accent transition-colors block"
                     >
                       +90 555 453 12 07
                     </a>
@@ -203,10 +203,10 @@ export default function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-[#C9A84C] flex-shrink-0" />
+                  <Mail className="w-5 h-5 text-accent flex-shrink-0" />
                   <a
                     href="mailto:info@kalindayapi.com"
-                    className="text-gray-300 hover:text-[#C9A84C] transition-colors text-sm"
+                    className="text-gray-300 hover:text-accent transition-colors text-sm"
                   >
                     info@kalindayapi.com
                   </a>
@@ -214,7 +214,7 @@ export default function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5 text-[#C9A84C] flex-shrink-0" />
+                  <Clock className="w-5 h-5 text-accent flex-shrink-0" />
                   <div className="text-gray-300 text-sm">
                     <p>Pzt - Cum: 08:00 - 18:00</p>
                     <p>Cumartesi: 09:00 - 14:00</p>
@@ -236,17 +236,17 @@ export default function Footer() {
             <div className="flex items-center gap-4">
               <Link
                 href="/admin/giris"
-                className="hover:text-[#C9A84C] transition-colors flex items-center gap-1"
+                className="hover:text-accent transition-colors flex items-center gap-1"
                 title="Yönetim Paneli"
               >
                 <Settings className="w-4 h-4" />
               </Link>
               <span className="text-gray-600">|</span>
-              <Link href="/gizlilik" className="hover:text-[#C9A84C] transition-colors">
+              <Link href="/gizlilik" className="hover:text-accent transition-colors">
                 Gizlilik Politikası
               </Link>
               <span className="text-gray-600">|</span>
-              <Link href="/kullanim-kosullari" className="hover:text-[#C9A84C] transition-colors">
+              <Link href="/kullanim-kosullari" className="hover:text-accent transition-colors">
                 Kullanım Koşulları
               </Link>
             </div>
@@ -258,7 +258,7 @@ export default function Footer() {
                 href="https://www.akduniverse.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#C9A84C] hover:text-white transition-colors"
+                className="text-accent hover:text-white transition-colors"
               >
                 AKD Universe
               </a>

@@ -32,15 +32,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary:
-        "bg-[#0B1F3A] text-white hover:bg-[#1a3a5c] focus:ring-[#0B1F3A]",
+        "bg-primary text-white hover:bg-primary-light focus:ring-primary",
       accent:
-        "bg-[#C9A84C] text-[#0B1F3A] hover:bg-[#a88a3d] focus:ring-[#C9A84C]",
+        "bg-accent text-primary hover:bg-accent-dark focus:ring-accent",
       outline:
-        "border-2 border-[#0B1F3A] text-[#0B1F3A] hover:bg-[#0B1F3A] hover:text-white focus:ring-[#0B1F3A]",
+        "border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary",
       ghost:
-        "text-[#0B1F3A] hover:bg-[#F5F5F5] focus:ring-[#0B1F3A]",
+        "text-primary hover:bg-surface focus:ring-primary",
       whatsapp:
-        "bg-[#25D366] text-white hover:bg-[#128C7E] focus:ring-[#25D366]",
+        "bg-whatsapp text-white hover:bg-[#128C7E] focus:ring-whatsapp",
     };
 
     const sizes = {

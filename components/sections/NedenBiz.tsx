@@ -83,13 +83,13 @@ export default function NedenBiz() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             Farkımız
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3A] mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
             Neden Kalinda Yapı?
           </h2>
-          <p className="text-[#666666] max-w-2xl mx-auto">
+          <p className="text-text-light max-w-2xl mx-auto">
             Ortaca ve Muğla bölgesinde güvenle tercih edilmemizin sebepleri.
             Kalite ve müşteri memnuniyeti odaklı çalışıyoruz.
           </p>
@@ -108,19 +108,19 @@ export default function NedenBiz() {
               <motion.div
                 key={ozellik.baslik}
                 variants={itemVariants}
-                className="flex gap-4 p-6 rounded-2xl hover:bg-[#F5F5F5] transition-colors group"
+                className="flex gap-4 p-6 rounded-2xl hover:bg-surface transition-colors group"
               >
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A]/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[#C9A84C]/20 transition-colors">
-                  <Icon className="w-7 h-7 text-[#0B1F3A] group-hover:text-[#C9A84C] transition-colors" />
+                <div className="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                  <Icon className="w-7 h-7 text-primary group-hover:text-accent transition-colors" />
                 </div>
 
                 {/* Content */}
                 <div>
-                  <h3 className="text-lg font-bold text-[#0B1F3A] mb-2 group-hover:text-[#C9A84C] transition-colors">
+                  <h3 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">
                     {ozellik.baslik}
                   </h3>
-                  <p className="text-[#666666] text-sm leading-relaxed">
+                  <p className="text-text-light text-sm leading-relaxed">
                     {ozellik.aciklama}
                   </p>
                 </div>
@@ -134,22 +134,22 @@ export default function NedenBiz() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12 pt-12 border-t border-[#e0e0e0]"
+          className="mt-12 pt-12 border-t border-border"
         >
           <div className="flex flex-wrap items-center justify-center gap-8">
             <div className="text-center">
-              <p className="text-sm text-[#999999]">Hizmet Bölgesi</p>
-              <p className="font-bold text-[#0B1F3A]">Muğla'nın Tüm İlçeleri</p>
+              <p className="text-sm text-text-muted">Hizmet Bölgesi</p>
+              <p className="font-bold text-primary">Muğla'nın Tüm İlçeleri</p>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-[#e0e0e0]" />
+            <div className="hidden sm:block w-px h-12 bg-border" />
             <div className="text-center">
-              <p className="text-sm text-[#999999]">Kuruluş</p>
-              <p className="font-bold text-[#0B1F3A]">2012'den Bu Yana</p>
+              <p className="text-sm text-text-muted">Kuruluş</p>
+              <p className="font-bold text-primary">2012'den Bu Yana</p>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-[#e0e0e0]" />
+            <div className="hidden sm:block w-px h-12 bg-border" />
             <div className="text-center">
-              <p className="text-sm text-[#999999]">Müşteri Memnuniyeti</p>
-              <p className="font-bold text-[#C9A84C]">%98</p>
+              <p className="text-sm text-text-muted">Müşteri Memnuniyeti</p>
+              <p className="font-bold text-accent">%98</p>
             </div>
           </div>
         </motion.div>

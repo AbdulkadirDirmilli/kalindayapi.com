@@ -15,7 +15,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     const variants = {
       default: "shadow-md",
       elevated: "shadow-xl",
-      bordered: "border border-[#e0e0e0]",
+      bordered: "border border-border",
       interactive:
         "shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer",
     };
@@ -64,7 +64,7 @@ const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
     return (
       <Component
         ref={ref}
-        className={cn("text-xl font-bold text-[#0B1F3A]", className)}
+        className={cn("text-xl font-bold text-primary", className)}
         {...props}
       >
         {children}
@@ -80,7 +80,7 @@ export interface CardDescriptionProps extends HTMLAttributes<HTMLParagraphElemen
 const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
   ({ className, children, ...props }, ref) => {
     return (
-      <p ref={ref} className={cn("text-[#666666] mt-1", className)} {...props}>
+      <p ref={ref} className={cn("text-text-light mt-1", className)} {...props}>
         {children}
       </p>
     );
@@ -108,7 +108,7 @@ export interface CardFooterProps extends HTMLAttributes<HTMLDivElement> {}
 const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
   ({ className, children, ...props }, ref) => {
     return (
-      <div ref={ref} className={cn("mt-4 pt-4 border-t border-[#e0e0e0]", className)} {...props}>
+      <div ref={ref} className={cn("mt-4 pt-4 border-t border-border", className)} {...props}>
         {children}
       </div>
     );

@@ -78,26 +78,51 @@ export default function IletisimPage() {
     mesaj: "",
   });
 
+  const [error, setError] = useState<string | null>(null);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch('/api/iletisim', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ad: `${formData.ad} ${formData.soyad}`.trim(),
+          email: formData.email || '',
+          telefon: formData.telefon,
+          konu: formData.konu,
+          mesaj: formData.mesaj,
+        }),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({
-      ad: "",
-      soyad: "",
-      telefon: "",
-      email: "",
-      konu: "",
-      mesaj: "",
-    });
+      const data = await response.json();
 
-    // Reset after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+      if (!response.ok) {
+        throw new Error(data.error || 'Bir hata oluştu');
+      }
+
+      setIsSubmitted(true);
+      setFormData({
+        ad: "",
+        soyad: "",
+        telefon: "",
+        email: "",
+        konu: "",
+        mesaj: "",
+      });
+
+      // Reset after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Mesaj gönderilemedi');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -312,6 +337,12 @@ export default function IletisimPage() {
                 <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">
                   Bize Mesaj Gönderin
                 </h2>
+
+                {error && (
+                  <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+                    {error}
+                  </div>
+                )}
 
                 {isSubmitted ? (
                   <div className="text-center py-8">

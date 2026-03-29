@@ -91,14 +91,14 @@ export default function Modal({
           >
             {/* Header */}
             {(title || showCloseButton) && (
-              <div className="flex items-center justify-between px-6 py-4 border-b border-[#e0e0e0]">
+              <div className="flex items-center justify-between px-6 py-4 border-b border-border">
                 {title && (
-                  <h2 className="text-xl font-bold text-[#0B1F3A]">{title}</h2>
+                  <h2 className="text-xl font-bold text-primary">{title}</h2>
                 )}
                 {showCloseButton && (
                   <button
                     onClick={onClose}
-                    className="p-2 rounded-lg text-[#666666] hover:bg-[#F5F5F5] hover:text-[#0B1F3A] transition-colors"
+                    className="p-2 rounded-lg text-text-light hover:bg-surface hover:text-primary transition-colors"
                     aria-label="Kapat"
                   >
                     <X className="w-5 h-5" />
