@@ -170,12 +170,27 @@ export const pageMetadata = {
   ),
   hakkimizda: generatePageMetadata(
     "Hakkımızda",
-    "Kalinda Yapı, 2012'den bu yana Ortaca ve Muğla bölgesinde emlak ve yapı sektöründe hizmet vermektedir. Zafer Soylu ve Arif Dağdelen ortaklığı.",
+    "Kalinda Yapı, 2022'den bu yana Ortaca ve Muğla bölgesinde emlak ve yapı sektöründe hizmet vermektedir. Zafer Soylu ve Arif Dağdelen ortaklığı.",
     "/hakkimizda"
   ),
   iletisim: generatePageMetadata(
     "İletişim",
     "Kalinda Yapı ile iletişime geçin. Ortaca, Muğla. Emlak için Zafer Soylu, yapı & tadilat için Arif Dağdelen.",
     "/iletisim"
+  ),
+  vizyonMisyon: generatePageMetadata(
+    "Vizyon & Misyon",
+    "Kalinda Yapı'nın vizyonu ve misyonu. Muğla bölgesinin en güvenilir yapı ve emlak markası olmak için çalışıyoruz.",
+    "/kurumsal/vizyon-misyon"
+  ),
+  referanslar: generatePageMetadata(
+    "Referanslar",
+    "Kalinda Yapı'nın tamamladığı projeler ve müşteri referansları. Ortaca ve Muğla bölgesinde güvenilir yapı çözümleri.",
+    "/kurumsal/referanslar"
+  ),
+  belgeler: generatePageMetadata(
+    "Belgeler & Sertifikalar",
+    "Kalinda Yapı'nın resmi belgeleri ve sertifikaları. Emlak danışmanlığı lisansı, ticaret odası kaydı ve iş güvenliği belgesi.",
+    "/kurumsal/belgeler"
   ),
 };

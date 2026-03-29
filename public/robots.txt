@@ -9,3 +9,4 @@ Host: https://www.kalindayapi.com
 
 # Sitemaps
 Sitemap: https://www.kalindayapi.com/sitemap.xml
+Sitemap: https://www.kalindayapi.com/server-sitemap.xml

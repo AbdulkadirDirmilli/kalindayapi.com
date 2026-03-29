@@ -23,7 +23,16 @@ const navigation = [
   },
   { name: "İlanlar", href: "/ilanlar" },
   { name: "Blog", href: "/blog" },
-  { name: "Hakkımızda", href: "/hakkimizda" },
+  {
+    name: "Kurumsal",
+    href: "/hakkimizda",
+    children: [
+      { name: "Hakkımızda", href: "/hakkimizda" },
+      { name: "Vizyon & Misyon", href: "/kurumsal/vizyon-misyon" },
+      { name: "Referanslar", href: "/kurumsal/referanslar" },
+      { name: "Belgeler & Sertifikalar", href: "/kurumsal/belgeler" },
+    ],
+  },
   { name: "İletişim", href: "/iletisim" },
 ];
 

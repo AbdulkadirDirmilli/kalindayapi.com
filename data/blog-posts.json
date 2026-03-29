@@ -419,6 +419,254 @@
           "metin": "Gayrimenkul alım sürecinde deneyimli bir emlak danışmanı ve gerektiğinde bir avukat ile çalışmak, olası riskleri en aza indirir. Kalinda Yapı olarak, Muğla bölgesindeki tüm gayrimenkul alım-satım süreçlerinizde profesyonel danışmanlık hizmeti sunuyoruz."
         }
       ]
+    },
+    {
+      "id": "mutfak-tadilati-rehberi",
+      "slug": "mutfak-tadilati-rehberi",
+      "baslik": "Mutfak Tadilatı Rehberi: Modern ve Fonksiyonel Mutfaklar",
+      "ozet": "Mutfak tadilatı planlaması, malzeme seçimi, tezgah ve dolap alternatifleri. Bütçeye uygun modern mutfak fikirleri.",
+      "kategori": "Tadilat",
+      "etiketler": ["Mutfak", "Tadilat", "Dekorasyon", "Dolap", "Tezgah"],
+      "yazar": "Arif Dağdelen",
+      "yayinTarihi": "2026-01-15",
+      "okunmaSuresi": 8,
+      "kapakGorsel": "/images/blog/mutfak-tadilat.jpg",
+      "icerik": [
+        {
+          "tip": "paragraf",
+          "metin": "Mutfak, evin kalbidir. Fonksiyonel ve estetik bir mutfak, hem yemek hazırlama sürecinizi kolaylaştırır hem de evinizin değerini artırır. Bu rehberde, başarılı bir mutfak tadilatı için bilmeniz gereken her şeyi paylaşıyoruz."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Mutfak Tadilatı Planlaması"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Başarılı bir mutfak tadilatının temeli iyi planlamadan geçer. Öncelikle mevcut mutfağınızın eksikliklerini belirleyin. Depolama alanı yetersiz mi? Tezgah alanı az mı? Aydınlatma sorunlu mu? Bu soruların cevapları, yeni tasarımınızın odak noktalarını belirleyecektir."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Dolap Seçimi ve Malzeme"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Mutfak dolapları için başlıca malzeme seçenekleri MDF lake, MDF membran, akrilik ve masif ahşaptır. MDF lake modern ve temizlenmesi kolay bir görünüm sunarken, masif ahşap doğal ve sıcak bir atmosfer yaratır. Bütçenize ve tarzınıza göre seçim yapabilirsiniz. Ray sistemlerinde ise soft-close (yavaş kapanma) mekanizması sessiz ve uzun ömürlü kullanım sağlar."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Tezgah Alternatifleri"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Mutfak tezgahı seçimi hem estetik hem de fonksiyonel bir karardır. Granit, yüksek dayanıklılık ve ısı direnci sunar ancak gözenekli yapısı nedeniyle düzenli bakım gerektirir. Kuvars, bakımı kolay ve hijyenik bir seçenektir. Mermer, zarif görünümüyle öne çıkar ancak asit ve lekeye karşı hassastır. Laminant tezgahlar ise bütçe dostu bir alternatif olarak tercih edilebilir."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Aydınlatma Düzeni"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Modern mutfaklarda üç katmanlı aydınlatma sistemi önerilir: genel aydınlatma için tavan armatürleri, çalışma alanları için tezgah altı LED aydınlatma ve dekoratif amaçlı dolap içi aydınlatma. Özellikle tezgah üstü aydınlatma, yemek hazırlama sürecinde büyük kolaylık sağlar."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Fayans ve Zemin"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Mutfak zemininde su ve yağa dayanıklı malzemeler tercih edilmelidir. Seramik ve porselen karolar en popüler seçeneklerdir. Tezgah arkası (backsplash) için ise cam mozaik, subway tile veya tek parça cam paneller estetik ve temizlenmesi kolay alternatifler sunar."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Tahmini Bütçe Rehberi"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Ortalama bir mutfak tadilatı bütçesi, mutfağın boyutu ve tercih edilen malzemelere göre 80.000 TL ile 300.000 TL arasında değişebilir. Dolap seti genellikle bütçenin %40-50'sini, tezgah %15-20'sini, işçilik %20-25'ini ve beyaz eşya-aksesuar %15-20'sini oluşturur. Kalinda Yapı olarak, her bütçeye uygun mutfak çözümleri sunuyoruz."
+        }
+      ]
+    },
+    {
+      "id": "dalyan-yasam-rehberi",
+      "slug": "dalyan-yasam-rehberi",
+      "baslik": "Dalyan'da Yaşam: Doğa ve Huzurun Buluşma Noktası",
+      "ozet": "Dalyan'da yaşamın avantajları, bölge hakkında bilgiler, emlak fırsatları ve yaşam maliyetleri.",
+      "kategori": "Yaşam",
+      "etiketler": ["Dalyan", "Yaşam", "Doğa", "İztuzu", "Turizm"],
+      "yazar": "Zafer Soylu",
+      "yayinTarihi": "2026-01-05",
+      "okunmaSuresi": 7,
+      "kapakGorsel": "/images/blog/dalyan-yasam.jpg",
+      "icerik": [
+        {
+          "tip": "paragraf",
+          "metin": "Dalyan, Muğla'nın Ortaca ilçesine bağlı, doğal güzellikleri ve tarihi dokusuyla büyüleyen bir belde. UNESCO koruma altındaki İztuzu Plajı, antik Kaunos kenti ve termal kaynakları ile yerli ve yabancı binlerce kişinin tercih ettiği bir yaşam alanı haline geldi."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Neden Dalyan?"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Dalyan, büyük şehirlerin kaosundan uzakta, doğayla iç içe sakin bir yaşam sunar. Dört mevsim ılıman Akdeniz iklimi, tertemiz hava, organik tarım ürünleri ve komşuluk ilişkilerinin sıcaklığı Dalyan'ı yaşamak için ideal kılar. Yabancı uyruklu sakinlerin sayısının artması, kozmopolit bir atmosfer de yaratmıştır."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Doğal Güzellikler"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "İztuzu Plajı, caretta caretta deniz kaplumbağalarının yuvalama alanı olarak dünya çapında ün kazanmıştır. Dalyan Kanalı boyunca tekne turları, çamur banyoları ve termal havuzlar her yaştan ziyaretçiye sağlık ve eğlence sunar. Köyceğiz Gölü'nün sakinliği ve Sultaniye Kaplıcaları'nın şifalı suları da ayrıca keşfedilmeye değerdir."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Tarih ve Kültür"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Antik Kaunos kentinin kalıntıları, kaya mezarları ve tiyatrosu tarih meraklılarını cezbeder. MÖ 9. yüzyıla kadar uzanan tarihi ile bölge, arkeolojik açıdan da önemli bir değer taşır. Yerel pazarlar, festivaller ve kültürel etkinlikler topluluk ruhunu canlı tutar."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Ulaşım ve Altyapı"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Dalyan, Dalaman Havalimanı'na sadece 25 km mesafededir. Bu, yerli ve yabancı ziyaretçiler için büyük bir kolaylık sağlar. Düzenli otobüs seferleri Ortaca ve çevre ilçelere bağlantı sunar. Altyapı açısından su, elektrik ve internet hizmetleri sorunsuz çalışmaktadır."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Emlak Fırsatları"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Dalyan'da villa, müstakil ev ve daire seçenekleri mevcuttur. Çevre koruma yasaları nedeniyle yeni inşaat alanları sınırlı olduğundan, mevcut mülklerin değeri korunmaktadır. Villa fiyatları konuma ve büyüklüğe göre 4-15 milyon TL arasında değişmektedir. Kalinda Yapı olarak Dalyan bölgesindeki satılık ve kiralık mülkler hakkında size detaylı bilgi sunabiliriz."
+        }
+      ]
+    },
+    {
+      "id": "enerji-verimli-evler",
+      "slug": "enerji-verimli-evler",
+      "baslik": "Enerji Verimli Evler: Tasarruf ve Çevre Dostu Yaşam",
+      "ozet": "Enerji verimliliği yüksek evler için yalıtım, ısıtma sistemleri, güneş enerjisi ve akıllı ev teknolojileri rehberi.",
+      "kategori": "İnşaat",
+      "etiketler": ["Enerji Verimliliği", "Yalıtım", "Güneş Enerjisi", "Akıllı Ev"],
+      "yazar": "Arif Dağdelen",
+      "yayinTarihi": "2025-12-20",
+      "okunmaSuresi": 9,
+      "kapakGorsel": "/images/blog/enerji-verimli.jpg",
+      "icerik": [
+        {
+          "tip": "paragraf",
+          "metin": "Enerji maliyetlerinin sürekli artışı ve çevresel kaygılar, ev sahiplerini enerji verimli çözümlere yönlendiriyor. Enerji verimli bir ev, hem faturalarda önemli tasarruf sağlar hem de karbon ayak izinizi azaltır. İşte evinizi daha enerji verimli hale getirmek için bilmeniz gerekenler."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Isı Yalıtımı"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Enerji verimliliğinin temeli iyi yalıtımdan geçer. Dış cephe yalıtımı (mantolama), ısı kayıplarını %30-40 oranında azaltabilir. Çatı ve tavan yalıtımı özellikle son katlarda kritik öneme sahiptir. Pencere ve kapılardaki sızdırmazlık da ihmal edilmemesi gereken detaylardır. Muğla'nın ılıman ikliminde bile doğru yalıtım, yaz aylarında klima ihtiyacını önemli ölçüde azaltır."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Pencere ve Cam Sistemleri"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Isı kayıplarının önemli bir kısmı pencerelerden gerçekleşir. Çift cam veya üç cam sistemler, ısı yalıtımını önemli ölçüde artırır. Low-E (düşük emisyonlu) camlar, güneş ışınlarını geçirirken ısı kaybını minimuma indirir. PVC veya alüminyum ısı kesicili profiller de enerji verimliliğine katkı sağlar."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Isıtma ve Soğutma Sistemleri"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Isı pompası sistemleri, geleneksel ısıtma yöntemlerine göre %50-70 daha verimli çalışabilir. Yerden ısıtma sistemleri, ısıyı homojen dağıtarak konfor ve verimlilik sağlar. Klima seçiminde A+++ enerji sınıfı ürünleri tercih etmek, elektrik tüketimini minimuma indirir. İnverter teknolojili cihazlar, enerji tüketimini duruma göre ayarlayarak tasarruf sağlar."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Güneş Enerjisi Sistemleri"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Muğla'nın yıllık güneşlenme süresi, güneş enerjisi sistemleri için ideal koşullar sunuyor. Güneş panelleri ile elektrik üretimi, şebeke bağlantılı sistemlerle fazla enerjiyi satarak gelir bile sağlayabilir. Güneş enerjili su ısıtma sistemleri ise sıcak su ihtiyacının büyük bölümünü karşılayabilir."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Akıllı Ev Teknolojileri"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Akıllı termostatlar, evdeki ısıtma-soğutmayı yaşam tarzınıza göre otomatik ayarlar. Hareket sensörlü aydınlatma, gereksiz elektrik tüketimini önler. Akıllı prizler ve enerji monitörleri, hangi cihazların ne kadar enerji tükettiğini izlemenizi sağlar. Bu sistemler başlangıçta ek maliyet getirse de, uzun vadede kendini amorti eder."
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Kalinda Yapı olarak, yeni inşaat ve tadilat projelerinizde enerji verimli çözümler konusunda danışmanlık sunuyoruz. Sürdürülebilir ve ekonomik bir yaşam için bizimle iletişime geçin."
+        }
+      ]
+    },
+    {
+      "id": "banyo-tadilati-fikirleri",
+      "slug": "banyo-tadilati-fikirleri",
+      "baslik": "Banyo Tadilatı Fikirleri: Küçük Alanlardan Büyük Dönüşümler",
+      "ozet": "Küçük ve büyük banyolar için modern tasarım fikirleri, malzeme seçimi, depolama çözümleri ve bütçe planlaması.",
+      "kategori": "Tadilat",
+      "etiketler": ["Banyo", "Tadilat", "Dekorasyon", "Seramik", "Armatür"],
+      "yazar": "Arif Dağdelen",
+      "yayinTarihi": "2025-12-10",
+      "okunmaSuresi": 7,
+      "kapakGorsel": "/images/blog/banyo-tadilat.jpg",
+      "icerik": [
+        {
+          "tip": "paragraf",
+          "metin": "Banyo, evin en çok kullanılan alanlarından biridir ve doğru tasarımla günlük rutininizi keyifli hale getirebilir. Küçük bir banyo bile akıllı çözümlerle ferah ve fonksiyonel bir mekana dönüşebilir. Bu yazıda farklı bütçe ve ihtiyaçlara uygun banyo tadilatı fikirlerini paylaşıyoruz."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Küçük Banyolar İçin Tasarım İpuçları"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Küçük banyolarda alan algısını genişletmek için açık renkler ve büyük format fayanslar kullanın. Duvar montajlı lavabo ve klozet, zemin alanını açar. Büyük aynalar mekanı optik olarak genişletir. Cam duşakabin, küvet yerine tercih edildiğinde ciddi alan kazandırır. Asma raf ve dolap sistemleri ile dikey alanı değerlendirin."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Seramik ve Fayans Trendleri"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "2026'da banyo seramiklerinde doğal taş görünümlü porselenler, terazzo desenleri ve geometrik motifler öne çıkıyor. 60x120 cm veya daha büyük formatlar, daha az derz ile temiz bir görünüm sağlar. Zemin-duvar bütünlüğü için aynı seramiği hem zeminde hem duvarda kullanmak modern bir tercih. Accent wall (vurgu duvarı) için farklı desen veya renk kullanılabilir."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Armatür ve Batarya Seçimi"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Armatürler banyonun takısıdır. Mat siyah, fırçalanmış altın ve bakır tonları trend armatür renkleri arasında. Ankastre bataryalar duvardan çıkarak minimal görünüm sunar. Su tasarruflu (aeratörlü) bataryalar hem çevre dostu hem de ekonomiktir. Termostatik duş bataryaları ise sabit su sıcaklığı ile konfor sağlar."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Aydınlatma ve Havalandırma"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Banyolarda katmanlı aydınlatma önemlidir. Genel aydınlatma için tavan spotu veya LED panel, ayna çevresinde makyaj/tıraş için yan veya üst aydınlatma kullanılmalı. Nem oranı yüksek olduğundan IP65 ve üzeri koruma sınıfı armatürler tercih edilmeli. Aspiratörlü havalandırma sistemi, küf oluşumunu önler ve banyonun ömrünü uzatır."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Depolama Çözümleri"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Banyoda düzen için yeterli depolama şarttır. Lavabo altı dolap, ayna arkası dolap veya niş raflar kullanılabilir. Duş içi nişler, şampuan ve sabunlar için pratik çözümler sunar. Havlu askıları ve kancalar hem fonksiyonel hem dekoratif öğelerdir."
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Kalinda Yapı olarak, banyonuzu hayalinizdeki mekana dönüştürmek için kapsamlı tadilat hizmeti sunuyoruz. Malzeme seçiminden uygulamaya kadar her aşamada yanınızdayız. Ücretsiz keşif için bizi arayın."
+        }
+      ]
     }
   ]
 }

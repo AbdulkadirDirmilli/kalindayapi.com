@@ -18,7 +18,6 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://www.kalindayapi.com/sitemap.xml',
       'https://www.kalindayapi.com/server-sitemap.xml',
     ],
   },
