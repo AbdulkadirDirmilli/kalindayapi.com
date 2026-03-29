@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Kalinda Yapı",
   },
   description:
-    "Muğla Ortaca'da güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri. Satılık & kiralık daireler, villalar, araziler. Zafer Soylu ve Arif Dağdelen ortaklığıyla 2012'den bu yana hizmetinizdeyiz.",
+    "Muğla Ortaca'da güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri. Satılık & kiralık daireler, villalar, araziler. Zafer Soylu ve Arif Dağdelen ortaklığıyla 2022'den bu yana hizmetinizdeyiz.",
   keywords: [
     "Ortaca emlak",
     "Ortaca satılık daire",

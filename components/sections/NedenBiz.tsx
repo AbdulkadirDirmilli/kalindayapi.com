@@ -144,7 +144,7 @@ export default function NedenBiz() {
             <div className="hidden sm:block w-px h-12 bg-border" />
             <div className="text-center">
               <p className="text-sm text-text-muted">Kuruluş</p>
-              <p className="font-bold text-primary">2012'den Bu Yana</p>
+              <p className="font-bold text-primary">2022'den Bu Yana</p>
             </div>
             <div className="hidden sm:block w-px h-12 bg-border" />
             <div className="text-center">

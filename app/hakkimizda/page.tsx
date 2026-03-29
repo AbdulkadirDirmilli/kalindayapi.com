@@ -94,7 +94,7 @@ export default function HakkimizdaPage() {
               <span className="text-[#C9A84C]">Kalinda Yapı</span> Hakkında
             </h1>
             <p className="text-gray-300 text-lg leading-relaxed">
-              2012 yılından bu yana Muğla'nın Ortaca ilçesinde emlak danışmanlığı,
+              2022 yılından bu yana Muğla'nın Ortaca ilçesinde emlak danışmanlığı,
               tadilat ve inşaat taahhüt hizmetleri sunuyoruz. Zafer Soylu ve Arif
               Dağdelen ortaklığıyla kurulan firmamız, bölgenin en güvenilir yapı
               ve emlak markalarından biri olmayı hedeflemektedir.
@@ -116,19 +116,19 @@ export default function HakkimizdaPage() {
               </h2>
               <div className="space-y-4 text-[#666666] leading-relaxed">
                 <p>
-                  Kalinda Yapı, 2012 yılında Zafer Soylu ve Arif Dağdelen'in
+                  Kalinda Yapı, 2022 yılında Zafer Soylu ve Arif Dağdelen'in
                   ortaklığıyla Ortaca'da kurulmuştur. Her iki ortağımız da bu
                   topraklarda doğup büyümüş, bölgenin ihtiyaçlarını yakından
                   tanıyan isimlerdir.
                 </p>
                 <p>
-                  Zafer Soylu, 15 yılı aşkın emlak sektörü deneyimiyle bölgenin
+                  Zafer Soylu, emlak sektöründeki deneyimiyle bölgenin
                   gayrimenkul dinamiklerine hakim bir profesyoneldir. Arif
-                  Dağdelen ise 20 yılı aşkın inşaat sektörü tecrübesiyle sayısız
+                  Dağdelen ise inşaat sektöründeki tecrübesiyle sayısız
                   konut, villa ve ticari proje tamamlamıştır.
                 </p>
                 <p>
-                  Bugün, 500'den fazla tamamlanmış proje ve 300'den fazla mutlu
+                  Bugün, 100'den fazla tamamlanmış proje ve 200'den fazla mutlu
                   aile ile Ortaca ve çevresinin güvenilir yapı ve emlak ortağı
                   olmaya devam ediyoruz.
                 </p>
@@ -138,11 +138,10 @@ export default function HakkimizdaPage() {
             {/* Timeline */}
             <div className="space-y-6">
               {[
-                { yil: "2012", baslik: "Kuruluş", aciklama: "Kalinda Yapı Ortaca'da faaliyete başladı" },
-                { yil: "2015", baslik: "Büyüme", aciklama: "İlk 100 projeyi tamamladık" },
-                { yil: "2018", baslik: "Genişleme", aciklama: "Dalyan ve Köyceğiz'e hizmet alanımızı genişlettik" },
-                { yil: "2022", baslik: "10. Yıl", aciklama: "500+ proje ve %98 müşteri memnuniyeti" },
-                { yil: "2024", baslik: "Dijitalleşme", aciklama: "AKD Universe ile web sitesi ve dijital dönüşüm" },
+                { yil: "2022", baslik: "Kuruluş", aciklama: "Kalinda Yapı Ortaca'da faaliyete başladı" },
+                { yil: "2023", baslik: "Büyüme", aciklama: "İlk projelerimizi başarıyla tamamladık" },
+                { yil: "2024", baslik: "Genişleme", aciklama: "Dalyan ve Köyceğiz'e hizmet alanımızı genişlettik" },
+                { yil: "2025", baslik: "Dijitalleşme", aciklama: "AKD Universe ile web sitesi ve dijital dönüşüm" },
               ].map((item, index) => (
                 <div key={item.yil} className="flex gap-4">
                   <div className="flex flex-col items-center">

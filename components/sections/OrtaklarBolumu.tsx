@@ -17,7 +17,7 @@ const ortaklar = [
     email: "zafer@kalindayapi.com",
     foto: "/zafersoylu.png",
     biyografi:
-      "15 yılı aşkın emlak sektörü deneyimiyle bölgenin en tanınan emlak danışmanlarından biridir. Müşteri memnuniyetini her şeyin üstünde tutan anlayışıyla hizmet vermektedir.",
+      "Emlak sektöründe uzun yılların deneyimiyle bölgenin tanınan emlak danışmanlarından biridir. Müşteri memnuniyetini her şeyin üstünde tutan anlayışıyla hizmet vermektedir.",
     uzmanlikAlanlari: ["Gayrimenkul", "Yapı Danışmanlığı", "Proje Takibi"],
     ikon: Building2,
     renk: "#C9A84C",
@@ -31,7 +31,7 @@ const ortaklar = [
     email: "arif@kalindayapi.com",
     foto: "/arifdagdelen.png",
     biyografi:
-      "20 yılı aşkın inşaat sektörü deneyimiyle sayısız konut, villa ve ticari proje tamamlamıştır. Kalite odaklı çalışma prensibi ve detaylara verdiği önemle tanınmaktadır.",
+      "İnşaat sektöründe geniş deneyimiyle sayısız konut, villa ve ticari proje tamamlamıştır. Kalite odaklı çalışma prensibi ve detaylara verdiği önemle tanınmaktadır.",
     uzmanlikAlanlari: ["Gayrimenkul", "Yapı Danışmanlığı", "Proje Takibi"],
     ikon: HardHat,
     renk: "#0B1F3A",

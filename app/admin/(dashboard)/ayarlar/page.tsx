@@ -10,7 +10,7 @@ export default function AyarlarPage() {
     // Firma Bilgileri
     firmaAdi: 'Kalinda Yapi',
     slogan: 'Guvenilir Gayrimenkul & Yapi Cozumleri',
-    kurulusYili: '2012',
+    kurulusYili: '2022',
 
     // Iletisim
     telefon1: '+90 537 053 07 54',

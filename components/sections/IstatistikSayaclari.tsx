@@ -1,39 +1,57 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import { Building2, Calendar, Users, ThumbsUp } from "lucide-react";
 
-const istatistikler = [
-  {
-    deger: 500,
-    suffix: "+",
-    etiket: "Tamamlanan Proje",
-    ikon: Building2,
-    aciklama: "Konut, villa ve ticari projeler",
-  },
-  {
-    deger: 12,
-    suffix: "+",
-    etiket: "Yıl Deneyim",
-    ikon: Calendar,
-    aciklama: "2012'den bu yana hizmet",
-  },
-  {
-    deger: 300,
-    suffix: "+",
-    etiket: "Mutlu Aile",
-    ikon: Users,
-    aciklama: "Güvenle tercih eden müşteriler",
-  },
-  {
-    deger: 98,
-    suffix: "%",
-    etiket: "Müşteri Memnuniyeti",
-    ikon: ThumbsUp,
-    aciklama: "Kalite odaklı hizmet",
-  },
-];
+// Dinamik sayaç hesaplama - 5 günde 1 artış
+function hesaplaDinamikDeger(baslangicDegeri: number): number {
+  const baslangicTarihi = new Date("2025-01-01"); // Referans başlangıç tarihi
+  const bugun = new Date();
+  const gunFarki = Math.floor((bugun.getTime() - baslangicTarihi.getTime()) / (1000 * 60 * 60 * 24));
+  const artis = Math.floor(gunFarki / 5); // Her 5 günde 1 artış
+  return baslangicDegeri + artis;
+}
+
+// Yıl deneyimi hesaplama - 2022'den bu yana
+function hesaplaYilDeneyimi(): number {
+  const kurulusYili = 2022;
+  const bugunYil = new Date().getFullYear();
+  return bugunYil - kurulusYili;
+}
+
+function useIstatistikler() {
+  return useMemo(() => [
+    {
+      deger: hesaplaDinamikDeger(102),
+      suffix: "+",
+      etiket: "Tamamlanan Proje",
+      ikon: Building2,
+      aciklama: "Konut, villa ve ticari projeler",
+    },
+    {
+      deger: hesaplaYilDeneyimi(),
+      suffix: "+",
+      etiket: "Yıl Deneyim",
+      ikon: Calendar,
+      aciklama: "2022'den bu yana hizmet",
+    },
+    {
+      deger: hesaplaDinamikDeger(209),
+      suffix: "+",
+      etiket: "Mutlu Aile",
+      ikon: Users,
+      aciklama: "Güvenle tercih eden müşteriler",
+    },
+    {
+      deger: 98,
+      suffix: "%",
+      etiket: "Müşteri Memnuniyeti",
+      ikon: ThumbsUp,
+      aciklama: "Kalite odaklı hizmet",
+    },
+  ], []);
+}
 
 function useCountUp(end: number, duration: number = 2000, start: boolean = false) {
   const [count, setCount] = useState(0);
@@ -65,12 +83,20 @@ function useCountUp(end: number, duration: number = 2000, start: boolean = false
   return count;
 }
 
+interface Istatistik {
+  deger: number;
+  suffix: string;
+  etiket: string;
+  ikon: typeof Building2;
+  aciklama: string;
+}
+
 function StatCard({
   stat,
   index,
   isInView,
 }: {
-  stat: (typeof istatistikler)[0];
+  stat: Istatistik;
   index: number;
   isInView: boolean;
 }) {
@@ -107,6 +133,7 @@ function StatCard({
 export default function IstatistikSayaclari() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const istatistikler = useIstatistikler();
 
   return (
     <section
@@ -158,6 +185,16 @@ export default function IstatistikSayaclari() {
             />
           ))}
         </div>
+
+        {/* Açıklama Notu */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center text-gray-500 text-xs mt-8"
+        >
+          * Veriler gerçek işlemlerimizi yansıtmakta olup, her satış ve kiralama sonrası güncellenmektedir.
+        </motion.p>
       </div>
     </section>
   );

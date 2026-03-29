@@ -56,7 +56,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Muğla Ortaca'da 2012'den bu yana güvenilir emlak danışmanlığı,
+              Muğla Ortaca'da 2022'den bu yana güvenilir emlak danışmanlığı,
               tadilat ve inşaat taahhüt hizmetleri sunuyoruz. Hayalinizdeki eve
               veya projeye bir adım daha yakınsınız.
             </p>
