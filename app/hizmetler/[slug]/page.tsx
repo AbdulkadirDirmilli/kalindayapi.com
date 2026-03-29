@@ -34,6 +34,22 @@ import { generateHizmetMetadata } from "@/lib/metadata";
 import { createWhatsAppLink, Hizmet } from "@/lib/utils";
 import hizmetlerData from "@/data/hizmetler.json";
 
+// Dinamik sayaç hesaplama - 5 günde 1 artış
+function hesaplaDinamikDeger(baslangicDegeri: number): number {
+  const baslangicTarihi = new Date("2025-01-01");
+  const bugun = new Date();
+  const gunFarki = Math.floor((bugun.getTime() - baslangicTarihi.getTime()) / (1000 * 60 * 60 * 24));
+  const artis = Math.floor(gunFarki / 5);
+  return baslangicDegeri + artis;
+}
+
+// Yıl deneyimi hesaplama - 2022'den bu yana
+function hesaplaYilDeneyimi(): number {
+  const kurulusYili = 2022;
+  const bugunYil = new Date().getFullYear();
+  return bugunYil - kurulusYili;
+}
+
 interface HizmetDetayPageProps {
   params: Promise<{ slug: string }>;
 }
@@ -315,9 +331,9 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6">
               {[
-                { value: "500+", label: "Tamamlanan Proje" },
-                { value: "12+", label: "Yıl Deneyim" },
-                { value: "300+", label: "Mutlu Müşteri" },
+                { value: `${hesaplaDinamikDeger(102)}+`, label: "Tamamlanan Proje" },
+                { value: `${hesaplaYilDeneyimi()}+`, label: "Yıl Deneyim" },
+                { value: `${hesaplaDinamikDeger(209)}+`, label: "Mutlu Müşteri" },
                 { value: "%98", label: "Memnuniyet Oranı" },
               ].map((stat) => (
                 <Card key={stat.label} padding="lg" className="text-center">
