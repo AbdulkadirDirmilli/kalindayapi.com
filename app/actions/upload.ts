@@ -1,31 +1,22 @@
-import { NextRequest, NextResponse } from 'next/server'
+'use server'
+
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { writeFile, mkdir } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 
-// Route segment config for app router
-export const maxDuration = 60 // seconds
-export const dynamic = 'force-dynamic'
-export const runtime = 'nodejs'
-
-// Increase body size limit for this route (100MB for videos)
-export const fetchCache = 'force-no-store'
-
-// POST - Upload file
-export async function POST(request: NextRequest) {
+export async function uploadFile(formData: FormData): Promise<{ url?: string; filename?: string; type?: string; error?: string }> {
   try {
     const session = await getServerSession(authOptions)
     if (!session) {
-      return NextResponse.json({ error: 'Yetkisiz erisim' }, { status: 401 })
+      return { error: 'Yetkisiz erisim' }
     }
 
-    const formData = await request.formData()
     const file = formData.get('file') as File | null
 
     if (!file) {
-      return NextResponse.json({ error: 'Dosya bulunamadi' }, { status: 400 })
+      return { error: 'Dosya bulunamadi' }
     }
 
     // Validate file type
@@ -35,19 +26,13 @@ export async function POST(request: NextRequest) {
     const isVideo = videoTypes.includes(file.type)
 
     if (!allowedTypes.includes(file.type)) {
-      return NextResponse.json(
-        { error: 'Sadece JPEG, PNG, WebP, GIF, MP4, WebM, MOV ve AVI dosyalari kabul edilir' },
-        { status: 400 }
-      )
+      return { error: 'Sadece JPEG, PNG, WebP, GIF, MP4, WebM, MOV ve AVI dosyalari kabul edilir' }
     }
 
     // Validate file size (max 10MB for images, 100MB for videos)
     const maxSize = isVideo ? 100 * 1024 * 1024 : 10 * 1024 * 1024
     if (file.size > maxSize) {
-      return NextResponse.json(
-        { error: isVideo ? 'Video boyutu maksimum 100MB olmalidir' : 'Dosya boyutu maksimum 10MB olmalidir' },
-        { status: 400 }
-      )
+      return { error: isVideo ? 'Video boyutu maksimum 100MB olmalidir' : 'Dosya boyutu maksimum 10MB olmalidir' }
     }
 
     // Create uploads directory if it doesn't exist
@@ -72,12 +57,9 @@ export async function POST(request: NextRequest) {
     // Return the public URL
     const url = `/uploads/${subDir}/${filename}`
 
-    return NextResponse.json({ url, filename, type: isVideo ? 'video' : 'image' }, { status: 201 })
+    return { url, filename, type: isVideo ? 'video' : 'image' }
   } catch (error) {
     console.error('Dosya yukleme hatasi:', error)
-    return NextResponse.json(
-      { error: 'Dosya yuklenirken hata olustu' },
-      { status: 500 }
-    )
+    return { error: 'Dosya yuklenirken hata olustu' }
   }
 }

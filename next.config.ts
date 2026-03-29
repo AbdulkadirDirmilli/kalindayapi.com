@@ -30,6 +30,15 @@ const nextConfig: NextConfig = {
     serverActions: {
       bodySizeLimit: '100mb',
     },
+    // Allow larger request bodies for API routes
+    middlewarePrefetch: 'flexible',
+  },
+  // Increase body size limit for API routes
+  api: {
+    bodyParser: {
+      sizeLimit: '100mb',
+    },
+    responseLimit: false,
   },
 };
 

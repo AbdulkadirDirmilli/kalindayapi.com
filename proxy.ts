@@ -38,7 +38,7 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // www redirect icin tum path'ler (static dosyalar haric)
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)',
+    // www redirect icin tum path'ler (static dosyalar ve upload API haric)
+    '/((?!_next/static|_next/image|favicon.ico|api/upload|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)',
   ],
 }
