@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: 'https://www.kalindayapi.com',
@@ -5,7 +8,7 @@ module.exports = {
   generateIndexSitemap: true,
   changefreq: 'weekly',
   priority: 0.7,
-  exclude: ['/admin/*', '/api/*'],
+  exclude: ['/admin/*', '/api/*', '/icon.png'],
   robotsTxtOptions: {
     policies: [
       {
@@ -16,7 +19,33 @@ module.exports = {
     ],
     additionalSitemaps: [
       'https://www.kalindayapi.com/sitemap.xml',
+      'https://www.kalindayapi.com/server-sitemap.xml',
     ],
+  },
+  additionalPaths: async (config) => {
+    const paths = [];
+
+    // Blog yazılarını ekle
+    try {
+      const blogPostsPath = path.join(process.cwd(), 'data', 'blog-posts.json');
+      if (fs.existsSync(blogPostsPath)) {
+        const blogData = JSON.parse(fs.readFileSync(blogPostsPath, 'utf8'));
+        if (blogData.yazilar) {
+          for (const post of blogData.yazilar) {
+            paths.push({
+              loc: `/blog/${post.slug}`,
+              changefreq: 'weekly',
+              priority: 0.7,
+              lastmod: post.yayinTarihi ? new Date(post.yayinTarihi).toISOString() : new Date().toISOString(),
+            });
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Blog posts yuklenemedi:', error);
+    }
+
+    return paths;
   },
   transform: async (config, path) => {
     // Custom priority for different pages
@@ -35,6 +64,12 @@ module.exports = {
     } else if (path.startsWith('/hizmetler')) {
       priority = 0.8;
       changefreq = 'monthly';
+    } else if (path === '/blog') {
+      priority = 0.8;
+      changefreq = 'weekly';
+    } else if (path.startsWith('/blog/')) {
+      priority = 0.7;
+      changefreq = 'weekly';
     } else if (path === '/iletisim' || path === '/hakkimizda') {
       priority = 0.6;
       changefreq = 'monthly';
