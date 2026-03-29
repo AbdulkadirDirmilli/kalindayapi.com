@@ -4,6 +4,14 @@ import { getToken } from 'next-auth/jwt'
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const hostname = request.headers.get('host') || ''
+
+  // non-www to www redirect (SEO & favicon icin onemli)
+  if (hostname === 'kalindayapi.com') {
+    const url = request.nextUrl.clone()
+    url.host = 'www.kalindayapi.com'
+    return NextResponse.redirect(url, 301)
+  }
 
   // Admin rotalarini kontrol et
   if (pathname.startsWith('/admin')) {
@@ -30,5 +38,8 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: [
+    // www redirect icin tum path'ler (static dosyalar haric)
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)',
+  ],
 }
