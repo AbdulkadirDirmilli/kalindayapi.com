@@ -37,14 +37,21 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
             className="flex flex-col sm:flex-row overflow-hidden group"
           >
             {/* Image */}
-            <div className="relative w-full sm:w-72 h-48 sm:h-auto flex-shrink-0">
-              <Image
-                src={kapakFoto}
-                alt={ilan.baslik}
-                fill
-                sizes="(max-width: 640px) 100vw, 288px"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+            <div className="relative w-full sm:w-72 h-48 sm:h-auto flex-shrink-0 bg-gray-100">
+              {kapakFoto ? (
+                <Image
+                  src={kapakFoto}
+                  alt={ilan.baslik}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 288px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  unoptimized={kapakFoto.includes('/uploads/')}
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-gray-400">
+                  <Maximize2 className="w-12 h-12" />
+                </div>
+              )}
               {/* Badge */}
               <div className="absolute top-3 left-3">
                 <Badge
@@ -132,14 +139,21 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
           className="h-full overflow-hidden group"
         >
           {/* Image */}
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <Image
-              src={kapakFoto}
-              alt={ilan.baslik}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-            />
+          <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+            {kapakFoto ? (
+              <Image
+                src={kapakFoto}
+                alt={ilan.baslik}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                unoptimized={kapakFoto.includes('/uploads/')}
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-gray-400">
+                <Maximize2 className="w-12 h-12" />
+              </div>
+            )}
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
