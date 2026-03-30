@@ -59,6 +59,131 @@ export function slugify(text: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
+/**
+ * Yaygın ASCII-Türkçe karakter hatalarını düzeltir.
+ * Örn: "Celik Kapi" → "Çelik Kapı", "Asansor" → "Asansör"
+ */
+const TURKISH_CORRECTIONS: Record<string, string> = {
+  // İç Özellikler
+  "ADSL/Fiber Internet": "ADSL/Fiber İnternet",
+  "Akilli Ev Sistemi": "Akıllı Ev Sistemi",
+  "Amerikan Kapi": "Amerikan Kapı",
+  "Ankastre Mutfak": "Ankastre Mutfak",
+  "Banyo Jakuzili": "Banyo Jakuzili",
+  "Bulaşik Makinesi": "Bulaşık Makinesi",
+  "Bulasik Makinesi": "Bulaşık Makinesi",
+  "Camasir Makinesi": "Çamaşır Makinesi",
+  "Camasir Odasi": "Çamaşır Odası",
+  "Celik Kapi": "Çelik Kapı",
+  "Dusakabin": "Duşakabin",
+  "Ebeveyn Banyosu": "Ebeveyn Banyosu",
+  "Firin": "Fırın",
+  "Giyinme Odasi": "Giyinme Odası",
+  "Gömme Dolap": "Gömme Dolap",
+  "Gomme Dolap": "Gömme Dolap",
+  "Hilton Banyo": "Hilton Banyo",
+  "Isyerine Uygun": "İşyerine Uygun",
+  "Jakuzi": "Jakuzi",
+  "Kartonpiyer": "Kartonpiyer",
+  "Kuvet": "Küvet",
+  "Laminat Zemin": "Laminat Zemin",
+  "Mobilyali": "Mobilyalı",
+  "Mutfak Ankastre": "Mutfak Ankastre",
+  "Panel Radyator": "Panel Radyatör",
+  "Parke Zemin": "Parke Zemin",
+  "PVC Dograma": "PVC Doğrama",
+  "Seramik Zemin": "Seramik Zemin",
+  "Set Ustu Ocak": "Set Üstü Ocak",
+  "Spot Aydinlatma": "Spot Aydınlatma",
+  "Somine": "Şömine",
+  "Vestiyer": "Vestiyer",
+  "Yuksek Tavan": "Yüksek Tavan",
+  // Dış Özellikler
+  "Arac Park Yeri": "Araç Park Yeri",
+  "Asansor": "Asansör",
+  "Bahce": "Bahçe",
+  "Bahce Kati": "Bahçe Katı",
+  "Cati Kati": "Çatı Katı",
+  "Deniz Gorunumu": "Deniz Görünümü",
+  "Denize Sifir": "Denize Sıfır",
+  "Gunes Paneli": "Güneş Paneli",
+  "Isicamli Pencere": "Isıcamlı Pencere",
+  "Jenerator": "Jeneratör",
+  "Kapici": "Kapıcı",
+  "Kapali Garaj": "Kapalı Garaj",
+  "Kapali Otopark": "Kapalı Otopark",
+  "Kis Bahcesi": "Kış Bahçesi",
+  "Mustakil Girisli": "Müstakil Girişli",
+  "Panjur/Kepenk": "Panjur/Kepenk",
+  "Sehir Gorunumu": "Şehir Görünümü",
+  "Yangin Merdiveni": "Yangın Merdiveni",
+  // Muhit Özellikleri
+  "Eglence Merkezi": "Eğlence Merkezi",
+  "Gol": "Göl",
+  "Havalimani": "Havalimanı",
+  "Itfaiye": "İtfaiye",
+  "Metrobus": "Metrobüs",
+  "Minibus": "Minibüs",
+  "Muze": "Müze",
+  "Otobus Duragi": "Otobüs Durağı",
+  "Otobus Durağı": "Otobüs Durağı",
+  "Otobüs Duraği": "Otobüs Durağı",
+  "Saglik Ocagi": "Sağlık Ocağı",
+  "Saglik Ocağı": "Sağlık Ocağı",
+  "Spor Salonu": "Spor Salonu",
+  "Tren/Tram Istasyonu": "Tren/Tram İstasyonu",
+  "Universite": "Üniversite",
+  // Güvenlik
+  "24 Saat Guvenlik": "24 Saat Güvenlik",
+  "Guvenlik Kamerasi": "Güvenlik Kamerası",
+  "Guvenlik Personeli": "Güvenlik Personeli",
+  "Yangin Algilama Sistemi": "Yangın Algılama Sistemi",
+  "Yangin Sondurme Sistemi": "Yangın Söndürme Sistemi",
+  "Hirsiz Alarmi": "Hırsız Alarmı",
+  "Kartli Giris": "Kartlı Giriş",
+  "Kapici Dairesi": "Kapıcı Dairesi",
+  "Site Ici": "Site İçi",
+  // Cephe
+  "Kuzey-Dogu": "Kuzey-Doğu",
+  "Kuzey-Bati": "Kuzey-Batı",
+  "Guney": "Güney",
+  "Guney-Dogu": "Güney-Doğu",
+  "Guney-Bati": "Güney-Batı",
+  "Dogu": "Doğu",
+  "Bati": "Batı",
+  "Tum Cepheler": "Tüm Cepheler",
+  // Manzara
+  "Deniz Manzarasi": "Deniz Manzarası",
+  "Gol Manzarasi": "Göl Manzarası",
+  "Dag Manzarasi": "Dağ Manzarası",
+  "Orman Manzarasi": "Orman Manzarası",
+  "Sehir Manzarasi": "Şehir Manzarası",
+  "Doga Manzarasi": "Doğa Manzarası",
+  "Havuz Manzarasi": "Havuz Manzarası",
+  "Bahce Manzarasi": "Bahçe Manzarası",
+  "Park Manzarasi": "Park Manzarası",
+  "Bogaz Manzarasi": "Boğaz Manzarası",
+  // Konum
+  "Mugla": "Muğla",
+  "Koycegiz": "Köyceğiz",
+  "Koycegız": "Köyceğiz",
+};
+
+export function normalizeTurkishText(text: string): string {
+  return TURKISH_CORRECTIONS[text] || text;
+}
+
+export function normalizeTurkishJsonArray(jsonStr: string | null | undefined): string | null {
+  if (!jsonStr) return null;
+  try {
+    const arr: string[] = JSON.parse(jsonStr);
+    const normalized = arr.map((item) => normalizeTurkishText(item));
+    return JSON.stringify(normalized);
+  } catch {
+    return jsonStr;
+  }
+}
+
 export function truncateText(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength).trim() + "...";

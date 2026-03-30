@@ -131,7 +131,7 @@ export default function OneCikanIlanlar() {
                           variant={ilan.kategori === "satilik" ? "satilik" : "kiralik"}
                           size="md"
                         >
-                          {ilan.kategori === "satilik" ? "Satilik" : "Kiralik"}
+                          {ilan.kategori === "satilik" ? "Satılık" : "Kiralık"}
                         </Badge>
                       </div>
 
@@ -195,7 +195,7 @@ export default function OneCikanIlanlar() {
         {!loading && oneCikanIlanlar.length === 0 && (
           <div className="text-center py-16">
             <p className="text-text-light">
-              Henuz one cikan ilan bulunmuyor.
+              Henüz öne çıkan ilan bulunmuyor.
             </p>
           </div>
         )}

@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { ilanUpdateSchema } from '@/lib/validations/ilan'
+import { normalizeTurkishJsonArray, normalizeTurkishText } from '@/lib/utils'
 
 // GET - Get single ilan
 export async function GET(
@@ -56,6 +57,16 @@ export async function PUT(
     const validatedData = ilanUpdateSchema.parse(body)
 
     const { fotograflar, ...ilanData } = validatedData
+
+    // Türkçe karakter düzeltmesi
+    if (ilanData.icOzellikler) ilanData.icOzellikler = normalizeTurkishJsonArray(ilanData.icOzellikler) ?? ilanData.icOzellikler
+    if (ilanData.disOzellikler) ilanData.disOzellikler = normalizeTurkishJsonArray(ilanData.disOzellikler) ?? ilanData.disOzellikler
+    if (ilanData.muhitOzellikleri) ilanData.muhitOzellikleri = normalizeTurkishJsonArray(ilanData.muhitOzellikleri) ?? ilanData.muhitOzellikleri
+    if (ilanData.guvenlikOzellikleri) ilanData.guvenlikOzellikleri = normalizeTurkishJsonArray(ilanData.guvenlikOzellikleri) ?? ilanData.guvenlikOzellikleri
+    if (ilanData.cephe) ilanData.cephe = normalizeTurkishJsonArray(ilanData.cephe) ?? ilanData.cephe
+    if (ilanData.manzara) ilanData.manzara = normalizeTurkishJsonArray(ilanData.manzara) ?? ilanData.manzara
+    if (ilanData.il) ilanData.il = normalizeTurkishText(ilanData.il)
+    if (ilanData.ilce) ilanData.ilce = normalizeTurkishText(ilanData.ilce)
 
     // Check if ilan exists
     const existingIlan = await prisma.ilan.findUnique({
