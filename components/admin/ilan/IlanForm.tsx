@@ -777,7 +777,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
             <input
               type="number"
               name="fiyat"
-              value={formData.fiyat || ''}
+              value={formData.fiyat ?? ''}
               onChange={handleChange}
               className="input"
               required
@@ -938,7 +938,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="brutMetrekare"
-                value={formData.brutMetrekare || ''}
+                value={formData.brutMetrekare ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -952,7 +952,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="netMetrekare"
-                value={formData.netMetrekare || ''}
+                value={formData.netMetrekare ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1005,7 +1005,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="banyoSayisi"
-                value={formData.banyoSayisi || ''}
+                value={formData.banyoSayisi ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1019,7 +1019,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="tuvaletSayisi"
-                value={formData.tuvaletSayisi || ''}
+                value={formData.tuvaletSayisi ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1033,7 +1033,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="balkonSayisi"
-                value={formData.balkonSayisi || ''}
+                value={formData.balkonSayisi ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1047,7 +1047,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="kat"
-                value={formData.kat || ''}
+                value={formData.kat ?? ''}
                 onChange={handleChange}
                 className="input"
               />
@@ -1060,7 +1060,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="toplamKat"
-                value={formData.toplamKat || ''}
+                value={formData.toplamKat ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={1}
@@ -1074,7 +1074,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="binaYasi"
-                value={formData.binaYasi || ''}
+                value={formData.binaYasi ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1215,7 +1215,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="metrekare"
-                value={formData.metrekare || ''}
+                value={formData.metrekare ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1326,7 +1326,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="yolCephesi"
-                value={formData.yolCephesi || ''}
+                value={formData.yolCephesi ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1340,7 +1340,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="derinlik"
-                value={formData.derinlik || ''}
+                value={formData.derinlik ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1530,7 +1530,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="brutMetrekare"
-                value={formData.brutMetrekare || ''}
+                value={formData.brutMetrekare ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1544,7 +1544,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="netMetrekare"
-                value={formData.netMetrekare || ''}
+                value={formData.netMetrekare ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1558,7 +1558,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="cepheGenisligi"
-                value={formData.cepheGenisligi || ''}
+                value={formData.cepheGenisligi ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1572,7 +1572,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="tavanYuksekligi"
-                value={formData.tavanYuksekligi || ''}
+                value={formData.tavanYuksekligi ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1587,7 +1587,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="kat"
-                value={formData.kat || ''}
+                value={formData.kat ?? ''}
                 onChange={handleChange}
                 className="input"
               />
@@ -1600,7 +1600,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="toplamKat"
-                value={formData.toplamKat || ''}
+                value={formData.toplamKat ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={1}
@@ -1614,7 +1614,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="binaYasi"
-                value={formData.binaYasi || ''}
+                value={formData.binaYasi ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
@@ -1628,7 +1628,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <input
                 type="number"
                 name="personelKapasitesi"
-                value={formData.personelKapasitesi || ''}
+                value={formData.personelKapasitesi ?? ''}
                 onChange={handleChange}
                 className="input"
                 min={0}
