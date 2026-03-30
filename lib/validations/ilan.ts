@@ -1,17 +1,17 @@
 import { z } from 'zod'
 
 export const ilanSchema = z.object({
-  baslik: z.string().min(5, 'Baslik en az 5 karakter olmali'),
-  slug: z.string().min(3, 'Slug en az 3 karakter olmali'),
+  baslik: z.string().min(5, 'Başlık en az 5 karakter olmalı'),
+  slug: z.string().min(3, 'Slug en az 3 karakter olmalı'),
   kategori: z.enum(['satilik', 'kiralik']),
   tip: z.string().min(2, 'Tip zorunlu'),
   altTip: z.string().optional().nullable(),
-  fiyat: z.number().positive('Fiyat pozitif olmali'),
+  fiyat: z.number().positive('Fiyat pozitif olmalı'),
   paraBirimi: z.string().default('TL'),
 
   // Konum
-  il: z.string().min(2, 'Il zorunlu'),
-  ilce: z.string().min(2, 'Ilce zorunlu'),
+  il: z.string().min(2, 'İl zorunlu'),
+  ilce: z.string().min(2, 'İlçe zorunlu'),
   mahalle: z.string().optional().nullable(),
   koordinatLat: z.number().optional().nullable(),
   koordinatLng: z.number().optional().nullable(),
@@ -90,7 +90,7 @@ export const ilanSchema = z.object({
   // Sorumlu danisman
   danismanId: z.string().optional().nullable(),
 
-  aciklama: z.string().min(20, 'Aciklama en az 20 karakter olmali'),
+  aciklama: z.string().min(20, 'Açıklama en az 20 karakter olmalı'),
   oneCikan: z.boolean().default(false),
   durum: z.enum(['aktif', 'pasif', 'satildi', 'kiralandi']).default('aktif'),
   ilanNo: z.string().optional().nullable(),

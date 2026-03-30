@@ -43,7 +43,7 @@ export default function GizlilikPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm p-8 md:p-12">
             <div className="prose prose-lg max-w-none">
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">1. Giris</h2>
+              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">1. Giriş</h2>
               <p className="text-[#666666] mb-6">
                 Kalinda Yapi olarak, web sitemizi ziyaret eden kullanicilarin gizliligine onem veriyoruz.
                 Bu gizlilik politikasi, kisisel verilerinizin nasil toplandigi, kullanildigi ve
@@ -55,7 +55,7 @@ export default function GizlilikPage() {
                 Web sitemizi kullandiginizda asagidaki bilgiler toplanabilir:
               </p>
               <ul className="list-disc list-inside text-[#666666] mb-6 space-y-2">
-                <li>Iletisim formu araciligiyla gonderilen ad, e-posta ve telefon bilgileri</li>
+                <li>İletişim formu aracılığıyla gönderilen ad, e-posta ve telefon bilgileri</li>
                 <li>IP adresi ve tarayici bilgileri</li>
                 <li>Cerezler araciligiyla toplanan kullanim verileri</li>
               </ul>
@@ -91,7 +91,7 @@ export default function GizlilikPage() {
                 sorumluluk kabul etmemekteyiz.
               </p>
 
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">7. Iletisim</h2>
+              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">7. İletişim</h2>
               <p className="text-[#666666] mb-6">
                 Gizlilik politikamiz hakkinda sorulariniz varsa, asagidaki iletisim
                 bilgilerinden bize ulasabilirsiniz:

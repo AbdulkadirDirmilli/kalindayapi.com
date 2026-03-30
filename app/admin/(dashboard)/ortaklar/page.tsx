@@ -170,7 +170,7 @@ export default function OrtaklarPage() {
   if (isLoading) {
     return (
       <div>
-        <AdminHeader title="Ortaklar" subtitle="Sirket ortaklarini yonetin" />
+        <AdminHeader title="Ortaklar" subtitle="Şirket ortaklarını yönetin" />
         <div className="p-4 sm:p-6">
           <div className="flex items-center justify-center py-12">
             <div className="flex items-center gap-2 text-text-light">
@@ -194,7 +194,7 @@ export default function OrtaklarPage() {
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 />
               </svg>
-              Yukleniyor...
+              Yükleniyor...
             </div>
           </div>
         </div>
@@ -204,7 +204,7 @@ export default function OrtaklarPage() {
 
   return (
     <div>
-      <AdminHeader title="Ortaklar" subtitle="Sirket ortaklarini yonetin" />
+      <AdminHeader title="Ortaklar" subtitle="Şirket ortaklarını yönetin" />
 
       <div className="p-4 sm:p-6">
         {/* Add Button */}
@@ -254,7 +254,7 @@ export default function OrtaklarPage() {
                     setFormData((prev) => ({ ...prev, unvan: e.target.value }))
                   }
                   className="input"
-                  placeholder="Gayrimenkul Danismani"
+                  placeholder="Gayrimenkul Danışmanı"
                 />
               </div>
               <div>
@@ -299,7 +299,7 @@ export default function OrtaklarPage() {
                   }
                   className="input"
                   rows={3}
-                  placeholder="Kisa biyografi..."
+                  placeholder="Kısa biyografi..."
                 />
               </div>
             </div>
@@ -308,7 +308,7 @@ export default function OrtaklarPage() {
                 onClick={() => setShowAddForm(false)}
                 className="btn btn-outline"
               >
-                Iptal
+                İptal
               </button>
               <button onClick={() => handleSave(true)} className="btn btn-primary">
                 Kaydet
@@ -321,7 +321,7 @@ export default function OrtaklarPage() {
         {ortaklar.length === 0 ? (
           <div className="bg-white rounded-xl border border-border p-12 text-center">
             <Users className="w-12 h-12 mx-auto text-text-muted mb-4" />
-            <p className="text-text-light mb-4">Henuz ortak eklenmemis</p>
+            <p className="text-text-light mb-4">Henüz ortak eklenmemiş</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -391,7 +391,7 @@ export default function OrtaklarPage() {
                           className="flex-1 btn btn-outline text-sm py-2"
                         >
                           <X className="w-4 h-4" />
-                          Iptal
+                          İptal
                         </button>
                       </div>
                     </div>
@@ -487,10 +487,10 @@ export default function OrtaklarPage() {
       {/* Delete Confirmation */}
       <ConfirmDialog
         isOpen={!!deleteId}
-        title="Ortagi Sil"
-        message="Bu ortagi silmek istediginizden emin misiniz?"
+        title="Ortağı Sil"
+        message="Bu ortağı silmek istediğinizden emin misiniz?"
         confirmText="Sil"
-        cancelText="Iptal"
+        cancelText="İptal"
         onConfirm={handleDelete}
         onCancel={() => setDeleteId(null)}
         variant="danger"

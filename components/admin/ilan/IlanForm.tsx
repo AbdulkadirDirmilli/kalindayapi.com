@@ -126,7 +126,7 @@ const defaultFormData: IlanFormData = {
   altTip: '',
   fiyat: 0,
   paraBirimi: 'TL',
-  il: 'Mugla',
+  il: 'Muğla',
   ilce: '',
   mahalle: '',
   koordinatLat: null,
@@ -472,7 +472,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
           setUploadProgress((prev) =>
             prev.map((p) => (p.name === file.name ? { ...p, status: 'error' } : p))
           )
-          reject(new Error('Yukleme basarisiz'))
+          reject(new Error('Yükleme başarısız'))
         }
       })
 
@@ -480,7 +480,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
         setUploadProgress((prev) =>
           prev.map((p) => (p.name === file.name ? { ...p, status: 'error' } : p))
         )
-        reject(new Error('Yukleme hatasi'))
+        reject(new Error('Yükleme hatası'))
       })
 
       xhr.open('POST', '/api/upload')
@@ -537,7 +537,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
           setUploadProgress([])
         }, 2000)
       } catch (err) {
-        setError('Dosya yuklenirken hata olustu. Lutfen tekrar deneyin.')
+        setError('Dosya yüklenirken hata oluştu. Lütfen tekrar deneyin.')
       } finally {
         setUploadingFiles(false)
       }
@@ -626,7 +626,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
         throw new Error((data.error || 'Bir hata olustu') + errorDetail)
       }
 
-      setSuccess('Ilan basariyla kaydedildi!')
+      setSuccess('İlan başarıyla kaydedildi!')
       setTimeout(() => {
         router.push('/admin/ilanlar')
         router.refresh()
@@ -673,7 +673,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="md:col-span-2 lg:col-span-3">
             <label className="block text-sm font-medium text-text mb-1">
-              Ilan Basligi *
+              İlan Başlığı *
             </label>
             <input
               type="text"
@@ -682,7 +682,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               onChange={(e) => handleBaslikChange(e.target.value)}
               className="input"
               required
-              placeholder="Ornegin: Ortaca Merkezde Satilik 3+1 Daire"
+              placeholder="Örneğin: Ortaca Merkezde Satılık 3+1 Daire"
             />
           </div>
 
@@ -696,13 +696,13 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               value={formData.slug}
               readOnly
               className="input bg-gray-50 text-gray-600 cursor-not-allowed"
-              placeholder="Baslik girildikce olusturulur"
+              placeholder="Başlık girildikçe oluşturulur"
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-text mb-1">
-              Ilan No <span className="text-xs text-gray-400">(otomatik)</span>
+              İlan No <span className="text-xs text-gray-400">(otomatik)</span>
             </label>
             <input
               type="text"
@@ -710,7 +710,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               value={formData.ilanNo}
               readOnly
               className="input bg-gray-50 text-gray-600 cursor-not-allowed"
-              placeholder="Yukleniyor..."
+              placeholder="Yükleniyor..."
             />
           </div>
 
@@ -724,8 +724,8 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               onChange={handleChange}
               className="input"
             >
-              <option value="satilik">Satilik</option>
-              <option value="kiralik">Kiralik</option>
+              <option value="satilik">Satılık</option>
+              <option value="kiralik">Kiralık</option>
             </select>
           </div>
 
@@ -814,14 +814,14 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
             >
               <option value="aktif">Aktif</option>
               <option value="pasif">Pasif (Taslak)</option>
-              <option value="satildi">Satildi</option>
-              <option value="kiralandi">Kiralandi</option>
+              <option value="satildi">Satıldı</option>
+              <option value="kiralandi">Kiralandı</option>
             </select>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-text mb-1">
-              Sorumlu Danisman *
+              Sorumlu Danışman *
             </label>
             <select
               name="danismanId"
@@ -830,7 +830,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               className="input"
               required
             >
-              <option value="">Danisman Secin</option>
+              <option value="">Danışman Seçin</option>
               {ortaklar.map((ortak) => (
                 <option key={ortak.id} value={ortak.id}>
                   {ortak.ad} - {ortak.unvan}
@@ -848,7 +848,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="w-5 h-5 rounded border-border text-primary focus:ring-primary"
               />
-              <span className="text-sm font-medium text-text">One Cikan Ilan</span>
+              <span className="text-sm font-medium text-text">Öne Çıkan İlan</span>
             </label>
           </div>
         </div>
@@ -860,7 +860,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
           <div>
             <label className="block text-sm font-medium text-text mb-1">
               <MapPin className="w-4 h-4 inline mr-1" />
-              Il *
+              İl *
             </label>
             <select
               name="il"
@@ -869,13 +869,13 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               className="input"
               required
             >
-              <option value="Mugla">Mugla</option>
+              <option value="Muğla">Muğla</option>
             </select>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-text mb-1">
-              Ilce *
+              İlçe *
             </label>
             <select
               name="ilce"
@@ -890,7 +890,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               className="input"
               required
             >
-              <option value="">Ilce Secin</option>
+              <option value="">İlçe Seçin</option>
               {ilceler.map((ilce) => (
                 <option key={ilce} value={ilce}>
                   {ilce}
@@ -910,7 +910,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               className="input"
               disabled={!formData.ilce}
             >
-              <option value="">Mahalle Secin</option>
+              <option value="">Mahalle Seçin</option>
               {mahalleler.map((mahalle) => (
                 <option key={mahalle} value={mahalle}>
                   {mahalle}
@@ -929,7 +929,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
       {/* Konut Ozellikleri */}
       {isKonut && (
-        <CollapsibleSection title="Konut Ozellikleri">
+        <CollapsibleSection title="Konut Özellikleri">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
               <label className="block text-sm font-medium text-text mb-1">
@@ -961,7 +961,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Oda Sayisi
+                Oda Sayısı
               </label>
               <select
                 name="odaSayisi"
@@ -969,7 +969,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
+                <option value="">Seçin</option>
                 {[
                   '1+0 (Studyo)',
                   '1+1',
@@ -989,7 +989,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                   '6+1',
                   '6+2',
                   '7+',
-                  'Acik Plan',
+                  'Açık Plan',
                 ].map((oda) => (
                   <option key={oda} value={oda}>
                     {oda}
@@ -1000,7 +1000,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Banyo Sayisi
+                Banyo Sayısı
               </label>
               <input
                 type="number"
@@ -1014,7 +1014,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Tuvalet Sayisi
+                Tuvalet Sayısı
               </label>
               <input
                 type="number"
@@ -1028,7 +1028,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Balkon Sayisi
+                Balkon Sayısı
               </label>
               <input
                 type="number"
@@ -1042,7 +1042,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Bulundugu Kat
+                Bulunduğu Kat
               </label>
               <input
                 type="number"
@@ -1055,7 +1055,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Bina Kat Sayisi
+                Bina Kat Sayısı
               </label>
               <input
                 type="number"
@@ -1069,7 +1069,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Bina Yasi
+                Bina Yaşı
               </label>
               <input
                 type="number"
@@ -1091,19 +1091,19 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
+                <option value="">Seçin</option>
                 {[
                   'Apartman',
                   'Rezidans',
                   'Villa',
-                  'Mustakil Ev',
+                  'Müstakil Ev',
                   'Kooperatif',
                   'Konut Sitesi',
-                  'Bahceli Ev',
-                  'Koy Evi',
-                  'Ciftlik Evi',
+                  'Bahçeli Ev',
+                  'Köy Evi',
+                  'Çiftlik Evi',
                   'Tarihi Konut',
-                  'Yali',
+                  'Yalı',
                 ].map((tip) => (
                   <option key={tip} value={tip}>
                     {tip}
@@ -1114,7 +1114,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Kullanim Durumu
+                Kullanım Durumu
               </label>
               <select
                 name="kullanimDurumu"
@@ -1122,13 +1122,13 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
+                <option value="">Seçin</option>
                 {[
-                  'Bos',
-                  'Kiracili',
+                  'Boş',
+                  'Kiracılı',
                   'Mal Sahibi Oturuyor',
-                  'Proje Asamasinda',
-                  'Insaat Halinde',
+                  'Proje Aşamasında',
+                  'İnşaat Halinde',
                 ].map((durum) => (
                   <option key={durum} value={durum}>
                     {durum}
@@ -1139,7 +1139,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Isitma
+                Isıtma
               </label>
               <select
                 name="isitma"
@@ -1147,22 +1147,22 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
+                <option value="">Seçin</option>
                 {[
-                  'Dogalgaz (Kombi)',
-                  'Dogalgaz (Merkezi)',
+                  'Doğalgaz (Kombi)',
+                  'Doğalgaz (Merkezi)',
                   'Merkezi Sistem',
-                  'Merkezi Sistem (Pay Olcer)',
+                  'Merkezi Sistem (Pay Ölçer)',
                   'Soba',
-                  'Yerden Isitma',
+                  'Yerden Isıtma',
                   'Klima',
                   'Somine',
                   'Fuel-Oil',
-                  'Komur',
-                  'Elektrikli Radyator',
-                  'Gunes Enerjisi',
+                  'Kömür',
+                  'Elektrikli Radyatör',
+                  'Güneş Enerjisi',
                   'Jeotermal',
-                  'Isi Pompasi',
+                  'Isı Pompası',
                   'Yok',
                 ].map((tip) => (
                   <option key={tip} value={tip}>
@@ -1176,13 +1176,13 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
           {/* Boolean Ozellikler */}
           <div className="mt-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {[
-              { name: 'esyali', label: 'Esyali' },
+              { name: 'esyali', label: 'Eşyalı' },
               { name: 'balkon', label: 'Balkon' },
-              { name: 'asansor', label: 'Asansor' },
+              { name: 'asansor', label: 'Asansör' },
               { name: 'otopark', label: 'Otopark' },
-              { name: 'guvenlik', label: 'Guvenlik' },
+              { name: 'guvenlik', label: 'Güvenlik' },
               { name: 'havuz', label: 'Havuz' },
-              { name: 'bahce', label: 'Bahce' },
+              { name: 'bahce', label: 'Bahçe' },
               { name: 'krediyeUygun', label: 'Krediye Uygun' },
               { name: 'takasaUygun', label: 'Takasa Uygun' },
             ].map((item) => (
@@ -1206,7 +1206,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
       {/* Arsa Ozellikleri */}
       {isArsa && (
-        <CollapsibleSection title="Arsa / Arazi Ozellikleri">
+        <CollapsibleSection title="Arsa / Arazi Özellikleri">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
               <label className="block text-sm font-medium text-text mb-1">
@@ -1225,7 +1225,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Imar Durumu
+                İmar Durumu
               </label>
               <select
                 name="imarDurumu"
@@ -1233,20 +1233,20 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
+                <option value="">Seçin</option>
                 {[
-                  'Konut Imarli',
-                  'Ticari Imarli',
-                  'Ticari + Konut Imarli',
-                  'Tarla (Imarsiz)',
-                  'Bag-Bahce',
+                  'Konut İmarlı',
+                  'Ticari İmarlı',
+                  'Ticari + Konut İmarlı',
+                  'Tarla (İmarsız)',
+                  'Bağ-Bahçe',
                   'Zeytinlik',
                   'Mera',
                   'Orman',
-                  'Sanayi Imarli',
-                  'Turizm Imarli',
-                  'Sit Alani',
-                  'Ozel Koruma',
+                  'Sanayi İmarlı',
+                  'Turizm İmarlı',
+                  'Sit Alanı',
+                  'Özel Koruma',
                   'Serbest',
                 ].map((durum) => (
                   <option key={durum} value={durum}>
@@ -1266,7 +1266,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
+                <option value="">Seçin</option>
                 {[
                   '0.10',
                   '0.15',
@@ -1301,7 +1301,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
+                <option value="">Seçin</option>
                 {[
                   '1 Kat',
                   '2 Kat',
@@ -1383,8 +1383,8 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
-                {['Kose Parsel', 'Ara Parsel', 'Cift Cephe', 'Ada', 'Sinir Parseli'].map(
+                <option value="">Seçin</option>
+                {['Köşe Parsel', 'Ara Parsel', 'Çift Cephe', 'Ada', 'Sınır Parseli'].map(
                   (t) => (
                     <option key={t} value={t}>
                       {t}
@@ -1396,7 +1396,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Egim
+                Eğim
               </label>
               <select
                 name="egim"
@@ -1404,8 +1404,8 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
-                {['Duz', 'Hafif Egimli', 'Egimli', 'Cok Egimli', 'Dik', 'Yamac'].map((e) => (
+                <option value="">Seçin</option>
+                {['Düz', 'Hafif Eğimli', 'Eğimli', 'Çok Eğimli', 'Dik', 'Yamaç'].map((e) => (
                   <option key={e} value={e}>
                     {e}
                   </option>
@@ -1423,8 +1423,8 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
-                {['Kaya', 'Kum', 'Toprak', 'Tasli', 'Verimli Toprak', 'Kayalik'].map((z) => (
+                <option value="">Seçin</option>
+                {['Kaya', 'Kum', 'Toprak', 'Taşlı', 'Verimli Toprak', 'Kayalık'].map((z) => (
                   <option key={z} value={z}>
                     {z}
                   </option>
@@ -1442,8 +1442,8 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
-                {['Mustakil Tapu', 'Hisseli Tapu', 'Kadastro Parseli', 'Zilyetlik'].map(
+                <option value="">Seçin</option>
+                {['Müstakil Tapu', 'Hisseli Tapu', 'Kadastro Parseli', 'Zilyetlik'].map(
                   (t) => (
                     <option key={t} value={t}>
                       {t}
@@ -1457,11 +1457,11 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
           {/* Altyapi */}
           <div className="mt-6">
             <MultiSelect
-              label="Altyapi"
+              label="Altyapı"
               options={[
                 'Elektrik',
                 'Su',
-                'Dogalgaz',
+                'Doğalgaz',
                 'Kanalizasyon',
                 'Yol',
                 'Asfalt Yol',
@@ -1478,18 +1478,18 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
           {/* Tarim Ozellikleri */}
           <div className="mt-4">
             <MultiSelect
-              label="Tarim Ozellikleri"
+              label="Tarım Özellikleri"
               options={[
-                'Sulama Imkani',
-                'Sera Yapilabilir',
-                'Zeytin Agaci Var',
-                'Meyve Agaci Var',
-                'Narenciye Bahcesi',
-                'Bag',
-                'Tarla Urunu Yetistirilebilir',
-                'Hayvanciliga Uygun',
-                'Organik Tarima Uygun',
-                'Traktor Girisi Var',
+                'Sulama İmkanı',
+                'Sera Yapılabilir',
+                'Zeytin Ağacı Var',
+                'Meyve Ağacı Var',
+                'Narenciye Bahçesi',
+                'Bağ',
+                'Tarla Ürünü Yetiştirilebilir',
+                'Hayvancılığa Uygun',
+                'Organik Tarıma Uygun',
+                'Traktör Girişi Var',
               ]}
               selected={formData.tarimOzellikleri}
               onChange={(val) => handleArrayChange('tarimOzellikleri', val)}
@@ -1521,7 +1521,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
       {/* Ticari Ozellikler */}
       {isTicari && (
-        <CollapsibleSection title="Ticari Ozellikler">
+        <CollapsibleSection title="Ticari Özellikler">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
               <label className="block text-sm font-medium text-text mb-1">
@@ -1553,7 +1553,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Cephe Genisligi (m)
+                Cephe Genişliği (m)
               </label>
               <input
                 type="number"
@@ -1567,7 +1567,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Tavan Yuksekligi (m)
+                Tavan Yüksekliği (m)
               </label>
               <input
                 type="number"
@@ -1582,7 +1582,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Bulundugu Kat
+                Bulunduğu Kat
               </label>
               <input
                 type="number"
@@ -1595,7 +1595,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Bina Kat Sayisi
+                Bina Kat Sayısı
               </label>
               <input
                 type="number"
@@ -1609,7 +1609,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Bina Yasi
+                Bina Yaşı
               </label>
               <input
                 type="number"
@@ -1637,7 +1637,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Kullanim Durumu
+                Kullanım Durumu
               </label>
               <select
                 name="kullanimDurumu"
@@ -1645,8 +1645,8 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
-                {['Bos', 'Kiracili', 'Faal Calisiyor', 'Tadilat Gerekli'].map((d) => (
+                <option value="">Seçin</option>
+                {['Boş', 'Kiracılı', 'Faal Çalışıyor', 'Tadilat Gerekli'].map((d) => (
                   <option key={d} value={d}>
                     {d}
                   </option>
@@ -1664,8 +1664,8 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 onChange={handleChange}
                 className="input"
               >
-                <option value="">Secin</option>
-                {['Kat Mulkiyetli', 'Kat Irtifakli', 'Hisseli Tapu', 'Isyeri Ruhsatli'].map(
+                <option value="">Seçin</option>
+                {['Kat Mülkiyetli', 'Kat İrtifaklı', 'Hisseli Tapu', 'İşyeri Ruhsatlı'].map(
                   (t) => (
                     <option key={t} value={t}>
                       {t}
@@ -1679,20 +1679,20 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
           {/* Depo/Fabrika Ozellikleri */}
           <div className="mt-6">
             <MultiSelect
-              label="Depo/Fabrika Ozellikleri"
+              label="Depo/Fabrika Özellikleri"
               options={[
-                'Yukleme Rampasi',
-                'TIR Girisi',
+                'Yükleme Rampası',
+                'TIR Girişi',
                 'Forklift Kapasiteli',
-                'Soguk Oda',
-                'Yuksek Tavan',
-                'Vinc',
+                'Soğuk Oda',
+                'Yüksek Tavan',
+                'Vinç',
                 'Trifaze Elektrik',
-                'Dogalgaz Hatti',
-                'Sanayi Elektrigi',
-                'Yangin Sistemi',
-                'Paletli Stok Alani',
-                'Istifleme Alani',
+                'Doğalgaz Hattı',
+                'Sanayi Elektriği',
+                'Yangın Sistemi',
+                'Paletli Stok Alanı',
+                'İstifleme Alanı',
               ]}
               selected={formData.depoOzellikleri}
               onChange={(val) => handleArrayChange('depoOzellikleri', val)}
@@ -1701,10 +1701,10 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
           <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
-              { name: 'asansor', label: 'Asansor' },
+              { name: 'asansor', label: 'Asansör' },
               { name: 'otopark', label: 'Otopark' },
-              { name: 'guvenlik', label: 'Guvenlik' },
-              { name: 'isyeriRuhsati', label: 'Isyeri Ruhsati Var' },
+              { name: 'guvenlik', label: 'Güvenlik' },
+              { name: 'isyeriRuhsati', label: 'İşyeri Ruhsatı Var' },
               { name: 'krediyeUygun', label: 'Krediye Uygun' },
               { name: 'takasaUygun', label: 'Takasa Uygun' },
             ].map((item) => (
@@ -1728,44 +1728,44 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
       {/* Detayli Ozellikler - Sadece Konut icin */}
       {isKonut && (
-        <CollapsibleSection title="Detayli Ozellikler" defaultOpen={false}>
+        <CollapsibleSection title="Detaylı Özellikler" defaultOpen={false}>
           <div className="space-y-6">
             <MultiSelect
-              label="Ic Ozellikler"
+              label="İç Özellikler"
               options={[
                 'ADSL/Fiber Internet',
-                'Akilli Ev Sistemi',
+                'Akıllı Ev Sistemi',
                 'Alarm Sistemi',
-                'Amerikan Kapi',
+                'Amerikan Kapı',
                 'Amerikan Mutfak',
                 'Ankastre Mutfak',
                 'Banyo Jakuzili',
                 'Barbeku',
-                'Bulasik Makinesi',
-                'Camasir Makinesi',
-                'Camasir Odasi',
-                'Celik Kapi',
-                'Dusakabin',
+                'Bulaşık Makinesi',
+                'Çamaşır Makinesi',
+                'Çamaşır Odası',
+                'Çelik Kapı',
+                'Duşakabin',
                 'Ebeveyn Banyosu',
-                'Firin',
-                'Giyinme Odasi',
-                'Gomme Dolap',
+                'Fırın',
+                'Giyinme Odası',
+                'Gömme Dolap',
                 'Hilton Banyo',
-                'Isyerine Uygun',
+                'İşyerine Uygun',
                 'Jakuzi',
                 'Kartonpiyer',
                 'Kiler',
                 'Klima',
                 'Kuvet',
                 'Laminat Zemin',
-                'Mobilyali',
-                'Panel Radyator',
+                'Mobilyalı',
+                'Panel Radyatör',
                 'Parke Zemin',
-                'PVC Dograma',
+                'PVC Doğrama',
                 'Sauna',
                 'Seramik Zemin',
-                'Set Ustu Ocak',
-                'Spot Aydinlatma',
+                'Set Üstü Ocak',
+                'Spot Aydınlatma',
                 'Somine',
                 'Teras',
                 'Vestiyer',
@@ -1775,64 +1775,64 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
             />
 
             <MultiSelect
-              label="Dis Ozellikler"
+              label="Dış Özellikler"
               options={[
-                'Arac Park Yeri',
-                'Asansor',
-                'Bahce',
+                'Araç Park Yeri',
+                'Asansör',
+                'Bahçe',
                 'Balkon',
-                'Bahce Kati',
-                'Cati Kati',
-                'Deniz Gorunumu',
-                'Denize Sifir',
+                'Bahçe Katı',
+                'Çatı Katı',
+                'Deniz Görünümü',
+                'Denize Sıfır',
                 'Garaj',
-                'Gunes Paneli',
+                'Güneş Paneli',
                 'Havuz',
-                'Isicamli Pencere',
-                'Jenerator',
+                'Isıcamlı Pencere',
+                'Jeneratör',
                 'Kablo TV',
-                'Kapici',
-                'Kapali Garaj',
-                'Kapali Otopark',
-                'Kis Bahcesi',
+                'Kapıcı',
+                'Kapalı Garaj',
+                'Kapalı Otopark',
+                'Kış Bahçesi',
                 'Mantolama',
-                'Mustakil Girisli',
+                'Müstakil Girişli',
                 'Otopark',
                 'Panjur/Kepenk',
-                'Spor Alani',
-                'Sehir Gorunumu',
+                'Spor Alanı',
+                'Şehir Görünümü',
                 'Tenis Kortu',
-                'Yangin Merdiveni',
+                'Yangın Merdiveni',
               ]}
               selected={formData.disOzellikler}
               onChange={(val) => handleArrayChange('disOzellikler', val)}
             />
 
             <MultiSelect
-              label="Muhit Ozellikleri"
+              label="Muhit Özellikleri"
               options={[
                 'AVM',
                 'Belediye',
                 'Cami',
                 'Deniz',
-                'Gol',
+                'Göl',
                 'Hastane',
-                'Havalimani',
+                'Havalimanı',
                 'Market',
                 'Metro',
-                'Minibu',
+                'Minibüs',
                 'Eczane',
                 'Okul',
                 'Orman',
                 'Otoban',
-                'Otobus Duragi',
+                'Otobüs Durağı',
                 'Park',
                 'Plaj',
                 'Polis',
-                'Saglik Ocagi',
+                'Sağlık Ocağı',
                 'Sahil',
                 'Spor Salonu',
-                'Universite',
+                'Üniversite',
               ]}
               selected={formData.muhitOzellikleri}
               onChange={(val) => handleArrayChange('muhitOzellikleri', val)}
@@ -1843,13 +1843,13 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 label="Cephe"
                 options={[
                   'Kuzey',
-                  'Guney',
-                  'Dogu',
-                  'Bati',
-                  'Kuzey-Dogu',
-                  'Kuzey-Bati',
-                  'Guney-Dogu',
-                  'Guney-Bati',
+                  'Güney',
+                  'Doğu',
+                  'Batı',
+                  'Kuzey-Doğu',
+                  'Kuzey-Batı',
+                  'Güney-Doğu',
+                  'Güney-Batı',
                 ]}
                 selected={formData.cephe}
                 onChange={(val) => handleArrayChange('cephe', val)}
@@ -1858,14 +1858,14 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <MultiSelect
                 label="Manzara"
                 options={[
-                  'Deniz Manzarasi',
-                  'Gol Manzarasi',
-                  'Dag Manzarasi',
-                  'Orman Manzarasi',
-                  'Sehir Manzarasi',
-                  'Doga Manzarasi',
-                  'Havuz Manzarasi',
-                  'Bahce Manzarasi',
+                  'Deniz Manzarası',
+                  'Göl Manzarası',
+                  'Dağ Manzarası',
+                  'Orman Manzarası',
+                  'Şehir Manzarası',
+                  'Doğa Manzarası',
+                  'Havuz Manzarası',
+                  'Bahçe Manzarası',
                 ]}
                 selected={formData.manzara}
                 onChange={(val) => handleArrayChange('manzara', val)}
@@ -1876,19 +1876,19 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
       )}
 
       {/* Aciklama */}
-      <CollapsibleSection title="Aciklama">
+      <CollapsibleSection title="Açıklama">
         <textarea
           name="aciklama"
           value={formData.aciklama}
           onChange={handleChange}
           className="input min-h-[200px]"
           required
-          placeholder="Ilan aciklamasini detayli bir sekilde yazin..."
+          placeholder="İlan açıklamasını detaylı bir şekilde yazın..."
         />
       </CollapsibleSection>
 
       {/* Fotograflar ve Videolar */}
-      <CollapsibleSection title="Medya (Fotograf ve Video)">
+      <CollapsibleSection title="Medya (Fotoğraf ve Video)">
         <div className="space-y-6">
           {/* Upload Area */}
           <div
@@ -1909,23 +1909,23 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
             />
             <Upload className="w-12 h-12 mx-auto mb-4 text-gray-400" />
             <p className="text-lg font-medium text-text mb-1">
-              Fotograf ve videolari buraya surukleyin
+              Fotoğraf ve videoları buraya sürükleyin
             </p>
             <p className="text-sm text-gray-500 mb-4">
-              veya dosya secmek icin tiklayin
+              veya dosya seçmek için tıklayın
             </p>
             <p className="text-xs text-gray-400">
-              Fotograf: JPEG, PNG, WebP, GIF (maks. 10MB) | Video: MP4, WebM, MOV (maks. 100MB)
+              Fotoğraf: JPEG, PNG, WebP, GIF (maks. 10MB) | Video: MP4, WebM, MOV (maks. 100MB)
             </p>
             <p className="text-xs text-gray-400 mt-1">
-              Maksimum 50 medya dosyasi
+              Maksimum 50 medya dosyası
             </p>
           </div>
 
           {/* Upload Progress */}
           {uploadProgress.length > 0 && (
             <div className="space-y-2">
-              <p className="text-sm font-medium text-text">Yukleniyor...</p>
+              <p className="text-sm font-medium text-text">Yükleniyor...</p>
               {uploadProgress.map((file, index) => (
                 <div key={index} className="bg-gray-50 rounded-lg p-3">
                   <div className="flex items-center justify-between mb-1">
@@ -1934,7 +1934,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                       file.status === 'done' ? 'text-green-600' :
                       file.status === 'error' ? 'text-red-600' : 'text-primary'
                     }`}>
-                      {file.status === 'done' ? 'Tamamlandi' :
+                      {file.status === 'done' ? 'Tamamlandı' :
                        file.status === 'error' ? 'Hata!' : `%${file.progress}`}
                     </span>
                   </div>
@@ -1956,10 +1956,10 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
           <div>
             <div className="flex items-center justify-between mb-2">
               <label className="block text-sm font-medium text-text">
-                Medya Dosyalari ({formData.fotograflar.length}/50)
+                Medya Dosyaları ({formData.fotograflar.length}/50)
               </label>
               <span className="text-xs text-gray-500">
-                Siralamayi degistirmek icin surukleyin
+                Sıralamayı değiştirmek için sürükleyin
               </span>
             </div>
 
@@ -2029,7 +2029,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
             ) : (
               <div className="text-center py-8 text-gray-500 bg-gray-50 rounded-lg">
                 <ImageIcon className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                <p>Henuz medya eklenmemis</p>
+                <p>Henüz medya eklenmemiş</p>
               </div>
             )}
           </div>
@@ -2044,7 +2044,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
           className="btn btn-outline"
         >
           <X className="w-5 h-5" />
-          Iptal
+          İptal
         </button>
         <button
           type="submit"
@@ -2073,7 +2073,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 />
               </svg>
-              Dosyalar Yukleniyor...
+              Dosyalar Yükleniyor...
             </>
           ) : isSubmitting ? (
             <>
@@ -2102,7 +2102,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
           ) : (
             <>
               <Save className="w-5 h-5" />
-              {ilanId ? 'Guncelle' : 'Kaydet'}
+              {ilanId ? 'Güncelle' : 'Kaydet'}
             </>
           )}
         </button>

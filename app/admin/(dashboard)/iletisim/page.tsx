@@ -141,9 +141,9 @@ export default function IletisimPage() {
       case 'okundu':
         return 'Okundu'
       case 'cevaplandi':
-        return 'Cevaplandi'
+        return 'Cevaplandı'
       case 'arsivlendi':
-        return 'Arsivlendi'
+        return 'Arşivlendi'
       default:
         return durum
     }
@@ -151,7 +151,7 @@ export default function IletisimPage() {
 
   return (
     <div>
-      <AdminHeader title="Mesajlar" subtitle="Iletisim formlarindan gelen mesajlar" />
+      <AdminHeader title="Mesajlar" subtitle="İletişim formlarından gelen mesajlar" />
 
       <div className="p-4 sm:p-6">
         <div className="flex flex-col lg:flex-row gap-6">
@@ -164,11 +164,11 @@ export default function IletisimPage() {
                 onChange={(e) => setFilterDurum(e.target.value)}
                 className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               >
-                <option value="">Tum Mesajlar</option>
+                <option value="">Tüm Mesajlar</option>
                 <option value="yeni">Yeni</option>
                 <option value="okundu">Okundu</option>
-                <option value="cevaplandi">Cevaplandi</option>
-                <option value="arsivlendi">Arsivlendi</option>
+                <option value="cevaplandi">Cevaplandı</option>
+                <option value="arsivlendi">Arşivlendi</option>
               </select>
 
               <span className="text-sm text-gray-500">
@@ -201,13 +201,13 @@ export default function IletisimPage() {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       />
                     </svg>
-                    Yukleniyor...
+                    Yükleniyor...
                   </div>
                 </div>
               ) : contacts.length === 0 ? (
                 <div className="p-12 text-center">
                   <MessageSquare className="w-12 h-12 mx-auto text-gray-300 mb-4" />
-                  <p className="text-gray-500">Henuz mesaj yok</p>
+                  <p className="text-gray-500">Henüz mesaj yok</p>
                 </div>
               ) : (
                 <div className="divide-y divide-gray-100">
@@ -268,7 +268,7 @@ export default function IletisimPage() {
                       disabled={pagination.page === 1}
                       className="px-3 py-1 text-sm border border-gray-300 rounded-lg disabled:opacity-50 hover:bg-gray-50"
                     >
-                      Onceki
+                      Önceki
                     </button>
                     <button
                       onClick={() => fetchContacts(pagination.page + 1)}
@@ -297,7 +297,7 @@ export default function IletisimPage() {
               <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
                 <div className="space-y-4">
                   <div>
-                    <p className="text-xs text-gray-400 mb-1">Gonderen</p>
+                    <p className="text-xs text-gray-400 mb-1">Gönderen</p>
                     <p className="font-medium text-gray-900">{selectedContact.ad}</p>
                   </div>
 
@@ -368,7 +368,7 @@ export default function IletisimPage() {
                         }`}
                       >
                         <Check className="w-3 h-3" />
-                        Cevaplandi
+                        Cevaplandı
                       </button>
                       <button
                         onClick={() => handleStatusChange(selectedContact.id, 'arsivlendi')}
@@ -379,7 +379,7 @@ export default function IletisimPage() {
                         }`}
                       >
                         <Archive className="w-3 h-3" />
-                        Arsivle
+                        Arşivle
                       </button>
                     </div>
                   </div>
@@ -391,7 +391,7 @@ export default function IletisimPage() {
                       className="w-full px-3 py-2 text-sm text-red-600 border border-red-200 rounded-lg hover:bg-red-50 flex items-center justify-center gap-2"
                     >
                       <Trash2 className="w-4 h-4" />
-                      Mesaji Sil
+                      Mesajı Sil
                     </button>
                   </div>
                 </div>
@@ -404,7 +404,7 @@ export default function IletisimPage() {
             {selectedContact ? (
               <div className="bg-white rounded-xl border border-gray-200 p-6 sticky top-20">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold text-primary">Mesaj Detayi</h3>
+                  <h3 className="font-semibold text-primary">Mesaj Detayı</h3>
                   <button
                     onClick={() => setSelectedContact(null)}
                     className="p-1 hover:bg-gray-100 rounded-lg"
@@ -415,7 +415,7 @@ export default function IletisimPage() {
 
                 <div className="space-y-4">
                   <div>
-                    <p className="text-xs text-gray-400 mb-1">Gonderen</p>
+                    <p className="text-xs text-gray-400 mb-1">Gönderen</p>
                     <p className="font-medium">{selectedContact.ad}</p>
                   </div>
 
@@ -486,7 +486,7 @@ export default function IletisimPage() {
                         }`}
                       >
                         <Check className="w-3 h-3" />
-                        Cevaplandi
+                        Cevaplandı
                       </button>
                       <button
                         onClick={() => handleStatusChange(selectedContact.id, 'arsivlendi')}
@@ -497,7 +497,7 @@ export default function IletisimPage() {
                         }`}
                       >
                         <Archive className="w-3 h-3" />
-                        Arsivle
+                        Arşivle
                       </button>
                     </div>
                   </div>
@@ -509,7 +509,7 @@ export default function IletisimPage() {
                       className="w-full px-3 py-2 text-sm text-red-600 border border-red-200 rounded-lg hover:bg-red-50 flex items-center justify-center gap-2"
                     >
                       <Trash2 className="w-4 h-4" />
-                      Mesaji Sil
+                      Mesajı Sil
                     </button>
                   </div>
                 </div>
@@ -518,7 +518,7 @@ export default function IletisimPage() {
               <div className="bg-white rounded-xl border border-gray-200 p-12 text-center">
                 <Mail className="w-12 h-12 mx-auto text-gray-300 mb-4" />
                 <p className="text-gray-500">
-                  Detaylarini gormek icin bir mesaj secin
+                  Detaylarını görmek için bir mesaj seçin
                 </p>
               </div>
             )}
@@ -529,10 +529,10 @@ export default function IletisimPage() {
       {/* Delete Confirmation */}
       <ConfirmDialog
         isOpen={!!deleteId}
-        title="Mesaji Sil"
-        message="Bu mesaji silmek istediginizden emin misiniz?"
+        title="Mesajı Sil"
+        message="Bu mesajı silmek istediğinizden emin misiniz?"
         confirmText="Sil"
-        cancelText="Iptal"
+        cancelText="İptal"
         onConfirm={handleDelete}
         onCancel={() => setDeleteId(null)}
         variant="danger"

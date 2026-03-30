@@ -56,9 +56,9 @@ export default function KullanimKosullariPage() {
                 musterilerle iletisim kurmak amaciyla kullanilmaktadir.
               </p>
 
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">3. Ilan Bilgileri</h2>
+              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">3. İlan Bilgileri</h2>
               <p className="text-[#666666] mb-6">
-                Web sitemizde yayinlanan emlak ilanlari bilgi amaclidir. Ilan bilgilerinin
+                Web sitemizde yayınlanan emlak ilanları bilgi amaçlıdır. İlan bilgilerinin
                 dogruluğu ve guncelligini saglamak icin caba gostermekteyiz, ancak bilgilerin
                 eksiksiz veya hatasiz olacagini garanti etmemekteyiz. Kesin bilgi icin
                 lutfen bizimle iletisime gecin.

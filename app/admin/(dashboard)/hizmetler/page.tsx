@@ -130,7 +130,7 @@ export default function HizmetlerPage() {
   if (isLoading) {
     return (
       <div>
-        <AdminHeader title="Hizmetler" subtitle="Hizmetleri yonetin" />
+        <AdminHeader title="Hizmetler" subtitle="Hizmetleri yönetin" />
         <div className="p-4 sm:p-6">
           <div className="flex items-center justify-center py-12">
             <div className="flex items-center gap-2 text-text-light">
@@ -154,7 +154,7 @@ export default function HizmetlerPage() {
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 />
               </svg>
-              Yukleniyor...
+              Yükleniyor...
             </div>
           </div>
         </div>
@@ -164,13 +164,13 @@ export default function HizmetlerPage() {
 
   return (
     <div>
-      <AdminHeader title="Hizmetler" subtitle="Hizmetleri yonetin" />
+      <AdminHeader title="Hizmetler" subtitle="Hizmetleri yönetin" />
 
       <div className="p-4 sm:p-6">
         {hizmetler.length === 0 ? (
           <div className="bg-white rounded-xl border border-border p-12 text-center">
             <Briefcase className="w-12 h-12 mx-auto text-text-muted mb-4" />
-            <p className="text-text-light mb-4">Henuz hizmet eklenmemis</p>
+            <p className="text-text-light mb-4">Henüz hizmet eklenmemiş</p>
             <p className="text-sm text-text-muted">
               Hizmetleri JSON migrasyonu ile veya manuel olarak ekleyebilirsiniz
             </p>
@@ -275,10 +275,10 @@ export default function HizmetlerPage() {
                 {/* Expanded Content */}
                 {expandedId === hizmet.id && (
                   <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-border bg-surface/50">
-                    {/* Kisa Aciklama */}
+                    {/* Kısa Açıklama */}
                     <div className="mb-4">
                       <label className="block text-sm font-medium text-text mb-1">
-                        Kisa Aciklama
+                        Kısa Açıklama
                       </label>
                       {editingId === hizmet.id ? (
                         <textarea
@@ -322,7 +322,7 @@ export default function HizmetlerPage() {
                     {/* SSS */}
                     <div className="mb-4">
                       <h4 className="text-sm font-medium text-text mb-2">
-                        Sikca Sorulan Sorular
+                        Sıkça Sorulan Sorular
                       </h4>
                       <div className="space-y-2">
                         {hizmet.sss.map((sss) => (
@@ -342,7 +342,7 @@ export default function HizmetlerPage() {
                     {/* Bolgeler */}
                     <div>
                       <h4 className="text-sm font-medium text-text mb-2">
-                        Hizmet Bolgeleri
+                        Hizmet Bölgeleri
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {hizmet.bolgeler.map((b, i) => (
@@ -367,9 +367,9 @@ export default function HizmetlerPage() {
       <ConfirmDialog
         isOpen={!!deleteId}
         title="Hizmeti Sil"
-        message="Bu hizmeti silmek istediginizden emin misiniz? Tum alt hizmetler ve SSS'ler de silinecektir."
+        message="Bu hizmeti silmek istediğinizden emin misiniz? Tüm alt hizmetler ve SSS'ler de silinecektir."
         confirmText="Sil"
-        cancelText="Iptal"
+        cancelText="İptal"
         onConfirm={handleDelete}
         onCancel={() => setDeleteId(null)}
         variant="danger"

@@ -43,8 +43,8 @@ export default function MedyaPage() {
   return (
     <div>
       <AdminHeader
-        title="Medya Kutuphanesi"
-        subtitle="Resim ve dosyalari yonetin"
+        title="Medya Kütüphanesi"
+        subtitle="Resim ve dosyaları yönetin"
       />
 
       <div className="p-4 sm:p-6">
@@ -54,10 +54,10 @@ export default function MedyaPage() {
             <Upload className="w-8 h-8 text-primary" />
           </div>
           <h3 className="text-lg font-semibold text-text mb-2">
-            Dosya Yukle
+            Dosya Yükle
           </h3>
           <p className="text-text-muted mb-4">
-            Resimleri buraya surukleeyin veya secmek icin tiklayin
+            Resimleri buraya sürükleyin veya seçmek için tıklayın
           </p>
           <input
             type="file"
@@ -71,7 +71,7 @@ export default function MedyaPage() {
             className="btn btn-primary cursor-pointer"
           >
             <FolderOpen className="w-5 h-5" />
-            Dosya Sec
+            Dosya Seç
           </label>
           <p className="text-xs text-text-muted mt-4">
             PNG, JPG, WEBP - Maksimum 5MB
@@ -81,16 +81,16 @@ export default function MedyaPage() {
         {/* Info Banner */}
         <div className="bg-accent/10 border border-accent/20 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
           <p className="text-sm text-primary">
-            <strong>Not:</strong> Dosya yukleme ozelligi henuz aktif degil.
-            Simdilik mevcut resimleri kullanabilirsiniz. Gorselleri
+            <strong>Not:</strong> Dosya yükleme özelliği henüz aktif değil.
+            Şimdilik mevcut resimleri kullanabilirsiniz. Görselleri
             <code className="mx-1 px-1 py-0.5 bg-white rounded">/public/images/</code>
-            klasorune manuel olarak yukleyebilirsiniz.
+            klasörüne manuel olarak yükleyebilirsiniz.
           </p>
         </div>
 
         {/* Existing Images */}
         <h2 className="text-base sm:text-lg font-semibold text-primary mb-3 sm:mb-4">
-          Mevcut Gorseller
+          Mevcut Görseller
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
           {existingImages.map((url) => (
@@ -133,7 +133,7 @@ export default function MedyaPage() {
         {existingImages.length === 0 && (
           <div className="text-center py-12">
             <ImageIcon className="w-12 h-12 mx-auto text-text-muted mb-4" />
-            <p className="text-text-light">Henuz gorsel yuklenmemis</p>
+            <p className="text-text-light">Henüz görsel yüklenmemiş</p>
           </div>
         )}
       </div>

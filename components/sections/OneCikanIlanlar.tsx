@@ -69,14 +69,14 @@ export default function OneCikanIlanlar() {
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-            One Cikan Ilanlar
+            Öne Çıkan İlanlar
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
-            En Guncel Emlak Firsatlari
+            En Güncel Emlak Fırsatları
           </h2>
           <p className="text-text-light max-w-2xl mx-auto">
-            Mugla'nin tum ilcelerinden seckin ilanlarimizi kesfedin.
-            Satilik ve kiralik secenekler.
+            Muğla'nın tüm ilçelerinden seçkin ilanlarımızı keşfedin.
+            Satılık ve kiralık seçenekler.
           </p>
         </motion.div>
 
@@ -212,7 +212,7 @@ export default function OneCikanIlanlar() {
               size="lg"
               rightIcon={<ArrowRight className="w-5 h-5" />}
             >
-              Tum Ilanlari Gor
+              Tüm İlanları Gör
             </Button>
           </Link>
         </motion.div>

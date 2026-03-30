@@ -119,7 +119,7 @@ export default function IlanlarPage() {
   const columns = [
     {
       key: 'baslik',
-      header: 'Ilan',
+      header: 'İlan',
       render: (ilan: Ilan) => (
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-lg bg-surface flex items-center justify-center overflow-hidden">
@@ -151,7 +151,7 @@ export default function IlanlarPage() {
               : 'bg-accent/10 text-accent-dark'
           }`}
         >
-          {ilan.kategori === 'satilik' ? 'Satilik' : 'Kiralik'}
+          {ilan.kategori === 'satilik' ? 'Satılık' : 'Kiralık'}
         </span>
       ),
     },
@@ -198,13 +198,13 @@ export default function IlanlarPage() {
             ? 'Aktif'
             : ilan.durum === 'pasif'
             ? 'Pasif'
-            : 'Satildi'}
+            : 'Satıldı'}
         </span>
       ),
     },
     {
       key: 'actions',
-      header: 'Islemler',
+      header: 'İşlemler',
       className: 'text-right',
       render: (ilan: Ilan) => (
         <div className="flex items-center justify-end gap-2">
@@ -212,14 +212,14 @@ export default function IlanlarPage() {
             href={`/ilanlar/${ilan.slug}`}
             target="_blank"
             className="p-2 hover:bg-surface rounded-lg transition-colors"
-            title="Onizle"
+            title="Önizle"
           >
             <Eye className="w-4 h-4 text-text-light" />
           </Link>
           <Link
             href={`/admin/ilanlar/${ilan.id}/duzenle`}
             className="p-2 hover:bg-surface rounded-lg transition-colors"
-            title="Duzenle"
+            title="Düzenle"
           >
             <Edit className="w-4 h-4 text-primary" />
           </Link>
@@ -237,7 +237,7 @@ export default function IlanlarPage() {
 
   return (
     <div>
-      <AdminHeader title="Ilanlar" subtitle="Emlak ilanlarini yonetin" />
+      <AdminHeader title="İlanlar" subtitle="Emlak ilanlarını yönetin" />
 
       <div className="p-4 sm:p-6">
         {/* Actions Bar */}
@@ -248,7 +248,7 @@ export default function IlanlarPage() {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" />
               <input
                 type="text"
-                placeholder="Ilan ara..."
+                placeholder="İlan ara..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="input pl-10 w-full"
@@ -257,7 +257,7 @@ export default function IlanlarPage() {
             {/* Add New Button */}
             <Link href="/admin/ilanlar/yeni" className="btn btn-primary flex-shrink-0">
               <Plus className="w-5 h-5" />
-              <span className="hidden sm:inline">Yeni Ilan</span>
+              <span className="hidden sm:inline">Yeni İlan</span>
             </Link>
           </div>
 
@@ -312,7 +312,7 @@ export default function IlanlarPage() {
             )}
             {kategori && (
               <span className="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">
-                {kategori === 'satilik' ? 'Satilik' : 'Kiralik'}
+                {kategori === 'satilik' ? 'Satılık' : 'Kiralık'}
                 <button onClick={() => setKategori('')}>
                   <X className="w-3 h-3" />
                 </button>
@@ -343,7 +343,7 @@ export default function IlanlarPage() {
               }}
               className="text-xs text-error hover:underline"
             >
-              Tumunu Temizle
+              Tümünü Temizle
             </button>
           </div>
         )}
@@ -357,17 +357,17 @@ export default function IlanlarPage() {
           totalPages={pagination.totalPages}
           onPageChange={(page) => fetchIlanlar(page)}
           isLoading={isLoading}
-          emptyMessage="Henuz ilan eklenmemis"
+          emptyMessage="Henüz ilan eklenmemiş"
         />
       </div>
 
       {/* Delete Confirmation */}
       <ConfirmDialog
         isOpen={!!deleteId}
-        title="Ilani Sil"
-        message="Bu ilani silmek istediginizden emin misiniz? Bu islem geri alinamaz."
+        title="İlanı Sil"
+        message="Bu ilanı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
         confirmText="Sil"
-        cancelText="Iptal"
+        cancelText="İptal"
         onConfirm={handleDelete}
         onCancel={() => setDeleteId(null)}
         variant="danger"

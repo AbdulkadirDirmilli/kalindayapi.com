@@ -23,7 +23,7 @@ import clsx from 'clsx'
 
 const menuItems = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/admin/ilanlar', label: 'Ilanlar', icon: Building2 },
+  { href: '/admin/ilanlar', label: 'İlanlar', icon: Building2 },
   { href: '/admin/hizmetler', label: 'Hizmetler', icon: Briefcase },
   { href: '/admin/iletisim', label: 'Mesajlar', icon: Mail, badge: 'unreadMessages' },
   { href: '/admin/medya', label: 'Medya', icon: ImageIcon },
@@ -53,7 +53,7 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
         setUnreadMessages(data.pagination?.total || 0)
       }
     } catch (error) {
-      console.error('Okunmamis mesaj sayisi alinamadi:', error)
+      console.error('Okunmamış mesaj sayısı alınamadı:', error)
     }
   }, [])
 
@@ -235,7 +235,7 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
             )}
           >
             <ExternalLink className="w-5 h-5 flex-shrink-0" />
-            <span className={clsx(isCollapsed && 'lg:hidden')}>Siteyi Gor</span>
+            <span className={clsx(isCollapsed && 'lg:hidden')}>Siteyi Gör</span>
           </Link>
           <button
             onClick={handleSignOut}
@@ -245,7 +245,7 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
             )}
           >
             <LogOut className="w-5 h-5 flex-shrink-0" />
-            <span className={clsx(isCollapsed && 'lg:hidden')}>Cikis Yap</span>
+            <span className={clsx(isCollapsed && 'lg:hidden')}>Çıkış Yap</span>
           </button>
         </div>
       </aside>

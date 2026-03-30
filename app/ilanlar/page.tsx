@@ -57,7 +57,7 @@ export default function IlanlarPage() {
         const response = await fetch(`/api/ilanlar?${params.toString()}`);
 
         if (!response.ok) {
-          throw new Error("Ilanlar yuklenirken hata olustu");
+          throw new Error("İlanlar yüklenirken hata oluştu");
         }
 
         const data = await response.json();
@@ -65,7 +65,7 @@ export default function IlanlarPage() {
         setTotalCount(data.pagination?.total || 0);
         setTotalPages(data.pagination?.totalPages || 1);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Bir hata olustu");
+        setError(err instanceof Error ? err.message : "Bir hata oluştu");
         setIlanlar([]);
       } finally {
         setLoading(false);
@@ -83,7 +83,7 @@ export default function IlanlarPage() {
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Ana Sayfa", url: "/" },
-    { name: "Ilanlar", url: "/ilanlar" },
+    { name: "İlanlar", url: "/ilanlar" },
   ]);
 
   return (
@@ -105,7 +105,7 @@ export default function IlanlarPage() {
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">Ilanlar</span>
+            <span className="text-[#C9A84C]">İlanlar</span>
           </nav>
 
           <motion.div
@@ -114,10 +114,10 @@ export default function IlanlarPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Emlak Ilanlari
+              Emlak İlanları
             </h1>
             <p className="text-gray-300 max-w-2xl">
-              Mugla'nin tum ilcelerinde satilik ve kiralik gayrimenkuller.
+              Muğla'nın tüm ilçelerinde satılık ve kiralık gayrimenkuller.
               Hayalinizdeki evi bulun.
             </p>
           </motion.div>
@@ -148,7 +148,7 @@ export default function IlanlarPage() {
             <div className="flex items-center justify-center py-20">
               <Loader2 className="w-10 h-10 animate-spin text-[#C9A84C]" />
               <span className="ml-3 text-lg text-gray-600">
-                Ilanlar yukleniyor...
+                İlanlar yükleniyor...
               </span>
             </div>
           )}
@@ -172,7 +172,7 @@ export default function IlanlarPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
-                Hata Olustu
+                Hata Oluştu
               </h3>
               <p className="text-[#666666] mb-6">{error}</p>
               <button
@@ -240,10 +240,10 @@ export default function IlanlarPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
-                Ilan Bulunamadi
+                İlan Bulunamadı
               </h3>
               <p className="text-[#666666] mb-6">
-                Arama kriterlerinize uygun ilan bulunamadi. Filtreleri degistirmeyi
+                Arama kriterlerinize uygun ilan bulunamadı. Filtreleri değiştirmeyi
                 deneyin.
               </p>
               <button
@@ -259,7 +259,7 @@ export default function IlanlarPage() {
                 }
                 className="text-[#C9A84C] font-medium hover:underline"
               >
-                Tum filtreleri temizle
+                Tüm filtreleri temizle
               </button>
             </motion.div>
           )}

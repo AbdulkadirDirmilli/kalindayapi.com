@@ -48,7 +48,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
       icon: Maximize2,
     },
     ilan.ozellikler?.odaSayisi && {
-      label: "Oda Sayisi",
+      label: "Oda Sayısı",
       value: ilan.ozellikler.odaSayisi,
       icon: BedDouble,
     },
@@ -63,12 +63,12 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
       icon: Building,
     },
     ilan.ozellikler?.binaYasi != null && {
-      label: "Bina Yasi",
-      value: ilan.ozellikler.binaYasi === 0 ? "Sifir" : `${ilan.ozellikler.binaYasi} Yil`,
+      label: "Bina Yaşı",
+      value: ilan.ozellikler.binaYasi === 0 ? "Sıfır" : `${ilan.ozellikler.binaYasi} Yıl`,
       icon: Calendar,
     },
     ilan.ozellikler?.isitma && {
-      label: "Isitma",
+      label: "Isıtma",
       value: ilan.ozellikler.isitma,
       icon: Thermometer,
     },
@@ -76,12 +76,12 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
 
   const ekOzellikler = [
     ilan.ozellikler?.balkon && { label: "Balkon", icon: Check },
-    ilan.ozellikler?.asansor && { label: "Asansor", icon: Check },
+    ilan.ozellikler?.asansor && { label: "Asansör", icon: Check },
     ilan.ozellikler?.otopark && { label: "Otopark", icon: Car },
-    ilan.ozellikler?.guvenlik && { label: "Guvenlik", icon: Shield },
+    ilan.ozellikler?.guvenlik && { label: "Güvenlik", icon: Shield },
     ilan.ozellikler?.havuz && { label: "Havuz", icon: Waves },
-    ilan.ozellikler?.bahce && { label: "Bahce", icon: TreeDeciduous },
-    ilan.ozellikler?.esyali && { label: "Esyali", icon: Check },
+    ilan.ozellikler?.bahce && { label: "Bahçe", icon: TreeDeciduous },
+    ilan.ozellikler?.esyali && { label: "Eşyalı", icon: Check },
   ].filter(Boolean);
 
   return (
@@ -96,7 +96,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
             </Link>
             <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <Link href="/ilanlar" className="hover:text-[#C9A84C] transition-colors">
-              Ilanlar
+              İlanlar
             </Link>
             <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span className="text-[#C9A84C] line-clamp-1 max-w-[150px] sm:max-w-none">{ilan.baslik}</span>
@@ -110,10 +110,10 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                   variant={ilan.kategori === "satilik" ? "satilik" : "kiralik"}
                   size="lg"
                 >
-                  {ilan.kategori === "satilik" ? "Satilik" : "Kiralik"}
+                  {ilan.kategori === "satilik" ? "Satılık" : "Kiralık"}
                 </Badge>
                 {ilan.ilanNo && (
-                  <span className="text-gray-400 text-xs sm:text-sm">Ilan No: {ilan.ilanNo}</span>
+                  <span className="text-gray-400 text-xs sm:text-sm">İlan No: {ilan.ilanNo}</span>
                 )}
               </div>
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
@@ -204,7 +204,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                       className="w-full h-full object-contain"
                       preload="metadata"
                     >
-                      Tarayiciniz video etiketini desteklemiyor.
+                      Tarayıcınız video etiketini desteklemiyor.
                     </video>
                   </div>
                 </Card>
@@ -213,7 +213,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
               {/* Description */}
               <Card padding="md" className="sm:p-6 lg:p-8">
                 <h2 className="text-lg sm:text-xl font-bold text-[#0B1F3A] mb-3 sm:mb-4">
-                  Ilan Aciklamasi
+                  İlan Açıklaması
                 </h2>
                 <p className="text-sm sm:text-base text-[#666666] leading-relaxed whitespace-pre-line">
                   {ilan.aciklama}
@@ -223,7 +223,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
               {/* Features */}
               <Card padding="md" className="sm:p-6 lg:p-8">
                 <h2 className="text-lg sm:text-xl font-bold text-[#0B1F3A] mb-4 sm:mb-6">
-                  Ozellikler
+                  Özellikler
                 </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
                   {ozellikler.map((ozellik) => {
@@ -252,7 +252,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                 {ekOzellikler.length > 0 && (
                   <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-[#e0e0e0]">
                     <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-3 sm:mb-4">
-                      Ek Ozellikler
+                      Ek Özellikler
                     </h3>
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {ekOzellikler.map((ozellik) => {
@@ -286,7 +286,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     {ilan.ozellikler?.icOzellikler && ilan.ozellikler.icOzellikler.length > 0 && (
                       <div>
                         <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
-                          Ic Ozellikler
+                          İç Özellikler
                         </h3>
                         <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {ilan.ozellikler.icOzellikler.map((ozellik: string) => (
@@ -306,7 +306,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     {ilan.ozellikler?.disOzellikler && ilan.ozellikler.disOzellikler.length > 0 && (
                       <div>
                         <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
-                          Dis Ozellikler
+                          Dış Özellikler
                         </h3>
                         <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {ilan.ozellikler.disOzellikler.map((ozellik: string) => (
@@ -326,7 +326,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     {ilan.ozellikler?.muhitOzellikleri && ilan.ozellikler.muhitOzellikleri.length > 0 && (
                       <div>
                         <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
-                          Muhit Ozellikleri
+                          Muhit Özellikleri
                         </h3>
                         <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {ilan.ozellikler.muhitOzellikleri.map((ozellik: string) => (
@@ -346,7 +346,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     {ilan.ozellikler?.guvenlikOzellikleri && ilan.ozellikler.guvenlikOzellikleri.length > 0 && (
                       <div>
                         <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
-                          Guvenlik Ozellikleri
+                          Güvenlik Özellikleri
                         </h3>
                         <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {ilan.ozellikler.guvenlikOzellikleri.map((ozellik: string) => (
@@ -404,7 +404,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     {ilan.ozellikler?.altyapiDetay && ilan.ozellikler.altyapiDetay.length > 0 && (
                       <div>
                         <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
-                          Altyapi
+                          Altyapı
                         </h3>
                         <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {ilan.ozellikler.altyapiDetay.map((ozellik: string) => (
@@ -424,7 +424,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     {ilan.ozellikler?.tarimOzellikleri && ilan.ozellikler.tarimOzellikleri.length > 0 && (
                       <div>
                         <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
-                          Tarim Ozellikleri
+                          Tarım Özellikleri
                         </h3>
                         <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {ilan.ozellikler.tarimOzellikleri.map((ozellik: string) => (
@@ -444,7 +444,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     {ilan.ozellikler?.depoOzellikleri && ilan.ozellikler.depoOzellikleri.length > 0 && (
                       <div>
                         <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3A] mb-2 sm:mb-3">
-                          Depo Ozellikleri
+                          Depo Özellikleri
                         </h3>
                         <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {ilan.ozellikler.depoOzellikleri.map((ozellik: string) => (
@@ -493,7 +493,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
               {/* Contact Card - Hidden on mobile, shown on tablet/desktop */}
               <Card padding="md" className="hidden lg:block sm:p-6 lg:p-8 lg:sticky lg:top-24">
                 <h3 className="text-base sm:text-lg font-bold text-[#0B1F3A] mb-3 sm:mb-4">
-                  Iletisime Gec
+                  İletişime Geç
                 </h3>
 
                 {/* Agent Info */}
@@ -518,7 +518,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                       {ilan.danisman?.ad || "Kalinda Yapi"}
                     </p>
                     <p className="text-xs sm:text-sm text-[#666666]">
-                      {ilan.danisman?.unvan || "Emlak Danismani"}
+                      {ilan.danisman?.unvan || "Emlak Danışmanı"}
                     </p>
                   </div>
                 </div>
@@ -572,7 +572,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                   </div>
                   {ilan.ozellikler?.metrekare && ilan.ozellikler.metrekare > 0 && (
                     <div className="flex justify-between items-center">
-                      <span className="text-[#666666] text-sm">m2 Fiyati</span>
+                      <span className="text-[#666666] text-sm">m² Fiyatı</span>
                       <span className="font-bold text-[#0B1F3A] text-sm sm:text-base">
                         {formatPrice(Math.round(ilan.fiyat / ilan.ozellikler.metrekare))}
                       </span>
@@ -605,7 +605,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                         {ilan.danisman?.ad || "Kalinda Yapi"}
                       </p>
                       <p className="text-sm text-[#666666]">
-                        {ilan.danisman?.unvan || "Emlak Danismani"}
+                        {ilan.danisman?.unvan || "Emlak Danışmanı"}
                       </p>
                     </div>
                   </div>
@@ -637,7 +637,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
           {benzerIlanlar.length > 0 && (
             <div className="mt-8 sm:mt-12 lg:mt-16">
               <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F3A] mb-4 sm:mb-6 lg:mb-8">
-                Benzer Ilanlar
+                Benzer İlanlar
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {benzerIlanlar.map((benzerIlan, index) => (
@@ -706,7 +706,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                 }
               }}
               className="p-2.5 bg-[#F5F5F5] rounded-lg hover:bg-[#e0e0e0] transition-colors sm:hidden"
-              aria-label="Paylas"
+              aria-label="Paylaş"
             >
               <Share2 className="w-5 h-5 text-[#0B1F3A]" />
             </button>

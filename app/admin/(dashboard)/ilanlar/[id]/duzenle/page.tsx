@@ -36,7 +36,7 @@ export default async function DuzenleIlanPage({ params }: Props) {
   return (
     <div>
       <AdminHeader
-        title="Ilan Duzenle"
+        title="İlan Düzenle"
         subtitle={ilan.baslik}
       />
       <div className="p-6">

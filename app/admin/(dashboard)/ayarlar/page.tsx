@@ -9,7 +9,7 @@ export default function AyarlarPage() {
   const [settings, setSettings] = useState({
     // Firma Bilgileri
     firmaAdi: 'Kalinda Yapi',
-    slogan: 'Guvenilir Gayrimenkul & Yapi Cozumleri',
+    slogan: 'Güvenilir Gayrimenkul & Yapı Çözümleri',
     kurulusYili: '2022',
 
     // Iletisim
@@ -20,16 +20,16 @@ export default function AyarlarPage() {
 
     // Adres
     mahalle: 'Cumhuriyet Mahallesi',
-    cadde: 'Ataturk Caddesi',
+    cadde: 'Atatürk Caddesi',
     no: '45/A',
     ilce: 'Ortaca',
     il: 'Mugla',
     postaKodu: '48600',
 
-    // Calisma Saatleri
+    // Çalışma Saatleri
     haftaIci: '08:00 - 18:00',
     cumartesi: '09:00 - 14:00',
-    pazar: 'Kapali',
+    pazar: 'Kapalı',
 
     // Sosyal Medya
     instagram: 'kalindayapi',
@@ -53,8 +53,8 @@ export default function AyarlarPage() {
   return (
     <div>
       <AdminHeader
-        title="Site Ayarlari"
-        subtitle="Genel site ayarlarini yapilandirin"
+        title="Site Ayarları"
+        subtitle="Genel site ayarlarını yapılandırın"
       />
 
       <div className="p-4 sm:p-6 max-w-4xl">
@@ -67,7 +67,7 @@ export default function AyarlarPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Firma Adi
+                Firma Adı
               </label>
               <input
                 type="text"
@@ -91,7 +91,7 @@ export default function AyarlarPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Kurulus Yili
+                Kuruluş Yılı
               </label>
               <input
                 type="text"
@@ -104,11 +104,11 @@ export default function AyarlarPage() {
           </div>
         </div>
 
-        {/* Iletisim Bilgileri */}
+        {/* İletişim Bilgileri */}
         <div className="bg-white rounded-xl border border-border p-4 sm:p-6 mb-4 sm:mb-6">
           <div className="flex items-center gap-2 mb-4">
             <Phone className="w-5 h-5 text-primary" />
-            <h2 className="text-lg font-semibold text-primary">Iletisim Bilgileri</h2>
+            <h2 className="text-lg font-semibold text-primary">İletişim Bilgileri</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -207,7 +207,7 @@ export default function AyarlarPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Ilce
+                İlçe
               </label>
               <input
                 type="text"
@@ -219,7 +219,7 @@ export default function AyarlarPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Il
+                İl
               </label>
               <input
                 type="text"
@@ -244,16 +244,16 @@ export default function AyarlarPage() {
           </div>
         </div>
 
-        {/* Calisma Saatleri */}
+        {/* Çalışma Saatleri */}
         <div className="bg-white rounded-xl border border-border p-4 sm:p-6 mb-4 sm:mb-6">
           <div className="flex items-center gap-2 mb-4">
             <Clock className="w-5 h-5 text-primary" />
-            <h2 className="text-lg font-semibold text-primary">Calisma Saatleri</h2>
+            <h2 className="text-lg font-semibold text-primary">Çalışma Saatleri</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-text mb-1">
-                Hafta Ici
+                Hafta İçi
               </label>
               <input
                 type="text"
