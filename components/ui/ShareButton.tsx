@@ -15,7 +15,7 @@ export default function ShareButton({ title, text }: ShareButtonProps) {
         title,
         text,
         url: window.location.href,
-      });
+      }).catch(() => {});
     } else {
       // Fallback: copy to clipboard
       if (typeof navigator !== "undefined" && navigator.clipboard) {

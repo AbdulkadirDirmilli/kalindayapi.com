@@ -303,6 +303,7 @@ export const konumVerisi: Il = {
         { ad: 'Gökbel Mahallesi' },
         { ad: 'Güzelyurt Mahallesi' },
         { ad: 'İztuzu Mahallesi' },
+        { ad: 'Karaburun Mahallesi' },
         { ad: 'Karadonlar Mahallesi' },
         { ad: 'Kemaliye Mahallesi' },
         { ad: 'Maraş Mahallesi' },

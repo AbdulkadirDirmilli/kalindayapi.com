@@ -699,7 +699,10 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     title: ilan.baslik,
                     text: ilan.aciklama?.slice(0, 100) || '',
                     url: window.location.href,
-                  });
+                  }).catch(() => {});
+                } else if (navigator.clipboard) {
+                  navigator.clipboard.writeText(window.location.href);
+                  alert("Link kopyalandı!");
                 }
               }}
               className="p-2.5 bg-[#F5F5F5] rounded-lg hover:bg-[#e0e0e0] transition-colors sm:hidden"
