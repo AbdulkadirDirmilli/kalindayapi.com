@@ -17,6 +17,7 @@ import {
 } from 'lucide-react'
 import { konumVerisi, getIlceler, getMahalleler, getIlceKoordinatlari } from '@/data/konum'
 import { getOzelliklerByTip, emlakTipleri, getAllEmlakTipleri } from '@/data/ozellikler'
+import { INSAAT_DURUMU_OPTIONS } from '@/lib/utils'
 
 interface Ortak {
   id: string
@@ -97,6 +98,8 @@ interface IlanFormData {
   tavanYuksekligi: number | null
   personelKapasitesi: number | null
   depoOzellikleri: string[]
+  // Insaat durumu
+  insaatDurumu: string
   // Tapu
   tapuDurumu: string
   krediyeUygun: boolean
@@ -181,6 +184,7 @@ const defaultFormData: IlanFormData = {
   tavanYuksekligi: null,
   personelKapasitesi: null,
   depoOzellikleri: [],
+  insaatDurumu: '',
   tapuDurumu: '',
   krediyeUygun: false,
   takasaUygun: false,
@@ -816,6 +820,25 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <option value="pasif">Pasif (Taslak)</option>
               <option value="satildi">Satıldı</option>
               <option value="kiralandi">Kiralandı</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-text mb-1">
+              İnşaat Durumu
+            </label>
+            <select
+              name="insaatDurumu"
+              value={formData.insaatDurumu}
+              onChange={handleChange}
+              className="input"
+            >
+              <option value="">Seçiniz (Opsiyonel)</option>
+              {INSAAT_DURUMU_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
             </select>
           </div>
 

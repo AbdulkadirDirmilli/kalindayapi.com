@@ -10,6 +10,7 @@ import {
   Bath,
   Calendar,
   Building,
+  HardHat,
   Thermometer,
   Car,
   Shield,
@@ -32,6 +33,8 @@ import {
   formatPrice,
   formatDate,
   createWhatsAppLink,
+  getInsaatDurumuLabel,
+  getInsaatDurumuBadgeClass,
   Ilan,
 } from "@/lib/utils";
 
@@ -71,6 +74,11 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
       label: "Isıtma",
       value: ilan.ozellikler.isitma,
       icon: Thermometer,
+    },
+    ilan.insaatDurumu && {
+      label: "İnşaat Durumu",
+      value: getInsaatDurumuLabel(ilan.insaatDurumu),
+      icon: HardHat,
     },
   ].filter(Boolean);
 
@@ -112,6 +120,11 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                 >
                   {ilan.kategori === "satilik" ? "Satılık" : "Kiralık"}
                 </Badge>
+                {ilan.insaatDurumu && (
+                  <span className={`inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
+                    {getInsaatDurumuLabel(ilan.insaatDurumu)}
+                  </span>
+                )}
                 {ilan.ilanNo && (
                   <span className="text-gray-400 text-xs sm:text-sm">İlan No: {ilan.ilanNo}</span>
                 )}

@@ -84,6 +84,9 @@ export const ilanSchema = z.object({
   takasaUygun: z.boolean().default(false),
   isyeriRuhsati: z.boolean().default(false),
 
+  // Insaat durumu
+  insaatDurumu: z.string().optional().nullable(),
+
   // Video
   videoUrl: z.string().optional().nullable(),
 

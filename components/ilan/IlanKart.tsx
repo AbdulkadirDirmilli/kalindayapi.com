@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { MapPin, Maximize2, BedDouble, Bath, Calendar, Heart } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import { formatPrice, getRelativeTime, Ilan } from "@/lib/utils";
+import { formatPrice, getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
 
 // Video dosyası olup olmadığını kontrol et
 function isVideo(url: string): boolean {
@@ -101,6 +101,11 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                       <Bath className="w-4 h-4" />
                       <span>{ilan.ozellikler.banyoSayisi} Banyo</span>
                     </div>
+                  )}
+                  {ilan.insaatDurumu && (
+                    <span className={`inline-block text-xs font-medium px-2 py-1 rounded ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
+                      {getInsaatDurumuLabel(ilan.insaatDurumu)}
+                    </span>
                   )}
                 </div>
               </div>
@@ -224,6 +229,15 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                 </div>
               )}
             </div>
+
+            {/* Insaat Durumu Badge */}
+            {ilan.insaatDurumu && (
+              <div className="mt-3">
+                <span className={`inline-block text-xs font-medium px-2 py-1 rounded ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
+                  {getInsaatDurumuLabel(ilan.insaatDurumu)}
+                </span>
+              </div>
+            )}
 
             {/* Date */}
             <div className="mt-4 pt-4 border-t border-[#e0e0e0] flex items-center justify-between">

@@ -108,6 +108,9 @@ model Ilan {
   takasaUygun       Boolean     @default(false)
   isyeriRuhsati     Boolean     @default(false)
 
+  // Insaat durumu
+  insaatDurumu      String?     // PROJE, TEMEL, KABA_INSAAT, INCE_INSAAT, SATISA_HAZIR
+
   // Video URL
   videoUrl          String?
 

@@ -84,6 +84,34 @@ export function getCategoryLabel(kategori: string): string {
   return labels[kategori] || kategori;
 }
 
+// İnşaat Durumu enum değerleri ve Türkçe karşılıkları
+export const INSAAT_DURUMU_OPTIONS = [
+  { value: 'PROJE', label: 'Proje aşamasında' },
+  { value: 'TEMEL', label: 'Temel aşamasında' },
+  { value: 'KABA_INSAAT', label: 'Kaba inşaat' },
+  { value: 'INCE_INSAAT', label: 'İnce inşaat' },
+  { value: 'SATISA_HAZIR', label: 'Satışa hazır' },
+] as const;
+
+export type InsaatDurumuValue = typeof INSAAT_DURUMU_OPTIONS[number]['value'];
+
+export function getInsaatDurumuLabel(value: string | null | undefined): string {
+  if (!value) return '';
+  const option = INSAAT_DURUMU_OPTIONS.find((o) => o.value === value);
+  return option?.label || value;
+}
+
+export function getInsaatDurumuBadgeClass(value: string): string {
+  const classes: Record<string, string> = {
+    PROJE: 'bg-blue-100 text-blue-800',
+    TEMEL: 'bg-orange-100 text-orange-800',
+    KABA_INSAAT: 'bg-yellow-100 text-yellow-800',
+    INCE_INSAAT: 'bg-purple-100 text-purple-800',
+    SATISA_HAZIR: 'bg-green-100 text-green-800',
+  };
+  return classes[value] || 'bg-gray-100 text-gray-800';
+}
+
 export function getCategoryBadgeClass(kategori: string): string {
   const classes: { [key: string]: string } = {
     satilik: "badge-satilik",
@@ -194,6 +222,7 @@ export interface Ilan {
   yayinTarihi: string;
   guncellenmeTarihi: string;
   durum: string;
+  insaatDurumu?: string | null;
   ilanNo: string;
   danisman?: {
     id: string;

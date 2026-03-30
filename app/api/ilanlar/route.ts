@@ -114,6 +114,7 @@ export async function GET(request: NextRequest) {
       yayinTarihi: ilan.yayinTarihi.toISOString(),
       guncellenmeTarihi: ilan.guncellenmeTarihi.toISOString(),
       durum: ilan.durum,
+      insaatDurumu: ilan.insaatDurumu || null,
       ilanNo: ilan.ilanNo || '',
     }))
 

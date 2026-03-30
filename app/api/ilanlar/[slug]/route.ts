@@ -80,6 +80,7 @@ export async function GET(
       yayinTarihi: ilan.yayinTarihi.toISOString(),
       guncellenmeTarihi: ilan.guncellenmeTarihi.toISOString(),
       durum: ilan.durum,
+      insaatDurumu: ilan.insaatDurumu || null,
       ilanNo: ilan.ilanNo || '',
       danisman: ilan.danisman ? {
         id: ilan.danisman.id,
