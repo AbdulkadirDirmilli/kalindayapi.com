@@ -71,6 +71,7 @@ function formatIlan(ilan: any): Ilan {
       // Insaat durumu
       insaatDurumu: ilan.insaatDurumu || undefined,
     },
+    insaatDurumu: ilan.insaatDurumu || null,
     aciklama: ilan.aciklama,
     fotograflar: ilan.fotograflar.map((f: any) => f.url),
     videoUrl: ilan.videoUrl,
