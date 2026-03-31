@@ -109,9 +109,6 @@ model Ilan {
   takasaUygun       Boolean     @default(false)
   isyeriRuhsati     Boolean     @default(false)
 
-  // Insaat durumu
-  insaatDurumu      String?     // PROJE, TEMEL, KABA_INSAAT, INCE_INSAAT, SATISA_HAZIR
-
   // Video URL
   videoUrl          String?
 
@@ -251,4 +248,18 @@ model SiteSettings {
   value     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// Oncesi-Sonrasi Galerisi
+model OncesiSonrasi {
+  id          String   @id @default(uuid())
+  baslik      String
+  kategori    String?  // tadilat, insaat, dekorasyon vb.
+  konum       String?
+  oncesiFoto  String
+  sonrasiFoto String
+  sira        Int      @default(0)
+  aktif       Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

@@ -1,59 +1,87 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
-const projeler = [
+interface Proje {
+  id: string;
+  baslik: string;
+  kategori: string | null;
+  konum: string | null;
+  oncesiFoto: string;
+  sonrasiFoto: string;
+}
+
+// Fallback data in case API fails
+const fallbackProjeler: Proje[] = [
   {
-    id: 1,
+    id: "1",
     baslik: "Villa Projesi - Dalyan",
     kategori: "İnşaat",
     konum: "Dalyan, Ortaca",
-    oncesi: "/images/projects/villa-oncesi.jpg",
-    sonrasi: "/images/projects/villa-sonrasi.jpg",
+    oncesiFoto: "/images/projects/villa-oncesi.jpg",
+    sonrasiFoto: "/images/projects/villa-sonrasi.jpg",
   },
   {
-    id: 2,
+    id: "2",
     baslik: "Mutfak Yenileme - Ortaca",
     kategori: "Tadilat",
     konum: "Ortaca Merkez",
-    oncesi: "/images/projects/mutfak-oncesi.jpg",
-    sonrasi: "/images/projects/mutfak-sonrasi.jpg",
+    oncesiFoto: "/images/projects/mutfak-oncesi.jpg",
+    sonrasiFoto: "/images/projects/mutfak-sonrasi.jpg",
   },
   {
-    id: 3,
+    id: "3",
     baslik: "Daire Renovasyonu - Köyceğiz",
     kategori: "Tadilat",
     konum: "Köyceğiz Merkez",
-    oncesi: "/images/projects/daire-oncesi.jpg",
-    sonrasi: "/images/projects/daire-sonrasi.jpg",
+    oncesiFoto: "/images/projects/daire-oncesi.jpg",
+    sonrasiFoto: "/images/projects/daire-sonrasi.jpg",
   },
   {
-    id: 4,
+    id: "4",
     baslik: "Bahçeli Ev - Dalaman",
     kategori: "İnşaat",
     konum: "Dalaman",
-    oncesi: "/images/projects/bahce-oncesi.jpg",
-    sonrasi: "/images/projects/bahce-sonrasi.jpg",
+    oncesiFoto: "/images/projects/bahce-oncesi.jpg",
+    sonrasiFoto: "/images/projects/bahce-sonrasi.jpg",
   },
   {
-    id: 5,
+    id: "5",
     baslik: "Banyo Yenileme - Ortaca",
     kategori: "Tadilat",
     konum: "Ortaca Merkez",
-    oncesi: "/images/projects/banyo-oncesi.jpg",
-    sonrasi: "/images/projects/banyo-sonrasi.jpg",
+    oncesiFoto: "/images/projects/banyo-oncesi.jpg",
+    sonrasiFoto: "/images/projects/banyo-sonrasi.jpg",
   },
 ];
 
 export default function ReferansGaleri() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [showAfter, setShowAfter] = useState<{ [key: number]: boolean }>({});
+  const [showAfter, setShowAfter] = useState<{ [key: string]: boolean }>({});
+  const [projeler, setProjeler] = useState<Proje[]>(fallbackProjeler);
+
+  useEffect(() => {
+    const fetchProjeler = async () => {
+      try {
+        const response = await fetch('/api/oncesi-sonrasi');
+        if (response.ok) {
+          const data = await response.json();
+          if (data && data.length > 0) {
+            setProjeler(data);
+          }
+        }
+      } catch (error) {
+        console.error('Projeler yuklenemedi:', error);
+      }
+    };
+    fetchProjeler();
+  }, []);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -72,7 +100,7 @@ export default function ReferansGaleri() {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  const toggleImage = (id: number) => {
+  const toggleImage = (id: string) => {
     setShowAfter((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
@@ -137,7 +165,7 @@ export default function ReferansGaleri() {
                     >
                       {/* Before Image */}
                       <Image
-                        src={proje.oncesi}
+                        src={proje.oncesiFoto}
                         alt={`${proje.baslik} - Öncesi`}
                         fill
                         className={`object-cover transition-opacity duration-500 ${
@@ -146,7 +174,7 @@ export default function ReferansGaleri() {
                       />
                       {/* After Image */}
                       <Image
-                        src={proje.sonrasi}
+                        src={proje.sonrasiFoto}
                         alt={`${proje.baslik} - Sonrası`}
                         fill
                         className={`object-cover transition-opacity duration-500 ${

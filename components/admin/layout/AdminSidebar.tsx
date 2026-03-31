@@ -16,6 +16,7 @@ import {
   Menu,
   X,
   ExternalLink,
+  Layers,
 } from 'lucide-react'
 import { signOut } from 'next-auth/react'
 import { useState, useEffect, useCallback } from 'react'
@@ -25,6 +26,7 @@ const menuItems = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/ilanlar', label: 'İlanlar', icon: Building2 },
   { href: '/admin/hizmetler', label: 'Hizmetler', icon: Briefcase },
+  { href: '/admin/oncesi-sonrasi', label: 'Öncesi-Sonrası', icon: Layers },
   { href: '/admin/iletisim', label: 'Mesajlar', icon: Mail, badge: 'unreadMessages' },
   { href: '/admin/medya', label: 'Medya', icon: ImageIcon },
   { href: '/admin/ortaklar', label: 'Ortaklar', icon: Users },

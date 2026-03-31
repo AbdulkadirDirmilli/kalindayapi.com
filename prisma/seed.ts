@@ -227,6 +227,63 @@ async function main() {
   }
   console.log(`${ortaklar.length} ortaklar seeded`)
 
+  // Seed Oncesi-Sonrasi Galerisi
+  const oncesiSonrasiProjeler = [
+    {
+      baslik: "Villa Projesi - Dalyan",
+      kategori: "İnşaat",
+      konum: "Dalyan, Ortaca",
+      oncesiFoto: "/images/projects/villa-oncesi.jpg",
+      sonrasiFoto: "/images/projects/villa-sonrasi.jpg",
+      sira: 0,
+    },
+    {
+      baslik: "Mutfak Yenileme - Ortaca",
+      kategori: "Tadilat",
+      konum: "Ortaca Merkez",
+      oncesiFoto: "/images/projects/mutfak-oncesi.jpg",
+      sonrasiFoto: "/images/projects/mutfak-sonrasi.jpg",
+      sira: 1,
+    },
+    {
+      baslik: "Daire Renovasyonu - Köyceğiz",
+      kategori: "Tadilat",
+      konum: "Köyceğiz Merkez",
+      oncesiFoto: "/images/projects/daire-oncesi.jpg",
+      sonrasiFoto: "/images/projects/daire-sonrasi.jpg",
+      sira: 2,
+    },
+    {
+      baslik: "Bahçeli Ev - Dalaman",
+      kategori: "İnşaat",
+      konum: "Dalaman",
+      oncesiFoto: "/images/projects/bahce-oncesi.jpg",
+      sonrasiFoto: "/images/projects/bahce-sonrasi.jpg",
+      sira: 3,
+    },
+    {
+      baslik: "Banyo Yenileme - Ortaca",
+      kategori: "Tadilat",
+      konum: "Ortaca Merkez",
+      oncesiFoto: "/images/projects/banyo-oncesi.jpg",
+      sonrasiFoto: "/images/projects/banyo-sonrasi.jpg",
+      sira: 4,
+    },
+  ]
+
+  // Check if any oncesi-sonrasi exists
+  const existingCount = await prisma.oncesiSonrasi.count()
+  if (existingCount === 0) {
+    for (const proje of oncesiSonrasiProjeler) {
+      await prisma.oncesiSonrasi.create({
+        data: proje,
+      })
+    }
+    console.log(`${oncesiSonrasiProjeler.length} oncesi-sonrasi projeler seeded`)
+  } else {
+    console.log(`Oncesi-sonrasi projeler already exist (${existingCount}), skipping...`)
+  }
+
   console.log('Database seeded successfully!')
   console.log('')
   console.log('Admin login:')
