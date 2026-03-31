@@ -228,13 +228,13 @@ export function getInsaatDurumuLabel(value: string | null | undefined): string {
 
 export function getInsaatDurumuBadgeClass(value: string): string {
   const classes: Record<string, string> = {
-    PROJE: 'bg-blue-100 text-blue-800',
-    TEMEL: 'bg-orange-100 text-orange-800',
-    KABA_INSAAT: 'bg-yellow-100 text-yellow-800',
-    INCE_INSAAT: 'bg-purple-100 text-purple-800',
-    SATISA_HAZIR: 'bg-green-100 text-green-800',
+    PROJE: 'bg-blue-500 text-white animate-insaat-pulse',
+    TEMEL: 'bg-orange-500 text-white animate-insaat-pulse',
+    KABA_INSAAT: 'bg-yellow-500 text-black animate-insaat-pulse',
+    INCE_INSAAT: 'bg-purple-500 text-white animate-insaat-pulse',
+    SATISA_HAZIR: 'bg-green-500 text-white animate-insaat-pulse',
   };
-  return classes[value] || 'bg-gray-100 text-gray-800';
+  return classes[value] || 'bg-gray-500 text-white';
 }
 
 export function getCategoryBadgeClass(kategori: string): string {
