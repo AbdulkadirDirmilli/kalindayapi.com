@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useCallback, useRef, useEffect } from 'react'
+import { useState, useCallback, useRef, useEffect, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
+import dynamic from 'next/dynamic'
 import {
   Save,
   X,
@@ -18,6 +19,10 @@ import {
 import { konumVerisi, getIlceler, getMahalleler, getIlceKoordinatlari } from '@/data/konum'
 import { getOzelliklerByTip, emlakTipleri, getAllEmlakTipleri } from '@/data/ozellikler'
 import { INSAAT_DURUMU_OPTIONS } from '@/lib/utils'
+import 'react-quill-new/dist/quill.snow.css'
+
+// React Quill'i SSR olmadan yükle
+const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false })
 
 interface Ortak {
   id: string
@@ -1902,14 +1907,50 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
       {/* Aciklama */}
       <CollapsibleSection title="Açıklama">
-        <textarea
-          name="aciklama"
-          value={formData.aciklama}
-          onChange={handleChange}
-          className="input min-h-[200px]"
-          required
-          placeholder="İlan açıklamasını detaylı bir şekilde yazın..."
-        />
+        <div className="quill-wrapper">
+          <ReactQuill
+            theme="snow"
+            value={formData.aciklama}
+            onChange={(value) => setFormData((prev) => ({ ...prev, aciklama: value }))}
+            placeholder="İlan açıklamasını detaylı bir şekilde yazın..."
+            modules={{
+              toolbar: [
+                [{ 'header': [1, 2, 3, false] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'align': [] }],
+                ['clean']
+              ],
+            }}
+            formats={[
+              'header',
+              'bold', 'italic', 'underline', 'strike',
+              'color', 'background',
+              'list',
+              'align'
+            ]}
+            style={{ minHeight: '200px' }}
+          />
+        </div>
+        <style jsx global>{`
+          .quill-wrapper .ql-container {
+            min-height: 200px;
+            font-size: 14px;
+          }
+          .quill-wrapper .ql-editor {
+            min-height: 200px;
+          }
+          .quill-wrapper .ql-toolbar {
+            border-radius: 8px 8px 0 0;
+            border-color: #e5e7eb;
+            background: #f9fafb;
+          }
+          .quill-wrapper .ql-container {
+            border-radius: 0 0 8px 8px;
+            border-color: #e5e7eb;
+          }
+        `}</style>
       </CollapsibleSection>
 
       {/* Fotograflar ve Videolar */}
