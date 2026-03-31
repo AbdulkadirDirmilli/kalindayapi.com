@@ -224,14 +224,15 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
               )}
 
               {/* Description */}
-              <Card padding="md" className="sm:p-6 lg:p-8">
+              <Card padding="md" className="sm:p-6 lg:p-8 overflow-hidden">
                 <h2 className="text-lg sm:text-xl font-bold text-[#0B1F3A] mb-3 sm:mb-4">
                   İlan Açıklaması
                 </h2>
                 <div
                   className="text-sm sm:text-base text-[#666666] leading-relaxed prose prose-sm max-w-none
                     prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-0
-                    prose-strong:text-[#0B1F3A] prose-headings:text-[#0B1F3A]"
+                    prose-strong:text-[#0B1F3A] prose-headings:text-[#0B1F3A]
+                    break-words overflow-hidden [word-break:break-word]"
                   dangerouslySetInnerHTML={{ __html: ilan.aciklama }}
                 />
               </Card>
