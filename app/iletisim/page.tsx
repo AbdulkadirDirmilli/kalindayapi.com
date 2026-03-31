@@ -301,7 +301,7 @@ export default function IletisimPage() {
                 </h2>
                 <div className="flex gap-4">
                   <a
-                    href="https://instagram.com/kalindayapi"
+                    href="https://www.instagram.com/kalindayapiortaca/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white hover:scale-110 transition-transform"

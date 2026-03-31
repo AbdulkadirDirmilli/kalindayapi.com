@@ -9,7 +9,7 @@ import { Instagram, Facebook, Youtube } from "@/components/icons/SocialIcons";
 const socialLinks = [
   {
     name: "Instagram",
-    href: "https://instagram.com/kalindayapi",
+    href: "https://www.instagram.com/kalindayapiortaca/",
     icon: Instagram,
     color: "#E4405F",
   },
