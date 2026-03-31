@@ -17,8 +17,8 @@ const quickLinks = [
   { name: "Ana Sayfa", href: "/" },
   { name: "Blog", href: "/blog" },
   { name: "Hakkımızda", href: "/hakkimizda" },
+  { name: "SSS", href: "/sss" },
   { name: "İletişim", href: "/iletisim" },
-  { name: "Gizlilik Politikası", href: "/gizlilik" },
 ];
 
 const hizmetler = [
