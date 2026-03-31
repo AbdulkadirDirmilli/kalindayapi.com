@@ -8,9 +8,7 @@ import {
   Building2,
   Briefcase,
   Mail,
-  Image as ImageIcon,
   Users,
-  Settings,
   LogOut,
   ChevronLeft,
   Menu,
@@ -28,9 +26,7 @@ const menuItems = [
   { href: '/admin/hizmetler', label: 'Hizmetler', icon: Briefcase },
   { href: '/admin/oncesi-sonrasi', label: 'Öncesi-Sonrası', icon: Layers },
   { href: '/admin/iletisim', label: 'Mesajlar', icon: Mail, badge: 'unreadMessages' },
-  { href: '/admin/medya', label: 'Medya', icon: ImageIcon },
   { href: '/admin/ortaklar', label: 'Ortaklar', icon: Users },
-  { href: '/admin/ayarlar', label: 'Ayarlar', icon: Settings },
 ]
 
 interface AdminSidebarProps {
