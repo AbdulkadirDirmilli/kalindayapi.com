@@ -53,6 +53,7 @@ model Ilan {
   binaYasi          Int?
   binaTipi          String?     // Apartman, Villa, Site, vb.
   kullanimDurumu    String?     // Bos, Kiracili, Mal Sahibi
+  insaatDurumu      String?     // Proje Asamasinda, Temel Asamasinda, Kaba Insaat, Ince Insaat, Satisa Hazir
 
   // Isitma ve Enerji
   isitma            String?

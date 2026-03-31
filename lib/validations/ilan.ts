@@ -29,6 +29,7 @@ export const ilanSchema = z.object({
   binaYasi: z.number().nonnegative().optional().nullable(),
   binaTipi: z.string().optional().nullable(),
   kullanimDurumu: z.string().optional().nullable(),
+  insaatDurumu: z.string().optional().nullable(),
 
   // Isitma ve Enerji
   isitma: z.string().optional().nullable(),

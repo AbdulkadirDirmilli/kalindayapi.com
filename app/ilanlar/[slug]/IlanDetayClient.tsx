@@ -43,6 +43,24 @@ interface IlanDetayClientProps {
   benzerIlanlar: Ilan[];
 }
 
+// Insaat durumu badge renkleri
+function getInsaatDurumuStyle(durum: string): { bg: string; text: string } {
+  switch (durum) {
+    case 'Proje Asamasinda':
+      return { bg: 'bg-blue-500', text: 'text-white' };
+    case 'Temel Asamasinda':
+      return { bg: 'bg-orange-500', text: 'text-white' };
+    case 'Kaba Insaat':
+      return { bg: 'bg-yellow-500', text: 'text-black' };
+    case 'Ince Insaat':
+      return { bg: 'bg-purple-500', text: 'text-white' };
+    case 'Satisa Hazir':
+      return { bg: 'bg-green-500', text: 'text-white' };
+    default:
+      return { bg: 'bg-gray-500', text: 'text-white' };
+  }
+}
+
 export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClientProps) {
   const ozellikler = [
     {
@@ -113,7 +131,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
           <div className="flex flex-col gap-3 sm:gap-4">
             {/* Title and Badge Row */}
             <div>
-              <div className="flex items-center gap-2 sm:gap-3 mb-2">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 flex-wrap">
                 <Badge
                   variant={ilan.kategori === "satilik" ? "satilik" : "kiralik"}
                   size="lg"

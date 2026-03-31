@@ -68,6 +68,8 @@ function formatIlan(ilan: any): Ilan {
       tarimOzellikleri: ilan.tarimOzellikleri ? JSON.parse(ilan.tarimOzellikleri) : undefined,
       // Ticari ozellikler
       depoOzellikleri: ilan.depoOzellikleri ? JSON.parse(ilan.depoOzellikleri) : undefined,
+      // Insaat durumu
+      insaatDurumu: ilan.insaatDurumu || undefined,
     },
     aciklama: ilan.aciklama,
     fotograflar: ilan.fotograflar.map((f: any) => f.url),

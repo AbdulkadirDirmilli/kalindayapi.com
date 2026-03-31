@@ -15,6 +15,24 @@ function isVideo(url: string): boolean {
   return url.includes('/videos/') || /\.(mp4|webm|mov|avi)$/i.test(url);
 }
 
+// Insaat durumu badge renkleri
+function getInsaatDurumuStyle(durum: string): { bg: string; text: string } {
+  switch (durum) {
+    case 'Proje Asamasinda':
+      return { bg: 'bg-blue-500', text: 'text-white' };
+    case 'Temel Asamasinda':
+      return { bg: 'bg-orange-500', text: 'text-white' };
+    case 'Kaba Insaat':
+      return { bg: 'bg-yellow-500', text: 'text-black' };
+    case 'Ince Insaat':
+      return { bg: 'bg-purple-500', text: 'text-white' };
+    case 'Satisa Hazir':
+      return { bg: 'bg-green-500', text: 'text-white' };
+    default:
+      return { bg: 'bg-gray-500', text: 'text-white' };
+  }
+}
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -126,13 +144,18 @@ export default function OneCikanIlanlar() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                       {/* Badge */}
-                      <div className="absolute top-4 left-4">
+                      <div className="absolute top-4 left-4 flex flex-col gap-2">
                         <Badge
                           variant={ilan.kategori === "satilik" ? "satilik" : "kiralik"}
                           size="md"
                         >
                           {ilan.kategori === "satilik" ? "Satılık" : "Kiralık"}
                         </Badge>
+                        {ilan.ozellikler?.insaatDurumu && (
+                          <span className={`px-2 py-1 rounded-md text-xs font-semibold ${getInsaatDurumuStyle(ilan.ozellikler.insaatDurumu).bg} ${getInsaatDurumuStyle(ilan.ozellikler.insaatDurumu).text}`}>
+                            {ilan.ozellikler.insaatDurumu}
+                          </span>
+                        )}
                       </div>
 
                       {/* Price */}

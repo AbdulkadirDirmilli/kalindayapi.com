@@ -55,6 +55,7 @@ interface IlanFormData {
   binaYasi: number | null
   binaTipi: string
   kullanimDurumu: string
+  insaatDurumu: string
   // Isitma
   isitma: string
   yakitTipi: string
@@ -146,6 +147,7 @@ const defaultFormData: IlanFormData = {
   binaYasi: null,
   binaTipi: '',
   kullanimDurumu: '',
+  insaatDurumu: '',
   isitma: '',
   yakitTipi: '',
   enerjiSinifi: '',
@@ -859,6 +861,25 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                   {ortak.ad} - {ortak.unvan}
                 </option>
               ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-text mb-1">
+              Insaat Durumu
+            </label>
+            <select
+              name="insaatDurumu"
+              value={formData.insaatDurumu}
+              onChange={handleChange}
+              className="input"
+            >
+              <option value="">Secin</option>
+              <option value="Proje Asamasinda">Proje Asamasinda</option>
+              <option value="Temel Asamasinda">Temel Asamasinda</option>
+              <option value="Kaba Insaat">Kaba Insaat</option>
+              <option value="Ince Insaat">Ince Insaat</option>
+              <option value="Satisa Hazir">Satisa Hazir</option>
             </select>
           </div>
 

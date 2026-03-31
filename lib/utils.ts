@@ -339,6 +339,8 @@ export interface Ilan {
     tarimOzellikleri?: string[];
     // Ticari ozellikler
     depoOzellikleri?: string[];
+    // Insaat durumu
+    insaatDurumu?: string;
   };
   aciklama: string;
   fotograflar: string[];

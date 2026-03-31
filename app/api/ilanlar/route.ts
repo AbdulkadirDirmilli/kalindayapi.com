@@ -107,6 +107,7 @@ export async function GET(request: NextRequest) {
         gabari: ilan.gabari,
         yolCephesi: ilan.yolCephesi,
         altyapi: ilan.altyapi,
+        insaatDurumu: ilan.insaatDurumu,
       },
       aciklama: ilan.aciklama,
       fotograflar: ilan.fotograflar.map((f) => f.url),
