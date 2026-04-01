@@ -154,9 +154,24 @@ export default function IletisimPage() {
         }}
       />
 
-      {/* Hero */}
-      <section className="bg-[#0B1F3A] pt-32 pb-20">
-        <div className="container mx-auto px-4">
+      {/* Hero with Video Background */}
+      <section className="relative bg-[#0B1F3A] pt-32 pb-20 overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          aria-hidden="true"
+        >
+          <source src="/videos/drone-iletisim.mp4" type="video/mp4" />
+        </video>
+        {/* Dark Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 via-[#0B1F3A]/50 to-[#0B1F3A]/80" />
+
+        <div className="container mx-auto px-4 relative z-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
             <Link href="/" className="hover:text-[#C9A84C] transition-colors">
