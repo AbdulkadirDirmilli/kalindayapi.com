@@ -163,13 +163,13 @@ export default function IletisimPage() {
           loop
           playsInline
           preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
           aria-hidden="true"
         >
           <source src="/videos/drone-iletisim.mp4" type="video/mp4" />
         </video>
         {/* Dark Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 via-[#0B1F3A]/50 to-[#0B1F3A]/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/60 via-[#0B1F3A]/40 to-[#0B1F3A]/70" />
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Breadcrumb */}
