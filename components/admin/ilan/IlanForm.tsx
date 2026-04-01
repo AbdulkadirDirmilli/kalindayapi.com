@@ -16,7 +16,7 @@ import {
   Check,
   Play,
 } from 'lucide-react'
-import { konumVerisi, getIlceler, getMahalleler, getIlceKoordinatlari } from '@/data/konum'
+import { konumVerisi, getIlceler, getIlcelerWithCount, getMahalleler, getIlceKoordinatlari } from '@/data/konum'
 import { getOzelliklerByTip, emlakTipleri, getAllEmlakTipleri } from '@/data/ozellikler'
 import { INSAAT_DURUMU_OPTIONS } from '@/lib/utils'
 import 'react-quill-new/dist/quill.snow.css'
@@ -318,7 +318,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
   const [ortaklar, setOrtaklar] = useState<Ortak[]>([])
 
   // Ilce ve mahalle listeleri
-  const ilceler = getIlceler()
+  const ilceler = getIlcelerWithCount()
   const mahalleler = formData.ilce ? getMahalleler(formData.ilce) : []
 
   // Emlak tipi kategorileri
@@ -922,8 +922,8 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
             >
               <option value="">İlçe Seçin</option>
               {ilceler.map((ilce) => (
-                <option key={ilce} value={ilce}>
-                  {ilce}
+                <option key={ilce.ad} value={ilce.ad}>
+                  {ilce.ad} ({ilce.mahalleSayisi})
                 </option>
               ))}
             </select>

@@ -218,6 +218,7 @@ export const konutOzellikleri: OzellikKategori[] = [
           'Çatı Katı',
           'Deniz Görünümü',
           'Denize Sıfır',
+          'Göl Manzaralı',
           'Garaj',
           'Güneş Paneli',
           'Havuz',

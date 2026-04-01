@@ -681,6 +681,12 @@ export function getIlceler(): string[] {
   return konumVerisi.ilceler.map(ilce => ilce.ad).sort((a, b) => a.localeCompare(b, 'tr'))
 }
 
+export function getIlcelerWithCount(): { ad: string; mahalleSayisi: number }[] {
+  return konumVerisi.ilceler
+    .map(ilce => ({ ad: ilce.ad, mahalleSayisi: ilce.mahalleler.length }))
+    .sort((a, b) => a.ad.localeCompare(b.ad, 'tr'))
+}
+
 export function getMahalleler(ilceAdi: string): string[] {
   const ilce = konumVerisi.ilceler.find(i => i.ad === ilceAdi)
   return ilce ? ilce.mahalleler.map(m => m.ad).sort((a, b) => a.localeCompare(b, 'tr')) : []
