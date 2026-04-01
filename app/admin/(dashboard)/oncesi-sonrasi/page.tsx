@@ -279,6 +279,7 @@ export default function OncesiSonrasiPage() {
               alt={label}
               fill
               className="object-cover"
+              unoptimized
             />
           </div>
           <button
@@ -569,6 +570,7 @@ export default function OncesiSonrasiPage() {
                             alt={`${proje.baslik} - Öncesi`}
                             fill
                             className="object-cover"
+                            unoptimized
                           />
                           <span className="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
                             Öncesi
@@ -580,6 +582,7 @@ export default function OncesiSonrasiPage() {
                             alt={`${proje.baslik} - Sonrası`}
                             fill
                             className="object-cover"
+                            unoptimized
                           />
                           <span className="absolute bottom-2 right-2 bg-accent text-primary text-xs px-2 py-1 rounded font-semibold">
                             Sonrası
