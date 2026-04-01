@@ -400,22 +400,28 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
     }))
   }
 
+  // Select elemanlarında da number olması gereken alanlar
+  const numericSelectFields = ['kat']
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type } = e.target
     const checked = (e.target as HTMLInputElement).checked
 
+    // Değeri belirle
+    let newValue: string | number | boolean | null = value
+
+    if (type === 'checkbox') {
+      newValue = checked
+    } else if (type === 'number' || numericSelectFields.includes(name)) {
+      // number input veya numeric select alanları
+      newValue = value === '' ? null : Number(value)
+    }
+
     setFormData((prev) => ({
       ...prev,
-      [name]:
-        type === 'checkbox'
-          ? checked
-          : type === 'number'
-          ? value === ''
-            ? null
-            : Number(value)
-          : value,
+      [name]: newValue,
     }))
   }
 

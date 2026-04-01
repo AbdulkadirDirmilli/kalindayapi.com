@@ -136,8 +136,11 @@ export async function PUT(
   } catch (error) {
     console.error('Ilan guncelleme hatasi:', error)
     if (error instanceof Error && error.name === 'ZodError') {
+      // Zod hatası detaylarını düzgün formatlayalım
+      const zodError = error as { errors?: { path: (string | number)[]; message: string }[] }
+      const errorDetails = zodError.errors?.map(e => `${e.path.join('.')}: ${e.message}`).join(', ') || 'Bilinmeyen validasyon hatası'
       return NextResponse.json(
-        { error: 'Gecersiz veri', details: error },
+        { error: 'Gecersiz veri', details: errorDetails },
         { status: 400 }
       )
     }

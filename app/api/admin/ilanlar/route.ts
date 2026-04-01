@@ -143,8 +143,10 @@ export async function POST(request: NextRequest) {
 
     // Zod validation error
     if (error && typeof error === 'object' && 'issues' in error) {
+      const zodError = error as { issues?: { path: (string | number)[]; message: string }[] }
+      const errorDetails = zodError.issues?.map(e => `${e.path.join('.')}: ${e.message}`).join(', ') || 'Bilinmeyen validasyon hatası'
       return NextResponse.json(
-        { error: 'Gecersiz veri', details: error },
+        { error: 'Gecersiz veri', details: errorDetails },
         { status: 400 }
       )
     }
