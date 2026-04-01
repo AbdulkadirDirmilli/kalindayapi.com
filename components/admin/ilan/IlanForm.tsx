@@ -1074,13 +1074,21 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <label className="block text-sm font-medium text-text mb-1">
                 Bulunduğu Kat
               </label>
-              <input
-                type="number"
+              <select
                 name="kat"
                 value={formData.kat ?? ''}
                 onChange={handleChange}
                 className="input"
-              />
+              >
+                <option value="">Seçiniz</option>
+                <option value="-3">Bodrum 3</option>
+                <option value="-2">Bodrum 2</option>
+                <option value="-1">Bodrum 1</option>
+                <option value="0">Zemin Kat</option>
+                {[...Array(30)].map((_, i) => (
+                  <option key={i + 1} value={i + 1}>{i + 1}. Kat</option>
+                ))}
+              </select>
             </div>
 
             <div>
@@ -1614,13 +1622,21 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               <label className="block text-sm font-medium text-text mb-1">
                 Bulunduğu Kat
               </label>
-              <input
-                type="number"
+              <select
                 name="kat"
                 value={formData.kat ?? ''}
                 onChange={handleChange}
                 className="input"
-              />
+              >
+                <option value="">Seçiniz</option>
+                <option value="-3">Bodrum 3</option>
+                <option value="-2">Bodrum 2</option>
+                <option value="-1">Bodrum 1</option>
+                <option value="0">Zemin Kat</option>
+                {[...Array(30)].map((_, i) => (
+                  <option key={i + 1} value={i + 1}>{i + 1}. Kat</option>
+                ))}
+              </select>
             </div>
 
             <div>
