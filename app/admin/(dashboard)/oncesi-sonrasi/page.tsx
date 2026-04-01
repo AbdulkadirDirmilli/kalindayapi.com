@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import {
   Plus,
@@ -9,9 +9,10 @@ import {
   Check,
   X,
   ImageIcon,
-  GripVertical,
   Eye,
   EyeOff,
+  Upload,
+  Loader2,
 } from 'lucide-react'
 import AdminHeader from '@/components/admin/layout/AdminHeader'
 import ConfirmDialog from '@/components/admin/ui/ConfirmDialog'
@@ -25,6 +26,11 @@ interface OncesiSonrasi {
   sonrasiFoto: string
   sira: number
   aktif: boolean
+}
+
+interface UploadProgress {
+  oncesi: number
+  sonrasi: number
 }
 
 const kategoriler = [
@@ -43,6 +49,13 @@ export default function OncesiSonrasiPage() {
   const [isDeleting, setIsDeleting] = useState(false)
   const [showAddForm, setShowAddForm] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
+  const [uploadProgress, setUploadProgress] = useState<UploadProgress>({ oncesi: 0, sonrasi: 0 })
+  const [isUploading, setIsUploading] = useState<{ oncesi: boolean; sonrasi: boolean }>({ oncesi: false, sonrasi: false })
+
+  const oncesiInputRef = useRef<HTMLInputElement>(null)
+  const sonrasiInputRef = useRef<HTMLInputElement>(null)
+  const editOncesiInputRef = useRef<HTMLInputElement>(null)
+  const editSonrasiInputRef = useRef<HTMLInputElement>(null)
 
   // Form state
   const [formData, setFormData] = useState<Partial<OncesiSonrasi>>({
@@ -72,6 +85,71 @@ export default function OncesiSonrasiPage() {
   useEffect(() => {
     fetchProjeler()
   }, [])
+
+  // File upload function
+  const uploadFile = (file: File, type: 'oncesi' | 'sonrasi'): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest()
+      const formData = new FormData()
+      formData.append('file', file)
+
+      xhr.upload.addEventListener('progress', (e) => {
+        if (e.lengthComputable) {
+          const progress = Math.round((e.loaded / e.total) * 100)
+          setUploadProgress(prev => ({ ...prev, [type]: progress }))
+        }
+      })
+
+      xhr.addEventListener('load', () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          const response = JSON.parse(xhr.responseText)
+          resolve(response.url)
+        } else {
+          reject(new Error('Yükleme başarısız'))
+        }
+      })
+
+      xhr.addEventListener('error', () => reject(new Error('Yükleme hatası')))
+
+      xhr.open('POST', '/api/upload')
+      xhr.send(formData)
+    })
+  }
+
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>, type: 'oncesi' | 'sonrasi') => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    // Validate file type
+    const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
+    if (!validTypes.includes(file.type)) {
+      alert('Lütfen geçerli bir resim dosyası seçin (JPEG, PNG, WebP, GIF)')
+      return
+    }
+
+    // Validate file size (max 10MB)
+    if (file.size > 10 * 1024 * 1024) {
+      alert('Dosya boyutu 10MB\'dan küçük olmalıdır')
+      return
+    }
+
+    setIsUploading(prev => ({ ...prev, [type]: true }))
+    setUploadProgress(prev => ({ ...prev, [type]: 0 }))
+
+    try {
+      const url = await uploadFile(file, type)
+      setFormData(prev => ({
+        ...prev,
+        [type === 'oncesi' ? 'oncesiFoto' : 'sonrasiFoto']: url
+      }))
+    } catch (error) {
+      console.error('Dosya yüklenemedi:', error)
+      alert('Dosya yüklenirken bir hata oluştu')
+    } finally {
+      setIsUploading(prev => ({ ...prev, [type]: false }))
+      setUploadProgress(prev => ({ ...prev, [type]: 0 }))
+    }
+  }
 
   const handleEdit = (proje: OncesiSonrasi) => {
     setEditingId(proje.id)
@@ -169,6 +247,83 @@ export default function OncesiSonrasiPage() {
       console.error('Durum guncellenemedi:', error)
     }
   }
+
+  // Image Upload Component
+  const ImageUploader = ({
+    type,
+    label,
+    inputRef,
+    currentImage
+  }: {
+    type: 'oncesi' | 'sonrasi'
+    label: string
+    inputRef: React.RefObject<HTMLInputElement | null>
+    currentImage: string
+  }) => (
+    <div>
+      <label className="block text-sm font-medium text-text mb-1">
+        {label} *
+      </label>
+      <input
+        ref={inputRef}
+        type="file"
+        accept="image/jpeg,image/png,image/webp,image/gif"
+        onChange={(e) => handleFileSelect(e, type)}
+        className="hidden"
+      />
+      {currentImage ? (
+        <div className="relative">
+          <div className="relative w-full h-40 rounded-lg overflow-hidden border border-border">
+            <Image
+              src={currentImage}
+              alt={label}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              setFormData(prev => ({
+                ...prev,
+                [type === 'oncesi' ? 'oncesiFoto' : 'sonrasiFoto']: ''
+              }))
+            }}
+            className="absolute top-2 right-2 p-1.5 bg-error text-white rounded-full hover:bg-error/90 transition-colors"
+          >
+            <X className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => inputRef.current?.click()}
+            className="absolute bottom-2 right-2 px-3 py-1.5 bg-primary text-white text-sm rounded-lg hover:bg-primary-dark transition-colors"
+          >
+            Değiştir
+          </button>
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={() => inputRef.current?.click()}
+          disabled={isUploading[type]}
+          className="w-full h-40 border-2 border-dashed border-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-primary hover:bg-primary/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isUploading[type] ? (
+            <>
+              <Loader2 className="w-8 h-8 text-primary animate-spin" />
+              <span className="text-sm text-text-light">Yükleniyor... %{uploadProgress[type]}</span>
+            </>
+          ) : (
+            <>
+              <Upload className="w-8 h-8 text-text-muted" />
+              <span className="text-sm text-text-light">Resim Yükle</span>
+              <span className="text-xs text-text-muted">JPEG, PNG, WebP (max 10MB)</span>
+            </>
+          )}
+        </button>
+      )}
+    </div>
+  )
 
   if (isLoading) {
     return (
@@ -280,54 +435,18 @@ export default function OncesiSonrasiPage() {
                   placeholder="Ortaca, Muğla"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-text mb-1">
-                  Öncesi Fotoğraf URL *
-                </label>
-                <input
-                  type="text"
-                  value={formData.oncesiFoto || ''}
-                  onChange={(e) =>
-                    setFormData((prev) => ({ ...prev, oncesiFoto: e.target.value }))
-                  }
-                  className="input"
-                  placeholder="/images/projects/proje-oncesi.jpg"
-                />
-                {formData.oncesiFoto && (
-                  <div className="mt-2 relative w-32 h-24 rounded overflow-hidden border">
-                    <Image
-                      src={formData.oncesiFoto}
-                      alt="Öncesi"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-text mb-1">
-                  Sonrası Fotoğraf URL *
-                </label>
-                <input
-                  type="text"
-                  value={formData.sonrasiFoto || ''}
-                  onChange={(e) =>
-                    setFormData((prev) => ({ ...prev, sonrasiFoto: e.target.value }))
-                  }
-                  className="input"
-                  placeholder="/images/projects/proje-sonrasi.jpg"
-                />
-                {formData.sonrasiFoto && (
-                  <div className="mt-2 relative w-32 h-24 rounded overflow-hidden border">
-                    <Image
-                      src={formData.sonrasiFoto}
-                      alt="Sonrası"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-              </div>
+              <ImageUploader
+                type="oncesi"
+                label="Öncesi Fotoğrafı"
+                inputRef={oncesiInputRef}
+                currentImage={formData.oncesiFoto || ''}
+              />
+              <ImageUploader
+                type="sonrasi"
+                label="Sonrası Fotoğrafı"
+                inputRef={sonrasiInputRef}
+                currentImage={formData.sonrasiFoto || ''}
+              />
             </div>
             <div className="flex justify-end gap-2 mt-4">
               <button
@@ -349,7 +468,7 @@ export default function OncesiSonrasiPage() {
               <button
                 onClick={() => handleSave(true)}
                 className="btn btn-primary"
-                disabled={isSaving}
+                disabled={isSaving || isUploading.oncesi || isUploading.sonrasi}
               >
                 {isSaving ? 'Kaydediliyor...' : 'Kaydet'}
               </button>
@@ -406,29 +525,25 @@ export default function OncesiSonrasiPage() {
                         className="input text-sm"
                         placeholder="Konum"
                       />
-                      <input
-                        type="text"
-                        value={formData.oncesiFoto || ''}
-                        onChange={(e) =>
-                          setFormData((prev) => ({ ...prev, oncesiFoto: e.target.value }))
-                        }
-                        className="input text-sm"
-                        placeholder="Öncesi Fotoğraf URL"
-                      />
-                      <input
-                        type="text"
-                        value={formData.sonrasiFoto || ''}
-                        onChange={(e) =>
-                          setFormData((prev) => ({ ...prev, sonrasiFoto: e.target.value }))
-                        }
-                        className="input text-sm"
-                        placeholder="Sonrası Fotoğraf URL"
-                      />
+                      <div className="grid grid-cols-2 gap-2">
+                        <ImageUploader
+                          type="oncesi"
+                          label="Öncesi"
+                          inputRef={editOncesiInputRef}
+                          currentImage={formData.oncesiFoto || ''}
+                        />
+                        <ImageUploader
+                          type="sonrasi"
+                          label="Sonrası"
+                          inputRef={editSonrasiInputRef}
+                          currentImage={formData.sonrasiFoto || ''}
+                        />
+                      </div>
                       <div className="flex gap-2">
                         <button
                           onClick={() => handleSave(false)}
                           className="flex-1 btn btn-primary text-sm py-2"
-                          disabled={isSaving}
+                          disabled={isSaving || isUploading.oncesi || isUploading.sonrasi}
                         >
                           <Check className="w-4 h-4" />
                           {isSaving ? 'Kaydediliyor...' : 'Kaydet'}
