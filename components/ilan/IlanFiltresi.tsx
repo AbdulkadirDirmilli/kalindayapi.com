@@ -192,7 +192,7 @@ export default function IlanFiltresi({
                   />
                   <ShieldCheck className="w-4 h-4 text-green-600" />
                   <span className="text-sm font-medium text-[#1a1a1a]">
-                    Sadece EIDS Doğrulanmış İlanlar
+                    Sadece EIDS Doğrulanmış İlanları Göster
                   </span>
                 </label>
               </div>

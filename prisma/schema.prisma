@@ -109,7 +109,7 @@ model Ilan {
   takasaUygun       Boolean     @default(false)
   isyeriRuhsati     Boolean     @default(false)
 
-  // EIDS - Listing Verification Status
+  // EIDS - İlan Doğrulama Durumu
   eidsStatus        String      @default("pending") // verified, pending, not_available
 
   // Video URL

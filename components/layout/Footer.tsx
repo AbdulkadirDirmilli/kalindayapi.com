@@ -227,7 +227,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* EIDS Information Block */}
+      {/* EIDS Bilgilendirme Bloğu */}
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-start gap-3 bg-white/5 rounded-lg p-4">

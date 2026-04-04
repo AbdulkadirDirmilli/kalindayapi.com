@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import WatermarkImage from "@/components/ui/WatermarkImage";
-import { MapPin, Maximize2, BedDouble, Bath, Calendar, Heart, ShieldCheck, Clock, Info } from "lucide-react";
+import { MapPin, Maximize2, BedDouble, Bath, Calendar, ShieldCheck } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import { formatPrice, getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, getEidsStatusLabel, getEidsStatusBadgeClass, Ilan } from "@/lib/utils";
+import { formatPrice, getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
 
 // Video dosyası olup olmadığını kontrol et
 function isVideo(url: string): boolean {
@@ -67,6 +67,13 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                   </span>
                 )}
               </div>
+              {/* EIDS Doğrulanmış Rozet */}
+              {ilan.eidsStatus === 'verified' && (
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-emerald-500 text-white pl-2 pr-2.5 py-1.5 rounded-lg shadow-lg shadow-emerald-500/30">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span className="text-[10px] font-bold tracking-wide uppercase">Doğrulanmış</span>
+                </div>
+              )}
             </div>
 
             {/* Content */}
@@ -184,17 +191,13 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
               )}
             </div>
 
-            {/* Favorite Button */}
-            <button
-              className="absolute top-4 right-4 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:scale-110"
-              onClick={(e) => {
-                e.preventDefault();
-                // TODO: Add to favorites
-              }}
-              aria-label="Favorilere ekle"
-            >
-              <Heart className="w-4 h-4 text-[#0B1F3A]" />
-            </button>
+            {/* EIDS Doğrulanmış Rozet */}
+            {ilan.eidsStatus === 'verified' && (
+              <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-emerald-500 text-white pl-2 pr-2.5 py-1.5 rounded-lg shadow-lg shadow-emerald-500/30">
+                <ShieldCheck className="w-4 h-4" />
+                <span className="text-[11px] font-bold tracking-wide uppercase">Doğrulanmış</span>
+              </div>
+            )}
 
             {/* Price */}
             <div className="absolute bottom-4 right-4">
@@ -242,22 +245,12 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
               )}
             </div>
 
-            {/* Insaat Durumu & EIDS Badges */}
-            {(ilan.insaatDurumu || ilan.eidsStatus) && (
-              <div className="mt-3 flex flex-wrap gap-2">
-                {ilan.insaatDurumu && (
-                  <span className={`inline-block text-xs font-medium px-2 py-1 rounded ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
-                    {getInsaatDurumuLabel(ilan.insaatDurumu)}
-                  </span>
-                )}
-                {ilan.eidsStatus && (
-                  <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded ${getEidsStatusBadgeClass(ilan.eidsStatus)}`}>
-                    {ilan.eidsStatus === 'verified' && <ShieldCheck className="w-3 h-3" />}
-                    {ilan.eidsStatus === 'pending' && <Clock className="w-3 h-3" />}
-                    {ilan.eidsStatus === 'not_available' && <Info className="w-3 h-3" />}
-                    {getEidsStatusLabel(ilan.eidsStatus)}
-                  </span>
-                )}
+            {/* Insaat Durumu Badge */}
+            {ilan.insaatDurumu && (
+              <div className="mt-3">
+                <span className={`inline-block text-xs font-medium px-2 py-1 rounded ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
+                  {getInsaatDurumuLabel(ilan.insaatDurumu)}
+                </span>
               </div>
             )}
 

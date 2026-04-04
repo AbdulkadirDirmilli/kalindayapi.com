@@ -85,7 +85,7 @@ export const ilanSchema = z.object({
   takasaUygun: z.boolean().default(false),
   isyeriRuhsati: z.boolean().default(false),
 
-  // EIDS - Listing Verification Status
+  // EIDS - İlan Doğrulama Durumu
   eidsStatus: z.enum(['verified', 'pending', 'not_available']).default('pending'),
 
   // Video

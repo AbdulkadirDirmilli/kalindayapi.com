@@ -216,8 +216,8 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
     "description": ilan.aciklama?.slice(0, 200),
     "additionalProperty": {
       "@type": "PropertyValue",
-      "name": "Listing verification status",
-      "value": eidsLabel ? `${eidsLabel} listing on KalindaYapi platform` : "EIDS Pending listing on KalindaYapi platform",
+      "name": "İlan doğrulama durumu",
+      "value": eidsLabel ? `KalindaYapi platformunda ${eidsLabel} ilan` : "KalindaYapi platformunda EIDS Beklemede ilan",
     },
   };
 

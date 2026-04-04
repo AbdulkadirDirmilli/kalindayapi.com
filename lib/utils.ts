@@ -237,12 +237,12 @@ export function getInsaatDurumuBadgeClass(value: string): string {
   return classes[value] || 'bg-gray-500 text-white';
 }
 
-// EIDS Status helpers
+// EIDS Durum yardımcıları
 export function getEidsStatusLabel(value: string | null | undefined): string {
   const labels: Record<string, string> = {
-    verified: 'EIDS Verified',
-    pending: 'EIDS Pending',
-    not_available: 'EIDS Not Available',
+    verified: 'EIDS Doğrulanmış',
+    pending: 'EIDS Beklemede',
+    not_available: 'EIDS Mevcut Değil',
   };
   return value ? labels[value] || '' : '';
 }

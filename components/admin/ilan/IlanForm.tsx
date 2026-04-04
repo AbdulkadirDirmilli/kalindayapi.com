@@ -109,7 +109,7 @@ interface IlanFormData {
   krediyeUygun: boolean
   takasaUygun: boolean
   isyeriRuhsati: boolean
-  // EIDS
+  // EIDS - İlan Doğrulama Durumu
   eidsStatus: 'verified' | 'pending' | 'not_available'
   // Video
   videoUrl: string
@@ -865,9 +865,9 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               onChange={handleChange}
               className="input"
             >
-              <option value="verified">EIDS Verified</option>
-              <option value="pending">EIDS Pending</option>
-              <option value="not_available">EIDS Not Available</option>
+              <option value="verified">EIDS Doğrulanmış</option>
+              <option value="pending">EIDS Beklemede</option>
+              <option value="not_available">EIDS Mevcut Değil</option>
             </select>
           </div>
 
