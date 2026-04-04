@@ -8,7 +8,8 @@ import {
   MapPin,
   Clock,
   ChevronRight,
-  Settings
+  Settings,
+  ShieldCheck,
 } from "lucide-react";
 import { Instagram, Facebook, Youtube } from "@/components/icons/SocialIcons";
 import { createWhatsAppLink } from "@/lib/utils";
@@ -222,6 +223,25 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* EIDS Information Block */}
+      <div className="border-t border-white/10">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex items-start gap-3 bg-white/5 rounded-lg p-4">
+            <ShieldCheck className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-1">
+                İlan Doğrulama Bilgisi
+              </h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                EIDS durumu, KalindaYapi platformu tarafından sağlanan ilan doğrulama seviyesini belirtir.
+                Bu bilgilendirme amaçlı bir doğrulama durumudur ve resmi bir devlet doğrulamasını temsil etmez.
+                Tam doğrulama detayları için ilan sahibi veya danışmanla iletişime geçiniz.
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import WatermarkImage from "@/components/ui/WatermarkImage";
 import { motion, useInView } from "framer-motion";
 import { MapPin, Maximize2, BedDouble, Bath, ArrowRight, Loader2 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
@@ -108,13 +109,13 @@ export default function OneCikanIlanlar() {
                       {(() => {
                         const kapakFoto = ilan.fotograflar?.find(f => !isVideo(f));
                         return kapakFoto ? (
-                          <Image
+                          <WatermarkImage
                             src={kapakFoto}
                             alt={ilan.baslik}
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="object-cover transition-transform duration-500 group-hover:scale-110"
-                            unoptimized={kapakFoto?.includes('/uploads/')}
+                            watermarkSize="md"
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-gray-400">

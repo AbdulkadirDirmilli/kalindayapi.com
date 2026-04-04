@@ -171,7 +171,7 @@ export default function ReferansGaleri() {
                         className={`object-cover transition-opacity duration-500 ${
                           showAfter[proje.id] ? "opacity-0" : "opacity-100"
                         }`}
-                        unoptimized
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       {/* After Image */}
                       <Image
@@ -181,7 +181,7 @@ export default function ReferansGaleri() {
                         className={`object-cover transition-opacity duration-500 ${
                           showAfter[proje.id] ? "opacity-100" : "opacity-0"
                         }`}
-                        unoptimized
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
 
                       {/* Label */}

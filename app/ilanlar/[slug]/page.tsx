@@ -4,7 +4,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import IlanDetayClient from "./IlanDetayClient";
 import Button from "@/components/ui/Button";
-import { Ilan } from "@/lib/utils";
+import { Ilan, getEidsStatusLabel } from "@/lib/utils";
 
 const siteUrl = "https://www.kalindayapi.com";
 
@@ -80,6 +80,7 @@ function formatIlan(ilan: any): Ilan {
     guncellenmeTarihi: ilan.guncellenmeTarihi.toISOString(),
     durum: ilan.durum,
     ilanNo: ilan.ilanNo || '',
+    eidsStatus: ilan.eidsStatus || 'pending',
     danisman: ilan.danisman ? {
       id: ilan.danisman.id,
       ad: ilan.danisman.ad,
@@ -206,5 +207,27 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
 
   const benzerIlanlar = await getBenzerIlanlar(ilan.kategori, slug);
 
-  return <IlanDetayClient ilan={ilan} benzerIlanlar={benzerIlanlar} />;
+  const eidsLabel = getEidsStatusLabel(ilan.eidsStatus);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": ilan.baslik,
+    "url": `${siteUrl}/ilanlar/${ilan.slug}`,
+    "description": ilan.aciklama?.slice(0, 200),
+    "additionalProperty": {
+      "@type": "PropertyValue",
+      "name": "Listing verification status",
+      "value": eidsLabel ? `${eidsLabel} listing on KalindaYapi platform` : "EIDS Pending listing on KalindaYapi platform",
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <IlanDetayClient ilan={ilan} benzerIlanlar={benzerIlanlar} />
+    </>
+  );
 }

@@ -17,6 +17,7 @@ interface FilterState {
   minFiyat: string;
   maxFiyat: string;
   arama: string;
+  eidsStatus: string;
 }
 
 export default function IlanlarPage() {
@@ -27,6 +28,7 @@ export default function IlanlarPage() {
     minFiyat: "",
     maxFiyat: "",
     arama: "",
+    eidsStatus: "",
   });
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
@@ -53,6 +55,7 @@ export default function IlanlarPage() {
         if (filters.minFiyat) params.append("minFiyat", filters.minFiyat);
         if (filters.maxFiyat) params.append("maxFiyat", filters.maxFiyat);
         if (filters.arama) params.append("search", filters.arama);
+        if (filters.eidsStatus) params.append("eidsStatus", filters.eidsStatus);
 
         const response = await fetch(`/api/ilanlar?${params.toString()}`);
 
@@ -255,6 +258,7 @@ export default function IlanlarPage() {
                     minFiyat: "",
                     maxFiyat: "",
                     arama: "",
+                    eidsStatus: "",
                   })
                 }
                 className="text-[#C9A84C] font-medium hover:underline"

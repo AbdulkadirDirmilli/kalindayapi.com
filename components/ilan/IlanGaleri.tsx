@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
+import WatermarkImage from "@/components/ui/WatermarkImage";
 import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
 import { Lightbox } from "@/components/ui/Modal";
 import { motion, AnimatePresence } from "framer-motion";
@@ -81,13 +81,14 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
                 className="flex-[0_0_100%] min-w-0 relative aspect-[16/10] cursor-pointer"
                 onClick={() => openLightbox(index)}
               >
-                <Image
+                <WatermarkImage
                   src={foto}
                   alt={`${baslik} - Görsel ${index + 1}`}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 800px"
                   priority={index === 0}
-                  unoptimized={foto?.includes('/uploads/')}
+                  watermarkSize="lg"
                 />
               </div>
             ))}
@@ -143,12 +144,13 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
                     : "opacity-60 hover:opacity-100"
                 }`}
               >
-                <Image
+                <WatermarkImage
                   src={foto}
                   alt={`${baslik} - Küçük görsel ${index + 1}`}
                   fill
                   className="object-cover"
-                  unoptimized={foto?.includes('/uploads/')}
+                  sizes="80px"
+                  watermarkSize="sm"
                 />
               </button>
             ))}

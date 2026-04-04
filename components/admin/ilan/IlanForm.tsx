@@ -104,13 +104,13 @@ interface IlanFormData {
   tavanYuksekligi: number | null
   personelKapasitesi: number | null
   depoOzellikleri: string[]
-  // Insaat durumu
-  insaatDurumu: string
   // Tapu
   tapuDurumu: string
   krediyeUygun: boolean
   takasaUygun: boolean
   isyeriRuhsati: boolean
+  // EIDS
+  eidsStatus: 'verified' | 'pending' | 'not_available'
   // Video
   videoUrl: string
   // Danisman
@@ -191,11 +191,11 @@ const defaultFormData: IlanFormData = {
   tavanYuksekligi: null,
   personelKapasitesi: null,
   depoOzellikleri: [],
-  insaatDurumu: '',
   tapuDurumu: '',
   krediyeUygun: false,
   takasaUygun: false,
   isyeriRuhsati: false,
+  eidsStatus: 'pending',
   videoUrl: '',
   danismanId: null,
   aciklama: '',
@@ -852,6 +852,22 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                   {option.label}
                 </option>
               ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-text mb-1">
+              EIDS Durumu
+            </label>
+            <select
+              name="eidsStatus"
+              value={formData.eidsStatus}
+              onChange={handleChange}
+              className="input"
+            >
+              <option value="verified">EIDS Verified</option>
+              <option value="pending">EIDS Pending</option>
+              <option value="not_available">EIDS Not Available</option>
             </select>
           </div>
 

@@ -109,6 +109,9 @@ model Ilan {
   takasaUygun       Boolean     @default(false)
   isyeriRuhsati     Boolean     @default(false)
 
+  // EIDS - Listing Verification Status
+  eidsStatus        String      @default("pending") // verified, pending, not_available
+
   // Video URL
   videoUrl          String?
 

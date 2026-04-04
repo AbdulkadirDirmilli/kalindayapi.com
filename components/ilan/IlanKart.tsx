@@ -3,10 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, Maximize2, BedDouble, Bath, Calendar, Heart } from "lucide-react";
+import WatermarkImage from "@/components/ui/WatermarkImage";
+import { MapPin, Maximize2, BedDouble, Bath, Calendar, Heart, ShieldCheck, Clock, Info } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import { formatPrice, getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
+import { formatPrice, getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, getEidsStatusLabel, getEidsStatusBadgeClass, Ilan } from "@/lib/utils";
 
 // Video dosyası olup olmadığını kontrol et
 function isVideo(url: string): boolean {
@@ -39,13 +40,13 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
             {/* Image */}
             <div className="relative w-full sm:w-72 h-48 sm:h-auto flex-shrink-0 bg-gray-100">
               {kapakFoto ? (
-                <Image
+                <WatermarkImage
                   src={kapakFoto}
                   alt={ilan.baslik}
                   fill
                   sizes="(max-width: 640px) 100vw, 288px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  unoptimized={kapakFoto.includes('/uploads/')}
+                  watermarkSize="md"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -151,13 +152,14 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
           {/* Image */}
           <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
             {kapakFoto ? (
-              <Image
+              <WatermarkImage
                 src={kapakFoto}
                 alt={ilan.baslik}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 unoptimized={kapakFoto.includes('/uploads/')}
+                watermarkSize="md"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -240,12 +242,22 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
               )}
             </div>
 
-            {/* Insaat Durumu Badge */}
-            {ilan.insaatDurumu && (
-              <div className="mt-3">
-                <span className={`inline-block text-xs font-medium px-2 py-1 rounded ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
-                  {getInsaatDurumuLabel(ilan.insaatDurumu)}
-                </span>
+            {/* Insaat Durumu & EIDS Badges */}
+            {(ilan.insaatDurumu || ilan.eidsStatus) && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {ilan.insaatDurumu && (
+                  <span className={`inline-block text-xs font-medium px-2 py-1 rounded ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
+                    {getInsaatDurumuLabel(ilan.insaatDurumu)}
+                  </span>
+                )}
+                {ilan.eidsStatus && (
+                  <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded ${getEidsStatusBadgeClass(ilan.eidsStatus)}`}>
+                    {ilan.eidsStatus === 'verified' && <ShieldCheck className="w-3 h-3" />}
+                    {ilan.eidsStatus === 'pending' && <Clock className="w-3 h-3" />}
+                    {ilan.eidsStatus === 'not_available' && <Info className="w-3 h-3" />}
+                    {getEidsStatusLabel(ilan.eidsStatus)}
+                  </span>
+                )}
               </div>
             )}
 

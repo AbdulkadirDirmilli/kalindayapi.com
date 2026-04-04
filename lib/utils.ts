@@ -237,6 +237,25 @@ export function getInsaatDurumuBadgeClass(value: string): string {
   return classes[value] || 'bg-gray-500 text-white';
 }
 
+// EIDS Status helpers
+export function getEidsStatusLabel(value: string | null | undefined): string {
+  const labels: Record<string, string> = {
+    verified: 'EIDS Verified',
+    pending: 'EIDS Pending',
+    not_available: 'EIDS Not Available',
+  };
+  return value ? labels[value] || '' : '';
+}
+
+export function getEidsStatusBadgeClass(value: string): string {
+  const classes: Record<string, string> = {
+    verified: 'bg-green-500/90 text-white',
+    pending: 'bg-yellow-500/90 text-black',
+    not_available: 'bg-gray-500/90 text-white',
+  };
+  return classes[value] || 'bg-gray-500/90 text-white';
+}
+
 export function getCategoryBadgeClass(kategori: string): string {
   const classes: { [key: string]: string } = {
     satilik: "badge-satilik",
@@ -351,6 +370,7 @@ export interface Ilan {
   durum: string;
   insaatDurumu?: string | null;
   ilanNo: string;
+  eidsStatus?: 'verified' | 'pending' | 'not_available';
   danisman?: {
     id: string;
     ad: string;
