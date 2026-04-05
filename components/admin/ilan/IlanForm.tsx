@@ -111,6 +111,7 @@ interface IlanFormData {
   krediyeUygun: boolean
   takasaUygun: boolean
   isyeriRuhsati: boolean
+  eidsDogrulanmis: boolean
   // Video
   videoUrl: string
   // Danisman
@@ -196,6 +197,7 @@ const defaultFormData: IlanFormData = {
   krediyeUygun: false,
   takasaUygun: false,
   isyeriRuhsati: false,
+  eidsDogrulanmis: false,
   videoUrl: '',
   danismanId: null,
   aciklama: '',
@@ -886,6 +888,21 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               />
               <span className="text-sm font-medium text-text">Öne Çıkan İlan</span>
             </label>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-text mb-1">
+              EIDS Durumu
+            </label>
+            <select
+              name="eidsDogrulanmis"
+              value={formData.eidsDogrulanmis ? 'true' : 'false'}
+              onChange={(e) => setFormData(prev => ({ ...prev, eidsDogrulanmis: e.target.value === 'true' }))}
+              className="input"
+            >
+              <option value="false">EIDS Doğrulanmamış</option>
+              <option value="true">EIDS Doğrulanmış</option>
+            </select>
           </div>
         </div>
       </CollapsibleSection>

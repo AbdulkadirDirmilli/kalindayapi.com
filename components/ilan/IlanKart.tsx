@@ -66,6 +66,19 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                   </span>
                 )}
               </div>
+
+              {/* EIDS Logo - Sağ üst köşe (List variant) */}
+              {ilan.eidsDogrulanmis && (
+                <div className="absolute top-3 right-3 z-10">
+                  <Image
+                    src="/images/eids-logo.png"
+                    alt="EIDS Doğrulanmış"
+                    width={40}
+                    height={40}
+                    className="drop-shadow-lg"
+                  />
+                </div>
+              )}
             </div>
 
             {/* Content */}
@@ -182,9 +195,22 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
               )}
             </div>
 
+            {/* EIDS Logo - Sağ üst köşe */}
+            {ilan.eidsDogrulanmis && (
+              <div className="absolute top-3 right-3 z-10">
+                <Image
+                  src="/images/eids-logo.png"
+                  alt="EIDS Doğrulanmış"
+                  width={48}
+                  height={48}
+                  className="drop-shadow-lg"
+                />
+              </div>
+            )}
+
             {/* Favorite Button */}
             <button
-              className="absolute top-4 right-4 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:scale-110"
+              className={`absolute ${ilan.eidsDogrulanmis ? 'top-14' : 'top-4'} right-4 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:scale-110`}
               onClick={(e) => {
                 e.preventDefault();
                 // TODO: Add to favorites

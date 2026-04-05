@@ -112,6 +112,7 @@ export async function GET(request: NextRequest) {
       aciklama: ilan.aciklama,
       fotograflar: ilan.fotograflar.map((f) => f.url),
       oneCikan: ilan.oneCikan,
+      eidsDogrulanmis: ilan.eidsDogrulanmis,
       yayinTarihi: ilan.yayinTarihi.toISOString(),
       guncellenmeTarihi: ilan.guncellenmeTarihi.toISOString(),
       durum: ilan.durum,

@@ -108,6 +108,7 @@ model Ilan {
   krediyeUygun      Boolean     @default(false)
   takasaUygun       Boolean     @default(false)
   isyeriRuhsati     Boolean     @default(false)
+  eidsDogrulanmis   Boolean     @default(false)
 
   // Video URL
   videoUrl          String?

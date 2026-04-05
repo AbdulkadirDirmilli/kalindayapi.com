@@ -84,6 +84,7 @@ export const ilanSchema = z.object({
   krediyeUygun: z.boolean().default(false),
   takasaUygun: z.boolean().default(false),
   isyeriRuhsati: z.boolean().default(false),
+  eidsDogrulanmis: z.boolean().default(false),
 
   // Insaat durumu
   insaatDurumu: z.string().optional().nullable(),
