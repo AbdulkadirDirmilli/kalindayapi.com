@@ -30,6 +30,15 @@ const nextConfig: NextConfig = {
       {
         pathname: "/images/**",
       },
+      {
+        pathname: "/*.png",
+      },
+      {
+        pathname: "/*.jpg",
+      },
+      {
+        pathname: "/*.svg",
+      },
     ],
     // Uploaded files are served by nginx, skip optimization for them
     unoptimized: false,
