@@ -77,7 +77,6 @@ export async function GET(
       fotograflar: ilan.fotograflar.map((f) => f.url),
       videoUrl: ilan.videoUrl,
       oneCikan: ilan.oneCikan,
-      eidsDogrulanmis: ilan.eidsDogrulanmis,
       yayinTarihi: ilan.yayinTarihi.toISOString(),
       guncellenmeTarihi: ilan.guncellenmeTarihi.toISOString(),
       durum: ilan.durum,

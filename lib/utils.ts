@@ -397,7 +397,6 @@ export interface Ilan {
   fotograflar: string[];
   videoUrl?: string | null;
   oneCikan: boolean;
-  eidsDogrulanmis?: boolean;
   yayinTarihi: string;
   guncellenmeTarihi: string;
   durum: string;

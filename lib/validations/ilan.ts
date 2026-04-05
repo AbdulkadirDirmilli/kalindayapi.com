@@ -84,7 +84,6 @@ export const ilanSchema = z.object({
   krediyeUygun: z.boolean().default(false),
   takasaUygun: z.boolean().default(false),
   isyeriRuhsati: z.boolean().default(false),
-  eidsDogrulanmis: z.boolean().default(false),
 
   // EIDS - İlan Doğrulama Durumu
   eidsStatus: z.enum(['verified', 'pending', 'not_available']).default('pending'),
