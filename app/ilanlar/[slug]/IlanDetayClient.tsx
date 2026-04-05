@@ -14,6 +14,9 @@ import {
   Thermometer,
   Car,
   Shield,
+  ShieldCheck,
+  Clock,
+  Info,
   Waves,
   TreeDeciduous,
   Phone,
@@ -35,6 +38,8 @@ import {
   createWhatsAppLink,
   getInsaatDurumuLabel,
   getInsaatDurumuBadgeClass,
+  getEidsStatusLabel,
+  getEidsStatusBadgeClass,
   Ilan,
 } from "@/lib/utils";
 
@@ -123,6 +128,14 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                 {ilan.insaatDurumu && (
                   <span className={`inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
                     {getInsaatDurumuLabel(ilan.insaatDurumu)}
+                  </span>
+                )}
+                {ilan.eidsStatus && (
+                  <span className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full ${getEidsStatusBadgeClass(ilan.eidsStatus)}`}>
+                    {ilan.eidsStatus === 'verified' && <ShieldCheck className="w-3.5 h-3.5" />}
+                    {ilan.eidsStatus === 'pending' && <Clock className="w-3.5 h-3.5" />}
+                    {ilan.eidsStatus === 'not_available' && <Info className="w-3.5 h-3.5" />}
+                    {getEidsStatusLabel(ilan.eidsStatus)}
                   </span>
                 )}
                 {ilan.ilanNo && (

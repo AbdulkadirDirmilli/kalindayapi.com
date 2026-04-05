@@ -230,16 +230,28 @@ export function Lightbox({
           )}
 
           {/* Image */}
-          <motion.img
+          <motion.div
             key={currentIndex}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            src={images[currentIndex]}
-            alt={`Görsel ${currentIndex + 1}`}
-            className="max-w-[90vw] max-h-[90vh] object-contain"
+            className="relative max-w-[90vw] max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
-          />
+          >
+            <img
+              src={images[currentIndex]}
+              alt={`Görsel ${currentIndex + 1}`}
+              className="max-w-[90vw] max-h-[90vh] object-contain"
+            />
+            <span
+              className="pointer-events-none absolute inset-0 flex items-center justify-center select-none"
+              aria-hidden="true"
+            >
+              <span className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider text-white/40 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.4)" }}>
+                Kalindayapi.com
+              </span>
+            </span>
+          </motion.div>
 
           {/* Counter */}
           {images.length > 1 && (

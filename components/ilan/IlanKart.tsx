@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, Maximize2, BedDouble, Bath, Calendar, Heart } from "lucide-react";
+import WatermarkImage from "@/components/ui/WatermarkImage";
+import { MapPin, Maximize2, BedDouble, Bath, Calendar } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import { formatPrice, getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
@@ -39,13 +40,13 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
             {/* Image */}
             <div className="relative w-full sm:w-72 h-48 sm:h-auto flex-shrink-0 bg-gray-100">
               {kapakFoto ? (
-                <Image
+                <WatermarkImage
                   src={kapakFoto}
                   alt={ilan.baslik}
                   fill
                   sizes="(max-width: 640px) 100vw, 288px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  unoptimized={kapakFoto.includes('/uploads/')}
+                  watermarkSize="md"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -68,7 +69,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
               </div>
 
               {/* EIDS Logo - Sağ üst köşe (List variant) */}
-              {ilan.eidsDogrulanmis && (
+              {ilan.eidsStatus === 'verified' && (
                 <div className="absolute top-3 right-3 z-10">
                   <Image
                     src="/images/eids-logo.png"
@@ -164,13 +165,14 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
           {/* Image */}
           <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
             {kapakFoto ? (
-              <Image
+              <WatermarkImage
                 src={kapakFoto}
                 alt={ilan.baslik}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 unoptimized={kapakFoto.includes('/uploads/')}
+                watermarkSize="md"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -196,7 +198,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
             </div>
 
             {/* EIDS Logo - Sağ üst köşe */}
-            {ilan.eidsDogrulanmis && (
+            {ilan.eidsStatus === 'verified' && (
               <div className="absolute top-3 right-3 z-10">
                 <Image
                   src="/images/eids-logo.png"
@@ -207,18 +209,6 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                 />
               </div>
             )}
-
-            {/* Favorite Button */}
-            <button
-              className={`absolute ${ilan.eidsDogrulanmis ? 'top-14' : 'top-4'} right-4 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:scale-110`}
-              onClick={(e) => {
-                e.preventDefault();
-                // TODO: Add to favorites
-              }}
-              aria-label="Favorilere ekle"
-            >
-              <Heart className="w-4 h-4 text-[#0B1F3A]" />
-            </button>
 
             {/* Price */}
             <div className="absolute bottom-4 right-4">

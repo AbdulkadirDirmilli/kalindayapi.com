@@ -86,8 +86,8 @@ export const ilanSchema = z.object({
   isyeriRuhsati: z.boolean().default(false),
   eidsDogrulanmis: z.boolean().default(false),
 
-  // Insaat durumu
-  insaatDurumu: z.string().optional().nullable(),
+  // EIDS - İlan Doğrulama Durumu
+  eidsStatus: z.enum(['verified', 'pending', 'not_available']).default('pending'),
 
   // Video
   videoUrl: z.string().optional().nullable(),

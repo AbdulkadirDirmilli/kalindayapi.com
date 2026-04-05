@@ -83,6 +83,7 @@ export async function GET(
       durum: ilan.durum,
       insaatDurumu: ilan.insaatDurumu || null,
       ilanNo: ilan.ilanNo || '',
+      eidsStatus: ilan.eidsStatus,
       danisman: ilan.danisman ? {
         id: ilan.danisman.id,
         ad: ilan.danisman.ad,

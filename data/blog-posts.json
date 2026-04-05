@@ -1,6 +1,84 @@
 {
   "yazilar": [
     {
+      "id": "ortaca-emlak-rehberi-mahalle-mahalle-2026",
+      "slug": "ortaca-emlak-rehberi-mahalle-mahalle-2026",
+      "baslik": "Ortaca'da Ev Almak İsteyenler İçin Mahalle Mahalle Emlak Rehberi",
+      "ozet": "Ortaca'nın farklı mahallelerinde konut fiyatları, yaşam avantajları ve yatırım potansiyeli hakkında saha deneyimine dayalı kapsamlı bir değerlendirme.",
+      "kategori": "Emlak",
+      "etiketler": ["Ortaca", "Ortaca Emlak", "Ortaca Konut", "Muğla", "Ortaca Mahalleler", "Ortaca Ev Fiyatları"],
+      "yazar": "Zafer Soylu",
+      "yayinTarihi": "2026-04-03",
+      "okunmaSuresi": 9,
+      "kapakGorsel": "/images/blog/ortaca-emlak-rehberi.jpg",
+      "icerik": [
+        {
+          "tip": "paragraf",
+          "metin": "Ortaca, son birkaç yılda sessiz sedasız Muğla'nın en dikkat çekici emlak pazarlarından biri haline geldi. Dalaman Havalimanı'na sadece 20 dakika mesafesi, Dalyan ve İztuzu gibi doğa harikalarına komşuluğu ve hâlâ makul sayılabilecek fiyat seviyeleri, ilçeye hem yaşam hem de yatırım amaçlı ciddi bir ilgi doğurdu. Ancak Ortaca'da her mahallenin kendine has bir karakteri var. Biz de bu yazıda, ilçeyi gerçekten tanıyan birinin gözünden mahalle mahalle bir emlak değerlendirmesi hazırladık."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Atatürk Mahallesi: Ortaca'nın Kalbi"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Atatürk Mahallesi, ilçenin ticaret ve sosyal hayatının merkezinde yer alıyor. Cumhuriyet Caddesi boyunca uzanan dükkanlar, bankalar, kafe ve restoranlar bu mahalleyi Ortaca'nın en hareketli noktası yapıyor. Burası yürüyerek her şeye ulaşmak isteyenler için oldukça pratik bir adres. Ancak merkezde olmanın bir bedeli var: Gürültü seviyesi yüksek, otopark sorunu zaman zaman baş ağrıtabiliyor. Konut fiyatları merkez konumun etkisiyle m² başına 18.000-28.000 TL civarında seyrediyor. Merkezi daire arayanlar, özellikle üst katlardaki daireleri tercih ediyor çünkü sokak gürültüsünden nispeten uzak kalıyorlar."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Cumhuriyet Mahallesi: Sakin Ama Merkeze Yakın"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Atatürk Mahallesi'ne yürüme mesafesinde olmasına rağmen Cumhuriyet Mahallesi çok daha sakin bir yaşam sunar. Burada daha geniş parselli binalar, az katlı yapılar ve yer yer bahçeli evler görmek mümkün. Aileler için çocuk parkları ve okullara yakınlık büyük avantaj. Yeni yapılan konut projeleri genellikle bu bölgede konumlanıyor ve m² fiyatları 20.000-32.000 TL aralığında. Dikkat çeken bir detay: Cumhuriyet Mahallesi'nde son iki yılda inşaat ruhsatlarında belirgin bir artış yaşandı. Bu durum, bölgenin gelecekte daha da değerleneceğine dair somut bir işaret."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Karaburun Mahallesi: Dalyan Yolu Üzerinin Yükselen Değeri"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Dalyan yolu güzergahı üzerinde yer alan Karaburun Mahallesi, özellikle son dönemde yatırımcıların ilgisini çekiyor. Hem Ortaca merkezine hem de Dalyan'a kolay ulaşım imkanı sunması, bu bölgeyi stratejik bir konuma taşıyor. Burada hem konut hem de ticari amaçlı arsalar oldukça rağbet görüyor. Henüz tam olarak yapılaşmamış alanlar mevcut ve bu da erken giren yatırımcılar için fırsat anlamına geliyor. Arsa fiyatları 4.000-9.000 TL/m² bandında değişiyor; konut projeleri ise 22.000-35.000 TL/m² civarında satışa sunuluyor. Bölgenin en önemli artısı, Dalyan'ın turizm potansiyelinden dolaylı olarak faydalanması."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Merkez Mahalle: Uygun Fiyatlı Seçeneklerin Adresi"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Ortaca'nın eski yerleşim alanlarından biri olan Merkez Mahalle, bütçesi kısıtlı alıcılar için değerlendirilmesi gereken bir bölge. Buradaki konut stoku ağırlıklı olarak eski yapılardan oluşuyor; dolayısıyla fiyatlar diğer mahallelere göre daha uygun. İkinci el daire fiyatları m² başına 12.000-20.000 TL arasında. Dikkat edilmesi gereken nokta deprem yönetmeliğine uygunluk: 2000 öncesi yapıların büyük çoğunluğu mevcut deprem standartlarını karşılamıyor. Satın almadan önce yapı denetim raporu mutlaka istenmeli."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Dalyan'a Yakın Bölgeler: Turizm ve Yaşamın Kesiştiği Yer"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Ortaca-Dalyan arası güzergah, her iki dünyanın da avantajını bir arada yaşamak isteyenler için biçilmiş kaftan. Dalyan'ın turistik dokusundan faydalanırken, günlük ihtiyaçlarınız için Ortaca'nın pratikliğine sahip oluyorsunuz. Bu bölgede özellikle müstakil ev ve villa tipi projelere talep yoğun. Fiyatlar yapının büyüklüğüne ve arsanın konumuna göre ciddi farklılık gösteriyor ama genel olarak villa segmenti 35.000-55.000 TL/m² bandında seyrediyor. İngiliz, Alman ve İskandinav kökenli yabancı alıcıların bu bölgeye ilgisi her geçen yıl artıyor; bu durum fiyatlara yukarı yönlü baskı yapıyor."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Ortaca'da Emlak Alırken Nelere Dikkat Etmeli?"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Ortaca'da konut veya arsa almayı düşünüyorsanız birkaç pratik önerimiz var. Birincisi, tapu kaydını ve imar durumunu satın alma kararı vermeden önce mutlaka kontrol edin. Ortaca'da özellikle tarla vasfındaki arazilerin konut imarlı gibi sunulduğu durumlarla karşılaşılabiliyor. İkincisi, Ortaca'nın bazı bölgelerinde altyapı çalışmaları devam ediyor; bu bölgelerde kısa vadede ulaşım sıkıntıları yaşanabilir ama uzun vadede değer artışı bekleniyor. Üçüncüsü, bölgeyi bilmeyen alıcıların mutlaka yerel bir emlak danışmanıyla çalışması önemli. Online ilanlarda görünen fiyatlar ile gerçek satış fiyatları arasında ciddi farklar olabiliyor."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Ortaca'nın Geleceği: Büyüme Nereye Gidiyor?"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "İlçedeki gelişmelere baktığımızda birkaç önemli dinamik göze çarpıyor. Dalaman-Ortaca karayolu üzerindeki iyileştirme çalışmaları, ulaşım süresini kısaltarak bölgenin çekiciliğini artırıyor. Ortaca Devlet Hastanesi'nin kapasitesinin genişletilmesi, sağlık hizmetlerine erişimi güçlendirdi. Bunun yanı sıra, tarım arazilerinin imara açılmasıyla yeni konut projeleri için alan oluşuyor. Tüm bu faktörler bir arada değerlendirildiğinde, Ortaca'nın önümüzdeki 3-5 yıl içinde Muğla'nın en hızlı değer kazanan ilçelerinden biri olmaya aday olduğunu söylemek yanlış olmaz."
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Ortaca'da konut veya arsa yatırımı konusunda detaylı bilgi almak ya da güncel portföyümüzü incelemek isterseniz Kalinda Yapı ekibi olarak her zaman ulaşılabilir durumdayız. İlçeyi ve dinamiklerini yakından tanıyan kadromuz, sizin için en doğru kararı vermenizde yardımcı olacaktır."
+        }
+      ]
+    },
+    {
       "id": "mugla-emlak-piyasasi-2026",
       "slug": "mugla-emlak-piyasasi-2026",
       "baslik": "2026 Yılında Muğla Emlak Piyasası: Güncel Durum ve Beklentiler",

@@ -14,6 +14,7 @@ export async function GET(request: NextRequest) {
     const maxFiyat = searchParams.get('maxFiyat')
     const search = searchParams.get('search')
     const oneCikan = searchParams.get('oneCikan')
+    const eidsStatus = searchParams.get('eidsStatus')
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const where: any = {
@@ -23,6 +24,7 @@ export async function GET(request: NextRequest) {
     if (kategori) where.kategori = kategori
     if (tip) where.tip = tip
     if (oneCikan === 'true') where.oneCikan = true
+    if (eidsStatus) where.eidsStatus = eidsStatus
 
     if (konum) {
       where.OR = [
@@ -118,6 +120,7 @@ export async function GET(request: NextRequest) {
       durum: ilan.durum,
       insaatDurumu: ilan.insaatDurumu || null,
       ilanNo: ilan.ilanNo || '',
+      eidsStatus: ilan.eidsStatus,
     }))
 
     return NextResponse.json({

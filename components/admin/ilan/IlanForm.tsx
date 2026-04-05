@@ -104,14 +104,13 @@ interface IlanFormData {
   tavanYuksekligi: number | null
   personelKapasitesi: number | null
   depoOzellikleri: string[]
-  // Insaat durumu
-  insaatDurumu: string
   // Tapu
   tapuDurumu: string
   krediyeUygun: boolean
   takasaUygun: boolean
   isyeriRuhsati: boolean
-  eidsDogrulanmis: boolean
+  // EIDS - İlan Doğrulama Durumu
+  eidsStatus: 'verified' | 'pending' | 'not_available'
   // Video
   videoUrl: string
   // Danisman
@@ -192,12 +191,11 @@ const defaultFormData: IlanFormData = {
   tavanYuksekligi: null,
   personelKapasitesi: null,
   depoOzellikleri: [],
-  insaatDurumu: '',
   tapuDurumu: '',
   krediyeUygun: false,
   takasaUygun: false,
   isyeriRuhsati: false,
-  eidsDogrulanmis: false,
+  eidsStatus: 'pending',
   videoUrl: '',
   danismanId: null,
   aciklama: '',
@@ -859,6 +857,22 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
 
           <div>
             <label className="block text-sm font-medium text-text mb-1">
+              EIDS Durumu
+            </label>
+            <select
+              name="eidsStatus"
+              value={formData.eidsStatus}
+              onChange={handleChange}
+              className="input"
+            >
+              <option value="verified">EIDS Doğrulanmış</option>
+              <option value="pending">EIDS Beklemede</option>
+              <option value="not_available">EIDS Mevcut Değil</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-text mb-1">
               Sorumlu Danışman *
             </label>
             <select
@@ -895,13 +909,14 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
               EIDS Durumu
             </label>
             <select
-              name="eidsDogrulanmis"
-              value={formData.eidsDogrulanmis ? 'true' : 'false'}
-              onChange={(e) => setFormData(prev => ({ ...prev, eidsDogrulanmis: e.target.value === 'true' }))}
+              name="eidsStatus"
+              value={formData.eidsStatus}
+              onChange={handleChange}
               className="input"
             >
-              <option value="false">EIDS Doğrulanmamış</option>
-              <option value="true">EIDS Doğrulanmış</option>
+              <option value="verified">EIDS Doğrulanmış</option>
+              <option value="pending">EIDS Beklemede</option>
+              <option value="not_available">EIDS Mevcut Değil</option>
             </select>
           </div>
         </div>

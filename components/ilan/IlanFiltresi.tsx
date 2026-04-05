@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, SlidersHorizontal, X, Grid3X3, List, ChevronDown } from "lucide-react";
+import { Search, SlidersHorizontal, X, Grid3X3, List, ChevronDown, ShieldCheck } from "lucide-react";
 import { Input, Select } from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 
@@ -13,6 +13,7 @@ interface FilterState {
   minFiyat: string;
   maxFiyat: string;
   arama: string;
+  eidsStatus: string;
 }
 
 interface IlanFiltresiProps {
@@ -76,6 +77,7 @@ export default function IlanFiltresi({
       minFiyat: "",
       maxFiyat: "",
       arama: "",
+      eidsStatus: "",
     });
   };
 
@@ -175,6 +177,24 @@ export default function IlanFiltresi({
                   onChange={(e) => handleChange("maxFiyat", e.target.value)}
                   placeholder="Max"
                 />
+              </div>
+
+              {/* EIDS Filter */}
+              <div className="mt-4">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={filters.eidsStatus === "verified"}
+                    onChange={(e) =>
+                      handleChange("eidsStatus", e.target.checked ? "verified" : "")
+                    }
+                    className="w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
+                  />
+                  <ShieldCheck className="w-4 h-4 text-green-600" />
+                  <span className="text-sm font-medium text-[#1a1a1a]">
+                    Sadece EIDS Doğrulanmış İlanları Göster
+                  </span>
+                </label>
               </div>
 
               {/* Clear Filters */}

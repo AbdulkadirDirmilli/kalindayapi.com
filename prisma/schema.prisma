@@ -110,6 +110,9 @@ model Ilan {
   isyeriRuhsati     Boolean     @default(false)
   eidsDogrulanmis   Boolean     @default(false)
 
+  // EIDS - İlan Doğrulama Durumu
+  eidsStatus        String      @default("pending") // verified, pending, not_available
+
   // Video URL
   videoUrl          String?
 
