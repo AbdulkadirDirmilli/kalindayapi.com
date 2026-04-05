@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Nunito } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
+import { HeaterIcon } from "lucide-react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -84,7 +85,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.kalindayapi.com",
   },
-};
+};  
 
 export default function RootLayout({
   children,

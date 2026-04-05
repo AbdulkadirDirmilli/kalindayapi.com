@@ -141,6 +141,19 @@ export default function OneCikanIlanlar() {
                         )}
                       </div>
 
+                      {/* EIDS Logo - Sağ üst köşe */}
+                      {ilan.eidsStatus === 'verified' && (
+                        <div className="absolute top-2 right-2 z-10">
+                          <Image
+                            src="/images/eids-logo.png"
+                            alt="EIDS Doğrulanmış"
+                            width={80}
+                            height={80}
+                            className="drop-shadow-lg"
+                          />
+                        </div>
+                      )}
+
                       {/* Price */}
                       <div className="absolute bottom-4 right-4">
                         <span className="bg-primary text-white px-3 py-1.5 rounded-lg font-bold">

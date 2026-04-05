@@ -904,21 +904,6 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
             </label>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-text mb-1">
-              EIDS Durumu
-            </label>
-            <select
-              name="eidsStatus"
-              value={formData.eidsStatus}
-              onChange={handleChange}
-              className="input"
-            >
-              <option value="verified">EIDS Doğrulanmış</option>
-              <option value="pending">EIDS Beklemede</option>
-              <option value="not_available">EIDS Mevcut Değil</option>
-            </select>
-          </div>
         </div>
       </CollapsibleSection>
 

@@ -70,12 +70,12 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
 
               {/* EIDS Logo - Sağ üst köşe (List variant) */}
               {ilan.eidsStatus === 'verified' && (
-                <div className="absolute top-3 right-3 z-10">
+                <div className="absolute top-2 right-2 z-10">
                   <Image
                     src="/images/eids-logo.png"
                     alt="EIDS Doğrulanmış"
-                    width={40}
-                    height={40}
+                    width={72}
+                    height={72}
                     className="drop-shadow-lg"
                   />
                 </div>
@@ -199,12 +199,12 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
 
             {/* EIDS Logo - Sağ üst köşe */}
             {ilan.eidsStatus === 'verified' && (
-              <div className="absolute top-3 right-3 z-10">
+              <div className="absolute top-2 right-2 z-10">
                 <Image
                   src="/images/eids-logo.png"
                   alt="EIDS Doğrulanmış"
-                  width={48}
-                  height={48}
+                  width={80}
+                  height={80}
                   className="drop-shadow-lg"
                 />
               </div>
