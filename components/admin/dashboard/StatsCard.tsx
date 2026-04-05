@@ -9,7 +9,7 @@ interface StatsCardProps {
     value: number
     isPositive: boolean
   }
-  color?: 'primary' | 'accent' | 'success' | 'error'
+  color?: 'primary' | 'accent' | 'success' | 'error' | 'warning'
 }
 
 export default function StatsCard({
@@ -24,6 +24,7 @@ export default function StatsCard({
     accent: 'bg-accent text-primary',
     success: 'bg-success text-white',
     error: 'bg-error text-white',
+    warning: 'bg-amber-500 text-white',
   }
 
   const iconBg = {
@@ -31,6 +32,7 @@ export default function StatsCard({
     accent: 'bg-primary/10',
     success: 'bg-white/20',
     error: 'bg-white/20',
+    warning: 'bg-white/20',
   }
 
   return (

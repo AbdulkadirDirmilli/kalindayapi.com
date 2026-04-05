@@ -1,4 +1,4 @@
-import { Building2, Briefcase, Mail, Users, TrendingUp, Clock } from 'lucide-react'
+import { Building2, Briefcase, Mail, Users, TrendingUp, Clock, EyeOff } from 'lucide-react'
 import { prisma } from '@/lib/prisma'
 import AdminHeader from '@/components/admin/layout/AdminHeader'
 import StatsCard from '@/components/admin/dashboard/StatsCard'
@@ -7,6 +7,7 @@ import Link from 'next/link'
 async function getDashboardStats() {
   const [
     ilanCount,
+    pasifIlanCount,
     hizmetCount,
     ortakCount,
     contactCount,
@@ -14,6 +15,7 @@ async function getDashboardStats() {
     recentContacts,
   ] = await Promise.all([
     prisma.ilan.count(),
+    prisma.ilan.count({ where: { durum: 'pasif' } }),
     prisma.hizmet.count(),
     prisma.ortak.count(),
     prisma.contactForm.count({ where: { durum: 'yeni' } }),
@@ -43,6 +45,7 @@ async function getDashboardStats() {
 
   return {
     ilanCount,
+    pasifIlanCount,
     hizmetCount,
     ortakCount,
     contactCount,
@@ -63,12 +66,18 @@ export default async function AdminDashboardPage() {
 
       <div className="p-4 sm:p-6">
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-6 sm:mb-8">
           <StatsCard
             title="Toplam İlan"
             value={stats.ilanCount}
             icon={Building2}
             color="primary"
+          />
+          <StatsCard
+            title="Pasif İlanlar"
+            value={stats.pasifIlanCount}
+            icon={EyeOff}
+            color="warning"
           />
           <StatsCard
             title="Hizmetler"
