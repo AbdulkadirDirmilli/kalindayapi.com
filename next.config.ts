@@ -23,6 +23,14 @@ const nextConfig: NextConfig = {
         pathname: "/uploads/**",
       },
     ],
+    localPatterns: [
+      {
+        pathname: "/uploads/**",
+      },
+      {
+        pathname: "/images/**",
+      },
+    ],
     // Uploaded files are served by nginx, skip optimization for them
     unoptimized: false,
   },

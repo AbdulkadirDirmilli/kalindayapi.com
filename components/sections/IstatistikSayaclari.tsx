@@ -3,27 +3,12 @@
 import { useRef, useEffect, useState, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import { Building2, Calendar, Users, ThumbsUp } from "lucide-react";
-
-// Dinamik sayaç hesaplama - 5 günde 1 artış
-function hesaplaDinamikDeger(baslangicDegeri: number): number {
-  const baslangicTarihi = new Date("2025-01-01"); // Referans başlangıç tarihi
-  const bugun = new Date();
-  const gunFarki = Math.floor((bugun.getTime() - baslangicTarihi.getTime()) / (1000 * 60 * 60 * 24));
-  const artis = Math.floor(gunFarki / 5); // Her 5 günde 1 artış
-  return baslangicDegeri + artis;
-}
-
-// Yıl deneyimi hesaplama - 2022'den bu yana
-function hesaplaYilDeneyimi(): number {
-  const kurulusYili = 2022;
-  const bugunYil = new Date().getFullYear();
-  return bugunYil - kurulusYili;
-}
+import { getMutluAileSayisi, getTamamlananProjeSayisi, hesaplaYilDeneyimi } from "@/lib/utils";
 
 function useIstatistikler() {
   return useMemo(() => [
     {
-      deger: hesaplaDinamikDeger(102),
+      deger: getTamamlananProjeSayisi(),
       suffix: "+",
       etiket: "Tamamlanan Proje",
       ikon: Building2,
@@ -37,7 +22,7 @@ function useIstatistikler() {
       aciklama: "2022'den bu yana hizmet",
     },
     {
-      deger: hesaplaDinamikDeger(209),
+      deger: getMutluAileSayisi(),
       suffix: "+",
       etiket: "Mutlu Aile",
       ikon: Users,

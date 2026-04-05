@@ -13,6 +13,38 @@ export function formatPrice(price: number, currency: string = "TL"): string {
   }).format(price);
 }
 
+// ==========================================
+// DİNAMİK SAYAÇ FONKSİYONLARI
+// ==========================================
+
+// Genel dinamik değer hesaplama - 30 günde 1 artış
+export function hesaplaDinamikDeger(baslangicDegeri: number): number {
+  const baslangicTarihi = new Date("2025-01-01"); // Referans başlangıç tarihi
+  const bugun = new Date();
+  const gunFarki = Math.floor((bugun.getTime() - baslangicTarihi.getTime()) / (1000 * 60 * 60 * 24));
+  const artis = Math.floor(gunFarki / 30); // Her 30 günde 1 artış
+  return baslangicDegeri + artis;
+}
+
+// Yıl deneyimi hesaplama - 2022'den bu yana
+export function hesaplaYilDeneyimi(): number {
+  const kurulusYili = 2022;
+  const bugunYil = new Date().getFullYear();
+  return bugunYil - kurulusYili;
+}
+
+// Mutlu Aile sayısı - 302'den başlar, 30 günde 1 artar
+export function getMutluAileSayisi(): number {
+  return hesaplaDinamikDeger(302);
+}
+
+// Tamamlanan Proje sayısı - 102'den başlar, 30 günde 1 artar
+export function getTamamlananProjeSayisi(): number {
+  return hesaplaDinamikDeger(102);
+}
+
+// ==========================================
+
 export function formatPhoneNumber(phone: string): string {
   // +90 537 053 07 54 formatı
   const cleaned = phone.replace(/\D/g, "");
