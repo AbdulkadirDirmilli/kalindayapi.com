@@ -8,7 +8,17 @@ module.exports = {
   generateIndexSitemap: true,
   changefreq: 'weekly',
   priority: 0.7,
-  exclude: ['/admin/*', '/api/*', '/icon.png', '/icon*', '/*.png', '/*.ico'],
+  autoLastmod: true,
+  exclude: [
+    '/admin/*',
+    '/api/*',
+    '/icon.png',
+    '/icon*',
+    '/*.png',
+    '/*.ico',
+    '/server-sitemap.xml',
+    '/_not-found',
+  ],
   robotsTxtOptions: {
     policies: [
       {
