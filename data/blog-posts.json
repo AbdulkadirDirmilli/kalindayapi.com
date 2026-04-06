@@ -1,12 +1,126 @@
 {
   "yazilar": [
     {
+      "id": "ev-alirken-tapu-kontrolu-nasil-yapilir",
+      "slug": "ev-alirken-tapu-kontrolu-nasil-yapilir",
+      "baslik": "Ev Alırken Tapu Kontrolü Nasıl Yapılır? Adım Adım Rehber",
+      "ozet": "Ev almadan önce tapu üzerinde yapmanız gereken kontrolleri, ipotek ve şerh sorgulama yöntemlerini, tapu müdürlüğünde dikkat etmeniz gereken noktaları saha deneyimimizle anlattık.",
+      "kategori": "Gayrimenkul",
+      "etiketler": [
+        "Tapu Kontrolü",
+        "Ev Alma Rehberi",
+        "Tapu Sorgulama",
+        "İpotek Sorgulama",
+        "Gayrimenkul",
+        "Muğla Emlak",
+        "Ortaca Emlak",
+        "Tapu Müdürlüğü"
+      ],
+      "yazar": "Arif Dağdelen",
+      "yayinTarihi": "2026-04-06",
+      "okunmaSuresi": 10,
+      "kapakGorsel": "/images/blog/tapu-kontrolu-rehberi.jpg",
+      "icerik": [
+        {
+          "tip": "paragraf",
+          "metin": "Bir evi beğendiniz, fiyatta anlaştınız, heyecanla kaparo vermeye hazırlanıyorsunuz. Ama durun. Bu noktada acele etmek, sonradan telafisi çok zor sorunlara yol açabiliyor. Biz gayrimenkul danışmanlığı yaparken en sık karşılaştığımız sorunların başında, tapu kontrolü yapılmadan alınan evler geliyor. Üzerinde ipotek olan, hisseli çıkan, imar sorunlu tapular... Bunların hepsi alıcının birkaç basit kontrol yapmasıyla önlenebilecek durumlar. Bu yazıda ev almadan önce tapu üzerinde hangi kontrolleri yapmanız gerektiğini, saha tecrübemize dayanarak adım adım anlatıyoruz."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Tapu Kontrolü Neden Bu Kadar Önemli?"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Tapu, bir gayrimenkulün resmi sahiplik belgesidir. Ama tapuda yazan bilgiler her zaman göründüğü kadar basit değildir. Bir tapu kaydının üzerinde ipotek, haciz, şerh, intifa hakkı gibi kısıtlamalar bulunabilir. Bu kısıtlamalar mülkün satışını engelleyebileceği gibi, satış sonrasında da sizin başınızı ağrıtabilir. Ortaca ve Dalyan bölgesinde özellikle eski tarla tapularının imarlı parsele dönüşüm sürecinde, hisseli tapu sorunlarına sıkça rastlıyoruz. Bu yüzden bölgemizde tapu kontrolü yapmadan ev almak ciddi bir risk taşıyor."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Adım 1: Tapu Kaydını e-Devlet Üzerinden Sorgulayın"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Tapu kontrolünün ilk adımı, mülkün güncel tapu kaydına ulaşmaktır. Bunu e-Devlet üzerinden yapabilirsiniz. Turkiye.gov.tr adresine giriş yaptıktan sonra Tapu ve Kadastro Genel Müdürlüğü hizmetlerinden \"Tapu Bilgileri Sorgulama\" seçeneğini kullanarak, satıcıdan aldığınız ada ve parsel numarası ile sorgulama yapabilirsiniz. Bu sorguda mülkün kimin üzerine kayıtlı olduğunu, yüzölçümünü ve niteliğini görebilirsiniz. Satıcının gerçekten malik olup olmadığını bu aşamada teyit edin. Vekaletname ile satış yapılacaksa, vekaletnamenin güncel ve geçerli olduğundan emin olun."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Adım 2: Tapu Üzerindeki İpotek ve Haciz Durumunu Kontrol Edin"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Mülk üzerinde banka ipoteği veya icra haczi olabilir. Bu durum tapunun \"Şerhler ve Beyanlar\" bölümünde görünür. Satıcının kredi borcu devam ediyorsa mülk üzerinde banka lehine ipotek vardır. Satışın gerçekleşebilmesi için bu ipoteğin kaldırılması ya da devralınması gerekir. Haciz durumunda ise satış tamamen engellenebilir. e-Devlet üzerinden ya da doğrudan Tapu Müdürlüğünden bu bilgilere ulaşabilirsiniz. Biz danışanlarımıza özellikle Tapu Müdürlüğünden yazılı belge almalarını öneriyoruz, çünkü dijital kayıtlarda zaman zaman gecikmeli güncellemeler olabiliyor."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Adım 3: Tapunun Hisseli mi Müstakil mi Olduğunu Öğrenin"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Hisseli tapu, bir gayrimenkulün birden fazla kişi adına kayıtlı olması anlamına gelir. Bu tür tapularda tüm hissedarların satışa onay vermesi gerekir. Tek bir hissedarın onay vermemesi satışı durdurabilir. Özellikle miras yoluyla intikal etmiş gayrimenkullerde hisseli tapu durumu çok yaygındır. Muğla genelinde ve Ortaca çevresinde tarla vasıflı arazilerin imarlı parsele dönüşüm sürecinde hisseli tapu sorunlarıyla sık karşılaşıyoruz. Alım yapmadan önce tapunun tam hisse mi yoksa paylı mülkiyet mi olduğunu mutlaka netleştirin."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Adım 4: İmar Durumunu Kontrol Edin"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Tapuda \"arsa\" yazan bir mülk ile \"tarla\" yazan bir mülk arasında büyük fark vardır. Arsa vasıflı tapu, üzerine inşaat yapılabilecek imarlı bir parseli ifade eder. Tarla vasıflı tapularda ise yapılaşma çoğunlukla kısıtlıdır. Belediyeden imar durumu belgesi alarak, mülkün bulunduğu parselde ne tür yapılaşmaya izin verildiğini, kat yüksekliğini ve emsal değerini öğrenebilirsiniz. Ev almak için baktığınız mülkün tapusu \"arsa\" niteliğinde olsa bile, imar planında yeşil alan, yol veya kamu alanı olarak ayrılmış olabilir. Bu kontrol yapılmadan ev almak risklidir."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Adım 5: Yapı Kullanma İzin Belgesini İsteyin"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Satın almayı düşündüğünüz evin yasal olarak oturuma uygun olduğunun kanıtı, yapı kullanma izin belgesi yani iskan belgesidir. İskansız binalarda elektrik ve su aboneliği sorun yaratabilir, sigorta yaptıramazsınız ve ileride yıkım kararı çıkabilir. Özellikle eski yapılarda veya köy yerleşim alanlarında iskansız binalar oldukça yaygındır. Satıcıdan yapı kullanma izin belgesinin aslını ya da belediyeden onaylı bir kopyasını mutlaka isteyin. Belge yoksa, binanın ruhsatlı olup olmadığını belediye imar müdürlüğünden sorgulayabilirsiniz."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Adım 6: Beyanlar Bölümünü Atlamayın"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Tapu kaydındaki \"Beyanlar\" bölümü çoğu alıcı tarafından gözden kaçırılır, ama önemli bilgiler içerebilir. Bu bölümde mülk üzerinde intifa hakkı, oturma hakkı, geçit hakkı gibi kısıtlamalar yer alabilir. Intifa hakkı varsa, mülkü satın alsanız bile kullanım hakkı başka birinde kalır. Geçit hakkı ise arsanızın bir bölümünden başkalarının geçiş hakkına sahip olduğu anlamına gelir. Bu bilgiler mülkün kullanım değerini doğrudan etkiler. Tapu Müdürlüğünden alacağınız tapu kaydı örneğinde bu bölüm detaylı şekilde yer alır."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Adım 7: Kadastro Haritasını İnceleyin"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Parselin fiziksel sınırlarının kadastro kayıtlarıyla uyumlu olduğundan emin olun. Parselsorgu.tkgm.gov.tr adresinden ada ve parsel numarası ile harita üzerinde parselin konumunu, sınırlarını ve komşu parselleri görebilirsiniz. Sahada gördüğünüz sınırlar ile kadastro haritasındaki sınırlar her zaman örtüşmeyebilir. Özellikle arazi alımlarında sınır anlaşmazlıkları yaygın bir sorundur. Mümkünse bir harita mühendisine aplikasyon yaptırarak parselin gerçek sınırlarını sahada işaretletin."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Tapu Devir İşleminde Dikkat Edilecekler"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Tüm kontrolleri yaptınız ve alım kararı verdiniz. Tapu devir aşamasında da dikkatli olmanız gereken noktalar var. Satış bedelinin tapuya gerçek değerinden yazılması, ileride bir anlaşmazlık durumunda sizi korur. Düşük bedel yazılması halinde, satışın iptali davası açılırsa sadece tapuda yazan bedeli geri alabilirsiniz. Ayrıca tapu harçları satış bedeli üzerinden hesaplanır ve alıcı ile satıcı ayrı ayrı yüzde 2 harç öder. Devir işlemi için randevu alırken gerekli belgeleri önceden hazırlayın: kimlik fotokopisi, vesikalık fotoğraf, DASK poliçesi ve zorunlu deprem sigortası."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Profesyonel Destek Almaktan Çekinmeyin"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Tapu kontrolü teknik bilgi gerektiren bir süreçtir. Emlak hukuku, imar mevzuatı ve kadastro konularında deneyimi olmayan birinin her detayı yakalaması zordur. Biz Kalinda Yapı olarak Muğla, Ortaca ve Dalyan bölgesinde gayrimenkul danışmanlığı verirken, her alım sürecinde kapsamlı bir tapu kontrolü yapıyoruz. Müşterilerimiz adına tapu kaydı inceleme, imar durumu sorgulama ve kadastro kontrolü gibi işlemleri profesyonel olarak yürütüyoruz. Bölgede ev almayı düşünüyorsanız, karar vermeden önce bir uzmana danışmanız sizi olası sorunlardan koruyacaktır."
+        }
+      ]
+    },
+    {
       "id": "ortaca-emlak-rehberi-mahalle-mahalle-2026",
       "slug": "ortaca-emlak-rehberi-mahalle-mahalle-2026",
       "baslik": "Ortaca'da Ev Almak İsteyenler İçin Mahalle Mahalle Emlak Rehberi",
       "ozet": "Ortaca'nın farklı mahallelerinde konut fiyatları, yaşam avantajları ve yatırım potansiyeli hakkında saha deneyimine dayalı kapsamlı bir değerlendirme.",
       "kategori": "Emlak",
-      "etiketler": ["Ortaca", "Ortaca Emlak", "Ortaca Konut", "Muğla", "Ortaca Mahalleler", "Ortaca Ev Fiyatları"],
+      "etiketler": [
+        "Ortaca",
+        "Ortaca Emlak",
+        "Ortaca Konut",
+        "Muğla",
+        "Ortaca Mahalleler",
+        "Ortaca Ev Fiyatları"
+      ],
       "yazar": "Zafer Soylu",
       "yayinTarihi": "2026-04-03",
       "okunmaSuresi": 9,
@@ -84,7 +198,12 @@
       "baslik": "2026 Yılında Muğla Emlak Piyasası: Güncel Durum ve Beklentiler",
       "ozet": "Muğla ve ilçelerinde emlak piyasasının 2026 yılındaki durumu, fiyat trendleri ve yatırımcılar için fırsatlar.",
       "kategori": "Emlak",
-      "etiketler": ["Muğla", "Emlak Piyasası", "Yatırım", "2026"],
+      "etiketler": [
+        "Muğla",
+        "Emlak Piyasası",
+        "Yatırım",
+        "2026"
+      ],
       "yazar": "Zafer Soylu",
       "yayinTarihi": "2026-03-15",
       "okunmaSuresi": 7,
@@ -130,7 +249,12 @@
       "baslik": "İmar Durumu Nedir? Nasıl Sorgulanır? Bilmeniz Gereken Her Şey",
       "ozet": "Gayrimenkul alırken veya inşaat yapmadan önce imar durumu sorgulamanın önemi, sorgulama yöntemleri ve dikkat edilmesi gerekenler.",
       "kategori": "İmar",
-      "etiketler": ["İmar", "İmar Durumu", "Gayrimenkul", "Ruhsat"],
+      "etiketler": [
+        "İmar",
+        "İmar Durumu",
+        "Gayrimenkul",
+        "Ruhsat"
+      ],
       "yazar": "Hikmet Karaoğlan",
       "yayinTarihi": "2026-03-10",
       "okunmaSuresi": 6,
@@ -184,7 +308,12 @@
       "baslik": "Tadilat Yaptırırken Dikkat Edilmesi Gereken 10 Önemli Nokta",
       "ozet": "Ev veya işyeri tadilatı yaptırırken dikkat etmeniz gereken önemli noktalar, sözleşme detayları ve malzeme seçimi hakkında rehber.",
       "kategori": "Tadilat",
-      "etiketler": ["Tadilat", "Renovasyon", "Dekorasyon", "Ev Yenileme"],
+      "etiketler": [
+        "Tadilat",
+        "Renovasyon",
+        "Dekorasyon",
+        "Ev Yenileme"
+      ],
       "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-03-01",
       "okunmaSuresi": 8,
@@ -282,7 +411,14 @@
       "baslik": "Muğla İlçelerinde Arsa Yatırımı: Hangi Bölge Daha Kazançlı?",
       "ozet": "Ortaca, Dalyan, Köyceğiz, Dalaman ve diğer Muğla ilçelerinde arsa yatırımının avantajları ve dikkat edilmesi gerekenler.",
       "kategori": "Gayrimenkul",
-      "etiketler": ["Arsa", "Yatırım", "Muğla", "Ortaca", "Dalyan", "Köyceğiz"],
+      "etiketler": [
+        "Arsa",
+        "Yatırım",
+        "Muğla",
+        "Ortaca",
+        "Dalyan",
+        "Köyceğiz"
+      ],
       "yazar": "Zafer Soylu",
       "yayinTarihi": "2026-02-20",
       "okunmaSuresi": 9,
@@ -340,7 +476,12 @@
       "baslik": "Yapı Ruhsatı Süreci: A'dan Z'ye Kapsamlı Rehber",
       "ozet": "Yapı ruhsatı başvurusundan iskan belgesine kadar tüm sürecin adım adım anlatımı, gerekli belgeler ve dikkat edilecek noktalar.",
       "kategori": "İmar",
-      "etiketler": ["Yapı Ruhsatı", "İskan", "İnşaat", "Belediye"],
+      "etiketler": [
+        "Yapı Ruhsatı",
+        "İskan",
+        "İnşaat",
+        "Belediye"
+      ],
       "yazar": "Hikmet Karaoğlan",
       "yayinTarihi": "2026-02-10",
       "okunmaSuresi": 10,
@@ -422,7 +563,12 @@
       "baslik": "Gayrimenkul Alırken Dikkat Edilmesi Gereken 8 Kritik Nokta",
       "ozet": "Ev, daire veya arsa satın alırken hukuki, teknik ve finansal açıdan dikkat etmeniz gereken önemli noktalar.",
       "kategori": "Gayrimenkul",
-      "etiketler": ["Ev Alma", "Gayrimenkul", "Tapu", "Hukuk"],
+      "etiketler": [
+        "Ev Alma",
+        "Gayrimenkul",
+        "Tapu",
+        "Hukuk"
+      ],
       "yazar": "Zafer Soylu",
       "yayinTarihi": "2026-01-25",
       "okunmaSuresi": 7,
@@ -504,7 +650,13 @@
       "baslik": "Mutfak Tadilatı Rehberi: Modern ve Fonksiyonel Mutfaklar",
       "ozet": "Mutfak tadilatı planlaması, malzeme seçimi, tezgah ve dolap alternatifleri. Bütçeye uygun modern mutfak fikirleri.",
       "kategori": "Tadilat",
-      "etiketler": ["Mutfak", "Tadilat", "Dekorasyon", "Dolap", "Tezgah"],
+      "etiketler": [
+        "Mutfak",
+        "Tadilat",
+        "Dekorasyon",
+        "Dolap",
+        "Tezgah"
+      ],
       "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-01-15",
       "okunmaSuresi": 8,
@@ -570,7 +722,13 @@
       "baslik": "Dalyan'da Yaşam: Doğa ve Huzurun Buluşma Noktası",
       "ozet": "Dalyan'da yaşamın avantajları, bölge hakkında bilgiler, emlak fırsatları ve yaşam maliyetleri.",
       "kategori": "Yaşam",
-      "etiketler": ["Dalyan", "Yaşam", "Doğa", "İztuzu", "Turizm"],
+      "etiketler": [
+        "Dalyan",
+        "Yaşam",
+        "Doğa",
+        "İztuzu",
+        "Turizm"
+      ],
       "yazar": "Zafer Soylu",
       "yayinTarihi": "2026-01-05",
       "okunmaSuresi": 7,
@@ -628,7 +786,12 @@
       "baslik": "Enerji Verimli Evler: Tasarruf ve Çevre Dostu Yaşam",
       "ozet": "Enerji verimliliği yüksek evler için yalıtım, ısıtma sistemleri, güneş enerjisi ve akıllı ev teknolojileri rehberi.",
       "kategori": "İnşaat",
-      "etiketler": ["Enerji Verimliliği", "Yalıtım", "Güneş Enerjisi", "Akıllı Ev"],
+      "etiketler": [
+        "Enerji Verimliliği",
+        "Yalıtım",
+        "Güneş Enerjisi",
+        "Akıllı Ev"
+      ],
       "yazar": "Arif Dağdelen",
       "yayinTarihi": "2025-12-20",
       "okunmaSuresi": 9,
@@ -690,7 +853,13 @@
       "baslik": "Banyo Tadilatı Fikirleri: Küçük Alanlardan Büyük Dönüşümler",
       "ozet": "Küçük ve büyük banyolar için modern tasarım fikirleri, malzeme seçimi, depolama çözümleri ve bütçe planlaması.",
       "kategori": "Tadilat",
-      "etiketler": ["Banyo", "Tadilat", "Dekorasyon", "Seramik", "Armatür"],
+      "etiketler": [
+        "Banyo",
+        "Tadilat",
+        "Dekorasyon",
+        "Seramik",
+        "Armatür"
+      ],
       "yazar": "Arif Dağdelen",
       "yayinTarihi": "2025-12-10",
       "okunmaSuresi": 7,
