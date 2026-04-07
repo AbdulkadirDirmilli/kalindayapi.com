@@ -15,6 +15,7 @@ import {
   X,
   ExternalLink,
   Layers,
+  MessageSquare,
 } from 'lucide-react'
 import { signOut } from 'next-auth/react'
 import { useState, useEffect, useCallback } from 'react'
@@ -26,6 +27,7 @@ const menuItems = [
   { href: '/admin/hizmetler', label: 'Hizmetler', icon: Briefcase },
   { href: '/admin/oncesi-sonrasi', label: 'Öncesi-Sonrası', icon: Layers },
   { href: '/admin/iletisim', label: 'Mesajlar', icon: Mail, badge: 'unreadMessages' },
+  { href: '/admin/sms', label: 'SMS Yönetimi', icon: MessageSquare },
   { href: '/admin/ortaklar', label: 'Ortaklar', icon: Users },
 ]
 

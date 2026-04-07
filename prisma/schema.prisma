@@ -266,3 +266,72 @@ model OncesiSonrasi {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+// ==========================================
+// SMS MODÜLÜ - NetGSM Entegrasyonu
+// ==========================================
+
+// SMS Grupları
+model SmsGroup {
+  id        String       @id @default(uuid())
+  name      String       @unique
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  contacts  SmsContact[]
+}
+
+// SMS Kişileri
+model SmsContact {
+  id        String    @id @default(uuid())
+  name      String
+  phone     String
+  note      String?
+  groupId   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  group     SmsGroup? @relation(fields: [groupId], references: [id], onDelete: SetNull)
+
+  @@index([phone])
+  @@index([groupId])
+}
+
+// SMS Şablonları
+model SmsTemplate {
+  id        String   @id @default(uuid())
+  title     String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// SMS Gönderim Logları
+model SmsLog {
+  id           String   @id @default(uuid())
+  message      String
+  senderName   String
+  recipients   String   // JSON array - gönderilen numaralar
+  totalSent    Int
+  successCount Int      @default(0)
+  failedCount  Int      @default(0)
+  status       String   @default("pending") // pending, sent, failed, partial
+  errorMessage String?
+  netgsmJobId  String?  // NetGSM'den dönen iş ID'si
+  createdAt    DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([status])
+}
+
+// SMS Ayarları (NetGSM)
+model SmsSettings {
+  id              String   @id @default(uuid())
+  netgsmUsername  String
+  netgsmPassword  String
+  netgsmHeader    String   // Varsayılan gönderici adı
+  senderNames     String   // JSON array - Kullanılabilir gönderici adları
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
