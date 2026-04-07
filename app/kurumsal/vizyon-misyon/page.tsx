@@ -178,7 +178,7 @@ export default function VizyonMisyonPage() {
               Stratejik Hedefler
             </span>
             <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
-              2025 ve Sonrası Hedeflerimiz
+              2026 ve Sonrası Hedeflerimiz
             </h2>
             <p className="text-[#666666] max-w-2xl mx-auto">
               Belirlediğimiz stratejik hedefler doğrultusunda büyümeye ve
