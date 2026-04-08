@@ -338,15 +338,15 @@ export default function SSSPage() {
                   </p>
                   <div className="space-y-2">
                     <a
-                      href="tel:+905370530754"
+                      href="tel:+905321591556"
                       className="flex items-center gap-2 text-sm text-[#0B1F3A] hover:text-[#C9A84C]"
                     >
                       <Phone className="w-4 h-4" />
-                      +90 537 053 07 54
+                      +90 532 159 15 56
                     </a>
                     <a
                       href={createWhatsAppLink(
-                        "905370530754",
+                        "905321591556",
                         "Merhaba, SSS sayfasından geliyorum. Bir sorum var:"
                       )}
                       target="_blank"
