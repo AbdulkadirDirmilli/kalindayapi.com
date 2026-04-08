@@ -18,40 +18,40 @@ interface FaqSectionProps {
 
 const varsayilanSorular: FaqItem[] = [
   {
-    soru: "Ortaca'da ev almak için ne gerekir?",
+    soru: "Ortaca'da ev almak için hangi belgeler gerekiyor?",
     cevap:
-      "Ortaca'da ev almak için kimlik belgesi, ikametgah ve gerekli ödeme planı yeterlidir. Yabancı uyruklu alıcılar için ek belgeler talep edilebilir. Kalinda Yapı olarak tüm alım sürecinizde size rehberlik ediyoruz. Bankalarla kredi süreçlerinde de yardımcı oluyoruz.",
+      "T.C. vatandaşları için nüfus cüzdanı fotokopisi, vergi numarası ve ikametgah belgesi yeterlidir. Yabancı uyruklu alıcılar için tapu müdürlüğü onayı, pasaport tercümesi ve potansiyel vergi numarası gerekir. 2022'den bu yana 200+ satış işlemi tamamlayan ekibimiz, tüm evrak sürecinizi ücretsiz yönetiyor.",
   },
   {
-    soru: "Ortaca'da m² fiyatları ne kadar?",
+    soru: "2026'da Ortaca ve Dalyan'da m² fiyatları ne kadar?",
     cevap:
-      "Ortaca'da konut m² fiyatları konuma göre 15.000 TL ile 35.000 TL arasında değişmektedir. Dalyan bölgesi villa fiyatları daha yüksek seyrederken, merkezdeki daireler daha ekonomik seçenekler sunmaktadır. Güncel fiyat bilgisi için bizimle iletişime geçebilirsiniz.",
+      "Ortaca merkezde konut m² fiyatları 25.000-40.000 ₺, Dalyan'da villa arsaları 35.000-60.000 ₺/m² aralığında seyrediyor. Köyceğiz gölü çevresi ve Dalyan kanal manzaralı bölgeler prim yapıyor. Ücretsiz gayrimenkul değerleme hizmetimizle mülkünüzün güncel piyasa değerini öğrenebilirsiniz.",
   },
   {
-    soru: "Tadilat için sözleşme şart mı?",
+    soru: "Tadilat projelerinde yazılı sözleşme yapıyor musunuz?",
     cevap:
-      "Evet, tüm tadilat projelerimiz yazılı sözleşme ile güvence altına alınmaktadır. Sözleşmede iş kapsamı, süre, ödeme planı ve garanti koşulları açıkça belirtilmektedir. Bu sayede hem sizin hem de bizim haklarımız korunmuş olur.",
+      "Evet, her projede iş kapsamı, başlangıç-bitiş tarihi, malzeme listesi, ödeme planı ve garanti koşullarını içeren yazılı sözleşme düzenliyoruz. 100+ tamamlanmış tadilat projemizde sürpriz fatura çıkmadı. Şeffaflık ilkemiz gereği tüm değişiklikler yazılı onayınızla yapılır.",
   },
   {
-    soru: "İnşaat ve tadilat işlerinde garanti veriyor musunuz?",
+    soru: "İnşaat ve tadilat işlerinizde garanti veriyor musunuz?",
     cevap:
-      "Evet, tüm işçilik için 2 yıl garanti sunuyoruz. Malzemeler için ise üretici garantisi geçerlidir. Garanti kapsamındaki herhangi bir sorun ücretsiz olarak giderilmektedir. Kaliteli malzeme ve işçilik prensibimizle çalışıyoruz.",
+      "Tüm işçilik ve uygulama için 2 yıl garanti sunuyoruz. Kullandığımız A sınıfı malzemeler (Vitra, Kütahya, Eca, Jotun) için üretici garantisi ayrıca geçerlidir. Garanti kapsamındaki sorunlar 48 saat içinde yerinde değerlendirilir. Garanti şartları sözleşmede açıkça belirtilir.",
   },
   {
-    soru: "Emlak danışmanlık ücreti nasıl hesaplanır?",
+    soru: "Emlak danışmanlık hizmeti ücretli mi?",
     cevap:
-      "Satış işlemlerinde satış bedelinin %2'si, kiralama işlemlerinde ise 1 aylık kira bedeli komisyon olarak uygulanmaktadır. Tüm ücretler sözleşme öncesinde şeffaf bir şekilde belirtilmektedir. Gizli maliyet kesinlikle yoktur.",
+      "Ev arayanlar için danışmanlık tamamen ücretsizdir. Satış tamamlandığında satış bedelinin %2'si, kiralama işlemlerinde 1 aylık kira bedeli komisyon alınır. Tüm ücretler işlem öncesi yazılı bildirilir, gizli maliyet yoktur. İşlem gerçekleşmezse ücret talep etmiyoruz.",
   },
   {
-    soru: "Hangi bölgelere hizmet veriyorsunuz?",
+    soru: "Muğla'nın hangi bölgelerine hizmet veriyorsunuz?",
     cevap:
-      "Muğla'nın tüm ilçelerinde hizmet vermekteyiz: Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça, Menteşe, Yatağan, Ula, Kavaklıdere ve Seydikemer. Tüm bu bölgelerdeki emlak ilanları, tadilat ve inşaat projeleri için bizimle iletişime geçebilirsiniz.",
+      "Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça ve tüm Muğla genelinde aktif portföyümüz bulunuyor. Yerinde keşif için mesafe fark etmez. Bölgenin 4 yıllık deneyimli ekibi olarak yerel piyasayı, imar durumlarını ve yatırım potansiyellerini yakından takip ediyoruz.",
   },
 ];
 
 export default function FaqSection({
   baslik = "Sıkça Sorulan Sorular",
-  altBaslik = "Ortaca ve çevresinde emlak, tadilat ve taahhüt hizmetlerimiz hakkında merak edilenler.",
+  altBaslik = "Ortaca, Dalyan ve Muğla'da emlak alım-satım, tadilat ve inşaat hakkında en çok merak edilen sorular ve uzman cevapları.",
   sorular = varsayilanSorular,
   darkMode = false,
 }: FaqSectionProps) {
