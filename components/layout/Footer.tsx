@@ -46,7 +46,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <Link href="/" className="inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <div className="relative w-48 h-12">
+              <div className="relative w-36 h-10 md:w-48 md:h-12">
                 <Image
                   src="/logo-footer.svg"
                   alt="Kalinda Yapı Logo"
@@ -93,7 +93,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links & Hizmetler */}
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 gap-4 md:gap-8">
             <div>
               <h3 className="text-accent font-bold mb-4">Hızlı Linkler</h3>
               <ul className="space-y-2">

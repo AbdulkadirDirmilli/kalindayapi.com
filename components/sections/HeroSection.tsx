@@ -23,9 +23,22 @@ export default function HeroSection() {
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image */}
+      {/* Background Video - Desktop only */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover hidden md:block"
+        aria-hidden="true"
+      >
+        <source src="/videos/mapharita.mp4" type="video/mp4" />
+      </video>
+
+      {/* Background Image - Mobile only */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
         style={{
           backgroundImage: `url('/images/hero/dalyan-hero.jpg')`,
         }}

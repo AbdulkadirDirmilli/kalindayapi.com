@@ -122,7 +122,7 @@ export default function IletisimFormKisa() {
             </div>
 
             {/* Map Preview */}
-            <div className="mt-8 rounded-2xl overflow-hidden h-48 bg-white/10">
+            <div className="mt-8 rounded-2xl overflow-hidden h-40 md:h-48 lg:h-56 bg-white/10">
               <iframe
                 src="https://maps.google.com/maps?q=36.83947,28.76639&t=&z=17&ie=UTF8&iwloc=&output=embed"
                 width="100%"

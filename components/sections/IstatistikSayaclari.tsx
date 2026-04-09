@@ -93,15 +93,15 @@ function StatCard({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="text-center p-6 md:p-8"
+      className="text-center p-4 md:p-6 lg:p-8"
     >
       {/* Icon */}
-      <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 mb-4">
-        <Icon className="w-8 h-8 text-accent" />
+      <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/10 mb-3 md:mb-4">
+        <Icon className="w-6 h-6 md:w-8 md:h-8 text-accent" />
       </div>
 
       {/* Number */}
-      <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+      <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
         {count}
         <span className="text-accent">{stat.suffix}</span>
       </div>
@@ -160,7 +160,7 @@ export default function IstatistikSayaclari() {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 lg:gap-8">
           {istatistikler.map((stat, index) => (
             <StatCard
               key={stat.etiket}

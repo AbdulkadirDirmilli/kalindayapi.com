@@ -45,7 +45,7 @@ export default function SonYazilar() {
         </div>
 
         {/* Yazılar */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
           {sonYazilar.map((yazi, index) => (
             <motion.article
               key={yazi.id}
@@ -57,7 +57,7 @@ export default function SonYazilar() {
               <Link href={`/blog/${yazi.slug}`}>
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
                   {/* Kapak */}
-                  <div className="relative h-44 bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] overflow-hidden">
+                  <div className="relative aspect-[4/3] bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] overflow-hidden">
                     {yazi.kapakGorsel && (
                       <Image
                         src={yazi.kapakGorsel}

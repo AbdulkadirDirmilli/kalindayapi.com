@@ -92,12 +92,12 @@ export default function OrtaklarBolumu() {
               >
                 {/* Header */}
                 <div
-                  className="p-6 text-white"
+                  className="p-4 md:p-6 text-white"
                   style={{ backgroundColor: ortak.renk }}
                 >
                   <div className="flex items-start gap-4">
                     {/* Avatar */}
-                    <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/30">
+                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/30">
                       <Image
                         src={ortak.foto}
                         alt={ortak.ad}
@@ -114,7 +114,7 @@ export default function OrtaklarBolumu() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 flex flex-col flex-1">
+                <div className="p-4 md:p-6 flex flex-col flex-1">
                   {/* Bio */}
                   <p className="text-text-light mb-4 leading-relaxed min-h-[4.5rem]">
                     {ortak.biyografi}
@@ -156,7 +156,7 @@ export default function OrtaklarBolumu() {
                   </div>
 
                   {/* CTA */}
-                  <div className="flex gap-3 mt-auto">
+                  <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mt-auto">
                     <a
                       href={createWhatsAppLink(
                         ortak.whatsapp,

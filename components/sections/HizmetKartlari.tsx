@@ -110,11 +110,11 @@ export default function HizmetKartlari() {
                 >
                   {/* Icon */}
                   <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110"
+                    className="w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center mb-4 md:mb-6 transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundColor: `${hizmet.renk}15` }}
                   >
                     <Icon
-                      className="w-8 h-8 transition-colors duration-300"
+                      className="w-6 h-6 md:w-8 md:h-8 transition-colors duration-300"
                       style={{ color: hizmet.renk }}
                     />
                   </div>
