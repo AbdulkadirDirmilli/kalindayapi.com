@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import blogData from "@/data/blog-posts.json";
@@ -57,7 +58,17 @@ export default function SonYazilar() {
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
                   {/* Kapak */}
                   <div className="relative h-44 bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    {yazi.kapakGorsel && (
+                      <Image
+                        src={yazi.kapakGorsel}
+                        alt={yazi.baslik}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/80 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3">
                       <span className="px-3 py-1 bg-[#C9A84C] text-primary text-xs font-bold rounded-full">
                         {yazi.kategori}
                       </span>

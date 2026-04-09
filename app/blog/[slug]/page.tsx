@@ -2,6 +2,7 @@
 
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Calendar,
@@ -68,7 +69,23 @@ export default function BlogDetayPage() {
     <>
       {/* Hero */}
       <section className="relative bg-[#0B1F3A] pt-32 pb-12 md:pt-40 md:pb-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F3A] via-[#1a3a5c] to-[#0B1F3A]" />
+        {/* Background Image */}
+        {yazi.kapakGorsel && (
+          <div className="absolute inset-0">
+            <Image
+              src={yazi.kapakGorsel}
+              alt={yazi.baslik}
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A] via-[#0B1F3A]/80 to-[#0B1F3A]/60" />
+          </div>
+        )}
+        {!yazi.kapakGorsel && (
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F3A] via-[#1a3a5c] to-[#0B1F3A]" />
+        )}
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

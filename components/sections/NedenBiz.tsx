@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import {
   Award,
@@ -10,6 +11,24 @@ import {
   Users,
   Clock,
 } from "lucide-react";
+
+// İlçe listesi ve slug'ları
+const ilceler = [
+  { ad: "Ortaca", slug: "ortaca" },
+  { ad: "Dalyan", slug: "dalyan" },
+  { ad: "Köyceğiz", slug: "koycegiz" },
+  { ad: "Dalaman", slug: "dalaman" },
+  { ad: "Fethiye", slug: "fethiye" },
+  { ad: "Marmaris", slug: "marmaris" },
+  { ad: "Bodrum", slug: "bodrum" },
+  { ad: "Milas", slug: "milas" },
+  { ad: "Menteşe", slug: "mentese" },
+  { ad: "Datça", slug: "datca" },
+  { ad: "Ula", slug: "ula" },
+  { ad: "Yatağan", slug: "yatagan" },
+  { ad: "Kavaklıdere", slug: "kavaklidere" },
+  { ad: "Seydikemer", slug: "seydikemer" },
+];
 
 const ozellikler = [
   {
@@ -150,6 +169,25 @@ export default function NedenBiz() {
             <div className="text-center">
               <p className="text-sm text-text-muted">Müşteri Memnuniyeti</p>
               <p className="font-bold text-accent">%98</p>
+            </div>
+          </div>
+
+          {/* Muğla İlçeleri - SEO */}
+          <div className="mt-8 pt-8 border-t border-border/50">
+            <p className="text-center text-sm text-text-muted mb-4">
+              <MapPin className="inline-block w-4 h-4 mr-1 text-accent" />
+              Emlak, tadilat ve inşaat hizmetlerimiz ile tüm Muğla ilçelerinde yanınızdayız
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {ilceler.map((ilce) => (
+                <Link
+                  key={ilce.slug}
+                  href={`/rehber/${ilce.slug}`}
+                  className="px-3 py-1.5 bg-surface text-text-light text-sm rounded-full hover:bg-primary hover:text-white transition-colors"
+                >
+                  {ilce.ad}
+                </Link>
+              ))}
             </div>
           </div>
         </motion.div>

@@ -111,15 +111,21 @@ export default function BlogPage() {
                     <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
                       {/* Kapak Görseli */}
                       <div className="relative h-48 bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-center p-6">
-                            <span className="inline-block px-3 py-1 bg-[#C9A84C] text-[#0B1F3A] text-xs font-bold rounded-full mb-3">
-                              {yazi.kategori}
-                            </span>
-                            <div className="w-16 h-0.5 bg-[#C9A84C]/30 mx-auto" />
-                          </div>
+                        {yazi.kapakGorsel && (
+                          <Image
+                            src={yazi.kapakGorsel}
+                            alt={yazi.baslik}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/80 via-transparent to-transparent" />
+                        <div className="absolute bottom-3 left-3">
+                          <span className="inline-block px-3 py-1 bg-[#C9A84C] text-[#0B1F3A] text-xs font-bold rounded-full">
+                            {yazi.kategori}
+                          </span>
                         </div>
-                        <div className="absolute inset-0 bg-[#0B1F3A]/0 group-hover:bg-[#0B1F3A]/20 transition-colors duration-300" />
                       </div>
 
                       {/* İçerik */}

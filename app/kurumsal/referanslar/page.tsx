@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Home,
   ChevronRight,
@@ -8,13 +7,11 @@ import {
   Home as HomeIcon,
   PaintBucket,
   Users,
-  Star,
-  Quote,
   MapPin,
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
-import { IstatistikSayaclari } from "@/components/sections";
+import { IstatistikSayaclari, GoogleReviews } from "@/components/sections";
 import { generateBreadcrumbSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -48,41 +45,6 @@ const projeler = [
     sayi: "200+",
     aciklama: "Başarılı emlak işlemi",
     ornekler: ["Satış danışmanlığı", "Kiralama hizmetleri", "Yatırım danışmanlığı"],
-  },
-];
-
-const musteriYorumlari = [
-  {
-    isim: "Ahmet Y.",
-    konum: "Ortaca",
-    yorum:
-      "Kalinda Yapı ile villam için tadilat projesi yaptık. Zamanında teslim ettiler ve kalite beklediğimizin üzerindeydi. Kesinlikle tavsiye ediyorum.",
-    puan: 5,
-    tarih: "Ocak 2025",
-  },
-  {
-    isim: "Fatma K.",
-    konum: "Dalyan",
-    yorum:
-      "Emlak danışmanlığı hizmetlerinden çok memnun kaldım. Zafer Bey'in bölgeyi tanıması ve profesyonel yaklaşımı sayesinde hayalimdeki evi buldum.",
-    puan: 5,
-    tarih: "Aralık 2024",
-  },
-  {
-    isim: "Mehmet S.",
-    konum: "Köyceğiz",
-    yorum:
-      "Mutfak ve banyo tadilatımızı Kalinda Yapı ile yaptık. İşçilik kalitesi ve malzeme seçimi mükemmeldi. Fiyat-performans açısından çok iyiydi.",
-    puan: 5,
-    tarih: "Kasım 2024",
-  },
-  {
-    isim: "Ayşe T.",
-    konum: "Ortaca",
-    yorum:
-      "Dairemizin satışında Kalinda Yapı'dan destek aldık. Profesyonel fotoğraf çekimi, doğru fiyatlandırma ve hızlı satış süreci için teşekkürler.",
-    puan: 5,
-    tarih: "Ekim 2024",
   },
 ];
 
@@ -188,10 +150,10 @@ export default function ReferanslarPage() {
         </div>
       </section>
 
-      {/* Customer Reviews */}
+      {/* Google Reviews */}
       <section className="py-20 bg-[#F5F5F5]">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
               Müşteri Yorumları
             </span>
@@ -199,35 +161,11 @@ export default function ReferanslarPage() {
               Müşterilerimiz Ne Diyor?
             </h2>
             <p className="text-[#666666] max-w-2xl mx-auto">
-              Hizmet verdiğimiz müşterilerimizden gelen değerli geri bildirimler.
+              Google'da 4.9 yıldız ortalamasıyla değerlendirilen hizmetlerimiz hakkında müşterilerimizin yorumları.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {musteriYorumlari.map((yorum, index) => (
-              <Card key={index} padding="lg" className="relative">
-                <Quote className="absolute top-4 right-4 w-8 h-8 text-[#C9A84C]/30" />
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(yorum.puan)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#C9A84C] text-[#C9A84C]" />
-                  ))}
-                </div>
-                <p className="text-[#666666] leading-relaxed mb-4 italic">
-                  "{yorum.yorum}"
-                </p>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-bold text-[#0B1F3A]">{yorum.isim}</p>
-                    <p className="text-sm text-[#666666] flex items-center gap-1">
-                      <MapPin className="w-3 h-3" />
-                      {yorum.konum}
-                    </p>
-                  </div>
-                  <span className="text-xs text-[#666666]">{yorum.tarih}</span>
-                </div>
-              </Card>
-            ))}
-          </div>
+          <GoogleReviews />
         </div>
       </section>
 

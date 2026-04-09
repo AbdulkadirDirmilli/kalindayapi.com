@@ -152,7 +152,7 @@ export default function ReferansGaleri() {
           {/* Carousel Container */}
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
-              {projeler.map((proje) => (
+              {projeler.map((proje, index) => (
                 <div
                   key={proje.id}
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-3"
@@ -172,6 +172,7 @@ export default function ReferansGaleri() {
                           showAfter[proje.id] ? "opacity-0" : "opacity-100"
                         }`}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        priority={index === 0}
                       />
                       {/* After Image */}
                       <Image

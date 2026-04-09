@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Nunito } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
-import { HeaterIcon } from "lucide-react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -93,7 +92,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className={`${inter.variable} ${nunito.variable}`}>
+    <html lang="tr" className={`${inter.variable} ${nunito.variable}`} data-scroll-behavior="smooth">
       <head>
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
