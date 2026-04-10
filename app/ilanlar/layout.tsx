@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Satılık & Kiralık İlanlar | Kalinda Yapı",
+  title: "Satılık & Kiralık İlanlar",
   description: "Muğla Ortaca, Dalyan, Köyceğiz ve çevresinde satılık ve kiralık daireler, villalar, arsalar. Güncel emlak ilanları ve fiyatları.",
   keywords: [
     "Ortaca satılık daire",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Muğla emlak ilanları",
   ],
   openGraph: {
-    title: "Satılık & Kiralık İlanlar | Kalinda Yapı",
+    title: "Satılık & Kiralık İlanlar",
     description: "Muğla bölgesinde güncel emlak ilanları. Satılık ve kiralık gayrimenkuller.",
     url: "https://www.kalindayapi.com/ilanlar",
   },

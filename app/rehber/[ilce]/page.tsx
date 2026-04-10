@@ -24,13 +24,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!ilce) return { title: "Sayfa Bulunamadı" };
 
   return {
-    title: `${ilce.ad} Emlak Rehberi | Satılık Ev, Arsa, Villa | Kalinda Yapı`,
+    title: `${ilce.ad} Emlak Rehberi | Satılık Ev, Arsa, Villa`,
     description: ilce.metaDescription,
     keywords: `${ilce.ad}, ${ilce.ad} emlak, ${ilce.ad} satılık ev, ${ilce.ad} arsa, ${ilce.ad} villa, Muğla emlak`,
     openGraph: {
       title: `${ilce.ad} İlçe Rehberi ve Emlak Fırsatları`,
       description: ilce.metaDescription,
+      url: `https://www.kalindayapi.com/rehber/${slug}`,
       images: [ilce.kapakGorsel],
+    },
+    alternates: {
+      canonical: `https://www.kalindayapi.com/rehber/${slug}`,
     },
   };
 }

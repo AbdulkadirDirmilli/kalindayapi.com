@@ -1,27 +1,8 @@
-# Kalinda Yapı - Robots.txt
-# https://www.kalindayapi.com
-
-# Tüm botlara izin ver
+# *
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Disallow: /_next/
-Disallow: /server-sitemap.xml
-
-# Google bot özel ayarları
-User-agent: Googlebot
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-Crawl-delay: 1
-
-# Bing bot
-User-agent: Bingbot
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-Crawl-delay: 2
 
 # Host
 Host: https://www.kalindayapi.com

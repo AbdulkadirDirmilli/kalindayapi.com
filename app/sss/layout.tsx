@@ -70,7 +70,7 @@ const faqData = [
 ];
 
 export const metadata: Metadata = {
-  title: "Sıkça Sorulan Sorular (SSS) | Ortaca Emlak & Tadilat | Kalinda Yapı",
+  title: "Sıkça Sorulan Sorular (SSS) | Ortaca Emlak & Tadilat",
   description:
     "2026 güncel Ortaca ve Dalyan emlak fiyatları, tadilat maliyetleri, tapu işlemleri hakkında uzman cevaplar. 200+ emlak işlemi deneyimiyle sorularınızı yanıtlıyoruz.",
   keywords: [

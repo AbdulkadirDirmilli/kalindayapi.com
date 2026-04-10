@@ -3,8 +3,11 @@ import Link from "next/link";
 import { ChevronRight, Home, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Kullanim Kosullari | Kalinda Yapi",
-  description: "Kalinda Yapi web sitesi kullanim kosullari ve sartlari.",
+  title: "Kullanım Koşulları",
+  description: "Kalinda Yapı web sitesi kullanım koşulları ve şartları.",
+  alternates: {
+    canonical: "https://www.kalindayapi.com/kullanim-kosullari",
+  },
 };
 
 export default function KullanimKosullariPage() {

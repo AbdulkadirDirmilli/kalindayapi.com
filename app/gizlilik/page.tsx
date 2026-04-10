@@ -3,8 +3,11 @@ import Link from "next/link";
 import { ChevronRight, Home, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Gizlilik Politikasi | Kalinda Yapi",
-  description: "Kalinda Yapi gizlilik politikasi ve kisisel verilerin korunmasi hakkinda bilgi.",
+  title: "Gizlilik Politikası",
+  description: "Kalinda Yapı gizlilik politikası ve kişisel verilerin korunması hakkında bilgi.",
+  alternates: {
+    canonical: "https://www.kalindayapi.com/gizlilik",
+  },
 };
 
 export default function GizlilikPage() {

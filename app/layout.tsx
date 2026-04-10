@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification-code",
+    google: "dfjBrBUZiX-2Q860iWmTQyA2wrT5-CchKhyVlCd8BSs",
   },
   alternates: {
     canonical: "https://www.kalindayapi.com",

@@ -6,11 +6,20 @@ import { ilceRehberleri } from "@/data/ilce-rehber";
 import { getMahalleler } from "@/data/konum";
 
 export const metadata: Metadata = {
-  title: "Muğla İlçe Rehberi | Emlak, Yaşam ve Yatırım | Kalinda Yapı",
+  title: "Muğla İlçe Rehberi | Emlak, Yaşam ve Yatırım",
   description:
     "Muğla'nın 13 ilçesi için kapsamlı rehber. Bodrum, Fethiye, Marmaris, Dalyan, Ortaca ve diğer ilçelerde emlak, yaşam ve yatırım bilgileri.",
   keywords:
     "Muğla ilçeleri, Muğla emlak, Bodrum, Fethiye, Marmaris, Dalyan, Ortaca, Köyceğiz, Datça, Milas",
+  openGraph: {
+    title: "Muğla İlçe Rehberi | Emlak, Yaşam ve Yatırım",
+    description:
+      "Muğla'nın 13 ilçesi için kapsamlı rehber. Emlak fiyatları, mahalleler, yaşam koşulları ve yatırım fırsatları.",
+    url: "https://www.kalindayapi.com/rehber",
+  },
+  alternates: {
+    canonical: "https://www.kalindayapi.com/rehber",
+  },
 };
 
 export default function RehberPage() {

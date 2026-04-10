@@ -30,15 +30,6 @@ export async function GET() {
       orderBy: { guncellenmeTarihi: 'desc' },
     })
 
-    // Hizmetleri getir
-    const hizmetler = await prisma.hizmet.findMany({
-      where: { aktif: true },
-      select: {
-        slug: true,
-        updatedAt: true,
-      },
-    })
-
     // XML oluştur
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -47,25 +38,13 @@ export async function GET() {
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `
 
-    // İlanları ekle
+    // İlanları ekle (hizmetler statik sitemap'te zaten mevcut)
     for (const ilan of ilanlar) {
       const lastmod = ilan.guncellenmeTarihi.toISOString()
       xml += `  <url>
     <loc>${baseUrl}/ilanlar/${escapeXml(ilan.slug)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-`
-    }
-
-    // Hizmetleri ekle
-    for (const hizmet of hizmetler) {
-      const lastmod = hizmet.updatedAt.toISOString()
-      xml += `  <url>
-    <loc>${baseUrl}/hizmetler/${escapeXml(hizmet.slug)}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 `

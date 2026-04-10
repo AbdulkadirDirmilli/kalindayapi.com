@@ -36,41 +36,51 @@ module.exports = {
 
     // Blog yazılarını ekle
     try {
-      // Farklı olası yolları dene
-      const possiblePaths = [
-        path.join(process.cwd(), 'data', 'blog-posts.json'),
-        path.join(__dirname, 'data', 'blog-posts.json'),
-        './data/blog-posts.json',
-      ];
-
-      let blogData = null;
-      for (const blogPath of possiblePaths) {
-        try {
-          if (fs.existsSync(blogPath)) {
-            blogData = JSON.parse(fs.readFileSync(blogPath, 'utf8'));
-            console.log('Blog posts bulundu:', blogPath);
-            break;
+      const blogPath = path.join(process.cwd(), 'data', 'blog-posts.json');
+      if (fs.existsSync(blogPath)) {
+        const blogData = JSON.parse(fs.readFileSync(blogPath, 'utf8'));
+        if (blogData && blogData.yazilar) {
+          for (const post of blogData.yazilar) {
+            paths.push({
+              loc: `/blog/${post.slug}`,
+              changefreq: 'weekly',
+              priority: 0.7,
+              lastmod: post.yayinTarihi ? new Date(post.yayinTarihi).toISOString() : new Date().toISOString(),
+            });
           }
-        } catch (e) {
-          // Devam et
+          console.log(`${paths.length} blog yazisi sitemap'e eklendi`);
         }
-      }
-
-      if (blogData && blogData.yazilar) {
-        for (const post of blogData.yazilar) {
-          paths.push({
-            loc: `/blog/${post.slug}`,
-            changefreq: 'weekly',
-            priority: 0.7,
-            lastmod: post.yayinTarihi ? new Date(post.yayinTarihi).toISOString() : new Date().toISOString(),
-          });
-        }
-        console.log(`${paths.length} blog yazisi sitemap'e eklendi`);
       }
     } catch (error) {
       console.error('Blog posts yuklenemedi:', error);
     }
 
+    // Rehber sayfalarını ekle
+    const ilceSlugs = [
+      'ortaca', 'dalyan', 'koycegiz', 'dalaman', 'fethiye', 'marmaris',
+      'bodrum', 'milas', 'mentese', 'datca', 'ula', 'yatagan',
+      'kavaklidere', 'seydikemer',
+    ];
+
+    // Ana rehber sayfası
+    paths.push({
+      loc: '/rehber',
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    });
+
+    // İlçe rehber sayfaları
+    for (const slug of ilceSlugs) {
+      paths.push({
+        loc: `/rehber/${slug}`,
+        changefreq: 'monthly',
+        priority: 0.7,
+        lastmod: new Date().toISOString(),
+      });
+    }
+
+    console.log(`Toplam ${paths.length} ek sayfa sitemap'e eklendi`);
     return paths;
   },
   transform: async (config, path) => {

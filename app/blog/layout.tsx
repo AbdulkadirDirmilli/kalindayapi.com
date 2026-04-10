@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog | Emlak ve Yapı Rehberi | Kalinda Yapı",
+  title: "Blog | Emlak ve Yapı Rehberi",
   description: "Emlak yatırımı, tadilat önerileri, imar bilgileri ve Muğla bölgesi hakkında güncel blog yazıları.",
   keywords: [
     "emlak blog",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "gayrimenkul yatırım",
   ],
   openGraph: {
-    title: "Blog | Emlak ve Yapı Rehberi | Kalinda Yapı",
+    title: "Blog | Emlak ve Yapı Rehberi",
     description: "Emlak ve yapı sektörü hakkında bilgilendirici yazılar.",
     url: "https://www.kalindayapi.com/blog",
   },
