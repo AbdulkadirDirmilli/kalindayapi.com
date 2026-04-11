@@ -327,3 +327,77 @@ h1, h2, h3, h4, h5, h6 {
 .animate-insaat-pulse {
   animation: insaat-pulse 1.5s ease-in-out infinite;
 }
+
+/* Borsa Tarzı Döviz Kuru Animasyonu */
+@keyframes ticker-glow {
+  0%, 100% {
+    text-shadow: 0 0 2px currentColor;
+    opacity: 1;
+  }
+  50% {
+    text-shadow: 0 0 8px currentColor, 0 0 12px currentColor;
+    opacity: 0.9;
+  }
+}
+
+@keyframes ticker-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.85;
+  }
+}
+
+@keyframes ticker-blink {
+  0%, 45%, 55%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-ticker-glow {
+  animation: ticker-glow 2s ease-in-out infinite;
+}
+
+.animate-ticker-pulse {
+  animation: ticker-pulse 1.5s ease-in-out infinite;
+}
+
+.animate-ticker-blink {
+  animation: ticker-blink 1.2s ease-in-out infinite;
+}
+
+/* Döviz sembolü için özel parlama */
+@keyframes symbol-flash {
+  0%, 100% {
+    color: #C9A84C;
+    text-shadow: 0 0 4px rgba(201, 168, 76, 0.5);
+  }
+  50% {
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.4);
+  }
+}
+
+.animate-symbol-flash {
+  animation: symbol-flash 1.5s ease-in-out infinite;
+}
+
+/* Slow spin animation for refresh icon */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}

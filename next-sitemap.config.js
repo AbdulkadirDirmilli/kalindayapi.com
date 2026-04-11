@@ -91,7 +91,7 @@ module.exports = {
     if (path === '/') {
       priority = 1.0;
       changefreq = 'daily';
-    } else if (path === '/ilanlar') {
+    } else if (path === '/ilanlar' || path === '/doviz-kurlari') {
       priority = 0.9;
       changefreq = 'daily';
     } else if (path.startsWith('/ilanlar/')) {

@@ -59,7 +59,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 mt-14 sm:mt-6 md:mt-0"
           >
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
             <span className="text-sm font-medium">2022'den Bu Yana Hizmetinizdeyiz</span>

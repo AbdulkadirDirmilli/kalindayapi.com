@@ -5,15 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Search, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Phone, Home, Briefcase, Building2, TrendingUp, Users, Mail } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { HeaderExchangeRate, CurrencySwitcher } from "@/components/exchange";
 
 const navigation = [
-  { name: "Ana Sayfa", href: "/" },
+  { name: "Ana Sayfa", href: "/", icon: Home },
   {
     name: "Hizmetler",
     href: "/hizmetler",
+    icon: Briefcase,
     children: [
       { name: "Emlak Danışmanlığı", href: "/hizmetler/emlak-danismanligi" },
       { name: "Tadilat & Dekorasyon", href: "/hizmetler/tadilat-dekorasyon" },
@@ -21,11 +23,13 @@ const navigation = [
       { name: "Plan & Proje", href: "/hizmetler/plan-proje" },
     ],
   },
-  { name: "İlanlar", href: "/ilanlar" },
-  { name: "Blog", href: "/blog" },
+  { name: "İlanlar", href: "/ilanlar", icon: Building2 },
+  { name: "Döviz", href: "/doviz-kurlari", icon: TrendingUp },
+  { name: "Blog", href: "/blog", icon: Briefcase },
   {
     name: "Kurumsal",
     href: "/hakkimizda",
+    icon: Users,
     children: [
       { name: "Hakkımızda", href: "/hakkimizda" },
       { name: "Vizyon & Misyon", href: "/kurumsal/vizyon-misyon" },
@@ -33,7 +37,7 @@ const navigation = [
       { name: "Belgeler & Sertifikalar", href: "/kurumsal/belgeler" },
     ],
   },
-  { name: "İletişim", href: "/iletisim" },
+  { name: "İletişim", href: "/iletisim", icon: Mail },
 ];
 
 export default function Header() {
@@ -156,7 +160,15 @@ export default function Header() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* Exchange Rates - Mobile & Desktop */}
+          <div className="flex items-center gap-2">
+            <Link href="/doviz-kurlari" className="lg:pointer-events-none">
+              <HeaderExchangeRate isScrolled={isScrolled} />
+            </Link>
+            <CurrencySwitcher variant="compact" isScrolled={isScrolled} />
+          </div>
+
+          {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center gap-3">
             <Link href="/ilanlar">
               <Button
@@ -215,7 +227,10 @@ export default function Header() {
                             : "text-primary"
                         )}
                       >
-                        {item.name}
+                        <span className="flex items-center gap-3">
+                          <item.icon className="w-5 h-5" />
+                          {item.name}
+                        </span>
                         <ChevronDown
                           className={cn(
                             "w-4 h-4 transition-transform duration-300",
@@ -253,12 +268,13 @@ export default function Header() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "block px-4 py-3 font-medium rounded-lg",
+                        "flex items-center gap-3 px-4 py-3 font-medium rounded-lg",
                         isActive(item.href)
                           ? "text-accent bg-surface"
                           : "text-primary"
                       )}
                     >
+                      <item.icon className="w-5 h-5" />
                       {item.name}
                     </Link>
                   )}

@@ -470,24 +470,24 @@ export default function IletisimPage() {
         </div>
       </section>
 
-      {/* Video Gallery Section - Desktop Only */}
-      <section className="hidden lg:block py-16 bg-[#0B1F3A]">
+      {/* Video Gallery Section - Responsive */}
+      <section className="py-12 lg:py-16 bg-[#0B1F3A]">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+          <div className="text-center mb-8 lg:mb-10">
+            <span className="text-[#C9A84C] font-semibold text-xs sm:text-sm uppercase tracking-wider">
               Bölgemizi Keşfedin
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2">
               Ortaca ve <span className="text-[#C9A84C]">Çevresi</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {/* Video 1 - Harita */}
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-[#C9A84C] via-[#0B1F3A] to-[#C9A84C] rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative bg-white p-2 rounded-2xl shadow-2xl">
-                <div className="relative aspect-video rounded-xl overflow-hidden">
+              <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-[#C9A84C] via-[#0B1F3A] to-[#C9A84C] rounded-2xl sm:rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative bg-white p-1.5 sm:p-2 rounded-xl sm:rounded-2xl shadow-2xl">
+                <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden">
                   <video
                     autoPlay
                     muted
@@ -499,8 +499,8 @@ export default function IletisimPage() {
                     <source src="/videos/mapharita.mp4" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/50 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-4 left-4">
-                    <span className="px-4 py-2 bg-[#C9A84C] text-[#0B1F3A] text-sm font-bold rounded-full shadow-lg">
+                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
+                    <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#C9A84C] text-[#0B1F3A] text-xs sm:text-sm font-bold rounded-full shadow-lg">
                       Harita Görünümü
                     </span>
                   </div>
@@ -510,9 +510,9 @@ export default function IletisimPage() {
 
             {/* Video 2 - Drone */}
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-[#0B1F3A] via-[#C9A84C] to-[#0B1F3A] rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative bg-white p-2 rounded-2xl shadow-2xl">
-                <div className="relative aspect-video rounded-xl overflow-hidden">
+              <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-[#0B1F3A] via-[#C9A84C] to-[#0B1F3A] rounded-2xl sm:rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative bg-white p-1.5 sm:p-2 rounded-xl sm:rounded-2xl shadow-2xl">
+                <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden">
                   <video
                     autoPlay
                     muted
@@ -524,8 +524,8 @@ export default function IletisimPage() {
                     <source src="/videos/drone-iletisim.mp4" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/50 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-4 left-4">
-                    <span className="px-4 py-2 bg-white text-[#0B1F3A] text-sm font-bold rounded-full shadow-lg">
+                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
+                    <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-[#0B1F3A] text-xs sm:text-sm font-bold rounded-full shadow-lg">
                       Drone Çekimi
                     </span>
                   </div>
@@ -534,7 +534,7 @@ export default function IletisimPage() {
             </div>
           </div>
 
-          <p className="text-center text-gray-400 mt-8 max-w-2xl mx-auto">
+          <p className="text-center text-gray-400 text-sm sm:text-base mt-6 lg:mt-8 max-w-2xl mx-auto px-4">
             Muğla'nın incisi Ortaca ve çevresindeki eşsiz lokasyonları keşfedin.
             Dalyan, Köyceğiz, Dalaman ve daha fazlası...
           </p>

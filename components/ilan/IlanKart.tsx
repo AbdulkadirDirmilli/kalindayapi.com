@@ -7,7 +7,8 @@ import WatermarkImage from "@/components/ui/WatermarkImage";
 import { MapPin, Maximize2, BedDouble, Bath, Calendar } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import { formatPrice, getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
+import { getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
+import { useCurrency } from "@/components/providers/CurrencyProvider";
 
 // Video dosyası olup olmadığını kontrol et
 function isVideo(url: string): boolean {
@@ -21,6 +22,8 @@ interface IlanKartProps {
 }
 
 export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKartProps) {
+  const { formatConvertedPrice } = useCurrency();
+
   // Kapak fotoğrafı - sadece fotoğrafları al (videoları hariç tut)
   const kapakFoto = ilan.fotograflar?.find(f => !isVideo(f)) || ilan.fotograflar?.[0];
 
@@ -132,7 +135,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
               {/* Footer */}
               <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#e0e0e0]">
                 <span className="text-xl font-bold text-[#0B1F3A]">
-                  {formatPrice(ilan.fiyat)}
+                  {formatConvertedPrice(ilan.fiyat)}
                   {ilan.kategori === "kiralik" && (
                     <span className="text-sm font-normal text-[#666666]">/ay</span>
                   )}
@@ -213,7 +216,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
             {/* Price */}
             <div className="absolute bottom-4 right-4">
               <span className="bg-[#0B1F3A] text-white px-3 py-1.5 rounded-lg font-bold">
-                {formatPrice(ilan.fiyat)}
+                {formatConvertedPrice(ilan.fiyat)}
                 {ilan.kategori === "kiralik" && (
                   <span className="text-xs font-normal">/ay</span>
                 )}

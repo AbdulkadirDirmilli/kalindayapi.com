@@ -7,6 +7,7 @@ import WhatsAppButton from './WhatsAppButton'
 import SideContactBar from './SideContactBar'
 import ScrollToTop from './ScrollToTop'
 import CookieConsent from '../CookieConsent'
+import { CurrencyProvider } from '../providers/CurrencyProvider'
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -19,7 +20,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
 
   // Public sayfalar için tam layout
   return (
-    <>
+    <CurrencyProvider>
       <ScrollToTop />
       <Header />
       <main className="flex-1">{children}</main>
@@ -27,6 +28,6 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       <WhatsAppButton />
       <SideContactBar />
       <CookieConsent />
-    </>
+    </CurrencyProvider>
   )
 }

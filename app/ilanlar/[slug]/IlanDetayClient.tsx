@@ -33,7 +33,6 @@ import ShareButton from "@/components/ui/ShareButton";
 import Badge from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import {
-  formatPrice,
   formatDate,
   createWhatsAppLink,
   getInsaatDurumuLabel,
@@ -42,6 +41,8 @@ import {
   getEidsStatusBadgeClass,
   Ilan,
 } from "@/lib/utils";
+import { PriceConverter } from "@/components/exchange";
+import { useCurrency } from "@/components/providers/CurrencyProvider";
 
 interface IlanDetayClientProps {
   ilan: Ilan;
@@ -49,6 +50,8 @@ interface IlanDetayClientProps {
 }
 
 export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClientProps) {
+  const { formatConvertedPrice } = useCurrency();
+
   const ozellikler = [
     {
       label: "Metrekare",
@@ -156,12 +159,12 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
 
             {/* Price Row */}
             <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-white/10 md:border-0 md:pt-0">
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#C9A84C]">
-                {formatPrice(ilan.fiyat)}
-                {ilan.kategori === "kiralik" && (
-                  <span className="text-sm sm:text-lg font-normal text-gray-400">/ay</span>
-                )}
-              </p>
+              <PriceConverter
+                priceInTRY={ilan.fiyat}
+                size="lg"
+                suffix={ilan.kategori === "kiralik" ? "/ay" : undefined}
+                showEquivalents={true}
+              />
               {ilan.yayinTarihi && (
                 <p className="text-gray-400 text-xs sm:text-sm">
                   {formatDate(ilan.yayinTarihi)}
@@ -596,7 +599,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-[#666666] text-sm">Fiyat</span>
                     <span className="font-bold text-[#0B1F3A] text-sm sm:text-base">
-                      {formatPrice(ilan.fiyat)}
+                      {formatConvertedPrice(ilan.fiyat)}
                       {ilan.kategori === "kiralik" && "/ay"}
                     </span>
                   </div>
@@ -604,7 +607,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     <div className="flex justify-between items-center">
                       <span className="text-[#666666] text-sm">m² Fiyatı</span>
                       <span className="font-bold text-[#0B1F3A] text-sm sm:text-base">
-                        {formatPrice(Math.round(ilan.fiyat / ilan.ozellikler.metrekare))}
+                        {formatConvertedPrice(Math.round(ilan.fiyat / ilan.ozellikler.metrekare))}
                       </span>
                     </div>
                   )}
@@ -686,7 +689,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
           <div className="hidden sm:block min-w-0 flex-shrink">
             <p className="text-xs text-[#666666]">Fiyat</p>
             <p className="font-bold text-[#0B1F3A] truncate">
-              {formatPrice(ilan.fiyat)}
+              {formatConvertedPrice(ilan.fiyat)}
               {ilan.kategori === "kiralik" && <span className="text-xs font-normal">/ay</span>}
             </p>
           </div>
