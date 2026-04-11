@@ -15,8 +15,8 @@ const CURRENCY_INFO: Record<ConvertCurrency, { symbol: string; name: string; fla
   GBP: { symbol: '£', name: 'İngiliz Sterlini', flag: '🇬🇧' },
 };
 
-// Approximate GBP rate
-const GBP_RATE = 49.80;
+// Fallback GBP rate (April 2026)
+const FALLBACK_GBP_RATE = 60.00;
 
 export default function CurrencyConverter() {
   const { rates } = useCurrency();
@@ -27,7 +27,7 @@ export default function CurrencyConverter() {
 
   const getRate = useCallback((currency: ConvertCurrency): number => {
     if (currency === 'TRY') return 1;
-    if (currency === 'GBP') return GBP_RATE;
+    if (currency === 'GBP') return rates?.rates?.GBP || FALLBACK_GBP_RATE;
     return rates?.rates?.[currency] || 1;
   }, [rates]);
 

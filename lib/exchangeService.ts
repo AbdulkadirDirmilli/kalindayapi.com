@@ -1,9 +1,10 @@
 import { ExchangeRates, ExchangeRatesResponse } from '@/types/exchange';
 
-// Fallback rates (updated manually as backup)
+// Fallback rates (updated manually as backup - April 2026)
 const FALLBACK_RATES: ExchangeRates = {
-  USD: 38.50,
-  EUR: 42.00,
+  USD: 44.60,
+  EUR: 52.20,
+  GBP: 60.00,
   XAU: 6850, // Gram altın fallback fiyatı
 };
 
@@ -20,14 +21,16 @@ const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 // Parse TCMB XML response
 function parseTcmbXml(xmlText: string): ExchangeRates | null {
   try {
-    // Extract USD rate
+    // Extract USD, EUR, GBP rates
     const usdMatch = xmlText.match(/<Currency[^>]*CurrencyCode="USD"[^>]*>[\s\S]*?<ForexSelling>([\d.]+)<\/ForexSelling>/);
     const eurMatch = xmlText.match(/<Currency[^>]*CurrencyCode="EUR"[^>]*>[\s\S]*?<ForexSelling>([\d.]+)<\/ForexSelling>/);
+    const gbpMatch = xmlText.match(/<Currency[^>]*CurrencyCode="GBP"[^>]*>[\s\S]*?<ForexSelling>([\d.]+)<\/ForexSelling>/);
 
     if (usdMatch && eurMatch) {
       return {
         USD: parseFloat(usdMatch[1]),
         EUR: parseFloat(eurMatch[1]),
+        GBP: gbpMatch ? parseFloat(gbpMatch[1]) : FALLBACK_RATES.GBP,
       };
     }
     return null;
@@ -76,6 +79,7 @@ async function fetchFromExchangeRateApi(): Promise<ExchangeRates | null> {
       return {
         USD: 1 / data.rates.USD,
         EUR: 1 / data.rates.EUR,
+        GBP: data.rates.GBP ? 1 / data.rates.GBP : FALLBACK_RATES.GBP,
       };
     }
     return null;

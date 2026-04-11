@@ -8,10 +8,10 @@ function generateHistoricalData(): HistoricalRate[] {
   const data: HistoricalRate[] = [];
   const today = new Date();
 
-  // Base rates with small variations
-  const baseUSD = 38.50;
-  const baseEUR = 42.00;
-  const baseGBP = 49.80;
+  // Base rates with small variations (April 2026)
+  const baseUSD = 44.60;
+  const baseEUR = 52.20;
+  const baseGBP = 60.00;
 
   for (let i = 90; i >= 0; i--) {
     const date = new Date(today);
@@ -31,11 +31,11 @@ function generateHistoricalData(): HistoricalRate[] {
   return data;
 }
 
-// Fallback live rates
+// Fallback live rates (April 2026)
 const FALLBACK_LIVE_RATES: LiveRates = {
-  USD: { rate: 38.52, change: 0.15, changePercent: 0.39, direction: 'up' },
-  EUR: { rate: 42.18, change: -0.08, changePercent: -0.19, direction: 'down' },
-  GBP: { rate: 49.80, change: 0.22, changePercent: 0.44, direction: 'up' },
+  USD: { rate: 44.60, change: 0.15, changePercent: 0.34, direction: 'up' },
+  EUR: { rate: 52.20, change: -0.10, changePercent: -0.19, direction: 'down' },
+  GBP: { rate: 60.00, change: 0.25, changePercent: 0.42, direction: 'up' },
   XAU: { rate: 6850, change: 45, changePercent: 0.66, direction: 'up' },
   lastUpdated: new Date().toISOString(),
   source: 'fallback',
@@ -73,9 +73,9 @@ export async function getLiveRates(): Promise<LiveRates> {
     const history = SIMULATED_HISTORY;
     const yesterday = history[history.length - 2];
 
-    // Get rates from API response (GBP simulated, XAU from GoldAPI)
-    const gbpRate = currentRates.GBP || 49.80;
-    const xauRate = currentRates.XAU || 6850; // Dynamic from GoldAPI.io
+    // Get rates from API response (all dynamic from TCMB/GoldAPI)
+    const gbpRate = currentRates.GBP || 60.00; // Dynamic from TCMB
+    const xauRate = currentRates.XAU || 6850;  // Dynamic from GoldAPI.io
 
     // Calculate changes based on previous values (slight variation for demo)
     const prevXau = xauRate * (1 - (Math.random() * 0.01)); // ~1% variation for change display

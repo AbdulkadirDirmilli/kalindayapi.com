@@ -25,11 +25,11 @@ import { useCurrency } from '@/components/providers/CurrencyProvider';
 import { DOVIZ_FAQ_DATA } from '@/lib/dovizJsonLd';
 import { LiveRates, RateChange } from '@/types/exchange';
 
-// Fallback rates for initial render
+// Fallback rates for initial render (April 2026)
 const FALLBACK_RATES: LiveRates = {
-  USD: { rate: 38.52, change: 0.15, changePercent: 0.39, direction: 'up' },
-  EUR: { rate: 42.18, change: -0.08, changePercent: -0.19, direction: 'down' },
-  GBP: { rate: 49.80, change: 0.22, changePercent: 0.44, direction: 'up' },
+  USD: { rate: 44.60, change: 0.15, changePercent: 0.34, direction: 'up' },
+  EUR: { rate: 52.20, change: -0.10, changePercent: -0.19, direction: 'down' },
+  GBP: { rate: 60.00, change: 0.25, changePercent: 0.42, direction: 'up' },
   XAU: { rate: 6850, change: 45, changePercent: 0.66, direction: 'up' },
   lastUpdated: new Date().toISOString(),
   source: 'fallback',
@@ -46,7 +46,7 @@ export default function DovizKurlariPage() {
       const yesterday = {
         USD: contextRates.rates.USD * 0.995,
         EUR: contextRates.rates.EUR * 1.002,
-        GBP: 49.5,
+        GBP: (contextRates.rates.GBP || 60) * 0.998,
       };
 
       const createRateChange = (current: number, prev: number): RateChange => {
@@ -63,8 +63,8 @@ export default function DovizKurlariPage() {
       setLiveRates({
         USD: createRateChange(contextRates.rates.USD, yesterday.USD),
         EUR: createRateChange(contextRates.rates.EUR, yesterday.EUR),
-        GBP: createRateChange(49.80, yesterday.GBP),
-        XAU: createRateChange(6850 + Math.random() * 50, 6800),
+        GBP: createRateChange(contextRates.rates.GBP || 60, yesterday.GBP),
+        XAU: createRateChange(contextRates.rates.XAU || 6850, (contextRates.rates.XAU || 6850) * 0.995),
         lastUpdated: contextRates.lastUpdated,
         source: contextRates.source,
       });
@@ -332,7 +332,7 @@ export default function DovizKurlariPage() {
           İletişim: +90 537 053 07 54 | Web: www.kalindayapi.com
         </p>
         <p>
-          Güncel Kurlar (örnek): 1 USD = 38.52 TL, 1 EUR = 42.18 TL, 1 GBP = 49.80 TL
+          Güncel Kurlar (örnek): 1 USD = 44.60 TL, 1 EUR = 52.20 TL, 1 GBP = 60.00 TL
         </p>
       </div>
 
