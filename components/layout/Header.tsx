@@ -101,7 +101,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0">
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -112,7 +112,7 @@ export default function Header() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-1",
+                    "px-2 py-2 rounded-lg font-medium text-sm transition-all duration-300 flex items-center gap-1",
                     isActive(item.href)
                       ? "text-accent"
                       : isScrolled
@@ -161,7 +161,7 @@ export default function Header() {
           </div>
 
           {/* Exchange Rates - Mobile & Desktop */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 lg:gap-2">
             <Link href="/doviz-kurlari" className="lg:pointer-events-none">
               <HeaderExchangeRate isScrolled={isScrolled} />
             </Link>
