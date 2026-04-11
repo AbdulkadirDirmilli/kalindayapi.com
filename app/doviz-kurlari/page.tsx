@@ -30,7 +30,7 @@ const FALLBACK_RATES: LiveRates = {
   USD: { rate: 38.52, change: 0.15, changePercent: 0.39, direction: 'up' },
   EUR: { rate: 42.18, change: -0.08, changePercent: -0.19, direction: 'down' },
   GBP: { rate: 49.80, change: 0.22, changePercent: 0.44, direction: 'up' },
-  XAU: { rate: 3250, change: -4, changePercent: -0.12, direction: 'down' },
+  XAU: { rate: 6850, change: 45, changePercent: 0.66, direction: 'up' },
   lastUpdated: new Date().toISOString(),
   source: 'fallback',
 };
@@ -64,7 +64,7 @@ export default function DovizKurlariPage() {
         USD: createRateChange(contextRates.rates.USD, yesterday.USD),
         EUR: createRateChange(contextRates.rates.EUR, yesterday.EUR),
         GBP: createRateChange(49.80, yesterday.GBP),
-        XAU: createRateChange(3250 + Math.random() * 20, 3254),
+        XAU: createRateChange(6850 + Math.random() * 50, 6800),
         lastUpdated: contextRates.lastUpdated,
         source: contextRates.source,
       });

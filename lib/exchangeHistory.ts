@@ -36,7 +36,7 @@ const FALLBACK_LIVE_RATES: LiveRates = {
   USD: { rate: 38.52, change: 0.15, changePercent: 0.39, direction: 'up' },
   EUR: { rate: 42.18, change: -0.08, changePercent: -0.19, direction: 'down' },
   GBP: { rate: 49.80, change: 0.22, changePercent: 0.44, direction: 'up' },
-  XAU: { rate: 3250, change: -4, changePercent: -0.12, direction: 'down' },
+  XAU: { rate: 6850, change: 45, changePercent: 0.66, direction: 'up' },
   lastUpdated: new Date().toISOString(),
   source: 'fallback',
 };
@@ -75,7 +75,7 @@ export async function getLiveRates(): Promise<LiveRates> {
 
     // Fetch GBP rate (simulated for now)
     const gbpRate = currentRates.GBP || 49.80;
-    const xauRate = 3250 + (Math.random() - 0.5) * 50;
+    const xauRate = 6850 + (Math.random() - 0.5) * 100;
 
     return {
       USD: calculateRateChange(currentRates.USD, yesterday?.USD || currentRates.USD * 0.995),
