@@ -11,7 +11,7 @@ const FALLBACK_RATES: ExchangeRates = {
 // GoldAPI.io cache
 let cachedGoldPrice: number | null = null;
 let goldCacheTimestamp: number = 0;
-const GOLD_CACHE_DURATION = 10 * 60 * 1000; // 10 minutes (API limit friendly)
+const GOLD_CACHE_DURATION = 12 * 60 * 60 * 1000; // 12 hours (free plan: 100 req/month)
 
 // In-memory cache
 let cachedRates: ExchangeRatesResponse | null = null;
@@ -111,7 +111,7 @@ async function fetchGoldPrice(): Promise<number | null> {
         'x-access-token': apiKey,
         'Content-Type': 'application/json',
       },
-      next: { revalidate: 600 }, // Cache for 10 minutes
+      next: { revalidate: 43200 }, // Cache for 12 hours
     });
 
     if (!response.ok) {
