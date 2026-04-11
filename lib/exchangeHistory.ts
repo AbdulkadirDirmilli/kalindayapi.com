@@ -73,15 +73,18 @@ export async function getLiveRates(): Promise<LiveRates> {
     const history = SIMULATED_HISTORY;
     const yesterday = history[history.length - 2];
 
-    // Fetch GBP rate (simulated for now)
+    // Get rates from API response (GBP simulated, XAU from GoldAPI)
     const gbpRate = currentRates.GBP || 49.80;
-    const xauRate = 6850 + (Math.random() - 0.5) * 100;
+    const xauRate = currentRates.XAU || 6850; // Dynamic from GoldAPI.io
+
+    // Calculate changes based on previous values (slight variation for demo)
+    const prevXau = xauRate * (1 - (Math.random() * 0.01)); // ~1% variation for change display
 
     return {
       USD: calculateRateChange(currentRates.USD, yesterday?.USD || currentRates.USD * 0.995),
       EUR: calculateRateChange(currentRates.EUR, yesterday?.EUR || currentRates.EUR * 1.002),
       GBP: calculateRateChange(gbpRate, yesterday?.GBP || gbpRate * 0.998),
-      XAU: calculateRateChange(xauRate, xauRate + 5),
+      XAU: calculateRateChange(xauRate, prevXau),
       lastUpdated: data.lastUpdated,
       source: data.source,
     };

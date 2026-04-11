@@ -4,6 +4,7 @@ export interface ExchangeRates {
   USD: number;
   EUR: number;
   GBP?: number;
+  XAU?: number; // Altın (gram) - TRY cinsinden
 }
 
 export interface ExtendedRates extends ExchangeRates {

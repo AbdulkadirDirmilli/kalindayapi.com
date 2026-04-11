@@ -4,7 +4,13 @@ import { ExchangeRates, ExchangeRatesResponse } from '@/types/exchange';
 const FALLBACK_RATES: ExchangeRates = {
   USD: 38.50,
   EUR: 42.00,
+  XAU: 6850, // Gram altın fallback fiyatı
 };
+
+// GoldAPI.io cache
+let cachedGoldPrice: number | null = null;
+let goldCacheTimestamp: number = 0;
+const GOLD_CACHE_DURATION = 10 * 60 * 1000; // 10 minutes (API limit friendly)
 
 // In-memory cache
 let cachedRates: ExchangeRatesResponse | null = null;
@@ -79,6 +85,53 @@ async function fetchFromExchangeRateApi(): Promise<ExchangeRates | null> {
   }
 }
 
+// Fetch gold price from GoldAPI.io
+async function fetchGoldPrice(): Promise<number | null> {
+  const now = Date.now();
+
+  // Return cached gold price if still valid
+  if (cachedGoldPrice && now - goldCacheTimestamp < GOLD_CACHE_DURATION) {
+    return cachedGoldPrice;
+  }
+
+  const apiKey = process.env.GOLDAPI_KEY;
+
+  if (!apiKey) {
+    console.warn('GOLDAPI_KEY not configured, using fallback gold price');
+    return null;
+  }
+
+  try {
+    const response = await fetch('https://www.goldapi.io/api/XAU/TRY', {
+      headers: {
+        'x-access-token': apiKey,
+        'Content-Type': 'application/json',
+      },
+      next: { revalidate: 600 }, // Cache for 10 minutes
+    });
+
+    if (!response.ok) {
+      throw new Error(`GoldAPI responded with ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // GoldAPI returns price per ounce, convert to gram
+    // 1 troy ounce = 31.1035 grams
+    if (data.price) {
+      const pricePerGram = data.price / 31.1035;
+      cachedGoldPrice = Math.round(pricePerGram);
+      goldCacheTimestamp = now;
+      return cachedGoldPrice;
+    }
+
+    return null;
+  } catch (error) {
+    console.error('GoldAPI fetch error:', error);
+    return null;
+  }
+}
+
 // Main function to get exchange rates
 export async function getExchangeRates(): Promise<ExchangeRatesResponse> {
   const now = Date.now();
@@ -105,6 +158,10 @@ export async function getExchangeRates(): Promise<ExchangeRatesResponse> {
     rates = FALLBACK_RATES;
     source = 'fallback';
   }
+
+  // Fetch gold price (runs in parallel-friendly way with its own cache)
+  const goldPrice = await fetchGoldPrice();
+  rates.XAU = goldPrice || FALLBACK_RATES.XAU;
 
   const response: ExchangeRatesResponse = {
     success: source === 'api',
