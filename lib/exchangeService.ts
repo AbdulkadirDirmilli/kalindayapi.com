@@ -89,8 +89,8 @@ async function fetchFromExchangeRateApi(): Promise<ExchangeRates | null> {
   }
 }
 
-// Fetch gold price from GoldAPI.io
-async function fetchGoldPrice(): Promise<number | null> {
+// Fetch gold price from GoldAPI.io (returns USD per gram)
+async function fetchGoldPriceUSD(): Promise<number | null> {
   const now = Date.now();
 
   // Return cached gold price if still valid
@@ -106,7 +106,8 @@ async function fetchGoldPrice(): Promise<number | null> {
   }
 
   try {
-    const response = await fetch('https://www.goldapi.io/api/XAU/TRY', {
+    // Use XAU/USD (guaranteed support) instead of XAU/TRY
+    const response = await fetch('https://www.goldapi.io/api/XAU/USD', {
       headers: {
         'x-access-token': apiKey,
         'Content-Type': 'application/json',
@@ -120,11 +121,9 @@ async function fetchGoldPrice(): Promise<number | null> {
 
     const data = await response.json();
 
-    // GoldAPI returns price per ounce, convert to gram
-    // 1 troy ounce = 31.1035 grams
-    if (data.price) {
-      const pricePerGram = data.price / 31.1035;
-      cachedGoldPrice = Math.round(pricePerGram);
+    // Use price_gram_24k directly (no ounce-to-gram conversion needed)
+    if (data.price_gram_24k) {
+      cachedGoldPrice = data.price_gram_24k;
       goldCacheTimestamp = now;
       return cachedGoldPrice;
     }
@@ -163,9 +162,14 @@ export async function getExchangeRates(): Promise<ExchangeRatesResponse> {
     source = 'fallback';
   }
 
-  // Fetch gold price (runs in parallel-friendly way with its own cache)
-  const goldPrice = await fetchGoldPrice();
-  rates.XAU = goldPrice || FALLBACK_RATES.XAU;
+  // Fetch gold price in USD and convert to TRY
+  const goldPriceUSD = await fetchGoldPriceUSD();
+  if (goldPriceUSD && rates.USD) {
+    // Convert USD per gram to TRY per gram
+    rates.XAU = Math.round(goldPriceUSD * rates.USD);
+  } else {
+    rates.XAU = FALLBACK_RATES.XAU;
+  }
 
   const response: ExchangeRatesResponse = {
     success: source === 'api',
