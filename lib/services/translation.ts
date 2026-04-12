@@ -227,3 +227,186 @@ export function translateTerms(text: string, targetLocale: Locale): string {
 
   return translated;
 }
+
+// =====================================================
+// OTOMATİK ÇEVİRİ VE VERİTABANI KAYIT FONKSİYONLARI
+// =====================================================
+
+import { prisma } from '@/lib/prisma';
+
+const targetLocales = ['en', 'ar'] as const;
+type TargetLocale = 'en' | 'ar';
+
+const localeNamesMap: Record<TargetLocale, string> = {
+  en: 'İngilizce',
+  ar: 'Arapça',
+};
+
+/**
+ * Tek bir ilanı belirtilen dile çevir ve veritabanına kaydet
+ */
+async function translateListingToLocale(
+  ilan: { id: string; baslik: string; aciklama: string },
+  locale: TargetLocale
+): Promise<void> {
+  console.log(`  → İlan ${ilan.id}: ${localeNamesMap[locale]} çeviriliyor...`);
+
+  const result = await translateContent(
+    { title: ilan.baslik, description: ilan.aciklama },
+    { targetLocale: locale, contentType: 'listing' }
+  );
+
+  if (!result) {
+    console.error(`    ✗ ${localeNamesMap[locale]} çeviri başarısız`);
+    return;
+  }
+
+  // Veritabanına kaydet
+  await prisma.ilanTranslation.upsert({
+    where: {
+      ilanId_language: {
+        ilanId: ilan.id,
+        language: locale,
+      },
+    },
+    update: {
+      baslik: result.title,
+      slug: result.slug || generateSlug(result.title, locale),
+      aciklama: result.description,
+      seoTitle: result.seoTitle,
+      seoDescription: result.seoDescription,
+      status: 'published',
+      translatedBy: 'google',
+      updatedAt: new Date(),
+    },
+    create: {
+      ilanId: ilan.id,
+      language: locale,
+      baslik: result.title,
+      slug: result.slug || generateSlug(result.title, locale),
+      aciklama: result.description,
+      seoTitle: result.seoTitle,
+      seoDescription: result.seoDescription,
+      status: 'published',
+      translatedBy: 'google',
+    },
+  });
+
+  console.log(`    ✓ ${localeNamesMap[locale]} tamamlandı`);
+}
+
+/**
+ * İlanı tüm dillere çevir ve veritabanına kaydet
+ * @param ilanId - İlan ID
+ * @param baslik - İlan başlığı
+ * @param aciklama - İlan açıklaması
+ */
+export async function translateAndSaveListing(
+  ilanId: string,
+  baslik: string,
+  aciklama: string
+): Promise<void> {
+  console.log(`🌍 İlan çevirisi başlıyor: ${ilanId}`);
+
+  try {
+    for (const locale of targetLocales) {
+      await translateListingToLocale({ id: ilanId, baslik, aciklama }, locale);
+      // Rate limiting - Google API limitlerini aşmamak için
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+    console.log(`✅ İlan çevirisi tamamlandı: ${ilanId}`);
+  } catch (error) {
+    console.error(`❌ İlan çevirisi başarısız: ${ilanId}`, error);
+  }
+}
+
+/**
+ * Blog yazısını tüm dillere çevir ve veritabanına kaydet
+ */
+export async function translateAndSaveBlogPost(
+  postId: string,
+  baslik: string,
+  ozet: string,
+  icerik: string
+): Promise<void> {
+  console.log(`🌍 Blog çevirisi başlıyor: ${postId}`);
+
+  try {
+    for (const locale of targetLocales) {
+      console.log(`  → Blog ${postId}: ${localeNamesMap[locale]} çeviriliyor...`);
+
+      const result = await translateContent(
+        { title: baslik, description: ozet, content: icerik },
+        { targetLocale: locale, contentType: 'blog' }
+      );
+
+      if (!result) {
+        console.error(`    ✗ ${localeNamesMap[locale]} çeviri başarısız`);
+        continue;
+      }
+
+      // Veritabanına kaydet
+      await prisma.blogPostTranslation.upsert({
+        where: {
+          postId_language: {
+            postId: postId,
+            language: locale,
+          },
+        },
+        update: {
+          baslik: result.title,
+          slug: result.slug || generateSlug(result.title, locale),
+          ozet: result.description,
+          icerik: result.content,
+          seoTitle: result.seoTitle,
+          seoDescription: result.seoDescription,
+          status: 'published',
+          updatedAt: new Date(),
+        },
+        create: {
+          postId: postId,
+          language: locale,
+          baslik: result.title,
+          slug: result.slug || generateSlug(result.title, locale),
+          ozet: result.description,
+          icerik: result.content,
+          etiketler: '[]',
+          seoTitle: result.seoTitle,
+          seoDescription: result.seoDescription,
+          status: 'published',
+        },
+      });
+
+      console.log(`    ✓ ${localeNamesMap[locale]} tamamlandı`);
+
+      // Rate limiting
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+    console.log(`✅ Blog çevirisi tamamlandı: ${postId}`);
+  } catch (error) {
+    console.error(`❌ Blog çevirisi başarısız: ${postId}`, error);
+  }
+}
+
+/**
+ * Arka planda çeviri başlat (non-blocking)
+ * API yanıtını bekletmeden çeviriyi arka planda yapar
+ */
+export function translateListingAsync(
+  ilanId: string,
+  baslik: string,
+  aciklama: string
+): void {
+  // Fire and forget - arka planda çalışır
+  translateAndSaveListing(ilanId, baslik, aciklama).catch(console.error);
+}
+
+export function translateBlogPostAsync(
+  postId: string,
+  baslik: string,
+  ozet: string,
+  icerik: string
+): void {
+  // Fire and forget - arka planda çalışır
+  translateAndSaveBlogPost(postId, baslik, ozet, icerik).catch(console.error);
+}

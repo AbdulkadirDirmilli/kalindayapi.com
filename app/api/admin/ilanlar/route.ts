@@ -4,6 +4,7 @@ import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { ilanSchema } from '@/lib/validations/ilan'
 import { normalizeTurkishJsonArray, normalizeTurkishText } from '@/lib/utils'
+import { translateListingAsync } from '@/lib/services/translation'
 
 // GET - List all ilanlar with pagination and filtering
 export async function GET(request: NextRequest) {
@@ -134,6 +135,11 @@ export async function POST(request: NextRequest) {
         fotograflar: true,
       },
     })
+
+    // Otomatik çeviri başlat (arka planda)
+    if (ilan.baslik && ilan.aciklama) {
+      translateListingAsync(ilan.id, ilan.baslik, ilan.aciklama);
+    }
 
     return NextResponse.json(ilan, { status: 201 })
   } catch (error) {

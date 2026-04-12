@@ -12,31 +12,123 @@ import {
 } from "lucide-react";
 import { Instagram, Facebook, Youtube } from "@/components/icons/SocialIcons";
 import { createWhatsAppLink } from "@/lib/utils";
+import { useLocale } from "@/components/providers/LocaleProvider";
+import { getLocalizedRoute } from "@/lib/i18n";
 
-const quickLinks = [
-  { name: "Ana Sayfa", href: "/" },
-  { name: "Blog", href: "/blog" },
-  { name: "Hakkımızda", href: "/hakkimizda" },
-  { name: "SSS", href: "/sss" },
-  { name: "İletişim", href: "/iletisim" },
-];
-
-const hizmetler = [
-  { name: "Emlak Danışmanlığı", href: "/hizmetler/emlak-danismanligi" },
-  { name: "Tadilat & Dekorasyon", href: "/hizmetler/tadilat-dekorasyon" },
-  { name: "Taahhüt & İnşaat", href: "/hizmetler/taahhut-insaat" },
-  { name: "Plan & Proje", href: "/hizmetler/plan-proje" },
-];
-
-const ilanKategorileri = [
-  { name: "Satılık Daireler", href: "/ilanlar?kategori=satilik&tip=daire" },
-  { name: "Kiralık Daireler", href: "/ilanlar?kategori=kiralik&tip=daire" },
-  { name: "Satılık Villalar", href: "/ilanlar?kategori=satilik&tip=villa" },
-  { name: "Arsalar", href: "/ilanlar?kategori=satilik&tip=arsa" },
-];
+// Footer translations
+const footerTexts = {
+  tr: {
+    description: "Muğla Ortaca'da 2022'den bu yana güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri sunuyoruz. Hayalinizdeki eve veya projeye bir adım daha yakınsınız.",
+    quickLinks: "Hızlı Linkler",
+    services: "Hizmetler",
+    categories: "İlan Kategorileri",
+    contact: "İletişim",
+    home: "Ana Sayfa",
+    blog: "Blog",
+    about: "Hakkımızda",
+    faq: "SSS",
+    contactPage: "İletişim",
+    realEstate: "Emlak Danışmanlığı",
+    renovation: "Tadilat & Dekorasyon",
+    construction: "Taahhüt & İnşaat",
+    planning: "Plan & Proje",
+    saleApartments: "Satılık Daireler",
+    rentApartments: "Kiralık Daireler",
+    saleVillas: "Satılık Villalar",
+    lands: "Arsalar",
+    eidsTitle: "İlan Doğrulama Bilgisi",
+    eidsDescription: "EIDS durumu, KalindaYapi platformu tarafından sağlanan ilan doğrulama seviyesini belirtir. Bu bilgilendirme amaçlı bir doğrulama durumudur ve resmi bir devlet doğrulamasını temsil etmez. Tam doğrulama detayları için ilan sahibi veya danışmanla iletişime geçiniz.",
+    copyright: "Kalinda Yapı — Ortaca, Muğla | Tüm Hakları Saklıdır",
+    privacy: "Gizlilik Politikası",
+    terms: "Kullanım Koşulları",
+    designBy: "Tasarım ve Geliştirme:",
+    weekdays: "Pzt - Cum: 08:00 - 18:00",
+    saturday: "Cumartesi: 09:00 - 14:00",
+  },
+  en: {
+    description: "Since 2022, we have been providing reliable real estate consulting, renovation and construction contracting services in Ortaca, Muğla. You are one step closer to your dream home or project.",
+    quickLinks: "Quick Links",
+    services: "Services",
+    categories: "Property Categories",
+    contact: "Contact",
+    home: "Home",
+    blog: "Blog",
+    about: "About Us",
+    faq: "FAQ",
+    contactPage: "Contact",
+    realEstate: "Real Estate Consulting",
+    renovation: "Renovation & Decoration",
+    construction: "Construction & Contracting",
+    planning: "Planning & Project",
+    saleApartments: "Apartments for Sale",
+    rentApartments: "Apartments for Rent",
+    saleVillas: "Villas for Sale",
+    lands: "Lands",
+    eidsTitle: "Listing Verification Info",
+    eidsDescription: "EIDS status indicates the listing verification level provided by KalindaYapi platform. This is an informational verification status and does not represent official government verification. For full verification details, please contact the listing owner or consultant.",
+    copyright: "Kalinda Yapı — Ortaca, Muğla | All Rights Reserved",
+    privacy: "Privacy Policy",
+    terms: "Terms of Use",
+    designBy: "Design and Development:",
+    weekdays: "Mon - Fri: 08:00 - 18:00",
+    saturday: "Saturday: 09:00 - 14:00",
+  },
+  ar: {
+    description: "منذ عام 2022، نقدم خدمات استشارات عقارية موثوقة وخدمات تجديد ومقاولات بناء في أورتاجا، موغلا. أنت على بعد خطوة واحدة من منزل أو مشروع أحلامك.",
+    quickLinks: "روابط سريعة",
+    services: "الخدمات",
+    categories: "فئات العقارات",
+    contact: "اتصل بنا",
+    home: "الرئيسية",
+    blog: "المدونة",
+    about: "من نحن",
+    faq: "الأسئلة الشائعة",
+    contactPage: "اتصل بنا",
+    realEstate: "الاستشارات العقارية",
+    renovation: "التجديد والديكور",
+    construction: "البناء والمقاولات",
+    planning: "التخطيط والمشاريع",
+    saleApartments: "شقق للبيع",
+    rentApartments: "شقق للإيجار",
+    saleVillas: "فلل للبيع",
+    lands: "أراضي",
+    eidsTitle: "معلومات التحقق من الإعلان",
+    eidsDescription: "تشير حالة EIDS إلى مستوى التحقق من الإعلان المقدم من منصة KalindaYapi. هذه حالة تحقق إعلامية ولا تمثل التحقق الحكومي الرسمي. للحصول على تفاصيل التحقق الكاملة، يرجى الاتصال بمالك الإعلان أو المستشار.",
+    copyright: "كالينداي يابي — أورتاجا، موغلا | جميع الحقوق محفوظة",
+    privacy: "سياسة الخصوصية",
+    terms: "شروط الاستخدام",
+    designBy: "التصميم والتطوير:",
+    weekdays: "الإثنين - الجمعة: 08:00 - 18:00",
+    saturday: "السبت: 09:00 - 14:00",
+  },
+};
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { locale } = useLocale();
+  const t = footerTexts[locale];
+
+  const quickLinks = [
+    { name: t.home, href: `/${locale}` },
+    { name: t.blog, href: `/${locale}/${getLocalizedRoute('blog', locale)}` },
+    { name: t.about, href: `/${locale}/${getLocalizedRoute('hakkimizda', locale)}` },
+    { name: t.faq, href: `/${locale}/${getLocalizedRoute('sss', locale)}` },
+    { name: t.contactPage, href: `/${locale}/${getLocalizedRoute('iletisim', locale)}` },
+  ];
+
+  const hizmetler = [
+    { name: t.realEstate, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('emlak-danismanligi', locale)}` },
+    { name: t.renovation, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('tadilat-dekorasyon', locale)}` },
+    { name: t.construction, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('taahhut-insaat', locale)}` },
+    { name: t.planning, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('plan-proje', locale)}` },
+  ];
+
+  const ilanKategorileri = [
+    { name: t.saleApartments, href: `/${locale}/${getLocalizedRoute('ilanlar', locale)}?kategori=satilik&tip=daire` },
+    { name: t.rentApartments, href: `/${locale}/${getLocalizedRoute('ilanlar', locale)}?kategori=kiralik&tip=daire` },
+    { name: t.saleVillas, href: `/${locale}/${getLocalizedRoute('ilanlar', locale)}?kategori=satilik&tip=villa` },
+    { name: t.lands, href: `/${locale}/${getLocalizedRoute('ilanlar', locale)}?kategori=satilik&tip=arsa` },
+  ];
 
   return (
     <footer className="bg-primary text-white">
@@ -45,7 +137,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <Link href={`/${locale}`} className="inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <div className="relative w-36 h-10 md:w-48 md:h-12">
                 <Image
                   src="/logo-footer.svg"
@@ -56,9 +148,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Muğla Ortaca'da 2022'den bu yana güvenilir emlak danışmanlığı,
-              tadilat ve inşaat taahhüt hizmetleri sunuyoruz. Hayalinizdeki eve
-              veya projeye bir adım daha yakınsınız.
+              {t.description}
             </p>
             {/* Social Media */}
             <div className="flex items-center gap-3 pt-2">
@@ -95,7 +185,7 @@ export default function Footer() {
           {/* Quick Links & Hizmetler */}
           <div className="grid grid-cols-2 gap-4 md:gap-8">
             <div>
-              <h3 className="text-accent font-bold mb-4">Hızlı Linkler</h3>
+              <h3 className="text-accent font-bold mb-4">{t.quickLinks}</h3>
               <ul className="space-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
@@ -111,7 +201,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="text-accent font-bold mb-4">Hizmetler</h3>
+              <h3 className="text-accent font-bold mb-4">{t.services}</h3>
               <ul className="space-y-2">
                 {hizmetler.map((link) => (
                   <li key={link.name}>
@@ -130,7 +220,7 @@ export default function Footer() {
 
           {/* İlan Kategorileri */}
           <div>
-            <h3 className="text-accent font-bold mb-4">İlan Kategorileri</h3>
+            <h3 className="text-accent font-bold mb-4">{t.categories}</h3>
             <ul className="space-y-2">
               {ilanKategorileri.map((link) => (
                 <li key={link.name}>
@@ -148,7 +238,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-accent font-bold mb-4">İletişim</h3>
+            <h3 className="text-accent font-bold mb-4">{t.contact}</h3>
             <ul className="space-y-3">
               <li>
                 <div className="flex items-start gap-3">
@@ -216,8 +306,8 @@ export default function Footer() {
                 <div className="flex items-center gap-3">
                   <Clock className="w-5 h-5 text-accent flex-shrink-0" />
                   <div className="text-gray-300 text-sm">
-                    <p>Pzt - Cum: 08:00 - 18:00</p>
-                    <p>Cumartesi: 09:00 - 14:00</p>
+                    <p>{t.weekdays}</p>
+                    <p>{t.saturday}</p>
                   </div>
                 </div>
               </li>
@@ -239,12 +329,10 @@ export default function Footer() {
             />
             <div>
               <h4 className="text-sm font-semibold text-white mb-1">
-                İlan Doğrulama Bilgisi
+                {t.eidsTitle}
               </h4>
               <p className="text-xs text-gray-400 leading-relaxed">
-                EIDS durumu, KalindaYapi platformu tarafından sağlanan ilan doğrulama seviyesini belirtir.
-                Bu bilgilendirme amaçlı bir doğrulama durumudur ve resmi bir devlet doğrulamasını temsil etmez.
-                Tam doğrulama detayları için ilan sahibi veya danışmanla iletişime geçiniz.
+                {t.eidsDescription}
               </p>
             </div>
           </div>
@@ -256,7 +344,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
             <p>
-              © {currentYear} Kalinda Yapı — Ortaca, Muğla | Tüm Hakları Saklıdır
+              © {currentYear} {t.copyright}
             </p>
             <div className="flex items-center gap-4">
               <Link
@@ -267,18 +355,18 @@ export default function Footer() {
                 <Settings className="w-4 h-4" />
               </Link>
               <span className="text-gray-600">|</span>
-              <Link href="/gizlilik" className="hover:text-accent transition-colors">
-                Gizlilik Politikası
+              <Link href={`/${locale}/${getLocalizedRoute('gizlilik', locale)}`} className="hover:text-accent transition-colors">
+                {t.privacy}
               </Link>
               <span className="text-gray-600">|</span>
-              <Link href="/kullanim-kosullari" className="hover:text-accent transition-colors">
-                Kullanım Koşulları
+              <Link href={`/${locale}/${getLocalizedRoute('kullanim-kosullari', locale)}`} className="hover:text-accent transition-colors">
+                {t.terms}
               </Link>
             </div>
           </div>
           <div className="text-center mt-4 pt-4 border-t border-white/5">
             <p className="text-xs text-gray-500">
-              Tasarım ve Geliştirme:{" "}
+              {t.designBy}{" "}
               <a
                 href="https://www.akduniverse.com/"
                 target="_blank"

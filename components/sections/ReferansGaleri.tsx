@@ -6,6 +6,12 @@ import { motion, useInView } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
+import type { Locale } from "@/lib/i18n";
+
+interface ReferansGaleriProps {
+  lang?: Locale;
+  dict?: any;
+}
 
 interface Proje {
   id: string;
@@ -60,11 +66,24 @@ const fallbackProjeler: Proje[] = [
   },
 ];
 
-export default function ReferansGaleri() {
+export default function ReferansGaleri({ lang = 'tr', dict }: ReferansGaleriProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [showAfter, setShowAfter] = useState<{ [key: string]: boolean }>({});
   const [projeler, setProjeler] = useState<Proje[]>(fallbackProjeler);
+
+  // Fallback translations
+  const t = dict?.home?.references || {
+    badge: "Referans Projeler",
+    title: "Öncesi - Sonrası Galeri",
+    subtitle: "Tamamladığımız projelerden örnekler. Kaliteli işçilik ve profesyonel yaklaşımımızla fark yaratıyoruz.",
+    before: "ÖNCESİ",
+    after: "SONRASI",
+    clickToToggle: "Tıkla & Değiştir",
+    instruction: "Görsellere tıklayarak öncesi-sonrası karşılaştırmasını görebilirsiniz",
+    prev: "Önceki",
+    next: "Sonraki",
+  };
 
   useEffect(() => {
     const fetchProjeler = async () => {
@@ -115,14 +134,13 @@ export default function ReferansGaleri() {
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-            Referans Projeler
+            {t.badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
-            Öncesi - Sonrası Galeri
+            {t.title}
           </h2>
           <p className="text-text-light max-w-2xl mx-auto">
-            Tamamladığımız projelerden örnekler. Kaliteli işçilik ve
-            profesyonel yaklaşımımızla fark yaratıyoruz.
+            {t.subtitle}
           </p>
         </motion.div>
 
@@ -137,14 +155,14 @@ export default function ReferansGaleri() {
           <button
             onClick={scrollPrev}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors hidden md:flex"
-            aria-label="Önceki"
+            aria-label={t.prev}
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={scrollNext}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors hidden md:flex"
-            aria-label="Sonraki"
+            aria-label={t.next}
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -188,13 +206,13 @@ export default function ReferansGaleri() {
                       {/* Label */}
                       <div className="absolute top-4 left-4">
                         <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full">
-                          {showAfter[proje.id] ? "SONRASI" : "ÖNCESİ"}
+                          {showAfter[proje.id] ? t.after : t.before}
                         </span>
                       </div>
 
                       {/* Toggle Hint */}
                       <div className="absolute bottom-4 right-4 bg-black/50 text-white text-xs px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                        Tıkla & Değiştir
+                        {t.clickToToggle}
                       </div>
 
                       {/* Category Badge */}
@@ -229,7 +247,7 @@ export default function ReferansGaleri() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center text-sm text-text-muted mt-6"
         >
-          Görsellere tıklayarak öncesi-sonrası karşılaştırmasını görebilirsiniz
+          {t.instruction}
         </motion.p>
       </div>
     </section>

@@ -4,6 +4,7 @@ import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { ilanUpdateSchema } from '@/lib/validations/ilan'
 import { normalizeTurkishJsonArray, normalizeTurkishText } from '@/lib/utils'
+import { translateListingAsync } from '@/lib/services/translation'
 
 // GET - Get single ilan
 export async function GET(
@@ -100,6 +101,18 @@ export async function PUT(
         },
       },
     })
+
+    // Başlık veya açıklama değiştiyse çevirileri güncelle (arka planda)
+    if (
+      (ilanData.baslik && ilanData.baslik !== existingIlan.baslik) ||
+      (ilanData.aciklama && ilanData.aciklama !== existingIlan.aciklama)
+    ) {
+      translateListingAsync(
+        ilan.id,
+        ilan.baslik,
+        ilan.aciklama
+      );
+    }
 
     // If fotograflar provided, update them
     if (fotograflar !== undefined) {

@@ -5,23 +5,57 @@ import { motion, useInView } from "framer-motion";
 import { Send, MapPin, Phone, Clock } from "lucide-react";
 import { Input, Textarea, Select } from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
+import type { Locale } from "@/lib/i18n";
 
-const hizmetSecenekleri = [
-  { value: "", label: "Hizmet Seçin" },
-  { value: "emlak", label: "Emlak Danışmanlığı" },
-  { value: "tadilat", label: "Tadilat & Dekorasyon" },
-  { value: "taahhut", label: "Taahhüt & İnşaat" },
-  { value: "plan-proje", label: "Plan & Proje" },
-  { value: "diger", label: "Diğer" },
-];
+interface IletisimFormKisaProps {
+  lang?: Locale;
+  dict?: any;
+}
 
-export default function IletisimFormKisa() {
+export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisaProps) {
   const ref = useRef(null);
   const formRef = useRef<HTMLFormElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Fallback translations
+  const t = dict?.home?.contactForm || {
+    badge: "İletişim",
+    title: "Hemen Bize Ulaşın",
+    subtitle: "Emlak, tadilat veya inşaat projeleriniz için ücretsiz danışmanlık alın. Size en kısa sürede dönüş yapacağız.",
+    address: "Adres",
+    phone: "Telefon",
+    workingHours: "Çalışma Saatleri",
+    weekdays: "Pzt-Cum: 08:00 - 18:00",
+    saturday: "Cumartesi: 09:00 - 14:00",
+    formTitle: "Ücretsiz Danışmanlık Formu",
+    nameLabel: "Adınız Soyadınız",
+    namePlaceholder: "Adınızı girin",
+    phoneLabel: "Telefon",
+    phonePlaceholder: "0 (5XX) XXX XX XX",
+    serviceLabel: "Hizmet Türü",
+    serviceSelect: "Hizmet Seçin",
+    messageLabel: "Mesajınız",
+    messagePlaceholder: "Projeniz hakkında kısaca bilgi verin...",
+    submit: "Gönder",
+    successTitle: "Mesajınız Alındı!",
+    successMessage: "En kısa sürede size dönüş yapacağız.",
+    privacyNote: "Formu göndererek",
+    privacyLink: "gizlilik politikamızı",
+    privacyAccept: "kabul etmiş olursunuz.",
+  };
+
+  const servicesDict = dict?.home?.services || {};
+  const hizmetSecenekleri = [
+    { value: "", label: t.serviceSelect },
+    { value: "emlak", label: servicesDict.realEstate?.title || "Emlak Danışmanlığı" },
+    { value: "tadilat", label: servicesDict.renovation?.title || "Tadilat & Dekorasyon" },
+    { value: "taahhut", label: servicesDict.construction?.title || "Taahhüt & İnşaat" },
+    { value: "plan-proje", label: servicesDict.planning?.title || "Plan & Proje" },
+    { value: "diger", label: dict?.common?.other || "Diğer" },
+  ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -76,14 +110,13 @@ export default function IletisimFormKisa() {
             className="text-white"
           >
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
-              İletişim
+              {t.badge}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-              Hemen Bize Ulaşın
+              {t.title}
             </h2>
             <p className="text-gray-300 mb-8">
-              Emlak, tadilat veya inşaat projeleriniz için ücretsiz danışmanlık
-              alın. Size en kısa sürede dönüş yapacağız.
+              {t.subtitle}
             </p>
 
             {/* Contact Info */}
@@ -93,7 +126,7 @@ export default function IletisimFormKisa() {
                   <MapPin className="w-6 h-6 text-[#C9A84C]" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Adres</p>
+                  <p className="text-sm text-gray-400">{t.address}</p>
                   <p className="font-medium">Ortaca, Muğla</p>
                 </div>
               </div>
@@ -103,7 +136,7 @@ export default function IletisimFormKisa() {
                   <Phone className="w-6 h-6 text-[#C9A84C]" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Telefon</p>
+                  <p className="text-sm text-gray-400">{t.phone}</p>
                   <p className="font-medium">+90 537 053 07 54</p>
                   <p className="font-medium">+90 532 159 15 56</p>
                 </div>
@@ -114,9 +147,9 @@ export default function IletisimFormKisa() {
                   <Clock className="w-6 h-6 text-[#C9A84C]" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Çalışma Saatleri</p>
-                  <p className="font-medium">Pzt-Cum: 08:00 - 18:00</p>
-                  <p className="font-medium">Cumartesi: 09:00 - 14:00</p>
+                  <p className="text-sm text-gray-400">{t.workingHours}</p>
+                  <p className="font-medium">{t.weekdays}</p>
+                  <p className="font-medium">{t.saturday}</p>
                 </div>
               </div>
             </div>
@@ -144,7 +177,7 @@ export default function IletisimFormKisa() {
           >
             <div className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl">
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-6">
-                Ücretsiz Danışmanlık Formu
+                {t.formTitle}
               </h3>
 
               {error && (
@@ -175,40 +208,40 @@ export default function IletisimFormKisa() {
                     </svg>
                   </div>
                   <h4 className="text-lg font-bold text-[#0B1F3A] mb-2">
-                    Mesajınız Alındı!
+                    {t.successTitle}
                   </h4>
                   <p className="text-[#666666]">
-                    En kısa sürede size dönüş yapacağız.
+                    {t.successMessage}
                   </p>
                 </motion.div>
               ) : (
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                   <Input
-                    label="Adınız Soyadınız"
+                    label={t.nameLabel}
                     name="name"
-                    placeholder="Adınızı girin"
+                    placeholder={t.namePlaceholder}
                     required
                   />
 
                   <Input
-                    label="Telefon"
+                    label={t.phoneLabel}
                     name="phone"
                     type="tel"
-                    placeholder="0 (5XX) XXX XX XX"
+                    placeholder={t.phonePlaceholder}
                     required
                   />
 
                   <Select
-                    label="Hizmet Türü"
+                    label={t.serviceLabel}
                     name="service"
                     options={hizmetSecenekleri}
                     required
                   />
 
                   <Textarea
-                    label="Mesajınız"
+                    label={t.messageLabel}
                     name="message"
-                    placeholder="Projeniz hakkında kısaca bilgi verin..."
+                    placeholder={t.messagePlaceholder}
                     rows={4}
                   />
 
@@ -220,15 +253,15 @@ export default function IletisimFormKisa() {
                     isLoading={isSubmitting}
                     rightIcon={<Send className="w-5 h-5" />}
                   >
-                    Gönder
+                    {t.submit}
                   </Button>
 
                   <p className="text-xs text-[#999999] text-center">
-                    Formu göndererek{" "}
-                    <a href="/gizlilik" className="text-[#C9A84C] hover:underline">
-                      gizlilik politikamızı
+                    {t.privacyNote}{" "}
+                    <a href={`/${lang}/gizlilik`} className="text-[#C9A84C] hover:underline">
+                      {t.privacyLink}
                     </a>{" "}
-                    kabul etmiş olursunuz.
+                    {t.privacyAccept}
                   </p>
                 </form>
               )}

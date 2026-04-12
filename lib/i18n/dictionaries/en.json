@@ -50,31 +50,145 @@
   },
   "home": {
     "hero": {
-      "title": "Your Trusted Real Estate & Construction Partner in Turkish Riviera",
-      "subtitle": "12+ years of experience, 500+ completed projects",
-      "cta": "Browse Properties",
-      "ctaSecondary": "Our Services"
+      "badge": "Serving You Since 2022",
+      "title": "Your Trusted",
+      "titleHighlight": "Real Estate & Construction",
+      "titleEnd": "Partner in Turkish Riviera",
+      "subtitle": "Real estate consulting, renovation and contracting services in Ortaca, Muğla. You are one step closer to your dream home or project.",
+      "cta": "Explore Properties",
+      "ctaSecondary": "Get Free Consultation",
+      "completedProjects": "Completed Projects",
+      "yearsExperience": "Years Experience",
+      "happyFamilies": "Happy Families"
     },
     "stats": {
+      "title": "Kalinda Yapı in Numbers",
+      "subtitle": "Proof of Trust and Success",
+      "description": "Growing with years of experience and the trust of our clients in Ortaca and Muğla region.",
       "experience": "Years Experience",
       "projects": "Completed Projects",
-      "clients": "Happy Clients",
-      "area": "sqm Construction"
+      "clients": "Happy Families",
+      "satisfaction": "Customer Satisfaction",
+      "projectsDesc": "Residential, villa and commercial projects",
+      "experienceDesc": "Serving since 2022",
+      "clientsDesc": "Customers who trust us",
+      "satisfactionDesc": "Quality-focused service",
+      "area": "sqm Construction",
+      "note": "* Data reflects our actual transactions and is updated after each sale and rental."
     },
     "featured": {
-      "title": "Featured Properties",
-      "subtitle": "Latest and most popular real estate listings in Ortaca region"
+      "badge": "Featured Properties",
+      "title": "Latest Real Estate Opportunities",
+      "subtitle": "Discover our selected listings from all districts of Muğla. For sale and rent options.",
+      "forSale": "For Sale",
+      "forRent": "For Rent",
+      "noListings": "No featured listings yet.",
+      "viewAll": "View All Properties",
+      "perMonth": "/mo"
     },
     "services": {
-      "title": "Our Services",
-      "subtitle": "Professional team delivering excellence in every project"
+      "badge": "Our Services",
+      "title": "How Can We Help You?",
+      "subtitle": "We are here for all your needs from real estate consulting to construction contracting. We provide quality service with our professional team.",
+      "details": "Details",
+      "viewAll": "View All Our Services",
+      "realEstate": {
+        "title": "Real Estate Consulting",
+        "description": "Properties for sale and rent in Ortaca and surrounding areas. Professional valuation and investment consulting."
+      },
+      "renovation": {
+        "title": "Renovation & Decoration",
+        "description": "Interior design, kitchen-bathroom renovation, painting and coating works. We transform your home as you dream."
+      },
+      "construction": {
+        "title": "Construction & Contracting",
+        "description": "Building construction from scratch, restoration projects and turnkey construction solutions."
+      },
+      "planning": {
+        "title": "Planning & Project",
+        "description": "Architectural, structural, electrical-mechanical project drawings and permit consulting services."
+      }
     },
     "whyUs": {
+      "badge": "Our Difference",
       "title": "Why Choose Kalinda Yapı?",
-      "experience": "Experienced Team",
-      "quality": "Quality Workmanship",
-      "price": "Competitive Pricing",
-      "trust": "Reliability"
+      "subtitle": "Reasons why we are trusted in Ortaca and Muğla region. We focus on quality and customer satisfaction.",
+      "licensedConsultant": "Licensed Consultant",
+      "licensedConsultantDesc": "You get reliable service from our officially certified real estate consultant.",
+      "localKnowledge": "Local Knowledge",
+      "localKnowledgeDesc": "We know Ortaca and its surroundings like the back of our hand. We are familiar with the dynamics of the region.",
+      "guaranteedWork": "Guaranteed Workmanship",
+      "guaranteedWorkDesc": "We offer workmanship guarantee on all our renovation and construction works.",
+      "transparentContract": "Transparent Contract",
+      "transparentContractDesc": "All our transactions are secured with written contracts. No hidden costs.",
+      "personalAttention": "Personal Attention",
+      "personalAttentionDesc": "We give special attention to each of our customers. Understanding your needs is our priority.",
+      "onTimeDelivery": "On-Time Delivery",
+      "onTimeDeliveryDesc": "We complete our projects on time as promised. We value time.",
+      "serviceArea": "Service Area",
+      "allDistricts": "All Districts of Muğla",
+      "established": "Established",
+      "since2022": "Since 2022",
+      "customerSatisfaction": "Customer Satisfaction",
+      "serviceNote": "We are here with our real estate, renovation and construction services in all Muğla districts"
+    },
+    "blog": {
+      "badge": "Blog & Guide",
+      "title": "Latest",
+      "titleHighlight": "Posts",
+      "subtitle": "Expert opinions and practical information on real estate, zoning, renovation and property topics",
+      "viewAll": "View All Posts",
+      "readTime": "min"
+    },
+    "references": {
+      "badge": "Reference Projects",
+      "title": "Before - After Gallery",
+      "subtitle": "Examples from our completed projects. We make a difference with quality workmanship and professional approach.",
+      "before": "BEFORE",
+      "after": "AFTER",
+      "clickToToggle": "Click to Toggle",
+      "instruction": "Click on images to see before-after comparison",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "team": {
+      "badge": "Our Team",
+      "title": "Founding Partners",
+      "subtitle": "Experienced names behind Kalinda Yapı. Our partners serve with the highest level of customer satisfaction.",
+      "expertise": "Areas of Expertise",
+      "call": "Call"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Frequently Asked Questions",
+      "subtitle": "Most frequently asked questions and expert answers about real estate buying-selling, renovation and construction in Ortaca, Dalyan and Muğla.",
+      "moreQuestions": "Have more questions?",
+      "contactUs": "Contact us"
+    },
+    "contactForm": {
+      "badge": "Contact",
+      "title": "Get in Touch Now",
+      "subtitle": "Get free consultation for your real estate, renovation or construction projects. We will get back to you as soon as possible.",
+      "address": "Address",
+      "phone": "Phone",
+      "workingHours": "Working Hours",
+      "weekdays": "Mon-Fri: 08:00 - 18:00",
+      "saturday": "Saturday: 09:00 - 14:00",
+      "formTitle": "Free Consultation Form",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Enter your name",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "0 (5XX) XXX XX XX",
+      "serviceLabel": "Service Type",
+      "serviceSelect": "Select Service",
+      "messageLabel": "Your Message",
+      "messagePlaceholder": "Tell us briefly about your project...",
+      "submit": "Send",
+      "successTitle": "Message Received!",
+      "successMessage": "We will get back to you as soon as possible.",
+      "privacyNote": "By submitting the form, you accept our",
+      "privacyLink": "privacy policy",
+      "privacyAccept": "."
     }
   },
   "listings": {

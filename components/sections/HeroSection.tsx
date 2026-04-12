@@ -1,15 +1,35 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Search, Phone, ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { getMutluAileSayisi, getTamamlananProjeSayisi, hesaplaYilDeneyimi } from "@/lib/utils";
+import type { Locale } from "@/lib/i18n";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  lang?: Locale;
+  dict?: any;
+}
+
+export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  // Fallback translations
+  const t = dict?.home?.hero || {
+    badge: "2022'den Bu Yana Hizmetinizdeyiz",
+    title: "Ortaca'nın Güvenilir",
+    titleHighlight: "Yapı & Emlak",
+    titleEnd: "Ortağı",
+    subtitle: "Muğla Ortaca'da emlak danışmanlığı, tadilat ve taahhüt hizmetleri. Hayalinizdeki eve veya projeye bir adım daha yakınsınız.",
+    cta: "İlanları Keşfet",
+    ctaSecondary: "Ücretsiz Danışmanlık Al",
+    completedProjects: "Tamamlanan Proje",
+    yearsExperience: "Yıl Deneyim",
+    happyFamilies: "Mutlu Aile",
+  };
 
   const scrollToContent = () => {
     window.scrollTo({
@@ -62,19 +82,19 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 mt-14 sm:mt-6 md:mt-0"
           >
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            <span className="text-sm font-medium">2022'den Bu Yana Hizmetinizdeyiz</span>
+            <span className="text-sm font-medium">{t.badge}</span>
           </motion.div>
 
-          {/* Main Heading - LCP element, no delay for faster paint */}
+          {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
           >
-            Ortaca'nın Güvenilir
+            {t.title}
             <br />
-            <span className="text-accent">Yapı & Emlak</span> Ortağı
+            <span className="text-accent">{t.titleHighlight}</span> {t.titleEnd}
           </motion.h1>
 
           {/* Subtitle */}
@@ -84,8 +104,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10"
           >
-            Muğla Ortaca'da emlak danışmanlığı, tadilat ve taahhüt hizmetleri.
-            Hayalinizdeki eve veya projeye bir adım daha yakınsınız.
+            {t.subtitle}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -95,23 +114,23 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link href="/ilanlar">
+            <Link href={`/${lang}/ilanlar`}>
               <Button
                 variant="accent"
                 size="lg"
                 leftIcon={<Search className="w-5 h-5" />}
               >
-                İlanları Keşfet
+                {t.cta}
               </Button>
             </Link>
-            <Link href="/iletisim">
+            <Link href={`/${lang}/iletisim`}>
               <Button
                 variant="outline"
                 size="lg"
                 leftIcon={<Phone className="w-5 h-5" />}
                 className="border-white text-white hover:bg-white hover:text-primary"
               >
-                Ücretsiz Danışmanlık Al
+                {t.ctaSecondary}
               </Button>
             </Link>
           </motion.div>
@@ -124,9 +143,9 @@ export default function HeroSection() {
             className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mt-16"
           >
             {[
-              { value: `${getTamamlananProjeSayisi()}+`, label: "Tamamlanan Proje" },
-              { value: `${hesaplaYilDeneyimi()}+`, label: "Yıl Deneyim" },
-              { value: `${getMutluAileSayisi()}+`, label: "Mutlu Aile" },
+              { value: `${getTamamlananProjeSayisi()}+`, label: t.completedProjects },
+              { value: `${hesaplaYilDeneyimi()}+`, label: t.yearsExperience },
+              { value: `${getMutluAileSayisi()}+`, label: t.happyFamilies },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <p className="text-3xl md:text-4xl font-bold text-accent">
@@ -146,7 +165,7 @@ export default function HeroSection() {
         transition={{ delay: 1.2 }}
         onClick={scrollToContent}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors"
-        aria-label="Aşağı kaydır"
+        aria-label={lang === 'ar' ? 'انتقل لأسفل' : lang === 'en' ? 'Scroll down' : 'Aşağı kaydır'}
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

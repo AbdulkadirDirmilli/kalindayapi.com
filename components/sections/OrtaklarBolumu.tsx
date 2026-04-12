@@ -6,6 +6,12 @@ import { motion, useInView } from "framer-motion";
 import { Phone, Mail, MessageCircle, Building2, HardHat, Users } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { createWhatsAppLink } from "@/lib/utils";
+import type { Locale } from "@/lib/i18n";
+
+interface OrtaklarBolumuProps {
+  lang?: Locale;
+  dict?: any;
+}
 
 const ortaklar = [
   {
@@ -52,9 +58,18 @@ const ortaklar = [
   },
 ];
 
-export default function OrtaklarBolumu() {
+export default function OrtaklarBolumu({ lang = 'tr', dict }: OrtaklarBolumuProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Fallback translations
+  const t = dict?.home?.team || {
+    badge: "Ekibimiz",
+    title: "Kurucu Ortaklarımız",
+    subtitle: "Kalinda Yapı'nın arkasındaki deneyimli isimler. Ortaklarımız müşteri memnuniyetini en üst düzeyde tutarak hizmet vermektedir.",
+    expertise: "Uzmanlık Alanları",
+    call: "Ara",
+  };
 
   return (
     <section className="py-20 bg-surface" ref={ref}>
@@ -67,14 +82,13 @@ export default function OrtaklarBolumu() {
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-            Ekibimiz
+            {t.badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
-            Kurucu Ortaklarımız
+            {t.title}
           </h2>
           <p className="text-text-light max-w-2xl mx-auto">
-            Kalinda Yapı'nın arkasındaki deneyimli isimler. Ortaklarımız
-            müşteri memnuniyetini en üst düzeyde tutarak hizmet vermektedir.
+            {t.subtitle}
           </p>
         </motion.div>
 
@@ -123,7 +137,7 @@ export default function OrtaklarBolumu() {
                   {/* Expertise */}
                   <div className="mb-6 flex-1">
                     <h4 className="text-sm font-semibold text-primary mb-2">
-                      Uzmanlık Alanları
+                      {t.expertise}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {ortak.uzmanlikAlanlari.map((alan) => (
@@ -182,7 +196,7 @@ export default function OrtaklarBolumu() {
                         leftIcon={<Phone className="w-4 h-4" />}
                         className="w-full"
                       >
-                        Ara
+                        {t.call}
                       </Button>
                     </a>
                   </div>

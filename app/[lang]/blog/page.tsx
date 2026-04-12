@@ -1,27 +1,112 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, Clock, User, Tag, Search, ArrowRight } from "lucide-react";
-import blogData from "@/data/blog-posts.json";
+import { Calendar, Clock, Search, ArrowRight, Loader2 } from "lucide-react";
 import { formatDate } from "@/lib/utils";
+import { useParams } from "next/navigation";
+import { type Locale, defaultLocale, locales } from "@/lib/i18n";
+
+interface BlogPost {
+  id: string;
+  slug: string;
+  baslik: string;
+  ozet: string;
+  kategori: string;
+  yazar: string;
+  kapakGorsel: string;
+  yayinTarihi: string;
+  etiketler: string[];
+  okunmaSuresi: number;
+}
+
+// Dil bazlı metinler
+const texts = {
+  tr: {
+    title: "Blog &",
+    titleHighlight: "Rehber",
+    subtitle: "Emlak, yapı, tadilat ve imar konularında güncel bilgiler, uzman görüşleri ve pratik rehberler",
+    all: "Tümü",
+    search: "Yazılarda ara...",
+    noResults: "Aramanızla eşleşen yazı bulunamadı.",
+    loading: "Yazılar yükleniyor...",
+    ctaTitle: "Profesyonel Danışmanlık Almak İster misiniz?",
+    ctaSubtitle: "Emlak, tadilat, inşaat veya imar konularında uzman ekibimizden ücretsiz danışmanlık alın.",
+    ctaButton: "Bize Ulaşın",
+    min: "dk",
+  },
+  en: {
+    title: "Blog &",
+    titleHighlight: "Guide",
+    subtitle: "Up-to-date information, expert opinions and practical guides on real estate, construction, renovation and zoning",
+    all: "All",
+    search: "Search articles...",
+    noResults: "No articles found matching your search.",
+    loading: "Loading articles...",
+    ctaTitle: "Would You Like Professional Consulting?",
+    ctaSubtitle: "Get free consulting from our expert team on real estate, renovation, construction or zoning matters.",
+    ctaButton: "Contact Us",
+    min: "min",
+  },
+  ar: {
+    title: "المدونة و",
+    titleHighlight: "الدليل",
+    subtitle: "معلومات محدثة وآراء الخبراء وأدلة عملية حول العقارات والبناء والتجديد والتخطيط",
+    all: "الكل",
+    search: "البحث في المقالات...",
+    noResults: "لم يتم العثور على مقالات تطابق بحثك.",
+    loading: "جاري تحميل المقالات...",
+    ctaTitle: "هل ترغب في استشارة مهنية؟",
+    ctaSubtitle: "احصل على استشارة مجانية من فريق الخبراء لدينا في مجال العقارات أو التجديد أو البناء.",
+    ctaButton: "اتصل بنا",
+    min: "دقيقة",
+  },
+};
 
 const kategoriler = ["Tümü", "Emlak", "İmar", "Tadilat", "Gayrimenkul"];
 
 export default function BlogPage() {
+  const params = useParams();
+  const lang = (params?.lang as Locale) || defaultLocale;
+  const locale = locales.includes(lang) ? lang : defaultLocale;
+  const t = texts[locale];
+
   const [aktifKategori, setAktifKategori] = useState("Tümü");
   const [aramaMetni, setAramaMetni] = useState("");
+  const [yazilar, setYazilar] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const filtrelenmisYazilar = blogData.yazilar.filter((yazi) => {
+  // Blog yazılarını API'den çek
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(`/api/blog?lang=${locale}`);
+        if (response.ok) {
+          const data = await response.json();
+          setYazilar(data.yazilar || []);
+        }
+      } catch (error) {
+        console.error("Blog yazıları yüklenemedi:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, [locale]);
+
+  // Client-side filtreleme
+  const filtrelenmisYazilar = yazilar.filter((yazi) => {
     const kategoriUyumu =
       aktifKategori === "Tümü" || yazi.kategori === aktifKategori;
     const aramaUyumu =
       aramaMetni === "" ||
       yazi.baslik.toLowerCase().includes(aramaMetni.toLowerCase()) ||
       yazi.ozet.toLowerCase().includes(aramaMetni.toLowerCase()) ||
-      yazi.etiketler.some((e) =>
+      (yazi.etiketler || []).some((e) =>
         e.toLowerCase().includes(aramaMetni.toLowerCase())
       );
     return kategoriUyumu && aramaUyumu;
@@ -39,7 +124,7 @@ export default function BlogPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-5xl font-bold text-white mb-4"
           >
-            Blog & <span className="text-[#C9A84C]">Rehber</span>
+            {t.title} <span className="text-[#C9A84C]">{t.titleHighlight}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -47,8 +132,7 @@ export default function BlogPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-gray-300 text-lg max-w-2xl mx-auto"
           >
-            Emlak, yapı, tadilat ve imar konularında güncel bilgiler, uzman
-            görüşleri ve pratik rehberler
+            {t.subtitle}
           </motion.p>
         </div>
       </section>
@@ -79,7 +163,7 @@ export default function BlogPage() {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#999999]" />
               <input
                 type="text"
-                placeholder="Yazılarda ara..."
+                placeholder={t.search}
                 value={aramaMetni}
                 onChange={(e) => setAramaMetni(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 border-2 border-[#e0e0e0] rounded-lg text-sm focus:outline-none focus:border-[#0B1F3A] transition-colors"
@@ -92,13 +176,21 @@ export default function BlogPage() {
       {/* Blog Listesi */}
       <section className="py-12 md:py-16 bg-[#F5F5F5]">
         <div className="container mx-auto px-4">
-          {filtrelenmisYazilar.length === 0 ? (
+          {/* Loading State */}
+          {loading && (
+            <div className="flex items-center justify-center py-16">
+              <Loader2 className="w-8 h-8 animate-spin text-[#C9A84C]" />
+              <span className="ml-3 text-[#666666]">{t.loading}</span>
+            </div>
+          )}
+
+          {!loading && filtrelenmisYazilar.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-[#666666] text-lg">
-                Aramanızla eşleşen yazı bulunamadı.
+                {t.noResults}
               </p>
             </div>
-          ) : (
+          ) : !loading && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filtrelenmisYazilar.map((yazi, index) => (
                 <motion.article
@@ -107,7 +199,7 @@ export default function BlogPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Link href={`/blog/${yazi.slug}`}>
+                  <Link href={`/${locale}/blog/${yazi.slug}`}>
                     <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
                       {/* Kapak Görseli */}
                       <div className="relative h-48 bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] overflow-hidden">
@@ -146,7 +238,7 @@ export default function BlogPage() {
                             </span>
                             <span className="flex items-center gap-1">
                               <Clock className="w-3.5 h-3.5" />
-                              {yazi.okunmaSuresi} dk
+                              {yazi.okunmaSuresi} {t.min}
                             </span>
                           </div>
                           <ArrowRight className="w-4 h-4 text-[#C9A84C] group-hover:translate-x-1 transition-transform" />
@@ -165,17 +257,16 @@ export default function BlogPage() {
       <section className="py-16 bg-[#0B1F3A]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Profesyonel Danışmanlık Almak İster misiniz?
+            {t.ctaTitle}
           </h2>
           <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-            Emlak, tadilat, inşaat veya imar konularında uzman ekibimizden
-            ücretsiz danışmanlık alın.
+            {t.ctaSubtitle}
           </p>
           <Link
-            href="/iletisim"
+            href={`/${locale}/iletisim`}
             className="inline-flex items-center gap-2 bg-[#C9A84C] text-[#0B1F3A] px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
           >
-            Bize Ulaşın
+            {t.ctaButton}
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

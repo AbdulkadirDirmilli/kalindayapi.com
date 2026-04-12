@@ -7,45 +7,7 @@ import { Home, Paintbrush, HardHat, ArrowRight, MessageCircle, FileText } from "
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { createWhatsAppLink } from "@/lib/utils";
-
-const hizmetler = [
-  {
-    id: "emlak-danismanligi",
-    baslik: "Emlak Danışmanlığı",
-    aciklama:
-      "Ortaca ve çevresinde satılık, kiralık gayrimenkul hizmetleri. Profesyonel değerleme ve yatırım danışmanlığı.",
-    ikon: Home,
-    renk: "#C9A84C",
-    href: "/hizmetler/emlak-danismanligi",
-  },
-  {
-    id: "tadilat-dekorasyon",
-    baslik: "Tadilat & Dekorasyon",
-    aciklama:
-      "İç mimari, mutfak-banyo yenileme, boya ve kaplama işleri. Evinizi hayalinizdeki gibi dönüştürüyoruz.",
-    ikon: Paintbrush,
-    renk: "#0B1F3A",
-    href: "/hizmetler/tadilat-dekorasyon",
-  },
-  {
-    id: "taahhut-insaat",
-    baslik: "Taahhüt & İnşaat",
-    aciklama:
-      "Sıfırdan bina inşaatı, restorasyon projeleri ve anahtar teslim yapı çözümleri.",
-    ikon: HardHat,
-    renk: "#1a3a5c",
-    href: "/hizmetler/taahhut-insaat",
-  },
-  {
-    id: "plan-proje",
-    baslik: "Plan & Proje",
-    aciklama:
-      "Mimari, statik, elektrik-mekanik proje çizimleri ve ruhsat danışmanlığı hizmetleri.",
-    ikon: FileText,
-    renk: "#2E7D32",
-    href: "/hizmetler/plan-proje",
-  },
-];
+import type { Locale } from "@/lib/i18n";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -66,9 +28,62 @@ const itemVariants = {
   },
 };
 
-export default function HizmetKartlari() {
+interface HizmetKartlariProps {
+  lang?: Locale;
+  dict?: any;
+}
+
+export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Fallback translations
+  const t = dict?.home?.services || {
+    badge: "Hizmetlerimiz",
+    title: "Size Nasıl Yardımcı Olabiliriz?",
+    subtitle: "Emlak danışmanlığından inşaat taahhüdüne kadar tüm ihtiyaçlarınız için yanınızdayız. Profesyonel ekibimizle kaliteli hizmet sunuyoruz.",
+    details: "Detaylar",
+    viewAll: "Tüm Hizmetlerimizi Görün",
+    realEstate: { title: "Emlak Danışmanlığı", description: "Ortaca ve çevresinde satılık, kiralık gayrimenkul hizmetleri. Profesyonel değerleme ve yatırım danışmanlığı." },
+    renovation: { title: "Tadilat & Dekorasyon", description: "İç mimari, mutfak-banyo yenileme, boya ve kaplama işleri. Evinizi hayalinizdeki gibi dönüştürüyoruz." },
+    construction: { title: "Taahhüt & İnşaat", description: "Sıfırdan bina inşaatı, restorasyon projeleri ve anahtar teslim yapı çözümleri." },
+    planning: { title: "Plan & Proje", description: "Mimari, statik, elektrik-mekanik proje çizimleri ve ruhsat danışmanlığı hizmetleri." },
+  };
+
+  const hizmetler = [
+    {
+      id: "emlak-danismanligi",
+      baslik: t.realEstate.title,
+      aciklama: t.realEstate.description,
+      ikon: Home,
+      renk: "#C9A84C",
+      href: `/${lang}/hizmetler/emlak-danismanligi`,
+    },
+    {
+      id: "tadilat-dekorasyon",
+      baslik: t.renovation.title,
+      aciklama: t.renovation.description,
+      ikon: Paintbrush,
+      renk: "#0B1F3A",
+      href: `/${lang}/hizmetler/tadilat-dekorasyon`,
+    },
+    {
+      id: "taahhut-insaat",
+      baslik: t.construction.title,
+      aciklama: t.construction.description,
+      ikon: HardHat,
+      renk: "#1a3a5c",
+      href: `/${lang}/hizmetler/taahhut-insaat`,
+    },
+    {
+      id: "plan-proje",
+      baslik: t.planning.title,
+      aciklama: t.planning.description,
+      ikon: FileText,
+      renk: "#2E7D32",
+      href: `/${lang}/hizmetler/plan-proje`,
+    },
+  ];
 
   return (
     <section className="py-20 bg-surface" ref={ref}>
@@ -81,14 +96,13 @@ export default function HizmetKartlari() {
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-            Hizmetlerimiz
+            {t.badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
-            Size Nasıl Yardımcı Olabiliriz?
+            {t.title}
           </h2>
           <p className="text-text-light max-w-2xl mx-auto">
-            Emlak danışmanlığından inşaat taahhüdüne kadar tüm ihtiyaçlarınız için
-            yanınızdayız. Profesyonel ekibimizle kaliteli hizmet sunuyoruz.
+            {t.subtitle}
           </p>
         </motion.div>
 
@@ -153,7 +167,7 @@ export default function HizmetKartlari() {
                           rightIcon={<ArrowRight className="w-4 h-4" />}
                           className="w-full"
                         >
-                          Detaylar
+                          {t.details}
                         </Button>
                       </Link>
                     </div>
@@ -171,13 +185,13 @@ export default function HizmetKartlari() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <Link href="/hizmetler">
+          <Link href={`/${lang}/hizmetler`}>
             <Button
               variant="primary"
               size="lg"
               rightIcon={<ArrowRight className="w-5 h-5" />}
             >
-              Tüm Hizmetlerimizi Görün
+              {t.viewAll}
             </Button>
           </Link>
         </motion.div>

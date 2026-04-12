@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import type { Locale } from "@/lib/i18n";
 
 interface FaqItem {
   soru: string;
@@ -10,6 +11,8 @@ interface FaqItem {
 }
 
 interface FaqSectionProps {
+  lang?: Locale;
+  dict?: any;
   baslik?: string;
   altBaslik?: string;
   sorular?: FaqItem[];
@@ -50,14 +53,28 @@ const varsayilanSorular: FaqItem[] = [
 ];
 
 export default function FaqSection({
-  baslik = "Sıkça Sorulan Sorular",
-  altBaslik = "Ortaca, Dalyan ve Muğla'da emlak alım-satım, tadilat ve inşaat hakkında en çok merak edilen sorular ve uzman cevapları.",
+  lang = 'tr',
+  dict,
+  baslik,
+  altBaslik,
   sorular = varsayilanSorular,
   darkMode = false,
 }: FaqSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  // Fallback translations
+  const t = dict?.home?.faq || {
+    badge: "SSS",
+    title: "Sıkça Sorulan Sorular",
+    subtitle: "Ortaca, Dalyan ve Muğla'da emlak alım-satım, tadilat ve inşaat hakkında en çok merak edilen sorular ve uzman cevapları.",
+    moreQuestions: "Başka sorularınız mı var?",
+    contactUs: "Bize ulaşın",
+  };
+
+  const displayBaslik = baslik || t.title;
+  const displayAltBaslik = altBaslik || t.subtitle;
 
   const toggleQuestion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -77,17 +94,17 @@ export default function FaqSection({
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-            SSS
+            {t.badge}
           </span>
           <h2
             className={`text-3xl md:text-4xl font-bold mt-2 mb-4 ${
               darkMode ? "text-white" : "text-primary"
             }`}
           >
-            {baslik}
+            {displayBaslik}
           </h2>
           <p className={`max-w-2xl mx-auto ${darkMode ? "text-gray-400" : "text-text-light"}`}>
-            {altBaslik}
+            {displayAltBaslik}
           </p>
         </motion.div>
 
@@ -169,12 +186,12 @@ export default function FaqSection({
           className="text-center mt-12"
         >
           <p className={darkMode ? "text-gray-400" : "text-text-light"}>
-            Başka sorularınız mı var?{" "}
+            {t.moreQuestions}{" "}
             <a
-              href="/iletisim"
+              href={`/${lang}/iletisim`}
               className="text-accent font-semibold hover:underline"
             >
-              Bize ulaşın
+              {t.contactUs}
             </a>
           </p>
         </motion.div>

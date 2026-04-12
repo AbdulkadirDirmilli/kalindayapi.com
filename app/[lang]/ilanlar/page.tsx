@@ -100,6 +100,7 @@ export default function IlanlarPage() {
         if (filters.maxFiyat) params.append("maxFiyat", filters.maxFiyat);
         if (filters.arama) params.append("search", filters.arama);
         if (filters.eidsStatus) params.append("eidsStatus", filters.eidsStatus);
+        params.append("lang", locale);
 
         const response = await fetch(`/api/ilanlar?${params.toString()}`);
 
@@ -120,7 +121,7 @@ export default function IlanlarPage() {
     };
 
     fetchIlanlar();
-  }, [currentPage, filters]);
+  }, [currentPage, filters, locale]);
 
   // Reset page when filters change
   const handleFilterChange = (newFilters: FilterState) => {

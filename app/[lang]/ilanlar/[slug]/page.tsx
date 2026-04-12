@@ -18,13 +18,16 @@ function isVideo(url: string): boolean {
 }
 
 // Prisma verisini frontend formatına dönüştür
-function formatIlan(ilan: any): Ilan {
+function formatIlan(ilan: any, locale: Locale = 'tr'): Ilan {
+  // Çeviri varsa kullan
+  const translation = ilan.translations?.[0];
+
   return {
     id: ilan.id,
-    baslik: ilan.baslik,
-    slug: ilan.slug,
-    kategori: ilan.kategori,
-    tip: ilan.tip,
+    baslik: translation?.baslik || ilan.baslik,
+    slug: translation?.slug || ilan.slug,
+    kategori: translation?.kategori || ilan.kategori,
+    tip: translation?.tip || ilan.tip,
     fiyat: ilan.fiyat,
     paraBirimi: ilan.paraBirimi,
     konum: {
@@ -68,7 +71,7 @@ function formatIlan(ilan: any): Ilan {
       insaatDurumu: ilan.insaatDurumu || undefined,
     },
     insaatDurumu: ilan.insaatDurumu || null,
-    aciklama: ilan.aciklama,
+    aciklama: translation?.aciklama || ilan.aciklama,
     fotograflar: ilan.fotograflar.map((f: any) => f.url),
     videoUrl: ilan.videoUrl,
     oneCikan: ilan.oneCikan,
@@ -90,7 +93,7 @@ function formatIlan(ilan: any): Ilan {
 }
 
 // İlanı getir
-async function getIlan(slug: string) {
+async function getIlan(slug: string, locale: Locale = 'tr') {
   const ilan = await prisma.ilan.findUnique({
     where: { slug },
     include: {
@@ -98,6 +101,10 @@ async function getIlan(slug: string) {
         orderBy: { sira: 'asc' },
       },
       danisman: true,
+      translations: locale !== 'tr' ? {
+        where: { language: locale, status: 'published' },
+        take: 1,
+      } : false,
     },
   });
 
@@ -105,11 +112,11 @@ async function getIlan(slug: string) {
     return null;
   }
 
-  return formatIlan(ilan);
+  return formatIlan(ilan, locale);
 }
 
 // Benzer ilanları getir
-async function getBenzerIlanlar(kategori: string, currentSlug: string) {
+async function getBenzerIlanlar(kategori: string, currentSlug: string, locale: Locale = 'tr') {
   const ilanlar = await prisma.ilan.findMany({
     where: {
       kategori,
@@ -122,12 +129,16 @@ async function getBenzerIlanlar(kategori: string, currentSlug: string) {
         take: 1,
       },
       danisman: true,
+      translations: locale !== 'tr' ? {
+        where: { language: locale, status: 'published' },
+        take: 1,
+      } : false,
     },
     take: 3,
     orderBy: { yayinTarihi: 'desc' },
   });
 
-  return ilanlar.map(formatIlan);
+  return ilanlar.map(ilan => formatIlan(ilan, locale));
 }
 
 // Metadata oluştur
@@ -135,7 +146,7 @@ export async function generateMetadata({ params }: IlanDetayPageProps): Promise<
   const { slug, lang } = await params;
   const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
   const dict = await getCachedDictionary(locale);
-  const ilan = await getIlan(slug);
+  const ilan = await getIlan(slug, locale);
 
   if (!ilan) {
     return {
@@ -205,13 +216,13 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
   const { slug, lang } = await params;
   const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
   const dict = await getCachedDictionary(locale);
-  const ilan = await getIlan(slug);
+  const ilan = await getIlan(slug, locale);
 
   if (!ilan) {
     notFound();
   }
 
-  const benzerIlanlar = await getBenzerIlanlar(ilan.kategori, slug);
+  const benzerIlanlar = await getBenzerIlanlar(ilan.kategori, slug, locale);
 
   const eidsLabel = getEidsStatusLabel(ilan.eidsStatus);
   const structuredData = {

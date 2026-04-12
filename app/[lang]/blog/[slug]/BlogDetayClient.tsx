@@ -10,10 +10,10 @@ import {
   Tag,
   ArrowLeft,
   ArrowRight,
-  Share2,
   Phone,
 } from "lucide-react";
 import { formatDate, createWhatsAppLink } from "@/lib/utils";
+import { type Locale } from "@/lib/i18n";
 
 interface BlogYazi {
   id: string;
@@ -21,20 +21,70 @@ interface BlogYazi {
   baslik: string;
   ozet: string;
   kategori: string;
-  etiketler: string[];
+  etiketler?: string[];
   yazar: string;
   yayinTarihi: string;
   okunmaSuresi: number;
-  kapakGorsel?: string;
-  icerik: Array<{ tip: string; metin: string }>;
+  kapakGorsel?: string | null;
+  icerik: string | Array<{ tip: string; metin: string }>;
+}
+
+interface DigerYazi {
+  id: string;
+  slug: string;
+  baslik: string;
+  kategori: string;
+  yayinTarihi: string;
 }
 
 interface BlogDetayClientProps {
   yazi: BlogYazi;
-  digerYazilar: BlogYazi[];
+  digerYazilar: DigerYazi[];
+  locale?: Locale;
 }
 
-export default function BlogDetayClient({ yazi, digerYazilar }: BlogDetayClientProps) {
+// Dil bazlı metinler
+const texts = {
+  tr: {
+    backToBlog: "Blog'a Dön",
+    readingTime: "dk okuma",
+    author: "Yazar",
+    consultant: "Gayrimenkul & Yapı Danışmanı",
+    call: "Ara",
+    getConsulting: "Danışmanlık Alın",
+    consultingDesc: "Bu konuda profesyonel destek almak ister misiniz? Uzman ekibimiz yanınızda.",
+    contactUs: "Bize Ulaşın",
+    otherPosts: "Diğer Yazılar",
+    whatsappMessage: "Merhaba, \"{title}\" yazınız hakkında bilgi almak istiyorum.",
+  },
+  en: {
+    backToBlog: "Back to Blog",
+    readingTime: "min read",
+    author: "Author",
+    consultant: "Real Estate & Construction Consultant",
+    call: "Call",
+    getConsulting: "Get Consulting",
+    consultingDesc: "Would you like professional support on this topic? Our expert team is here for you.",
+    contactUs: "Contact Us",
+    otherPosts: "Other Posts",
+    whatsappMessage: "Hello, I would like to get information about your article \"{title}\".",
+  },
+  ar: {
+    backToBlog: "العودة إلى المدونة",
+    readingTime: "دقيقة قراءة",
+    author: "الكاتب",
+    consultant: "مستشار عقاري وبناء",
+    call: "اتصل",
+    getConsulting: "احصل على استشارة",
+    consultingDesc: "هل ترغب في الحصول على دعم مهني في هذا الموضوع؟ فريق خبرائنا هنا من أجلك.",
+    contactUs: "اتصل بنا",
+    otherPosts: "مقالات أخرى",
+    whatsappMessage: "مرحباً، أود الحصول على معلومات حول مقالتكم \"{title}\".",
+  },
+};
+
+export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: BlogDetayClientProps) {
+  const t = texts[locale];
   // Ortak bilgisi
   const ortaklar: Record<string, { telefon: string; whatsapp: string }> = {
     "Zafer Soylu": { telefon: "+90 537 053 07 54", whatsapp: "905370530754" },
@@ -78,11 +128,11 @@ export default function BlogDetayClient({ yazi, digerYazilar }: BlogDetayClientP
             transition={{ duration: 0.6 }}
           >
             <Link
-              href="/blog"
+              href={`/${locale}/blog`}
               className="inline-flex items-center gap-2 text-[#C9A84C] hover:text-white transition-colors mb-6"
             >
               <ArrowLeft className="w-4 h-4" />
-              Blog'a Dön
+              {t.backToBlog}
             </Link>
 
             <span className="inline-block px-3 py-1 bg-[#C9A84C] text-[#0B1F3A] text-xs font-bold rounded-full mb-4">
@@ -104,7 +154,7 @@ export default function BlogDetayClient({ yazi, digerYazilar }: BlogDetayClientP
               </span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-4 h-4 text-[#C9A84C]" />
-                {yazi.okunmaSuresi} dk okuma
+                {yazi.okunmaSuresi} {t.readingTime}
               </span>
             </div>
           </motion.div>
@@ -123,26 +173,43 @@ export default function BlogDetayClient({ yazi, digerYazilar }: BlogDetayClientP
               className="lg:col-span-2"
             >
               <div className="prose prose-lg max-w-none">
-                {yazi.icerik.map((blok, index) => {
-                  if (blok.tip === "baslik") {
+                {typeof yazi.icerik === 'string' ? (
+                  // Veritabanından gelen string içerik
+                  <div
+                    className="text-[#444444] leading-relaxed [&>h2]:text-xl [&>h2]:md:text-2xl [&>h2]:font-bold [&>h2]:text-[#0B1F3A] [&>h2]:mt-8 [&>h2]:mb-4 [&>h3]:text-lg [&>h3]:font-bold [&>h3]:text-[#0B1F3A] [&>h3]:mt-6 [&>h3]:mb-3 [&>p]:mb-4"
+                    dangerouslySetInnerHTML={{
+                      __html: yazi.icerik
+                        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+                        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+                        .replace(/^- (.+)$/gm, '<li>$1</li>')
+                        .replace(/\n\n/g, '</p><p>')
+                        .replace(/^([^<])/, '<p>$1')
+                        .replace(/([^>])$/, '$1</p>')
+                    }}
+                  />
+                ) : (
+                  // JSON'dan gelen array içerik
+                  yazi.icerik.map((blok, index) => {
+                    if (blok.tip === "baslik") {
+                      return (
+                        <h2
+                          key={index}
+                          className="text-xl md:text-2xl font-bold text-[#0B1F3A] mt-8 mb-4"
+                        >
+                          {blok.metin}
+                        </h2>
+                      );
+                    }
                     return (
-                      <h2
+                      <p
                         key={index}
-                        className="text-xl md:text-2xl font-bold text-[#0B1F3A] mt-8 mb-4"
+                        className="text-[#444444] leading-relaxed mb-4"
                       >
                         {blok.metin}
-                      </h2>
+                      </p>
                     );
-                  }
-                  return (
-                    <p
-                      key={index}
-                      className="text-[#444444] leading-relaxed mb-4"
-                    >
-                      {blok.metin}
-                    </p>
-                  );
-                })}
+                  })
+                )}
               </div>
 
               {/* Etiketler */}
@@ -172,12 +239,12 @@ export default function BlogDetayClient({ yazi, digerYazilar }: BlogDetayClientP
               {yazarBilgisi && (
                 <div className="bg-[#F5F5F5] rounded-2xl p-6">
                   <h3 className="text-sm font-bold text-[#0B1F3A] mb-4 uppercase tracking-wider">
-                    Yazar
+                    {t.author}
                   </h3>
                   <div className="space-y-3">
                     <p className="font-bold text-[#0B1F3A]">{yazi.yazar}</p>
                     <p className="text-sm text-[#666666]">
-                      Gayrimenkul & Yapı Danışmanı
+                      {t.consultant}
                     </p>
                     <div className="flex gap-2 pt-2">
                       <a
@@ -185,12 +252,12 @@ export default function BlogDetayClient({ yazi, digerYazilar }: BlogDetayClientP
                         className="flex items-center gap-1.5 px-3 py-2 bg-[#0B1F3A] text-white text-xs rounded-lg hover:bg-[#1a3a5c] transition-colors"
                       >
                         <Phone className="w-3.5 h-3.5" />
-                        Ara
+                        {t.call}
                       </a>
                       <a
                         href={createWhatsAppLink(
                           yazarBilgisi.whatsapp,
-                          `Merhaba, "${yazi.baslik}" yazınız hakkında bilgi almak istiyorum.`
+                          t.whatsappMessage.replace('{title}', yazi.baslik)
                         )}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -206,17 +273,16 @@ export default function BlogDetayClient({ yazi, digerYazilar }: BlogDetayClientP
               {/* Hızlı İletişim */}
               <div className="bg-[#0B1F3A] rounded-2xl p-6 text-white">
                 <h3 className="text-sm font-bold mb-3 uppercase tracking-wider text-[#C9A84C]">
-                  Danışmanlık Alın
+                  {t.getConsulting}
                 </h3>
                 <p className="text-sm text-gray-300 mb-4">
-                  Bu konuda profesyonel destek almak ister misiniz? Uzman
-                  ekibimiz yanınızda.
+                  {t.consultingDesc}
                 </p>
                 <Link
-                  href="/iletisim"
+                  href={`/${locale}/iletisim`}
                   className="inline-flex items-center gap-2 bg-[#C9A84C] text-[#0B1F3A] px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#a88a3d] transition-colors w-full justify-center"
                 >
-                  Bize Ulaşın
+                  {t.contactUs}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -224,13 +290,13 @@ export default function BlogDetayClient({ yazi, digerYazilar }: BlogDetayClientP
               {/* Diğer Yazılar */}
               <div>
                 <h3 className="text-sm font-bold text-[#0B1F3A] mb-4 uppercase tracking-wider">
-                  Diğer Yazılar
+                  {t.otherPosts}
                 </h3>
                 <div className="space-y-4">
                   {digerYazilar.map((diger) => (
                     <Link
                       key={diger.id}
-                      href={`/blog/${diger.slug}`}
+                      href={`/${locale}/blog/${diger.slug}`}
                       className="block group"
                     >
                       <div className="bg-[#F5F5F5] rounded-xl p-4 hover:bg-[#E5E5E5] transition-colors">

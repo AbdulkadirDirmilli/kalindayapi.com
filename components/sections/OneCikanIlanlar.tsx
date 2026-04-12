@@ -10,6 +10,7 @@ import { Card } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { formatPrice, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
+import type { Locale } from "@/lib/i18n";
 
 // Video dosyası olup olmadığını kontrol et
 function isVideo(url: string): boolean {
@@ -35,16 +36,33 @@ const itemVariants = {
   },
 };
 
-export default function OneCikanIlanlar() {
+interface OneCikanIlanlarProps {
+  lang?: Locale;
+  dict?: any;
+}
+
+export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [oneCikanIlanlar, setOneCikanIlanlar] = useState<Ilan[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Fallback translations
+  const t = dict?.home?.featured || {
+    badge: "Öne Çıkan İlanlar",
+    title: "En Güncel Emlak Fırsatları",
+    subtitle: "Muğla'nın tüm ilçelerinden seçkin ilanlarımızı keşfedin. Satılık ve kiralık seçenekler.",
+    forSale: "Satılık",
+    forRent: "Kiralık",
+    noListings: "Henüz öne çıkan ilan bulunmuyor.",
+    viewAll: "Tüm İlanları Gör",
+    perMonth: "/ay",
+  };
+
   useEffect(() => {
     const fetchOneCikanIlanlar = async () => {
       try {
-        const response = await fetch("/api/ilanlar?oneCikan=true&limit=6");
+        const response = await fetch(`/api/ilanlar?oneCikan=true&limit=6&lang=${lang}`);
         if (response.ok) {
           const data = await response.json();
           setOneCikanIlanlar(data.ilanlar || []);
@@ -57,7 +75,7 @@ export default function OneCikanIlanlar() {
     };
 
     fetchOneCikanIlanlar();
-  }, []);
+  }, [lang]);
 
   return (
     <section className="py-20 bg-white" ref={ref}>
@@ -70,14 +88,13 @@ export default function OneCikanIlanlar() {
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-            Öne Çıkan İlanlar
+            {t.badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
-            En Güncel Emlak Fırsatları
+            {t.title}
           </h2>
           <p className="text-text-light max-w-2xl mx-auto">
-            Muğla'nın tüm ilçelerinden seçkin ilanlarımızı keşfedin.
-            Satılık ve kiralık seçenekler.
+            {t.subtitle}
           </p>
         </motion.div>
 
@@ -98,7 +115,7 @@ export default function OneCikanIlanlar() {
           >
             {oneCikanIlanlar.map((ilan) => (
               <motion.div key={ilan.id} variants={itemVariants}>
-                <Link href={`/ilanlar/${ilan.slug || ilan.id}`}>
+                <Link href={`/${lang}/ilanlar/${ilan.slug || ilan.id}`}>
                   <Card
                     variant="interactive"
                     padding="none"
@@ -132,7 +149,7 @@ export default function OneCikanIlanlar() {
                           variant={ilan.kategori === "satilik" ? "satilik" : "kiralik"}
                           size="md"
                         >
-                          {ilan.kategori === "satilik" ? "Satılık" : "Kiralık"}
+                          {ilan.kategori === "satilik" ? t.forSale : t.forRent}
                         </Badge>
                         {ilan.insaatDurumu && (
                           <span className={`px-2 py-1 rounded-md text-xs font-semibold ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
@@ -159,7 +176,7 @@ export default function OneCikanIlanlar() {
                         <span className="bg-primary text-white px-3 py-1.5 rounded-lg font-bold">
                           {formatPrice(ilan.fiyat, ilan.paraBirimi)}
                           {ilan.kategori === "kiralik" && (
-                            <span className="text-xs font-normal">/ay</span>
+                            <span className="text-xs font-normal">{t.perMonth}</span>
                           )}
                         </span>
                       </div>
@@ -214,7 +231,7 @@ export default function OneCikanIlanlar() {
         {!loading && oneCikanIlanlar.length === 0 && (
           <div className="text-center py-16">
             <p className="text-text-light">
-              Henüz öne çıkan ilan bulunmuyor.
+              {t.noListings}
             </p>
           </div>
         )}
@@ -226,13 +243,13 @@ export default function OneCikanIlanlar() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <Link href="/ilanlar">
+          <Link href={`/${lang}/ilanlar`}>
             <Button
               variant="accent"
               size="lg"
               rightIcon={<ArrowRight className="w-5 h-5" />}
             >
-              Tüm İlanları Gör
+              {t.viewAll}
             </Button>
           </Link>
         </motion.div>

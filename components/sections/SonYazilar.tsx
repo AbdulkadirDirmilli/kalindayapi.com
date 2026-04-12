@@ -6,9 +6,25 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import blogData from "@/data/blog-posts.json";
 import { formatDate } from "@/lib/utils";
+import type { Locale } from "@/lib/i18n";
 
-export default function SonYazilar() {
+interface SonYazilarProps {
+  lang?: Locale;
+  dict?: any;
+}
+
+export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
   const sonYazilar = blogData.yazilar.slice(0, 3);
+
+  // Fallback translations
+  const t = dict?.home?.blog || {
+    badge: "Blog & Rehber",
+    title: "Son",
+    titleHighlight: "Yazılarımız",
+    subtitle: "Emlak, imar, tadilat ve gayrimenkul konularında uzman görüşleri ve pratik bilgiler",
+    viewAll: "Tüm Yazıları Gör",
+    readTime: "dk",
+  };
 
   return (
     <section className="py-16 md:py-20 bg-surface">
@@ -21,7 +37,7 @@ export default function SonYazilar() {
             viewport={{ once: true }}
             className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-semibold rounded-full mb-3"
           >
-            Blog & Rehber
+            {t.badge}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -30,7 +46,7 @@ export default function SonYazilar() {
             transition={{ delay: 0.1 }}
             className="text-2xl md:text-4xl font-bold text-primary mb-4"
           >
-            Son <span className="text-accent">Yazılarımız</span>
+            {t.title} <span className="text-accent">{t.titleHighlight}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -39,8 +55,7 @@ export default function SonYazilar() {
             transition={{ delay: 0.2 }}
             className="text-[#666666] max-w-xl mx-auto"
           >
-            Emlak, imar, tadilat ve gayrimenkul konularında uzman görüşleri ve
-            pratik bilgiler
+            {t.subtitle}
           </motion.p>
         </div>
 
@@ -54,7 +69,7 @@ export default function SonYazilar() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
             >
-              <Link href={`/blog/${yazi.slug}`}>
+              <Link href={`/${lang}/blog/${yazi.slug}`}>
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
                   {/* Kapak */}
                   <div className="relative aspect-[4/3] bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] overflow-hidden">
@@ -91,7 +106,7 @@ export default function SonYazilar() {
                         </span>
                         <span className="flex items-center gap-1">
                           <Clock className="w-3 h-3" />
-                          {yazi.okunmaSuresi} dk
+                          {yazi.okunmaSuresi} {t.readTime}
                         </span>
                       </div>
                       <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-1 transition-transform" />
@@ -112,10 +127,10 @@ export default function SonYazilar() {
           className="text-center mt-10"
         >
           <Link
-            href="/blog"
+            href={`/${lang}/blog`}
             className="inline-flex items-center gap-2 bg-[#0B1F3A] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1a3a5c] transition-colors"
           >
-            Tüm Yazıları Gör
+            {t.viewAll}
             <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>

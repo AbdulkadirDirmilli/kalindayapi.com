@@ -4,38 +4,44 @@ import { useRef, useEffect, useState, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import { Building2, Calendar, Users, ThumbsUp } from "lucide-react";
 import { getMutluAileSayisi, getTamamlananProjeSayisi, hesaplaYilDeneyimi } from "@/lib/utils";
+import type { Locale } from "@/lib/i18n";
 
-function useIstatistikler() {
+interface IstatistikSayaclariProps {
+  lang?: Locale;
+  dict?: any;
+}
+
+function useIstatistikler(t: any) {
   return useMemo(() => [
     {
       deger: getTamamlananProjeSayisi(),
       suffix: "+",
-      etiket: "Tamamlanan Proje",
+      etiket: t.projects,
       ikon: Building2,
-      aciklama: "Konut, villa ve ticari projeler",
+      aciklama: t.projectsDesc,
     },
     {
       deger: hesaplaYilDeneyimi(),
       suffix: "+",
-      etiket: "Yıl Deneyim",
+      etiket: t.experience,
       ikon: Calendar,
-      aciklama: "2022'den bu yana hizmet",
+      aciklama: t.experienceDesc,
     },
     {
       deger: getMutluAileSayisi(),
       suffix: "+",
-      etiket: "Mutlu Aile",
+      etiket: t.clients,
       ikon: Users,
-      aciklama: "Güvenle tercih eden müşteriler",
+      aciklama: t.clientsDesc,
     },
     {
       deger: 98,
       suffix: "%",
-      etiket: "Müşteri Memnuniyeti",
+      etiket: t.satisfaction,
       ikon: ThumbsUp,
-      aciklama: "Kalite odaklı hizmet",
+      aciklama: t.satisfactionDesc,
     },
-  ], []);
+  ], [t]);
 }
 
 function useCountUp(end: number, duration: number = 2000, start: boolean = false) {
@@ -115,10 +121,27 @@ function StatCard({
   );
 }
 
-export default function IstatistikSayaclari() {
+export default function IstatistikSayaclari({ lang = 'tr', dict }: IstatistikSayaclariProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const istatistikler = useIstatistikler();
+
+  // Fallback translations
+  const t = dict?.home?.stats || {
+    title: "Rakamlarla Kalinda Yapı",
+    subtitle: "Güvenin ve Başarının Kanıtı",
+    description: "Ortaca ve Muğla bölgesinde yılların getirdiği deneyim ve müşterilerimizin güveniyle büyüyoruz.",
+    projects: "Tamamlanan Proje",
+    experience: "Yıl Deneyim",
+    clients: "Mutlu Aile",
+    satisfaction: "Müşteri Memnuniyeti",
+    projectsDesc: "Konut, villa ve ticari projeler",
+    experienceDesc: "2022'den bu yana hizmet",
+    clientsDesc: "Güvenle tercih eden müşteriler",
+    satisfactionDesc: "Kalite odaklı hizmet",
+    note: "* Veriler gerçek işlemlerimizi yansıtmakta olup, her satış ve kiralama sonrası güncellenmektedir.",
+  };
+
+  const istatistikler = useIstatistikler(t);
 
   return (
     <section
@@ -148,14 +171,13 @@ export default function IstatistikSayaclari() {
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-            Rakamlarla Kalinda Yapı
+            {t.title}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
-            Güvenin ve Başarının Kanıtı
+            {t.subtitle}
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Ortaca ve Muğla bölgesinde yılların getirdiği deneyim ve
-            müşterilerimizin güveniyle büyüyoruz.
+            {t.description}
           </p>
         </motion.div>
 
@@ -163,7 +185,7 @@ export default function IstatistikSayaclari() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 lg:gap-8">
           {istatistikler.map((stat, index) => (
             <StatCard
-              key={stat.etiket}
+              key={index}
               stat={stat}
               index={index}
               isInView={isInView}
@@ -178,7 +200,7 @@ export default function IstatistikSayaclari() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center text-accent/80 text-sm mt-8 font-medium"
         >
-          * Veriler gerçek işlemlerimizi yansıtmakta olup, her satış ve kiralama sonrası güncellenmektedir.
+          {t.note}
         </motion.p>
       </div>
     </section>

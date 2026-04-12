@@ -50,31 +50,145 @@
   },
   "home": {
     "hero": {
-      "title": "Ortaca'nın Güvenilir Yapı & Emlak Ortağı",
-      "subtitle": "12+ yıllık deneyim, 500+ tamamlanan proje",
-      "cta": "İlanları İncele",
-      "ctaSecondary": "Hizmetlerimiz"
+      "badge": "2022'den Bu Yana Hizmetinizdeyiz",
+      "title": "Ortaca'nın Güvenilir",
+      "titleHighlight": "Yapı & Emlak",
+      "titleEnd": "Ortağı",
+      "subtitle": "Muğla Ortaca'da emlak danışmanlığı, tadilat ve taahhüt hizmetleri. Hayalinizdeki eve veya projeye bir adım daha yakınsınız.",
+      "cta": "İlanları Keşfet",
+      "ctaSecondary": "Ücretsiz Danışmanlık Al",
+      "completedProjects": "Tamamlanan Proje",
+      "yearsExperience": "Yıl Deneyim",
+      "happyFamilies": "Mutlu Aile"
     },
     "stats": {
-      "experience": "Yıllık Deneyim",
+      "title": "Rakamlarla Kalinda Yapı",
+      "subtitle": "Güvenin ve Başarının Kanıtı",
+      "description": "Ortaca ve Muğla bölgesinde yılların getirdiği deneyim ve müşterilerimizin güveniyle büyüyoruz.",
+      "experience": "Yıl Deneyim",
       "projects": "Tamamlanan Proje",
-      "clients": "Mutlu Müşteri",
-      "area": "m² İnşaat"
+      "clients": "Mutlu Aile",
+      "satisfaction": "Müşteri Memnuniyeti",
+      "projectsDesc": "Konut, villa ve ticari projeler",
+      "experienceDesc": "2022'den bu yana hizmet",
+      "clientsDesc": "Güvenle tercih eden müşteriler",
+      "satisfactionDesc": "Kalite odaklı hizmet",
+      "area": "m² İnşaat",
+      "note": "* Veriler gerçek işlemlerimizi yansıtmakta olup, her satış ve kiralama sonrası güncellenmektedir."
     },
     "featured": {
-      "title": "Öne Çıkan İlanlar",
-      "subtitle": "En son eklenen ve en çok ilgi gören emlak ilanlarımız"
+      "badge": "Öne Çıkan İlanlar",
+      "title": "En Güncel Emlak Fırsatları",
+      "subtitle": "Muğla'nın tüm ilçelerinden seçkin ilanlarımızı keşfedin. Satılık ve kiralık seçenekler.",
+      "forSale": "Satılık",
+      "forRent": "Kiralık",
+      "noListings": "Henüz öne çıkan ilan bulunmuyor.",
+      "viewAll": "Tüm İlanları Gör",
+      "perMonth": "/ay"
     },
     "services": {
-      "title": "Hizmetlerimiz",
-      "subtitle": "Profesyonel ekibimizle size en iyi hizmeti sunuyoruz"
+      "badge": "Hizmetlerimiz",
+      "title": "Size Nasıl Yardımcı Olabiliriz?",
+      "subtitle": "Emlak danışmanlığından inşaat taahhüdüne kadar tüm ihtiyaçlarınız için yanınızdayız. Profesyonel ekibimizle kaliteli hizmet sunuyoruz.",
+      "details": "Detaylar",
+      "viewAll": "Tüm Hizmetlerimizi Görün",
+      "realEstate": {
+        "title": "Emlak Danışmanlığı",
+        "description": "Ortaca ve çevresinde satılık, kiralık gayrimenkul hizmetleri. Profesyonel değerleme ve yatırım danışmanlığı."
+      },
+      "renovation": {
+        "title": "Tadilat & Dekorasyon",
+        "description": "İç mimari, mutfak-banyo yenileme, boya ve kaplama işleri. Evinizi hayalinizdeki gibi dönüştürüyoruz."
+      },
+      "construction": {
+        "title": "Taahhüt & İnşaat",
+        "description": "Sıfırdan bina inşaatı, restorasyon projeleri ve anahtar teslim yapı çözümleri."
+      },
+      "planning": {
+        "title": "Plan & Proje",
+        "description": "Mimari, statik, elektrik-mekanik proje çizimleri ve ruhsat danışmanlığı hizmetleri."
+      }
     },
     "whyUs": {
+      "badge": "Farkımız",
       "title": "Neden Kalinda Yapı?",
-      "experience": "Tecrübeli Ekip",
-      "quality": "Kaliteli İşçilik",
-      "price": "Uygun Fiyat",
-      "trust": "Güvenilirlik"
+      "subtitle": "Ortaca ve Muğla bölgesinde güvenle tercih edilmemizin sebepleri. Kalite ve müşteri memnuniyeti odaklı çalışıyoruz.",
+      "licensedConsultant": "Lisanslı Danışman",
+      "licensedConsultantDesc": "Resmi olarak sertifikalı emlak danışmanımızla güvenilir hizmet alırsınız.",
+      "localKnowledge": "Yerel Bilgi",
+      "localKnowledgeDesc": "Ortaca ve çevresini avucumuzun içi gibi biliyoruz. Bölgenin dinamiklerine hakimiz.",
+      "guaranteedWork": "Garantili İşçilik",
+      "guaranteedWorkDesc": "Tüm tadilat ve inşaat işlerimizde işçilik garantisi sunuyoruz.",
+      "transparentContract": "Şeffaf Sözleşme",
+      "transparentContractDesc": "Tüm işlemlerimiz yazılı sözleşme ile güvence altındadır. Gizli maliyet yoktur.",
+      "personalAttention": "Kişisel İlgi",
+      "personalAttentionDesc": "Her müşterimize özel ilgi gösteriyoruz. İhtiyaçlarınızı anlamak önceliğimiz.",
+      "onTimeDelivery": "Zamanında Teslimat",
+      "onTimeDeliveryDesc": "Projelerimizi söz verdiğimiz sürede tamamlıyoruz. Zamana değer veriyoruz.",
+      "serviceArea": "Hizmet Bölgesi",
+      "allDistricts": "Muğla'nın Tüm İlçeleri",
+      "established": "Kuruluş",
+      "since2022": "2022'den Bu Yana",
+      "customerSatisfaction": "Müşteri Memnuniyeti",
+      "serviceNote": "Emlak, tadilat ve inşaat hizmetlerimiz ile tüm Muğla ilçelerinde yanınızdayız"
+    },
+    "blog": {
+      "badge": "Blog & Rehber",
+      "title": "Son",
+      "titleHighlight": "Yazılarımız",
+      "subtitle": "Emlak, imar, tadilat ve gayrimenkul konularında uzman görüşleri ve pratik bilgiler",
+      "viewAll": "Tüm Yazıları Gör",
+      "readTime": "dk"
+    },
+    "references": {
+      "badge": "Referans Projeler",
+      "title": "Öncesi - Sonrası Galeri",
+      "subtitle": "Tamamladığımız projelerden örnekler. Kaliteli işçilik ve profesyonel yaklaşımımızla fark yaratıyoruz.",
+      "before": "ÖNCESİ",
+      "after": "SONRASI",
+      "clickToToggle": "Tıkla & Değiştir",
+      "instruction": "Görsellere tıklayarak öncesi-sonrası karşılaştırmasını görebilirsiniz",
+      "prev": "Önceki",
+      "next": "Sonraki"
+    },
+    "team": {
+      "badge": "Ekibimiz",
+      "title": "Kurucu Ortaklarımız",
+      "subtitle": "Kalinda Yapı'nın arkasındaki deneyimli isimler. Ortaklarımız müşteri memnuniyetini en üst düzeyde tutarak hizmet vermektedir.",
+      "expertise": "Uzmanlık Alanları",
+      "call": "Ara"
+    },
+    "faq": {
+      "badge": "SSS",
+      "title": "Sıkça Sorulan Sorular",
+      "subtitle": "Ortaca, Dalyan ve Muğla'da emlak alım-satım, tadilat ve inşaat hakkında en çok merak edilen sorular ve uzman cevapları.",
+      "moreQuestions": "Başka sorularınız mı var?",
+      "contactUs": "Bize ulaşın"
+    },
+    "contactForm": {
+      "badge": "İletişim",
+      "title": "Hemen Bize Ulaşın",
+      "subtitle": "Emlak, tadilat veya inşaat projeleriniz için ücretsiz danışmanlık alın. Size en kısa sürede dönüş yapacağız.",
+      "address": "Adres",
+      "phone": "Telefon",
+      "workingHours": "Çalışma Saatleri",
+      "weekdays": "Pzt-Cum: 08:00 - 18:00",
+      "saturday": "Cumartesi: 09:00 - 14:00",
+      "formTitle": "Ücretsiz Danışmanlık Formu",
+      "nameLabel": "Adınız Soyadınız",
+      "namePlaceholder": "Adınızı girin",
+      "phoneLabel": "Telefon",
+      "phonePlaceholder": "0 (5XX) XXX XX XX",
+      "serviceLabel": "Hizmet Türü",
+      "serviceSelect": "Hizmet Seçin",
+      "messageLabel": "Mesajınız",
+      "messagePlaceholder": "Projeniz hakkında kısaca bilgi verin...",
+      "submit": "Gönder",
+      "successTitle": "Mesajınız Alındı!",
+      "successMessage": "En kısa sürede size dönüş yapacağız.",
+      "privacyNote": "Formu göndererek",
+      "privacyLink": "gizlilik politikamızı",
+      "privacyAccept": "kabul etmiş olursunuz."
     }
   },
   "listings": {

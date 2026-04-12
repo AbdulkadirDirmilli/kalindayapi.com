@@ -15,6 +15,7 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search')
     const oneCikan = searchParams.get('oneCikan')
     const eidsStatus = searchParams.get('eidsStatus')
+    const lang = searchParams.get('lang') || 'tr' // Dil parametresi
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const where: any = {
@@ -60,6 +61,10 @@ export async function GET(request: NextRequest) {
           fotograflar: {
             orderBy: { sira: 'asc' },
           },
+          translations: lang !== 'tr' ? {
+            where: { language: lang, status: 'published' },
+            take: 1,
+          } : false,
         },
         orderBy: [
           { oneCikan: 'desc' },
@@ -72,55 +77,61 @@ export async function GET(request: NextRequest) {
     ])
 
     // Frontend için veri formatını dönüştür
-    const formattedIlanlar = ilanlar.map((ilan) => ({
-      id: ilan.id,
-      baslik: ilan.baslik,
-      slug: ilan.slug,
-      kategori: ilan.kategori,
-      tip: ilan.tip,
-      fiyat: ilan.fiyat,
-      paraBirimi: ilan.paraBirimi,
-      konum: {
-        il: ilan.il,
-        ilce: ilan.ilce,
-        mahalle: ilan.mahalle || '',
-        koordinatlar: {
-          lat: ilan.koordinatLat || 36.8384,
-          lng: ilan.koordinatLng || 28.7667,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const formattedIlanlar = ilanlar.map((ilan: any) => {
+      // Çeviri varsa kullan, yoksa Türkçe değerleri kullan
+      const translation = ilan.translations?.[0];
+
+      return {
+        id: ilan.id,
+        baslik: translation?.baslik || ilan.baslik,
+        slug: translation?.slug || ilan.slug,
+        kategori: translation?.kategori || ilan.kategori,
+        tip: translation?.tip || ilan.tip,
+        fiyat: ilan.fiyat,
+        paraBirimi: ilan.paraBirimi,
+        konum: {
+          il: ilan.il,
+          ilce: ilan.ilce,
+          mahalle: ilan.mahalle || '',
+          koordinatlar: {
+            lat: ilan.koordinatLat || 36.8384,
+            lng: ilan.koordinatLng || 28.7667,
+          },
         },
-      },
-      ozellikler: {
-        metrekare: ilan.metrekare || 0,
-        odaSayisi: ilan.odaSayisi,
-        banyoSayisi: ilan.banyoSayisi,
-        kat: ilan.kat,
-        toplamKat: ilan.toplamKat,
-        binaYasi: ilan.binaYasi,
-        isitma: ilan.isitma,
-        esyali: ilan.esyali,
-        balkon: ilan.balkon,
-        asansor: ilan.asansor,
-        otopark: ilan.otopark,
-        guvenlik: ilan.guvenlik,
-        havuz: ilan.havuz,
-        bahce: ilan.bahce,
-        bahceMetrekare: ilan.bahceMetrekare,
-        imarDurumu: ilan.imarDurumu,
-        gabari: ilan.gabari,
-        yolCephesi: ilan.yolCephesi,
-        altyapi: ilan.altyapi,
-        insaatDurumu: ilan.insaatDurumu,
-      },
-      aciklama: ilan.aciklama,
-      fotograflar: ilan.fotograflar.map((f) => f.url),
-      oneCikan: ilan.oneCikan,
-      yayinTarihi: ilan.yayinTarihi.toISOString(),
-      guncellenmeTarihi: ilan.guncellenmeTarihi.toISOString(),
-      durum: ilan.durum,
-      insaatDurumu: ilan.insaatDurumu || null,
-      ilanNo: ilan.ilanNo || '',
-      eidsStatus: ilan.eidsStatus,
-    }))
+        ozellikler: {
+          metrekare: ilan.metrekare || 0,
+          odaSayisi: ilan.odaSayisi,
+          banyoSayisi: ilan.banyoSayisi,
+          kat: ilan.kat,
+          toplamKat: ilan.toplamKat,
+          binaYasi: ilan.binaYasi,
+          isitma: ilan.isitma,
+          esyali: ilan.esyali,
+          balkon: ilan.balkon,
+          asansor: ilan.asansor,
+          otopark: ilan.otopark,
+          guvenlik: ilan.guvenlik,
+          havuz: ilan.havuz,
+          bahce: ilan.bahce,
+          bahceMetrekare: ilan.bahceMetrekare,
+          imarDurumu: ilan.imarDurumu,
+          gabari: ilan.gabari,
+          yolCephesi: ilan.yolCephesi,
+          altyapi: ilan.altyapi,
+          insaatDurumu: ilan.insaatDurumu,
+        },
+        aciklama: translation?.aciklama || ilan.aciklama,
+        fotograflar: ilan.fotograflar.map((f: { url: string }) => f.url),
+        oneCikan: ilan.oneCikan,
+        yayinTarihi: ilan.yayinTarihi.toISOString(),
+        guncellenmeTarihi: ilan.guncellenmeTarihi.toISOString(),
+        durum: ilan.durum,
+        insaatDurumu: ilan.insaatDurumu || null,
+        ilanNo: ilan.ilanNo || '',
+        eidsStatus: ilan.eidsStatus,
+      };
+    })
 
     return NextResponse.json({
       ilanlar: formattedIlanlar,
