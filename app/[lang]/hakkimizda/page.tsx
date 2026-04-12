@@ -23,8 +23,32 @@ import { OrtaklarBolumu, IstatistikSayaclari } from "@/components/sections";
 import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 import { createWhatsAppLink } from "@/lib/utils";
+import { locales, type Locale, generateAlternateUrls } from "@/lib/i18n";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
-export const metadata: Metadata = pageMetadata.hakkimizda;
+export async function generateStaticParams() {
+  return locales.map((locale) => ({ lang: locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = locales.includes(lang as Locale) ? (lang as Locale) : 'tr';
+  const dict = await getCachedDictionary(locale);
+  const alternates = generateAlternateUrls('/hakkimizda', locale);
+
+  return {
+    title: dict.nav.about,
+    description: dict.meta.description,
+    alternates: {
+      canonical: `https://www.kalindayapi.com/${locale}/hakkimizda`,
+      languages: alternates,
+    },
+  };
+}
 
 const degerler = [
   {
@@ -53,10 +77,18 @@ const degerler = [
   },
 ];
 
-export default function HakkimizdaPage() {
+export default async function HakkimizdaPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const locale = locales.includes(lang as Locale) ? (lang as Locale) : 'tr';
+  const dict = await getCachedDictionary(locale);
+
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Ana Sayfa", url: "/" },
-    { name: "Hakkımızda", url: "/hakkimizda" },
+    { name: dict.nav.home, url: `/${locale}` },
+    { name: dict.nav.about, url: `/${locale}/hakkimizda` },
   ]);
 
   const organizationSchema = generateOrganizationSchema();
@@ -82,22 +114,26 @@ export default function HakkimizdaPage() {
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">Hakkımızda</span>
+            <span className="text-[#C9A84C]">{dict.nav.about}</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               <span className="text-[#C9A84C]">Kalinda Yapı</span> Hakkında
             </h1>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-gray-300 text-lg leading-relaxed mb-4">
               2022 yılından bu yana Muğla'nın Ortaca ilçesinde emlak danışmanlığı,
               tadilat ve inşaat taahhüt hizmetleri sunuyoruz. Zafer Soylu ve Arif
               Dağdelen ortaklığıyla kurulan firmamız, bölgenin en güvenilir yapı
               ve emlak markalarından biri olmayı hedeflemektedir.
+            </p>
+            <p className="text-gray-400 text-base leading-relaxed">
+              Ortaca merkez, Dalyan, Köyceğiz, Dalaman ve Fethiye'de 200'den fazla başarılı emlak işlemi
+              ve 100'ü aşkın tadilat projesiyle bölgenin güvenilir yapı ortağıyız.
             </p>
           </div>
         </div>
@@ -122,15 +158,13 @@ export default function HakkimizdaPage() {
                   tanıyan isimlerdir.
                 </p>
                 <p>
-                  Zafer Soylu, emlak sektöründeki deneyimiyle bölgenin
-                  gayrimenkul dinamiklerine hakim bir profesyoneldir. Arif
-                  Dağdelen ise inşaat sektöründeki tecrübesiyle sayısız
-                  konut, villa ve ticari proje tamamlamıştır.
+                  Zafer Soylu, <Link href={`/${locale}/hizmetler/emlak-danismanligi`} className="text-[#C9A84C] hover:underline">emlak danışmanlığı</Link> sektöründeki deneyimiyle Ortaca, Dalyan ve Köyceğiz bölgelerinin gayrimenkul dinamiklerine hakim bir profesyoneldir. Arif Dağdelen ise <Link href={`/${locale}/hizmetler/taahhut-insaat`} className="text-[#C9A84C] hover:underline">inşaat ve taahhüt</Link> sektöründeki tecrübesiyle sayısız konut, villa ve ticari proje tamamlamıştır.
                 </p>
                 <p>
-                  Bugün, 100'den fazla tamamlanmış proje ve 200'den fazla mutlu
-                  aile ile Ortaca ve çevresinin güvenilir yapı ve emlak ortağı
-                  olmaya devam ediyoruz.
+                  <Link href={`/${locale}/hizmetler/tadilat-dekorasyon`} className="text-[#C9A84C] hover:underline">Tadilat</Link> ve <Link href={`/${locale}/hizmetler/plan-proje`} className="text-[#C9A84C] hover:underline">proje hizmetlerimizle</Link> 100'den fazla proje tamamladık. <Link href={`/${locale}/ilanlar`} className="text-[#C9A84C] hover:underline">Emlak portföyümüzde</Link> Ortaca merkez, Dalyan kanal boyu, Köyceğiz göl manzaralı ve Dalaman havalimanı yakını seçenekler bulunuyor.
+                </p>
+                <p>
+                  Bugün, 200'den fazla mutlu aile ile Muğla bölgesinin güvenilir yapı ve emlak ortağı olmaya devam ediyoruz. <Link href={`/${locale}/blog/ortaca-emlak-rehberi-mahalle-mahalle-2026`} className="text-[#C9A84C] hover:underline">Ortaca emlak rehberimizi</Link> inceleyerek bölge hakkında detaylı bilgi alabilirsiniz.
                 </p>
               </div>
             </div>
@@ -302,7 +336,7 @@ export default function HakkimizdaPage() {
             Ücretsiz danışmanlık hizmetimizden yararlanın.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/iletisim">
+            <Link href={`/${locale}/iletisim`}>
               <Button variant="accent" size="lg">
                 İletişime Geç
               </Button>

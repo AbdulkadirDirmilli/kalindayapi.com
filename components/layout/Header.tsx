@@ -9,42 +9,109 @@ import { Menu, X, ChevronDown, Search, Phone, Home, Briefcase, Building2, Trendi
 import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { HeaderExchangeRate, CurrencySwitcher } from "@/components/exchange";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLocale } from "@/components/providers/LocaleProvider";
+import { getLocalizedRoute } from "@/lib/i18n";
 
-const navigation = [
-  { name: "Ana Sayfa", href: "/", icon: Home },
-  {
-    name: "Hizmetler",
-    href: "/hizmetler",
-    icon: Briefcase,
-    children: [
-      { name: "Emlak Danışmanlığı", href: "/hizmetler/emlak-danismanligi" },
-      { name: "Tadilat & Dekorasyon", href: "/hizmetler/tadilat-dekorasyon" },
-      { name: "Taahhüt & İnşaat", href: "/hizmetler/taahhut-insaat" },
-      { name: "Plan & Proje", href: "/hizmetler/plan-proje" },
-    ],
+// Navigation translations
+const navTexts = {
+  tr: {
+    home: "Ana Sayfa",
+    services: "Hizmetler",
+    listings: "İlanlar",
+    exchange: "Döviz",
+    blog: "Blog",
+    corporate: "Kurumsal",
+    about: "Hakkımızda",
+    visionMission: "Vizyon & Misyon",
+    references: "Referanslar",
+    certificates: "Belgeler & Sertifikalar",
+    contact: "İletişim",
+    realEstate: "Emlak Danışmanlığı",
+    renovation: "Tadilat & Dekorasyon",
+    construction: "Taahhüt & İnşaat",
+    planning: "Plan & Proje",
+    searchListings: "İlan Sorgula",
+    callNow: "Hemen Arayın",
   },
-  { name: "İlanlar", href: "/ilanlar", icon: Building2 },
-  { name: "Döviz", href: "/doviz-kurlari", icon: TrendingUp },
-  { name: "Blog", href: "/blog", icon: Briefcase },
-  {
-    name: "Kurumsal",
-    href: "/hakkimizda",
-    icon: Users,
-    children: [
-      { name: "Hakkımızda", href: "/hakkimizda" },
-      { name: "Vizyon & Misyon", href: "/kurumsal/vizyon-misyon" },
-      { name: "Referanslar", href: "/kurumsal/referanslar" },
-      { name: "Belgeler & Sertifikalar", href: "/kurumsal/belgeler" },
-    ],
+  en: {
+    home: "Home",
+    services: "Services",
+    listings: "Properties",
+    exchange: "Exchange",
+    blog: "Blog",
+    corporate: "Corporate",
+    about: "About Us",
+    visionMission: "Vision & Mission",
+    references: "References",
+    certificates: "Certificates",
+    contact: "Contact",
+    realEstate: "Real Estate Consulting",
+    renovation: "Renovation & Decoration",
+    construction: "Construction",
+    planning: "Planning & Design",
+    searchListings: "Search Properties",
+    callNow: "Call Now",
   },
-  { name: "İletişim", href: "/iletisim", icon: Mail },
-];
+  ar: {
+    home: "الرئيسية",
+    services: "الخدمات",
+    listings: "العقارات",
+    exchange: "العملات",
+    blog: "المدونة",
+    corporate: "الشركة",
+    about: "من نحن",
+    visionMission: "الرؤية والمهمة",
+    references: "المراجع",
+    certificates: "الشهادات",
+    contact: "اتصل بنا",
+    realEstate: "الاستشارات العقارية",
+    renovation: "التجديد والديكور",
+    construction: "البناء والمقاولات",
+    planning: "التخطيط والتصميم",
+    searchListings: "البحث",
+    callNow: "اتصل الآن",
+  },
+};
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+  const { locale } = useLocale();
+  const t = navTexts[locale];
+
+  // Build localized navigation
+  const navigation = [
+    { name: t.home, href: `/${locale}`, icon: Home },
+    {
+      name: t.services,
+      href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}`,
+      icon: Briefcase,
+      children: [
+        { name: t.realEstate, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('emlak-danismanligi', locale)}` },
+        { name: t.renovation, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('tadilat-dekorasyon', locale)}` },
+        { name: t.construction, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('taahhut-insaat', locale)}` },
+        { name: t.planning, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('plan-proje', locale)}` },
+      ],
+    },
+    { name: t.listings, href: `/${locale}/${getLocalizedRoute('ilanlar', locale)}`, icon: Building2 },
+    { name: t.exchange, href: `/${locale}/${getLocalizedRoute('doviz-kurlari', locale)}`, icon: TrendingUp },
+    { name: t.blog, href: `/${locale}/${getLocalizedRoute('blog', locale)}`, icon: Briefcase },
+    {
+      name: t.corporate,
+      href: `/${locale}/${getLocalizedRoute('hakkimizda', locale)}`,
+      icon: Users,
+      children: [
+        { name: t.about, href: `/${locale}/${getLocalizedRoute('hakkimizda', locale)}` },
+        { name: t.visionMission, href: `/${locale}/${getLocalizedRoute('kurumsal', locale)}/${getLocalizedRoute('vizyon-misyon', locale)}` },
+        { name: t.references, href: `/${locale}/${getLocalizedRoute('kurumsal', locale)}/${getLocalizedRoute('referanslar', locale)}` },
+        { name: t.certificates, href: `/${locale}/${getLocalizedRoute('kurumsal', locale)}/${getLocalizedRoute('belgeler', locale)}` },
+      ],
+    },
+    { name: t.contact, href: `/${locale}/${getLocalizedRoute('iletisim', locale)}`, icon: Mail },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +128,7 @@ export default function Header() {
   }, [pathname]);
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
+    if (href === `/${locale}`) return pathname === `/${locale}` || pathname === `/${locale}/`;
     return pathname.startsWith(href);
   };
 
@@ -77,7 +144,7 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative z-10" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <Link href={`/${locale}`} className="relative z-10" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             {/* Mobile: küçük logo */}
             <div className="relative w-12 h-12 sm:hidden">
               <Image
@@ -160,23 +227,24 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Exchange Rates - Mobile & Desktop */}
+          {/* Exchange Rates & Language - Mobile & Desktop */}
           <div className="flex items-center gap-1 lg:gap-2">
-            <Link href="/doviz-kurlari" className="lg:pointer-events-none">
+            <Link href={`/${locale}/${getLocalizedRoute('doviz-kurlari', locale)}`} className="lg:pointer-events-none">
               <HeaderExchangeRate isScrolled={isScrolled} />
             </Link>
             <CurrencySwitcher variant="compact" isScrolled={isScrolled} />
+            <LanguageSwitcher variant="minimal" isScrolled={isScrolled} />
           </div>
 
           {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link href="/ilanlar">
+            <Link href={`/${locale}/${getLocalizedRoute('ilanlar', locale)}`}>
               <Button
                 variant="accent"
                 size="md"
                 leftIcon={<Search className="w-4 h-4" />}
               >
-                İlan Sorgula
+                {t.searchListings}
               </Button>
             </Link>
           </div>
@@ -283,16 +351,16 @@ export default function Header() {
 
               {/* Mobile CTA */}
               <div className="mt-4 pt-4 border-t border-border space-y-3">
-                <Link href="/ilanlar" className="block">
+                <Link href={`/${locale}/${getLocalizedRoute('ilanlar', locale)}`} className="block">
                   <Button variant="accent" size="md" className="w-full">
                     <Search className="w-4 h-4" />
-                    İlan Sorgula
+                    {t.searchListings}
                   </Button>
                 </Link>
                 <a href="tel:+905370530754" className="block">
                   <Button variant="outline" size="md" className="w-full">
                     <Phone className="w-4 h-4" />
-                    Hemen Arayın
+                    {t.callNow}
                   </Button>
                 </a>
               </div>

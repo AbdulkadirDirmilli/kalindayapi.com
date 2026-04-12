@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, SlidersHorizontal, X, Grid3X3, List, ChevronDown, ShieldCheck } from "lucide-react";
 import { Input, Select } from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
+import { type Locale, defaultLocale } from "@/lib/i18n";
 
 interface FilterState {
   kategori: string;
@@ -22,6 +23,7 @@ interface IlanFiltresiProps {
   viewMode: "grid" | "list";
   onViewModeChange: (mode: "grid" | "list") => void;
   totalCount: number;
+  locale?: Locale;
 }
 
 const kategoriSecenekleri = [

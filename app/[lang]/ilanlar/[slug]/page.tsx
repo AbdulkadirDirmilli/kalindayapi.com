@@ -1,15 +1,15 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import IlanDetayClient from "./IlanDetayClient";
-import Button from "@/components/ui/Button";
 import { Ilan, getEidsStatusLabel } from "@/lib/utils";
+import { locales, defaultLocale, type Locale, generateAlternateUrls, getLocalizedRoute } from "@/lib/i18n";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
 const siteUrl = "https://www.kalindayapi.com";
 
 interface IlanDetayPageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; lang: string }>;
 }
 
 // Video dosyası olup olmadığını kontrol et
@@ -56,19 +56,15 @@ function formatIlan(ilan: any): Ilan {
       gabari: ilan.gabari,
       yolCephesi: ilan.yolCephesi,
       altyapi: ilan.altyapi,
-      // Detayli ozellikler - JSON string'den array'e cevir
       icOzellikler: ilan.icOzellikler ? JSON.parse(ilan.icOzellikler) : undefined,
       disOzellikler: ilan.disOzellikler ? JSON.parse(ilan.disOzellikler) : undefined,
       muhitOzellikleri: ilan.muhitOzellikleri ? JSON.parse(ilan.muhitOzellikleri) : undefined,
       guvenlikOzellikleri: ilan.guvenlikOzellikleri ? JSON.parse(ilan.guvenlikOzellikleri) : undefined,
       cephe: ilan.cephe ? JSON.parse(ilan.cephe) : undefined,
       manzara: ilan.manzara ? JSON.parse(ilan.manzara) : undefined,
-      // Arsa ozellikleri
       altyapiDetay: ilan.altyapiDetay ? JSON.parse(ilan.altyapiDetay) : undefined,
       tarimOzellikleri: ilan.tarimOzellikleri ? JSON.parse(ilan.tarimOzellikleri) : undefined,
-      // Ticari ozellikler
       depoOzellikleri: ilan.depoOzellikleri ? JSON.parse(ilan.depoOzellikleri) : undefined,
-      // Insaat durumu
       insaatDurumu: ilan.insaatDurumu || undefined,
     },
     insaatDurumu: ilan.insaatDurumu || null,
@@ -134,29 +130,36 @@ async function getBenzerIlanlar(kategori: string, currentSlug: string) {
   return ilanlar.map(formatIlan);
 }
 
-// Metadata oluştur - WhatsApp ve sosyal medya için OG etiketleri
+// Metadata oluştur
 export async function generateMetadata({ params }: IlanDetayPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, lang } = await params;
+  const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
+  const dict = await getCachedDictionary(locale);
   const ilan = await getIlan(slug);
 
   if (!ilan) {
     return {
-      title: "İlan Bulunamadı | Kalinda Yapı",
+      title: `${dict.common.error} | Kalinda Yapı`,
     };
   }
 
-  const title = `${ilan.baslik} | ${ilan.konum.ilce}`;
-  const description = `${ilan.kategori === "satilik" ? "Satılık" : "Kiralık"} ${ilan.ozellikler.metrekare}m² ${ilan.tip} - ${ilan.konum.mahalle ? ilan.konum.mahalle + ", " : ""}${ilan.konum.ilce}. ${ilan.aciklama?.slice(0, 120) || ""}...`;
-  const url = `${siteUrl}/ilanlar/${ilan.slug}`;
+  const kategoriText = locale === 'tr'
+    ? (ilan.kategori === "satilik" ? "Satılık" : "Kiralık")
+    : locale === 'en'
+      ? (ilan.kategori === "satilik" ? "For Sale" : "For Rent")
+      : (ilan.kategori === "satilik" ? "للبيع" : "للإيجار");
 
-  // Kapak fotoğrafı - sadece fotoğrafları al (videoları hariç tut)
+  const title = `${ilan.baslik} | ${ilan.konum.ilce}`;
+  const description = `${kategoriText} ${ilan.ozellikler.metrekare}m² ${ilan.tip} - ${ilan.konum.mahalle ? ilan.konum.mahalle + ", " : ""}${ilan.konum.ilce}. ${ilan.aciklama?.slice(0, 120) || ""}...`;
+  const url = `${siteUrl}/${locale}/${getLocalizedRoute('ilanlar', locale)}/${ilan.slug}`;
+
   const fotograflar = ilan.fotograflar.filter((f: string) => !isVideo(f));
   const kapakFoto = fotograflar[0];
-
-  // Tam URL oluştur
   const ogImage = kapakFoto
     ? (kapakFoto.startsWith('http') ? kapakFoto : `${siteUrl}${kapakFoto}`)
     : `${siteUrl}/og-image.jpg`;
+
+  const alternates = generateAlternateUrls(`/ilanlar/${slug}`, locale);
 
   return {
     title: `${title} | Kalinda Yapı`,
@@ -182,7 +185,7 @@ export async function generateMetadata({ params }: IlanDetayPageProps): Promise<
           alt: ilan.baslik,
         },
       ],
-      locale: "tr_TR",
+      locale: locale === "tr" ? "tr_TR" : locale === "en" ? "en_US" : "ar_SA",
       type: "website",
     },
     twitter: {
@@ -193,12 +196,15 @@ export async function generateMetadata({ params }: IlanDetayPageProps): Promise<
     },
     alternates: {
       canonical: url,
+      languages: alternates,
     },
   };
 }
 
 export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
-  const { slug } = await params;
+  const { slug, lang } = await params;
+  const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
+  const dict = await getCachedDictionary(locale);
   const ilan = await getIlan(slug);
 
   if (!ilan) {
@@ -212,7 +218,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "name": ilan.baslik,
-    "url": `${siteUrl}/ilanlar/${ilan.slug}`,
+    "url": `${siteUrl}/${locale}/${getLocalizedRoute('ilanlar', locale)}/${ilan.slug}`,
     "description": ilan.aciklama?.slice(0, 200),
     "additionalProperty": {
       "@type": "PropertyValue",
@@ -227,7 +233,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <IlanDetayClient ilan={ilan} benzerIlanlar={benzerIlanlar} />
+      <IlanDetayClient ilan={ilan} benzerIlanlar={benzerIlanlar} locale={locale} dict={dict} />
     </>
   );
 }

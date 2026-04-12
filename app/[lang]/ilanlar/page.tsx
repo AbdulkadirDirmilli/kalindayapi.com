@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { IlanKart, IlanFiltresi, IlanPagination } from "@/components/ilan";
 import { generateBreadcrumbSchema } from "@/lib/jsonld";
 import { Ilan } from "@/lib/utils";
 import { ChevronRight, Home, Loader2 } from "lucide-react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
+import { locales, defaultLocale, type Locale, getLocalizedRoute } from "@/lib/i18n";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -20,7 +22,49 @@ interface FilterState {
   eidsStatus: string;
 }
 
+// Dil bazlı metinler
+const texts = {
+  tr: {
+    title: "Emlak İlanları",
+    subtitle: "Muğla'nın tüm ilçelerinde satılık ve kiralık gayrimenkuller. Hayalinizdeki evi bulun.",
+    breadcrumb: "İlanlar",
+    loading: "İlanlar yükleniyor...",
+    error: "Hata Oluştu",
+    retry: "Tekrar Dene",
+    noResults: "İlan Bulunamadı",
+    noResultsDesc: "Arama kriterlerinize uygun ilan bulunamadı. Filtreleri değiştirmeyi deneyin.",
+    clearFilters: "Tüm filtreleri temizle",
+  },
+  en: {
+    title: "Property Listings",
+    subtitle: "Properties for sale and rent in all districts of Muğla. Find your dream home.",
+    breadcrumb: "Listings",
+    loading: "Loading listings...",
+    error: "Error Occurred",
+    retry: "Try Again",
+    noResults: "No Listings Found",
+    noResultsDesc: "No listings found matching your search criteria. Try changing the filters.",
+    clearFilters: "Clear all filters",
+  },
+  ar: {
+    title: "قوائم العقارات",
+    subtitle: "عقارات للبيع والإيجار في جميع مناطق موغلا. اعثر على منزل أحلامك.",
+    breadcrumb: "العقارات",
+    loading: "جاري تحميل العقارات...",
+    error: "حدث خطأ",
+    retry: "حاول مرة أخرى",
+    noResults: "لم يتم العثور على عقارات",
+    noResultsDesc: "لم يتم العثور على عقارات تطابق معايير البحث. حاول تغيير المرشحات.",
+    clearFilters: "مسح جميع المرشحات",
+  },
+};
+
 export default function IlanlarPage() {
+  const params = useParams();
+  const lang = (params?.lang as Locale) || defaultLocale;
+  const locale = locales.includes(lang) ? lang : defaultLocale;
+  const t = texts[locale];
+
   const [filters, setFilters] = useState<FilterState>({
     kategori: "",
     tip: "",
@@ -85,8 +129,8 @@ export default function IlanlarPage() {
   };
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Ana Sayfa", url: "/" },
-    { name: "İlanlar", url: "/ilanlar" },
+    { name: locale === "tr" ? "Ana Sayfa" : locale === "en" ? "Home" : "الرئيسية", url: `/${locale}` },
+    { name: t.breadcrumb, url: `/${locale}/${getLocalizedRoute("ilanlar", locale)}` },
   ]);
 
   return (
@@ -104,11 +148,11 @@ export default function IlanlarPage() {
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">İlanlar</span>
+            <span className="text-[#C9A84C]">{t.breadcrumb}</span>
           </nav>
 
           <motion.div
@@ -117,11 +161,10 @@ export default function IlanlarPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Emlak İlanları
+              {t.title}
             </h1>
             <p className="text-gray-300 max-w-2xl">
-              Muğla'nın tüm ilçelerinde satılık ve kiralık gayrimenkuller.
-              Hayalinizdeki evi bulun.
+              {t.subtitle}
             </p>
           </motion.div>
         </div>
@@ -143,6 +186,7 @@ export default function IlanlarPage() {
               viewMode={viewMode}
               onViewModeChange={setViewMode}
               totalCount={totalCount}
+              locale={locale}
             />
           </motion.div>
 
@@ -151,7 +195,7 @@ export default function IlanlarPage() {
             <div className="flex items-center justify-center py-20">
               <Loader2 className="w-10 h-10 animate-spin text-[#C9A84C]" />
               <span className="ml-3 text-lg text-gray-600">
-                İlanlar yükleniyor...
+                {t.loading}
               </span>
             </div>
           )}
@@ -175,14 +219,14 @@ export default function IlanlarPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
-                Hata Oluştu
+                {t.error}
               </h3>
               <p className="text-[#666666] mb-6">{error}</p>
               <button
                 onClick={() => window.location.reload()}
                 className="px-6 py-2 bg-[#C9A84C] text-white rounded-lg hover:bg-[#b8973f] transition-colors"
               >
-                Tekrar Dene
+                {t.retry}
               </button>
             </div>
           )}
@@ -203,6 +247,7 @@ export default function IlanlarPage() {
                     ilan={ilan}
                     variant={viewMode}
                     index={index}
+                    locale={locale}
                   />
                 ))}
               </div>
@@ -243,11 +288,10 @@ export default function IlanlarPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
-                İlan Bulunamadı
+                {t.noResults}
               </h3>
               <p className="text-[#666666] mb-6">
-                Arama kriterlerinize uygun ilan bulunamadı. Filtreleri değiştirmeyi
-                deneyin.
+                {t.noResultsDesc}
               </p>
               <button
                 onClick={() =>
@@ -263,7 +307,7 @@ export default function IlanlarPage() {
                 }
                 className="text-[#C9A84C] font-medium hover:underline"
               >
-                Tüm filtreleri temizle
+                {t.clearFilters}
               </button>
             </motion.div>
           )}

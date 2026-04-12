@@ -109,10 +109,10 @@ export default function VizyonMisyonPage() {
               <span className="text-[#C9A84C]">Vizyon</span> & Misyon
             </h1>
             <p className="text-gray-300 text-lg leading-relaxed">
-              Kalinda Yapı olarak hedefimiz, Muğla bölgesinin en güvenilir ve
-              tercih edilen yapı ve emlak markası olmaktır. Bu hedefe ulaşmak
-              için belirlediğimiz vizyon ve misyon ilkelerimizi sizlerle
-              paylaşıyoruz.
+              Kalinda Yapı olarak hedefimiz, Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinin en güvenilir ve
+              tercih edilen yapı ve emlak markası olmaktır. 2022'den bu yana edindiğimiz deneyim ve
+              müşteri memnuniyeti odaklı yaklaşımımızla bu hedefe ulaşmak için belirlediğimiz vizyon ve
+              misyon ilkelerimizi sizlerle paylaşıyoruz.
             </p>
           </div>
         </div>
@@ -131,16 +131,13 @@ export default function VizyonMisyonPage() {
               </div>
               <div className="space-y-4 text-[#666666]">
                 <p className="leading-relaxed">
-                  Ortaca ve Muğla bölgesinde <strong>güvenilir, şeffaf ve kaliteli</strong> emlak
-                  danışmanlığı ile yapı çözümleri sunmak.
+                  Ortaca merkez, Dalyan, Köyceğiz, Dalaman ve Fethiye bölgelerinde <strong>güvenilir, şeffaf ve kaliteli</strong> emlak danışmanlığı ile yapı çözümleri sunmak. Her müşterimize bölgenin koşullarına uygun, gerçekçi ve dürüst danışmanlık hizmeti sağlamak.
                 </p>
                 <p className="leading-relaxed">
-                  Müşterilerimizin hayallerini gerçeğe dönüştürmelerine yardımcı olmak ve her
-                  projede <strong>en yüksek memnuniyeti</strong> sağlamak.
+                  Müşterilerimizin ev sahibi olma hayallerini gerçeğe dönüştürmelerine yardımcı olmak ve her projede <strong>en yüksek memnuniyeti</strong> sağlamak. İster ilk evinizi arıyor olun, ister yatırım amaçlı gayrimenkul, ihtiyacınıza uygun çözümler sunuyoruz.
                 </p>
                 <p className="leading-relaxed">
-                  Bölgemizin konut ihtiyaçlarına modern ve sürdürülebilir çözümler sunarak
-                  topluma değer katmak.
+                  Muğla bölgesinin konut ve ticari gayrimenkul ihtiyaçlarına modern, sürdürülebilir ve çevre dostu çözümler sunarak topluma değer katmak. Yerel istihdama katkı sağlamak ve bölge ekonomisini güçlendirmek.
                 </p>
               </div>
             </Card>
@@ -154,15 +151,13 @@ export default function VizyonMisyonPage() {
               </div>
               <div className="space-y-4 text-[#666666]">
                 <p className="leading-relaxed">
-                  Muğla bölgesinin <strong>en saygın ve tercih edilen</strong> yapı ve emlak markası
-                  olmak.
+                  Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinin <strong>en saygın ve tercih edilen</strong> yapı ve emlak markası olmak. Müşteri memnuniyetinde sektör lideri konumuna ulaşmak.
                 </p>
                 <p className="leading-relaxed">
-                  <strong>Yenilikçi yaklaşımlar ve teknoloji</strong> ile sektörde öncü olmak.
+                  <strong>Yenilikçi yaklaşımlar ve dijital teknoloji</strong> ile sektörde öncü olmak. Sanal turlar, online ilan yönetimi ve hızlı iletişim kanallarıyla müşterilerimize modern deneyim sunmak.
                 </p>
                 <p className="leading-relaxed">
-                  <strong>Sürdürülebilir ve çevre dostu</strong> yapı uygulamalarını benimseyerek
-                  geleceğe yatırım yapmak.
+                  <strong>Sürdürülebilir ve çevre dostu</strong> yapı uygulamalarını benimseyerek geleceğe yatırım yapmak. Enerji verimli konutlar, doğal malzemeler ve yeşil alan projeleriyle bölgenin çevresel değerlerini korumak.
                 </p>
               </div>
             </Card>

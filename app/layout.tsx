@@ -1,19 +1,8 @@
-import type { Metadata } from "next";
-import { Inter, Nunito } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import LayoutWrapper from "@/components/layout/LayoutWrapper";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const nunito = Nunito({
-  variable: "--font-nunito",
-  subsets: ["latin"],
-  display: "swap",
-});
+// Root layout sadece admin ve API için kullanılacak
+// Public sayfalar app/[lang]/layout.tsx kullanacak
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kalindayapi.com"),
@@ -22,89 +11,19 @@ export const metadata: Metadata = {
     template: "%s | Kalinda Yapı",
   },
   description:
-    "Muğla Ortaca'da güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri. Satılık & kiralık daireler, villalar, araziler. Zafer Soylu ve Arif Dağdelen ortaklığıyla 2022'den bu yana hizmetinizdeyiz.",
-  keywords: [
-    "Ortaca emlak",
-    "Ortaca satılık daire",
-    "Ortaca kiralık ev",
-    "Ortaca tadilat",
-    "Muğla inşaat taahhüt",
-    "Dalyan emlak",
-    "Ortaca yapı firması",
-    "Köyceğiz kiralık",
-    "Dalaman emlak",
-    "Muğla emlak",
-  ],
-  authors: [{ name: "Kalinda Yapı" }],
-  creator: "Kalinda Yapı",
-  publisher: "Kalinda Yapı",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  openGraph: {
-    type: "website",
-    locale: "tr_TR",
-    url: "https://www.kalindayapi.com",
-    siteName: "Kalinda Yapı",
-    title: "Kalinda Yapı | Ortaca'nın Güvenilir Yapı & Emlak Ortağı",
-    description:
-      "Muğla Ortaca'da emlak, tadilat ve taahhüt hizmetleri. 12+ yıllık deneyim, 500+ tamamlanan proje.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Kalinda Yapı - Ortaca Emlak & Yapı",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Kalinda Yapı | Ortaca Emlak, Tadilat & Taahhüt",
-    description:
-      "Muğla Ortaca'da güvenilir emlak ve yapı çözümleri. Satılık & kiralık gayrimenkuller.",
-    images: ["/og-image.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: "dfjBrBUZiX-2Q860iWmTQyA2wrT5-CchKhyVlCd8BSs",
-  },
-  alternates: {
-    canonical: "https://www.kalindayapi.com",
-  },
-};  
+    "Muğla Ortaca'da güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B1F3A",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="tr" className={`${inter.variable} ${nunito.variable}`} data-scroll-behavior="smooth">
-      <head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#0B1F3A" />
-      </head>
-      <body className="min-h-screen flex flex-col antialiased" suppressHydrationWarning>
-        <LayoutWrapper>{children}</LayoutWrapper>
-      </body>
-    </html>
-  );
+  // Bu layout sadece [lang] dışındaki route'lar için çalışır (admin, api, vb.)
+  // [lang] segmenti kendi layout'unu kullanır
+  return children;
 }

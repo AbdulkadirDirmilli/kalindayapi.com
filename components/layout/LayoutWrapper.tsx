@@ -8,8 +8,15 @@ import SideContactBar from './SideContactBar'
 import ScrollToTop from './ScrollToTop'
 import CookieConsent from '../CookieConsent'
 import { CurrencyProvider } from '../providers/CurrencyProvider'
+import { LocaleProvider } from '../providers/LocaleProvider'
+import type { Locale } from '@/lib/i18n'
 
-export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
+interface LayoutWrapperProps {
+  children: React.ReactNode
+  locale?: Locale
+}
+
+export default function LayoutWrapper({ children, locale = 'tr' }: LayoutWrapperProps) {
   const pathname = usePathname()
   const isAdmin = pathname?.startsWith('/admin')
 
@@ -20,14 +27,16 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
 
   // Public sayfalar için tam layout
   return (
-    <CurrencyProvider>
-      <ScrollToTop />
-      <Header />
-      <main className="flex-1">{children}</main>
-      <Footer />
-      <WhatsAppButton />
-      <SideContactBar />
-      <CookieConsent />
-    </CurrencyProvider>
+    <LocaleProvider locale={locale}>
+      <CurrencyProvider>
+        <ScrollToTop />
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <WhatsAppButton />
+        <SideContactBar />
+        <CookieConsent />
+      </CurrencyProvider>
+    </LocaleProvider>
   )
 }

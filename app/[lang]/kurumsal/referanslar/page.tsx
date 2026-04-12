@@ -97,9 +97,9 @@ export default function ReferanslarPage() {
               <span className="text-[#C9A84C]">Referanslarımız</span>
             </h1>
             <p className="text-gray-300 text-lg leading-relaxed">
-              2022'den bu yana Ortaca ve çevresinde tamamladığımız projeler
-              ve hizmet verdiğimiz mutlu müşterilerimiz. Her projemiz, güven
-              ve kalite anlayışımızın bir yansımasıdır.
+              2022'den bu yana Ortaca, Dalyan, Köyceğiz, Dalaman ve Fethiye bölgelerinde tamamladığımız projeler
+              ve hizmet verdiğimiz mutlu müşterilerimiz. 200'den fazla emlak işlemi ve 100'ü aşkın tadilat projesiyle
+              her projemiz, güven ve kalite anlayışımızın bir yansımasıdır.
             </p>
           </div>
         </div>

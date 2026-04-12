@@ -1,0 +1,229 @@
+import { type Locale } from '@/lib/i18n';
+import translate from 'google-translate-api-x';
+
+interface TranslationResult {
+  title: string;
+  description: string;
+  content: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  slug?: string;
+}
+
+interface TranslationOptions {
+  sourceLocale?: Locale;
+  targetLocale: Locale;
+  contentType: 'listing' | 'service' | 'blog' | 'static';
+}
+
+// Dil kodları eşlemesi
+const localeToGoogleLang: Record<Locale, string> = {
+  tr: 'tr',
+  en: 'en',
+  ar: 'ar',
+};
+
+// Emlak terimleri - çeviri sonrası düzeltme için
+const realEstateTerms: Record<string, Record<Locale, string>> = {
+  'satılık': { tr: 'satılık', en: 'for sale', ar: 'للبيع' },
+  'kiralık': { tr: 'kiralık', en: 'for rent', ar: 'للإيجار' },
+  'daire': { tr: 'daire', en: 'apartment', ar: 'شقة' },
+  'villa': { tr: 'villa', en: 'villa', ar: 'فيلا' },
+  'arsa': { tr: 'arsa', en: 'land', ar: 'أرض' },
+  'ticari': { tr: 'ticari', en: 'commercial', ar: 'تجاري' },
+  'm²': { tr: 'm²', en: 'sqm', ar: 'م²' },
+  'metrekare': { tr: 'metrekare', en: 'square meters', ar: 'متر مربع' },
+};
+
+// Konum açıklamaları - uluslararası kitle için
+const locationEnhancements: Record<string, Record<Locale, string>> = {
+  'Ortaca': {
+    tr: 'Ortaca',
+    en: 'Ortaca, Turkish Riviera',
+    ar: 'أورتاجا، الريفييرا التركية',
+  },
+  'Dalyan': {
+    tr: 'Dalyan',
+    en: 'Dalyan, Mediterranean Turkey',
+    ar: 'داليان، البحر المتوسط التركي',
+  },
+  'Köyceğiz': {
+    tr: 'Köyceğiz',
+    en: 'Köyceğiz, Aegean Turkey',
+    ar: 'كويجيز، بحر إيجة التركي',
+  },
+  'Muğla': {
+    tr: 'Muğla',
+    en: 'Muğla Province, Southwest Turkey',
+    ar: 'محافظة موغلا، جنوب غرب تركيا',
+  },
+  'Dalaman': {
+    tr: 'Dalaman',
+    en: 'Dalaman, near international airport',
+    ar: 'دالامان، بالقرب من المطار الدولي',
+  },
+  'Fethiye': {
+    tr: 'Fethiye',
+    en: 'Fethiye, Turquoise Coast',
+    ar: 'فتحية، الساحل الفيروزي',
+  },
+};
+
+// Google Translate ile metin çevir
+async function translateText(text: string, targetLocale: Locale): Promise<string> {
+  if (!text || text.trim() === '') return '';
+
+  try {
+    const result = await translate(text, {
+      from: 'tr',
+      to: localeToGoogleLang[targetLocale],
+    });
+
+    return result.text;
+  } catch (error) {
+    console.error('Google Translate error:', error);
+    return text; // Hata durumunda orijinal metni döndür
+  }
+}
+
+// Çeviri sonrası iyileştirmeler
+function enhanceTranslation(text: string, targetLocale: Locale): string {
+  let enhanced = text;
+
+  // Konum iyileştirmeleri
+  for (const [location, translations] of Object.entries(locationEnhancements)) {
+    // Sadece İngilizce ve Arapça için konum açıklamalarını genişlet
+    if (targetLocale !== 'tr') {
+      const regex = new RegExp(`\\b${location}\\b`, 'gi');
+      enhanced = enhanced.replace(regex, translations[targetLocale]);
+    }
+  }
+
+  return enhanced;
+}
+
+// SEO dostu slug oluştur
+export function generateSlug(title: string, locale: Locale): string {
+  let slug = title.toLowerCase();
+
+  // Türkçe karakterleri dönüştür
+  const turkishChars: Record<string, string> = {
+    'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
+    'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u',
+  };
+
+  for (const [tr, en] of Object.entries(turkishChars)) {
+    slug = slug.replace(new RegExp(tr, 'g'), en);
+  }
+
+  // Arapça için özel karakterleri koru
+  if (locale === 'ar') {
+    slug = slug.replace(/[^\w\s\u0600-\u06FF-]/g, '');
+  } else {
+    slug = slug.replace(/[^\w\s-]/g, '');
+  }
+
+  // Boşlukları tire ile değiştir
+  slug = slug.replace(/\s+/g, '-');
+
+  // Birden fazla tireyi tek tireye indir
+  slug = slug.replace(/-+/g, '-');
+
+  // Baş ve sondaki tireleri kaldır
+  slug = slug.replace(/^-+|-+$/g, '');
+
+  return slug;
+}
+
+// Ana çeviri fonksiyonu
+export async function translateContent(
+  content: { title: string; description: string; content?: string },
+  options: TranslationOptions
+): Promise<TranslationResult | null> {
+  const { targetLocale } = options;
+
+  // Türkçe'ye çeviri gerekmez
+  if (targetLocale === 'tr') {
+    return {
+      title: content.title,
+      description: content.description,
+      content: content.content || '',
+      seoTitle: content.title,
+      seoDescription: content.description,
+      slug: generateSlug(content.title, 'tr'),
+    };
+  }
+
+  try {
+    // Paralel çeviri
+    const [translatedTitle, translatedDescription, translatedContent] = await Promise.all([
+      translateText(content.title, targetLocale),
+      translateText(content.description, targetLocale),
+      content.content ? translateText(content.content, targetLocale) : Promise.resolve(''),
+    ]);
+
+    // İyileştirmeler uygula
+    const enhancedTitle = enhanceTranslation(translatedTitle, targetLocale);
+    const enhancedDescription = enhanceTranslation(translatedDescription, targetLocale);
+    const enhancedContent = enhanceTranslation(translatedContent, targetLocale);
+
+    // SEO başlık (60 karakter limit)
+    const seoTitle = enhancedTitle.length > 60
+      ? enhancedTitle.substring(0, 57) + '...'
+      : enhancedTitle;
+
+    // SEO açıklama (160 karakter limit)
+    const seoDescription = enhancedDescription.length > 160
+      ? enhancedDescription.substring(0, 157) + '...'
+      : enhancedDescription;
+
+    return {
+      title: enhancedTitle,
+      description: enhancedDescription,
+      content: enhancedContent,
+      seoTitle,
+      seoDescription,
+      slug: generateSlug(enhancedTitle, targetLocale),
+    };
+  } catch (error) {
+    console.error('Translation error:', error);
+    return null;
+  }
+}
+
+// Toplu çeviri
+export async function translateBatch(
+  items: Array<{ id: string; title: string; description: string; content?: string }>,
+  options: TranslationOptions
+): Promise<Map<string, TranslationResult>> {
+  const results = new Map<string, TranslationResult>();
+
+  // Rate limiting için sırayla işle (Google'ın rate limit'i var)
+  for (const item of items) {
+    const result = await translateContent(
+      { title: item.title, description: item.description, content: item.content },
+      options
+    );
+
+    if (result) {
+      results.set(item.id, result);
+    }
+
+    // Rate limiting - 500ms bekle
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  }
+
+  return results;
+}
+
+// Basit terim çevirisi (hızlı kullanım için)
+export function translateTerms(text: string, targetLocale: Locale): string {
+  let translated = text;
+
+  for (const [term, translations] of Object.entries(realEstateTerms)) {
+    const regex = new RegExp(term, 'gi');
+    translated = translated.replace(regex, translations[targetLocale]);
+  }
+
+  return translated;
+}

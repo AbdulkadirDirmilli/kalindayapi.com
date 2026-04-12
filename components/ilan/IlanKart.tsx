@@ -10,6 +10,7 @@ import Badge from "@/components/ui/Badge";
 import LeadForm from "@/components/ilan/LeadForm";
 import { getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
 import { useCurrency } from "@/components/providers/CurrencyProvider";
+import { type Locale, getLocalizedRoute, defaultLocale } from "@/lib/i18n";
 
 // Video dosyası olup olmadığını kontrol et
 function isVideo(url: string): boolean {
@@ -20,10 +21,21 @@ interface IlanKartProps {
   ilan: Ilan;
   variant?: "grid" | "list";
   index?: number;
+  locale?: Locale;
 }
 
-export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKartProps) {
+// Localized texts
+const texts = {
+  tr: { forSale: 'Satılık', forRent: 'Kiralık', bath: 'Banyo', listingNo: 'İlan No', month: '/ay' },
+  en: { forSale: 'For Sale', forRent: 'For Rent', bath: 'Bath', listingNo: 'Listing', month: '/mo' },
+  ar: { forSale: 'للبيع', forRent: 'للإيجار', bath: 'حمام', listingNo: 'رقم', month: '/شهر' },
+};
+
+export default function IlanKart({ ilan, variant = "grid", index = 0, locale = defaultLocale }: IlanKartProps) {
   const { formatConvertedPrice } = useCurrency();
+  const t = texts[locale];
+  const listingsRoute = getLocalizedRoute('ilanlar', locale);
+  const ilanHref = `/${locale}/${listingsRoute}/${ilan.slug}`;
 
   // Kapak fotoğrafı - sadece fotoğrafları al (videoları hariç tut)
   const kapakFoto = ilan.fotograflar?.find(f => !isVideo(f)) || ilan.fotograflar?.[0];
@@ -35,7 +47,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: index * 0.05 }}
       >
-        <Link href={`/ilanlar/${ilan.slug}`}>
+        <Link href={ilanHref}>
           <Card
             variant="interactive"
             padding="none"
@@ -63,7 +75,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                   variant={ilan.kategori === "satilik" ? "satilik" : "kiralik"}
                   size="sm"
                 >
-                  {ilan.kategori === "satilik" ? "Satılık" : "Kiralık"}
+                  {ilan.kategori === "satilik" ? t.forSale : t.forRent}
                 </Badge>
                 {ilan.insaatDurumu && (
                   <span className={`px-2 py-1 rounded-md text-xs font-semibold ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
@@ -122,7 +134,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                   {ilan.ozellikler.banyoSayisi && (
                     <div className="flex items-center gap-1">
                       <Bath className="w-4 h-4" />
-                      <span>{ilan.ozellikler.banyoSayisi} Banyo</span>
+                      <span>{ilan.ozellikler.banyoSayisi} {t.bath}</span>
                     </div>
                   )}
                   {ilan.insaatDurumu && (
@@ -138,7 +150,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                 <span className="text-xl font-bold text-[#0B1F3A]">
                   {formatConvertedPrice(ilan.fiyat)}
                   {ilan.kategori === "kiralik" && (
-                    <span className="text-sm font-normal text-[#666666]">/ay</span>
+                    <span className="text-sm font-normal text-[#666666]">{t.month}</span>
                   )}
                 </span>
                 <div className="flex items-center gap-3">
@@ -167,7 +179,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
     >
-      <Link href={`/ilanlar/${ilan.slug}`}>
+      <Link href={ilanHref}>
         <Card
           variant="interactive"
           padding="none"
@@ -199,7 +211,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                 variant={ilan.kategori === "satilik" ? "satilik" : "kiralik"}
                 size="md"
               >
-                {ilan.kategori === "satilik" ? "Satılık" : "Kiralık"}
+                {ilan.kategori === "satilik" ? t.forSale : t.forRent}
               </Badge>
               {ilan.insaatDurumu && (
                 <span className={`px-2 py-1 rounded-md text-xs font-semibold ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
@@ -226,7 +238,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
               <span className="bg-[#0B1F3A] text-white px-3 py-1.5 rounded-lg font-bold">
                 {formatConvertedPrice(ilan.fiyat)}
                 {ilan.kategori === "kiralik" && (
-                  <span className="text-xs font-normal">/ay</span>
+                  <span className="text-xs font-normal">{t.month}</span>
                 )}
               </span>
             </div>
@@ -279,7 +291,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
             {/* Date & Lead */}
             <div className="mt-4 pt-4 border-t border-[#e0e0e0] flex items-center justify-between">
               <span className="text-xs text-[#999999]">
-                İlan No: {ilan.ilanNo}
+                {t.listingNo}: {ilan.ilanNo}
               </span>
               <div className="flex items-center gap-3">
                 <LeadForm

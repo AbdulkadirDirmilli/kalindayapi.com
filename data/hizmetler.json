@@ -5,7 +5,7 @@
       "slug": "emlak-danismanligi",
       "baslik": "Emlak Danışmanlığı",
       "kisaAciklama": "Ortaca ve çevresinde satılık, kiralık gayrimenkul hizmetleri. Profesyonel değerleme ve yatırım danışmanlığı.",
-      "uzunAciklama": "Kalinda Yapı olarak, Muğla'nın Ortaca ilçesinde ve çevre bölgelerde kapsamlı emlak danışmanlığı hizmeti sunuyoruz. Satılık ve kiralık daireler, villalar, arsalar ve ticari gayrimenkuller için aradığınız her şey burada. Lisanslı emlak danışmanımız Zafer Soylu, bölgenin dinamiklerini yakından tanıyan deneyimiyle size en doğru yatırım kararlarını vermenizde yardımcı oluyor.",
+      "uzunAciklama": "Kalinda Yapı olarak, Muğla'nın Ortaca ilçesinde ve çevre bölgelerde 12 yılı aşkın deneyimle kapsamlı emlak danışmanlığı hizmeti sunuyoruz. Ortaca, Dalyan, Köyceğiz, Dalaman ve Fethiye'de satılık ve kiralık daireler, villalar, arsalar ve ticari gayrimenkuller için aradığınız her şey burada.\n\nLisanslı emlak danışmanımız Zafer Soylu, bölgenin dinamiklerini yakından tanıyan deneyimiyle size en doğru yatırım kararlarını vermenizde yardımcı oluyor. 2026 yılında Ortaca'da konut fiyatları m² başına 18.000-35.000 TL, Dalyan'da villa fiyatları 4-18 milyon TL arasında değişiyor.\n\nHizmetlerimiz kapsamında: Satılık gayrimenkul portföyü (daire, villa, arsa, ticari), kiralık gayrimenkul yönetimi, profesyonel gayrimenkul değerleme, yatırım danışmanlığı ve piyasa analizi, tapu ve imar durumu kontrolü, alım-satım süreç yönetimi. Müşterilerimize şeffaf, güvenilir ve sonuç odaklı hizmet anlayışımızla 300'den fazla aileye hayallerindeki evi bulmalarında yardımcı olduk.",
       "ikon": "Home",
       "altHizmetler": [
         {
@@ -36,12 +36,20 @@
           "cevap": "Ortaca'da ev almak için kimlik belgesi, ikametgah ve gerekli ödeme planı yeterlidir. Yabancı uyruklu alıcılar için ek belgeler talep edilebilir. Kalinda Yapı olarak tüm alım sürecinizde size rehberlik ediyoruz."
         },
         {
-          "soru": "Ortaca'da m² fiyatları ne kadar?",
-          "cevap": "Ortaca'da konut m² fiyatları konuma göre 15.000 TL ile 35.000 TL arasında değişmektedir. Dalyan bölgesi villa fiyatları daha yüksek seyrederken, merkezdeki daireler daha ekonomik seçenekler sunmaktadır."
+          "soru": "Ortaca'da 2026 m² fiyatları ne kadar?",
+          "cevap": "2026 yılında Ortaca'da konut m² fiyatları konuma göre 18.000-35.000 TL arasında değişmektedir. Dalyan'da villa fiyatları m² 40.000-70.000 TL, Köyceğiz'de 15.000-25.000 TL bandında seyrediyor."
         },
         {
           "soru": "Emlak danışmanlık ücreti nasıl hesaplanır?",
           "cevap": "Satış işlemlerinde %2, kiralama işlemlerinde 1 aylık kira bedeli komisyon olarak uygulanmaktadır. Tüm ücretler sözleşme öncesinde şeffaf bir şekilde belirtilmektedir."
+        },
+        {
+          "soru": "Dalyan'da villa almak için ne kadar bütçe gerekir?",
+          "cevap": "2026 yılında Dalyan'da havuzlu müstakil villa fiyatları 4-18 milyon TL arasında değişmektedir. Kanal manzaralı lokasyonlar daha yüksek fiyatlanırken, merkeze yakın konumlar daha uygun fiyatlıdır."
+        },
+        {
+          "soru": "Yabancılar Türkiye'de ev alabilir mi?",
+          "cevap": "Evet, yabancı uyruklu kişiler Türkiye'de gayrimenkul satın alabilir. Bazı bölgelerde (askeri yasak bölgeler, köy içi alanlar) kısıtlamalar mevcuttur. Ortaca ve Dalyan genelinde yabancılara satış serbesttir. Detaylı bilgi için danışmanlarımızla görüşebilirsiniz."
         }
       ]
     },
@@ -50,7 +58,7 @@
       "slug": "tadilat-dekorasyon",
       "baslik": "Tadilat & Dekorasyon",
       "kisaAciklama": "İç mimari, mutfak-banyo yenileme, boya ve kaplama işleri. Evinizi hayalinizdeki gibi dönüştürüyoruz.",
-      "uzunAciklama": "Evinizi veya işyerinizi yenilemek, modernize etmek istiyorsanız doğru adrestesiniz. Kalinda Yapı'nın tadilat ve dekorasyon ekibi, küçük dokunuşlardan komple iç mekan dönüşümlerine kadar her ölçekte projeyi profesyonel bir şekilde hayata geçirmektedir. Arif Dağdelen liderliğindeki ustalarımız, kaliteli malzeme ve işçilik garantisiyle çalışmaktadır.",
+      "uzunAciklama": "Evinizi veya işyerinizi yenilemek, modernize etmek istiyorsanız doğru adrestesiniz. Kalinda Yapı'nın tadilat ve dekorasyon ekibi, 20 yılı aşkın deneyimle küçük dokunuşlardan komple iç mekan dönüşümlerine kadar her ölçekte projeyi profesyonel bir şekilde hayata geçirmektedir.\n\nArif Dağdelen liderliğindeki ustalarımız, kaliteli malzeme ve 2 yıl işçilik garantisiyle çalışmaktadır. Ortaca ve Muğla genelinde 500'den fazla tadilat projesi tamamladık.\n\n2026 yılı tadilat maliyetleri hakkında bilgi: Komple daire tadilatı (100 m²) 250.000-600.000 TL, banyo yenileme 60.000-150.000 TL, mutfak tadilatı 120.000-350.000 TL, boya-badana m² 80-150 TL arasında değişmektedir.\n\nHizmet kapsamımız: İç mimari tasarım ve 3D görselleştirme, mutfak dolap ve tezgah yenileme, banyo komple renovasyon, boya-badana ve dekoratif sıva, zemin kaplama (parke, seramik, laminat), alçıpan tavan ve bölme duvar, elektrik ve tesisat yenileme. Tüm projelerimiz yazılı sözleşme ile güvence altına alınır, şeffaf fiyatlandırma ve aşamalı ödeme imkanı sunulur.",
       "ikon": "Paintbrush",
       "altHizmetler": [
         {
@@ -86,7 +94,15 @@
         },
         {
           "soru": "Tadilat garantisi veriyor musunuz?",
-          "cevap": "Evet, tüm işçilik için 2 yıl, malzeme için üretici garantisi geçerlidir. Garanti kapsamındaki sorunlar ücretsiz olarak giderilmektedir."
+          "cevap": "Evet, tüm işçilik için 2 yıl, su tesisatı için 5 yıl garanti veriyoruz. Malzeme için üretici garantisi geçerlidir. Garanti kapsamındaki sorunlar ücretsiz olarak giderilmektedir."
+        },
+        {
+          "soru": "2026'da komple daire tadilatı ne kadar tutar?",
+          "cevap": "2026 yılında 100 m² bir dairenin komple tadilatı (mutfak, banyo, boya, zemin) malzeme kalitesine göre 250.000-600.000 TL arasında değişmektedir. Ücretsiz keşif ile detaylı fiyat teklifi sunuyoruz."
+        },
+        {
+          "soru": "Muğla'da tadilat için en uygun dönem hangisi?",
+          "cevap": "İlkbahar (Mart-Mayıs) ve sonbahar (Eylül-Kasım) dönemleri tadilat için idealdir. Yaz aylarında usta bulma zorluğu yaşanabilir, kış aylarında ise bazı dış cephe işleri hava koşullarından etkilenebilir."
         }
       ]
     },
@@ -95,7 +111,7 @@
       "slug": "taahhut-insaat",
       "baslik": "Taahhüt & İnşaat",
       "kisaAciklama": "Sıfırdan bina inşaatı, restorasyon projeleri ve anahtar teslim yapı çözümleri.",
-      "uzunAciklama": "Kalinda Yapı, Ortaca ve Muğla bölgesinde anahtar teslim inşaat projeleri gerçekleştirmektedir. Konut, villa, işyeri ve tarımsal yapı inşaatlarında deneyimli ekibimiz ve güçlü tedarikçi ağımızla kaliteli ve ekonomik çözümler sunuyoruz. Ruhsat ve yapı izni süreçlerinde de müşterilerimize danışmanlık hizmeti vermekteyiz.",
+      "uzunAciklama": "Kalinda Yapı, Ortaca ve Muğla bölgesinde 12 yılı aşkın deneyimle anahtar teslim inşaat projeleri gerçekleştirmektedir. Konut, villa, işyeri ve tarımsal yapı inşaatlarında deneyimli ekibimiz ve güçlü tedarikçi ağımızla kaliteli ve ekonomik çözümler sunuyoruz.\n\n2026 yılı anahtar teslim inşaat maliyetleri: Standart konut m² 25.000-35.000 TL, villa tipi yapı m² 35.000-55.000 TL, ticari yapı m² 20.000-40.000 TL arasında değişmektedir. Bu fiyatlar kaba inşaat, ince işler ve temel tesisat dahil olup, arsa maliyeti hariçtir.\n\nHizmet kapsamımız: Müstakil ev ve villa inşaatı, apartman ve konut projeleri, işyeri ve ticari bina inşaatı, depo ve tarımsal yapılar, eski bina restorasyonu, yapı güçlendirme. Ruhsat ve yapı izni süreçlerinde de müşterilerimize baştan sona danışmanlık hizmeti vermekteyiz.\n\nNeden Kalinda Yapı? Muğla'nın 1. derece deprem bölgesi olması nedeniyle yapı güvenliğine özel önem veriyoruz. Tüm inşaatlarımız güncel deprem yönetmeliğine uygun, yapı denetim kontrolünde ve sigortalı olarak gerçekleştirilmektedir. Şeffaf fiyatlandırma, yazılı sözleşme ve aşamalı ödeme planı sunuyoruz.",
       "ikon": "HardHat",
       "altHizmetler": [
         {
@@ -126,12 +142,20 @@
           "cevap": "Referanslar, daha önce tamamlanan projeler, sigorta ve garanti koşulları, sözleşme şartları ve iletişim kalitesi önemli kriterlerdir. Kalinda Yapı olarak tüm bu kriterlerde şeffaf bir şekilde bilgi sunuyoruz."
         },
         {
-          "soru": "Anahtar teslim ev maliyeti nasıl hesaplanır?",
-          "cevap": "Anahtar teslim maliyet; arsa konumu, inşaat alanı, malzeme kalitesi ve proje özelliklerine göre değişir. Ortaca bölgesinde m² başına ortalama 25.000-45.000 TL arasında değişmektedir."
+          "soru": "2026'da anahtar teslim ev maliyeti ne kadar?",
+          "cevap": "2026 yılında Ortaca bölgesinde anahtar teslim inşaat maliyetleri: Standart konut m² 25.000-35.000 TL, villa tipi yapı m² 35.000-55.000 TL arasında değişmektedir. Arsa maliyeti bu rakamlara dahil değildir."
         },
         {
           "soru": "İnşaat sürecinde kontrol yapılıyor mu?",
-          "cevap": "Evet, her aşamada müşterilerimizle birlikte kontrol yapıyoruz. Temel, kaba inşaat, ince işler ve teslim öncesi olmak üzere en az 4 kontrol noktası bulunmaktadır."
+          "cevap": "Evet, her aşamada müşterilerimizle birlikte kontrol yapıyoruz. Temel, kaba inşaat, ince işler ve teslim öncesi olmak üzere en az 4 kontrol noktası bulunmaktadır. Ayrıca yapı denetim firması da bağımsız denetim yapmaktadır."
+        },
+        {
+          "soru": "Villa inşaatı ne kadar sürer?",
+          "cevap": "150-200 m² bir villanın anahtar teslim inşaatı ortalama 8-12 ay sürmektedir. Ruhsat süreci 1-2 ay, kaba inşaat 3-4 ay, ince işler 3-4 ay, peyzaj ve son düzeltmeler 1-2 ay şeklinde planlanmaktadır."
+        },
+        {
+          "soru": "İnşaat için arsam olmalı mı?",
+          "cevap": "Evet, inşaat için imarlı arsanız olmalıdır. Arsanız yoksa emlak danışmanlığı hizmetimiz kapsamında size uygun arsa bulmada yardımcı oluyoruz. İmar durumu kontrolü ve ruhsat uygunluğu değerlendirmesini de yapıyoruz."
         }
       ]
     },
@@ -140,7 +164,7 @@
       "slug": "plan-proje",
       "baslik": "Plan & Proje",
       "kisaAciklama": "Mimari, statik, elektrik-mekanik proje çizimleri ve ruhsat danışmanlığı hizmetleri.",
-      "uzunAciklama": "Kalinda Yapı olarak, yapı projelerinizin en başından itibaren yanınızdayız. Mimari projeden statik hesaplara, elektrik ve mekanik tesisat projelerinden ruhsat süreçlerine kadar tüm proje ihtiyaçlarınızı karşılıyoruz. Deneyimli mühendis ve mimar kadromuzla, projenizin yasal gerekliliklere uygun ve teknik açıdan kusursuz olmasını sağlıyoruz.",
+      "uzunAciklama": "Kalinda Yapı olarak, yapı projelerinizin en başından itibaren yanınızdayız. Mimari projeden statik hesaplara, elektrik ve mekanik tesisat projelerinden ruhsat süreçlerine kadar tüm proje ihtiyaçlarınızı karşılıyoruz. Deneyimli mühendis ve mimar kadromuzla, projenizin yasal gerekliliklere uygun ve teknik açıdan kusursuz olmasını sağlıyoruz.\n\n2026 yılı proje maliyetleri: 150 m² villa için mimari proje 25.000-45.000 TL, statik proje 20.000-35.000 TL, elektrik-mekanik projeler toplam 15.000-30.000 TL. Ortaca Belediyesi için ruhsat başvuru süreci 15-30 iş günü sürmektedir.\n\nHizmet kapsamımız: Özgün mimari tasarım ve uygulama projeleri, betonarme ve çelik statik projeler, elektrik tesisatı ve aydınlatma projeleri, mekanik tesisat (ısıtma-soğutma-sıhhi) projeleri, peyzaj ve çevre düzenleme projeleri, yapı ruhsatı başvuru ve takibi, iskan belgesi süreç yönetimi.\n\nOrtaca, Dalyan ve Köyceğiz bölgelerinde sit alanı, koruma bölgesi ve kıyı kenar çizgisi kısıtlamalarına hakim ekibimizle, projenizin tüm yasal gerekliliklere uygun olmasını sağlıyoruz. İmar durumu sorgulama, zemin etüdü koordinasyonu ve belediye ile tüm yazışmaları sizin adınıza takip ediyoruz.",
       "ikon": "FileText",
       "altHizmetler": [
         {
@@ -172,11 +196,19 @@
         },
         {
           "soru": "Ruhsat başvurusu için hangi belgeler gerekli?",
-          "cevap": "Tapu fotokopisi, kimlik fotokopisi, aplikasyon krokisi, mimari proje, statik proje, elektrik-mekanik projeler ve zemin etüdü raporu temel belgeler arasındadır. Belediyeye göre ek belgeler istenebilir."
+          "cevap": "Tapu fotokopisi, kimlik fotokopisi, aplikasyon krokisi, mimari proje, statik proje, elektrik-mekanik projeler, zemin etüdü raporu, yapı denetim sözleşmesi ve fenni mesul taahhütnameleri temel belgeler arasındadır."
         },
         {
-          "soru": "Proje maliyetleri nasıl belirlenir?",
-          "cevap": "Proje maliyetleri yapının m² büyüklüğü, kat sayısı ve proje türüne göre belirlenmektedir. Ücretsiz ön görüşme ile size özel teklif hazırlıyoruz."
+          "soru": "2026'da proje maliyetleri ne kadar?",
+          "cevap": "2026 yılında 150 m² villa için toplam proje bedeli (mimari+statik+elektrik+mekanik) 80.000-150.000 TL arasında değişmektedir. Ücretsiz ön görüşme ile size özel teklif hazırlıyoruz."
+        },
+        {
+          "soru": "Ortaca Belediyesi'nde ruhsat süreci ne kadar sürer?",
+          "cevap": "Tüm belgeler eksiksiz teslim edildiğinde Ortaca Belediyesi'nde yapı ruhsatı inceleme süreci 15-30 iş günü arasında tamamlanmaktadır. Eksik belge durumunda süre uzayabilir."
+        },
+        {
+          "soru": "Sit alanında inşaat yapılabilir mi?",
+          "cevap": "Sit alanlarında inşaat özel izinlere tabidir. Koruma kurulu onayı gerekir ve yapılacak yapının belirli kriterlere uygun olması zorunludur. Dalyan ve Köyceğiz'de sit alanı mevcut; bu bölgelerde proje çizmeden önce mutlaka imar durumu kontrolü yapılmalıdır."
         }
       ]
     }

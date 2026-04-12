@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "title": "Kalinda Yapı | Ortaca Emlak, Tadilat & Taahhüt",
+    "description": "Muğla Ortaca'da güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri. Satılık & kiralık daireler, villalar, araziler.",
+    "keywords": "Ortaca emlak, Ortaca satılık daire, Ortaca kiralık ev, Ortaca tadilat, Muğla inşaat taahhüt, Dalyan emlak"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "services": "Hizmetler",
+    "listings": "İlanlar",
+    "exchange": "Döviz",
+    "blog": "Blog",
+    "corporate": "Kurumsal",
+    "about": "Hakkımızda",
+    "visionMission": "Vizyon & Misyon",
+    "references": "Referanslar",
+    "certificates": "Belgeler & Sertifikalar",
+    "contact": "İletişim",
+    "faq": "S.S.S",
+    "searchListings": "İlan Sorgula",
+    "callNow": "Hemen Arayın"
+  },
+  "services": {
+    "realEstate": "Emlak Danışmanlığı",
+    "renovation": "Tadilat & Dekorasyon",
+    "construction": "Taahhüt & İnşaat",
+    "planning": "Plan & Proje"
+  },
+  "common": {
+    "readMore": "Devamını Oku",
+    "viewAll": "Tümünü Gör",
+    "share": "Paylaş",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "retry": "Tekrar Dene",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "close": "Kapat",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "sort": "Sırala",
+    "noResults": "Sonuç bulunamadı",
+    "showMore": "Daha Fazla Göster",
+    "showLess": "Daha Az Göster",
+    "yes": "Evet",
+    "no": "Hayır",
+    "or": "veya",
+    "and": "ve"
+  },
+  "home": {
+    "hero": {
+      "title": "Ortaca'nın Güvenilir Yapı & Emlak Ortağı",
+      "subtitle": "12+ yıllık deneyim, 500+ tamamlanan proje",
+      "cta": "İlanları İncele",
+      "ctaSecondary": "Hizmetlerimiz"
+    },
+    "stats": {
+      "experience": "Yıllık Deneyim",
+      "projects": "Tamamlanan Proje",
+      "clients": "Mutlu Müşteri",
+      "area": "m² İnşaat"
+    },
+    "featured": {
+      "title": "Öne Çıkan İlanlar",
+      "subtitle": "En son eklenen ve en çok ilgi gören emlak ilanlarımız"
+    },
+    "services": {
+      "title": "Hizmetlerimiz",
+      "subtitle": "Profesyonel ekibimizle size en iyi hizmeti sunuyoruz"
+    },
+    "whyUs": {
+      "title": "Neden Kalinda Yapı?",
+      "experience": "Tecrübeli Ekip",
+      "quality": "Kaliteli İşçilik",
+      "price": "Uygun Fiyat",
+      "trust": "Güvenilirlik"
+    }
+  },
+  "listings": {
+    "title": "Emlak İlanları",
+    "subtitle": "Ortaca ve çevresinde satılık ve kiralık gayrimenkuller",
+    "filters": {
+      "all": "Tümü",
+      "forSale": "Satılık",
+      "forRent": "Kiralık",
+      "type": "Gayrimenkul Tipi",
+      "apartment": "Daire",
+      "villa": "Villa",
+      "land": "Arsa",
+      "commercial": "Ticari",
+      "priceRange": "Fiyat Aralığı",
+      "minPrice": "Min Fiyat",
+      "maxPrice": "Max Fiyat",
+      "area": "Metrekare",
+      "rooms": "Oda Sayısı",
+      "location": "Konum"
+    },
+    "sort": {
+      "newest": "En Yeni",
+      "priceAsc": "Fiyat (Artan)",
+      "priceDesc": "Fiyat (Azalan)",
+      "areaAsc": "m² (Artan)",
+      "areaDesc": "m² (Azalan)"
+    },
+    "detail": {
+      "overview": "Genel Bakış",
+      "features": "Özellikler",
+      "location": "Konum",
+      "contact": "İletişim",
+      "price": "Fiyat",
+      "area": "Metrekare",
+      "rooms": "Oda Sayısı",
+      "bathrooms": "Banyo",
+      "floor": "Kat",
+      "buildingAge": "Bina Yaşı",
+      "heating": "Isıtma",
+      "furnished": "Eşyalı",
+      "elevator": "Asansör",
+      "parking": "Otopark",
+      "pool": "Havuz",
+      "garden": "Bahçe",
+      "security": "Güvenlik",
+      "description": "Açıklama",
+      "callAgent": "Danışmanı Ara",
+      "whatsapp": "WhatsApp ile İletişim",
+      "shareOnWhatsapp": "WhatsApp'ta Paylaş",
+      "listingNo": "İlan No",
+      "updated": "Güncelleme",
+      "similar": "Benzer İlanlar"
+    },
+    "categories": {
+      "satilik": "Satılık",
+      "kiralik": "Kiralık"
+    },
+    "types": {
+      "daire": "Daire",
+      "villa": "Villa",
+      "mustakil": "Müstakil Ev",
+      "arsa": "Arsa",
+      "tarla": "Tarla",
+      "ticari": "Ticari",
+      "ofis": "Ofis",
+      "dukkan": "Dükkan"
+    }
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Sorularınız için bizimle iletişime geçin",
+    "form": {
+      "name": "Adınız Soyadınız",
+      "email": "E-posta Adresiniz",
+      "phone": "Telefon Numaranız",
+      "subject": "Konu",
+      "message": "Mesajınız",
+      "submit": "Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Mesajınız başarıyla gönderildi!",
+      "error": "Bir hata oluştu, lütfen tekrar deneyin."
+    },
+    "info": {
+      "address": "Adres",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "workingHours": "Çalışma Saatleri",
+      "weekdays": "Pazartesi - Cumartesi",
+      "hours": "09:00 - 18:00"
+    }
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "subtitle": "Kalinda Yapı olarak 2022'den bu yana hizmetinizdeyiz",
+    "team": {
+      "title": "Ekibimiz",
+      "subtitle": "Deneyimli kadromuzla size yardımcı olmak için buradayız"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Emlak sektörü ve yapı dünyasından en güncel haberler",
+    "readTime": "dk okuma",
+    "categories": {
+      "emlak": "Emlak",
+      "tadilat": "Tadilat",
+      "insaat": "İnşaat",
+      "yatirim": "Yatırım",
+      "dekorasyon": "Dekorasyon"
+    },
+    "author": "Yazar",
+    "publishDate": "Yayın Tarihi",
+    "relatedPosts": "İlgili Yazılar"
+  },
+  "faq": {
+    "title": "Sık Sorulan Sorular",
+    "subtitle": "Merak ettiklerinizin cevapları burada"
+  },
+  "footer": {
+    "description": "Ortaca ve çevresinde emlak, tadilat ve inşaat taahhüt hizmetleri.",
+    "quickLinks": "Hızlı Bağlantılar",
+    "services": "Hizmetlerimiz",
+    "contact": "İletişim Bilgileri",
+    "followUs": "Bizi Takip Edin",
+    "copyright": "© 2026 Kalinda Yapı. Tüm hakları saklıdır.",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları"
+  },
+  "exchange": {
+    "title": "Döviz Kurları",
+    "subtitle": "Güncel döviz ve altın fiyatları",
+    "gold": "Altın",
+    "dollar": "Dolar",
+    "euro": "Euro",
+    "sterling": "Sterlin",
+    "buying": "Alış",
+    "selling": "Satış",
+    "lastUpdate": "Son Güncelleme"
+  },
+  "language": {
+    "select": "Dil Seçin",
+    "tr": "Türkçe",
+    "en": "English",
+    "ar": "العربية"
+  }
+}

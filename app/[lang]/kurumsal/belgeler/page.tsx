@@ -115,9 +115,9 @@ export default function BelgelerPage() {
               Belgeler & <span className="text-[#C9A84C]">Sertifikalar</span>
             </h1>
             <p className="text-gray-300 text-lg leading-relaxed">
-              Kalinda Yapı olarak tüm yasal gerekliliklere uygun, resmi belge
-              ve sertifikalarla hizmet veriyoruz. Şeffaflık ilkemiz gereği
-              belgelerimizi sizlerle paylaşıyoruz.
+              Kalinda Yapı olarak Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinde tüm yasal gerekliliklere uygun, resmi belge
+              ve sertifikalarla hizmet veriyoruz. Şeffaflık ilkemiz gereği belgelerimizi sizlerle paylaşıyoruz.
+              Emlak danışmanlığı, tadilat ve inşaat hizmetlerimiz resmi lisans ve sertifikalarla desteklenmektedir.
             </p>
           </div>
         </div>

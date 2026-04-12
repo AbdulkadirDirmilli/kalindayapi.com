@@ -110,20 +110,27 @@
     {
       "id": "ortaca-emlak-rehberi-mahalle-mahalle-2026",
       "slug": "ortaca-emlak-rehberi-mahalle-mahalle-2026",
-      "baslik": "Ortaca'da Ev Almak İsteyenler İçin Mahalle Mahalle Emlak Rehberi",
-      "ozet": "Ortaca'nın farklı mahallelerinde konut fiyatları, yaşam avantajları ve yatırım potansiyeli hakkında saha deneyimine dayalı kapsamlı bir değerlendirme.",
+      "baslik": "Ortaca Emlak Rehberi 2026: Mahalle Mahalle Ev Fiyatları ve Yatırım Analizi",
+      "ozet": "Ortaca'da ev almak isteyenler için mahalle mahalle 2026 konut fiyatları. Atatürk, Cumhuriyet, Karaburun mahallelerinde yatırım potansiyeli.",
       "kategori": "Emlak",
       "etiketler": [
-        "Ortaca",
         "Ortaca Emlak",
-        "Ortaca Konut",
-        "Muğla",
+        "Ortaca Ev Fiyatları",
         "Ortaca Mahalleler",
-        "Ortaca Ev Fiyatları"
+        "Ortaca Konut",
+        "Muğla Emlak",
+        "Ortaca Yatırım"
       ],
       "yazar": "Zafer Soylu",
       "yayinTarihi": "2026-04-03",
-      "okunmaSuresi": 9,
+      "okunmaSuresi": 11,
+      "internalLinks": [
+        {"text": "Muğla emlak piyasası", "url": "/blog/mugla-emlak-piyasasi-2026"},
+        {"text": "ev alırken dikkat edilecekler", "url": "/blog/gayrimenkul-alirken-dikkat-edilecekler"},
+        {"text": "Dalyan yaşam rehberi", "url": "/blog/dalyan-yasam-rehberi"},
+        {"text": "satılık daireler", "url": "/ilanlar"},
+        {"text": "emlak danışmanlığı", "url": "/hizmetler/emlak-danismanligi"}
+      ],
       "kapakGorsel": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=450&fit=crop&q=80",
       "icerik": [
         {
@@ -195,51 +202,125 @@
     {
       "id": "mugla-emlak-piyasasi-2026",
       "slug": "mugla-emlak-piyasasi-2026",
-      "baslik": "2026 Yılında Muğla Emlak Piyasası: Güncel Durum ve Beklentiler",
-      "ozet": "Muğla ve ilçelerinde emlak piyasasının 2026 yılındaki durumu, fiyat trendleri ve yatırımcılar için fırsatlar.",
+      "baslik": "2026 Yılında Muğla Emlak Piyasası: Güncel Durum, Fiyatlar ve Yatırım Fırsatları",
+      "ozet": "Muğla'nın tüm ilçelerinde 2026 emlak fiyatları, mahalle bazlı analizler, yatırım potansiyeli yüksek bölgeler ve uzman önerileri. Ortaca, Dalyan, Köyceğiz, Fethiye ve Bodrum karşılaştırması.",
       "kategori": "Emlak",
       "etiketler": [
-        "Muğla",
-        "Emlak Piyasası",
-        "Yatırım",
-        "2026"
+        "Muğla Emlak",
+        "Muğla Ev Fiyatları 2026",
+        "Ortaca Emlak",
+        "Dalyan Villa",
+        "Köyceğiz Arsa",
+        "Emlak Yatırımı",
+        "Muğla Gayrimenkul"
       ],
       "yazar": "Zafer Soylu",
       "yayinTarihi": "2026-03-15",
-      "okunmaSuresi": 7,
+      "okunmaSuresi": 12,
       "kapakGorsel": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&h=450&fit=crop&q=80",
+      "internalLinks": [
+        {"text": "Ortaca emlak rehberi", "url": "/blog/ortaca-emlak-rehberi-mahalle-mahalle-2026"},
+        {"text": "arsa yatırımı rehberimiz", "url": "/blog/mugla-ilcelerinde-arsa-yatirimi"},
+        {"text": "ev alırken dikkat edilecekler", "url": "/blog/gayrimenkul-alirken-dikkat-edilecekler"},
+        {"text": "satılık dairelerimiz", "url": "/ilanlar"},
+        {"text": "emlak danışmanlığı", "url": "/hizmetler/emlak-danismanligi"}
+      ],
       "icerik": [
         {
           "tip": "paragraf",
-          "metin": "Muğla, Türkiye'nin en gözde turizm ve yaşam bölgelerinden biri olarak gayrimenkul yatırımcılarının radarından hiç düşmüyor. 2026 yılına girdiğimiz bu dönemde, bölgedeki emlak piyasası önemli gelişmelere sahne olmaya devam ediyor."
+          "metin": "Muğla, Türkiye'nin en değerli gayrimenkul pazarlarından birini barındıran, turizm ve yaşam kalitesiyle öne çıkan bir il. 2026 yılının ilk çeyreğinde bölgedeki emlak piyasası, hem yerli hem yabancı yatırımcıların yoğun ilgisiyle hareketli bir seyir izliyor. Bu yazıda, Muğla'nın başlıca ilçelerindeki güncel emlak fiyatlarını, yatırım potansiyeli yüksek bölgeleri ve 2026 yılı için beklentilerimizi detaylı şekilde ele alıyoruz."
         },
         {
           "tip": "baslik",
-          "metin": "Ortaca ve Dalyan Bölgesi"
+          "metin": "Muğla Emlak Piyasasının 2026 Genel Görünümü"
         },
         {
           "tip": "paragraf",
-          "metin": "Ortaca ve Dalyan bölgesi, doğal güzellikleri ve sakin yaşam ortamıyla öne çıkmaya devam ediyor. Özellikle Dalyan'daki villa projelerine olan talep artışı, bölgedeki m² fiyatlarını yukarı yönlü etkiliyor. Ortaca merkezde konut fiyatları 15.000-35.000 TL/m² bandında seyrederken, Dalyan'da villa segment fiyatları 40.000-70.000 TL/m² seviyelerine ulaşabiliyor."
+          "metin": "2025 yılında Türkiye genelinde yaşanan ekonomik dalgalanmalar, Muğla emlak piyasasını da etkiledi. Ancak bölgenin turizm potansiyeli ve yabancı alıcı talebi, fiyatların görece istikrarlı kalmasını sağladı. 2026'nın ilk aylarında, özellikle Bodrum ve Fethiye'de yabancı yatırımcı ilgisi artış gösterirken, Ortaca, Dalaman ve Köyceğiz gibi ilçeler yerli yatırımcıların radarına girdi. Dalaman Havalimanı'nın genişleme çalışmalarının 2026 sonunda tamamlanması bekleniyor ve bu durum çevre ilçelerdeki gayrimenkul değerlerini olumlu etkileyecek."
         },
         {
           "tip": "baslik",
-          "metin": "Fethiye ve Bodrum'daki Gelişmeler"
+          "metin": "Ortaca: Muğla'nın Yükselen Yıldızı"
         },
         {
           "tip": "paragraf",
-          "metin": "Fethiye, özellikle yabancı yatırımcıların ilgisiyle parlayan bir pazar olmaya devam ediyor. Ölüdeniz ve Hisarönü bölgelerindeki tatil villalarına olan talep, yıl boyunca yüksek seyrediyor. Bodrum ise lüks segment gayrimenkul pazarının merkezi konumunda. Yalıkavak, Türkbükü ve Gündoğan gibi bölgelerde m² fiyatları 100.000 TL'yi aşan projelere rastlamak mümkün."
+          "metin": "Ortaca, son iki yılda Muğla'nın en hızlı değer kazanan ilçelerinden biri oldu. Dalaman Havalimanı'na 20 dakika, Dalyan'a 10 dakika mesafesiyle stratejik konumu, ilçeyi hem yaşam hem yatırım için cazip kılıyor. 2026 yılı itibarıyla Ortaca'daki konut fiyatları şöyle seyrediyor: Merkez mahallelerde (Atatürk, Cumhuriyet) daire fiyatları m² başına 18.000-32.000 TL arasında değişiyor. Yeni yapı projelerde bu rakam 28.000-38.000 TL'ye çıkabiliyor. Karaburun ve Dalyan yolu üzerindeki arsalar ise m² başına 4.000-10.000 TL bandında işlem görüyor."
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Ortaca'nın avantajları arasında görece uygun fiyatlar, gelişen altyapı ve Dalyan-İztuzu gibi doğa harikalarına yakınlık öne çıkıyor. Detaylı mahalle analizi için Ortaca emlak rehberi yazımızı inceleyebilirsiniz."
         },
         {
           "tip": "baslik",
-          "metin": "Yatırımcılar İçin Tavsiyeler"
+          "metin": "Dalyan: Doğa ve Lüksün Buluştuğu Yer"
         },
         {
           "tip": "paragraf",
-          "metin": "Muğla'da gayrimenkul yatırımı düşünen yatırımcılar için birkaç önemli noktayı vurgulamak gerekiyor: İmar durumunu mutlaka kontrol edin, bölgenin altyapı projelerini araştırın ve profesyonel bir emlak danışmanından destek alın. Özellikle Ortaca, Dalaman ve Köyceğiz gibi henüz fiyatların makul olduğu ilçeler, orta vadeli yatırım için cazip fırsatlar sunuyor."
+          "metin": "Dalyan, UNESCO koruması altındaki İztuzu Plajı ve antik Kaunos kentiyle dünya çapında tanınan bir destinasyon. Çevre koruma yasaları nedeniyle yeni inşaat alanları sınırlı olduğundan, mevcut mülklerin değeri her geçen yıl artıyor. 2026'da Dalyan'daki villa fiyatları 4-18 milyon TL arasında değişiyor. Kanal manzaralı villalar için m² fiyatı 45.000-75.000 TL seviyesinde. İmarlı arsa bulmak giderek zorlaşıyor ve mevcut arsalar 12.000-28.000 TL/m² bandında satışa sunuluyor."
         },
         {
           "tip": "paragraf",
-          "metin": "Kalinda Yapı olarak, Muğla bölgesindeki tüm gayrimenkul ihtiyaçlarınızda yanınızdayız. Satılık ve kiralık mülk portföyümüzü incelemek veya bölge hakkında detaylı bilgi almak için bizimle iletişime geçebilirsiniz."
+          "metin": "Dalyan'da yatırım yapmak isteyenler için önerimiz, kısa vadeli alım-satım yerine uzun vadeli değer artışına odaklanmaları. Bölgedeki inşaat kısıtlamaları, arz-talep dengesini sürekli olarak satıcı lehine tutuyor."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Köyceğiz: Sakin Yaşamın Adresi"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Köyceğiz, göl kenarındaki eşsiz konumu ve termal kaynaklarıyla doğa severlerin gözdesi. Henüz Dalyan kadar pahalılaşmamış olması, bölgeyi orta vadeli yatırım için cazip kılıyor. 2026 fiyatları şöyle: Merkezdeki daireler 12.000-22.000 TL/m², göl manzaralı villalar 25.000-40.000 TL/m², imarlı arsalar 2.500-6.000 TL/m² bandında seyrediyor. Zeytinalanı bölgesindeki tarım arazileri de yatırımcıların ilgisini çekiyor."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Dalaman: Havalimanı Etkisi"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Dalaman, havalimanı sayesinde Muğla'nın en stratejik ilçelerinden biri. Özellikle havalimanı çevresindeki ticari gayrimenkuller ve apart otel yatırımları yüksek kira getirisi sağlıyor. Atakent ve Karaçalı mahallelerinde konut fiyatları 15.000-28.000 TL/m² arasında. Ticari arsalarda m² fiyatı 8.000-20.000 TL'ye çıkabiliyor. Turizm sezonunda doluluk oranları %90'ı aşan apart oteller, yatırımcılar için cazip bir seçenek olmaya devam ediyor."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Fethiye: Yabancı Yatırımcının Gözdesi"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Fethiye, özellikle İngiliz ve Rus alıcıların yoğun ilgisiyle Muğla'nın en pahalı ikinci ilçesi konumunda. Ölüdeniz, Hisarönü ve Çalış bölgelerinde villa fiyatları 8-30 milyon TL arasında değişiyor. Merkezdeki daireler 25.000-45.000 TL/m², Kayaköy ve Üzümlü gibi sakin bölgelerde 20.000-35.000 TL/m² bandında işlem görüyor. Yabancılara satış konusundaki yasal düzenlemeler nedeniyle bazı bölgelerde kısıtlamalar mevcut; alım öncesi bu durumu kontrol etmek önemli."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Bodrum: Lüks Segmentin Kalbi"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Bodrum, Türkiye'nin en pahalı gayrimenkul pazarlarından biri olmaya devam ediyor. Yalıkavak, Türkbükü ve Gündoğan gibi prestijli bölgelerde m² fiyatları 100.000-200.000 TL'yi aşabiliyor. Bodrum merkez ve Gümbet gibi nispeten uygun fiyatlı bölgelerde bile 40.000-70.000 TL/m² fiyat aralığı geçerli. Bu fiyat seviyeleri, orta bütçeli yatırımcıları Ortaca, Dalaman ve Köyceğiz gibi alternatif ilçelere yönlendiriyor."
+        },
+        {
+          "tip": "baslik",
+          "metin": "2026'da Yatırım İçin En Cazip Bölgeler"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Muğla'da 2026 yılında yatırım yapmayı düşünenler için önerilerimiz şöyle sıralanabilir: Birincisi, Ortaca-Dalyan güzergahı orta vadeli değer artışı potansiyeli en yüksek bölge. İkincisi, Köyceğiz göl çevresi henüz keşfedilmemiş fırsatlar sunuyor. Üçüncüsü, Dalaman havalimanı çevresi ticari yatırımlar için ideal. Dördüncüsü, Fethiye Kayaköy bölgesi butik turizm yatırımları için uygun."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Yatırım Öncesi Dikkat Edilecekler"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Hangi bölgede yatırım yaparsanız yapın, şu noktalara mutlaka dikkat edin: İmar durumunu belediyeden yazılı olarak alın. Tapu kaydını Tapu Müdürlüğü'nden sorgulayın, ipotek ve haciz kontrolü yapın. Sit alanı ve çevre koruma bölgesi kısıtlamalarını araştırın. Altyapı durumunu (yol, su, elektrik, kanalizasyon) yerinde kontrol edin. Bölgeyi tanıyan profesyonel bir emlak danışmanından destek alın. Detaylı bilgi için ev alırken dikkat edilecekler rehberimizi inceleyebilirsiniz."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Sonuç ve Değerlendirme"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "2026 yılında Muğla emlak piyasası, farklı bütçe ve beklentilere hitap eden geniş bir yelpaze sunuyor. Bodrum ve Fethiye lüks segment için vazgeçilmez olmaya devam ederken, Ortaca, Dalaman ve Köyceğiz makul fiyatlarla yüksek değer artışı potansiyeli vaat ediyor. Önemli olan, yatırım kararını vermeden önce bölgeyi iyi tanımak, yasal kontrolleri eksiksiz yapmak ve uzman desteği almak."
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Kalinda Yapı olarak, Muğla bölgesinde 12 yılı aşkın deneyimimizle satılık daire, villa ve arsa portföyümüzü sizlerle paylaşıyoruz. Emlak danışmanlığı hizmetimizden yararlanmak veya güncel ilanlarımızı incelemek için bizimle iletişime geçebilirsiniz."
         }
       ]
     },
@@ -305,128 +386,142 @@
     {
       "id": "tadilat-yaptirirken-dikkat-edilmesi-gerekenler",
       "slug": "tadilat-yaptirirken-dikkat-edilmesi-gerekenler",
-      "baslik": "Tadilat Yaptırırken Dikkat Edilmesi Gereken 10 Önemli Nokta",
-      "ozet": "Ev veya işyeri tadilatı yaptırırken dikkat etmeniz gereken önemli noktalar, sözleşme detayları ve malzeme seçimi hakkında rehber.",
+      "baslik": "Tadilat Rehberi 2026: Sözleşme, Maliyet ve Dikkat Edilecekler",
+      "ozet": "Ev tadilatı yaptırırken dikkat edilecekler, 2026 tadilat maliyetleri, sözleşme örnekleri ve Muğla bölgesi için pratik öneriler.",
       "kategori": "Tadilat",
       "etiketler": [
         "Tadilat",
+        "Tadilat Maliyeti",
+        "Tadilat Sözleşmesi",
+        "Ev Yenileme",
         "Renovasyon",
-        "Dekorasyon",
-        "Ev Yenileme"
+        "Muğla Tadilat"
       ],
       "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-03-01",
-      "okunmaSuresi": 8,
+      "okunmaSuresi": 10,
+      "internalLinks": [
+        {"text": "mutfak tadilatı rehberi", "url": "/blog/mutfak-tadilati-rehberi"},
+        {"text": "banyo tadilatı fikirleri", "url": "/blog/banyo-tadilati-fikirleri"},
+        {"text": "tadilat hizmetlerimiz", "url": "/hizmetler/tadilat-dekorasyon"}
+      ],
       "kapakGorsel": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=450&fit=crop&q=80",
       "icerik": [
         {
           "tip": "paragraf",
-          "metin": "Evinizi veya işyerinizi yenilemek heyecan verici bir süreçtir, ancak doğru planlanmadığında stresli ve maliyetli bir deneyime dönüşebilir. İşte tadilat yaptırırken dikkat etmeniz gereken 10 önemli nokta."
+          "metin": "Evinizi veya işyerinizi yenilemek heyecan verici bir süreç ama doğru planlanmadığında stresli ve maliyetli bir deneyime dönüşebilir. Ortaca ve Muğla genelinde yıllardır tadilat projeleri yürüten ekibimizin deneyimiyle, 2026 yılında tadilat yaptırırken dikkat etmeniz gereken 10 kritik noktayı paylaşıyoruz."
         },
         {
           "tip": "baslik",
-          "metin": "1. Bütçenizi Belirleyin"
+          "metin": "1. Gerçekçi Bütçe Belirleyin"
         },
         {
           "tip": "paragraf",
-          "metin": "Tadilata başlamadan önce gerçekçi bir bütçe oluşturun. Toplam bütçenizin %10-15'ini beklenmedik masraflar için ayırın. Malzeme ve işçilik maliyetlerini ayrı ayrı hesaplayın ve mutlaka birden fazla firmadan teklif alın."
+          "metin": "2026 yılı tadilat maliyetleri şöyle: Komple daire tadilatı (100 m²) 250.000-600.000 TL, banyo yenileme 60.000-150.000 TL, mutfak tadilatı rehberimizde detaylı fiyatlar mevcut. Toplam bütçenizin %15-20'sini beklenmedik masraflar için ayırın. Özellikle eski binalarda tesisat sorunları ortaya çıkabiliyor. Mutlaka 3-4 firmadan karşılaştırmalı teklif alın."
         },
         {
           "tip": "baslik",
-          "metin": "2. Yazılı Sözleşme Yapın"
+          "metin": "2. Yazılı Sözleşme Şart"
         },
         {
           "tip": "paragraf",
-          "metin": "Hiçbir tadilat işine sözleşme olmadan başlamayın. Sözleşmede iş kapsamı, başlangıç ve bitiş tarihleri, ödeme planı, kullanılacak malzemeler ve garanti koşulları açıkça belirtilmelidir. Kalinda Yapı olarak tüm projelerimizi detaylı yazılı sözleşme ile güvence altına alıyoruz."
+          "metin": "Hiçbir tadilat işine sözleşme olmadan başlamayın. Sözleşmede şunlar mutlaka yer almalı: İş kapsamı madde madde, başlangıç ve bitiş tarihleri, ödeme planı ve tarihleri, kullanılacak malzemelerin marka ve modeli, gecikme cezası, garanti koşulları. Kalinda Yapı olarak tüm projelerimizi detaylı yazılı sözleşme ile güvence altına alıyoruz."
         },
         {
           "tip": "baslik",
-          "metin": "3. Referansları Kontrol Edin"
+          "metin": "3. Referansları Detaylı İnceleyin"
         },
         {
           "tip": "paragraf",
-          "metin": "Tadilat firmasının daha önceki işlerini mutlaka inceleyin. Mümkünse eski müşterilerle görüşün. Sosyal medya hesapları ve online yorumlar da önemli referans kaynaklarıdır."
+          "metin": "Tadilat firmasının daha önceki işlerini mutlaka yerinde inceleyin. Mümkünse eski müşterilerle telefonda görüşün, memnuniyet durumunu sorun. Sosyal medya hesapları ve Google yorumları önemli referans kaynakları. Muğla bölgesinde bizi tanıyanların referanslarını paylaşmaktan mutluluk duyarız."
         },
         {
           "tip": "baslik",
-          "metin": "4. Kaliteli Malzeme Seçin"
+          "metin": "4. Malzeme Kalitesinden Ödün Vermeyin"
         },
         {
           "tip": "paragraf",
-          "metin": "Ucuz malzeme kısa vadede tasarruf sağlasa da uzun vadede daha maliyetli olabilir. Özellikle su tesisatı, elektrik ve ıslak zemin malzemelerinde kaliteden ödün vermeyin. Markası ve garantisi olan ürünleri tercih edin."
+          "metin": "Ucuz malzeme kısa vadede tasarruf sağlasa da uzun vadede daha maliyetli. Kritik kalemler: Su tesisatında PPR boru ve kaliteli fitings (Wavin, Vesbo gibi markalar), elektrikte NYM kablo ve Schneider/Legrand marka anahtarlar, ıslak zeminlerde A kalite seramik ve kaliteli yapıştırıcı. Muğla'nın nemli ikliminde kalitesiz malzeme çabuk bozuluyor."
         },
         {
           "tip": "baslik",
-          "metin": "5. Gerekli İzinleri Alın"
+          "metin": "5. Gerekli İzinleri Önceden Alın"
         },
         {
           "tip": "paragraf",
-          "metin": "Apartman dairelerinde taşıyıcı sisteme müdahale eden tadilatlar için belediyeden ruhsat gerekebilir. Ayrıca apartman yönetiminden de izin almanız gerektiğini unutmayın. Cephe değişiklikleri ve kat ilavesi gibi büyük işlerde mutlaka belediye ile görüşün."
+          "metin": "Apartman dairelerinde taşıyıcı sisteme müdahale eden tadilatlar (duvar yıkma, kapı genişletme) için Ortaca Belediyesi'nden tadilat ruhsatı gerekebilir. Apartman yönetiminden yazılı izin alın. Cephe değişiklikleri ve balkon kapatma işlerinde belediye ile görüşün. İzinsiz tadilatlar cezai yaptırıma tabi."
         },
         {
           "tip": "baslik",
-          "metin": "6. Zaman Planlaması Yapın"
+          "metin": "6. Gerçekçi Zaman Planlaması"
         },
         {
           "tip": "paragraf",
-          "metin": "Tadilat süresini gerçekçi planlayın. Genellikle tahmini süreye %20-30 ekleme yapmanız yerinde olacaktır. Malzeme tedarik süreleri, hava koşulları ve beklenmedik sorunlar gecikmeye neden olabilir."
+          "metin": "2026'da ortalama tadilat süreleri: Banyo yenileme 7-15 gün, mutfak tadilatı 10-20 gün, komple daire 30-60 gün. Tahmini süreye %30 ekleme yapın. Muğla'da yaz aylarında usta bulmak zorlaşıyor; ilkbahar veya sonbaharda tadilat planlamak avantajlı. Malzeme tedarik süreleri 2026'da 5-15 gün arasında değişiyor."
         },
         {
           "tip": "baslik",
-          "metin": "7. Günlük Kontrol Yapın"
+          "metin": "7. Düzenli Kontrol ve Kayıt"
         },
         {
           "tip": "paragraf",
-          "metin": "İş süresince düzenli olarak kontrol yapın veya yaptırın. Sorunları erken tespit etmek, ileride büyük maliyetlerin önüne geçer. Fotoğraf çekerek ilerlemeyi kayıt altına alın."
+          "metin": "İş süresince düzenli olarak kontrol yapın veya yaptırın. Her aşamayı fotoğraflayın - özellikle kapanacak tesisatları (su boruları, elektrik hatları). Sorunları erken tespit etmek, ileride büyük maliyetlerin önüne geçer. Whatsapp grubu kurarak anlık ilerleme takibi yapılabilir."
         },
         {
           "tip": "baslik",
-          "metin": "8. Komşularınızı Bilgilendirin"
+          "metin": "8. Komşu İlişkilerini Koruyun"
         },
         {
           "tip": "paragraf",
-          "metin": "Özellikle apartman dairelerinde, tadilatın gürültü ve toz yaratacağını komşularınıza önceden bildirin. İş saatlerine (genellikle 08:00-18:00) dikkat edin ve hafta sonları sessiz çalışmalara öncelik verin."
+          "metin": "Apartman dairelerinde tadilatın gürültü ve toz yaratacağını komşularınıza önceden bildirin. Ortaca'da gürültülü çalışma saatleri 08:00-12:00 ve 14:00-18:00 arası. Pazar günleri ve resmi tatillerde gürültülü iş yasak. Ortak alanları temiz tutun ve moloz taşıma için gerekli önlemleri alın."
         },
         {
           "tip": "baslik",
-          "metin": "9. Ödeme Planını Dengeleyin"
+          "metin": "9. Akıllı Ödeme Planı"
         },
         {
           "tip": "paragraf",
-          "metin": "Tüm bedeli peşin ödemeyin. İş aşamalarına göre ödeme planı oluşturun. Genellikle %30 başlangıçta, %40 iş süresince ve %30 teslimattan sonra şeklinde bir plan uygulanması önerilir."
+          "metin": "Tüm bedeli peşin ödemeyin. Önerilen ödeme planı: %25-30 başlangıçta (malzeme alımı için), %35-40 iş süresince (aşamalı), %30-35 teslimattan ve kontrol sonrası. Her ödeme için makbuz alın. Nakit ödeme yapıyorsanız tutanak tutun."
         },
         {
           "tip": "baslik",
-          "metin": "10. Garanti İsteyin"
+          "metin": "10. Garanti Belgesi İsteyin"
         },
         {
           "tip": "paragraf",
-          "metin": "Tamamlanan iş için mutlaka garanti belgesi isteyin. İşçilik garantisi en az 1-2 yıl olmalıdır. Malzeme garantileri ise üretici firmanın garanti koşullarına tabidir. Kalinda Yapı olarak tüm işçiliğimiz için 2 yıl garanti sunuyoruz."
+          "metin": "Tamamlanan iş için mutlaka garanti belgesi isteyin. İşçilik garantisi minimum 2 yıl olmalı. Malzeme garantileri üretici firmanın koşullarına tabi. Kalinda Yapı olarak tüm işçiliğimiz için 2 yıl, su tesisatı için 5 yıl garanti sunuyoruz. Tadilat hizmetlerimiz hakkında detaylı bilgi için bizi arayın."
         }
       ]
     },
     {
       "id": "mugla-ilcelerinde-arsa-yatirimi",
       "slug": "mugla-ilcelerinde-arsa-yatirimi",
-      "baslik": "Muğla İlçelerinde Arsa Yatırımı: Hangi Bölge Daha Kazançlı?",
-      "ozet": "Ortaca, Dalyan, Köyceğiz, Dalaman ve diğer Muğla ilçelerinde arsa yatırımının avantajları ve dikkat edilmesi gerekenler.",
+      "baslik": "Muğla'da Arsa Yatırımı 2026: İlçe İlçe Fiyatlar ve Potansiyel Analizi",
+      "ozet": "Ortaca, Dalyan, Köyceğiz ve Dalaman'da 2026 arsa fiyatları, yatırım potansiyeli ve dikkat edilecekler. İmarlı arsa rehberi.",
       "kategori": "Gayrimenkul",
       "etiketler": [
-        "Arsa",
-        "Yatırım",
-        "Muğla",
-        "Ortaca",
-        "Dalyan",
-        "Köyceğiz"
+        "Arsa Yatırımı",
+        "Muğla Arsa",
+        "Ortaca Arsa",
+        "Dalyan Arsa",
+        "Köyceğiz Arsa",
+        "İmarlı Arsa",
+        "Gayrimenkul Yatırım"
       ],
       "yazar": "Zafer Soylu",
       "yayinTarihi": "2026-02-20",
-      "okunmaSuresi": 9,
+      "okunmaSuresi": 11,
+      "internalLinks": [
+        {"text": "Muğla emlak piyasası", "url": "/blog/mugla-emlak-piyasasi-2026"},
+        {"text": "imar durumu sorgulama", "url": "/blog/imar-durumu-nedir-nasil-sorgulanir"},
+        {"text": "ev alırken dikkat", "url": "/blog/gayrimenkul-alirken-dikkat-edilecekler"},
+        {"text": "emlak danışmanlığı", "url": "/hizmetler/emlak-danismanligi"}
+      ],
       "kapakGorsel": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=450&fit=crop&q=80",
       "icerik": [
         {
           "tip": "paragraf",
-          "metin": "Muğla, Türkiye'nin en değerli gayrimenkul pazarlarından birini barındırıyor. Özellikle arsa yatırımı, doğru bölge ve doğru zamanlama ile önemli kazançlar sağlayabiliyor. Peki hangi ilçe, hangi yatırımcı profili için daha uygun?"
+          "metin": "Muğla, Türkiye'nin en değerli gayrimenkul pazarlarından birini barındırıyor. Özellikle arsa yatırımı, doğru bölge ve doğru zamanlama ile önemli kazançlar sağlayabiliyor. 2026 yılında Muğla'nın farklı ilçelerindeki arsa fiyatlarını, yatırım potansiyellerini ve dikkat edilmesi gereken noktaları detaylı şekilde inceliyoruz."
         },
         {
           "tip": "baslik",
@@ -434,31 +529,39 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Ortaca, henüz Bodrum ve Fethiye kadar pahalılaşmamış olmasıyla yatırımcılar için cazip bir alternatif sunuyor. Merkeze yakın imarlı arsalar 3.000-8.000 TL/m² bandında işlem görüyor. Dalyan yolu üzeri ve yeni gelişen bölgelerdeki arsalar özellikle dikkat çekiyor. İlçenin havalimanına yakınlığı ve gelişen altyapısı, önümüzdeki yıllarda değer artışı beklentisini güçlendiriyor."
+          "metin": "Ortaca, henüz Bodrum ve Fethiye kadar pahalılaşmamış olmasıyla yatırımcılar için cazip bir alternatif sunuyor. 2026 yılı itibarıyla merkeze yakın konut imarlı arsalar 4.000-10.000 TL/m², Karaburun ve Dalyan yolu üzerindeki arsalar 5.000-12.000 TL/m², tarım arazileri 1.500-4.000 TL/m² bandında işlem görüyor. İlçenin Dalaman Havalimanı'na 20 dakika mesafesi ve gelişen altyapısı, önümüzdeki 3-5 yılda ciddi değer artışı beklentisi yaratıyor."
         },
         {
           "tip": "baslik",
-          "metin": "Dalyan: Doğa ve Değer Bir Arada"
+          "metin": "Dalyan: Kısıtlı Arz, Yüksek Değer"
         },
         {
           "tip": "paragraf",
-          "metin": "Dalyan, UNESCO koruması altındaki İztuzu Plajı ve antik Kaunos kenti sayesinde uluslararası bir çekim merkezi. Ancak çevre koruma yasaları nedeniyle inşaat yapılabilecek alanlar sınırlı. Bu da mevcut imarlı arsaların değerini artırıyor. Dalyan'da villa yapımına uygun arsalar 10.000-25.000 TL/m² arasında değişiyor."
+          "metin": "Dalyan, UNESCO koruması altındaki İztuzu Plajı ve antik Kaunos kenti sayesinde uluslararası bir çekim merkezi. Çevre koruma yasaları nedeniyle yeni inşaat alanları son derece sınırlı. Bu durum, mevcut imarlı arsaların değerini her yıl artırıyor. 2026'da villa yapımına uygun imarlı arsalar 12.000-28.000 TL/m² arasında. Kanal manzaralı parseller için 20.000-35.000 TL/m² talep ediliyor. Dalyan'da arsa almak, arz kısıtı nedeniyle uzun vadede güvenli bir yatırım olarak değerlendiriliyor."
         },
         {
           "tip": "baslik",
-          "metin": "Köyceğiz: Sakin Yaşamın Merkezi"
+          "metin": "Köyceğiz: Henüz Keşfedilmemiş Fırsat"
         },
         {
           "tip": "paragraf",
-          "metin": "Köyceğiz, göl kenarındaki eşsiz konumuyla doğa severler için ideal bir yaşam alanı sunuyor. Arsa fiyatları Ortaca'ya kıyasla daha uygun olup, 2.000-5.000 TL/m² bandında seyrediyor. Termal turizm potansiyeli ve sakin yaşam arayışındaki talebin artması, Köyceğiz'i uzun vadeli yatırım için değerli kılıyor."
+          "metin": "Köyceğiz, göl kenarındaki eşsiz konumu ve termal kaynaklarıyla doğa severler için ideal bir yaşam alanı. Arsa fiyatları Ortaca'ya kıyasla daha uygun: 2026'da merkezdeki imarlı arsalar 2.500-6.000 TL/m², göl manzaralı parseller 4.000-10.000 TL/m², Zeytinalanı ve çevre köylerdeki tarım arazileri 1.000-3.000 TL/m² bandında. Termal turizm potansiyeli ve sakin yaşam arayışındaki talebin artması, Köyceğiz'i uzun vadeli yatırım için değerli kılıyor."
         },
         {
           "tip": "baslik",
-          "metin": "Dalaman: Havalimanı Etkisi"
+          "metin": "Dalaman: Havalimanı ve Ticari Potansiyel"
         },
         {
           "tip": "paragraf",
-          "metin": "Dalaman Havalimanı'nın varlığı, ilçeyi stratejik bir konuma taşıyor. Özellikle havalimanı çevresindeki ticari arsalar ve konut imarlı parseller yatırımcıların ilgisini çekiyor. Turizm sezonu boyunca yoğun trafik alan bölgede, apart otel ve pansiyon yatırımları da kazançlı olabiliyor."
+          "metin": "Dalaman Havalimanı'nın varlığı, ilçeyi stratejik bir konuma taşıyor. 2026 fiyatları: Havalimanı çevresindeki ticari arsalar 8.000-20.000 TL/m², Atakent ve merkezdeki konut imarlı parseller 3.500-8.000 TL/m², Karaçalı bölgesi 3.000-6.000 TL/m² bandında. Apart otel ve pansiyon yatırımları, turizm sezonunda yüksek doluluk oranları ile cazip getiri sağlıyor. Havalimanı genişleme projesi 2026 sonunda tamamlanacak ve bu durum bölge değerlerini artıracak."
+        },
+        {
+          "tip": "baslik",
+          "metin": "İmarlı ve İmarsız Arsa Farkı"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Arsa yatırımında en kritik konu imar durumudur. İmarlı arsa üzerine ruhsatlı yapı yapılabilirken, tarla veya zeytinlik vasfındaki arazilerde inşaat yasaktır. Tarım arazilerinin imara açılması belirsiz ve uzun bir süreç. Bu nedenle, hemen değerlendirme planınız varsa imarlı arsa tercih edin. Uzun vadeli yatırım için tarım arazileri de değerlendirilebilir ama risk içerir. İmar durumu sorgulama hakkında detaylı bilgi için ilgili rehberimizi okuyun."
         },
         {
           "tip": "baslik",
@@ -466,38 +569,49 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Hangi bölgede yatırım yaparsanız yapın, şu kurallara mutlaka dikkat edin: İmar durumunu kontrol edin, tapu kaydını inceletin, belediye ve kadastro bilgilerini doğrulayın, altyapı (yol, su, elektrik) durumunu yerinde kontrol edin ve mutlaka profesyonel bir emlak danışmanından destek alın. Kalinda Yapı olarak Muğla'nın tüm ilçelerinde arsa yatırımı konusunda size rehberlik ediyoruz."
+          "metin": "Hangi bölgede yatırım yaparsanız yapın, şu kontrolleri mutlaka yapın: Belediyeden yazılı imar durumu belgesi alın. Tapu kaydını inceletin, hisseli tapu durumunu kontrol edin. Kadastro haritasından parselin sınırlarını doğrulayın. Yol, su, elektrik altyapısını yerinde kontrol edin. Sit alanı, koruma bölgesi kısıtlamalarını araştırın. Ada ve parsel numarasıyla parselsorgu.tkgm.gov.tr adresinden sorgulama yapın."
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Kalinda Yapı olarak Muğla'nın tüm ilçelerinde arsa yatırımı konusunda emlak danışmanlığı hizmeti sunuyoruz. Bölgeyi yakından tanıyan ekibimiz, doğru yatırım kararı vermenizde size rehberlik ediyor. Muğla emlak piyasası hakkında güncel bilgiler için blog yazılarımızı takip edebilirsiniz."
         }
       ]
     },
     {
       "id": "yapi-ruhsati-sureci-rehberi",
       "slug": "yapi-ruhsati-sureci-rehberi",
-      "baslik": "Yapı Ruhsatı Süreci: A'dan Z'ye Kapsamlı Rehber",
-      "ozet": "Yapı ruhsatı başvurusundan iskan belgesine kadar tüm sürecin adım adım anlatımı, gerekli belgeler ve dikkat edilecek noktalar.",
+      "baslik": "Yapı Ruhsatı Nasıl Alınır 2026: Ortaca Belediyesi Başvuru Rehberi",
+      "ozet": "Yapı ruhsatı başvurusundan iskan belgesine kadar tüm süreç. Ortaca Belediyesi için gerekli belgeler, 2026 harç ücretleri ve süreler.",
       "kategori": "İmar",
       "etiketler": [
         "Yapı Ruhsatı",
-        "İskan",
-        "İnşaat",
-        "Belediye"
+        "İskan Belgesi",
+        "İnşaat İzni",
+        "Ortaca Belediyesi",
+        "İmar İzni",
+        "Muğla İnşaat"
       ],
       "yazar": "Hikmet Karaoğlan",
       "yayinTarihi": "2026-02-10",
-      "okunmaSuresi": 10,
+      "okunmaSuresi": 12,
+      "internalLinks": [
+        {"text": "imar durumu sorgulama", "url": "/blog/imar-durumu-nedir-nasil-sorgulanir"},
+        {"text": "plan proje hizmetlerimiz", "url": "/hizmetler/plan-proje"},
+        {"text": "inşaat hizmetlerimiz", "url": "/hizmetler/taahhut-insaat"}
+      ],
       "kapakGorsel": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=450&fit=crop&q=80",
       "icerik": [
         {
           "tip": "paragraf",
-          "metin": "İnşaat yapmak isteyenlerin karşılaştığı en önemli bürokratik süreçlerden biri yapı ruhsatı almaktır. Bu rehberde, yapı ruhsatı sürecini baştan sona adım adım anlatıyoruz."
+          "metin": "İnşaat yapmak isteyenlerin karşılaştığı en önemli bürokratik süreçlerden biri yapı ruhsatı almaktır. Ortaca Belediyesi ve Muğla genelinde yıllardır ruhsat süreçlerini yönettiğimiz deneyimle, 2026 yılı için güncel bir yapı ruhsatı rehberi hazırladık."
         },
         {
           "tip": "baslik",
-          "metin": "Yapı Ruhsatı Nedir?"
+          "metin": "Yapı Ruhsatı Nedir ve Neden Gerekli?"
         },
         {
           "tip": "paragraf",
-          "metin": "Yapı ruhsatı, bir arsa veya parsel üzerine bina inşa etmek için belediyeden alınan resmi izin belgesidir. Ruhsat olmadan yapılan inşaatlar kaçak yapı sayılır ve yıkım, para cezası gibi yaptırımlarla karşılaşılabilir."
+          "metin": "Yapı ruhsatı, bir arsa veya parsel üzerine bina inşa etmek için belediyeden alınan resmi izin belgesidir. Ruhsat olmadan yapılan inşaatlar kaçak yapı sayılır ve yıkım kararı, 2026'da 500.000 TL'ye varan para cezası gibi yaptırımlarla karşılaşılabilir. Ortaca ve Dalyan bölgesinde özellikle sit alanı ve koruma bölgelerinde ruhsatsız yapılaşmaya karşı denetimler sıkılaştırıldı."
         },
         {
           "tip": "baslik",
@@ -505,15 +619,15 @@
         },
         {
           "tip": "paragraf",
-          "metin": "İlk olarak arsanızın imar durumunu öğrenmeniz gerekir. İlgili belediyenin imar müdürlüğüne başvurarak imar durumu belgesi talep edin. Bu belge size arsanız üzerine ne tip bir yapı, kaç kat ve ne kadar alana inşa edebileceğinizi gösterir."
+          "metin": "İlk olarak arsanızın imar durumunu öğrenmelisiniz. Ortaca Belediyesi İmar ve Şehircilik Müdürlüğü'ne başvurarak imar durumu belgesi talep edin. 2026 yılında imar durumu belgesi harcı 1.500-3.000 TL arasında, işlem süresi 5-10 iş günü. Bu belge size arsanız üzerine ne tip yapı (konut, ticari vb.), kaç kat, ne kadar inşaat alanı (TAKS/KAKS) ve çekme mesafelerini gösterir. İmar durumu sorgulama hakkında detaylı bilgi için ilgili yazımızı okuyabilirsiniz."
         },
         {
           "tip": "baslik",
-          "metin": "2. Adım: Zemin Etüdü"
+          "metin": "2. Adım: Zemin Etüdü Raporu"
         },
         {
           "tip": "paragraf",
-          "metin": "Jeolojik ve geoteknik etüt raporu, yapınızın temel tasarımı için zorunlu bir belgedir. Yetkili zemin etüdü firmaları tarafından sondaj yapılarak zeminin taşıma kapasitesi, yeraltı su seviyesi ve deprem riski belirlenir."
+          "metin": "Jeolojik ve geoteknik etüt raporu, yapınızın temel tasarımı için zorunlu. Muğla 1. derece deprem bölgesi olduğundan zemin etüdü kritik önem taşıyor. Yetkili zemin etüdü firmaları sondaj yaparak zeminin taşıma kapasitesi, yeraltı su seviyesi ve sıvılaşma riskini belirler. 2026'da zemin etüdü maliyeti konut için 15.000-30.000 TL, süre 10-15 iş günü."
         },
         {
           "tip": "baslik",
@@ -521,31 +635,31 @@
         },
         {
           "tip": "paragraf",
-          "metin": "İmar durumuna uygun olarak mimari proje, statik (betonarme) proje, elektrik tesisatı projesi ve mekanik tesisat projesi hazırlatmanız gerekmektedir. Bu projeler yetkili mimar ve mühendisler tarafından çizilmeli ve imzalanmalıdır."
+          "metin": "İmar durumuna uygun olarak hazırlanması gereken projeler: Mimari proje, statik (betonarme/çelik) proje, elektrik tesisatı projesi, mekanik tesisat projesi, peyzaj projesi (gerekirse). 2026'da proje maliyetleri: 150 m² villa için toplam proje bedeli 80.000-150.000 TL. Projeler yetkili mimar ve mühendisler tarafından çizilmeli, imzalanmalı ve meslek odasına kayıt edilmeli. Plan proje hizmetlerimiz hakkında detaylı bilgi için ilgili sayfamızı ziyaret edin."
         },
         {
           "tip": "baslik",
-          "metin": "4. Adım: Belediye Başvurusu"
+          "metin": "4. Adım: Ortaca Belediyesi Başvurusu"
         },
         {
           "tip": "paragraf",
-          "metin": "Tüm projeler ve belgeler hazırlandıktan sonra belediyeye yapı ruhsatı başvurusu yapılır. Gerekli belgeler arasında tapu, kimlik, imar durumu belgesi, zemin etüdü, mimari-statik-elektrik-mekanik projeler, fenni mesul taahhütnameleri ve yapı denetim sözleşmesi bulunur."
+          "metin": "Tüm belgeler hazırlandıktan sonra belediyeye yapı ruhsatı başvurusu yapılır. Ortaca Belediyesi için gerekli belgeler: Tapu fotokopisi, kimlik fotokopisi, imar durumu belgesi, zemin etüdü raporu, tüm projeler (5'er takım), fenni mesul taahhütnameleri, yapı denetim sözleşmesi, SSK ilişiksiz belgesi. 2026 yapı ruhsatı harcı m² başına 80-150 TL, inceleme süresi 15-30 iş günü."
         },
         {
           "tip": "baslik",
-          "metin": "5. Adım: Yapı Denetim"
+          "metin": "5. Adım: Yapı Denetim Sözleşmesi"
         },
         {
           "tip": "paragraf",
-          "metin": "Türkiye'de belirli ölçeğin üzerindeki yapılar için yapı denetim zorunludur. Yapı denetim firması, inşaatın projeye uygun yapılıp yapılmadığını kontrol eder. Yapı denetim ücreti yapının büyüklüğüne göre belirlenir."
+          "metin": "Türkiye'de tüm yapılar için yapı denetim zorunlu. Yapı denetim firması, inşaatın projeye uygun yapılıp yapılmadığını kontrol eder. 2026'da yapı denetim ücreti m² başına 180-250 TL. Ortaca'da faaliyet gösteren yetkili yapı denetim firmaları ile çalışılmalı. Yapı denetim firması seçiminde referansları kontrol edin."
         },
         {
           "tip": "baslik",
-          "metin": "6. Adım: İnşaat ve Hakediş"
+          "metin": "6. Adım: İnşaat Süreci ve Hakedişler"
         },
         {
           "tip": "paragraf",
-          "metin": "Ruhsat alındıktan sonra inşaata başlanabilir. İnşaat süresince yapı denetim firması düzenli kontroller yapar. Temel, kaba inşaat, çatı ve ince işler aşamalarında hakediş raporları düzenlenir."
+          "metin": "Ruhsat alındıktan sonra inşaata başlanabilir. İnşaat süresince yapı denetim firması aşamalı kontroller yapar: Temel vizesi, subasman vizesi, kaba inşaat vizesi, çatı vizesi, ince işler kontrolü. Her aşamada hakediş raporu düzenlenir. Ruhsat süresi 5 yıl; bu sürede tamamlanmazsa ruhsat yenileme gerekir."
         },
         {
           "tip": "baslik",
@@ -553,46 +667,58 @@
         },
         {
           "tip": "paragraf",
-          "metin": "İnşaat tamamlandıktan sonra belediyeden iskan belgesi alınması gerekir. İskan belgesi olmayan yapılarda resmi olarak oturulamaz, elektrik ve su aboneliği kalıcı olarak açılamaz. Kalinda Yapı olarak, ruhsat ve iskan süreçlerinde müşterilerimize baştan sona danışmanlık hizmeti veriyoruz."
+          "metin": "İnşaat tamamlandıktan sonra belediyeden iskan belgesi alınması gerekir. İskan için gerekli belgeler: Yapı denetim iş bitirme belgesi, SGK ilişiksiz belgesi, vergi ilişiksiz belgesi, enerji kimlik belgesi, teknik altyapı bağlantı belgeleri. 2026'da iskan harcı m² başına 50-100 TL, süre 15-30 iş günü. İskan belgesi olmayan yapılarda resmi elektrik ve su aboneliği açılamaz."
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Kalinda Yapı olarak, Ortaca ve Muğla genelinde yapı ruhsatı ve iskan süreçlerinde baştan sona danışmanlık hizmeti veriyoruz. İnşaat hizmetlerimiz kapsamında tüm bürokratik işlemleri sizin adınıza takip ediyoruz. Detaylı bilgi için bizimle iletişime geçin."
         }
       ]
     },
     {
       "id": "gayrimenkul-alirken-dikkat-edilecekler",
       "slug": "gayrimenkul-alirken-dikkat-edilecekler",
-      "baslik": "Gayrimenkul Alırken Dikkat Edilmesi Gereken 8 Kritik Nokta",
-      "ozet": "Ev, daire veya arsa satın alırken hukuki, teknik ve finansal açıdan dikkat etmeniz gereken önemli noktalar.",
+      "baslik": "Ev Alırken Dikkat Edilecekler 2026: Tapu, İmar ve Hukuki Kontrol Rehberi",
+      "ozet": "Muğla'da ev, daire veya arsa alırken dikkat edilmesi gerekenler. Tapu kontrolü, imar durumu, iskan belgesi ve 2026 güncel yasal gereklilikler.",
       "kategori": "Gayrimenkul",
       "etiketler": [
-        "Ev Alma",
+        "Ev Alırken Dikkat",
         "Gayrimenkul",
-        "Tapu",
-        "Hukuk"
+        "Tapu Kontrolü",
+        "İmar Durumu",
+        "Muğla Emlak",
+        "Ortaca Ev"
       ],
       "yazar": "Zafer Soylu",
       "yayinTarihi": "2026-01-25",
-      "okunmaSuresi": 7,
+      "okunmaSuresi": 10,
+      "internalLinks": [
+        {"text": "tapu kontrolü rehberi", "url": "/blog/ev-alirken-tapu-kontrolu-nasil-yapilir"},
+        {"text": "imar durumu sorgulama", "url": "/blog/imar-durumu-nedir-nasil-sorgulanir"},
+        {"text": "emlak danışmanlığı", "url": "/hizmetler/emlak-danismanligi"},
+        {"text": "satılık daireler", "url": "/ilanlar"}
+      ],
       "kapakGorsel": "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=800&h=450&fit=crop&q=80",
       "icerik": [
         {
           "tip": "paragraf",
-          "metin": "Gayrimenkul almak, çoğu insan için hayatlarının en büyük finansal kararlarından biridir. Bu süreçte yapılacak bir hata büyük maddi kayıplara yol açabilir. İşte gayrimenkul alırken mutlaka dikkat etmeniz gereken 8 kritik nokta."
+          "metin": "Gayrimenkul almak, çoğu insan için hayatlarının en büyük finansal kararlarından biridir. Muğla gibi turizm bölgelerinde doğru araştırma yapmadan yapılan alımlar, büyük maddi kayıplara yol açabiliyor. Ortaca ve çevresinde yıllardır emlak danışmanlığı yaparken gördüğümüz en yaygın hataları ve bunlardan nasıl kaçınacağınızı bu rehberde paylaşıyoruz."
         },
         {
           "tip": "baslik",
-          "metin": "1. Tapu Kaydını İnceletin"
+          "metin": "1. Tapu Kaydını Detaylı İnceletin"
         },
         {
           "tip": "paragraf",
-          "metin": "Alacağınız mülkün tapu kaydını mutlaka Tapu Müdürlüğü'nden sorgulayın. Üzerinde ipotek, haciz, şerh veya intifa hakkı olup olmadığını kontrol edin. Tapu kaydındaki kişi ile satıcının aynı olduğundan emin olun."
+          "metin": "Alacağınız mülkün tapu kaydını mutlaka Tapu Müdürlüğü'nden sorgulayın. Üzerinde ipotek, haciz, şerh veya intifa hakkı olup olmadığını kontrol edin. Ortaca Tapu Müdürlüğü'nden yazılı belge almanızı öneririz; e-Devlet kayıtları bazen gecikmeli güncellenebiliyor. Özellikle Dalyan ve Köyceğiz bölgesinde miras yoluyla intikal etmiş mülklerde hisseli tapu sorunlarıyla sık karşılaşıyoruz. Detaylı bilgi için tapu kontrolü rehberimizi inceleyebilirsiniz."
         },
         {
           "tip": "baslik",
-          "metin": "2. İmar Durumunu Kontrol Edin"
+          "metin": "2. İmar Durumunu Mutlaka Kontrol Edin"
         },
         {
           "tip": "paragraf",
-          "metin": "Özellikle arsa ve arazi alımlarında imar durumu çok önemlidir. İmarsız bir araziye ev yapamazsınız. Mevcut yapılarda da imar durumunun yapıyla uyumlu olduğundan emin olun. Kaçak kat veya izinsiz eklentiler ciddi sorunlara yol açabilir."
+          "metin": "Özellikle arsa ve arazi alımlarında imar durumu kritik önem taşıyor. Muğla genelinde tarla vasfındaki arazilerin konut imarlı gibi sunulduğu durumlarla karşılaşıyoruz. Ortaca ve Dalyan'da sit alanı, doğal koruma alanı ve kıyı kenar çizgisi kısıtlamaları mevcut. Belediyeden yazılı imar durumu belgesi almadan kesinlikle karar vermeyin. İmar durumu sorgulama hakkında detaylı bilgi için ilgili yazımızı okuyabilirsiniz."
         },
         {
           "tip": "baslik",
@@ -600,7 +726,7 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Satın alacağınız konutun iskan (yapı kullanma izin belgesi) olup olmadığını kontrol edin. İskansız binalarda resmi abonelik işlemleri yapılamayabilir ve ileride yasal sorunlarla karşılaşabilirsiniz."
+          "metin": "Satın alacağınız konutun iskan (yapı kullanma izin belgesi) olup olmadığını kontrol edin. Muğla'da özellikle köy yerleşim alanlarında ve eski yapılarda iskansız binalar yaygın. İskansız binalarda elektrik ve su aboneliği sorun yaratabilir, sigorta yaptıramazsınız ve ileride yıkım kararı çıkabilir. 2026 itibarıyla iskansız bina almak ciddi risk taşıyor."
         },
         {
           "tip": "baslik",
@@ -608,15 +734,15 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Binanın hangi yıl yapıldığını ve deprem yönetmeliğine uygun olup olmadığını araştırın. 1999 sonrası yönetmelikle yapılan binalar daha güvenli kabul edilir. Gerekirse bağımsız bir yapı denetim uzmanından rapor alın."
+          "metin": "Muğla, 1. derece deprem bölgesinde yer alıyor. Binanın hangi yıl yapıldığını ve deprem yönetmeliğine uygun olup olmadığını mutlaka araştırın. 2000 öncesi yapıların büyük çoğunluğu mevcut deprem standartlarını karşılamıyor. 2018 sonrası yapılar en güncel yönetmeliğe tabi. Tereddüt durumunda bağımsız bir yapı denetim uzmanından rapor alın; bu hizmet 2026'da 5.000-15.000 TL arasında değişiyor."
         },
         {
           "tip": "baslik",
-          "metin": "5. Çevre ve Altyapıyı İnceleyin"
+          "metin": "5. Çevre ve Altyapıyı Yerinde İnceleyin"
         },
         {
           "tip": "paragraf",
-          "metin": "Mülkün çevresini farklı saatlerde ziyaret edin. Gürültü, trafik, komşuluk durumu gibi faktörleri yerinde değerlendirin. Yol, su, kanalizasyon, doğalgaz ve internet gibi altyapı hizmetlerinin mevcut olduğundan emin olun."
+          "metin": "Mülkün çevresini farklı saatlerde ve farklı günlerde ziyaret edin. Ortaca'da bazı mahalleler pazar günleri kalabalık olurken, hafta içi sakin kalıyor. Dalyan'da turizm sezonunda trafik yoğunluğu artıyor. Yol, su, kanalizasyon ve internet altyapısını yerinde kontrol edin. Kırsal bölgelerde altyapı sorunları olabiliyor."
         },
         {
           "tip": "baslik",
@@ -624,15 +750,15 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Almayı düşündüğünüz bölgedeki benzer mülklerin fiyatlarını araştırın. Aşırı düşük fiyatlar bir sorunun işareti olabilir. Profesyonel bir emlak danışmanından karşılaştırmalı piyasa analizi isteyin."
+          "metin": "Almayı düşündüğünüz bölgedeki benzer mülklerin fiyatlarını araştırın. 2026 yılında Ortaca'da m² fiyatları 18.000-35.000 TL, Dalyan'da 30.000-70.000 TL arasında değişiyor. Aşırı düşük fiyatlar bir sorunun işareti olabilir. Satılık daireler sayfamızdan güncel fiyatları karşılaştırabilirsiniz."
         },
         {
           "tip": "baslik",
-          "metin": "7. Ödeme Şeklini Netleştirin"
+          "metin": "7. Ödeme Şeklini ve Vergileri Netleştirin"
         },
         {
           "tip": "paragraf",
-          "metin": "Nakit, kredi veya senetli ödeme seçeneklerini değerlendirin. Banka kredisi kullanacaksanız ön onay alın. Senetli satışlarda noter tasdikli senet kullanın ve ödeme takvimini yazılı hale getirin."
+          "metin": "Nakit, kredi veya senetli ödeme seçeneklerini değerlendirin. Tapu harcı 2026'da alıcı ve satıcı için ayrı ayrı %2. DASK (zorunlu deprem sigortası) tapu devri için zorunlu. Banka kredisi kullanacaksanız ön onay alın; 2026'da konut kredisi faizleri %2,5-3,5 arasında. Senetli satışlarda noter tasdikli senet kullanın."
         },
         {
           "tip": "baslik",
@@ -640,31 +766,37 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Gayrimenkul alım sürecinde deneyimli bir emlak danışmanı ve gerektiğinde bir avukat ile çalışmak, olası riskleri en aza indirir. Kalinda Yapı olarak, Muğla bölgesindeki tüm gayrimenkul alım-satım süreçlerinizde profesyonel danışmanlık hizmeti sunuyoruz."
+          "metin": "Gayrimenkul alım sürecinde deneyimli bir emlak danışmanı ile çalışmak, olası riskleri en aza indirir. Bölgeyi tanımayan alıcıların online ilanlardaki fiyatlarla gerçek satış fiyatları arasındaki farkı değerlendirmesi zor. Kalinda Yapı olarak, Muğla bölgesindeki tüm gayrimenkul alım-satım süreçlerinizde emlak danışmanlığı hizmeti sunuyoruz."
         }
       ]
     },
     {
       "id": "mutfak-tadilati-rehberi",
       "slug": "mutfak-tadilati-rehberi",
-      "baslik": "Mutfak Tadilatı Rehberi: Modern ve Fonksiyonel Mutfaklar",
-      "ozet": "Mutfak tadilatı planlaması, malzeme seçimi, tezgah ve dolap alternatifleri. Bütçeye uygun modern mutfak fikirleri.",
+      "baslik": "Mutfak Tadilatı Rehberi 2026: Maliyetler, Malzemeler ve Tasarım Fikirleri",
+      "ozet": "2026 mutfak tadilat maliyetleri, dolap ve tezgah fiyatları, malzeme seçimi rehberi. Ortaca ve Muğla bölgesi için güncel fiyatlar.",
       "kategori": "Tadilat",
       "etiketler": [
-        "Mutfak",
-        "Tadilat",
-        "Dekorasyon",
-        "Dolap",
-        "Tezgah"
+        "Mutfak Tadilatı",
+        "Mutfak Dolabı",
+        "Mutfak Tezgahı",
+        "Tadilat Maliyeti",
+        "Mutfak Yenileme",
+        "Muğla Tadilat"
       ],
       "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-01-15",
-      "okunmaSuresi": 8,
+      "okunmaSuresi": 10,
+      "internalLinks": [
+        {"text": "tadilat rehberimiz", "url": "/blog/tadilat-yaptirirken-dikkat-edilmesi-gerekenler"},
+        {"text": "banyo tadilatı fikirleri", "url": "/blog/banyo-tadilati-fikirleri"},
+        {"text": "tadilat hizmetlerimiz", "url": "/hizmetler/tadilat-dekorasyon"}
+      ],
       "kapakGorsel": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=450&fit=crop&q=80",
       "icerik": [
         {
           "tip": "paragraf",
-          "metin": "Mutfak, evin kalbidir. Fonksiyonel ve estetik bir mutfak, hem yemek hazırlama sürecinizi kolaylaştırır hem de evinizin değerini artırır. Bu rehberde, başarılı bir mutfak tadilatı için bilmeniz gereken her şeyi paylaşıyoruz."
+          "metin": "Mutfak, evin kalbidir. Fonksiyonel ve estetik bir mutfak, hem yemek hazırlama sürecinizi kolaylaştırır hem de evinizin değerini artırır. Ortaca ve çevresinde yıllardır mutfak tadilatı projeleri gerçekleştiren ekibimizin deneyimiyle, 2026 yılı için kapsamlı bir mutfak tadilatı rehberi hazırladık."
         },
         {
           "tip": "baslik",
@@ -672,23 +804,23 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Başarılı bir mutfak tadilatının temeli iyi planlamadan geçer. Öncelikle mevcut mutfağınızın eksikliklerini belirleyin. Depolama alanı yetersiz mi? Tezgah alanı az mı? Aydınlatma sorunlu mu? Bu soruların cevapları, yeni tasarımınızın odak noktalarını belirleyecektir."
+          "metin": "Başarılı bir mutfak tadilatının temeli iyi planlamadan geçer. Öncelikle mevcut mutfağınızın eksikliklerini belirleyin: Depolama alanı yetersiz mi? Tezgah alanı az mı? Aydınlatma sorunlu mu? Havalandırma yeterli mi? Bu soruların cevapları, yeni tasarımınızın odak noktalarını belirleyecektir. Mutfak üçgeni (ocak-buzdolabı-lavabo) prensibine uygun yerleşim, ergonomik ve verimli çalışma alanı sağlar."
         },
         {
           "tip": "baslik",
-          "metin": "Dolap Seçimi ve Malzeme"
+          "metin": "Dolap Seçimi ve 2026 Fiyatları"
         },
         {
           "tip": "paragraf",
-          "metin": "Mutfak dolapları için başlıca malzeme seçenekleri MDF lake, MDF membran, akrilik ve masif ahşaptır. MDF lake modern ve temizlenmesi kolay bir görünüm sunarken, masif ahşap doğal ve sıcak bir atmosfer yaratır. Bütçenize ve tarzınıza göre seçim yapabilirsiniz. Ray sistemlerinde ise soft-close (yavaş kapanma) mekanizması sessiz ve uzun ömürlü kullanım sağlar."
+          "metin": "Mutfak dolapları için başlıca malzeme seçenekleri ve 2026 fiyatları şöyle: MDF lake kapak metrekare fiyatı 3.000-5.000 TL (modern görünüm, kolay temizlenir), MDF membran 2.500-4.000 TL/m² (ekonomik, çeşitli desenler), akrilik kapak 4.500-7.000 TL/m² (parlak, premium görünüm), masif ahşap 6.000-12.000 TL/m² (doğal, sıcak atmosfer). 10-12 m² standart bir mutfak için dolap maliyeti 80.000-180.000 TL arasında değişiyor. Ray sistemlerinde soft-close mekanizması artık standart; Blum veya Hettich gibi kaliteli markalar uzun ömür garantisi sunuyor."
         },
         {
           "tip": "baslik",
-          "metin": "Tezgah Alternatifleri"
+          "metin": "Tezgah Alternatifleri ve Maliyetler"
         },
         {
           "tip": "paragraf",
-          "metin": "Mutfak tezgahı seçimi hem estetik hem de fonksiyonel bir karardır. Granit, yüksek dayanıklılık ve ısı direnci sunar ancak gözenekli yapısı nedeniyle düzenli bakım gerektirir. Kuvars, bakımı kolay ve hijyenik bir seçenektir. Mermer, zarif görünümüyle öne çıkar ancak asit ve lekeye karşı hassastır. Laminant tezgahlar ise bütçe dostu bir alternatif olarak tercih edilebilir."
+          "metin": "2026 yılı tezgah fiyatları: Granit 2.500-5.000 TL/metretül (yüksek dayanıklılık, doğal görünüm), kuvars (engineered stone) 3.500-7.000 TL/metretül (bakımı kolay, hijyenik), mermer 4.000-10.000 TL/metretül (zarif ama bakım gerektirir), kompakt laminat 1.500-3.000 TL/metretül (bütçe dostu, pratik). Muğla bölgesinin sıcak ikliminde açık renkli tezgahlar daha az ısınır ve mutfağı ferah gösterir."
         },
         {
           "tip": "baslik",
@@ -696,63 +828,74 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Modern mutfaklarda üç katmanlı aydınlatma sistemi önerilir: genel aydınlatma için tavan armatürleri, çalışma alanları için tezgah altı LED aydınlatma ve dekoratif amaçlı dolap içi aydınlatma. Özellikle tezgah üstü aydınlatma, yemek hazırlama sürecinde büyük kolaylık sağlar."
+          "metin": "Modern mutfaklarda üç katmanlı aydınlatma sistemi önerilir: genel aydınlatma için LED panel veya spot (3.000-8.000 TL), çalışma alanları için tezgah altı LED şerit (1.500-4.000 TL), dekoratif amaçlı dolap içi aydınlatma (1.000-3.000 TL). Özellikle tezgah üstü aydınlatma, yemek hazırlama sürecinde büyük kolaylık sağlar ve mutfağın değerini artırır."
         },
         {
           "tip": "baslik",
-          "metin": "Fayans ve Zemin"
+          "metin": "Fayans ve Zemin Seçenekleri"
         },
         {
           "tip": "paragraf",
-          "metin": "Mutfak zemininde su ve yağa dayanıklı malzemeler tercih edilmelidir. Seramik ve porselen karolar en popüler seçeneklerdir. Tezgah arkası (backsplash) için ise cam mozaik, subway tile veya tek parça cam paneller estetik ve temizlenmesi kolay alternatifler sunar."
+          "metin": "Mutfak zemininde su ve yağa dayanıklı malzemeler tercih edilmeli. 2026 fiyatları: Seramik karo 200-600 TL/m² (döşeme dahil), porselen karo 400-1.200 TL/m², laminat parke 300-800 TL/m². Tezgah arkası (backsplash) için cam mozaik 400-1.000 TL/m², subway tile 250-600 TL/m², tek parça cam panel 800-2.000 TL/m² bandında fiyatlanıyor."
         },
         {
           "tip": "baslik",
-          "metin": "Tahmini Bütçe Rehberi"
+          "metin": "2026 Komple Mutfak Tadilatı Bütçe Rehberi"
         },
         {
           "tip": "paragraf",
-          "metin": "Ortalama bir mutfak tadilatı bütçesi, mutfağın boyutu ve tercih edilen malzemelere göre 80.000 TL ile 300.000 TL arasında değişebilir. Dolap seti genellikle bütçenin %40-50'sini, tezgah %15-20'sini, işçilik %20-25'ini ve beyaz eşya-aksesuar %15-20'sini oluşturur. Kalinda Yapı olarak, her bütçeye uygun mutfak çözümleri sunuyoruz."
+          "metin": "10-12 m² standart bir mutfak için 2026 toplam maliyet tahminleri: Ekonomik segment (MDF membran dolap, kompakt tezgah) 120.000-180.000 TL, orta segment (MDF lake, granit tezgah) 180.000-280.000 TL, premium segment (akrilik/masif, kuvars tezgah) 280.000-450.000 TL. Bu rakamlar dolap, tezgah, tesisat, elektrik, fayans ve işçilik dahil. Beyaz eşya ayrı bütçelendirilmeli."
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Kalinda Yapı olarak, Ortaca ve Muğla genelinde her bütçeye uygun mutfak tadilat çözümleri sunuyoruz. Ücretsiz keşif ve detaylı teklif için tadilat hizmetlerimiz sayfamızı ziyaret edin veya bizimle iletişime geçin. Tadilat sürecinde dikkat edilmesi gerekenler için tadilat rehberimizi de inceleyebilirsiniz."
         }
       ]
     },
     {
       "id": "dalyan-yasam-rehberi",
       "slug": "dalyan-yasam-rehberi",
-      "baslik": "Dalyan'da Yaşam: Doğa ve Huzurun Buluşma Noktası",
-      "ozet": "Dalyan'da yaşamın avantajları, bölge hakkında bilgiler, emlak fırsatları ve yaşam maliyetleri.",
+      "baslik": "Dalyan'da Yaşam Rehberi 2026: Ev Fiyatları, Yaşam Maliyetleri ve Bölge Avantajları",
+      "ozet": "Dalyan'da yaşamak isteyenler için kapsamlı rehber. Villa ve ev fiyatları, aylık yaşam maliyetleri, İztuzu Plajı, ulaşım ve yabancılar için bilgiler.",
       "kategori": "Yaşam",
       "etiketler": [
         "Dalyan",
-        "Yaşam",
-        "Doğa",
-        "İztuzu",
-        "Turizm"
+        "Dalyan Ev Fiyatları",
+        "Dalyan Villa",
+        "İztuzu Plajı",
+        "Dalyan Yaşam",
+        "Ortaca",
+        "Muğla Yaşam"
       ],
       "yazar": "Zafer Soylu",
       "yayinTarihi": "2026-01-05",
-      "okunmaSuresi": 7,
+      "okunmaSuresi": 11,
+      "internalLinks": [
+        {"text": "Ortaca emlak rehberi", "url": "/blog/ortaca-emlak-rehberi-mahalle-mahalle-2026"},
+        {"text": "Muğla emlak piyasası", "url": "/blog/mugla-emlak-piyasasi-2026"},
+        {"text": "emlak danışmanlığı", "url": "/hizmetler/emlak-danismanligi"}
+      ],
       "kapakGorsel": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=450&fit=crop&q=80",
       "icerik": [
         {
           "tip": "paragraf",
-          "metin": "Dalyan, Muğla'nın Ortaca ilçesine bağlı, doğal güzellikleri ve tarihi dokusuyla büyüleyen bir belde. UNESCO koruma altındaki İztuzu Plajı, antik Kaunos kenti ve termal kaynakları ile yerli ve yabancı binlerce kişinin tercih ettiği bir yaşam alanı haline geldi."
+          "metin": "Dalyan, Muğla'nın Ortaca ilçesine bağlı, doğal güzellikleri ve tarihi dokusuyla büyüleyen eşsiz bir belde. UNESCO koruması altındaki İztuzu Plajı, antik Kaunos kenti, termal kaynakları ve Dalyan Kanalı ile yerli ve yabancı binlerce kişinin yaşam için tercih ettiği bir cennet köşesi haline geldi. Bu rehberde, Dalyan'da yaşamayı düşünenler için ihtiyaç duyacakları tüm bilgileri bir araya getirdik."
         },
         {
           "tip": "baslik",
-          "metin": "Neden Dalyan?"
+          "metin": "Dalyan'ı Özel Kılan Nedir?"
         },
         {
           "tip": "paragraf",
-          "metin": "Dalyan, büyük şehirlerin kaosundan uzakta, doğayla iç içe sakin bir yaşam sunar. Dört mevsim ılıman Akdeniz iklimi, tertemiz hava, organik tarım ürünleri ve komşuluk ilişkilerinin sıcaklığı Dalyan'ı yaşamak için ideal kılar. Yabancı uyruklu sakinlerin sayısının artması, kozmopolit bir atmosfer de yaratmıştır."
+          "metin": "Dalyan, büyük şehirlerin kaosundan uzakta, doğayla iç içe sakin bir yaşam sunar. Dört mevsim ılıman Akdeniz iklimi sayesinde kışlar ılık, yazlar sıcak ama bunaltıcı değil. Tertemiz hava, organik tarım ürünleri, balıkçılık kültürü ve sıcak komşuluk ilişkileri Dalyan'ı yaşamak için ideal kılıyor. Son yıllarda özellikle İngiliz, Alman ve İskandinav kökenli yabancı sakinlerin sayısı arttı; bu durum bölgeye kozmopolit bir atmosfer kazandırdı. Dalyan'ın en büyük avantajlarından biri de çevre koruma statüsü."
         },
         {
           "tip": "baslik",
-          "metin": "Doğal Güzellikler"
+          "metin": "Doğal Güzellikler ve Gezilecek Yerler"
         },
         {
           "tip": "paragraf",
-          "metin": "İztuzu Plajı, caretta caretta deniz kaplumbağalarının yuvalama alanı olarak dünya çapında ün kazanmıştır. Dalyan Kanalı boyunca tekne turları, çamur banyoları ve termal havuzlar her yaştan ziyaretçiye sağlık ve eğlence sunar. Köyceğiz Gölü'nün sakinliği ve Sultaniye Kaplıcaları'nın şifalı suları da ayrıca keşfedilmeye değerdir."
+          "metin": "İztuzu Plajı, caretta caretta deniz kaplumbağalarının dünyadaki en önemli yuvalama alanlarından biri olarak UNESCO koruması altında. 4,5 km uzunluğundaki bu eşsiz plaj, bir tarafı tatlı su (Dalyan Kanalı), diğer tarafı tuzlu su (Akdeniz) ile çevrili nadir coğrafi yapılardan. Dalyan Kanalı boyunca tekne turları, Kaunos antik kenti, kaya mezarları, çamur banyoları ve Sultaniye Kaplıcaları tek bir turda ziyaret edilebiliyor. Köyceğiz Gölü'nün sakinliği, kuş gözlemciliği için ideal ortam sunuyor."
         },
         {
           "tip": "baslik",
@@ -760,7 +903,7 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Antik Kaunos kentinin kalıntıları, kaya mezarları ve tiyatrosu tarih meraklılarını cezbeder. MÖ 9. yüzyıla kadar uzanan tarihi ile bölge, arkeolojik açıdan da önemli bir değer taşır. Yerel pazarlar, festivaller ve kültürel etkinlikler topluluk ruhunu canlı tutar."
+          "metin": "Antik Kaunos kenti, MÖ 9. yüzyıla kadar uzanan tarihiyle bölgenin en önemli arkeolojik alanı. Likya, Karya ve Roma dönemlerinden kalıntılar barındıran kent, özellikle kayalara oyulmuş kral mezarlarıyla ünlü. Antik tiyatro, agora, hamam kalıntıları ve liman yapıları ziyaretçileri geçmişe götürüyor. Haftalık kurulan Ortaca pazarı, yerel ürünler için harika bir alışveriş deneyimi sunuyor."
         },
         {
           "tip": "baslik",
@@ -768,46 +911,74 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Dalyan, Dalaman Havalimanı'na sadece 25 km mesafededir. Bu, yerli ve yabancı ziyaretçiler için büyük bir kolaylık sağlar. Düzenli otobüs seferleri Ortaca ve çevre ilçelere bağlantı sunar. Altyapı açısından su, elektrik ve internet hizmetleri sorunsuz çalışmaktadır."
+          "metin": "Dalyan, Dalaman Havalimanı'na sadece 25 km, yaklaşık 30 dakika mesafede. Bu durum, özellikle yurt dışından gelen ziyaretçiler için büyük kolaylık sağlıyor. Ortaca ilçe merkezine 12 km uzaklıkta olup, düzenli minibüs seferleri mevcut. Fethiye'ye 75 km, Marmaris'e 95 km mesafede. Bölgede su, elektrik ve fiber internet altyapısı sorunsuz çalışıyor."
         },
         {
           "tip": "baslik",
-          "metin": "Emlak Fırsatları"
+          "metin": "2026 Yılı Dalyan Ev ve Villa Fiyatları"
         },
         {
           "tip": "paragraf",
-          "metin": "Dalyan'da villa, müstakil ev ve daire seçenekleri mevcuttur. Çevre koruma yasaları nedeniyle yeni inşaat alanları sınırlı olduğundan, mevcut mülklerin değeri korunmaktadır. Villa fiyatları konuma ve büyüklüğe göre 4-15 milyon TL arasında değişmektedir. Kalinda Yapı olarak Dalyan bölgesindeki satılık ve kiralık mülkler hakkında size detaylı bilgi sunabiliriz."
+          "metin": "Dalyan'da çevre koruma yasaları nedeniyle yeni inşaat alanları oldukça sınırlı. Bu durum, mevcut mülklerin değerini sürekli artırıyor. 2026 yılı itibarıyla güncel fiyatlar şöyle: Kanal manzaralı villalar 6-18 milyon TL, havuzlu müstakil villalar 4-12 milyon TL, merkeze yakın daireler 2-4 milyon TL, imarlı arsalar m² başına 12.000-28.000 TL bandında. Kiralık konut piyasası da oldukça hareketli; yıllık kiralık villalar 80.000-200.000 TL arasında değişiyor."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Aylık Yaşam Maliyetleri"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Dalyan'da yaşam maliyetleri, büyük şehirlere kıyasla oldukça makul. 2026 yılı için ortalama aylık giderler: Market ve gıda harcamaları tek kişi için aylık 8.000-12.000 TL, elektrik-su faturası ortalama 1.500-3.000 TL, internet 500-800 TL, ulaşım (araç sahipleri için yakıt) 2.000-4.000 TL. Yerel pazarlardan alışveriş yaparak bu maliyetleri önemli ölçüde düşürmek mümkün."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Yabancılar İçin Dalyan'da Yaşam"
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Dalyan, yabancı uyruklu sakinler için oldukça hoşgörülü ve alışması kolay bir belde. Birçok restoran ve kafede İngilizce menü mevcut, esnafın önemli bir kısmı temel İngilizce konuşabiliyor. Expat toplulukları düzenli buluşmalar ve etkinlikler organize ediyor. Türkiye'de mülk edinen yabancılar, belirli koşullarda oturma izni başvurusu yapabiliyor."
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Kalinda Yapı olarak, Dalyan ve Ortaca bölgesinde satılık villa, ev ve arsa portföyümüzle size hizmet veriyoruz. Bölgeyi yakından tanıyan ekibimiz, hayalinizdeki evi bulmanızda ve tüm yasal süreçlerde yanınızda. Emlak danışmanlığı hizmetimizden yararlanmak için bizimle iletişime geçin."
         }
       ]
     },
     {
       "id": "enerji-verimli-evler",
       "slug": "enerji-verimli-evler",
-      "baslik": "Enerji Verimli Evler: Tasarruf ve Çevre Dostu Yaşam",
-      "ozet": "Enerji verimliliği yüksek evler için yalıtım, ısıtma sistemleri, güneş enerjisi ve akıllı ev teknolojileri rehberi.",
+      "baslik": "Enerji Verimli Evler 2026: Yalıtım, Güneş Enerjisi ve Tasarruf Rehberi",
+      "ozet": "Muğla bölgesinde enerji verimli ev için yalıtım, ısı pompası, güneş paneli ve akıllı ev sistemleri rehberi. 2026 maliyetleri ve teşvikler.",
       "kategori": "İnşaat",
       "etiketler": [
         "Enerji Verimliliği",
         "Yalıtım",
         "Güneş Enerjisi",
-        "Akıllı Ev"
+        "Akıllı Ev",
+        "Mantolama",
+        "Isı Pompası",
+        "Muğla İnşaat"
       ],
       "yazar": "Arif Dağdelen",
       "yayinTarihi": "2025-12-20",
-      "okunmaSuresi": 9,
+      "okunmaSuresi": 11,
+      "internalLinks": [
+        {"text": "tadilat rehberimiz", "url": "/blog/tadilat-yaptirirken-dikkat-edilmesi-gerekenler"},
+        {"text": "tadilat hizmetlerimiz", "url": "/hizmetler/tadilat-dekorasyon"},
+        {"text": "inşaat hizmetlerimiz", "url": "/hizmetler/taahhut-insaat"}
+      ],
       "kapakGorsel": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop&q=80",
       "icerik": [
         {
           "tip": "paragraf",
-          "metin": "Enerji maliyetlerinin sürekli artışı ve çevresel kaygılar, ev sahiplerini enerji verimli çözümlere yönlendiriyor. Enerji verimli bir ev, hem faturalarda önemli tasarruf sağlar hem de karbon ayak izinizi azaltır. İşte evinizi daha enerji verimli hale getirmek için bilmeniz gerekenler."
+          "metin": "Enerji maliyetlerinin sürekli artışı ve çevresel kaygılar, ev sahiplerini enerji verimli çözümlere yönlendiriyor. Muğla gibi güneşli bölgelerde enerji verimli bir ev, hem faturalarda ciddi tasarruf sağlar hem de karbon ayak izinizi azaltır. Ortaca, Dalyan ve Köyceğiz bölgelerinde yaptığımız projelerde edindiğimiz deneyimle, evinizi daha enerji verimli hale getirmek için bilmeniz gerekenleri paylaşıyoruz."
         },
         {
           "tip": "baslik",
-          "metin": "Isı Yalıtımı"
+          "metin": "Isı Yalıtımı ve Mantolama"
         },
         {
           "tip": "paragraf",
-          "metin": "Enerji verimliliğinin temeli iyi yalıtımdan geçer. Dış cephe yalıtımı (mantolama), ısı kayıplarını %30-40 oranında azaltabilir. Çatı ve tavan yalıtımı özellikle son katlarda kritik öneme sahiptir. Pencere ve kapılardaki sızdırmazlık da ihmal edilmemesi gereken detaylardır. Muğla'nın ılıman ikliminde bile doğru yalıtım, yaz aylarında klima ihtiyacını önemli ölçüde azaltır."
+          "metin": "Enerji verimliliğinin temeli iyi yalıtımdan geçer. Dış cephe yalıtımı (mantolama), ısı kayıplarını %30-40 oranında azaltabilir. 2026 yılı itibarıyla Ortaca ve çevresinde mantolama maliyetleri m² başına 800-1.500 TL arasında değişiyor (malzeme ve işçilik dahil). EPS (strafor) en ekonomik seçenekken, XPS ve taş yünü daha yüksek performans sunuyor. Çatı ve tavan yalıtımı özellikle son katlarda kritik öneme sahip. Muğla'nın ılıman ikliminde yaz aylarında klima ihtiyacını önemli ölçüde azaltıyor."
         },
         {
           "tip": "baslik",
@@ -815,7 +986,7 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Isı kayıplarının önemli bir kısmı pencerelerden gerçekleşir. Çift cam veya üç cam sistemler, ısı yalıtımını önemli ölçüde artırır. Low-E (düşük emisyonlu) camlar, güneş ışınlarını geçirirken ısı kaybını minimuma indirir. PVC veya alüminyum ısı kesicili profiller de enerji verimliliğine katkı sağlar."
+          "metin": "Isı kayıplarının önemli bir kısmı pencerelerden gerçekleşir. Çift cam veya üç cam sistemler, ısı yalıtımını önemli ölçüde artırır. Low-E (düşük emisyonlu) camlar, güneş ışınlarını geçirirken ısı kaybını minimuma indirir. 2026 fiyatlarıyla PVC pencere sistemleri m² başına 4.000-8.000 TL, alüminyum ısı kesicili sistemler 6.000-12.000 TL bandında. Muğla'nın sıcak yazları düşünüldüğünde, güneş kontrollü camlar özellikle güney cephelerde büyük fark yaratıyor."
         },
         {
           "tip": "baslik",
@@ -823,7 +994,7 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Isı pompası sistemleri, geleneksel ısıtma yöntemlerine göre %50-70 daha verimli çalışabilir. Yerden ısıtma sistemleri, ısıyı homojen dağıtarak konfor ve verimlilik sağlar. Klima seçiminde A+++ enerji sınıfı ürünleri tercih etmek, elektrik tüketimini minimuma indirir. İnverter teknolojili cihazlar, enerji tüketimini duruma göre ayarlayarak tasarruf sağlar."
+          "metin": "Isı pompası sistemleri, geleneksel ısıtma yöntemlerine göre %50-70 daha verimli çalışıyor. Muğla'nın ılıman iklimi, hava kaynaklı ısı pompalarının yıl boyunca yüksek verimle çalışmasına olanak tanıyor. 2026'da 100-150 m² bir ev için ısı pompası sistemi kurulum maliyeti 150.000-300.000 TL arasında. Yerden ısıtma sistemleri, ısıyı homojen dağıtarak konfor ve verimlilik sağlıyor. Klima seçiminde A+++ enerji sınıfı inverter cihazlar, elektrik tüketimini yarıya indirebiliyor."
         },
         {
           "tip": "baslik",
@@ -831,7 +1002,7 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Muğla'nın yıllık güneşlenme süresi, güneş enerjisi sistemleri için ideal koşullar sunuyor. Güneş panelleri ile elektrik üretimi, şebeke bağlantılı sistemlerle fazla enerjiyi satarak gelir bile sağlayabilir. Güneş enerjili su ısıtma sistemleri ise sıcak su ihtiyacının büyük bölümünü karşılayabilir."
+          "metin": "Muğla, yılda ortalama 300 güneşli günle güneş enerjisi için Türkiye'nin en ideal bölgelerinden. Ortaca ve Dalyan'da kurduğumuz güneş paneli sistemleri, ev sahiplerinin elektrik faturalarını %70-90 oranında düşürüyor. 2026 yılında 5 kW'lık bir çatı üstü güneş enerjisi sistemi kurulum maliyeti 120.000-180.000 TL civarında. Şebeke bağlantılı sistemlerle fazla üretilen elektriği satarak gelir elde etmek de mümkün. Güneş enerjili su ısıtma sistemleri ise 20.000-40.000 TL'ye sıcak su ihtiyacının %80'ini karşılayabiliyor."
         },
         {
           "tip": "baslik",
@@ -839,11 +1010,19 @@
         },
         {
           "tip": "paragraf",
-          "metin": "Akıllı termostatlar, evdeki ısıtma-soğutmayı yaşam tarzınıza göre otomatik ayarlar. Hareket sensörlü aydınlatma, gereksiz elektrik tüketimini önler. Akıllı prizler ve enerji monitörleri, hangi cihazların ne kadar enerji tükettiğini izlemenizi sağlar. Bu sistemler başlangıçta ek maliyet getirse de, uzun vadede kendini amorti eder."
+          "metin": "Akıllı termostatlar, evdeki ısıtma-soğutmayı yaşam tarzınıza göre otomatik ayarlıyor. Hareket sensörlü aydınlatma, gereksiz elektrik tüketimini önlüyor. Akıllı prizler ve enerji monitörleri, hangi cihazların ne kadar enerji tükettiğini izlemenizi sağlıyor. Temel bir akıllı ev sistemi 15.000-50.000 TL'ye kurulabiliyor ve yıllık enerji tasarrufu %15-25 arasında değişiyor."
+        },
+        {
+          "tip": "baslik",
+          "metin": "Yatırım Geri Dönüş Süreleri"
         },
         {
           "tip": "paragraf",
-          "metin": "Kalinda Yapı olarak, yeni inşaat ve tadilat projelerinizde enerji verimli çözümler konusunda danışmanlık sunuyoruz. Sürdürülebilir ve ekonomik bir yaşam için bizimle iletişime geçin."
+          "metin": "Enerji verimli yatırımların geri dönüş süreleri şöyle: Mantolama 3-5 yıl, güneş panelleri 4-6 yıl, ısı pompası 5-7 yıl, akıllı ev sistemleri 2-4 yıl. Enerji fiyatlarındaki artış trendi düşünüldüğünde, bu süreler daha da kısalıyor. Devlet teşvikleri ve düşük faizli krediler de değerlendirilebilecek avantajlar arasında."
+        },
+        {
+          "tip": "paragraf",
+          "metin": "Kalinda Yapı olarak, yeni inşaat ve tadilat projelerinizde enerji verimli çözümler konusunda danışmanlık sunuyoruz. Ortaca, Dalyan ve Köyceğiz bölgesinde A enerji sınıfı yapılar inşa ediyor, mevcut evlerde enerji iyileştirme projeleri gerçekleştiriyoruz. Sürdürülebilir ve ekonomik bir yaşam için inşaat hizmetlerimiz hakkında bilgi almak isterseniz bizimle iletişime geçin."
         }
       ]
     },

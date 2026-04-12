@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "title": "Kalinda Yapı | Real Estate, Renovation & Construction in Ortaca, Turkey",
+    "description": "Trusted real estate consulting, renovation and construction services in Ortaca, Muğla, Turkey. Properties for sale & rent: apartments, villas, land. Mediterranean investment opportunities.",
+    "keywords": "Turkey real estate, Ortaca property, Muğla apartments, Dalyan villas, Mediterranean investment, Turkish Riviera property"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "listings": "Properties",
+    "exchange": "Exchange",
+    "blog": "Blog",
+    "corporate": "Corporate",
+    "about": "About Us",
+    "visionMission": "Vision & Mission",
+    "references": "References",
+    "certificates": "Certificates",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "searchListings": "Search Properties",
+    "callNow": "Call Now"
+  },
+  "services": {
+    "realEstate": "Real Estate Consulting",
+    "renovation": "Renovation & Decoration",
+    "construction": "Construction & Contracting",
+    "planning": "Planning & Design"
+  },
+  "common": {
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "share": "Share",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Try Again",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "noResults": "No results found",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and"
+  },
+  "home": {
+    "hero": {
+      "title": "Your Trusted Real Estate & Construction Partner in Turkish Riviera",
+      "subtitle": "12+ years of experience, 500+ completed projects",
+      "cta": "Browse Properties",
+      "ctaSecondary": "Our Services"
+    },
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Completed Projects",
+      "clients": "Happy Clients",
+      "area": "sqm Construction"
+    },
+    "featured": {
+      "title": "Featured Properties",
+      "subtitle": "Latest and most popular real estate listings in Ortaca region"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Professional team delivering excellence in every project"
+    },
+    "whyUs": {
+      "title": "Why Choose Kalinda Yapı?",
+      "experience": "Experienced Team",
+      "quality": "Quality Workmanship",
+      "price": "Competitive Pricing",
+      "trust": "Reliability"
+    }
+  },
+  "listings": {
+    "title": "Property Listings",
+    "subtitle": "Properties for sale and rent in Ortaca and surrounding areas",
+    "filters": {
+      "all": "All",
+      "forSale": "For Sale",
+      "forRent": "For Rent",
+      "type": "Property Type",
+      "apartment": "Apartment",
+      "villa": "Villa",
+      "land": "Land",
+      "commercial": "Commercial",
+      "priceRange": "Price Range",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "area": "Square Meters",
+      "rooms": "Bedrooms",
+      "location": "Location"
+    },
+    "sort": {
+      "newest": "Newest",
+      "priceAsc": "Price (Low to High)",
+      "priceDesc": "Price (High to Low)",
+      "areaAsc": "Area (Low to High)",
+      "areaDesc": "Area (High to Low)"
+    },
+    "detail": {
+      "overview": "Overview",
+      "features": "Features",
+      "location": "Location",
+      "contact": "Contact",
+      "price": "Price",
+      "area": "Area",
+      "rooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "floor": "Floor",
+      "buildingAge": "Building Age",
+      "heating": "Heating",
+      "furnished": "Furnished",
+      "elevator": "Elevator",
+      "parking": "Parking",
+      "pool": "Pool",
+      "garden": "Garden",
+      "security": "Security",
+      "description": "Description",
+      "callAgent": "Call Agent",
+      "whatsapp": "Contact via WhatsApp",
+      "shareOnWhatsapp": "Share on WhatsApp",
+      "listingNo": "Listing No",
+      "updated": "Updated",
+      "similar": "Similar Properties"
+    },
+    "categories": {
+      "satilik": "For Sale",
+      "kiralik": "For Rent"
+    },
+    "types": {
+      "daire": "Apartment",
+      "villa": "Villa",
+      "mustakil": "Detached House",
+      "arsa": "Land",
+      "tarla": "Agricultural Land",
+      "ticari": "Commercial",
+      "ofis": "Office",
+      "dukkan": "Shop"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us for any inquiries",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully!",
+      "error": "An error occurred, please try again."
+    },
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "workingHours": "Working Hours",
+      "weekdays": "Monday - Saturday",
+      "hours": "09:00 - 18:00"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Serving you since 2022 with excellence and trust",
+    "team": {
+      "title": "Our Team",
+      "subtitle": "Experienced professionals ready to help you"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest news from the real estate and construction industry",
+    "readTime": "min read",
+    "categories": {
+      "emlak": "Real Estate",
+      "tadilat": "Renovation",
+      "insaat": "Construction",
+      "yatirim": "Investment",
+      "dekorasyon": "Decoration"
+    },
+    "author": "Author",
+    "publishDate": "Published",
+    "relatedPosts": "Related Posts"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions"
+  },
+  "footer": {
+    "description": "Real estate, renovation and construction contracting services in Ortaca and surrounding areas.",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "contact": "Contact Information",
+    "followUs": "Follow Us",
+    "copyright": "© 2026 Kalinda Yapı. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "exchange": {
+    "title": "Exchange Rates",
+    "subtitle": "Current currency and gold prices",
+    "gold": "Gold",
+    "dollar": "Dollar",
+    "euro": "Euro",
+    "sterling": "Sterling",
+    "buying": "Buy",
+    "selling": "Sell",
+    "lastUpdate": "Last Update"
+  },
+  "language": {
+    "select": "Select Language",
+    "tr": "Türkçe",
+    "en": "English",
+    "ar": "العربية"
+  }
+}

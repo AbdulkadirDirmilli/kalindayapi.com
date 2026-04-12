@@ -1,6 +1,3 @@
-// Kalinda Yapi Admin Panel - Prisma Schema
-// SQLite veritabani ile
-
 generator client {
   provider = "prisma-client"
   output   = "../lib/generated/prisma"
@@ -10,157 +7,127 @@ datasource db {
   provider = "sqlite"
 }
 
-// Admin kullanicilari
 model User {
   id             String    @id @default(uuid())
   email          String    @unique
   hashedPassword String
   name           String?
-  role           String    @default("admin") // admin, editor
+  role           String    @default("admin")
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   lastLogin      DateTime?
 }
 
-// Emlak ilanlari
 model Ilan {
-  id                String      @id @default(uuid())
-  baslik            String
-  slug              String      @unique
-  kategori          String      // satilik, kiralik
-  tip               String      // daire, villa, arsa, ticari, vb.
-  altTip            String?     // Detaylı tip (residans, mustakil, tarla, ofis, vb.)
-  fiyat             Int
-  paraBirimi        String      @default("TL")
-
-  // Konum bilgileri
-  il                String
-  ilce              String
-  mahalle           String?
-  koordinatLat      Float?
-  koordinatLng      Float?
-
-  // Temel ozellikler - Konut
-  brutMetrekare     Int?
-  netMetrekare      Int?
-  metrekare         Int?        // Eski alan, geriye uyumluluk için
-  odaSayisi         String?     // 2+1, 3+1, Acik Plan
-  banyoSayisi       Int?
-  tuvaletSayisi     Int?
-  balkonSayisi      Int?
-  kat               Int?
-  toplamKat         Int?
-  binaYasi          Int?
-  binaTipi          String?     // Apartman, Villa, Site, vb.
-  kullanimDurumu    String?     // Bos, Kiracili, Mal Sahibi
-  insaatDurumu      String?     // Proje Asamasinda, Temel Asamasinda, Kaba Insaat, Ince Insaat, Satisa Hazir
-
-  // Isitma ve Enerji
-  isitma            String?
-  yakitTipi         String?
-  enerjiSinifi      String?
-
-  // Boolean ozellikler (eski)
-  esyali            Boolean     @default(false)
-  balkon            Boolean     @default(false)
-  asansor           Boolean     @default(false)
-  otopark           Boolean     @default(false)
-  guvenlik          Boolean     @default(false)
-  havuz             Boolean     @default(false)
-  bahce             Boolean     @default(false)
-  bahceMetrekare    Int?
-
-  // Detayli ozellikler (JSON)
-  icOzellikler      String?     // JSON array
-  disOzellikler     String?     // JSON array
-  muhitOzellikleri  String?     // JSON array
-  guvenlikOzellikleri String?   // JSON array
-  cephe             String?     // JSON array
-  manzara           String?     // JSON array
-
-  // Arsa/Tarla ozellikleri
-  imarDurumu        String?
-  emsal             String?
-  gabari            String?
-  taks              Float?
-  kaks              Float?
-  yolCephesi        Int?
-  derinlik          Int?
-  arsaTipi          String?
-  egim              String?
-  zemin             String?
-  altyapi           Boolean     @default(false)
-  altyapiDetay      String?     // JSON array
-  tarimOzellikleri  String?     // JSON array
-  adaNo             String?
-  parselNo          String?
-  paftaNo           String?
-
-  // Ticari ozellikler
-  ticariTip         String?
-  cepheGenisligi    Int?
-  tavanYuksekligi   Float?
-  personelKapasitesi Int?
-  depoOzellikleri   String?     // JSON array
-
-  // Tapu ve yasal
-  tapuDurumu        String?
-  krediyeUygun      Boolean     @default(false)
-  takasaUygun       Boolean     @default(false)
-  isyeriRuhsati     Boolean     @default(false)
-
-  // EIDS - İlan Doğrulama Durumu
-  eidsStatus        String      @default("pending") // verified, pending, not_available
-
-  // Video URL
-  videoUrl          String?
-
-  // Sorumlu danisman
-  danismanId        String?
-  danisman          Ortak?      @relation(fields: [danismanId], references: [id])
-
-  aciklama          String
-  oneCikan          Boolean     @default(false)
-  durum             String      @default("aktif") // aktif, pasif, satildi, kiralandi
-  ilanNo            String?     @unique
-
-  yayinTarihi       DateTime    @default(now())
-  guncellenmeTarihi DateTime    @updatedAt
-  createdAt         DateTime    @default(now())
-
-  fotograflar       IlanFoto[]
+  id                  String            @id @default(uuid())
+  baslik              String
+  slug                String            @unique
+  kategori            String
+  tip                 String
+  altTip              String?
+  fiyat               Int
+  paraBirimi          String            @default("TL")
+  il                  String
+  ilce                String
+  mahalle             String?
+  koordinatLat        Float?
+  koordinatLng        Float?
+  brutMetrekare       Int?
+  netMetrekare        Int?
+  metrekare           Int?
+  odaSayisi           String?
+  banyoSayisi         Int?
+  tuvaletSayisi       Int?
+  balkonSayisi        Int?
+  kat                 Int?
+  toplamKat           Int?
+  binaYasi            Int?
+  binaTipi            String?
+  kullanimDurumu      String?
+  insaatDurumu        String?
+  isitma              String?
+  yakitTipi           String?
+  enerjiSinifi        String?
+  esyali              Boolean           @default(false)
+  balkon              Boolean           @default(false)
+  asansor             Boolean           @default(false)
+  otopark             Boolean           @default(false)
+  guvenlik            Boolean           @default(false)
+  havuz               Boolean           @default(false)
+  bahce               Boolean           @default(false)
+  bahceMetrekare      Int?
+  icOzellikler        String?
+  disOzellikler       String?
+  muhitOzellikleri    String?
+  guvenlikOzellikleri String?
+  cephe               String?
+  manzara             String?
+  imarDurumu          String?
+  emsal               String?
+  gabari              String?
+  taks                Float?
+  kaks                Float?
+  yolCephesi          Int?
+  derinlik            Int?
+  arsaTipi            String?
+  egim                String?
+  zemin               String?
+  altyapi             Boolean           @default(false)
+  altyapiDetay        String?
+  tarimOzellikleri    String?
+  adaNo               String?
+  parselNo            String?
+  paftaNo             String?
+  ticariTip           String?
+  cepheGenisligi      Int?
+  tavanYuksekligi     Float?
+  personelKapasitesi  Int?
+  depoOzellikleri     String?
+  tapuDurumu          String?
+  krediyeUygun        Boolean           @default(false)
+  takasaUygun         Boolean           @default(false)
+  isyeriRuhsati       Boolean           @default(false)
+  eidsStatus          String            @default("pending")
+  videoUrl            String?
+  danismanId          String?
+  aciklama            String
+  oneCikan            Boolean           @default(false)
+  durum               String            @default("aktif")
+  ilanNo              String?           @unique
+  yayinTarihi         DateTime          @default(now())
+  guncellenmeTarihi   DateTime          @updatedAt
+  createdAt           DateTime          @default(now())
+  danisman            Ortak?            @relation(fields: [danismanId], references: [id])
+  fotograflar         IlanFoto[]
+  translations        IlanTranslation[]
 }
 
-// Ilan fotograflari
 model IlanFoto {
   id        String   @id @default(uuid())
   ilanId    String
   url       String
   sira      Int      @default(0)
   createdAt DateTime @default(now())
-
   ilan      Ilan     @relation(fields: [ilanId], references: [id], onDelete: Cascade)
 }
 
-// Hizmetler
 model Hizmet {
-  id            String       @id @default(uuid())
-  slug          String       @unique
-  baslik        String
-  kisaAciklama  String
-  uzunAciklama  String
-  ikon          String
-  sira          Int          @default(0)
-  aktif         Boolean      @default(true)
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
-
-  altHizmetler  AltHizmet[]
-  sss           HizmetSSS[]
-  bolgeler      HizmetBolge[]
+  id           String              @id @default(uuid())
+  slug         String              @unique
+  baslik       String
+  kisaAciklama String
+  uzunAciklama String
+  ikon         String
+  sira         Int                 @default(0)
+  aktif        Boolean             @default(true)
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+  altHizmetler AltHizmet[]
+  bolgeler     HizmetBolge[]
+  sss          HizmetSSS[]
+  translations HizmetTranslation[]
 }
 
-// Alt hizmetler
 model AltHizmet {
   id        String   @id @default(uuid())
   hizmetId  String
@@ -169,11 +136,9 @@ model AltHizmet {
   ikon      String
   sira      Int      @default(0)
   createdAt DateTime @default(now())
-
   hizmet    Hizmet   @relation(fields: [hizmetId], references: [id], onDelete: Cascade)
 }
 
-// Hizmet SSS
 model HizmetSSS {
   id        String   @id @default(uuid())
   hizmetId  String
@@ -181,70 +146,62 @@ model HizmetSSS {
   cevap     String
   sira      Int      @default(0)
   createdAt DateTime @default(now())
-
   hizmet    Hizmet   @relation(fields: [hizmetId], references: [id], onDelete: Cascade)
 }
 
-// Hizmet bolgeleri
 model HizmetBolge {
-  id        String   @id @default(uuid())
-  hizmetId  String
-  bolge     String
-
-  hizmet    Hizmet   @relation(fields: [hizmetId], references: [id], onDelete: Cascade)
+  id       String @id @default(uuid())
+  hizmetId String
+  bolge    String
+  hizmet   Hizmet @relation(fields: [hizmetId], references: [id], onDelete: Cascade)
 
   @@unique([hizmetId, bolge])
 }
 
-// Iletisim formlari
 model ContactForm {
-  id          String   @id @default(uuid())
-  ad          String
-  email       String
-  telefon     String?
-  konu        String?
-  mesaj       String
-  durum       String   @default("yeni") // yeni, okundu, cevaplandi, arsivlendi
-  notlar      String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        String   @id @default(uuid())
+  ad        String
+  email     String
+  telefon   String?
+  konu      String?
+  mesaj     String
+  durum     String   @default("yeni")
+  notlar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-// Medya dosyalari
 model Media {
-  id          String   @id @default(uuid())
-  filename    String
+  id           String   @id @default(uuid())
+  filename     String
   originalName String
-  mimeType    String
-  size        Int
-  url         String
+  mimeType     String
+  size         Int
+  url          String
   thumbnailUrl String?
-  kategori    String?  // listings, team, general
-  altText     String?
-  createdAt   DateTime @default(now())
+  kategori     String?
+  altText      String?
+  createdAt    DateTime @default(now())
 }
 
-// Sirket ortaklari
 model Ortak {
-  id                String   @id @default(uuid())
-  slug              String   @unique
-  ad                String
-  unvan             String
-  telefon           String
-  whatsapp          String?
-  email             String?
-  biyografi         String?
-  foto              String?
-  uzmanlikAlanlari  String   // JSON array olarak saklanacak
-  sira              Int      @default(0)
-  aktif             Boolean  @default(true)
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-
-  ilanlar           Ilan[]   // Danismani oldugu ilanlar
+  id               String   @id @default(uuid())
+  slug             String   @unique
+  ad               String
+  unvan            String
+  telefon          String
+  whatsapp         String?
+  email            String?
+  biyografi        String?
+  foto             String?
+  uzmanlikAlanlari String
+  sira             Int      @default(0)
+  aktif            Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  ilanlar          Ilan[]
 }
 
-// Site ayarlari (key-value)
 model SiteSettings {
   id        String   @id @default(uuid())
   key       String   @unique
@@ -253,11 +210,10 @@ model SiteSettings {
   updatedAt DateTime @updatedAt
 }
 
-// Oncesi-Sonrasi Galerisi
 model OncesiSonrasi {
   id          String   @id @default(uuid())
   baslik      String
-  kategori    String?  // tadilat, insaat, dekorasyon vb.
+  kategori    String?
   konum       String?
   oncesiFoto  String
   sonrasiFoto String
@@ -288,17 +244,14 @@ model Lead {
 // SMS MODÜLÜ - NetGSM Entegrasyonu
 // ==========================================
 
-// SMS Grupları
 model SmsGroup {
   id        String       @id @default(uuid())
   name      String       @unique
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt
-
   contacts  SmsContact[]
 }
 
-// SMS Kişileri
 model SmsContact {
   id        String    @id @default(uuid())
   name      String
@@ -307,14 +260,12 @@ model SmsContact {
   groupId   String?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-
-  group     SmsGroup? @relation(fields: [groupId], references: [id], onDelete: SetNull)
+  group     SmsGroup? @relation(fields: [groupId], references: [id])
 
   @@index([phone])
   @@index([groupId])
 }
 
-// SMS Şablonları
 model SmsTemplate {
   id        String   @id @default(uuid())
   title     String
@@ -323,32 +274,114 @@ model SmsTemplate {
   updatedAt DateTime @updatedAt
 }
 
-// SMS Gönderim Logları
 model SmsLog {
   id           String   @id @default(uuid())
   message      String
   senderName   String
-  recipients   String   // JSON array - gönderilen numaralar
+  recipients   String
   totalSent    Int
   successCount Int      @default(0)
   failedCount  Int      @default(0)
-  status       String   @default("pending") // pending, sent, failed, partial
+  status       String   @default("pending")
   errorMessage String?
-  netgsmJobId  String?  // NetGSM'den dönen iş ID'si
+  netgsmJobId  String?
   createdAt    DateTime @default(now())
 
   @@index([createdAt])
   @@index([status])
 }
 
-// SMS Ayarları (NetGSM)
 model SmsSettings {
-  id              String   @id @default(uuid())
-  netgsmUsername  String
-  netgsmPassword  String
-  netgsmHeader    String   // Varsayılan gönderici adı
-  senderNames     String   // JSON array - Kullanılabilir gönderici adları
-  isActive        Boolean  @default(true)
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id             String   @id @default(uuid())
+  netgsmUsername String
+  netgsmPassword String
+  netgsmHeader   String
+  senderNames    String
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Language {
+  id         String   @id @default(uuid())
+  code       String   @unique
+  name       String
+  nativeName String
+  direction  String   @default("ltr")
+  aktif      Boolean  @default(true)
+  sira       Int      @default(0)
+  createdAt  DateTime @default(now())
+}
+
+model IlanTranslation {
+  id             String   @id @default(uuid())
+  ilanId         String
+  language       String   @default("tr")
+  baslik         String
+  slug           String
+  aciklama       String
+  kategori       String?
+  tip            String?
+  seoTitle       String?
+  seoDescription String?
+  status         String   @default("draft")
+  translatedBy   String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  ilan           Ilan     @relation(fields: [ilanId], references: [id], onDelete: Cascade)
+
+  @@unique([ilanId, language])
+  @@unique([slug, language])
+  @@index([language])
+}
+
+model HizmetTranslation {
+  id             String   @id @default(uuid())
+  hizmetId       String
+  language       String   @default("tr")
+  baslik         String
+  slug           String
+  kisaAciklama   String
+  uzunAciklama   String
+  seoTitle       String?
+  seoDescription String?
+  status         String   @default("draft")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  hizmet         Hizmet   @relation(fields: [hizmetId], references: [id], onDelete: Cascade)
+
+  @@unique([hizmetId, language])
+  @@unique([slug, language])
+}
+
+model BlogPost {
+  id                String                @id @default(uuid())
+  originalSlug      String                @unique
+  kategori          String
+  yazar             String
+  kapakGorsel       String?
+  yayinTarihi       DateTime              @default(now())
+  guncellenmeTarihi DateTime              @updatedAt
+  aktif             Boolean               @default(true)
+  translations      BlogPostTranslation[]
+}
+
+model BlogPostTranslation {
+  id             String   @id @default(uuid())
+  postId         String
+  language       String   @default("tr")
+  baslik         String
+  slug           String
+  ozet           String
+  icerik         String
+  etiketler      String
+  seoTitle       String?
+  seoDescription String?
+  status         String   @default("draft")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  post           BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, language])
+  @@unique([slug, language])
 }

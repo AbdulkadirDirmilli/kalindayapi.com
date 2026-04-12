@@ -401,3 +401,270 @@ h1, h2, h3, h4, h5, h6 {
 .animate-spin-slow {
   animation: spin-slow 3s linear infinite;
 }
+
+/* ==========================================
+   RTL (Right-to-Left) Support for Arabic
+   ========================================== */
+
+/* Base RTL Styles */
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* Container adjustments for RTL */
+[dir="rtl"] .container {
+  direction: rtl;
+}
+
+/* Flex direction reversal for RTL */
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+/* Keep some flex layouts as is */
+[dir="rtl"] .flex-row-force {
+  flex-direction: row;
+}
+
+/* Navigation adjustments */
+[dir="rtl"] nav {
+  direction: rtl;
+}
+
+/* Icon margins */
+[dir="rtl"] .ml-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+[dir="rtl"] .mr-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+[dir="rtl"] .ml-3 {
+  margin-left: 0;
+  margin-right: 0.75rem;
+}
+
+[dir="rtl"] .mr-3 {
+  margin-right: 0;
+  margin-left: 0.75rem;
+}
+
+[dir="rtl"] .ml-4 {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+[dir="rtl"] .mr-4 {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+/* Padding adjustments */
+[dir="rtl"] .pl-4 {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+[dir="rtl"] .pr-4 {
+  padding-right: 0;
+  padding-left: 1rem;
+}
+
+/* Text alignment */
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Border radius adjustments */
+[dir="rtl"] .rounded-l-lg {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+[dir="rtl"] .rounded-r-lg {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+/* Positioning adjustments */
+[dir="rtl"] .left-0 {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .right-0 {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .left-4 {
+  left: auto;
+  right: 1rem;
+}
+
+[dir="rtl"] .right-4 {
+  right: auto;
+  left: 1rem;
+}
+
+/* Transform adjustments for icons */
+[dir="rtl"] .rotate-180 {
+  transform: rotate(0deg);
+}
+
+[dir="rtl"] .group-hover\:rotate-180:hover {
+  transform: rotate(0deg);
+}
+
+/* Chevron icons flip */
+[dir="rtl"] [data-chevron-right] {
+  transform: scaleX(-1);
+}
+
+/* Breadcrumb separator */
+[dir="rtl"] .breadcrumb-separator {
+  transform: scaleX(-1);
+}
+
+/* Form inputs */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  text-align: right;
+}
+
+[dir="rtl"] input::placeholder,
+[dir="rtl"] textarea::placeholder {
+  text-align: right;
+}
+
+/* Dropdown menus */
+[dir="rtl"] .dropdown-menu {
+  right: auto;
+  left: 0;
+}
+
+/* List items */
+[dir="rtl"] ul,
+[dir="rtl"] ol {
+  padding-right: 1.5rem;
+  padding-left: 0;
+}
+
+/* Table alignment */
+[dir="rtl"] th,
+[dir="rtl"] td {
+  text-align: right;
+}
+
+/* Button icon positions */
+[dir="rtl"] .btn .icon-left {
+  order: 1;
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+[dir="rtl"] .btn .icon-right {
+  order: -1;
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+/* Card grid adjustments */
+[dir="rtl"] .card-grid {
+  direction: rtl;
+}
+
+/* Image gallery navigation */
+[dir="rtl"] .gallery-prev {
+  right: auto;
+  left: 0.5rem;
+}
+
+[dir="rtl"] .gallery-next {
+  left: auto;
+  right: 0.5rem;
+}
+
+/* Badge positions */
+[dir="rtl"] .badge-position-left {
+  left: auto;
+  right: 1rem;
+}
+
+[dir="rtl"] .badge-position-right {
+  right: auto;
+  left: 1rem;
+}
+
+/* Gradient directions */
+[dir="rtl"] .bg-gradient-to-r {
+  background-image: linear-gradient(to left, var(--tw-gradient-stops));
+}
+
+[dir="rtl"] .bg-gradient-to-l {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+/* WhatsApp button position */
+[dir="rtl"] .whatsapp-button {
+  right: auto;
+  left: 1.5rem;
+}
+
+/* Side contact bar position */
+[dir="rtl"] .side-contact-bar {
+  right: auto;
+  left: 0;
+}
+
+/* Scroll to top button position */
+[dir="rtl"] .scroll-to-top {
+  right: auto;
+  left: 1.5rem;
+}
+
+/* Arabic font stack */
+[dir="rtl"] body {
+  font-family: var(--font-arabic), 'Noto Sans Arabic', 'Arial', 'Tahoma', sans-serif;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: var(--font-arabic), 'Noto Sans Arabic', 'Arial', 'Tahoma', sans-serif;
+}
+
+/* Preserve LTR for specific elements */
+[dir="rtl"] .ltr-preserve {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Phone numbers, prices, dates should remain LTR */
+[dir="rtl"] .price,
+[dir="rtl"] .phone-number,
+[dir="rtl"] .date,
+[dir="rtl"] [data-preserve-ltr] {
+  direction: ltr;
+  display: inline-block;
+}
+
+/* Map container */
+[dir="rtl"] .map-container iframe {
+  direction: ltr;
+}
