@@ -7,6 +7,7 @@ import WatermarkImage from "@/components/ui/WatermarkImage";
 import { MapPin, Maximize2, BedDouble, Bath, Calendar } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
+import LeadForm from "@/components/ilan/LeadForm";
 import { getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
 import { useCurrency } from "@/components/providers/CurrencyProvider";
 
@@ -140,10 +141,17 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
                     <span className="text-sm font-normal text-[#666666]">/ay</span>
                   )}
                 </span>
-                <span className="text-xs text-[#999999] flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
-                  {getRelativeTime(ilan.yayinTarihi)}
-                </span>
+                <div className="flex items-center gap-3">
+                  <LeadForm
+                    listingId={ilan.id}
+                    listingTitle={ilan.baslik}
+                    variant="icon"
+                  />
+                  <span className="text-xs text-[#999999] flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    {getRelativeTime(ilan.yayinTarihi)}
+                  </span>
+                </div>
               </div>
             </div>
           </Card>
@@ -268,15 +276,22 @@ export default function IlanKart({ ilan, variant = "grid", index = 0 }: IlanKart
               </div>
             )}
 
-            {/* Date */}
+            {/* Date & Lead */}
             <div className="mt-4 pt-4 border-t border-[#e0e0e0] flex items-center justify-between">
               <span className="text-xs text-[#999999]">
                 İlan No: {ilan.ilanNo}
               </span>
-              <span className="text-xs text-[#999999] flex items-center gap-1">
-                <Calendar className="w-3 h-3" />
-                {getRelativeTime(ilan.yayinTarihi)}
-              </span>
+              <div className="flex items-center gap-3">
+                <LeadForm
+                  listingId={ilan.id}
+                  listingTitle={ilan.baslik}
+                  variant="icon"
+                />
+                <span className="text-xs text-[#999999] flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  {getRelativeTime(ilan.yayinTarihi)}
+                </span>
+              </div>
             </div>
           </div>
         </Card>

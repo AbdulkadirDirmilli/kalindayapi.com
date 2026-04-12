@@ -27,7 +27,7 @@ import {
   Play,
   Share2,
 } from "lucide-react";
-import { IlanGaleri, IlanKart } from "@/components/ilan";
+import { IlanGaleri, IlanKart, LeadForm } from "@/components/ilan";
 import Button from "@/components/ui/Button";
 import ShareButton from "@/components/ui/ShareButton";
 import Badge from "@/components/ui/Badge";
@@ -592,6 +592,15 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                     title={ilan.baslik}
                     text={ilan.aciklama?.slice(0, 100) || ''}
                   />
+
+                  {/* Lead Capture */}
+                  <div className="flex items-center justify-center gap-2 p-3 bg-red-50 rounded-xl">
+                    <LeadForm
+                      listingId={ilan.id}
+                      listingTitle={ilan.baslik}
+                      variant="button"
+                    />
+                  </div>
                 </div>
 
                 {/* Price Info */}
@@ -725,6 +734,13 @@ export default function IlanDetayClient({ ilan, benzerIlanlar }: IlanDetayClient
                 Ara
               </Button>
             </a>
+            <div className="p-2.5 bg-red-50 rounded-lg">
+              <LeadForm
+                listingId={ilan.id}
+                listingTitle={ilan.baslik}
+                variant="icon"
+              />
+            </div>
             <button
               onClick={() => {
                 if (navigator.share) {
