@@ -55,9 +55,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
     { name: ilce.ad, url: `/rehber/${ilce.slug}` },
   ]);
 
-  const faqSchema = generateFAQSchema(
-    ilce.sss.map((s) => ({ question: s.soru, answer: s.cevap }))
-  );
+  const faqSchema = generateFAQSchema(ilce.sss);
 
   return (
     <>
