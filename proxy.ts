@@ -7,6 +7,40 @@ const locales = ['tr', 'en', 'ar'] as const
 type Locale = (typeof locales)[number]
 const defaultLocale: Locale = 'tr'
 
+// Route translations (localized → original)
+// Keys are original Turkish routes, values are translations per locale
+const routeRewrites: Record<string, Record<Locale, string>> = {
+  ilanlar: { tr: 'ilanlar', en: 'listings', ar: 'عقارات' },
+  hizmetler: { tr: 'hizmetler', en: 'services', ar: 'خدمات' },
+  blog: { tr: 'blog', en: 'blog', ar: 'مدونة' },
+  hakkimizda: { tr: 'hakkimizda', en: 'about', ar: 'حول' },
+  iletisim: { tr: 'iletisim', en: 'contact', ar: 'اتصل' },
+  sss: { tr: 'sss', en: 'faq', ar: 'الأسئلة-الشائعة' },
+  gizlilik: { tr: 'gizlilik', en: 'privacy', ar: 'الخصوصية' },
+  'kullanim-kosullari': { tr: 'kullanim-kosullari', en: 'terms', ar: 'الشروط' },
+  'doviz-kurlari': { tr: 'doviz-kurlari', en: 'exchange-rates', ar: 'أسعار-الصرف' },
+  rehber: { tr: 'rehber', en: 'guide', ar: 'دليل' },
+  kurumsal: { tr: 'kurumsal', en: 'corporate', ar: 'الشركة' },
+  // Alt sayfalar
+  'emlak-danismanligi': { tr: 'emlak-danismanligi', en: 'real-estate-consulting', ar: 'استشارات-عقارية' },
+  'tadilat-dekorasyon': { tr: 'tadilat-dekorasyon', en: 'renovation-decoration', ar: 'تجديد-ديكور' },
+  'taahhut-insaat': { tr: 'taahhut-insaat', en: 'construction-contracting', ar: 'المقاولات-البناء' },
+  'plan-proje': { tr: 'plan-proje', en: 'planning-design', ar: 'التخطيط-التصميم' },
+  'vizyon-misyon': { tr: 'vizyon-misyon', en: 'vision-mission', ar: 'الرؤية-المهمة' },
+  referanslar: { tr: 'referanslar', en: 'references', ar: 'المراجع' },
+  belgeler: { tr: 'belgeler', en: 'certificates', ar: 'الشهادات' },
+}
+
+// Convert localized route to original Turkish route
+function getOriginalRoute(localizedRoute: string, locale: Locale): string {
+  for (const [original, translations] of Object.entries(routeRewrites)) {
+    if (translations[locale] === localizedRoute) {
+      return original
+    }
+  }
+  return localizedRoute // No translation found, return as-is
+}
+
 // Get locale from Accept-Language header
 function getLocaleFromHeader(request: NextRequest): Locale {
   const acceptLanguage = request.headers.get('Accept-Language')
@@ -107,10 +141,32 @@ export async function proxy(request: NextRequest) {
   }
 
   // i18n: Extract locale from path
-  const { locale: pathLocale } = extractLocaleFromPath(pathname)
+  const { locale: pathLocale, pathWithoutLocale } = extractLocaleFromPath(pathname)
 
-  // If path has valid locale, continue
+  // If path has valid locale, check for route rewrites
   if (pathLocale) {
+    const segments = pathname.split('/').filter(Boolean)
+    // segments[0] = locale (en, ar, tr)
+    // segments[1] = first route segment (listings, services, etc.)
+
+    if (segments.length > 1) {
+      const localizedRoute = segments[1]
+      const originalRoute = getOriginalRoute(localizedRoute, pathLocale)
+
+      // If translation found and different from current, rewrite the URL
+      if (localizedRoute !== originalRoute) {
+        // Build new path with original route
+        const remainingSegments = segments.slice(2).join('/')
+        const newPath = `/${segments[0]}/${originalRoute}${remainingSegments ? '/' + remainingSegments : ''}`
+
+        const url = request.nextUrl.clone()
+        url.pathname = newPath
+
+        // Use rewrite (internal redirect) - URL in browser stays the same
+        return NextResponse.rewrite(url)
+      }
+    }
+
     return NextResponse.next()
   }
 

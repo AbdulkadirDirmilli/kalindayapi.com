@@ -92,9 +92,10 @@ function formatIlan(ilan: any, locale: Locale = 'tr'): Ilan {
   };
 }
 
-// İlanı getir
+// İlanı getir - hem orijinal slug hem de çeviri slug'ı ile arar
 async function getIlan(slug: string, locale: Locale = 'tr') {
-  const ilan = await prisma.ilan.findUnique({
+  // Önce orijinal slug ile ara
+  let ilan = await prisma.ilan.findUnique({
     where: { slug },
     include: {
       fotograflar: {
@@ -107,6 +108,34 @@ async function getIlan(slug: string, locale: Locale = 'tr') {
       } : false,
     },
   });
+
+  // Bulunamadıysa ve Türkçe değilse, çeviri slug'ı ile ara
+  if (!ilan && locale !== 'tr') {
+    const translation = await prisma.ilanTranslation.findFirst({
+      where: {
+        slug: slug,
+        language: locale,
+        status: 'published',
+      },
+      select: { ilanId: true },
+    });
+
+    if (translation) {
+      ilan = await prisma.ilan.findUnique({
+        where: { id: translation.ilanId },
+        include: {
+          fotograflar: {
+            orderBy: { sira: 'asc' },
+          },
+          danisman: true,
+          translations: {
+            where: { language: locale, status: 'published' },
+            take: 1,
+          },
+        },
+      });
+    }
+  }
 
   if (!ilan || ilan.durum !== 'aktif') {
     return null;
@@ -139,6 +168,37 @@ async function getBenzerIlanlar(kategori: string, currentSlug: string, locale: L
   });
 
   return ilanlar.map(ilan => formatIlan(ilan, locale));
+}
+
+// Statik parametreleri oluştur - tüm diller için
+export async function generateStaticParams() {
+  const ilanlar = await prisma.ilan.findMany({
+    where: { durum: 'aktif' },
+    select: {
+      slug: true,
+      translations: {
+        where: { status: 'published' },
+        select: { language: true, slug: true },
+      },
+    },
+  });
+
+  const params: { lang: string; slug: string }[] = [];
+
+  for (const ilan of ilanlar) {
+    // Türkçe (orijinal slug)
+    params.push({ lang: 'tr', slug: ilan.slug });
+
+    // Çeviri slug'ları
+    for (const translation of ilan.translations) {
+      params.push({
+        lang: translation.language,
+        slug: translation.slug,
+      });
+    }
+  }
+
+  return params;
 }
 
 // Metadata oluştur
