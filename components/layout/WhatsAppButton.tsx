@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { createWhatsAppLink } from "@/lib/utils";
+import { useLocale } from "@/components/providers/LocaleProvider";
 
 const contacts = [
   {
@@ -26,6 +27,10 @@ const contacts = [
 
 export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const { dict } = useLocale();
+
+  // Çeviri
+  const greeting = dict?.whatsapp?.greeting || "Merhaba, Kalinda Yapı web sitesinden ulaşıyorum.";
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
@@ -35,7 +40,7 @@ export default function WhatsAppButton() {
             key={contact.phone}
             href={createWhatsAppLink(
               contact.phone,
-              `Merhaba ${contact.name}, Kalinda Yapı web sitesinden ulaşıyorum.`
+              greeting
             )}
             target="_blank"
             rel="noopener noreferrer"

@@ -1,23 +1,42 @@
 'use client'
 
-import { createContext, useContext, type ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react'
 import type { Locale } from '@/lib/i18n'
+
+// Dictionary tip tanımı - any kullanıyoruz çünkü tam Dictionary tipi server'da
+type Dictionary = Record<string, any>
 
 interface LocaleContextType {
   locale: Locale
+  dict: Dictionary
 }
 
-const LocaleContext = createContext<LocaleContextType>({ locale: 'tr' })
+const defaultDict: Dictionary = {}
+
+const LocaleContext = createContext<LocaleContextType>({ locale: 'tr', dict: defaultDict })
 
 export function LocaleProvider({
   children,
   locale,
+  dictionary,
 }: {
   children: ReactNode
   locale: Locale
+  dictionary?: Dictionary
 }) {
+  const [dict, setDict] = useState<Dictionary>(dictionary || defaultDict)
+
+  // Client-side'da dictionary'yi yükle (eğer prop olarak gelmemişse)
+  useEffect(() => {
+    if (!dictionary) {
+      import(`@/lib/i18n/dictionaries/${locale}.json`)
+        .then((module) => setDict(module.default))
+        .catch(() => setDict(defaultDict))
+    }
+  }, [locale, dictionary])
+
   return (
-    <LocaleContext.Provider value={{ locale }}>
+    <LocaleContext.Provider value={{ locale, dict }}>
       {children}
     </LocaleContext.Provider>
   )

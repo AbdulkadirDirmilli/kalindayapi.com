@@ -333,6 +333,191 @@
     "select": "Dil Seçin",
     "tr": "Türkçe",
     "en": "English",
-    "ar": "العربية"
+    "ar": "العربية",
+    "active": "Aktif"
+  },
+  "cookie": {
+    "message": "Web sitemizde deneyiminizi iyileştirmek için çerezler kullanıyoruz.",
+    "privacyLink": "Gizlilik Politikamızı",
+    "privacyText": "inceleyerek detaylı bilgi alabilirsiniz.",
+    "accept": "Kabul Et",
+    "reject": "Reddet",
+    "close": "Kapat"
+  },
+  "consultants": {
+    "zafer": "Zafer Bey",
+    "arif": "Arif Bey",
+    "hikmet": "Hikmet Bey",
+    "consultant": "Danışman"
+  },
+  "address": {
+    "full": "Atatürk Mah. 58 Sk. No: 2/B (Belediye Arkası), Ortaca / Muğla",
+    "city": "Ortaca, Muğla"
+  },
+  "whatsapp": {
+    "greeting": "Merhaba, Kalinda Yapı web sitesinden ulaşıyorum."
+  },
+  "filters": {
+    "allCategories": "Tüm Kategoriler",
+    "allTypes": "Tüm Tipler",
+    "allLocations": "Tüm Konumlar",
+    "searchPlaceholder": "İlan ara...",
+    "filter": "Filtrele",
+    "propertyType": "Emlak Tipi",
+    "location": "Konum",
+    "minPrice": "Min. Fiyat (TL)",
+    "maxPrice": "Max. Fiyat (TL)",
+    "min": "Min",
+    "max": "Max",
+    "onlyVerified": "Sadece EIDS Doğrulanmış İlanları Göster",
+    "clearFilters": "Filtreleri Temizle",
+    "listingsFound": "ilan bulundu",
+    "gridView": "Grid görünümü",
+    "listView": "Liste görünümü"
+  },
+  "leadForm": {
+    "title": "İlan Hakkında Bilgi Al",
+    "namePlaceholder": "Adınız Soyadınız",
+    "phonePlaceholder": "05XX XXX XX XX",
+    "getInfo": "Bilgi Al",
+    "listing": "İlan",
+    "fullName": "Ad Soyad",
+    "phone": "Telefon",
+    "invalidPhone": "Geçerli bir telefon numarası giriniz (05XX XXX XX XX)",
+    "kvkkText": "Kişisel verilerimin işlenmesini ve bilgilerimin paylaşılmasını",
+    "kvkkLink": "KVKK Aydınlatma Metni",
+    "kvkkAccept": "kapsamında kabul ediyorum.",
+    "sending": "Gönderiliyor...",
+    "submitButton": "Bu ilan hakkında bilgi almak istiyorum",
+    "successTitle": "Talebiniz Alındı!",
+    "successMessage": "En kısa sürede sizinle iletişime geçeceğiz.",
+    "ok": "Tamam",
+    "errorGeneric": "Bir hata oluştu.",
+    "errorConnection": "Bağlantı hatası. Lütfen tekrar deneyiniz.",
+    "ariaLabel": "Bu ilan hakkında bilgi al"
+  },
+  "pagination": {
+    "label": "Sayfalama",
+    "previous": "Önceki sayfa",
+    "next": "Sonraki sayfa",
+    "page": "Sayfa"
+  },
+  "gallery": {
+    "previous": "Önceki görsel",
+    "next": "Sonraki görsel",
+    "fullscreen": "Tam ekran görüntüle"
+  },
+  "sideContact": {
+    "email": "E-posta",
+    "sendEmail": "E-posta gönder",
+    "closeMenu": "Menüyü kapat"
+  },
+  "exchangePage": {
+    "title": "Döviz Kurları ve Emlak Yatırımı",
+    "subtitle": "Yabancı yatırımcılar için ideal fırsat dönemi",
+    "currencyAdvantage": "Kur Avantajı",
+    "currencyAdvantageDesc": "Dolar ve Euro bazında uygun emlak fiyatları",
+    "expertConsulting": "Uzman Danışmanlık",
+    "expertConsultingDesc": "Yabancı yatırımcılara özel hizmet",
+    "widePortfolio": "Geniş Portföy",
+    "widePortfolioDesc": "Villa, daire, arsa seçenekleri",
+    "viewInDollar": "İlanları Dolar ile Görüntüle",
+    "callConsultant": "Danışman Ara",
+    "investmentDescription": "Türkiye'de emlak yatırımı yapmak isteyen yabancı yatırımcılar için en uygun dönem. Kur avantajı ile kaliteli gayrimenkullere ulaşın.",
+    "propertyOptions": "Mülk Seçeneği",
+    "foreignInvestors": "Yabancı Yatırımcı",
+    "customerSatisfaction": "Müşteri Memnuniyeti",
+    "converter": {
+      "title": "Döviz Çevirici",
+      "subtitle": "Anlık kur ile hesaplama",
+      "amount": "Çevirmek İstediğiniz Miktar",
+      "result": "Sonuç",
+      "source": "Kaynak: TCMB • Son güncelleme:"
+    },
+    "currencies": {
+      "TRY": "Türk Lirası",
+      "USD": "Amerikan Doları",
+      "EUR": "Euro",
+      "GBP": "İngiliz Sterlini"
+    },
+    "chart": {
+      "title": "Kur Grafiği",
+      "subtitle": "Tarihsel kur verileri",
+      "days": "Gün",
+      "current": "Güncel",
+      "lowest": "En Düşük",
+      "highest": "En Yüksek",
+      "average": "Ortalama"
+    },
+    "faq": {
+      "title": "Sıkça Sorulan Sorular",
+      "subtitle": "Döviz kurları hakkında merak edilenler"
+    }
+  },
+  "contactPage": {
+    "heroTitle": "İletişim",
+    "heroSubtitle": "Sorularınız için bizimle iletişime geçin. Size yardımcı olmaktan mutluluk duyarız.",
+    "heroDescription": "Emlak, tadilat veya inşaat projeleriniz için uzman ekibimizle görüşün.",
+    "infoTitle": "İletişim Bilgileri",
+    "address": "Adres",
+    "addressLine1": "Atatürk Mah. 58 Sk. No: 2/B",
+    "addressLine2": "(Belediye Arkası), Ortaca / Muğla",
+    "email": "E-posta",
+    "workingHours": "Çalışma Saatleri",
+    "weekdaysHours": "Pazartesi - Cuma: 09:00 - 18:00",
+    "saturdayHours": "Cumartesi: 10:00 - 14:00",
+    "sundayClosed": "Pazar: Kapalı",
+    "teamTitle": "Yetkililerimiz",
+    "socialTitle": "Sosyal Medya",
+    "formTitle": "Bize Mesaj Gönderin",
+    "successTitle": "Mesajınız Gönderildi!",
+    "successMessage": "En kısa sürede size dönüş yapacağız.",
+    "form": {
+      "name": "Adınız Soyadınız",
+      "namePlaceholder": "Adınızı girin",
+      "email": "E-posta Adresiniz",
+      "emailPlaceholder": "ornek@email.com",
+      "phone": "Telefon Numaranız",
+      "phonePlaceholder": "0 (5XX) XXX XX XX",
+      "service": "İlgilendiğiniz Hizmet",
+      "serviceSelect": "Hizmet Seçin",
+      "message": "Mesajınız",
+      "messagePlaceholder": "Mesajınızı buraya yazın...",
+      "submit": "Mesaj Gönder",
+      "sending": "Gönderiliyor..."
+    },
+    "serviceOptions": {
+      "emlak": "Emlak Danışmanlığı",
+      "tadilat": "Tadilat & Dekorasyon",
+      "insaat": "İnşaat & Taahhüt",
+      "diger": "Diğer"
+    },
+    "team": {
+      "zafer": {
+        "name": "Zafer KALINDA",
+        "title": "Kurucu Ortak & Emlak Danışmanı"
+      },
+      "arif": {
+        "name": "Arif KALINDA",
+        "title": "Kurucu Ortak & İnşaat Müdürü"
+      },
+      "hikmet": {
+        "name": "Hikmet KALINDA",
+        "title": "Kurucu Ortak & Tadilat Uzmanı"
+      }
+    },
+    "mapTitle": "Kalinda Yapı Konum - Ortaca, Muğla"
+  },
+  "ilanCard": {
+    "forSale": "Satılık",
+    "forRent": "Kiralık",
+    "bathroom": "Banyo",
+    "listingNo": "İlan No",
+    "perMonth": "/ay",
+    "rooms": "Oda",
+    "area": "m²"
+  },
+  "currencySwitcher": {
+    "selectCurrency": "Para birimi seç"
   }
 }

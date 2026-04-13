@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { Heart, Loader2, CheckCircle } from "lucide-react";
 import Modal from "@/components/ui/Modal";
+import { useLocale } from "@/components/providers/LocaleProvider";
 
 interface LeadFormProps {
   listingId: string;
@@ -33,6 +34,30 @@ export default function LeadForm({
   const [kvkkAccepted, setKvkkAccepted] = useState(false);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const { locale, dict } = useLocale();
+
+  // Çeviriler
+  const t = dict?.leadForm || {
+    title: "İlan Hakkında Bilgi Al",
+    namePlaceholder: "Adınız Soyadınız",
+    phonePlaceholder: "05XX XXX XX XX",
+    getInfo: "Bilgi Al",
+    listing: "İlan",
+    fullName: "Ad Soyad",
+    phone: "Telefon",
+    invalidPhone: "Geçerli bir telefon numarası giriniz (05XX XXX XX XX)",
+    kvkkText: "Kişisel verilerimin işlenmesini ve bilgilerimin paylaşılmasını",
+    kvkkLink: "KVKK Aydınlatma Metni",
+    kvkkAccept: "kapsamında kabul ediyorum.",
+    sending: "Gönderiliyor...",
+    submitButton: "Bu ilan hakkında bilgi almak istiyorum",
+    successTitle: "Talebiniz Alındı!",
+    successMessage: "En kısa sürede sizinle iletişime geçeceğiz.",
+    ok: "Tamam",
+    errorGeneric: "Bir hata oluştu.",
+    errorConnection: "Bağlantı hatası. Lütfen tekrar deneyiniz.",
+    ariaLabel: "Bu ilan hakkında bilgi al"
+  };
 
   const handleHeartClick = useCallback(
     (e: React.MouseEvent) => {
@@ -84,14 +109,14 @@ export default function LeadForm({
 
         if (!res.ok) {
           setStatus("error");
-          setErrorMessage(data.error || "Bir hata oluştu.");
+          setErrorMessage(data.error || t.errorGeneric);
           return;
         }
 
         setStatus("success");
       } catch {
         setStatus("error");
-        setErrorMessage("Bağlantı hatası. Lütfen tekrar deneyiniz.");
+        setErrorMessage(t.errorConnection);
       }
     },
     [isFormValid, status, name, phone, listingId, listingTitle]
@@ -104,7 +129,7 @@ export default function LeadForm({
         type="button"
         onClick={handleHeartClick}
         className={`group/heart inline-flex items-center gap-1.5 transition-all duration-200 ${className}`}
-        aria-label="Bu ilan hakkında bilgi al"
+        aria-label={t.ariaLabel}
       >
         <Heart
           className={`w-6 h-6 transition-all duration-300 ${
@@ -119,7 +144,7 @@ export default function LeadForm({
               liked ? "text-red-500" : "text-gray-500 group-hover/heart:text-red-400"
             }`}
           >
-            Bilgi Al
+            {t.getInfo}
           </span>
         )}
       </button>
@@ -128,31 +153,31 @@ export default function LeadForm({
       <Modal
         isOpen={modalOpen}
         onClose={handleClose}
-        title={status === "success" ? undefined : "İlan Hakkında Bilgi Al"}
+        title={status === "success" ? undefined : t.title}
         size="sm"
       >
         {status === "success" ? (
           <div className="text-center py-6">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
             <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
-              Talebiniz Alındı!
+              {t.successTitle}
             </h3>
             <p className="text-[#666666] mb-6">
-              En kısa sürede sizinle iletişime geçeceğiz.
+              {t.successMessage}
             </p>
             <button
               type="button"
               onClick={() => setModalOpen(false)}
               className="px-6 py-2.5 bg-[#0B1F3A] text-white rounded-lg font-medium hover:bg-[#0B1F3A]/90 transition-colors"
             >
-              Tamam
+              {t.ok}
             </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Listing info */}
             <div className="bg-[#F5F5F5] rounded-lg p-3">
-              <p className="text-sm text-[#666666]">İlan:</p>
+              <p className="text-sm text-[#666666]">{t.listing}:</p>
               <p className="font-semibold text-[#0B1F3A] text-sm line-clamp-2">
                 {listingTitle}
               </p>
@@ -164,14 +189,14 @@ export default function LeadForm({
                 htmlFor="lead-name"
                 className="block text-sm font-medium text-[#0B1F3A] mb-1"
               >
-                Ad Soyad
+                {t.fullName}
               </label>
               <input
                 id="lead-name"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Adınız Soyadınız"
+                placeholder={t.namePlaceholder}
                 required
                 minLength={2}
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent transition-shadow"
@@ -184,14 +209,14 @@ export default function LeadForm({
                 htmlFor="lead-phone"
                 className="block text-sm font-medium text-[#0B1F3A] mb-1"
               >
-                Telefon
+                {t.phone}
               </label>
               <input
                 id="lead-phone"
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="05XX XXX XX XX"
+                placeholder={t.phonePlaceholder}
                 required
                 className={`w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent transition-shadow ${
                   phone && !isPhoneValid
@@ -201,7 +226,7 @@ export default function LeadForm({
               />
               {phone && !isPhoneValid && (
                 <p className="text-xs text-red-500 mt-1">
-                  Geçerli bir telefon numarası giriniz (05XX XXX XX XX)
+                  {t.invalidPhone}
                 </p>
               )}
             </div>
@@ -215,15 +240,15 @@ export default function LeadForm({
                 className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#C9A84C] focus:ring-[#C9A84C]"
               />
               <span className="text-xs text-[#666666] leading-relaxed">
-                Kişisel verilerimin işlenmesini ve bilgilerimin paylaşılmasını{" "}
+                {t.kvkkText}{" "}
                 <a
-                  href="/gizlilik"
+                  href={`/${locale}/gizlilik`}
                   target="_blank"
                   className="text-[#C9A84C] underline"
                 >
-                  KVKK Aydınlatma Metni
+                  {t.kvkkLink}
                 </a>
-                {" "}kapsamında kabul ediyorum.
+                {" "}{t.kvkkAccept}
               </span>
             </label>
 
@@ -243,10 +268,10 @@ export default function LeadForm({
               {status === "loading" ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  Gönderiliyor...
+                  {t.sending}
                 </>
               ) : (
-                "Bu ilan hakkında bilgi almak istiyorum"
+                t.submitButton
               )}
             </button>
           </form>

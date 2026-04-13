@@ -11,6 +11,7 @@ import LeadForm from "@/components/ilan/LeadForm";
 import { getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
 import { useCurrency } from "@/components/providers/CurrencyProvider";
 import { type Locale, getLocalizedRoute, defaultLocale } from "@/lib/i18n";
+import { useLocale } from "@/components/providers/LocaleProvider";
 
 // Video dosyası olup olmadığını kontrol et
 function isVideo(url: string): boolean {
@@ -24,16 +25,18 @@ interface IlanKartProps {
   locale?: Locale;
 }
 
-// Localized texts
-const texts = {
-  tr: { forSale: 'Satılık', forRent: 'Kiralık', bath: 'Banyo', listingNo: 'İlan No', month: '/ay' },
-  en: { forSale: 'For Sale', forRent: 'For Rent', bath: 'Bath', listingNo: 'Listing', month: '/mo' },
-  ar: { forSale: 'للبيع', forRent: 'للإيجار', bath: 'حمام', listingNo: 'رقم', month: '/شهر' },
-};
-
 export default function IlanKart({ ilan, variant = "grid", index = 0, locale = defaultLocale }: IlanKartProps) {
   const { formatConvertedPrice } = useCurrency();
-  const t = texts[locale];
+  const { dict } = useLocale();
+
+  const t = dict?.ilanCard || {
+    forSale: "Satılık",
+    forRent: "Kiralık",
+    bathroom: "Banyo",
+    listingNo: "İlan No",
+    perMonth: "/ay"
+  };
+
   const listingsRoute = getLocalizedRoute('ilanlar', locale);
   const ilanHref = `/${locale}/${listingsRoute}/${ilan.slug}`;
 
@@ -134,7 +137,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
                   {ilan.ozellikler.banyoSayisi && (
                     <div className="flex items-center gap-1">
                       <Bath className="w-4 h-4" />
-                      <span>{ilan.ozellikler.banyoSayisi} {t.bath}</span>
+                      <span>{ilan.ozellikler.banyoSayisi} {t.bathroom}</span>
                     </div>
                   )}
                   {ilan.insaatDurumu && (
@@ -150,7 +153,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
                 <span className="text-xl font-bold text-[#0B1F3A]">
                   {formatConvertedPrice(ilan.fiyat)}
                   {ilan.kategori === "kiralik" && (
-                    <span className="text-sm font-normal text-[#666666]">{t.month}</span>
+                    <span className="text-sm font-normal text-[#666666]">{t.perMonth}</span>
                   )}
                 </span>
                 <div className="flex items-center gap-3">
@@ -238,7 +241,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
               <span className="bg-[#0B1F3A] text-white px-3 py-1.5 rounded-lg font-bold">
                 {formatConvertedPrice(ilan.fiyat)}
                 {ilan.kategori === "kiralik" && (
-                  <span className="text-xs font-normal">{t.month}</span>
+                  <span className="text-xs font-normal">{t.perMonth}</span>
                 )}
               </span>
             </div>

@@ -6,6 +6,7 @@ import { Search, SlidersHorizontal, X, Grid3X3, List, ChevronDown, ShieldCheck }
 import { Input, Select } from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 import { type Locale, defaultLocale } from "@/lib/i18n";
+import { useLocale } from "@/components/providers/LocaleProvider";
 
 interface FilterState {
   kategori: string;
@@ -26,22 +27,8 @@ interface IlanFiltresiProps {
   locale?: Locale;
 }
 
-const kategoriSecenekleri = [
-  { value: "", label: "Tüm Kategoriler" },
-  { value: "satilik", label: "Satılık" },
-  { value: "kiralik", label: "Kiralık" },
-];
-
-const tipSecenekleri = [
-  { value: "", label: "Tüm Tipler" },
-  { value: "daire", label: "Daire" },
-  { value: "villa", label: "Villa" },
-  { value: "arsa", label: "Arsa" },
-  { value: "ticari", label: "Ticari" },
-];
-
-const konumSecenekleri = [
-  { value: "", label: "Tüm Konumlar" },
+// Static location options (city names don't change)
+const konumSecenekleriBase = [
   { value: "Ortaca", label: "Ortaca" },
   { value: "Dalyan", label: "Dalyan" },
   { value: "Köyceğiz", label: "Köyceğiz" },
@@ -66,6 +53,40 @@ export default function IlanFiltresi({
   totalCount,
 }: IlanFiltresiProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { dict } = useLocale();
+
+  // Çeviriler
+  const filtersT = dict?.filters || {
+    allCategories: "Tüm Kategoriler",
+    allTypes: "Tüm Tipler",
+    allLocations: "Tüm Konumlar",
+    searchPlaceholder: "İlan ara..."
+  };
+
+  const listingsT = dict?.listings || {};
+  const categoriesT = listingsT?.categories || {};
+  const typesT = listingsT?.types || {};
+  const filtersListT = listingsT?.filters || {};
+
+  // Dynamic options with translations
+  const kategoriSecenekleri = [
+    { value: "", label: filtersT.allCategories },
+    { value: "satilik", label: categoriesT.satilik || "Satılık" },
+    { value: "kiralik", label: categoriesT.kiralik || "Kiralık" },
+  ];
+
+  const tipSecenekleri = [
+    { value: "", label: filtersT.allTypes },
+    { value: "daire", label: typesT.daire || "Daire" },
+    { value: "villa", label: typesT.villa || "Villa" },
+    { value: "arsa", label: typesT.arsa || "Arsa" },
+    { value: "ticari", label: typesT.ticari || "Ticari" },
+  ];
+
+  const konumSecenekleri = [
+    { value: "", label: filtersT.allLocations },
+    ...konumSecenekleriBase
+  ];
 
   const handleChange = (key: keyof FilterState, value: string) => {
     onFilterChange({ ...filters, [key]: value });
@@ -93,7 +114,7 @@ export default function IlanFiltresi({
           {/* Search */}
           <div className="flex-1">
             <Input
-              placeholder="İlan ara..."
+              placeholder={filtersT.searchPlaceholder}
               value={filters.arama}
               onChange={(e) => handleChange("arama", e.target.value)}
               leftIcon={<Search className="w-5 h-5" />}
@@ -128,7 +149,7 @@ export default function IlanFiltresi({
             onClick={() => setIsExpanded(!isExpanded)}
             leftIcon={<SlidersHorizontal className="w-4 h-4" />}
           >
-            Filtrele
+            {filtersT.filter || "Filtrele"}
             <ChevronDown
               className={`w-4 h-4 transition-transform ${
                 isExpanded ? "rotate-180" : ""
@@ -151,33 +172,33 @@ export default function IlanFiltresi({
             <div className="p-4 bg-[#F5F5F5] border-b border-[#e0e0e0]">
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <Select
-                  label="Emlak Tipi"
+                  label={filtersT.propertyType || "Emlak Tipi"}
                   value={filters.tip}
                   onChange={(e) => handleChange("tip", e.target.value)}
                   options={tipSecenekleri}
                 />
 
                 <Select
-                  label="Konum"
+                  label={filtersT.location || "Konum"}
                   value={filters.konum}
                   onChange={(e) => handleChange("konum", e.target.value)}
                   options={konumSecenekleri}
                 />
 
                 <Input
-                  label="Min. Fiyat (TL)"
+                  label={filtersT.minPrice || "Min. Fiyat (TL)"}
                   type="number"
                   value={filters.minFiyat}
                   onChange={(e) => handleChange("minFiyat", e.target.value)}
-                  placeholder="Min"
+                  placeholder={filtersT.min || "Min"}
                 />
 
                 <Input
-                  label="Max. Fiyat (TL)"
+                  label={filtersT.maxPrice || "Max. Fiyat (TL)"}
                   type="number"
                   value={filters.maxFiyat}
                   onChange={(e) => handleChange("maxFiyat", e.target.value)}
-                  placeholder="Max"
+                  placeholder={filtersT.max || "Max"}
                 />
               </div>
 
@@ -194,7 +215,7 @@ export default function IlanFiltresi({
                   />
                   <ShieldCheck className="w-4 h-4 text-green-600" />
                   <span className="text-sm font-medium text-[#1a1a1a]">
-                    Sadece EIDS Doğrulanmış İlanları Göster
+                    {filtersT.onlyVerified || "Sadece EIDS Doğrulanmış İlanları Göster"}
                   </span>
                 </label>
               </div>
@@ -208,7 +229,7 @@ export default function IlanFiltresi({
                     onClick={clearFilters}
                     leftIcon={<X className="w-4 h-4" />}
                   >
-                    Filtreleri Temizle
+                    {filtersT.clearFilters || "Filtreleri Temizle"}
                   </Button>
                 </div>
               )}
@@ -220,8 +241,7 @@ export default function IlanFiltresi({
       {/* Results Bar */}
       <div className="px-4 py-3 flex items-center justify-between bg-white">
         <p className="text-sm text-[#666666]">
-          <span className="font-semibold text-[#0B1F3A]">{totalCount}</span> ilan
-          bulundu
+          <span className="font-semibold text-[#0B1F3A]">{totalCount}</span> {filtersT.listingsFound || "ilan bulundu"}
         </p>
 
         {/* View Mode Toggle */}
@@ -233,7 +253,7 @@ export default function IlanFiltresi({
                 ? "bg-white text-[#0B1F3A] shadow-sm"
                 : "text-[#666666] hover:text-[#0B1F3A]"
             }`}
-            aria-label="Grid görünümü"
+            aria-label={filtersT.gridView || "Grid görünümü"}
           >
             <Grid3X3 className="w-4 h-4" />
           </button>
@@ -244,7 +264,7 @@ export default function IlanFiltresi({
                 ? "bg-white text-[#0B1F3A] shadow-sm"
                 : "text-[#666666] hover:text-[#0B1F3A]"
             }`}
-            aria-label="Liste görünümü"
+            aria-label={filtersT.listView || "Liste görünümü"}
           >
             <List className="w-4 h-4" />
           </button>

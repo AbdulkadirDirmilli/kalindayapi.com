@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { TrendingUp, Calendar } from 'lucide-react';
 import { getHistoricalRates, getRateStatistics } from '@/lib/exchangeHistory';
 import { cn } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 type Period = 7 | 30 | 90;
 type Currency = 'USD' | 'EUR' | 'GBP';
@@ -16,8 +17,19 @@ const CURRENCY_COLORS: Record<Currency, string> = {
 };
 
 export default function RateChart() {
+  const { dict } = useLocale();
   const [period, setPeriod] = useState<Period>(30);
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>('USD');
+
+  const t = dict?.exchangePage?.chart || {
+    title: "Kur Grafiği",
+    subtitle: "Tarihsel kur verileri",
+    days: "Gün",
+    current: "Güncel",
+    lowest: "En Düşük",
+    highest: "En Yüksek",
+    average: "Ortalama"
+  };
 
   const history = getHistoricalRates(period);
   const stats = getRateStatistics(selectedCurrency);
@@ -51,8 +63,8 @@ export default function RateChart() {
             <TrendingUp className="w-6 h-6 text-[#C9A84C]" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-[#0B1F3A]">Kur Grafiği</h2>
-            <p className="text-sm text-gray-500">Tarihsel kur verileri</p>
+            <h2 className="text-xl font-bold text-[#0B1F3A]">{t.title}</h2>
+            <p className="text-sm text-gray-500">{t.subtitle}</p>
           </div>
         </div>
 
@@ -69,7 +81,7 @@ export default function RateChart() {
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               )}
             >
-              {p} Gün
+              {p} {t.days}
             </button>
           ))}
         </div>
@@ -160,23 +172,23 @@ export default function RateChart() {
       {/* Statistics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
         <div className="bg-gray-50 rounded-xl p-3 sm:p-4">
-          <p className="text-xs text-gray-500 mb-1">Güncel</p>
+          <p className="text-xs text-gray-500 mb-1">{t.current}</p>
           <p className="text-base sm:text-lg font-bold text-[#0B1F3A]">₺{stats.current.toFixed(2)}</p>
         </div>
         <div className="bg-gray-50 rounded-xl p-3 sm:p-4">
-          <p className="text-xs text-gray-500 mb-1">En Düşük ({period}g)</p>
+          <p className="text-xs text-gray-500 mb-1">{t.lowest} ({period}g)</p>
           <p className="text-base sm:text-lg font-bold text-green-600">
             ₺{(period === 7 ? stats.min7d : stats.min30d).toFixed(2)}
           </p>
         </div>
         <div className="bg-gray-50 rounded-xl p-3 sm:p-4">
-          <p className="text-xs text-gray-500 mb-1">En Yüksek ({period}g)</p>
+          <p className="text-xs text-gray-500 mb-1">{t.highest} ({period}g)</p>
           <p className="text-base sm:text-lg font-bold text-red-600">
             ₺{(period === 7 ? stats.max7d : stats.max30d).toFixed(2)}
           </p>
         </div>
         <div className="bg-gray-50 rounded-xl p-3 sm:p-4">
-          <p className="text-xs text-gray-500 mb-1">Ortalama ({period}g)</p>
+          <p className="text-xs text-gray-500 mb-1">{t.average} ({period}g)</p>
           <p className="text-base sm:text-lg font-bold text-[#C9A84C]">
             ₺{(period === 7 ? stats.avg7d : stats.avg30d).toFixed(2)}
           </p>

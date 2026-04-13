@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 import { Instagram, Facebook, Youtube } from "@/components/icons/SocialIcons";
+import { useLocale } from "@/components/providers/LocaleProvider";
 
 const socialLinks = [
   {
@@ -27,15 +28,39 @@ const socialLinks = [
   },
 ];
 
-const phoneNumbers = [
-  { name: "Zafer Bey", phone: "+905370530754", label: "Danışman", foto: "/zafersoylu.png" },
-  { name: "Arif Bey", phone: "+905321591556", label: "Danışman", foto: "/arifdagdelen.png" },
-  { name: "Hikmet Bey", phone: "+905554531207", label: "Danışman", foto: null },
+// Phone numbers with translation keys
+const phoneNumbersData = [
+  { nameKey: "zafer", phone: "+905370530754", foto: "/zafersoylu.png" },
+  { nameKey: "arif", phone: "+905321591556", foto: "/arifdagdelen.png" },
+  { nameKey: "hikmet", phone: "+905554531207", foto: null },
 ];
 
 export default function SideContactBar() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const { dict } = useLocale();
+
+  // Çeviriler
+  const t = dict?.sideContact || {
+    email: "E-posta",
+    sendEmail: "E-posta gönder",
+    closeMenu: "Menüyü kapat"
+  };
+
+  const consultants = dict?.consultants || {
+    zafer: "Zafer Bey",
+    arif: "Arif Bey",
+    hikmet: "Hikmet Bey",
+    consultant: "Danışman"
+  };
+
+  // Generate phone numbers with translations
+  const phoneNumbers = phoneNumbersData.map(item => ({
+    name: consultants[item.nameKey as keyof typeof consultants] || item.nameKey,
+    phone: item.phone,
+    label: consultants.consultant,
+    foto: item.foto
+  }));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,7 +87,7 @@ export default function SideContactBar() {
             <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="absolute -left-8 top-1/2 -translate-y-1/2 w-8 h-16 bg-primary text-white rounded-l-lg flex items-center justify-center hover:bg-primary-light transition-colors"
-              aria-label={isExpanded ? "Kapat" : "Aç"}
+              aria-label={isExpanded ? t.closeMenu : ""}
             >
               {isExpanded ? (
                 <ChevronRight className="w-5 h-5" />
@@ -125,7 +150,7 @@ export default function SideContactBar() {
                 <a
                   href="mailto:info@kalindayapi.com"
                   className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface transition-colors group"
-                  title="E-posta gönder"
+                  title={t.sendEmail}
                 >
                   <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
                     <Mail className="w-4 h-4 text-primary" />
@@ -138,7 +163,7 @@ export default function SideContactBar() {
                         exit={{ opacity: 0, width: 0 }}
                         className="whitespace-nowrap overflow-hidden"
                       >
-                        <p className="text-xs text-text-light">E-posta</p>
+                        <p className="text-xs text-text-light">{t.email}</p>
                         <p className="text-sm font-semibold text-primary group-hover:text-accent transition-colors">
                           info@kalindayapi.com
                         </p>

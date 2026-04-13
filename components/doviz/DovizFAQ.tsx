@@ -5,13 +5,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { DovizFAQ as FAQType } from '@/types/exchange';
 import { cn } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 interface DovizFAQProps {
   faqs: FAQType[];
 }
 
 export default function DovizFAQ({ faqs }: DovizFAQProps) {
+  const { dict } = useLocale();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const t = dict?.exchangePage?.faq || {
+    title: "Sıkça Sorulan Sorular",
+    subtitle: "Döviz kurları hakkında merak edilenler"
+  };
 
   return (
     <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100">
@@ -21,8 +28,8 @@ export default function DovizFAQ({ faqs }: DovizFAQProps) {
           <HelpCircle className="w-6 h-6 text-[#C9A84C]" />
         </div>
         <div>
-          <h2 className="text-xl font-bold text-[#0B1F3A]">Sıkça Sorulan Sorular</h2>
-          <p className="text-sm text-gray-500">Döviz kurları hakkında merak edilenler</p>
+          <h2 className="text-xl font-bold text-[#0B1F3A]">{t.title}</h2>
+          <p className="text-sm text-gray-500">{t.subtitle}</p>
         </div>
       </div>
 

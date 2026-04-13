@@ -28,31 +28,24 @@ export default function FlagIcon({ locale, className = "", size = "md" }: FlagIc
         <rect width="1200" height="800" fill="#E30A17" />
         <circle cx="425" cy="400" r="200" fill="#ffffff" />
         <circle cx="475" cy="400" r="160" fill="#E30A17" />
-        <polygon
-          fill="#ffffff"
-          points="583,400 764,483 700,400 764,317"
-          transform="rotate(18, 583, 400)"
-        />
-        <polygon
-          fill="#ffffff"
-          points="583,400 764,483 700,400 764,317"
-          transform="rotate(90, 583, 400)"
-        />
-        <polygon
-          fill="#ffffff"
-          points="583,400 764,483 700,400 764,317"
-          transform="rotate(162, 583, 400)"
-        />
-        <polygon
-          fill="#ffffff"
-          points="583,400 764,483 700,400 764,317"
-          transform="rotate(234, 583, 400)"
-        />
-        <polygon
-          fill="#ffffff"
-          points="583,400 764,483 700,400 764,317"
-          transform="rotate(306, 583, 400)"
-        />
+        {/* 5 pointed star - proper Turkish flag star */}
+        <g transform="translate(590, 400) rotate(18)">
+          <polygon
+            fill="#ffffff"
+            points="
+              0,-85
+              20,-26
+              81,-26
+              32,10
+              50,69
+              0,33
+              -50,69
+              -32,10
+              -81,-26
+              -20,-26
+            "
+          />
+        </g>
       </svg>
     );
   }

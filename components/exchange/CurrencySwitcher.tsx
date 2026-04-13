@@ -7,6 +7,7 @@ import { useCurrency } from '@/components/providers/CurrencyProvider';
 import { CURRENCY_CONFIG } from '@/lib/currencyUtils';
 import { CurrencyCode } from '@/types/exchange';
 import { cn } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 interface CurrencySwitcherProps {
   variant?: 'default' | 'compact';
@@ -20,6 +21,11 @@ export default function CurrencySwitcher({
   isScrolled = false,
 }: CurrencySwitcherProps) {
   const { selectedCurrency, setCurrency } = useCurrency();
+  const { dict } = useLocale();
+
+  const t = dict?.currencySwitcher || {
+    selectCurrency: "Para birimi seç"
+  };
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -47,7 +53,7 @@ export default function CurrencySwitcher({
             ? 'bg-[#0B1F3A]/5 text-[#0B1F3A] hover:bg-[#0B1F3A]/10'
             : 'bg-white/10 text-white hover:bg-white/20'
         )}
-        aria-label="Para birimi seç"
+        aria-label={t.selectCurrency}
       >
         <span className="text-[#C9A84C] font-bold text-sm sm:text-base">{currentConfig.symbol}</span>
         {variant === 'default' && (

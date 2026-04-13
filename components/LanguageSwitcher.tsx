@@ -19,9 +19,15 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const router = useRouter();
-  const { locale: currentLocale } = useLocale();
+  const { locale: currentLocale, dict } = useLocale();
 
   const currentConfig = localeConfig[currentLocale];
+
+  // Çeviriler
+  const t = dict?.language || {
+    select: "Dil Seçin",
+    active: "Aktif"
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -198,7 +204,7 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
           >
             <div className="px-4 py-3 bg-gray-50 border-b border-gray-100">
               <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                {currentLocale === 'tr' ? 'Dil Seçin' : currentLocale === 'en' ? 'Select Language' : 'اختر اللغة'}
+                {t.select}
               </p>
             </div>
             <div className="py-1">
@@ -225,7 +231,7 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
                     {isActive && (
                       <div className="flex items-center gap-1.5">
                         <span className="text-xs font-medium text-[#C9A84C]">
-                          {currentLocale === 'tr' ? 'Aktif' : currentLocale === 'en' ? 'Active' : 'نشط'}
+                          {t.active}
                         </span>
                         <Check className="w-4 h-4 text-[#C9A84C]" />
                       </div>

@@ -6,9 +6,33 @@ import { Home, TrendingUp, Users, ArrowRight, Phone } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { useCurrency } from '@/components/providers/CurrencyProvider';
 import { getTamamlananProjeSayisi, hesaplaYilDeneyimi } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 export default function RealEstateConnection() {
   const { setCurrency } = useCurrency();
+  const { dict } = useLocale();
+
+  const t = dict?.exchangePage || {
+    title: "Döviz Kurları ve Emlak Yatırımı",
+    subtitle: "Yabancı yatırımcılar için ideal fırsat dönemi",
+    currencyAdvantage: "Kur Avantajı",
+    currencyAdvantageDesc: "Dolar ve Euro bazında uygun emlak fiyatları",
+    expertConsulting: "Uzman Danışmanlık",
+    expertConsultingDesc: "Yabancı yatırımcılara özel hizmet",
+    widePortfolio: "Geniş Portföy",
+    widePortfolioDesc: "Villa, daire, arsa seçenekleri",
+    viewInDollar: "İlanları Dolar ile Görüntüle",
+    callConsultant: "Danışman Ara",
+    investmentDescription: "Türkiye'de emlak yatırımı yapmak isteyen yabancı yatırımcılar için en uygun dönem.",
+    propertyOptions: "Mülk Seçeneği",
+    foreignInvestors: "Yabancı Yatırımcı",
+    customerSatisfaction: "Müşteri Memnuniyeti"
+  };
+
+  const stats = dict?.home?.stats || {
+    projects: "Tamamlanan Proje",
+    experience: "Yıl Deneyim"
+  };
 
   return (
     <motion.div
@@ -30,10 +54,10 @@ export default function RealEstateConnection() {
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-              Döviz Kurları ve Emlak Yatırımı
+              {t.title}
             </h2>
             <p className="text-gray-300">
-              Yabancı yatırımcılar için ideal fırsat dönemi
+              {t.subtitle}
             </p>
           </div>
         </div>
@@ -42,32 +66,30 @@ export default function RealEstateConnection() {
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <div className="bg-white/10 backdrop-blur rounded-xl p-4">
             <TrendingUp className="w-6 h-6 text-[#C9A84C] mb-2" />
-            <h3 className="font-semibold text-white mb-1">Kur Avantajı</h3>
+            <h3 className="font-semibold text-white mb-1">{t.currencyAdvantage}</h3>
             <p className="text-sm text-gray-300">
-              Dolar ve Euro bazında uygun emlak fiyatları
+              {t.currencyAdvantageDesc}
             </p>
           </div>
           <div className="bg-white/10 backdrop-blur rounded-xl p-4">
             <Users className="w-6 h-6 text-[#C9A84C] mb-2" />
-            <h3 className="font-semibold text-white mb-1">Uzman Danışmanlık</h3>
+            <h3 className="font-semibold text-white mb-1">{t.expertConsulting}</h3>
             <p className="text-sm text-gray-300">
-              Yabancı yatırımcılara özel hizmet
+              {t.expertConsultingDesc}
             </p>
           </div>
           <div className="bg-white/10 backdrop-blur rounded-xl p-4">
             <Home className="w-6 h-6 text-[#C9A84C] mb-2" />
-            <h3 className="font-semibold text-white mb-1">Geniş Portföy</h3>
+            <h3 className="font-semibold text-white mb-1">{t.widePortfolio}</h3>
             <p className="text-sm text-gray-300">
-              Villa, daire, arsa seçenekleri
+              {t.widePortfolioDesc}
             </p>
           </div>
         </div>
 
         {/* Info Text */}
         <p className="text-gray-300 mb-8 leading-relaxed">
-          Muğla Ortaca, Dalyan ve çevresinde yatırım yapmak isteyen yabancı müşterilerimize
-          döviz bazlı fiyat hesaplama ve danışmanlık hizmeti sunuyoruz. Güncel döviz kurlarını
-          takip ederek, en uygun zamanda yatırım yapmanıza yardımcı oluyoruz.
+          {t.investmentDescription}
         </p>
 
         {/* CTA Buttons */}
@@ -79,7 +101,7 @@ export default function RealEstateConnection() {
               className="w-full"
               onClick={() => setCurrency('USD')}
             >
-              <span>İlanları Dolar ile Görüntüle</span>
+              <span>{t.viewInDollar}</span>
               <ArrowRight className="w-5 h-5" />
             </Button>
           </Link>
@@ -90,16 +112,16 @@ export default function RealEstateConnection() {
               className="w-full border-white text-white hover:bg-white hover:text-[#0B1F3A]"
             >
               <Phone className="w-5 h-5" />
-              <span>Danışman Ara</span>
+              <span>{t.callConsultant}</span>
             </Button>
           </a>
         </div>
 
         {/* Trust Badge */}
         <div className="mt-6 pt-6 border-t border-white/20 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-gray-400">
-          <span>✓ {getTamamlananProjeSayisi()}+ Tamamlanan Proje</span>
-          <span>✓ {hesaplaYilDeneyimi()}+ Yıl Deneyim</span>
-          <span>✓ %98 Müşteri Memnuniyeti</span>
+          <span>✓ {getTamamlananProjeSayisi()}+ {stats.projects}</span>
+          <span>✓ {hesaplaYilDeneyimi()}+ {stats.experience}</span>
+          <span>✓ %98 {t.customerSatisfaction}</span>
         </div>
       </div>
     </motion.div>

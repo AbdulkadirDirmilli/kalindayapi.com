@@ -22,21 +22,11 @@ import Button from "@/components/ui/Button";
 import { createWhatsAppLink } from "@/lib/utils";
 import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/jsonld";
 import { Users } from "lucide-react";
-
-const hizmetSecenekleri = [
-  { value: "", label: "Hizmet Seçin" },
-  { value: "emlak-satilik", label: "Emlak - Satılık" },
-  { value: "emlak-kiralik", label: "Emlak - Kiralık" },
-  { value: "tadilat", label: "Tadilat & Dekorasyon" },
-  { value: "taahhut", label: "Taahhüt & İnşaat" },
-  { value: "plan-proje", label: "Plan & Proje" },
-  { value: "diger", label: "Diğer" },
-];
+import { useLocale } from "@/components/providers/LocaleProvider";
 
 const yetkililer = [
   {
-    ad: "Zafer SOYLU",
-    unvan: "Gayrimenkul & Yapı Danışmanı",
+    id: "zafer",
     telefon: "+90 537 053 07 54",
     whatsapp: "905370530754",
     email: "zafer@kalindayapi.com",
@@ -45,8 +35,7 @@ const yetkililer = [
     renk: "#C9A84C",
   },
   {
-    ad: "Arif DAĞDELEN",
-    unvan: "Gayrimenkul & Yapı Danışmanı",
+    id: "arif",
     telefon: "+90 532 159 15 56",
     whatsapp: "905321591556",
     email: "arif@kalindayapi.com",
@@ -55,8 +44,7 @@ const yetkililer = [
     renk: "#0B1F3A",
   },
   {
-    ad: "Hikmet KARAOĞLAN",
-    unvan: "Gayrimenkul & Yapı Danışmanı",
+    id: "hikmet",
     telefon: "+90 555 453 12 07",
     whatsapp: "905554531207",
     email: "hikmet@kalindayapi.com",
@@ -67,6 +55,7 @@ const yetkililer = [
 ];
 
 export default function IletisimPage() {
+  const { dict } = useLocale();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -79,6 +68,67 @@ export default function IletisimPage() {
   });
 
   const [error, setError] = useState<string | null>(null);
+
+  // Translations
+  const t = dict?.contactPage || {
+    heroTitle: "İletişim",
+    heroSubtitle: "Sorularınız için bizimle iletişime geçin. Size yardımcı olmaktan mutluluk duyarız.",
+    heroDescription: "Emlak, tadilat veya inşaat projeleriniz için uzman ekibimizle görüşün.",
+    infoTitle: "İletişim Bilgileri",
+    address: "Adres",
+    addressLine1: "Atatürk Mah. 58 Sk. No: 2/B",
+    addressLine2: "(Belediye Arkası), Ortaca / Muğla",
+    email: "E-posta",
+    workingHours: "Çalışma Saatleri",
+    weekdaysHours: "Pazartesi - Cuma: 09:00 - 18:00",
+    saturdayHours: "Cumartesi: 10:00 - 14:00",
+    sundayClosed: "Pazar: Kapalı",
+    teamTitle: "Yetkililerimiz",
+    socialTitle: "Sosyal Medya",
+    formTitle: "Bize Mesaj Gönderin",
+    successTitle: "Mesajınız Gönderildi!",
+    successMessage: "En kısa sürede size dönüş yapacağız.",
+    form: {
+      name: "Adınız Soyadınız",
+      namePlaceholder: "Adınızı girin",
+      email: "E-posta Adresiniz",
+      emailPlaceholder: "ornek@email.com",
+      phone: "Telefon Numaranız",
+      phonePlaceholder: "0 (5XX) XXX XX XX",
+      service: "İlgilendiğiniz Hizmet",
+      serviceSelect: "Hizmet Seçin",
+      message: "Mesajınız",
+      messagePlaceholder: "Mesajınızı buraya yazın...",
+      submit: "Mesaj Gönder",
+      sending: "Gönderiliyor..."
+    },
+    serviceOptions: {
+      emlak: "Emlak Danışmanlığı",
+      tadilat: "Tadilat & Dekorasyon",
+      insaat: "İnşaat & Taahhüt",
+      diger: "Diğer"
+    },
+    team: {
+      zafer: { name: "Zafer KALINDA", title: "Kurucu Ortak & Emlak Danışmanı" },
+      arif: { name: "Arif KALINDA", title: "Kurucu Ortak & İnşaat Müdürü" },
+      hikmet: { name: "Hikmet KALINDA", title: "Kurucu Ortak & Tadilat Uzmanı" }
+    },
+    mapTitle: "Kalinda Yapı Konum - Ortaca, Muğla"
+  };
+
+  const nav = dict?.nav || { home: "Ana Sayfa", contact: "İletişim" };
+  const homeContactForm = dict?.home?.contactForm || { privacyNote: "Formu göndererek", privacyLink: "gizlilik politikamızı", privacyAccept: "kabul etmiş olursunuz." };
+
+  // Service options with translations
+  const hizmetSecenekleri = [
+    { value: "", label: t.form?.serviceSelect || "Hizmet Seçin" },
+    { value: "emlak-satilik", label: `${t.serviceOptions?.emlak || "Emlak"} - ${dict?.listings?.categories?.satilik || "Satılık"}` },
+    { value: "emlak-kiralik", label: `${t.serviceOptions?.emlak || "Emlak"} - ${dict?.listings?.categories?.kiralik || "Kiralık"}` },
+    { value: "tadilat", label: t.serviceOptions?.tadilat || "Tadilat & Dekorasyon" },
+    { value: "taahhut", label: t.serviceOptions?.insaat || "İnşaat & Taahhüt" },
+    { value: "plan-proje", label: dict?.services?.planning || "Plan & Proje" },
+    { value: "diger", label: t.serviceOptions?.diger || "Diğer" },
+  ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -132,8 +182,8 @@ export default function IletisimPage() {
   };
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Ana Sayfa", url: "/" },
-    { name: "İletişim", url: "/iletisim" },
+    { name: nav.home, url: "/" },
+    { name: nav.contact, url: "/iletisim" },
   ]);
 
   const organizationSchema = generateOrganizationSchema();
@@ -178,16 +228,15 @@ export default function IletisimPage() {
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">İletişim</span>
+            <span className="text-[#C9A84C]">{nav.contact}</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Bizimle <span className="text-[#C9A84C]">İletişime</span> Geçin
+              {t.heroTitle} <span className="text-[#C9A84C]">{t.heroTitle}</span>
             </h1>
             <p className="text-gray-300 text-lg">
-              Emlak, tadilat veya inşaat projeleriniz için sorularınızı yanıtlamaktan
-              mutluluk duyarız. Size en kısa sürede dönüş yapacağız.
+              {t.heroSubtitle}
             </p>
           </div>
         </div>
@@ -202,7 +251,7 @@ export default function IletisimPage() {
               {/* Quick Contact */}
               <div>
                 <h2 className="text-2xl font-bold text-[#0B1F3A] mb-6">
-                  İletişim Bilgileri
+                  {t.infoTitle}
                 </h2>
 
                 {/* Address */}
@@ -211,11 +260,11 @@ export default function IletisimPage() {
                     <MapPin className="w-6 h-6 text-[#C9A84C]" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#0B1F3A]">Adres</h3>
+                    <h3 className="font-semibold text-[#0B1F3A]">{t.address}</h3>
                     <p className="text-[#666666]">
-                      Atatürk Mah. 58 Sk. No: 2/B
+                      {t.addressLine1}
                       <br />
-                      (Belediye Arkası), Ortaca / Muğla
+                      {t.addressLine2}
                     </p>
                   </div>
                 </div>
@@ -226,7 +275,7 @@ export default function IletisimPage() {
                     <Mail className="w-6 h-6 text-[#C9A84C]" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#0B1F3A]">E-posta</h3>
+                    <h3 className="font-semibold text-[#0B1F3A]">{t.email}</h3>
                     <a
                       href="mailto:info@kalindayapi.com"
                       className="text-[#C9A84C] hover:underline"
@@ -242,13 +291,13 @@ export default function IletisimPage() {
                     <Clock className="w-6 h-6 text-[#C9A84C]" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#0B1F3A]">Çalışma Saatleri</h3>
+                    <h3 className="font-semibold text-[#0B1F3A]">{t.workingHours}</h3>
                     <p className="text-[#666666]">
-                      Pazartesi - Cuma: 08:00 - 18:00
+                      {t.weekdaysHours}
                       <br />
-                      Cumartesi: 09:00 - 14:00
+                      {t.saturdayHours}
                       <br />
-                      Pazar: Kapalı
+                      {t.sundayClosed}
                     </p>
                   </div>
                 </div>
@@ -257,11 +306,13 @@ export default function IletisimPage() {
               {/* Team Contacts */}
               <div>
                 <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">
-                  Yetkililerimiz
+                  {t.teamTitle}
                 </h2>
                 <div className="space-y-2">
-                  {yetkililer.map((yetkili) => (
-                      <Card key={yetkili.ad} padding="md" className="!p-3">
+                  {yetkililer.map((yetkili) => {
+                    const teamMember = t.team?.[yetkili.id as keyof typeof t.team] || { name: yetkili.id, title: "" };
+                    return (
+                      <Card key={yetkili.id} padding="md" className="!p-3">
                         <div className="flex items-center gap-3">
                           <div
                             className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2"
@@ -269,7 +320,7 @@ export default function IletisimPage() {
                           >
                             <Image
                               src={yetkili.foto}
-                              alt={yetkili.ad}
+                              alt={teamMember.name}
                               width={40}
                               height={40}
                               className="w-full h-full object-cover"
@@ -277,7 +328,7 @@ export default function IletisimPage() {
                           </div>
                           <div className="flex-1 min-w-0">
                             <h3 className="font-bold text-[#0B1F3A] text-sm">
-                              {yetkili.ad}
+                              {teamMember.name}
                             </h3>
                             <a
                               href={`tel:${yetkili.telefon.replace(/\s/g, "")}`}
@@ -289,7 +340,7 @@ export default function IletisimPage() {
                           <a
                             href={createWhatsAppLink(
                               yetkili.whatsapp,
-                              `Merhaba ${yetkili.ad}, bilgi almak istiyorum.`
+                              dict?.whatsapp?.greeting || "Merhaba, bilgi almak istiyorum."
                             )}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -305,14 +356,15 @@ export default function IletisimPage() {
                           </a>
                         </div>
                       </Card>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
               {/* Social Media */}
               <div>
                 <h2 className="text-2xl font-bold text-[#0B1F3A] mb-6">
-                  Sosyal Medya
+                  {t.socialTitle}
                 </h2>
                 <div className="flex gap-4">
                   <a
@@ -351,7 +403,7 @@ export default function IletisimPage() {
             <div>
               <Card padding="md" className="!p-5">
                 <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">
-                  Bize Mesaj Gönderin
+                  {t.formTitle}
                 </h2>
 
                 {error && (
@@ -378,55 +430,45 @@ export default function IletisimPage() {
                       </svg>
                     </div>
                     <h3 className="text-lg font-bold text-[#0B1F3A] mb-2">
-                      Mesajınız Gönderildi!
+                      {t.successTitle}
                     </h3>
                     <p className="text-sm text-[#666666]">
-                      En kısa sürede size dönüş yapacağız.
+                      {t.successMessage}
                     </p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
                     <div className="grid sm:grid-cols-2 gap-3">
                       <Input
-                        label="Adınız"
+                        label={t.form?.name || "Adınız Soyadınız"}
                         name="ad"
                         value={formData.ad}
                         onChange={handleChange}
-                        placeholder="Adınız"
+                        placeholder={t.form?.namePlaceholder || "Adınızı girin"}
                         required
                       />
                       <Input
-                        label="Soyadınız"
-                        name="soyad"
-                        value={formData.soyad}
-                        onChange={handleChange}
-                        placeholder="Soyadınız"
-                        required
-                      />
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      <Input
-                        label="Telefon"
+                        label={t.form?.phone || "Telefon"}
                         name="telefon"
                         type="tel"
                         value={formData.telefon}
                         onChange={handleChange}
-                        placeholder="0 (5XX) XXX XX XX"
+                        placeholder={t.form?.phonePlaceholder || "0 (5XX) XXX XX XX"}
                         required
-                      />
-                      <Input
-                        label="E-posta"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="ornek@email.com"
                       />
                     </div>
 
+                    <Input
+                      label={t.form?.email || "E-posta"}
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder={t.form?.emailPlaceholder || "ornek@email.com"}
+                    />
+
                     <Select
-                      label="Konu"
+                      label={t.form?.service || "İlgilendiğiniz Hizmet"}
                       name="konu"
                       value={formData.konu}
                       onChange={handleChange}
@@ -435,11 +477,11 @@ export default function IletisimPage() {
                     />
 
                     <Textarea
-                      label="Mesajınız"
+                      label={t.form?.message || "Mesajınız"}
                       name="mesaj"
                       value={formData.mesaj}
                       onChange={handleChange}
-                      placeholder="Projeniz veya sorunuz hakkında detaylı bilgi verin..."
+                      placeholder={t.form?.messagePlaceholder || "Mesajınızı buraya yazın..."}
                       rows={4}
                       required
                     />
@@ -452,15 +494,15 @@ export default function IletisimPage() {
                       isLoading={isSubmitting}
                       rightIcon={<Send className="w-4 h-4" />}
                     >
-                      Mesaj Gönder
+                      {t.form?.submit || "Mesaj Gönder"}
                     </Button>
 
                     <p className="text-xs text-[#999999] text-center">
-                      Formu göndererek{" "}
+                      {homeContactForm.privacyNote}{" "}
                       <Link href="/gizlilik" className="text-[#C9A84C] hover:underline">
-                        gizlilik politikamızı
+                        {homeContactForm.privacyLink}
                       </Link>{" "}
-                      kabul etmiş olursunuz.
+                      {homeContactForm.privacyAccept}
                     </p>
                   </form>
                 )}
@@ -551,7 +593,7 @@ export default function IletisimPage() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Kalinda Yapı Konum - Ortaca, Muğla"
+          title={t.mapTitle}
         />
       </section>
     </>

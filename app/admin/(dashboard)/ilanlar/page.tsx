@@ -14,6 +14,8 @@ import {
   Home,
   MapPin,
   X,
+  Languages,
+  Loader2,
 } from 'lucide-react'
 import AdminHeader from '@/components/admin/layout/AdminHeader'
 import DataTable from '@/components/admin/ui/DataTable'
@@ -56,6 +58,7 @@ export default function IlanlarPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [deleteId, setDeleteId] = useState<string | null>(null)
   const [isDeleting, setIsDeleting] = useState(false)
+  const [translatingId, setTranslatingId] = useState<string | null>(null)
 
   // Filters
   const [search, setSearch] = useState(searchParams.get('search') || '')
@@ -109,6 +112,30 @@ export default function IlanlarPage() {
     } finally {
       setIsDeleting(false)
       setDeleteId(null)
+    }
+  }
+
+  const handleTranslate = async (id: string) => {
+    setTranslatingId(id)
+    try {
+      const response = await fetch(`/api/admin/ilan/${id}/translate`, {
+        method: 'PUT',
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        alert(`Çeviri tamamlandı: ${data.results.map((r: { language: string; success: boolean }) =>
+          `${r.language.toUpperCase()}: ${r.success ? '✓' : '✗'}`
+        ).join(', ')}`)
+      } else {
+        const error = await response.json()
+        alert(`Çeviri hatası: ${error.error}`)
+      }
+    } catch (error) {
+      console.error('Çeviri hatası:', error)
+      alert('Çeviri işlemi başarısız')
+    } finally {
+      setTranslatingId(null)
     }
   }
 
@@ -216,6 +243,18 @@ export default function IlanlarPage() {
           >
             <Eye className="w-4 h-4 text-text-light" />
           </Link>
+          <button
+            onClick={() => handleTranslate(ilan.id)}
+            disabled={translatingId === ilan.id}
+            className="p-2 hover:bg-accent/10 rounded-lg transition-colors disabled:opacity-50"
+            title="Tüm Dillere Çevir (EN, AR)"
+          >
+            {translatingId === ilan.id ? (
+              <Loader2 className="w-4 h-4 text-accent animate-spin" />
+            ) : (
+              <Languages className="w-4 h-4 text-accent" />
+            )}
+          </button>
           <Link
             href={`/admin/ilanlar/${ilan.id}/duzenle`}
             className="p-2 hover:bg-surface rounded-lg transition-colors"

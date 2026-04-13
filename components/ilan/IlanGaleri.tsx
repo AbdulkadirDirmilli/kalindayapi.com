@@ -6,6 +6,7 @@ import WatermarkImage from "@/components/ui/WatermarkImage";
 import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
 import { Lightbox } from "@/components/ui/Modal";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocale } from "@/components/providers/LocaleProvider";
 
 interface IlanGaleriProps {
   fotograflar: string[];
@@ -18,6 +19,15 @@ function isVideo(url: string): boolean {
 }
 
 export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
+  const { dict } = useLocale();
+
+  // Çeviriler
+  const t = dict?.gallery || {
+    previous: "Önceki görsel",
+    next: "Sonraki görsel",
+    fullscreen: "Tam ekran görüntüle"
+  };
+
   // Videoları filtrele, sadece fotoğrafları göster
   const sadeceFotograflar = fotograflar.filter(url => !isVideo(url));
 
@@ -101,14 +111,14 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
             <button
               onClick={scrollPrev}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-[#0B1F3A] hover:bg-white transition-colors shadow-lg"
-              aria-label="Önceki görsel"
+              aria-label={t.previous}
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={scrollNext}
               className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-[#0B1F3A] hover:bg-white transition-colors shadow-lg"
-              aria-label="Sonraki görsel"
+              aria-label={t.next}
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -119,7 +129,7 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
         <button
           onClick={() => openLightbox(selectedIndex)}
           className="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-[#0B1F3A] hover:bg-white transition-colors shadow-lg"
-          aria-label="Tam ekran görüntüle"
+          aria-label={t.fullscreen}
         >
           <Expand className="w-5 h-5" />
         </button>

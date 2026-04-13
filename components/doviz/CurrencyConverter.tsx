@@ -5,21 +5,38 @@ import { motion } from 'framer-motion';
 import { ArrowRightLeft, Calculator } from 'lucide-react';
 import { useCurrency } from '@/components/providers/CurrencyProvider';
 import { cn } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 type ConvertCurrency = 'TRY' | 'USD' | 'EUR' | 'GBP';
-
-const CURRENCY_INFO: Record<ConvertCurrency, { symbol: string; name: string; flag: string }> = {
-  TRY: { symbol: '₺', name: 'Türk Lirası', flag: '🇹🇷' },
-  USD: { symbol: '$', name: 'Amerikan Doları', flag: '🇺🇸' },
-  EUR: { symbol: '€', name: 'Euro', flag: '🇪🇺' },
-  GBP: { symbol: '£', name: 'İngiliz Sterlini', flag: '🇬🇧' },
-};
 
 // Fallback GBP rate (April 2026)
 const FALLBACK_GBP_RATE = 60.00;
 
 export default function CurrencyConverter() {
   const { rates } = useCurrency();
+  const { dict } = useLocale();
+
+  const t = dict?.exchangePage?.converter || {
+    title: "Döviz Çevirici",
+    subtitle: "Anlık kur ile hesaplama",
+    amount: "Çevirmek İstediğiniz Miktar",
+    result: "Sonuç",
+    source: "Kaynak: TCMB • Son güncelleme:"
+  };
+
+  const currencies = dict?.exchangePage?.currencies || {
+    TRY: "Türk Lirası",
+    USD: "Amerikan Doları",
+    EUR: "Euro",
+    GBP: "İngiliz Sterlini"
+  };
+
+  const CURRENCY_INFO: Record<ConvertCurrency, { symbol: string; name: string; flag: string }> = {
+    TRY: { symbol: '₺', name: currencies.TRY, flag: '🇹🇷' },
+    USD: { symbol: '$', name: currencies.USD, flag: '🇺🇸' },
+    EUR: { symbol: '€', name: currencies.EUR, flag: '🇪🇺' },
+    GBP: { symbol: '£', name: currencies.GBP, flag: '🇬🇧' },
+  };
   const [amount, setAmount] = useState<string>('1000');
   const [fromCurrency, setFromCurrency] = useState<ConvertCurrency>('USD');
   const [toCurrency, setToCurrency] = useState<ConvertCurrency>('TRY');
@@ -73,8 +90,8 @@ export default function CurrencyConverter() {
           <Calculator className="w-6 h-6 text-white" />
         </div>
         <div>
-          <h2 className="text-xl font-bold text-[#0B1F3A]">Döviz Çevirici</h2>
-          <p className="text-sm text-gray-500">Anlık kur ile hesaplama</p>
+          <h2 className="text-xl font-bold text-[#0B1F3A]">{t.title}</h2>
+          <p className="text-sm text-gray-500">{t.subtitle}</p>
         </div>
       </div>
 
@@ -82,7 +99,7 @@ export default function CurrencyConverter() {
       <div className="space-y-6">
         {/* From Section */}
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-600">Çevirmek İstediğiniz Miktar</label>
+          <label className="text-sm font-medium text-gray-600">{t.amount}</label>
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="flex-1 relative">
               <input
@@ -140,7 +157,7 @@ export default function CurrencyConverter() {
 
         {/* To Section */}
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-600">Sonuç</label>
+          <label className="text-sm font-medium text-gray-600">{t.result}</label>
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="flex-1 relative">
               <div className="w-full px-4 py-3 sm:py-4 text-xl sm:text-2xl font-bold text-[#C9A84C] bg-[#C9A84C]/5 border-2 border-[#C9A84C]/20 rounded-xl">
@@ -176,7 +193,7 @@ export default function CurrencyConverter() {
             {toCurrency}
           </p>
           <p className="text-xs text-gray-400 text-center mt-1">
-            Kaynak: TCMB • Son güncelleme: {new Date().toLocaleTimeString('tr-TR')}
+            {t.source} {new Date().toLocaleTimeString('tr-TR')}
           </p>
         </div>
       </div>

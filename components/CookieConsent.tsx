@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Cookie, X } from "lucide-react";
+import { useLocale } from "./providers/LocaleProvider";
 
 const COOKIE_CONSENT_KEY = "kalinda-cookie-consent";
 
@@ -11,6 +12,17 @@ type ConsentStatus = "accepted" | "rejected" | null;
 export default function CookieConsent() {
   const [consentStatus, setConsentStatus] = useState<ConsentStatus>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { locale, dict } = useLocale();
+
+  // Çeviriler
+  const t = dict?.cookie || {
+    message: "Web sitemizde deneyiminizi iyileştirmek için çerezler kullanıyoruz.",
+    privacyLink: "Gizlilik Politikamızı",
+    privacyText: "inceleyerek detaylı bilgi alabilirsiniz.",
+    accept: "Kabul Et",
+    reject: "Reddet",
+    close: "Kapat"
+  };
 
   useEffect(() => {
     // Check localStorage for existing consent
@@ -59,14 +71,14 @@ export default function CookieConsent() {
               </div>
               <div>
                 <p className="text-white text-sm md:text-base leading-relaxed">
-                  Web sitemizde deneyiminizi iyilestirmek icin cerezler kullaniyoruz.{" "}
+                  {t.message}{" "}
                   <Link
-                    href="/gizlilik"
+                    href={`/${locale}/gizlilik`}
                     className="text-[#C9A84C] hover:underline font-medium"
                   >
-                    Gizlilik Politikamizi
+                    {t.privacyLink}
                   </Link>{" "}
-                  inceleyerek detayli bilgi alabilirsiniz.
+                  {t.privacyText}
                 </p>
               </div>
             </div>
@@ -77,13 +89,13 @@ export default function CookieConsent() {
                 onClick={handleReject}
                 className="flex-1 md:flex-none px-5 py-2.5 text-sm font-medium text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors"
               >
-                Reddet
+                {t.reject}
               </button>
               <button
                 onClick={handleAccept}
                 className="flex-1 md:flex-none px-5 py-2.5 text-sm font-medium text-[#0B1F3A] bg-[#C9A84C] hover:bg-[#d4b65d] rounded-lg transition-colors"
               >
-                Kabul Et
+                {t.accept}
               </button>
             </div>
 
@@ -91,7 +103,7 @@ export default function CookieConsent() {
             <button
               onClick={handleReject}
               className="absolute top-3 right-3 md:hidden text-gray-400 hover:text-white"
-              aria-label="Kapat"
+              aria-label={t.close}
             >
               <X className="w-5 h-5" />
             </button>

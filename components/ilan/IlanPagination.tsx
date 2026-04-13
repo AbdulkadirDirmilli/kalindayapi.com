@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
+import { useLocale } from "@/components/providers/LocaleProvider";
 
 interface IlanPaginationProps {
   currentPage: number;
@@ -13,6 +14,21 @@ export default function IlanPagination({
   totalPages,
   onPageChange,
 }: IlanPaginationProps) {
+  const { dict } = useLocale();
+
+  // Çeviriler
+  const t = dict?.pagination || {
+    label: "Sayfalama",
+    previous: "Önceki sayfa",
+    next: "Sonraki sayfa",
+    page: "Sayfa"
+  };
+
+  const commonT = dict?.common || {
+    previous: "Önceki",
+    next: "Sonraki"
+  };
+
   if (totalPages <= 1) return null;
 
   const getPageNumbers = () => {
@@ -54,7 +70,7 @@ export default function IlanPagination({
   return (
     <nav
       className="flex items-center justify-center gap-1"
-      aria-label="Sayfalama"
+      aria-label={t.label}
     >
       {/* Previous Button */}
       <button
@@ -65,10 +81,10 @@ export default function IlanPagination({
             ? "text-[#999999] cursor-not-allowed"
             : "text-[#0B1F3A] hover:bg-[#F5F5F5]"
         }`}
-        aria-label="Önceki sayfa"
+        aria-label={t.previous}
       >
         <ChevronLeft className="w-4 h-4" />
-        <span className="hidden sm:inline">Önceki</span>
+        <span className="hidden sm:inline">{commonT.previous}</span>
       </button>
 
       {/* Page Numbers */}
@@ -97,7 +113,7 @@ export default function IlanPagination({
                   ? "bg-[#0B1F3A] text-white"
                   : "text-[#0B1F3A] hover:bg-[#F5F5F5]"
               }`}
-              aria-label={`Sayfa ${pageNum}`}
+              aria-label={`${t.page} ${pageNum}`}
               aria-current={isActive ? "page" : undefined}
             >
               {pageNum}
@@ -115,9 +131,9 @@ export default function IlanPagination({
             ? "text-[#999999] cursor-not-allowed"
             : "text-[#0B1F3A] hover:bg-[#F5F5F5]"
         }`}
-        aria-label="Sonraki sayfa"
+        aria-label={t.next}
       >
-        <span className="hidden sm:inline">Sonraki</span>
+        <span className="hidden sm:inline">{commonT.next}</span>
         <ChevronRight className="w-4 h-4" />
       </button>
     </nav>

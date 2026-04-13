@@ -333,6 +333,191 @@
     "select": "اختر اللغة",
     "tr": "Türkçe",
     "en": "English",
-    "ar": "العربية"
+    "ar": "العربية",
+    "active": "نشط"
+  },
+  "cookie": {
+    "message": "نستخدم ملفات تعريف الارتباط لتحسين تجربتك على موقعنا.",
+    "privacyLink": "سياسة الخصوصية",
+    "privacyText": "لمزيد من التفاصيل.",
+    "accept": "قبول",
+    "reject": "رفض",
+    "close": "إغلاق"
+  },
+  "consultants": {
+    "zafer": "السيد ظافر",
+    "arif": "السيد عارف",
+    "hikmet": "السيد حكمت",
+    "consultant": "مستشار"
+  },
+  "address": {
+    "full": "أتاتورك ماه. 58 سك. رقم: 2/ب (خلف البلدية)، أورتاجا / موغلا، تركيا",
+    "city": "أورتاجا، موغلا"
+  },
+  "whatsapp": {
+    "greeting": "مرحباً، أتواصل معكم من موقع كالينداي يابي."
+  },
+  "filters": {
+    "allCategories": "جميع الفئات",
+    "allTypes": "جميع الأنواع",
+    "allLocations": "جميع المواقع",
+    "searchPlaceholder": "البحث في الإعلانات...",
+    "filter": "تصفية",
+    "propertyType": "نوع العقار",
+    "location": "الموقع",
+    "minPrice": "الحد الأدنى للسعر (ليرة)",
+    "maxPrice": "الحد الأقصى للسعر (ليرة)",
+    "min": "الحد الأدنى",
+    "max": "الحد الأقصى",
+    "onlyVerified": "عرض الإعلانات المعتمدة من EIDS فقط",
+    "clearFilters": "مسح الفلاتر",
+    "listingsFound": "إعلان موجود",
+    "gridView": "عرض شبكي",
+    "listView": "عرض قائمة"
+  },
+  "leadForm": {
+    "title": "احصل على معلومات حول هذا الإعلان",
+    "namePlaceholder": "الاسم الكامل",
+    "phonePlaceholder": "رقم الهاتف",
+    "getInfo": "احصل على معلومات",
+    "listing": "الإعلان",
+    "fullName": "الاسم الكامل",
+    "phone": "الهاتف",
+    "invalidPhone": "يرجى إدخال رقم هاتف صالح",
+    "kvkkText": "أوافق على معالجة بياناتي الشخصية ومشاركة معلوماتي وفقاً لـ",
+    "kvkkLink": "سياسة الخصوصية",
+    "kvkkAccept": ".",
+    "sending": "جاري الإرسال...",
+    "submitButton": "أريد الحصول على معلومات حول هذا الإعلان",
+    "successTitle": "تم استلام طلبك!",
+    "successMessage": "سنتواصل معك في أقرب وقت ممكن.",
+    "ok": "حسناً",
+    "errorGeneric": "حدث خطأ.",
+    "errorConnection": "خطأ في الاتصال. يرجى المحاولة مرة أخرى.",
+    "ariaLabel": "احصل على معلومات حول هذا الإعلان"
+  },
+  "pagination": {
+    "label": "ترقيم الصفحات",
+    "previous": "الصفحة السابقة",
+    "next": "الصفحة التالية",
+    "page": "صفحة"
+  },
+  "gallery": {
+    "previous": "الصورة السابقة",
+    "next": "الصورة التالية",
+    "fullscreen": "عرض ملء الشاشة"
+  },
+  "sideContact": {
+    "email": "البريد الإلكتروني",
+    "sendEmail": "إرسال بريد إلكتروني",
+    "closeMenu": "إغلاق القائمة"
+  },
+  "exchangePage": {
+    "title": "أسعار الصرف والاستثمار العقاري",
+    "subtitle": "فترة فرصة مثالية للمستثمرين الأجانب",
+    "currencyAdvantage": "ميزة العملة",
+    "currencyAdvantageDesc": "أسعار عقارات معقولة بالدولار واليورو",
+    "expertConsulting": "استشارة خبراء",
+    "expertConsultingDesc": "خدمات خاصة للمستثمرين الأجانب",
+    "widePortfolio": "محفظة واسعة",
+    "widePortfolioDesc": "خيارات فلل وشقق وأراضي",
+    "viewInDollar": "عرض الإعلانات بالدولار",
+    "callConsultant": "اتصل بمستشار",
+    "investmentDescription": "أفضل وقت للمستثمرين الأجانب الذين يرغبون في الاستثمار العقاري في تركيا. احصل على عقارات عالية الجودة مع ميزة العملة.",
+    "propertyOptions": "خيارات العقارات",
+    "foreignInvestors": "المستثمرون الأجانب",
+    "customerSatisfaction": "رضا العملاء",
+    "converter": {
+      "title": "محول العملات",
+      "subtitle": "حساب بأسعار الصرف الحية",
+      "amount": "المبلغ للتحويل",
+      "result": "النتيجة",
+      "source": "المصدر: البنك المركزي التركي • آخر تحديث:"
+    },
+    "currencies": {
+      "TRY": "الليرة التركية",
+      "USD": "الدولار الأمريكي",
+      "EUR": "اليورو",
+      "GBP": "الجنيه الإسترليني"
+    },
+    "chart": {
+      "title": "رسم بياني للأسعار",
+      "subtitle": "بيانات الأسعار التاريخية",
+      "days": "أيام",
+      "current": "الحالي",
+      "lowest": "الأدنى",
+      "highest": "الأعلى",
+      "average": "المتوسط"
+    },
+    "faq": {
+      "title": "الأسئلة الشائعة",
+      "subtitle": "أسئلة شائعة حول أسعار الصرف"
+    }
+  },
+  "contactPage": {
+    "heroTitle": "اتصل بنا",
+    "heroSubtitle": "تواصل معنا لأسئلتك. يسعدنا مساعدتك.",
+    "heroDescription": "التقِ بفريقنا المتخصص لمشاريعك العقارية أو التجديد أو البناء.",
+    "infoTitle": "معلومات الاتصال",
+    "address": "العنوان",
+    "addressLine1": "أتاتورك ماه. 58 سك. رقم: 2/ب",
+    "addressLine2": "(خلف البلدية)، أورتاجا / موغلا، تركيا",
+    "email": "البريد الإلكتروني",
+    "workingHours": "ساعات العمل",
+    "weekdaysHours": "الإثنين - الجمعة: 09:00 - 18:00",
+    "saturdayHours": "السبت: 10:00 - 14:00",
+    "sundayClosed": "الأحد: مغلق",
+    "teamTitle": "فريقنا",
+    "socialTitle": "وسائل التواصل الاجتماعي",
+    "formTitle": "أرسل لنا رسالة",
+    "successTitle": "تم إرسال الرسالة!",
+    "successMessage": "سنعود إليك في أقرب وقت ممكن.",
+    "form": {
+      "name": "الاسم الكامل",
+      "namePlaceholder": "أدخل اسمك",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "example@email.com",
+      "phone": "رقم الهاتف",
+      "phonePlaceholder": "0 (5XX) XXX XX XX",
+      "service": "الخدمة المطلوبة",
+      "serviceSelect": "اختر الخدمة",
+      "message": "رسالتك",
+      "messagePlaceholder": "اكتب رسالتك هنا...",
+      "submit": "إرسال الرسالة",
+      "sending": "جاري الإرسال..."
+    },
+    "serviceOptions": {
+      "emlak": "الاستشارات العقارية",
+      "tadilat": "التجديد والديكور",
+      "insaat": "البناء والمقاولات",
+      "diger": "أخرى"
+    },
+    "team": {
+      "zafer": {
+        "name": "ظافر كاليندا",
+        "title": "شريك مؤسس ومستشار عقاري"
+      },
+      "arif": {
+        "name": "عارف كاليندا",
+        "title": "شريك مؤسس ومدير البناء"
+      },
+      "hikmet": {
+        "name": "حكمت كاليندا",
+        "title": "شريك مؤسس وخبير التجديد"
+      }
+    },
+    "mapTitle": "موقع كالينداي يابي - أورتاجا، موغلا"
+  },
+  "ilanCard": {
+    "forSale": "للبيع",
+    "forRent": "للإيجار",
+    "bathroom": "حمام",
+    "listingNo": "رقم الإعلان",
+    "perMonth": "/شهر",
+    "rooms": "غرف",
+    "area": "م²"
+  },
+  "currencySwitcher": {
+    "selectCurrency": "اختر العملة"
   }
 }

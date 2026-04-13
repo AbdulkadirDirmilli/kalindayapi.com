@@ -44,6 +44,11 @@ const footerTexts = {
     designBy: "Tasarım ve Geliştirme:",
     weekdays: "Pzt - Cum: 08:00 - 18:00",
     saturday: "Cumartesi: 09:00 - 14:00",
+    addressLine1: "Atatürk Mah. 58 Sk. No: 2/B",
+    addressLine2: "(Belediye Arkası), Ortaca / Muğla",
+    zafer: "Zafer Bey",
+    arif: "Arif Bey",
+    hikmet: "Hikmet Bey",
   },
   en: {
     description: "Since 2022, we have been providing reliable real estate consulting, renovation and construction contracting services in Ortaca, Muğla. You are one step closer to your dream home or project.",
@@ -72,6 +77,11 @@ const footerTexts = {
     designBy: "Design and Development:",
     weekdays: "Mon - Fri: 08:00 - 18:00",
     saturday: "Saturday: 09:00 - 14:00",
+    addressLine1: "Atatürk Mah. 58 Sk. No: 2/B",
+    addressLine2: "(Behind Municipality), Ortaca / Muğla, Turkey",
+    zafer: "Mr. Zafer",
+    arif: "Mr. Arif",
+    hikmet: "Mr. Hikmet",
   },
   ar: {
     description: "منذ عام 2022، نقدم خدمات استشارات عقارية موثوقة وخدمات تجديد ومقاولات بناء في أورتاجا، موغلا. أنت على بعد خطوة واحدة من منزل أو مشروع أحلامك.",
@@ -100,6 +110,11 @@ const footerTexts = {
     designBy: "التصميم والتطوير:",
     weekdays: "الإثنين - الجمعة: 08:00 - 18:00",
     saturday: "السبت: 09:00 - 14:00",
+    addressLine1: "أتاتورك ماه. 58 سك. رقم: 2/ب",
+    addressLine2: "(خلف البلدية)، أورتاجا / موغلا، تركيا",
+    zafer: "السيد ظافر",
+    arif: "السيد عارف",
+    hikmet: "السيد حكمت",
   },
 };
 
@@ -244,8 +259,8 @@ export default function Footer() {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300 text-sm">
-                    Atatürk Mah. 58 Sk. No: 2/B<br />
-                    (Belediye Arkası), Ortaca / Muğla
+                    {t.addressLine1}<br />
+                    {t.addressLine2}
                   </span>
                 </div>
               </li>
@@ -259,7 +274,7 @@ export default function Footer() {
                     >
                       +90 537 053 07 54
                     </a>
-                    <span className="text-gray-500 text-xs">Zafer Bey</span>
+                    <span className="text-gray-500 text-xs">{t.zafer}</span>
                   </div>
                 </div>
               </li>
@@ -273,7 +288,7 @@ export default function Footer() {
                     >
                       +90 532 159 15 56
                     </a>
-                    <span className="text-gray-500 text-xs">Arif Bey</span>
+                    <span className="text-gray-500 text-xs">{t.arif}</span>
                   </div>
                 </div>
               </li>
@@ -287,7 +302,7 @@ export default function Footer() {
                     >
                       +90 555 453 12 07
                     </a>
-                    <span className="text-gray-500 text-xs">Hikmet Bey</span>
+                    <span className="text-gray-500 text-xs">{t.hikmet}</span>
                   </div>
                 </div>
               </li>
