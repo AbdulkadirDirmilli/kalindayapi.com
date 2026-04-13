@@ -3,6 +3,8 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
+Disallow: /.next/
+Disallow: /_next/
 
 # Host
 Host: https://www.kalindayapi.com
