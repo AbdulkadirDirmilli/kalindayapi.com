@@ -63,7 +63,7 @@ module.exports = {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin/', '/api/'],
+        disallow: ['/admin/', '/api/', '/.next/', '/_next/'],
       },
     ],
     additionalSitemaps: [
