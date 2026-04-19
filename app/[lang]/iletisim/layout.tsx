@@ -1,19 +1,28 @@
 import { Metadata } from "next";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
-export const metadata: Metadata = {
-  title: "İletişim",
-  description:
-    "Kalinda Yapı ile iletişime geçin. Ortaca, Dalyan, Köyceğiz ve Muğla genelinde emlak, tadilat ve inşaat hizmetleri için bize ulaşın.",
-  openGraph: {
-    title: "İletişim",
-    description:
-      "Kalinda Yapı ile iletişime geçin. Emlak, tadilat ve inşaat hizmetleri için bize ulaşın.",
-    url: "https://www.kalindayapi.com/iletisim",
-  },
-  alternates: {
-    canonical: "https://www.kalindayapi.com/iletisim",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const dict = await getCachedDictionary(locale);
+  const url = buildLocalizedUrl("/iletisim", locale);
+
+  return {
+    title: dict.contact.title,
+    description: dict.contact.subtitle,
+    openGraph: {
+      title: dict.contact.title,
+      description: dict.contact.subtitle,
+      url,
+    },
+    alternates: buildSeoAlternates("/iletisim", locale),
+  };
+}
 
 export default function IletisimLayout({
   children,

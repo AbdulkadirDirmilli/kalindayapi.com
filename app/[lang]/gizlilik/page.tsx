@@ -1,14 +1,23 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, Home, Shield } from "lucide-react";
+import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
-export const metadata: Metadata = {
-  title: "Gizlilik Politikası",
-  description: "Kalinda Yapı gizlilik politikası ve kişisel verilerin korunması hakkında bilgi.",
-  alternates: {
-    canonical: "https://www.kalindayapi.com/gizlilik",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const dict = await getCachedDictionary(locale);
+  return {
+    title: dict.footer.privacy,
+    description: dict.meta.description,
+    alternates: buildSeoAlternates("/gizlilik", locale),
+  };
+}
 
 export default function GizlilikPage() {
   return (

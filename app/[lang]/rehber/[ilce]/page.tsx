@@ -7,9 +7,10 @@ import { getIlceBySlug, getAllIlceSlugs } from "@/data/ilce-rehber";
 import { getMahalleler } from "@/data/konum";
 import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/jsonld";
 import ExpandableMahalleler from "@/components/ui/ExpandableMahalleler";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
 
 interface PageProps {
-  params: Promise<{ ilce: string }>;
+  params: Promise<{ lang: string; ilce: string }>;
 }
 
 export async function generateStaticParams() {
@@ -18,10 +19,13 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { ilce: slug } = await params;
+  const { lang, ilce: slug } = await params;
+  const locale = resolveLocale(lang);
   const ilce = getIlceBySlug(slug);
 
   if (!ilce) return { title: "Sayfa Bulunamadı" };
+
+  const url = buildLocalizedUrl(`/rehber/${slug}`, locale);
 
   return {
     title: `${ilce.ad} Emlak Rehberi | Satılık Ev, Arsa, Villa`,
@@ -30,12 +34,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${ilce.ad} İlçe Rehberi ve Emlak Fırsatları`,
       description: ilce.metaDescription,
-      url: `https://www.kalindayapi.com/rehber/${slug}`,
+      url,
       images: [ilce.kapakGorsel],
     },
-    alternates: {
-      canonical: `https://www.kalindayapi.com/rehber/${slug}`,
-    },
+    alternates: buildSeoAlternates(`/rehber/${slug}`, locale),
   };
 }
 

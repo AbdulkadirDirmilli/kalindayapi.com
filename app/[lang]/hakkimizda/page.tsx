@@ -21,10 +21,10 @@ import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { OrtaklarBolumu, IstatistikSayaclari } from "@/components/sections";
 import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/metadata";
 import { createWhatsAppLink } from "@/lib/utils";
-import { locales, type Locale, generateAlternateUrls } from "@/lib/i18n";
+import { locales, type Locale } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
+import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
@@ -36,17 +36,13 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const locale = locales.includes(lang as Locale) ? (lang as Locale) : 'tr';
+  const locale = resolveLocale(lang);
   const dict = await getCachedDictionary(locale);
-  const alternates = generateAlternateUrls('/hakkimizda', locale);
 
   return {
     title: dict.nav.about,
     description: dict.meta.description,
-    alternates: {
-      canonical: `https://www.kalindayapi.com/${locale}/hakkimizda`,
-      languages: alternates,
-    },
+    alternates: buildSeoAlternates('/hakkimizda', locale),
   };
 }
 

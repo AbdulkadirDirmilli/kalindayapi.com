@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { SITE_URL, buildLocalizedUrl } from '@/lib/seo'
+import { locales, defaultLocale } from '@/lib/i18n'
 
 // Her istek için dinamik sitemap oluştur
 export const dynamic = 'force-dynamic'
@@ -16,8 +18,6 @@ function escapeXml(str: string): string {
 
 export async function GET() {
   try {
-    const baseUrl = 'https://www.kalindayapi.com'
-
     // Aktif ilanları getir
     const ilanlar = await prisma.ilan.findMany({
       where: { durum: 'aktif' },
@@ -38,16 +38,28 @@ export async function GET() {
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `
 
-    // İlanları ekle (hizmetler statik sitemap'te zaten mevcut)
+    // Ilanlari locale-aware + hreflang alternate olarak ekle (her ilan icin 3 entry)
     for (const ilan of ilanlar) {
       const lastmod = ilan.guncellenmeTarihi.toISOString()
-      xml += `  <url>
-    <loc>${baseUrl}/ilanlar/${escapeXml(ilan.slug)}</loc>
+      const logicalPath = `/ilanlar/${ilan.slug}`
+
+      // Her locale icin ayri <url> entry'si + icinde xhtml:link alternate'lar
+      for (const locale of locales) {
+        const loc = buildLocalizedUrl(logicalPath, locale)
+        xml += `  <url>
+    <loc>${escapeXml(loc)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+`
+        for (const alt of locales) {
+          xml += `    <xhtml:link rel="alternate" hreflang="${alt}" href="${escapeXml(buildLocalizedUrl(logicalPath, alt))}" />
+`
+        }
+        xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(buildLocalizedUrl(logicalPath, defaultLocale))}" />
   </url>
 `
+      }
     }
 
     xml += `</urlset>`
@@ -62,7 +74,7 @@ export async function GET() {
   } catch (error) {
     console.error('Server sitemap error:', error)
 
-    // Hata durumunda boş sitemap döndür
+    // Hata durumunda bos sitemap dondur
     const emptyXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </urlset>`

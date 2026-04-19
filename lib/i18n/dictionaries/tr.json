@@ -519,5 +519,9 @@
   },
   "currencySwitcher": {
     "selectCurrency": "Para birimi seç"
+  },
+  "guide": {
+    "title": "Muğla İlçe Rehberi",
+    "subtitle": "Muğla'nın 13 ilçesi için emlak, yaşam ve yatırım rehberi"
   }
 }

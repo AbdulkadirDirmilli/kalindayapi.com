@@ -113,6 +113,17 @@ export async function proxy(request: NextRequest) {
     pathname === '/sitemap-0.xml' ||
     pathname === '/server-sitemap.xml'
 
+  // SEO URL normalization — tek bir 301 redirect'te trailing slash + double slash
+  // duzeltilir. Locale eksikse, normalize + locale-ekleme ayni redirect'te yapilir
+  // (chain onlenir). Assets/API icin skip.
+  let normalized = pathname
+  if (!shouldSkipI18n) {
+    if (/\/{2,}/.test(normalized)) normalized = normalized.replace(/\/{2,}/g, '/')
+    if (normalized.length > 1 && normalized.endsWith('/')) {
+      normalized = normalized.replace(/\/+$/, '')
+    }
+  }
+
   // Admin rotalarini kontrol et
   if (pathname.startsWith('/admin')) {
     // Login sayfasi haric
@@ -140,52 +151,44 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // i18n: Extract locale from path
-  const { locale: pathLocale, pathWithoutLocale } = extractLocaleFromPath(pathname)
+  // i18n: Extract locale from normalized path
+  const { locale: pathLocale } = extractLocaleFromPath(normalized)
 
-  // If path has valid locale, check for route rewrites
   if (pathLocale) {
-    const segments = pathname.split('/').filter(Boolean)
-    // segments[0] = locale (en, ar, tr)
-    // segments[1] = first route segment (listings, services, etc.)
+    // Locale var → yalnizca normalize gerekiyorsa tek 301 redirect
+    if (normalized !== pathname) {
+      const url = request.nextUrl.clone()
+      url.pathname = normalized
+      return NextResponse.redirect(url, 301)
+    }
 
+    // Route rewrite: localize edilmis URL'yi dahili Turkce rotaya map et
+    const segments = pathname.split('/').filter(Boolean)
     if (segments.length > 1) {
       const localizedRoute = segments[1]
       const originalRoute = getOriginalRoute(localizedRoute, pathLocale)
-
-      // If translation found and different from current, rewrite the URL
       if (localizedRoute !== originalRoute) {
-        // Build new path with original route
         const remainingSegments = segments.slice(2).join('/')
         const newPath = `/${segments[0]}/${originalRoute}${remainingSegments ? '/' + remainingSegments : ''}`
-
         const url = request.nextUrl.clone()
         url.pathname = newPath
-
-        // Use rewrite (internal redirect) - URL in browser stays the same
         return NextResponse.rewrite(url)
       }
     }
-
     return NextResponse.next()
   }
 
-  // No locale prefix - redirect to preferred locale
+  // Locale YOK → normalize + locale-ekleme TEK redirect'te (chain yok)
   const preferredLocale = getLocaleFromCookie(request) || getLocaleFromHeader(request)
-
   const url = request.nextUrl.clone()
-  url.pathname = `/${preferredLocale}${pathname === '/' ? '' : pathname}`
+  url.pathname = `/${preferredLocale}${normalized === '/' ? '' : normalized}`
 
-  // 301 redirect for SEO
-  const response = NextResponse.redirect(url, { status: 301 })
-
-  // Save locale preference in cookie
+  const response = NextResponse.redirect(url, 301)
   response.cookies.set('NEXT_LOCALE', preferredLocale, {
     maxAge: 60 * 60 * 24 * 365,
     path: '/',
     sameSite: 'lax',
   })
-
   return response
 }
 

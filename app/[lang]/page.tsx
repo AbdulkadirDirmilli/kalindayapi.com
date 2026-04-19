@@ -11,8 +11,9 @@ import {
   SonYazilar,
 } from "@/components/sections";
 import { generateOrganizationSchema, generateWebSiteSchema, generateAISummary } from "@/lib/jsonld";
-import { locales, defaultLocale, type Locale, generateAlternateUrls } from "@/lib/i18n";
+import { locales, defaultLocale, type Locale } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
+import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import type { Metadata } from "next";
 
 // Statik parametre üretimi
@@ -27,18 +28,13 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
+  const locale = resolveLocale(lang);
   const dict = await getCachedDictionary(locale);
-  const alternates = generateAlternateUrls('/', locale);
-  const baseUrl = "https://www.kalindayapi.com";
 
   return {
     title: dict.meta.title,
     description: dict.meta.description,
-    alternates: {
-      canonical: `${baseUrl}/${locale}`,
-      languages: alternates,
-    },
+    alternates: buildSeoAlternates('/', locale),
   };
 }
 

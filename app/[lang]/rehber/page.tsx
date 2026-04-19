@@ -4,23 +4,30 @@ import Image from "next/image";
 import { Home, ChevronRight, MapPin, Users, ArrowRight } from "lucide-react";
 import { ilceRehberleri } from "@/data/ilce-rehber";
 import { getMahalleler } from "@/data/konum";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
-export const metadata: Metadata = {
-  title: "Muğla İlçe Rehberi | Emlak, Yaşam ve Yatırım",
-  description:
-    "Muğla'nın 13 ilçesi için kapsamlı rehber. Bodrum, Fethiye, Marmaris, Dalyan, Ortaca ve diğer ilçelerde emlak, yaşam ve yatırım bilgileri.",
-  keywords:
-    "Muğla ilçeleri, Muğla emlak, Bodrum, Fethiye, Marmaris, Dalyan, Ortaca, Köyceğiz, Datça, Milas",
-  openGraph: {
-    title: "Muğla İlçe Rehberi | Emlak, Yaşam ve Yatırım",
-    description:
-      "Muğla'nın 13 ilçesi için kapsamlı rehber. Emlak fiyatları, mahalleler, yaşam koşulları ve yatırım fırsatları.",
-    url: "https://www.kalindayapi.com/rehber",
-  },
-  alternates: {
-    canonical: "https://www.kalindayapi.com/rehber",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const dict = await getCachedDictionary(locale);
+  const url = buildLocalizedUrl("/rehber", locale);
+
+  return {
+    title: dict.guide.title,
+    description: dict.guide.subtitle,
+    openGraph: {
+      title: dict.guide.title,
+      description: dict.guide.subtitle,
+      url,
+    },
+    alternates: buildSeoAlternates("/rehber", locale),
+  };
+}
 
 export default function RehberPage() {
   return (

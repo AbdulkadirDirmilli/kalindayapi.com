@@ -519,5 +519,9 @@
   },
   "currencySwitcher": {
     "selectCurrency": "Select currency"
+  },
+  "guide": {
+    "title": "Muğla District Guide",
+    "subtitle": "Property, lifestyle and investment guide for Muğla's 13 districts"
   }
 }

@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Nunito, Noto_Sans_Arabic } from "next/font/google";
 import "../globals.css";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
-import { locales, localeConfig, defaultLocale, type Locale, generateAlternateUrls } from "@/lib/i18n";
+import { locales, localeConfig, defaultLocale, type Locale } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { notFound } from "next/navigation";
 
 const inter = Inter({
@@ -37,12 +38,12 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
+  const locale = resolveLocale(lang);
   const dict = await getCachedDictionary(locale);
   const config = localeConfig[locale];
-  const alternates = generateAlternateUrls('/', locale);
 
   const baseUrl = "https://www.kalindayapi.com";
+  const homeUrl = buildLocalizedUrl('/', locale);
 
   return {
     metadataBase: new URL(baseUrl),
@@ -63,7 +64,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       locale: locale === "tr" ? "tr_TR" : locale === "ar" ? "ar_SA" : "en_US",
-      url: `${baseUrl}/${locale}`,
+      url: homeUrl,
       siteName: "Kalinda Yapı",
       title: dict.home.hero.title,
       description: dict.meta.description,
@@ -72,7 +73,7 @@ export async function generateMetadata({
           url: "/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: "Kalinda Yapı - " + (locale === "tr" ? "Ortaca Emlak & Yapı" : locale === "en" ? "Real Estate & Construction" : "العقارات والبناء"),
+          alt: `Kalinda Yapı - ${dict.home.hero.title}`,
         },
       ],
     },
@@ -96,10 +97,7 @@ export async function generateMetadata({
     verification: {
       google: "dfjBrBUZiX-2Q860iWmTQyA2wrT5-CchKhyVlCd8BSs",
     },
-    alternates: {
-      canonical: `${baseUrl}/${locale}`,
-      languages: alternates,
-    },
+    alternates: buildSeoAlternates('/', locale),
   };
 }
 

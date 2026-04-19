@@ -1,14 +1,23 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, Home, FileText } from "lucide-react";
+import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
-export const metadata: Metadata = {
-  title: "Kullanım Koşulları",
-  description: "Kalinda Yapı web sitesi kullanım koşulları ve şartları.",
-  alternates: {
-    canonical: "https://www.kalindayapi.com/kullanim-kosullari",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const dict = await getCachedDictionary(locale);
+  return {
+    title: dict.footer.terms,
+    description: dict.meta.description,
+    alternates: buildSeoAlternates("/kullanim-kosullari", locale),
+  };
+}
 
 export default function KullanimKosullariPage() {
   return (

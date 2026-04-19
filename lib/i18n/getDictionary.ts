@@ -179,6 +179,10 @@ export interface Dictionary {
     title: string;
     subtitle: string;
   };
+  guide: {
+    title: string;
+    subtitle: string;
+  };
   footer: {
     description: string;
     quickLinks: string;

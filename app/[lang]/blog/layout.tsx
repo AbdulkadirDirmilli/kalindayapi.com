@@ -1,24 +1,28 @@
 import { Metadata } from "next";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
-export const metadata: Metadata = {
-  title: "Blog | Emlak ve Yapı Rehberi",
-  description: "Emlak yatırımı, tadilat önerileri, imar bilgileri ve Muğla bölgesi hakkında güncel blog yazıları.",
-  keywords: [
-    "emlak blog",
-    "tadilat rehberi",
-    "imar durumu",
-    "Muğla emlak",
-    "gayrimenkul yatırım",
-  ],
-  openGraph: {
-    title: "Blog | Emlak ve Yapı Rehberi",
-    description: "Emlak ve yapı sektörü hakkında bilgilendirici yazılar.",
-    url: "https://www.kalindayapi.com/blog",
-  },
-  alternates: {
-    canonical: "https://www.kalindayapi.com/blog",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const dict = await getCachedDictionary(locale);
+  const url = buildLocalizedUrl("/blog", locale);
+
+  return {
+    title: dict.blog.title,
+    description: dict.blog.subtitle,
+    openGraph: {
+      title: dict.blog.title,
+      description: dict.blog.subtitle,
+      url,
+    },
+    alternates: buildSeoAlternates("/blog", locale),
+  };
+}
 
 export default function BlogLayout({
   children,

@@ -30,9 +30,9 @@ import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { FaqSection } from "@/components/sections";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/jsonld";
-import { generateHizmetMetadata } from "@/lib/metadata";
 import { createWhatsAppLink, Hizmet } from "@/lib/utils";
 import hizmetlerData from "@/data/hizmetler.json";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale, SITE_URL } from "@/lib/seo";
 
 // Dinamik sayaç hesaplama - 5 günde 1 artış
 function hesaplaDinamikDeger(baslangicDegeri: number): number {
@@ -51,7 +51,7 @@ function hesaplaYilDeneyimi(): number {
 }
 
 interface HizmetDetayPageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }
 
 const ikonlar: { [key: string]: React.ComponentType<{ className?: string }> } = {
@@ -102,7 +102,8 @@ const ekip = [
 export async function generateMetadata({
   params,
 }: HizmetDetayPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+  const locale = resolveLocale(lang);
   const hizmet = (hizmetlerData.hizmetler as Hizmet[]).find(
     (h) => h.slug === slug
   );
@@ -113,7 +114,42 @@ export async function generateMetadata({
     };
   }
 
-  return generateHizmetMetadata(hizmet);
+  const title = `${hizmet.baslik} | Ortaca`;
+  const description = `${hizmet.kisaAciklama} Muğla Ortaca ve çevresinde profesyonel ${hizmet.baslik.toLowerCase()} hizmetleri.`;
+  const url = buildLocalizedUrl(`/hizmetler/${hizmet.slug}`, locale);
+
+  return {
+    title,
+    description,
+    keywords: [
+      `Ortaca ${hizmet.baslik.toLowerCase()}`,
+      `Muğla ${hizmet.baslik.toLowerCase()}`,
+      ...hizmet.bolge.map((b) => `${b} ${hizmet.baslik.toLowerCase()}`),
+    ],
+    openGraph: {
+      title: `${title} | Kalinda Yapı`,
+      description,
+      url,
+      siteName: "Kalinda Yapı",
+      images: [
+        {
+          url: `${SITE_URL}/og-image.jpg`,
+          width: 1200,
+          height: 630,
+          alt: hizmet.baslik,
+        },
+      ],
+      locale: locale === "tr" ? "tr_TR" : locale === "en" ? "en_US" : "ar_SA",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Kalinda Yapı`,
+      description,
+      images: [`${SITE_URL}/og-image.jpg`],
+    },
+    alternates: buildSeoAlternates(`/hizmetler/${hizmet.slug}`, locale),
+  };
 }
 
 export async function generateStaticParams() {

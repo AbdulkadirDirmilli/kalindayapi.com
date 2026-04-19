@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "standalone",
 
+  // SEO: tek format → trailing slash YOK. Proxy ek olarak 301 ile normalize ediyor.
+  trailingSlash: false,
+  skipTrailingSlashRedirect: false,
+
   // SEO: Tüm trafiği https://www.kalindayapi.com'a yönlendir
   async redirects() {
     return [

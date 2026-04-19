@@ -17,9 +17,30 @@ import {
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { generateBreadcrumbSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/metadata";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
-export const metadata: Metadata = pageMetadata.vizyonMisyon;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const dict = await getCachedDictionary(locale);
+  const url = buildLocalizedUrl("/kurumsal/vizyon-misyon", locale);
+
+  return {
+    title: dict.nav.visionMission,
+    description: dict.meta.description,
+    openGraph: {
+      title: dict.nav.visionMission,
+      description: dict.meta.description,
+      url,
+    },
+    alternates: buildSeoAlternates("/kurumsal/vizyon-misyon", locale),
+  };
+}
 
 const degerler = [
   {

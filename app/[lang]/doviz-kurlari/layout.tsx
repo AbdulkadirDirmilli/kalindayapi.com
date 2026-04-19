@@ -8,75 +8,61 @@ import {
   generateFinanceOrganizationSchema,
   DOVIZ_FAQ_DATA,
 } from '@/lib/dovizJsonLd';
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from '@/lib/seo';
+import { getCachedDictionary } from '@/lib/i18n/getDictionary';
 
-export const metadata: Metadata = {
-  title: 'Canlı Döviz Kurları 2026 | Anlık USD, EUR, GBP Takibi | Kalinda Yapı',
-  description:
-    'Güncel döviz kurları anlık takip ✓ 1 dolar kaç TL? ✓ Euro kuru ne kadar? ✓ TCMB kurları ✓ Döviz çevirici ✓ Emlak yatırımı için kur hesaplama. Muğla Ortaca emlak fırsatları.',
-  keywords: [
-    'dolar kuru',
-    'euro kuru',
-    'anlık döviz kuru',
-    '1 dolar kaç tl',
-    'döviz çevirici',
-    'tcmb kuru',
-    'güncel kur',
-    'canlı döviz',
-    'dolar euro',
-    'döviz hesaplama',
-    'sterlin kuru',
-    'gbp try',
-    'döviz takip',
-    'kur takibi',
-    'muğla emlak döviz',
-    'yabancı yatırımcı türkiye emlak',
-  ],
-  authors: [{ name: 'Kalinda Yapı' }],
-  creator: 'Kalinda Yapı',
-  publisher: 'Kalinda Yapı',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const dict = await getCachedDictionary(locale);
+  const url = buildLocalizedUrl('/doviz-kurlari', locale);
+
+  return {
+    title: dict.exchangePage.title,
+    description: dict.exchangePage.subtitle,
+    authors: [{ name: 'Kalinda Yapı' }],
+    creator: 'Kalinda Yapı',
+    publisher: 'Kalinda Yapı',
+    robots: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'tr_TR',
-    url: 'https://www.kalindayapi.com/doviz-kurlari',
-    siteName: 'Kalinda Yapı',
-    title: 'Canlı Döviz Kurları | Anlık USD, EUR, GBP | Kalinda Yapı',
-    description:
-      'Güncel döviz kurları anlık takip. Dolar, Euro, Sterlin kurları. Döviz çevirici ve emlak yatırım fırsatları.',
-    images: [
-      {
-        url: '/og-doviz.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Kalinda Yapı - Canlı Döviz Kurları',
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
       },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Canlı Döviz Kurları | Kalinda Yapı',
-    description: 'Anlık dolar, euro, sterlin kurları. Döviz çevirici ve emlak fırsatları.',
-    images: ['/og-doviz.jpg'],
-  },
-  alternates: {
-    canonical: 'https://www.kalindayapi.com/doviz-kurlari',
-  },
-  other: {
-    'revisit-after': '1 day',
-    'rating': 'general',
-    'distribution': 'global',
-  },
-};
+    },
+    openGraph: {
+      type: 'website',
+      locale: locale === 'tr' ? 'tr_TR' : locale === 'en' ? 'en_US' : 'ar_SA',
+      url,
+      siteName: 'Kalinda Yapı',
+      title: dict.exchangePage.title,
+      description: dict.exchangePage.subtitle,
+      images: [
+        {
+          url: '/og-doviz.jpg',
+          width: 1200,
+          height: 630,
+          alt: dict.exchangePage.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: dict.exchangePage.title,
+      description: dict.exchangePage.subtitle,
+      images: ['/og-doviz.jpg'],
+    },
+    alternates: buildSeoAlternates('/doviz-kurlari', locale),
+  };
+}
 
 export default function DovizKurlariLayout({
   children,

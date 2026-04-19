@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/jsonld";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
 // SSS için tüm sorular - Schema.org için (2026 SEO Optimized)
 const faqData = [
@@ -69,39 +71,30 @@ const faqData = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "Sıkça Sorulan Sorular (SSS) | Ortaca Emlak & Tadilat",
-  description:
-    "2026 güncel Ortaca ve Dalyan emlak fiyatları, tadilat maliyetleri, tapu işlemleri hakkında uzman cevaplar. 200+ emlak işlemi deneyimiyle sorularınızı yanıtlıyoruz.",
-  keywords: [
-    "Ortaca emlak fiyatları 2026",
-    "Dalyan villa fiyatları 2026",
-    "Ortaca'da ev almak",
-    "Dalyan'da satılık villa",
-    "Ortaca tadilat firması",
-    "Muğla emlak danışmanlığı",
-    "tapu işlemleri nasıl yapılır",
-    "ev satın alma belgeleri",
-    "tadilat maliyeti 2026",
-    "yabancıya ev satışı Türkiye",
-    "Köyceğiz emlak",
-    "anahtar teslim ev inşaatı",
-    "emlak komisyon oranı",
-    "konut kredisi başvurusu",
-  ],
-  openGraph: {
-    title: "Sıkça Sorulan Sorular | Kalinda Yapı",
-    description:
-      "Emlak, tadilat ve inşaat hizmetlerimiz hakkında merak ettikleriniz.",
-    url: "https://www.kalindayapi.com/sss",
-    siteName: "Kalinda Yapı",
-    locale: "tr_TR",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://www.kalindayapi.com/sss",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const dict = await getCachedDictionary(locale);
+  const url = buildLocalizedUrl("/sss", locale);
+
+  return {
+    title: dict.faq.title,
+    description: dict.faq.subtitle,
+    openGraph: {
+      title: dict.faq.title,
+      description: dict.faq.subtitle,
+      url,
+      siteName: "Kalinda Yapı",
+      locale: locale === "tr" ? "tr_TR" : locale === "en" ? "en_US" : "ar_SA",
+      type: "website",
+    },
+    alternates: buildSeoAlternates("/sss", locale),
+  };
+}
 
 export default function SSSLayout({ children }: { children: React.ReactNode }) {
   const faqSchema = generateFAQSchema(faqData);

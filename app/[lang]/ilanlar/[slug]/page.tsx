@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import IlanDetayClient from "./IlanDetayClient";
 import { Ilan, getEidsStatusLabel } from "@/lib/utils";
-import { locales, defaultLocale, type Locale, generateAlternateUrls, getLocalizedRoute } from "@/lib/i18n";
+import { locales, defaultLocale, type Locale } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale, SITE_URL } from "@/lib/seo";
 
-const siteUrl = "https://www.kalindayapi.com";
+const siteUrl = SITE_URL;
 
 interface IlanDetayPageProps {
   params: Promise<{ slug: string; lang: string }>;
@@ -204,7 +205,7 @@ export async function generateStaticParams() {
 // Metadata oluştur
 export async function generateMetadata({ params }: IlanDetayPageProps): Promise<Metadata> {
   const { slug, lang } = await params;
-  const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
+  const locale = resolveLocale(lang);
   const dict = await getCachedDictionary(locale);
   const ilan = await getIlan(slug, locale);
 
@@ -222,15 +223,13 @@ export async function generateMetadata({ params }: IlanDetayPageProps): Promise<
 
   const title = `${ilan.baslik} | ${ilan.konum.ilce}`;
   const description = `${kategoriText} ${ilan.ozellikler.metrekare}m² ${ilan.tip} - ${ilan.konum.mahalle ? ilan.konum.mahalle + ", " : ""}${ilan.konum.ilce}. ${ilan.aciklama?.slice(0, 120) || ""}...`;
-  const url = `${siteUrl}/${locale}/${getLocalizedRoute('ilanlar', locale)}/${ilan.slug}`;
+  const url = buildLocalizedUrl(`/ilanlar/${ilan.slug}`, locale);
 
   const fotograflar = ilan.fotograflar.filter((f: string) => !isVideo(f));
   const kapakFoto = fotograflar[0];
   const ogImage = kapakFoto
     ? (kapakFoto.startsWith('http') ? kapakFoto : `${siteUrl}${kapakFoto}`)
     : `${siteUrl}/og-image.jpg`;
-
-  const alternates = generateAlternateUrls(`/ilanlar/${slug}`, locale);
 
   return {
     title: `${title} | Kalinda Yapı`,
@@ -265,10 +264,7 @@ export async function generateMetadata({ params }: IlanDetayPageProps): Promise<
       description,
       images: [ogImage],
     },
-    alternates: {
-      canonical: url,
-      languages: alternates,
-    },
+    alternates: buildSeoAlternates(`/ilanlar/${ilan.slug}`, locale),
   };
 }
 

@@ -114,22 +114,5 @@ export function getOriginalPath(localizedPath: string, locale: Locale): string {
   return `/${originalSegments.join('/')}`;
 }
 
-// Verilen bir locale için alternatif URL'leri oluştur
-export function generateAlternateUrls(basePath: string, currentLocale: Locale): Record<string, string> {
-  const baseUrl = 'https://www.kalindayapi.com';
-
-  // basePath'ten dil önekini kaldır
-  const pathWithoutLocale = getOriginalPath(basePath, currentLocale);
-
-  const alternates: Record<string, string> = {};
-
-  for (const locale of locales) {
-    const localizedPath = localizePath(pathWithoutLocale, locale);
-    alternates[locale] = `${baseUrl}${localizedPath}`;
-  }
-
-  // x-default olarak Türkçe
-  alternates['x-default'] = alternates.tr;
-
-  return alternates;
-}
+// Not: `generateAlternateUrls` kaldirildi. Canonical/hreflang icin `lib/seo.ts`
+// `buildSeoAlternates` / `buildLocalizedUrl` kullanilir (tek kaynak).

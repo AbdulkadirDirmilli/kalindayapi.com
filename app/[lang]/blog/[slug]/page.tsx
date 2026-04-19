@@ -3,13 +3,14 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import blogData from "@/data/blog-posts.json";
 import BlogDetayClient from "./BlogDetayClient";
-import { locales, defaultLocale, type Locale, generateAlternateUrls } from "@/lib/i18n";
+import { locales, defaultLocale, type Locale } from "@/lib/i18n";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale, SITE_URL } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string; lang: string }>;
 }
 
-const siteUrl = "https://www.kalindayapi.com";
+const siteUrl = SITE_URL;
 
 // Veritabanından blog yazısı getir
 async function getBlogPost(slug: string, locale: Locale) {
@@ -181,7 +182,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, lang } = await params;
-  const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
+  const locale = resolveLocale(lang);
 
   let yazi = await getBlogPost(slug, locale);
   if (!yazi) {
@@ -192,8 +193,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: locale === 'en' ? 'Post Not Found' : locale === 'ar' ? 'المقالة غير موجودة' : 'Yazı Bulunamadı' };
   }
 
-  const url = `${siteUrl}/${locale}/blog/${yazi.slug}`;
-  const alternates = generateAlternateUrls(`/blog/${slug}`, locale);
+  const url = buildLocalizedUrl(`/blog/${yazi.slug}`, locale);
 
   return {
     title: `${yazi.baslik} | Kalinda Yapı`,
@@ -210,10 +210,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: yazi.kapakGorsel ? [{ url: yazi.kapakGorsel, alt: yazi.baslik }] : [],
       locale: locale === 'tr' ? 'tr_TR' : locale === 'en' ? 'en_US' : 'ar_SA',
     },
-    alternates: {
-      canonical: url,
-      languages: alternates,
-    },
+    alternates: buildSeoAlternates(`/blog/${yazi.slug}`, locale),
   };
 }
 

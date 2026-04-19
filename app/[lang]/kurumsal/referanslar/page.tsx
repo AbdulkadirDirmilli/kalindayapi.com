@@ -13,9 +13,30 @@ import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { IstatistikSayaclari, GoogleReviews } from "@/components/sections";
 import { generateBreadcrumbSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/metadata";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
-export const metadata: Metadata = pageMetadata.referanslar;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const dict = await getCachedDictionary(locale);
+  const url = buildLocalizedUrl("/kurumsal/referanslar", locale);
+
+  return {
+    title: dict.nav.references,
+    description: dict.meta.description,
+    openGraph: {
+      title: dict.nav.references,
+      description: dict.meta.description,
+      url,
+    },
+    alternates: buildSeoAlternates("/kurumsal/referanslar", locale),
+  };
+}
 
 const projeler = [
   {

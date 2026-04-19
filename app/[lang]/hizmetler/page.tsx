@@ -5,11 +5,32 @@ import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { FaqSection } from "@/components/sections";
 import { generateBreadcrumbSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/metadata";
 import { createWhatsAppLink, Hizmet } from "@/lib/utils";
 import hizmetlerData from "@/data/hizmetler.json";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
-export const metadata: Metadata = pageMetadata.hizmetler;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const dict = await getCachedDictionary(locale);
+  const url = buildLocalizedUrl("/hizmetler", locale);
+
+  return {
+    title: dict.nav.services,
+    description: dict.meta.description,
+    openGraph: {
+      title: dict.nav.services,
+      description: dict.meta.description,
+      url,
+    },
+    alternates: buildSeoAlternates("/hizmetler", locale),
+  };
+}
 
 const ikonlar: { [key: string]: React.ComponentType<{ className?: string }> } = {
   Home,
