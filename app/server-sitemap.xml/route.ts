@@ -1,11 +1,17 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { SITE_URL, buildLocalizedUrl } from '@/lib/seo'
-import { locales, defaultLocale } from '@/lib/i18n'
 
 // Her istek için dinamik sitemap oluştur
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
+
+// Desteklenen diller
+const locales = ['tr', 'en', 'ar'] as const
+type Locale = (typeof locales)[number]
+const defaultLocale: Locale = 'tr'
+
+// NOT: Next.js app router Türkçe route isimleri kullanıyor (app/[lang]/blog, app/[lang]/ilanlar vs.)
+// Bu yüzden sitemap'te de aynı route isimlerini kullanıyoruz - lokalize route yok
 
 function escapeXml(str: string): string {
   return str
@@ -16,50 +22,288 @@ function escapeXml(str: string): string {
     .replace(/'/g, '&apos;')
 }
 
+interface SitemapUrl {
+  loc: string
+  lastmod: string
+  changefreq: string
+  priority: number
+  alternates?: { locale: Locale; href: string }[]
+}
+
+function generateUrlXml(url: SitemapUrl): string {
+  let xml = `  <url>
+    <loc>${escapeXml(url.loc)}</loc>
+    <lastmod>${url.lastmod}</lastmod>
+    <changefreq>${url.changefreq}</changefreq>
+    <priority>${url.priority}</priority>
+`
+
+  // hreflang alternates ekle
+  if (url.alternates && url.alternates.length > 0) {
+    for (const alt of url.alternates) {
+      xml += `    <xhtml:link rel="alternate" hreflang="${alt.locale}" href="${escapeXml(alt.href)}" />\n`
+    }
+    // x-default için varsayılan dil
+    const defaultAlt = url.alternates.find((a) => a.locale === defaultLocale)
+    if (defaultAlt) {
+      xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(defaultAlt.href)}" />\n`
+    }
+  }
+
+  xml += `  </url>\n`
+  return xml
+}
+
 export async function GET() {
   try {
-    // Aktif ilanları getir
+    const baseUrl = 'https://www.kalindayapi.com'
+    const urls: SitemapUrl[] = []
+    const now = new Date().toISOString()
+
+    // 0. Statik sayfalar (tüm dillerde)
+    const staticPages = [
+      { path: '', priority: 1.0, changefreq: 'daily' },
+      { path: 'ilanlar', priority: 0.9, changefreq: 'daily' },
+      { path: 'hizmetler', priority: 0.8, changefreq: 'monthly' },
+      { path: 'blog', priority: 0.8, changefreq: 'weekly' },
+      { path: 'hakkimizda', priority: 0.6, changefreq: 'monthly' },
+      { path: 'iletisim', priority: 0.6, changefreq: 'monthly' },
+      { path: 'sss', priority: 0.5, changefreq: 'monthly' },
+      { path: 'gizlilik', priority: 0.5, changefreq: 'monthly' },
+      { path: 'kullanim-kosullari', priority: 0.5, changefreq: 'monthly' },
+      { path: 'doviz-kurlari', priority: 0.7, changefreq: 'daily' },
+      { path: 'rehber', priority: 0.7, changefreq: 'weekly' },
+    ]
+
+    for (const page of staticPages) {
+      // Her sayfa için tüm dillerdeki alternates oluştur (aynı route ismi tüm dillerde)
+      const alternates: { locale: Locale; href: string }[] = locales.map((loc) => ({
+        locale: loc,
+        href: page.path
+          ? `${baseUrl}/${loc}/${page.path}`
+          : `${baseUrl}/${loc}`,
+      }))
+
+      // Her dil için URL ekle
+      for (const locale of locales) {
+        urls.push({
+          loc: page.path
+            ? `${baseUrl}/${locale}/${page.path}`
+            : `${baseUrl}/${locale}`,
+          lastmod: now,
+          changefreq: page.changefreq,
+          priority: page.priority,
+          alternates,
+        })
+      }
+    }
+
+    // Rehber ilçe sayfaları
+    const ilceSlugs = [
+      'ortaca', 'dalyan', 'koycegiz', 'dalaman', 'fethiye', 'marmaris',
+      'bodrum', 'milas', 'mentese', 'datca', 'ula', 'yatagan',
+      'kavaklidere', 'seydikemer',
+    ]
+
+    for (const slug of ilceSlugs) {
+      const alternates: { locale: Locale; href: string }[] = locales.map((loc) => ({
+        locale: loc,
+        href: `${baseUrl}/${loc}/rehber/${slug}`,
+      }))
+
+      for (const locale of locales) {
+        urls.push({
+          loc: `${baseUrl}/${locale}/rehber/${slug}`,
+          lastmod: now,
+          changefreq: 'monthly',
+          priority: 0.6,
+          alternates,
+        })
+      }
+    }
+
+    // 1. Aktif ilanları getir (tüm dillerdeki çevirileriyle)
     const ilanlar = await prisma.ilan.findMany({
       where: { durum: 'aktif' },
       select: {
         slug: true,
         guncellenmeTarihi: true,
-        kategori: true,
-        tip: true,
+        translations: {
+          where: { status: 'published' },
+          select: {
+            language: true,
+            slug: true,
+          },
+        },
       },
       orderBy: { guncellenmeTarihi: 'desc' },
     })
 
+    // İlanları ekle
+    for (const ilan of ilanlar) {
+      const lastmod = ilan.guncellenmeTarihi.toISOString()
+
+      // Türkçe ana ilan
+      const trUrl = `${baseUrl}/tr/ilanlar/${ilan.slug}`
+
+      // Alternates oluştur
+      const alternates: { locale: Locale; href: string }[] = [
+        { locale: 'tr', href: trUrl },
+      ]
+
+      // Çevirileri ekle
+      for (const translation of ilan.translations) {
+        const locale = translation.language as Locale
+        if (locales.includes(locale) && locale !== 'tr') {
+          alternates.push({
+            locale,
+            href: `${baseUrl}/${locale}/ilanlar/${translation.slug}`,
+          })
+        }
+      }
+
+      // Türkçe URL'i ekle
+      urls.push({
+        loc: trUrl,
+        lastmod,
+        changefreq: 'weekly',
+        priority: 0.8,
+        alternates,
+      })
+
+      // Diğer dillerdeki çevirileri de ekle
+      for (const translation of ilan.translations) {
+        const locale = translation.language as Locale
+        if (locales.includes(locale) && locale !== 'tr') {
+          urls.push({
+            loc: `${baseUrl}/${locale}/ilanlar/${translation.slug}`,
+            lastmod,
+            changefreq: 'weekly',
+            priority: 0.8,
+            alternates,
+          })
+        }
+      }
+    }
+
+    // 2. Aktif hizmetleri getir
+    const hizmetler = await prisma.hizmet.findMany({
+      where: { aktif: true },
+      select: {
+        slug: true,
+        updatedAt: true,
+        translations: {
+          where: { status: 'published' },
+          select: {
+            language: true,
+            slug: true,
+          },
+        },
+      },
+      orderBy: { sira: 'asc' },
+    })
+
+    // Hizmetleri ekle
+    for (const hizmet of hizmetler) {
+      const lastmod = hizmet.updatedAt.toISOString()
+
+      // Türkçe ana hizmet
+      const trUrl = `${baseUrl}/tr/hizmetler/${hizmet.slug}`
+
+      const alternates: { locale: Locale; href: string }[] = [
+        { locale: 'tr', href: trUrl },
+      ]
+
+      for (const translation of hizmet.translations) {
+        const locale = translation.language as Locale
+        if (locales.includes(locale) && locale !== 'tr') {
+          alternates.push({
+            locale,
+            href: `${baseUrl}/${locale}/hizmetler/${translation.slug}`,
+          })
+        }
+      }
+
+      urls.push({
+        loc: trUrl,
+        lastmod,
+        changefreq: 'monthly',
+        priority: 0.7,
+        alternates,
+      })
+
+      for (const translation of hizmet.translations) {
+        const locale = translation.language as Locale
+        if (locales.includes(locale) && locale !== 'tr') {
+          urls.push({
+            loc: `${baseUrl}/${locale}/hizmetler/${translation.slug}`,
+            lastmod,
+            changefreq: 'monthly',
+            priority: 0.7,
+            alternates,
+          })
+        }
+      }
+    }
+
+    // 3. Aktif blog yazılarını getir
+    const blogPosts = await prisma.blogPost.findMany({
+      where: { aktif: true },
+      select: {
+        originalSlug: true,
+        guncellenmeTarihi: true,
+        translations: {
+          where: { status: 'published' },
+          select: {
+            language: true,
+            slug: true,
+          },
+        },
+      },
+      orderBy: { yayinTarihi: 'desc' },
+    })
+
+    // Blog yazılarını ekle
+    for (const post of blogPosts) {
+      const lastmod = post.guncellenmeTarihi.toISOString()
+
+      // Tüm dillerdeki çeviriler için alternates oluştur
+      const alternates: { locale: Locale; href: string }[] = []
+
+      for (const translation of post.translations) {
+        const locale = translation.language as Locale
+        if (locales.includes(locale)) {
+          alternates.push({
+            locale,
+            href: `${baseUrl}/${locale}/blog/${translation.slug}`,
+          })
+        }
+      }
+
+      // Her çeviri için URL ekle
+      for (const translation of post.translations) {
+        const locale = translation.language as Locale
+        if (locales.includes(locale)) {
+          urls.push({
+            loc: `${baseUrl}/${locale}/blog/${translation.slug}`,
+            lastmod,
+            changefreq: 'weekly',
+            priority: 0.7,
+            alternates: alternates.length > 1 ? alternates : undefined,
+          })
+        }
+      }
+    }
+
     // XML oluştur
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `
 
-    // Ilanlari locale-aware + hreflang alternate olarak ekle (her ilan icin 3 entry)
-    for (const ilan of ilanlar) {
-      const lastmod = ilan.guncellenmeTarihi.toISOString()
-      const logicalPath = `/ilanlar/${ilan.slug}`
-
-      // Her locale icin ayri <url> entry'si + icinde xhtml:link alternate'lar
-      for (const locale of locales) {
-        const loc = buildLocalizedUrl(logicalPath, locale)
-        xml += `  <url>
-    <loc>${escapeXml(loc)}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-`
-        for (const alt of locales) {
-          xml += `    <xhtml:link rel="alternate" hreflang="${alt}" href="${escapeXml(buildLocalizedUrl(logicalPath, alt))}" />
-`
-        }
-        xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(buildLocalizedUrl(logicalPath, defaultLocale))}" />
-  </url>
-`
-      }
+    for (const url of urls) {
+      xml += generateUrlXml(url)
     }
 
     xml += `</urlset>`
@@ -74,7 +318,7 @@ export async function GET() {
   } catch (error) {
     console.error('Server sitemap error:', error)
 
-    // Hata durumunda bos sitemap dondur
+    // Hata durumunda boş sitemap döndür
     const emptyXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </urlset>`
