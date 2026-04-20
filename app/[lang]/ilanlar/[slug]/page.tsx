@@ -285,7 +285,7 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "name": ilan.baslik,
-    "url": `${siteUrl}/${locale}/${getLocalizedRoute('ilanlar', locale)}/${ilan.slug}`,
+    "url": `${siteUrl}/${locale}/ilanlar/${ilan.slug}`,
     "description": ilan.aciklama?.slice(0, 200),
     "additionalProperty": {
       "@type": "PropertyValue",
