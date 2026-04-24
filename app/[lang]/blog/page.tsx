@@ -65,15 +65,51 @@ const texts = {
   },
 };
 
-const kategoriler = ["Tümü", "Emlak", "İmar", "Tadilat", "Gayrimenkul"];
+// Localized categories with internal keys for filtering
+const categoryKeys = ["all", "emlak", "imar", "tadilat", "gayrimenkul"] as const;
+type CategoryKey = typeof categoryKeys[number];
+
+const categoryLabels: Record<Locale, Record<CategoryKey, string>> = {
+  tr: {
+    all: "Tümü",
+    emlak: "Emlak",
+    imar: "İmar",
+    tadilat: "Tadilat",
+    gayrimenkul: "Gayrimenkul",
+  },
+  en: {
+    all: "All",
+    emlak: "Real Estate",
+    imar: "Zoning",
+    tadilat: "Renovation",
+    gayrimenkul: "Property",
+  },
+  ar: {
+    all: "الكل",
+    emlak: "العقارات",
+    imar: "التخطيط",
+    tadilat: "التجديد",
+    gayrimenkul: "الملكية",
+  },
+};
+
+// Map from Turkish category names (from API) to category keys
+const categoryKeyMap: Record<string, CategoryKey> = {
+  "Tümü": "all",
+  "Emlak": "emlak",
+  "İmar": "imar",
+  "Tadilat": "tadilat",
+  "Gayrimenkul": "gayrimenkul",
+};
 
 export default function BlogPage() {
   const params = useParams();
   const lang = (params?.lang as Locale) || defaultLocale;
   const locale = locales.includes(lang) ? lang : defaultLocale;
   const t = texts[locale];
+  const categories = categoryLabels[locale];
 
-  const [aktifKategori, setAktifKategori] = useState("Tümü");
+  const [aktifKategori, setAktifKategori] = useState<CategoryKey>("all");
   const [aramaMetni, setAramaMetni] = useState("");
   const [yazilar, setYazilar] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -100,8 +136,10 @@ export default function BlogPage() {
 
   // Client-side filtreleme
   const filtrelenmisYazilar = yazilar.filter((yazi) => {
+    // Map the post's Turkish category to category key for comparison
+    const postCategoryKey = categoryKeyMap[yazi.kategori] || yazi.kategori;
     const kategoriUyumu =
-      aktifKategori === "Tümü" || yazi.kategori === aktifKategori;
+      aktifKategori === "all" || postCategoryKey === aktifKategori;
     const aramaUyumu =
       aramaMetni === "" ||
       yazi.baslik.toLowerCase().includes(aramaMetni.toLowerCase()) ||
@@ -143,17 +181,17 @@ export default function BlogPage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Kategori Filtreleri */}
             <div className="flex flex-wrap gap-2">
-              {kategoriler.map((kategori) => (
+              {categoryKeys.map((key) => (
                 <button
-                  key={kategori}
-                  onClick={() => setAktifKategori(kategori)}
+                  key={key}
+                  onClick={() => setAktifKategori(key)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    aktifKategori === kategori
+                    aktifKategori === key
                       ? "bg-[#0B1F3A] text-white"
                       : "bg-[#F5F5F5] text-[#666666] hover:bg-[#E5E5E5]"
                   }`}
                 >
-                  {kategori}
+                  {categories[key]}
                 </button>
               ))}
             </div>
