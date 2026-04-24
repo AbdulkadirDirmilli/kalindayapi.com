@@ -183,6 +183,127 @@ const nextConfig: NextConfig = {
         destination: "/en/sss",
         permanent: true,
       },
+
+      // 8. İngilizce corporate route'larını Türkçe'ye yönlendir
+      {
+        source: "/en/corporate",
+        destination: "/en/kurumsal",
+        permanent: true,
+      },
+      {
+        source: "/en/corporate/certificates",
+        destination: "/en/kurumsal/belgeler",
+        permanent: true,
+      },
+      {
+        source: "/en/corporate/references",
+        destination: "/en/kurumsal/referanslar",
+        permanent: true,
+      },
+      {
+        source: "/en/corporate/vision-mission",
+        destination: "/en/kurumsal/vizyon-misyon",
+        permanent: true,
+      },
+
+      // 9. Arapça corporate route'larını Türkçe'ye yönlendir (literal + URL-encoded)
+      // الشركة (kurumsal)
+      {
+        source: "/ar/الشركة",
+        destination: "/ar/kurumsal",
+        permanent: true,
+      },
+      {
+        source: "/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A9",
+        destination: "/ar/kurumsal",
+        permanent: true,
+      },
+      {
+        source: "/ar/الشركة/:path*",
+        destination: "/ar/kurumsal/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A9/:path*",
+        destination: "/ar/kurumsal/:path*",
+        permanent: true,
+      },
+
+      // 10. Sadece Türkçe içerik olan sayfaları TR'ye yönlendir
+      // Rehber sayfaları (çevirisi yok)
+      {
+        source: "/en/rehber/:path*",
+        destination: "/tr/rehber/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ar/rehber/:path*",
+        destination: "/tr/rehber/:path*",
+        permanent: true,
+      },
+      {
+        source: "/en/rehber",
+        destination: "/tr/rehber",
+        permanent: true,
+      },
+      {
+        source: "/ar/rehber",
+        destination: "/tr/rehber",
+        permanent: true,
+      },
+      // SSS sayfası - artık çoklu dil desteği var, redirect kaldırıldı
+      // Gizlilik sayfası (çevirisi yok)
+      {
+        source: "/en/gizlilik",
+        destination: "/tr/gizlilik",
+        permanent: true,
+      },
+      {
+        source: "/ar/gizlilik",
+        destination: "/tr/gizlilik",
+        permanent: true,
+      },
+      {
+        source: "/en/privacy",
+        destination: "/tr/gizlilik",
+        permanent: true,
+      },
+      {
+        source: "/ar/الخصوصية",
+        destination: "/tr/gizlilik",
+        permanent: true,
+      },
+      {
+        source: "/ar/%D8%A7%D9%84%D8%AE%D8%B5%D9%88%D8%B5%D9%8A%D8%A9",
+        destination: "/tr/gizlilik",
+        permanent: true,
+      },
+      // Kullanım koşulları (çevirisi yok)
+      {
+        source: "/en/kullanim-kosullari",
+        destination: "/tr/kullanim-kosullari",
+        permanent: true,
+      },
+      {
+        source: "/ar/kullanim-kosullari",
+        destination: "/tr/kullanim-kosullari",
+        permanent: true,
+      },
+      {
+        source: "/en/terms",
+        destination: "/tr/kullanim-kosullari",
+        permanent: true,
+      },
+      {
+        source: "/ar/الشروط",
+        destination: "/tr/kullanim-kosullari",
+        permanent: true,
+      },
+      {
+        source: "/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%88%D8%B7",
+        destination: "/tr/kullanim-kosullari",
+        permanent: true,
+      },
     ];
   },
   typescript: {

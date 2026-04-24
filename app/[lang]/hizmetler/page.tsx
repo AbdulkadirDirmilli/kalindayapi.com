@@ -7,14 +7,17 @@ import { FaqSection } from "@/components/sections";
 import { generateBreadcrumbSchema } from "@/lib/jsonld";
 import { createWhatsAppLink, Hizmet } from "@/lib/utils";
 import hizmetlerData from "@/data/hizmetler.json";
+import { getHizmetler, TranslatedHizmet } from "@/data/hizmetler-translations";
+import { hizmetlerTexts, formatWhatsAppMessage, whatsappMessages } from "@/data/hizmetler-i18n";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
+import { locales, type Locale } from "@/lib/i18n/config";
 
-export async function generateMetadata({
-  params,
-}: {
+interface PageProps {
   params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   const locale = resolveLocale(lang);
   const dict = await getCachedDictionary(locale);
@@ -39,12 +42,26 @@ const ikonlar: { [key: string]: React.ComponentType<{ className?: string }> } = 
   FileText,
 };
 
-export default function HizmetlerPage() {
-  const hizmetler = hizmetlerData.hizmetler as Hizmet[];
+// Helper to get localized service data
+function getLocalizedHizmetler(locale: Locale): (Hizmet | TranslatedHizmet)[] {
+  const translated = getHizmetler(locale);
+  if (translated.length > 0) {
+    return translated;
+  }
+  return hizmetlerData.hizmetler as Hizmet[];
+}
+
+export default async function HizmetlerPage({ params }: PageProps) {
+  const { lang } = await params;
+  const locale = locales.includes(lang as Locale) ? (lang as Locale) : 'tr';
+  const texts = hizmetlerTexts[locale];
+  const messages = whatsappMessages[locale];
+
+  const hizmetler = getLocalizedHizmetler(locale);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Ana Sayfa", url: "/" },
-    { name: "Hizmetler", url: "/hizmetler" },
+    { name: locale === 'en' ? 'Home' : locale === 'ar' ? 'الرئيسية' : 'Ana Sayfa', url: `/${locale}` },
+    { name: texts.breadcrumb, url: `/${locale}/hizmetler` },
   ]);
 
   // Combine all FAQs
@@ -65,21 +82,21 @@ export default function HizmetlerPage() {
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">Hizmetler</span>
+            <span className="text-[#C9A84C]">{texts.breadcrumb}</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Profesyonel{" "}
-              <span className="text-[#C9A84C]">Emlak & Yapı</span> Hizmetleri
+              {texts.title}{" "}
+              <span className="text-[#C9A84C]">{texts.titleHighlight}</span>{" "}
+              {locale === 'tr' ? 'Hizmetleri' : locale === 'en' ? 'Services' : 'المهنية'}
             </h1>
             <p className="text-gray-300 text-lg">
-              Ortaca ve Muğla bölgesinde emlak danışmanlığı, tadilat ve inşaat
-              taahhüt hizmetleri sunuyoruz. Her ihtiyacınız için yanınızdayız.
+              {texts.subtitle}
             </p>
           </div>
         </div>
@@ -125,20 +142,20 @@ export default function HizmetlerPage() {
                   {/* Actions */}
                   <div className="pt-4 border-t border-[#e0e0e0]">
                     <div className="flex gap-2">
-                      <Link href={`/hizmetler/${hizmet.slug}`} className="flex-1">
+                      <Link href={`/${locale}/hizmetler/${hizmet.slug}`} className="flex-1">
                         <Button
                           variant="outline"
                           size="sm"
                           className="w-full"
                           rightIcon={<ArrowRight className="w-4 h-4" />}
                         >
-                          Detaylar
+                          {texts.detailsButton}
                         </Button>
                       </Link>
                       <a
                         href={createWhatsAppLink(
                           "905370530754",
-                          `Merhaba, ${hizmet.baslik} hakkında bilgi almak istiyorum.`
+                          formatWhatsAppMessage(messages.serviceInquiry, hizmet.baslik)
                         )}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -148,7 +165,7 @@ export default function HizmetlerPage() {
                           size="sm"
                           leftIcon={<MessageCircle className="w-4 h-4" />}
                         >
-                          WhatsApp
+                          {texts.whatsappButton}
                         </Button>
                       </a>
                     </div>
@@ -165,10 +182,10 @@ export default function HizmetlerPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#0B1F3A] mb-4">
-              Hizmet Bölgelerimiz
+              {texts.serviceAreasTitle}
             </h2>
             <p className="text-[#666666] max-w-2xl mx-auto">
-              Ortaca merkez ve çevre bölgelerde profesyonel hizmet sunuyoruz.
+              {texts.serviceAreasSubtitle}
             </p>
           </div>
 
@@ -187,8 +204,8 @@ export default function HizmetlerPage() {
 
       {/* FAQ Section */}
       <FaqSection
-        baslik="Hizmetlerimiz Hakkında Sıkça Sorulan Sorular"
-        altBaslik="Emlak, tadilat ve taahhüt hizmetlerimiz hakkında merak edilenler."
+        baslik={texts.faqTitle}
+        altBaslik={texts.faqSubtitle}
         sorular={tumSorular}
       />
 
@@ -196,22 +213,21 @@ export default function HizmetlerPage() {
       <section className="py-20 bg-[#0B1F3A]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Projeniz İçin Teklif Alın
+            {texts.ctaTitle}
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-            Emlak, tadilat veya inşaat projeleriniz için ücretsiz danışmanlık ve
-            teklif almak için hemen iletişime geçin.
+            {texts.ctaSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/iletisim">
+            <Link href={`/${locale}/iletisim`}>
               <Button variant="accent" size="lg">
-                İletişime Geç
+                {texts.ctaButton}
               </Button>
             </Link>
             <a
               href={createWhatsAppLink(
                 "905370530754",
-                "Merhaba, hizmetleriniz hakkında bilgi almak istiyorum."
+                messages.generalInquiry
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -221,7 +237,7 @@ export default function HizmetlerPage() {
                 size="lg"
                 leftIcon={<MessageCircle className="w-5 h-5" />}
               >
-                WhatsApp ile Yazın
+                {texts.whatsappCta}
               </Button>
             </a>
           </div>

@@ -5,17 +5,11 @@ import {
   ChevronRight,
   Target,
   Eye,
-  Heart,
   Shield,
   Lightbulb,
   MapPin,
-  Phone,
-  Mail,
   MessageCircle,
   Award,
-  Users,
-  Building2,
-  HardHat,
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
@@ -25,6 +19,7 @@ import { createWhatsAppLink } from "@/lib/utils";
 import { locales, type Locale } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { hakkimizdaTexts, degerler, timeline, sertifikalar } from "@/data/hakkimizda-i18n";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
@@ -46,32 +41,12 @@ export async function generateMetadata({
   };
 }
 
-const degerler = [
-  {
-    ikon: Shield,
-    baslik: "Güven",
-    aciklama:
-      "Müşterilerimizle güvene dayalı ilişkiler kuruyoruz. Şeffaf iletişim ve dürüst hizmet anlayışımızla fark yaratıyoruz.",
-  },
-  {
-    ikon: Lightbulb,
-    baslik: "Şeffaflık",
-    aciklama:
-      "Tüm süreçlerde açık ve net bilgi sunuyoruz. Gizli maliyet veya sürpriz olmadan çalışıyoruz.",
-  },
-  {
-    ikon: Award,
-    baslik: "Kalite",
-    aciklama:
-      "Her projede en yüksek kalite standartlarını hedefliyoruz. Kaliteli malzeme ve işçilik garantisi veriyoruz.",
-  },
-  {
-    ikon: MapPin,
-    baslik: "Bölgesel Bağlılık",
-    aciklama:
-      "Ortaca ve Muğla bölgesinin gelişimine katkıda bulunuyoruz. Yerel topluluğun bir parçası olmaktan gurur duyuyoruz.",
-  },
-];
+const ikonlar: { [key: string]: React.ComponentType<{ className?: string }> } = {
+  Shield,
+  Lightbulb,
+  Award,
+  MapPin,
+};
 
 export default async function HakkimizdaPage({
   params,
@@ -81,6 +56,10 @@ export default async function HakkimizdaPage({
   const { lang } = await params;
   const locale = locales.includes(lang as Locale) ? (lang as Locale) : 'tr';
   const dict = await getCachedDictionary(locale);
+  const texts = hakkimizdaTexts[locale];
+  const values = degerler[locale];
+  const timelineItems = timeline[locale];
+  const certificates = sertifikalar[locale];
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: dict.nav.home, url: `/${locale}` },
@@ -119,17 +98,13 @@ export default async function HakkimizdaPage({
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              <span className="text-[#C9A84C]">Kalinda Yapı</span> Hakkında
+              <span className="text-[#C9A84C]">{texts.heroTitleHighlight}</span> {texts.heroTitle}
             </h1>
             <p className="text-gray-300 text-lg leading-relaxed mb-4">
-              2022 yılından bu yana Muğla'nın Ortaca ilçesinde emlak danışmanlığı,
-              tadilat ve inşaat taahhüt hizmetleri sunuyoruz. Zafer Soylu ve Arif
-              Dağdelen ortaklığıyla kurulan firmamız, bölgenin en güvenilir yapı
-              ve emlak markalarından biri olmayı hedeflemektedir.
+              {texts.heroDescription1}
             </p>
             <p className="text-gray-400 text-base leading-relaxed">
-              Ortaca merkez, Dalyan, Köyceğiz, Dalaman ve Fethiye'de 200'den fazla başarılı emlak işlemi
-              ve 100'ü aşkın tadilat projesiyle bölgenin güvenilir yapı ortağıyız.
+              {texts.heroDescription2}
             </p>
           </div>
         </div>
@@ -141,44 +116,44 @@ export default async function HakkimizdaPage({
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
-                Hikayemiz
+                {texts.storyBadge}
               </span>
               <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-6">
-                Ortaca'da Doğduk, Ortaca İçin Çalışıyoruz
+                {texts.storyTitle}
               </h2>
               <div className="space-y-4 text-[#666666] leading-relaxed">
+                <p>{texts.storyParagraph1}</p>
                 <p>
-                  Kalinda Yapı, 2022 yılında Zafer Soylu ve Arif Dağdelen'in
-                  ortaklığıyla Ortaca'da kurulmuştur. Her iki ortağımız da bu
-                  topraklarda doğup büyümüş, bölgenin ihtiyaçlarını yakından
-                  tanıyan isimlerdir.
+                  {locale === 'tr' ? (
+                    <>
+                      Zafer Soylu, <Link href={`/${locale}/hizmetler/emlak-danismanligi`} className="text-[#C9A84C] hover:underline">emlak danışmanlığı</Link> sektöründeki deneyimiyle Ortaca, Dalyan ve Köyceğiz bölgelerinin gayrimenkul dinamiklerine hakim bir profesyoneldir. Arif Dağdelen ise <Link href={`/${locale}/hizmetler/taahhut-insaat`} className="text-[#C9A84C] hover:underline">inşaat ve taahhüt</Link> sektöründeki tecrübesiyle sayısız konut, villa ve ticari proje tamamlamıştır.
+                    </>
+                  ) : (
+                    texts.storyParagraph2
+                  )}
                 </p>
                 <p>
-                  Zafer Soylu, <Link href={`/${locale}/hizmetler/emlak-danismanligi`} className="text-[#C9A84C] hover:underline">emlak danışmanlığı</Link> sektöründeki deneyimiyle Ortaca, Dalyan ve Köyceğiz bölgelerinin gayrimenkul dinamiklerine hakim bir profesyoneldir. Arif Dağdelen ise <Link href={`/${locale}/hizmetler/taahhut-insaat`} className="text-[#C9A84C] hover:underline">inşaat ve taahhüt</Link> sektöründeki tecrübesiyle sayısız konut, villa ve ticari proje tamamlamıştır.
+                  {locale === 'tr' ? (
+                    <>
+                      <Link href={`/${locale}/hizmetler/tadilat-dekorasyon`} className="text-[#C9A84C] hover:underline">Tadilat</Link> ve <Link href={`/${locale}/hizmetler/plan-proje`} className="text-[#C9A84C] hover:underline">proje hizmetlerimizle</Link> 100'den fazla proje tamamladık. <Link href={`/${locale}/ilanlar`} className="text-[#C9A84C] hover:underline">Emlak portföyümüzde</Link> Ortaca merkez, Dalyan kanal boyu, Köyceğiz göl manzaralı ve Dalaman havalimanı yakını seçenekler bulunuyor.
+                    </>
+                  ) : (
+                    texts.storyParagraph3
+                  )}
                 </p>
-                <p>
-                  <Link href={`/${locale}/hizmetler/tadilat-dekorasyon`} className="text-[#C9A84C] hover:underline">Tadilat</Link> ve <Link href={`/${locale}/hizmetler/plan-proje`} className="text-[#C9A84C] hover:underline">proje hizmetlerimizle</Link> 100'den fazla proje tamamladık. <Link href={`/${locale}/ilanlar`} className="text-[#C9A84C] hover:underline">Emlak portföyümüzde</Link> Ortaca merkez, Dalyan kanal boyu, Köyceğiz göl manzaralı ve Dalaman havalimanı yakını seçenekler bulunuyor.
-                </p>
-                <p>
-                  Bugün, 200'den fazla mutlu aile ile Muğla bölgesinin güvenilir yapı ve emlak ortağı olmaya devam ediyoruz. <Link href={`/${locale}/blog/ortaca-emlak-rehberi-mahalle-mahalle-2026`} className="text-[#C9A84C] hover:underline">Ortaca emlak rehberimizi</Link> inceleyerek bölge hakkında detaylı bilgi alabilirsiniz.
-                </p>
+                <p>{texts.storyParagraph4}</p>
               </div>
             </div>
 
             {/* Timeline */}
             <div className="space-y-6">
-              {[
-                { yil: "2022", baslik: "Kuruluş", aciklama: "Kalinda Yapı Ortaca'da faaliyete başladı" },
-                { yil: "2023", baslik: "Büyüme", aciklama: "İlk projelerimizi başarıyla tamamladık" },
-                { yil: "2024", baslik: "Genişleme", aciklama: "Dalyan ve Köyceğiz'e hizmet alanımızı genişlettik" },
-                { yil: "2025", baslik: "Dijitalleşme", aciklama: "AKD Universe ile web sitesi ve dijital dönüşüm" },
-              ].map((item, index) => (
+              {timelineItems.map((item, index) => (
                 <div key={item.yil} className="flex gap-4">
                   <div className="flex flex-col items-center">
                     <div className="w-12 h-12 rounded-full bg-[#C9A84C] flex items-center justify-center text-[#0B1F3A] font-bold text-sm">
                       {item.yil}
                     </div>
-                    {index < 4 && (
+                    {index < timelineItems.length - 1 && (
                       <div className="w-0.5 h-full bg-[#e0e0e0] my-2" />
                     )}
                   </div>
@@ -202,13 +177,10 @@ export default async function HakkimizdaPage({
                 <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] flex items-center justify-center">
                   <Target className="w-7 h-7 text-[#C9A84C]" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#0B1F3A]">Misyonumuz</h2>
+                <h2 className="text-2xl font-bold text-[#0B1F3A]">{texts.missionTitle}</h2>
               </div>
               <p className="text-[#666666] leading-relaxed">
-                Ortaca ve Muğla bölgesinde güvenilir, şeffaf ve kaliteli emlak
-                danışmanlığı ile yapı çözümleri sunmak. Müşterilerimizin
-                hayallerini gerçeğe dönüştürmelerine yardımcı olmak ve her
-                projede en yüksek memnuniyeti sağlamak.
+                {texts.missionText}
               </p>
             </Card>
 
@@ -217,12 +189,10 @@ export default async function HakkimizdaPage({
                 <div className="w-14 h-14 rounded-2xl bg-[#C9A84C] flex items-center justify-center">
                   <Eye className="w-7 h-7 text-[#0B1F3A]" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#0B1F3A]">Vizyonumuz</h2>
+                <h2 className="text-2xl font-bold text-[#0B1F3A]">{texts.visionTitle}</h2>
               </div>
               <p className="text-[#666666] leading-relaxed">
-                Muğla bölgesinin en saygın ve tercih edilen yapı ve emlak markası
-                olmak. Yenilikçi yaklaşımlar ve teknoloji ile sektörde öncü olmak.
-                Sürdürülebilir ve çevre dostu yapı uygulamalarını benimsemek.
+                {texts.visionText}
               </p>
             </Card>
           </div>
@@ -234,19 +204,19 @@ export default async function HakkimizdaPage({
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
-              Değerlerimiz
+              {texts.valuesBadge}
             </span>
             <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
-              Bizi Biz Yapan Değerler
+              {texts.valuesTitle}
             </h2>
             <p className="text-[#666666] max-w-2xl mx-auto">
-              Her kararımızda ve her projemizde bu değerleri rehber alıyoruz.
+              {texts.valuesSubtitle}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {degerler.map((deger) => {
-              const Icon = deger.ikon;
+            {values.map((deger) => {
+              const Icon = ikonlar[deger.ikon] || Shield;
               return (
                 <Card key={deger.baslik} padding="lg" className="text-center group">
                   <div className="w-16 h-16 rounded-2xl bg-[#0B1F3A]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A84C]/20 transition-colors">
@@ -272,23 +242,18 @@ export default async function HakkimizdaPage({
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
-              Belgelerimiz
+              {texts.certsBadge}
             </span>
             <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
-              Sertifikalar & Belgeler
+              {texts.certsTitle}
             </h2>
             <p className="text-[#666666] max-w-2xl mx-auto">
-              Resmi olarak yetkilendirilmiş ve sertifikalı hizmet sunuyoruz.
+              {texts.certsSubtitle}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { baslik: "Emlak Danışmanlığı Lisansı", aciklama: "Resmi emlak danışmanlığı yetki belgesi" },
-              { baslik: "Ticaret Odası Kaydı", aciklama: "Muğla Ticaret Odası üyeliği" },
-              { baslik: "İş Güvenliği Belgesi", aciklama: "İş sağlığı ve güvenliği sertifikası" },
-              { baslik: "ISO 9001 (Hedef)", aciklama: "Kalite yönetim sistemi hedefi" },
-            ].map((belge) => (
+            {certificates.map((belge) => (
               <Card key={belge.baslik} padding="lg" className="text-center">
                 <div className="w-16 h-16 rounded-full bg-[#F5F5F5] flex items-center justify-center mx-auto mb-4">
                   <Award className="w-8 h-8 text-[#C9A84C]" />
@@ -306,7 +271,7 @@ export default async function HakkimizdaPage({
         <div className="container mx-auto px-4">
           <div className="text-center">
             <p className="text-[#666666]">
-              Web sitemiz{" "}
+              {texts.webDesignText}{" "}
               <a
                 href="https://www.akduniverse.com/"
                 target="_blank"
@@ -315,7 +280,7 @@ export default async function HakkimizdaPage({
               >
                 AKD Universe
               </a>
-              {" "}tarafından tasarlanmış ve geliştirilmiştir.
+              {texts.webDesignBy && ` ${texts.webDesignBy}`}
             </p>
           </div>
         </div>
@@ -325,22 +290,21 @@ export default async function HakkimizdaPage({
       <section className="py-20 bg-[#0B1F3A]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Bizimle Çalışmak İster misiniz?
+            {texts.ctaTitle}
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-            Emlak, tadilat veya inşaat projeleriniz için bizimle iletişime geçin.
-            Ücretsiz danışmanlık hizmetimizden yararlanın.
+            {texts.ctaSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href={`/${locale}/iletisim`}>
               <Button variant="accent" size="lg">
-                İletişime Geç
+                {texts.ctaButton}
               </Button>
             </Link>
             <a
               href={createWhatsAppLink(
                 "905370530754",
-                "Merhaba, Kalinda Yapı hakkında bilgi almak istiyorum."
+                texts.whatsappMessage
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -350,7 +314,7 @@ export default async function HakkimizdaPage({
                 size="lg"
                 leftIcon={<MessageCircle className="w-5 h-5" />}
               >
-                WhatsApp ile Yazın
+                {texts.whatsappButton}
               </Button>
             </a>
           </div>

@@ -60,23 +60,28 @@ export async function GET() {
     const urls: SitemapUrl[] = []
     const now = new Date().toISOString()
 
-    // 0. Statik sayfalar (tüm dillerde)
-    const staticPages = [
+    // 0. Statik sayfalar
+    // Tüm dillerde içerik olan sayfalar
+    const multiLangPages = [
       { path: '', priority: 1.0, changefreq: 'daily' },
       { path: 'ilanlar', priority: 0.9, changefreq: 'daily' },
       { path: 'hizmetler', priority: 0.8, changefreq: 'monthly' },
       { path: 'blog', priority: 0.8, changefreq: 'weekly' },
       { path: 'hakkimizda', priority: 0.6, changefreq: 'monthly' },
       { path: 'iletisim', priority: 0.6, changefreq: 'monthly' },
-      { path: 'sss', priority: 0.5, changefreq: 'monthly' },
+      { path: 'doviz-kurlari', priority: 0.7, changefreq: 'daily' },
+      { path: 'sss', priority: 0.5, changefreq: 'monthly' }, // SSS artık çok dilli
+    ]
+
+    // Sadece Türkçe içerik olan sayfalar (çevirisi yok)
+    const turkishOnlyPages = [
       { path: 'gizlilik', priority: 0.5, changefreq: 'monthly' },
       { path: 'kullanim-kosullari', priority: 0.5, changefreq: 'monthly' },
-      { path: 'doviz-kurlari', priority: 0.7, changefreq: 'daily' },
       { path: 'rehber', priority: 0.7, changefreq: 'weekly' },
     ]
 
-    for (const page of staticPages) {
-      // Her sayfa için tüm dillerdeki alternates oluştur (aynı route ismi tüm dillerde)
+    // Çok dilli sayfalar - tüm dillerde URL ekle
+    for (const page of multiLangPages) {
       const alternates: { locale: Locale; href: string }[] = locales.map((loc) => ({
         locale: loc,
         href: page.path
@@ -84,7 +89,6 @@ export async function GET() {
           : `${baseUrl}/${loc}`,
       }))
 
-      // Her dil için URL ekle
       for (const locale of locales) {
         urls.push({
           loc: page.path
@@ -98,7 +102,18 @@ export async function GET() {
       }
     }
 
-    // Rehber ilçe sayfaları
+    // Sadece Türkçe sayfalar - yalnızca TR URL ekle
+    for (const page of turkishOnlyPages) {
+      urls.push({
+        loc: `${baseUrl}/tr/${page.path}`,
+        lastmod: now,
+        changefreq: page.changefreq,
+        priority: page.priority,
+        // Sadece Türkçe olduğu için alternate yok
+      })
+    }
+
+    // Rehber ilçe sayfaları - sadece Türkçe (çevirisi yok)
     const ilceSlugs = [
       'ortaca', 'dalyan', 'koycegiz', 'dalaman', 'fethiye', 'marmaris',
       'bodrum', 'milas', 'mentese', 'datca', 'ula', 'yatagan',
@@ -106,20 +121,13 @@ export async function GET() {
     ]
 
     for (const slug of ilceSlugs) {
-      const alternates: { locale: Locale; href: string }[] = locales.map((loc) => ({
-        locale: loc,
-        href: `${baseUrl}/${loc}/rehber/${slug}`,
-      }))
-
-      for (const locale of locales) {
-        urls.push({
-          loc: `${baseUrl}/${locale}/rehber/${slug}`,
-          lastmod: now,
-          changefreq: 'monthly',
-          priority: 0.6,
-          alternates,
-        })
-      }
+      urls.push({
+        loc: `${baseUrl}/tr/rehber/${slug}`,
+        lastmod: now,
+        changefreq: 'monthly',
+        priority: 0.6,
+        // Sadece Türkçe olduğu için alternate yok
+      })
     }
 
     // 1. Aktif ilanları getir (tüm dillerdeki çevirileriyle)

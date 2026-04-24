@@ -32,7 +32,10 @@ import { FaqSection } from "@/components/sections";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/jsonld";
 import { createWhatsAppLink, Hizmet } from "@/lib/utils";
 import hizmetlerData from "@/data/hizmetler.json";
+import { getHizmetBySlug, getHizmetler, TranslatedHizmet } from "@/data/hizmetler-translations";
+import { hizmetlerTexts, formatWhatsAppMessage, whatsappMessages } from "@/data/hizmetler-i18n";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale, SITE_URL } from "@/lib/seo";
+import { locales, type Locale } from "@/lib/i18n/config";
 
 // Dinamik sayaç hesaplama - 5 günde 1 artış
 function hesaplaDinamikDeger(baslangicDegeri: number): number {
@@ -99,23 +102,40 @@ const ekip = [
   },
 ];
 
+// Helper to get localized service data
+function getLocalizedHizmet(slug: string, locale: Locale): Hizmet | TranslatedHizmet | null {
+  // First try translated version
+  const translated = getHizmetBySlug(slug, locale);
+  if (translated) {
+    return translated;
+  }
+  // Fall back to Turkish original
+  return (hizmetlerData.hizmetler as Hizmet[]).find((h) => h.slug === slug) || null;
+}
+
+function getLocalizedHizmetler(locale: Locale): (Hizmet | TranslatedHizmet)[] {
+  const translated = getHizmetler(locale);
+  if (translated.length > 0) {
+    return translated;
+  }
+  return hizmetlerData.hizmetler as Hizmet[];
+}
+
 export async function generateMetadata({
   params,
 }: HizmetDetayPageProps): Promise<Metadata> {
   const { lang, slug } = await params;
   const locale = resolveLocale(lang);
-  const hizmet = (hizmetlerData.hizmetler as Hizmet[]).find(
-    (h) => h.slug === slug
-  );
+  const hizmet = getLocalizedHizmet(slug, locale);
 
   if (!hizmet) {
     return {
-      title: "Hizmet Bulunamadı",
+      title: locale === 'en' ? 'Service Not Found' : locale === 'ar' ? 'الخدمة غير موجودة' : 'Hizmet Bulunamadı',
     };
   }
 
   const title = `${hizmet.baslik} | Ortaca`;
-  const description = `${hizmet.kisaAciklama} Muğla Ortaca ve çevresinde profesyonel ${hizmet.baslik.toLowerCase()} hizmetleri.`;
+  const description = `${hizmet.kisaAciklama}`;
   const url = buildLocalizedUrl(`/hizmetler/${hizmet.slug}`, locale);
 
   return {
@@ -159,9 +179,13 @@ export async function generateStaticParams() {
 }
 
 export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) {
-  const { slug } = await params;
-  const hizmetler = hizmetlerData.hizmetler as Hizmet[];
-  const hizmet = hizmetler.find((h) => h.slug === slug);
+  const { lang, slug } = await params;
+  const locale = locales.includes(lang as Locale) ? (lang as Locale) : 'tr';
+  const texts = hizmetlerTexts[locale];
+  const messages = whatsappMessages[locale];
+
+  const hizmet = getLocalizedHizmet(slug, locale);
+  const hizmetler = getLocalizedHizmetler(locale);
 
   if (!hizmet) {
     notFound();
@@ -169,11 +193,14 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
 
   const Icon = ikonlar[hizmet.ikon] || Home;
 
-  const serviceSchema = generateServiceSchema(hizmet);
+  // Get original Turkish service for schema (since schema should be consistent)
+  const originalHizmet = (hizmetlerData.hizmetler as Hizmet[]).find((h) => h.slug === slug);
+  const serviceSchema = originalHizmet ? generateServiceSchema(originalHizmet) : null;
+
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Ana Sayfa", url: "/" },
-    { name: "Hizmetler", url: "/hizmetler" },
-    { name: hizmet.baslik, url: `/hizmetler/${hizmet.slug}` },
+    { name: locale === 'en' ? 'Home' : locale === 'ar' ? 'الرئيسية' : 'Ana Sayfa', url: `/${locale}` },
+    { name: texts.breadcrumb, url: `/${locale}/hizmetler` },
+    { name: hizmet.baslik, url: `/${locale}/hizmetler/${hizmet.slug}` },
   ]);
   const faqSchema = generateFAQSchema(hizmet.sss);
 
@@ -183,12 +210,14 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
   return (
     <>
       {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
-      />
+      {serviceSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(serviceSchema),
+          }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -207,12 +236,12 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6 flex-wrap">
-            <Link href="/" className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href="/hizmetler" className="hover:text-[#C9A84C] transition-colors">
-              Hizmetler
+            <Link href={`/${locale}/hizmetler`} className="hover:text-[#C9A84C] transition-colors">
+              {texts.breadcrumb}
             </Link>
             <ChevronRight className="w-4 h-4" />
             <span className="text-[#C9A84C]">{hizmet.baslik}</span>
@@ -248,7 +277,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
             {/* Contact Card */}
             <Card padding="lg" className="bg-white">
               <h3 className="text-lg font-bold text-[#0B1F3A] mb-6">
-                Ekibimizle İletişime Geçin
+                {texts.contactTeam}
               </h3>
 
               {/* Team Members */}
@@ -276,7 +305,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                     <a
                       href={createWhatsAppLink(
                         kisi.whatsapp,
-                        `Merhaba ${kisi.ad}, ${hizmet.baslik} hakkında bilgi almak istiyorum.`
+                        formatWhatsAppMessage(messages.serviceInquiry, hizmet.baslik)
                       )}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -292,14 +321,14 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
 
               {/* Buttons */}
               <div className="space-y-3">
-                <Link href="/iletisim" className="block">
+                <Link href={`/${locale}/iletisim`} className="block">
                   <Button
                     variant="primary"
                     size="lg"
                     className="w-full"
                     leftIcon={<Mail className="w-5 h-5" />}
                   >
-                    İletişim Formu
+                    {texts.contactForm}
                   </Button>
                 </Link>
               </div>
@@ -313,10 +342,10 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#0B1F3A] mb-4">
-              {hizmet.baslik} Kapsamında
+              {hizmet.baslik} {texts.servicesScope}
             </h2>
             <p className="text-[#666666] max-w-2xl mx-auto">
-              Aşağıdaki alanlarda profesyonel hizmet sunuyoruz.
+              {texts.servicesScopeSubtitle}
             </p>
           </div>
 
@@ -343,17 +372,10 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-[#0B1F3A] mb-6">
-                Neden Kalinda Yapı?
+                {texts.whyUs}
               </h2>
               <div className="space-y-4">
-                {[
-                  "Lisanslı ve deneyimli uzman kadro",
-                  "Şeffaf fiyatlandırma ve sözleşme",
-                  "Zamanında teslimat garantisi",
-                  "7/24 müşteri desteği",
-                  "Bölgesel pazar bilgisi",
-                  "Kaliteli malzeme ve işçilik",
-                ].map((item) => (
+                {texts.whyUsItems.map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-[#22c55e] flex items-center justify-center flex-shrink-0">
                       <Check className="w-4 h-4 text-white" />
@@ -367,10 +389,10 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6">
               {[
-                { value: `${hesaplaDinamikDeger(102)}+`, label: "Tamamlanan Proje" },
-                { value: `${hesaplaYilDeneyimi()}+`, label: "Yıl Deneyim" },
-                { value: `${hesaplaDinamikDeger(209)}+`, label: "Mutlu Müşteri" },
-                { value: "%98", label: "Memnuniyet Oranı" },
+                { value: `${hesaplaDinamikDeger(102)}+`, label: texts.statsLabels.completedProjects },
+                { value: `${hesaplaYilDeneyimi()}+`, label: texts.statsLabels.yearsExperience },
+                { value: `${hesaplaDinamikDeger(209)}+`, label: texts.statsLabels.happyClients },
+                { value: "%98", label: texts.statsLabels.satisfactionRate },
               ].map((stat) => (
                 <Card key={stat.label} padding="lg" className="text-center">
                   <p className="text-3xl font-bold text-[#C9A84C] mb-1">
@@ -386,8 +408,8 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
 
       {/* FAQ */}
       <FaqSection
-        baslik={`${hizmet.baslik} Hakkında SSS`}
-        altBaslik={`${hizmet.baslik} hizmetimiz hakkında sıkça sorulan sorular ve cevapları.`}
+        baslik={`${hizmet.baslik} ${texts.aboutFaq}`}
+        altBaslik={`${hizmet.baslik} ${texts.aboutFaqSubtitle}`}
         sorular={hizmet.sss}
       />
 
@@ -396,10 +418,10 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#0B1F3A] mb-4">
-              Diğer Hizmetlerimiz
+              {texts.otherServices}
             </h2>
             <p className="text-[#666666]">
-              Tüm emlak ve yapı ihtiyaçlarınız için yanınızdayız.
+              {texts.otherServicesSubtitle}
             </p>
           </div>
 
@@ -407,7 +429,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
             {digerHizmetler.map((diger) => {
               const DigerIcon = ikonlar[diger.ikon] || Home;
               return (
-                <Link key={diger.id} href={`/hizmetler/${diger.slug}`}>
+                <Link key={diger.id} href={`/${locale}/hizmetler/${diger.slug}`}>
                   <Card
                     variant="interactive"
                     padding="lg"
@@ -434,17 +456,16 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
       <section className="py-20 bg-[#0B1F3A]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            {hizmet.baslik} İçin Teklif Alın
+            {hizmet.baslik} {texts.getQuote}
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-            Projeniz için ücretsiz danışmanlık ve teklif almak için hemen
-            iletişime geçin. Size en kısa sürede dönüş yapacağız.
+            {texts.getQuoteSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={createWhatsAppLink(
                 "905370530754",
-                `Merhaba, ${hizmet.baslik} için teklif almak istiyorum.`
+                formatWhatsAppMessage(messages.quoteRequest, hizmet.baslik)
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -454,16 +475,16 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                 size="lg"
                 leftIcon={<MessageCircle className="w-5 h-5" />}
               >
-                WhatsApp ile Teklif Al
+                {texts.whatsappQuote}
               </Button>
             </a>
-            <Link href="/iletisim">
+            <Link href={`/${locale}/iletisim`}>
               <Button
                 variant="accent"
                 size="lg"
                 leftIcon={<Phone className="w-5 h-5" />}
               >
-                İletişime Geç
+                {texts.contactButton}
               </Button>
             </Link>
           </div>

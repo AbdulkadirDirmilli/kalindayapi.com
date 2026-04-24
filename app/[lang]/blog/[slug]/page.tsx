@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import blogData from "@/data/blog-posts.json";
 import BlogDetayClient from "./BlogDetayClient";
@@ -13,7 +13,24 @@ interface PageProps {
 const siteUrl = SITE_URL;
 
 // Veritabanından blog yazısı getir
-async function getBlogPost(slug: string, locale: Locale) {
+// Returns { post, isOriginalLocale, redirectSlug } to handle redirects properly
+async function getBlogPost(slug: string, locale: Locale): Promise<{
+  post: {
+    id: string;
+    slug: string;
+    baslik: string;
+    ozet: string;
+    icerik: string;
+    kategori: string;
+    yazar: string;
+    kapakGorsel: string;
+    yayinTarihi: string;
+    etiketler: string[];
+    okunmaSuresi: number;
+  } | null;
+  isOriginalLocale: boolean;
+  redirectSlug?: string;
+}> {
   try {
     // Önce slug ile translation'ı bul
     const translation = await prisma.blogPostTranslation.findFirst({
@@ -29,17 +46,20 @@ async function getBlogPost(slug: string, locale: Locale) {
 
     if (translation && translation.post.aktif) {
       return {
-        id: translation.post.id,
-        slug: translation.slug,
-        baslik: translation.baslik,
-        ozet: translation.ozet,
-        icerik: translation.icerik,
-        kategori: translation.post.kategori,
-        yazar: translation.post.yazar,
-        kapakGorsel: translation.post.kapakGorsel,
-        yayinTarihi: translation.post.yayinTarihi.toISOString().split('T')[0],
-        etiketler: translation.etiketler ? JSON.parse(translation.etiketler) : [],
-        okunmaSuresi: Math.ceil((translation.icerik?.length || 1000) / 1000),
+        post: {
+          id: translation.post.id,
+          slug: translation.slug,
+          baslik: translation.baslik,
+          ozet: translation.ozet,
+          icerik: translation.icerik,
+          kategori: translation.post.kategori,
+          yazar: translation.post.yazar,
+          kapakGorsel: translation.post.kapakGorsel || '',
+          yayinTarihi: translation.post.yayinTarihi.toISOString().split('T')[0],
+          etiketler: translation.etiketler ? JSON.parse(translation.etiketler) : [],
+          okunmaSuresi: Math.ceil((translation.icerik?.length || 1000) / 1000),
+        },
+        isOriginalLocale: true,
       };
     }
 
@@ -57,47 +77,63 @@ async function getBlogPost(slug: string, locale: Locale) {
     if (post && post.aktif && post.translations[0]) {
       const tr = post.translations[0];
       return {
-        id: post.id,
-        slug: tr.slug,
-        baslik: tr.baslik,
-        ozet: tr.ozet,
-        icerik: tr.icerik,
-        kategori: post.kategori,
-        yazar: post.yazar,
-        kapakGorsel: post.kapakGorsel,
-        yayinTarihi: post.yayinTarihi.toISOString().split('T')[0],
-        etiketler: tr.etiketler ? JSON.parse(tr.etiketler) : [],
-        okunmaSuresi: Math.ceil((tr.icerik?.length || 1000) / 1000),
+        post: {
+          id: post.id,
+          slug: tr.slug,
+          baslik: tr.baslik,
+          ozet: tr.ozet,
+          icerik: tr.icerik,
+          kategori: post.kategori,
+          yazar: post.yazar,
+          kapakGorsel: post.kapakGorsel || '',
+          yayinTarihi: post.yayinTarihi.toISOString().split('T')[0],
+          etiketler: tr.etiketler ? JSON.parse(tr.etiketler) : [],
+          okunmaSuresi: Math.ceil((tr.icerik?.length || 1000) / 1000),
+        },
+        isOriginalLocale: true,
       };
     }
 
-    // Fallback: Türkçe'yi dene
-    if (locale !== 'tr' && post && post.aktif) {
+    // Çeviri yok: Türkçe slug'ı bul ve redirect için döndür
+    if (locale !== 'tr') {
+      // Slug ile Türkçe translation ara
       const trTranslation = await prisma.blogPostTranslation.findFirst({
-        where: { postId: post.id, language: 'tr', status: 'published' },
+        where: {
+          slug: slug,
+          language: 'tr',
+          status: 'published',
+        },
+        include: { post: true },
       });
 
-      if (trTranslation) {
+      if (trTranslation && trTranslation.post.aktif) {
         return {
-          id: post.id,
-          slug: trTranslation.slug,
-          baslik: trTranslation.baslik,
-          ozet: trTranslation.ozet,
-          icerik: trTranslation.icerik,
-          kategori: post.kategori,
-          yazar: post.yazar,
-          kapakGorsel: post.kapakGorsel,
-          yayinTarihi: post.yayinTarihi.toISOString().split('T')[0],
-          etiketler: trTranslation.etiketler ? JSON.parse(trTranslation.etiketler) : [],
-          okunmaSuresi: Math.ceil((trTranslation.icerik?.length || 1000) / 1000),
+          post: null,
+          isOriginalLocale: false,
+          redirectSlug: trTranslation.slug,
         };
+      }
+
+      // originalSlug ile post bul, Türkçe çevirisini al
+      if (post && post.aktif) {
+        const postTrTranslation = await prisma.blogPostTranslation.findFirst({
+          where: { postId: post.id, language: 'tr', status: 'published' },
+        });
+
+        if (postTrTranslation) {
+          return {
+            post: null,
+            isOriginalLocale: false,
+            redirectSlug: postTrTranslation.slug,
+          };
+        }
       }
     }
 
-    return null;
+    return { post: null, isOriginalLocale: true };
   } catch (error) {
     console.error('Blog getirme hatası:', error);
-    return null;
+    return { post: null, isOriginalLocale: true };
   }
 }
 
@@ -184,7 +220,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug, lang } = await params;
   const locale = resolveLocale(lang);
 
-  let yazi = await getBlogPost(slug, locale);
+  const result = await getBlogPost(slug, locale);
+
+  // Çeviri yoksa redirect olacak, metadata önemli değil
+  if (!result.isOriginalLocale && result.redirectSlug) {
+    return { title: 'Redirecting...' };
+  }
+
+  let yazi = result.post;
   if (!yazi) {
     yazi = getFromJson(slug);
   }
@@ -218,8 +261,24 @@ export default async function BlogDetayPage({ params }: PageProps) {
   const { slug, lang } = await params;
   const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
 
-  let yazi = await getBlogPost(slug, locale);
-  let digerYazilar: typeof yazi[] = [];
+  const result = await getBlogPost(slug, locale);
+
+  // Çeviri yoksa Türkçe'ye redirect yap (301 permanent)
+  if (!result.isOriginalLocale && result.redirectSlug) {
+    redirect(`/tr/blog/${result.redirectSlug}`);
+  }
+
+  let yazi = result.post;
+  let digerYazilar: Array<{
+    id: string;
+    slug: string;
+    baslik: string;
+    ozet: string;
+    kategori: string;
+    kapakGorsel: string | null;
+    yayinTarihi: string;
+    okunmaSuresi: number;
+  }> = [];
 
   if (yazi) {
     digerYazilar = await getOtherPosts(yazi.id, locale);
