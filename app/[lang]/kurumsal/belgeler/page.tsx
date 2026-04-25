@@ -17,6 +17,271 @@ import Button from "@/components/ui/Button";
 import { generateBreadcrumbSchema } from "@/lib/jsonld";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
+import { locales, type Locale } from "@/lib/i18n";
+
+const texts = {
+  tr: {
+    breadcrumbs: {
+      home: "Ana Sayfa",
+      corporate: "Kurumsal",
+      certificates: "Belgeler & Sertifikalar",
+    },
+    hero: {
+      title: "Belgeler &",
+      titleHighlight: "Sertifikalar",
+      description: "Kalinda Yapı olarak Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinde tüm yasal gerekliliklere uygun, resmi belge ve sertifikalarla hizmet veriyoruz. Şeffaflık ilkemiz gereği belgelerimizi sizlerle paylaşıyoruz. Emlak danışmanlığı, tadilat ve inşaat hizmetlerimiz resmi lisans ve sertifikalarla desteklenmektedir.",
+    },
+    activeCerts: {
+      badge: "Aktif Belgeler",
+      title: "Mevcut Sertifikalarımız",
+      description: "Resmi olarak yetkilendirilmiş ve güncel belgelerimiz.",
+      status: "Aktif",
+      dateLabel: "Alınış:",
+    },
+    targetCerts: {
+      badge: "Hedef Belgeler",
+      title: "Almayı Hedeflediğimiz Sertifikalar",
+      description: "Kalite standartlarımızı yükseltmek için çalıştığımız belgeler.",
+      progress: "İlerleme",
+      target: "Hedef:",
+    },
+    memberships: {
+      badge: "Üyelikler",
+      title: "Üyesi Olduğumuz Kuruluşlar",
+      description: "Sektörel kuruluşlarda aktif üyeliğimiz bulunmaktadır.",
+    },
+    trust: {
+      title: "Güvenilir ve Şeffaf Hizmet",
+      description: "Tüm belgelerimiz güncel ve geçerlidir. Yasal düzenlemelere tam uyum sağlayarak müşterilerimize güvenli hizmet sunmaktayız. Herhangi bir belgemizi görmek isterseniz ofisimizi ziyaret edebilirsiniz.",
+    },
+    cta: {
+      title: "Daha Fazla Bilgi Almak İster misiniz?",
+      description: "Belgelerimiz ve hizmetlerimiz hakkında detaylı bilgi için bizimle iletişime geçebilirsiniz.",
+      contact: "İletişime Geç",
+      about: "Hakkımızda",
+    },
+    belgeler: [
+      {
+        baslik: "Emlak Danışmanlığı Yetki Belgesi",
+        aciklama: "T.C. Ticaret Bakanlığı onaylı emlak danışmanlığı yetki belgesi",
+        tarih: "2022",
+        detay: "Resmi emlak alım-satım ve kiralama işlemleri yapma yetkisi",
+      },
+      {
+        baslik: "Ticaret Sicil Belgesi",
+        aciklama: "Muğla Ticaret Sicil Müdürlüğü tescil belgesi",
+        tarih: "2022",
+        detay: "Şirket kuruluş ve faaliyet belgesi",
+      },
+      {
+        baslik: "İş Güvenliği Sertifikası",
+        aciklama: "İş Sağlığı ve Güvenliği eğitim sertifikası",
+        tarih: "2023",
+        detay: "Şantiye ve tadilat işlerinde iş güvenliği standartları",
+      },
+      {
+        baslik: "Vergi Levhası",
+        aciklama: "Muğla Vergi Dairesi kayıtlı mükellef belgesi",
+        tarih: "2022",
+        detay: "Resmi vergi mükellefi kaydı",
+      },
+    ],
+    hedefBelgeler: [
+      {
+        baslik: "ISO 9001 Kalite Yönetimi",
+        aciklama: "Kalite yönetim sistemi sertifikası",
+        hedefTarih: "2025",
+        ilerleme: 60,
+      },
+      {
+        baslik: "Yeşil Bina Sertifikası",
+        aciklama: "Sürdürülebilir yapı uygulamaları belgesi",
+        hedefTarih: "2026",
+        ilerleme: 30,
+      },
+    ],
+    uyeler: [
+      "Muğla Ticaret ve Sanayi Odası",
+      "Ortaca Esnaf ve Sanatkarlar Odası",
+      "Türkiye Emlak Müşavirleri Federasyonu",
+    ],
+  },
+  en: {
+    breadcrumbs: {
+      home: "Home",
+      corporate: "Corporate",
+      certificates: "Certificates & Documents",
+    },
+    hero: {
+      title: "Certificates &",
+      titleHighlight: "Documents",
+      description: "At Kalinda Yapı, we provide services with official documents and certificates in compliance with all legal requirements in Ortaca, Dalyan, Köyceğiz and the entire Muğla region. In line with our transparency principle, we share our documents with you. Our real estate consultancy, renovation, and construction services are supported by official licenses and certificates.",
+    },
+    activeCerts: {
+      badge: "Active Documents",
+      title: "Our Current Certificates",
+      description: "Officially authorized and up-to-date documents.",
+      status: "Active",
+      dateLabel: "Obtained:",
+    },
+    targetCerts: {
+      badge: "Target Documents",
+      title: "Certificates We Aim to Obtain",
+      description: "Documents we are working on to raise our quality standards.",
+      progress: "Progress",
+      target: "Target:",
+    },
+    memberships: {
+      badge: "Memberships",
+      title: "Organizations We Are Members Of",
+      description: "We have active memberships in industry organizations.",
+    },
+    trust: {
+      title: "Reliable and Transparent Service",
+      description: "All our documents are current and valid. We provide safe service to our customers by fully complying with legal regulations. If you would like to see any of our documents, you can visit our office.",
+    },
+    cta: {
+      title: "Would You Like More Information?",
+      description: "Contact us for detailed information about our documents and services.",
+      contact: "Contact Us",
+      about: "About Us",
+    },
+    belgeler: [
+      {
+        baslik: "Real Estate Consultancy License",
+        aciklama: "Real estate consultancy authorization certificate approved by T.R. Ministry of Trade",
+        tarih: "2022",
+        detay: "Authority to conduct official real estate buying-selling and rental transactions",
+      },
+      {
+        baslik: "Trade Registry Certificate",
+        aciklama: "Muğla Trade Registry Directorate registration certificate",
+        tarih: "2022",
+        detay: "Company establishment and activity certificate",
+      },
+      {
+        baslik: "Occupational Safety Certificate",
+        aciklama: "Occupational Health and Safety training certificate",
+        tarih: "2023",
+        detay: "Occupational safety standards in construction and renovation works",
+      },
+      {
+        baslik: "Tax Certificate",
+        aciklama: "Muğla Tax Office registered taxpayer certificate",
+        tarih: "2022",
+        detay: "Official taxpayer registration",
+      },
+    ],
+    hedefBelgeler: [
+      {
+        baslik: "ISO 9001 Quality Management",
+        aciklama: "Quality management system certificate",
+        hedefTarih: "2025",
+        ilerleme: 60,
+      },
+      {
+        baslik: "Green Building Certificate",
+        aciklama: "Sustainable building practices certificate",
+        hedefTarih: "2026",
+        ilerleme: 30,
+      },
+    ],
+    uyeler: [
+      "Muğla Chamber of Commerce and Industry",
+      "Ortaca Chamber of Tradesmen and Craftsmen",
+      "Turkey Real Estate Consultants Federation",
+    ],
+  },
+  ar: {
+    breadcrumbs: {
+      home: "الرئيسية",
+      corporate: "الشركة",
+      certificates: "الشهادات والوثائق",
+    },
+    hero: {
+      title: "الشهادات و",
+      titleHighlight: "الوثائق",
+      description: "في كاليندا يابي، نقدم خدماتنا بوثائق وشهادات رسمية متوافقة مع جميع المتطلبات القانونية في أورتاجا ودالان وكويجيز وجميع أنحاء منطقة موغلا. وفقاً لمبدأ الشفافية لدينا، نشارك وثائقنا معكم. خدماتنا في الاستشارات العقارية والتجديد والبناء مدعومة بتراخيص وشهادات رسمية.",
+    },
+    activeCerts: {
+      badge: "الوثائق النشطة",
+      title: "شهاداتنا الحالية",
+      description: "وثائق معتمدة رسمياً ومحدثة.",
+      status: "نشط",
+      dateLabel: "تاريخ الحصول:",
+    },
+    targetCerts: {
+      badge: "الوثائق المستهدفة",
+      title: "الشهادات التي نهدف للحصول عليها",
+      description: "وثائق نعمل عليها لرفع معايير الجودة لدينا.",
+      progress: "التقدم",
+      target: "الهدف:",
+    },
+    memberships: {
+      badge: "العضويات",
+      title: "المنظمات التي نحن أعضاء فيها",
+      description: "لدينا عضويات نشطة في منظمات الصناعة.",
+    },
+    trust: {
+      title: "خدمة موثوقة وشفافة",
+      description: "جميع وثائقنا حالية وصالحة. نقدم خدمة آمنة لعملائنا من خلال الامتثال الكامل للوائح القانونية. إذا كنت ترغب في رؤية أي من وثائقنا، يمكنك زيارة مكتبنا.",
+    },
+    cta: {
+      title: "هل تريد المزيد من المعلومات؟",
+      description: "تواصل معنا للحصول على معلومات مفصلة حول وثائقنا وخدماتنا.",
+      contact: "تواصل معنا",
+      about: "من نحن",
+    },
+    belgeler: [
+      {
+        baslik: "رخصة الاستشارات العقارية",
+        aciklama: "شهادة ترخيص الاستشارات العقارية المعتمدة من وزارة التجارة التركية",
+        tarih: "2022",
+        detay: "صلاحية إجراء معاملات البيع والشراء والتأجير العقاري الرسمية",
+      },
+      {
+        baslik: "شهادة السجل التجاري",
+        aciklama: "شهادة تسجيل مديرية السجل التجاري في موغلا",
+        tarih: "2022",
+        detay: "شهادة تأسيس ونشاط الشركة",
+      },
+      {
+        baslik: "شهادة السلامة المهنية",
+        aciklama: "شهادة تدريب الصحة والسلامة المهنية",
+        tarih: "2023",
+        detay: "معايير السلامة المهنية في أعمال البناء والتجديد",
+      },
+      {
+        baslik: "شهادة الضرائب",
+        aciklama: "شهادة دافع الضرائب المسجل في مكتب ضرائب موغلا",
+        tarih: "2022",
+        detay: "تسجيل دافع الضرائب الرسمي",
+      },
+    ],
+    hedefBelgeler: [
+      {
+        baslik: "ISO 9001 إدارة الجودة",
+        aciklama: "شهادة نظام إدارة الجودة",
+        hedefTarih: "2025",
+        ilerleme: 60,
+      },
+      {
+        baslik: "شهادة المباني الخضراء",
+        aciklama: "شهادة ممارسات البناء المستدام",
+        hedefTarih: "2026",
+        ilerleme: 30,
+      },
+    ],
+    uyeler: [
+      "غرفة التجارة والصناعة في موغلا",
+      "غرفة التجار والحرفيين في أورتاجا",
+      "اتحاد مستشاري العقارات في تركيا",
+    ],
+  },
+};
+
+const iconMap = [FileCheck, Building2, Shield, Briefcase];
+const targetIconMap = [Award, GraduationCap];
 
 export async function generateMetadata({
   params,
@@ -40,69 +305,23 @@ export async function generateMetadata({
   };
 }
 
-const belgeler = [
-  {
-    ikon: FileCheck,
-    baslik: "Emlak Danışmanlığı Yetki Belgesi",
-    aciklama: "T.C. Ticaret Bakanlığı onaylı emlak danışmanlığı yetki belgesi",
-    durum: "aktif",
-    tarih: "2022",
-    detay: "Resmi emlak alım-satım ve kiralama işlemleri yapma yetkisi",
-  },
-  {
-    ikon: Building2,
-    baslik: "Ticaret Sicil Belgesi",
-    aciklama: "Muğla Ticaret Sicil Müdürlüğü tescil belgesi",
-    durum: "aktif",
-    tarih: "2022",
-    detay: "Şirket kuruluş ve faaliyet belgesi",
-  },
-  {
-    ikon: Shield,
-    baslik: "İş Güvenliği Sertifikası",
-    aciklama: "İş Sağlığı ve Güvenliği eğitim sertifikası",
-    durum: "aktif",
-    tarih: "2023",
-    detay: "Şantiye ve tadilat işlerinde iş güvenliği standartları",
-  },
-  {
-    ikon: Briefcase,
-    baslik: "Vergi Levhası",
-    aciklama: "Muğla Vergi Dairesi kayıtlı mükellef belgesi",
-    durum: "aktif",
-    tarih: "2022",
-    detay: "Resmi vergi mükellefi kaydı",
-  },
-];
+export async function generateStaticParams() {
+  return locales.map((locale) => ({ lang: locale }));
+}
 
-const hedefBelgeler = [
-  {
-    ikon: Award,
-    baslik: "ISO 9001 Kalite Yönetimi",
-    aciklama: "Kalite yönetim sistemi sertifikası",
-    hedefTarih: "2025",
-    ilerleme: 60,
-  },
-  {
-    ikon: GraduationCap,
-    baslik: "Yeşil Bina Sertifikası",
-    aciklama: "Sürdürülebilir yapı uygulamaları belgesi",
-    hedefTarih: "2026",
-    ilerleme: 30,
-  },
-];
+export default async function BelgelerPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const locale = resolveLocale(lang) as Locale;
+  const t = texts[locale];
 
-const uyeler = [
-  "Muğla Ticaret ve Sanayi Odası",
-  "Ortaca Esnaf ve Sanatkarlar Odası",
-  "Türkiye Emlak Müşavirleri Federasyonu",
-];
-
-export default function BelgelerPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Ana Sayfa", url: "/" },
-    { name: "Kurumsal", url: "/hakkimizda" },
-    { name: "Belgeler & Sertifikalar", url: "/kurumsal/belgeler" },
+    { name: t.breadcrumbs.home, url: `/${locale}` },
+    { name: t.breadcrumbs.corporate, url: `/${locale}/hakkimizda` },
+    { name: t.breadcrumbs.certificates, url: `/${locale}/kurumsal/belgeler` },
   ]);
 
   return (
@@ -120,25 +339,23 @@ export default function BelgelerPage() {
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href="/hakkimizda" className="hover:text-[#C9A84C] transition-colors">
-              Kurumsal
+            <Link href={`/${locale}/hakkimizda`} className="hover:text-[#C9A84C] transition-colors">
+              {t.breadcrumbs.corporate}
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">Belgeler & Sertifikalar</span>
+            <span className="text-[#C9A84C]">{t.breadcrumbs.certificates}</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Belgeler & <span className="text-[#C9A84C]">Sertifikalar</span>
+              {t.hero.title} <span className="text-[#C9A84C]">{t.hero.titleHighlight}</span>
             </h1>
             <p className="text-gray-300 text-lg leading-relaxed">
-              Kalinda Yapı olarak Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinde tüm yasal gerekliliklere uygun, resmi belge
-              ve sertifikalarla hizmet veriyoruz. Şeffaflık ilkemiz gereği belgelerimizi sizlerle paylaşıyoruz.
-              Emlak danışmanlığı, tadilat ve inşaat hizmetlerimiz resmi lisans ve sertifikalarla desteklenmektedir.
+              {t.hero.description}
             </p>
           </div>
         </div>
@@ -149,24 +366,24 @@ export default function BelgelerPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
-              Aktif Belgeler
+              {t.activeCerts.badge}
             </span>
             <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
-              Mevcut Sertifikalarımız
+              {t.activeCerts.title}
             </h2>
             <p className="text-[#666666] max-w-2xl mx-auto">
-              Resmi olarak yetkilendirilmiş ve güncel belgelerimiz.
+              {t.activeCerts.description}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
-            {belgeler.map((belge) => {
-              const Icon = belge.ikon;
+            {t.belgeler.map((belge, index) => {
+              const Icon = iconMap[index];
               return (
                 <Card key={belge.baslik} padding="lg" className="relative overflow-hidden">
                   <div className="absolute top-0 right-0 bg-green-500 text-white text-xs px-3 py-1 rounded-bl-lg flex items-center gap-1">
                     <CheckCircle2 className="w-3 h-3" />
-                    Aktif
+                    {t.activeCerts.status}
                   </div>
                   <div className="flex gap-4">
                     <div className="w-16 h-16 rounded-2xl bg-[#0B1F3A] flex items-center justify-center flex-shrink-0">
@@ -178,7 +395,7 @@ export default function BelgelerPage() {
                       <p className="text-xs text-[#666666]">{belge.detay}</p>
                       <div className="mt-3 flex items-center gap-2 text-xs text-[#666666]">
                         <Clock className="w-3 h-3" />
-                        Alınış: {belge.tarih}
+                        {t.activeCerts.dateLabel} {belge.tarih}
                       </div>
                     </div>
                   </div>
@@ -194,19 +411,19 @@ export default function BelgelerPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
-              Hedef Belgeler
+              {t.targetCerts.badge}
             </span>
             <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
-              Almayı Hedeflediğimiz Sertifikalar
+              {t.targetCerts.title}
             </h2>
             <p className="text-[#666666] max-w-2xl mx-auto">
-              Kalite standartlarımızı yükseltmek için çalıştığımız belgeler.
+              {t.targetCerts.description}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {hedefBelgeler.map((belge) => {
-              const Icon = belge.ikon;
+            {t.hedefBelgeler.map((belge, index) => {
+              const Icon = targetIconMap[index];
               return (
                 <Card key={belge.baslik} padding="lg">
                   <div className="flex gap-4 mb-4">
@@ -220,7 +437,7 @@ export default function BelgelerPage() {
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#666666]">İlerleme</span>
+                      <span className="text-[#666666]">{t.targetCerts.progress}</span>
                       <span className="font-medium text-[#0B1F3A]">{belge.ilerleme}%</span>
                     </div>
                     <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -230,7 +447,7 @@ export default function BelgelerPage() {
                       />
                     </div>
                     <p className="text-xs text-[#666666] text-right">
-                      Hedef: {belge.hedefTarih}
+                      {t.targetCerts.target} {belge.hedefTarih}
                     </p>
                   </div>
                 </Card>
@@ -245,18 +462,18 @@ export default function BelgelerPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
-              Üyelikler
+              {t.memberships.badge}
             </span>
             <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
-              Üyesi Olduğumuz Kuruluşlar
+              {t.memberships.title}
             </h2>
             <p className="text-[#666666] max-w-2xl mx-auto">
-              Sektörel kuruluşlarda aktif üyeliğimiz bulunmaktadır.
+              {t.memberships.description}
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            {uyeler.map((uye) => (
+            {t.uyeler.map((uye) => (
               <div
                 key={uye}
                 className="flex items-center gap-3 px-6 py-4 bg-[#F5F5F5] rounded-xl"
@@ -277,12 +494,10 @@ export default function BelgelerPage() {
           <div className="max-w-3xl mx-auto text-center">
             <Shield className="w-16 h-16 text-[#C9A84C] mx-auto mb-6" />
             <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
-              Güvenilir ve Şeffaf Hizmet
+              {t.trust.title}
             </h2>
             <p className="text-[#666666] leading-relaxed">
-              Tüm belgelerimiz güncel ve geçerlidir. Yasal düzenlemelere tam uyum
-              sağlayarak müşterilerimize güvenli hizmet sunmaktayız. Herhangi bir
-              belgemizi görmek isterseniz ofisimizi ziyaret edebilirsiniz.
+              {t.trust.description}
             </p>
           </div>
         </div>
@@ -292,21 +507,20 @@ export default function BelgelerPage() {
       <section className="py-20 bg-[#0B1F3A]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Daha Fazla Bilgi Almak İster misiniz?
+            {t.cta.title}
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-            Belgelerimiz ve hizmetlerimiz hakkında detaylı bilgi için
-            bizimle iletişime geçebilirsiniz.
+            {t.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/iletisim">
+            <Link href={`/${locale}/iletisim`}>
               <Button variant="accent" size="lg">
-                İletişime Geç
+                {t.cta.contact}
               </Button>
             </Link>
-            <Link href="/hakkimizda">
+            <Link href={`/${locale}/hakkimizda`}>
               <Button variant="outline" size="lg" className="text-white border-white hover:bg-white/10">
-                Hakkımızda
+                {t.cta.about}
               </Button>
             </Link>
           </div>

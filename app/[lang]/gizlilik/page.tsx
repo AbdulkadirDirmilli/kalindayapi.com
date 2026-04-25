@@ -3,6 +3,145 @@ import Link from "next/link";
 import { ChevronRight, Home, Shield } from "lucide-react";
 import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
+import { locales, type Locale } from "@/lib/i18n";
+
+const texts = {
+  tr: {
+    breadcrumb: "Gizlilik Politikası",
+    title: "Gizlilik Politikası",
+    lastUpdate: "Son güncelleme: 28 Mart 2026",
+    sections: [
+      {
+        title: "1. Giriş",
+        content: "Kalinda Yapı olarak, web sitemizi ziyaret eden kullanıcıların gizliliğine önem veriyoruz. Bu gizlilik politikası, kişisel verilerinizin nasıl toplandığı, kullanıldığı ve korunduğu hakkında bilgi vermektedir.",
+      },
+      {
+        title: "2. Toplanan Bilgiler",
+        content: "Web sitemizi kullandığınızda aşağıdaki bilgiler toplanabilir:",
+        list: [
+          "İletişim formu aracılığıyla gönderilen ad, e-posta ve telefon bilgileri",
+          "IP adresi ve tarayıcı bilgileri",
+          "Çerezler aracılığıyla toplanan kullanım verileri",
+        ],
+      },
+      {
+        title: "3. Bilgilerin Kullanımı",
+        content: "Toplanan bilgiler aşağıdaki amaçlarla kullanılmaktadır:",
+        list: [
+          "Müşteri taleplerine yanıt vermek",
+          "Hizmet kalitesini iyileştirmek",
+          "Yasal yükümlülükleri yerine getirmek",
+        ],
+      },
+      {
+        title: "4. Bilgi Güvenliği",
+        content: "Kişisel verilerinizin güvenliğini sağlamak için uygun teknik ve organizasyonel önlemler alınmaktadır. Verileriniz yetkisiz erişme, değiştirme veya ifşa edilmeye karşı korunmaktadır.",
+      },
+      {
+        title: "5. Çerezler",
+        content: "Web sitemiz, kullanıcı deneyimini iyileştirmek için çerezler kullanmaktadır. Tarayıcı ayarlarınızdan çerezleri devre dışı bırakabilirsiniz, ancak bu durumda bazı özellikler düzgün çalışmayabilir.",
+      },
+      {
+        title: "6. Üçüncü Taraf Bağlantıları",
+        content: "Web sitemiz üçüncü taraf web sitelerine bağlantılar içerebilir. Bu sitelerin gizlilik uygulamaları üzerinde kontrolümüz bulunmamaktadır ve bu nedenle sorumluluk kabul etmemekteyiz.",
+      },
+      {
+        title: "7. İletişim",
+        content: "Gizlilik politikamız hakkında sorularınız varsa, aşağıdaki iletişim bilgilerinden bize ulaşabilirsiniz:",
+      },
+    ],
+  },
+  en: {
+    breadcrumb: "Privacy Policy",
+    title: "Privacy Policy",
+    lastUpdate: "Last updated: March 28, 2026",
+    sections: [
+      {
+        title: "1. Introduction",
+        content: "At Kalinda Yapı, we value the privacy of visitors to our website. This privacy policy provides information about how your personal data is collected, used, and protected.",
+      },
+      {
+        title: "2. Information Collected",
+        content: "The following information may be collected when you use our website:",
+        list: [
+          "Name, email, and phone information submitted through the contact form",
+          "IP address and browser information",
+          "Usage data collected through cookies",
+        ],
+      },
+      {
+        title: "3. Use of Information",
+        content: "The collected information is used for the following purposes:",
+        list: [
+          "Responding to customer inquiries",
+          "Improving service quality",
+          "Fulfilling legal obligations",
+        ],
+      },
+      {
+        title: "4. Information Security",
+        content: "Appropriate technical and organizational measures are taken to ensure the security of your personal data. Your data is protected against unauthorized access, modification, or disclosure.",
+      },
+      {
+        title: "5. Cookies",
+        content: "Our website uses cookies to improve user experience. You can disable cookies from your browser settings, but some features may not work properly in this case.",
+      },
+      {
+        title: "6. Third-Party Links",
+        content: "Our website may contain links to third-party websites. We have no control over the privacy practices of these sites and therefore accept no responsibility.",
+      },
+      {
+        title: "7. Contact",
+        content: "If you have questions about our privacy policy, you can reach us at the following contact information:",
+      },
+    ],
+  },
+  ar: {
+    breadcrumb: "سياسة الخصوصية",
+    title: "سياسة الخصوصية",
+    lastUpdate: "آخر تحديث: 28 مارس 2026",
+    sections: [
+      {
+        title: "1. مقدمة",
+        content: "في كاليندا يابي، نقدر خصوصية زوار موقعنا الإلكتروني. توفر سياسة الخصوصية هذه معلومات حول كيفية جمع بياناتك الشخصية واستخدامها وحمايتها.",
+      },
+      {
+        title: "2. المعلومات المجمعة",
+        content: "قد يتم جمع المعلومات التالية عند استخدامك لموقعنا:",
+        list: [
+          "الاسم والبريد الإلكتروني ومعلومات الهاتف المرسلة عبر نموذج الاتصال",
+          "عنوان IP ومعلومات المتصفح",
+          "بيانات الاستخدام المجمعة من خلال ملفات تعريف الارتباط",
+        ],
+      },
+      {
+        title: "3. استخدام المعلومات",
+        content: "تُستخدم المعلومات المجمعة للأغراض التالية:",
+        list: [
+          "الرد على استفسارات العملاء",
+          "تحسين جودة الخدمة",
+          "الوفاء بالالتزامات القانونية",
+        ],
+      },
+      {
+        title: "4. أمن المعلومات",
+        content: "يتم اتخاذ التدابير التقنية والتنظيمية المناسبة لضمان أمان بياناتك الشخصية. بياناتك محمية ضد الوصول غير المصرح به أو التعديل أو الكشف.",
+      },
+      {
+        title: "5. ملفات تعريف الارتباط",
+        content: "يستخدم موقعنا ملفات تعريف الارتباط لتحسين تجربة المستخدم. يمكنك تعطيل ملفات تعريف الارتباط من إعدادات المتصفح، ولكن قد لا تعمل بعض الميزات بشكل صحيح في هذه الحالة.",
+      },
+      {
+        title: "6. روابط الطرف الثالث",
+        content: "قد يحتوي موقعنا على روابط لمواقع ويب تابعة لجهات خارجية. ليس لدينا سيطرة على ممارسات الخصوصية لهذه المواقع وبالتالي لا نتحمل أي مسؤولية.",
+      },
+      {
+        title: "7. الاتصال",
+        content: "إذا كانت لديك أسئلة حول سياسة الخصوصية الخاصة بنا، يمكنك الاتصال بنا على معلومات الاتصال التالية:",
+      },
+    ],
+  },
+};
 
 export async function generateMetadata({
   params,
@@ -19,7 +158,19 @@ export async function generateMetadata({
   };
 }
 
-export default function GizlilikPage() {
+export async function generateStaticParams() {
+  return locales.map((locale) => ({ lang: locale }));
+}
+
+export default async function GizlilikPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const locale = resolveLocale(lang) as Locale;
+  const t = texts[locale];
+
   return (
     <>
       {/* Hero */}
@@ -27,11 +178,11 @@ export default function GizlilikPage() {
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">Gizlilik Politikasi</span>
+            <span className="text-[#C9A84C]">{t.breadcrumb}</span>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -40,10 +191,10 @@ export default function GizlilikPage() {
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-white">
-                Gizlilik Politikasi
+                {t.title}
               </h1>
               <p className="text-gray-400 mt-2">
-                Son guncelleme: 28 Mart 2026
+                {t.lastUpdate}
               </p>
             </div>
           </div>
@@ -55,63 +206,24 @@ export default function GizlilikPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm p-8 md:p-12">
             <div className="prose prose-lg max-w-none">
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">1. Giriş</h2>
-              <p className="text-[#666666] mb-6">
-                Kalinda Yapi olarak, web sitemizi ziyaret eden kullanicilarin gizliligine onem veriyoruz.
-                Bu gizlilik politikasi, kisisel verilerinizin nasil toplandigi, kullanildigi ve
-                korunduğu hakkinda bilgi vermektedir.
-              </p>
+              {t.sections.map((section, index) => (
+                <div key={index} className="mb-6">
+                  <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">{section.title}</h2>
+                  <p className="text-[#666666] mb-4">{section.content}</p>
+                  {section.list && (
+                    <ul className="list-disc list-inside text-[#666666] mb-6 space-y-2">
+                      {section.list.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
 
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">2. Toplanan Bilgiler</h2>
-              <p className="text-[#666666] mb-4">
-                Web sitemizi kullandiginizda asagidaki bilgiler toplanabilir:
-              </p>
-              <ul className="list-disc list-inside text-[#666666] mb-6 space-y-2">
-                <li>İletişim formu aracılığıyla gönderilen ad, e-posta ve telefon bilgileri</li>
-                <li>IP adresi ve tarayici bilgileri</li>
-                <li>Cerezler araciligiyla toplanan kullanim verileri</li>
-              </ul>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">3. Bilgilerin Kullanimi</h2>
-              <p className="text-[#666666] mb-4">
-                Toplanan bilgiler asagidaki amaclarla kullanilmaktadir:
-              </p>
-              <ul className="list-disc list-inside text-[#666666] mb-6 space-y-2">
-                <li>Musteri taleplerine yanit vermek</li>
-                <li>Hizmet kalitesini iyilestirmek</li>
-                <li>Yasal yukumlulukleri yerine getirmek</li>
-              </ul>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">4. Bilgi Guvenligi</h2>
-              <p className="text-[#666666] mb-6">
-                Kisisel verilerinizin guvenligini saglamak icin uygun teknik ve organizasyonel
-                onlemler alinmaktadir. Verileriniz yetkisiz erisme, degistirme veya ifsa
-                edilmeye karsi korunmaktadir.
-              </p>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">5. Cerezler</h2>
-              <p className="text-[#666666] mb-6">
-                Web sitemiz, kullanici deneyimini iyilestirmek icin cerezler kullanmaktadir.
-                Tarayici ayarlarinizdan cerezleri devre disi birakabilirsiniz, ancak bu
-                durumda bazi ozellikler duzgun calismayabilir.
-              </p>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">6. Ucuncu Taraf Baglantilari</h2>
-              <p className="text-[#666666] mb-6">
-                Web sitemiz ucuncu taraf web sitelerine baglantilar icerebilir. Bu sitelerin
-                gizlilik uygulamalari uzerinde kontrolumuz bulunmamaktadir ve bu nedenle
-                sorumluluk kabul etmemekteyiz.
-              </p>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">7. İletişim</h2>
-              <p className="text-[#666666] mb-6">
-                Gizlilik politikamiz hakkinda sorulariniz varsa, asagidaki iletisim
-                bilgilerinden bize ulasabilirsiniz:
-              </p>
               <div className="bg-[#F5F5F5] rounded-xl p-6">
-                <p className="text-[#0B1F3A] font-semibold">Kalinda Yapi</p>
-                <p className="text-[#666666]">Ataturk Mah. 58 Sk. No: 2/B</p>
-                <p className="text-[#666666]">Ortaca / Mugla</p>
+                <p className="text-[#0B1F3A] font-semibold">Kalinda Yapı</p>
+                <p className="text-[#666666]">Atatürk Mah. 58 Sk. No: 2/B</p>
+                <p className="text-[#666666]">Ortaca / Muğla</p>
                 <p className="text-[#666666]">Tel: +90 537 053 07 54</p>
                 <p className="text-[#666666]">E-posta: info@kalindayapi.com</p>
               </div>

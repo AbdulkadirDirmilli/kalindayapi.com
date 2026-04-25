@@ -3,6 +3,139 @@ import Link from "next/link";
 import { ChevronRight, Home, FileText } from "lucide-react";
 import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
+import { locales, type Locale } from "@/lib/i18n";
+
+const texts = {
+  tr: {
+    breadcrumb: "Kullanım Koşulları",
+    title: "Kullanım Koşulları",
+    lastUpdate: "Son güncelleme: 28 Mart 2026",
+    sections: [
+      {
+        title: "1. Kabul",
+        content: "Bu web sitesini kullanarak, aşağıdaki kullanım koşullarını kabul etmiş sayılırsınız. Bu koşulları kabul etmiyorsanız, lütfen siteyi kullanmayınız.",
+      },
+      {
+        title: "2. Hizmet Tanımı",
+        content: "Kalinda Yapı, emlak danışmanlığı, inşaat ve tadilat hizmetleri sunan bir şirkettir. Web sitemiz, hizmetlerimiz hakkında bilgi vermek ve potansiyel müşterilerle iletişim kurmak amacıyla kullanılmaktadır.",
+      },
+      {
+        title: "3. İlan Bilgileri",
+        content: "Web sitemizde yayınlanan emlak ilanları bilgi amaçlıdır. İlan bilgilerinin doğruluğu ve güncelliğini sağlamak için çaba göstermekteyiz, ancak bilgilerin eksiksiz veya hatasız olacağını garanti etmemekteyiz. Kesin bilgi için lütfen bizimle iletişime geçin.",
+      },
+      {
+        title: "4. Fikri Mülkiyet",
+        content: "Bu web sitesindeki tüm içerik, tasarım, logolar ve görseller Kalinda Yapı'ya aittir veya lisanslıdır. İzinsiz kopyalama, dağıtma veya kullanım yasaktır.",
+      },
+      {
+        title: "5. Sorumluluk Sınırlaması",
+        content: "Kalinda Yapı, web sitesinin kullanımı sonucu ortaya çıkabilecek doğrudan veya dolaylı zararlardan sorumlu tutulamaz. Web sitesi \"olduğu gibi\" sunulmaktadır.",
+      },
+      {
+        title: "6. Üçüncü Taraf Bağlantıları",
+        content: "Web sitemiz üçüncü taraf web sitelerine bağlantılar içerebilir. Bu sitelerin içeriği veya gizlilik uygulamaları üzerinde kontrolümüz yoktur.",
+      },
+      {
+        title: "7. Değişiklikler",
+        content: "Bu kullanım koşullarını önceden haber vermeksizin değiştirme hakkını saklı tutarız. Değişiklikler web sitesinde yayınlandığı anda yürürlüğe girer.",
+      },
+      {
+        title: "8. Uygulanacak Hukuk",
+        content: "Bu kullanım koşulları Türkiye Cumhuriyeti yasalarına tabidir. Herhangi bir uyuşmazlık durumunda Muğla Mahkemeleri yetkilidir.",
+      },
+      {
+        title: "9. İletişim",
+        content: "Kullanım koşulları hakkında sorularınız varsa, aşağıdaki iletişim bilgilerinden bize ulaşabilirsiniz:",
+      },
+    ],
+  },
+  en: {
+    breadcrumb: "Terms of Use",
+    title: "Terms of Use",
+    lastUpdate: "Last updated: March 28, 2026",
+    sections: [
+      {
+        title: "1. Acceptance",
+        content: "By using this website, you are deemed to have accepted the following terms of use. If you do not accept these terms, please do not use the site.",
+      },
+      {
+        title: "2. Service Description",
+        content: "Kalinda Yapı is a company offering real estate consultancy, construction, and renovation services. Our website is used to provide information about our services and to communicate with potential customers.",
+      },
+      {
+        title: "3. Listing Information",
+        content: "Real estate listings published on our website are for informational purposes. We strive to ensure the accuracy and timeliness of listing information, but we do not guarantee that the information is complete or error-free. Please contact us for definitive information.",
+      },
+      {
+        title: "4. Intellectual Property",
+        content: "All content, designs, logos, and images on this website are owned by or licensed to Kalinda Yapı. Unauthorized copying, distribution, or use is prohibited.",
+      },
+      {
+        title: "5. Limitation of Liability",
+        content: "Kalinda Yapı cannot be held responsible for direct or indirect damages that may arise from the use of the website. The website is provided \"as is\".",
+      },
+      {
+        title: "6. Third-Party Links",
+        content: "Our website may contain links to third-party websites. We have no control over the content or privacy practices of these sites.",
+      },
+      {
+        title: "7. Changes",
+        content: "We reserve the right to change these terms of use without prior notice. Changes take effect as soon as they are published on the website.",
+      },
+      {
+        title: "8. Applicable Law",
+        content: "These terms of use are subject to the laws of the Republic of Turkey. In case of any dispute, Muğla Courts have jurisdiction.",
+      },
+      {
+        title: "9. Contact",
+        content: "If you have questions about the terms of use, you can reach us at the following contact information:",
+      },
+    ],
+  },
+  ar: {
+    breadcrumb: "شروط الاستخدام",
+    title: "شروط الاستخدام",
+    lastUpdate: "آخر تحديث: 28 مارس 2026",
+    sections: [
+      {
+        title: "1. القبول",
+        content: "باستخدام هذا الموقع، يُعتبر أنك قد قبلت شروط الاستخدام التالية. إذا كنت لا توافق على هذه الشروط، يرجى عدم استخدام الموقع.",
+      },
+      {
+        title: "2. وصف الخدمة",
+        content: "كاليندا يابي هي شركة تقدم خدمات الاستشارات العقارية والبناء والتجديد. يُستخدم موقعنا الإلكتروني لتقديم معلومات حول خدماتنا والتواصل مع العملاء المحتملين.",
+      },
+      {
+        title: "3. معلومات القوائم",
+        content: "القوائم العقارية المنشورة على موقعنا هي لأغراض إعلامية. نسعى لضمان دقة وحداثة معلومات القوائم، لكننا لا نضمن أن المعلومات كاملة أو خالية من الأخطاء. يرجى الاتصال بنا للحصول على معلومات نهائية.",
+      },
+      {
+        title: "4. الملكية الفكرية",
+        content: "جميع المحتويات والتصميمات والشعارات والصور الموجودة على هذا الموقع مملوكة أو مرخصة لشركة كاليندا يابي. يُحظر النسخ أو التوزيع أو الاستخدام غير المصرح به.",
+      },
+      {
+        title: "5. تحديد المسؤولية",
+        content: "لا يمكن تحميل كاليندا يابي المسؤولية عن الأضرار المباشرة أو غير المباشرة التي قد تنشأ عن استخدام الموقع. يتم تقديم الموقع \"كما هو\".",
+      },
+      {
+        title: "6. روابط الطرف الثالث",
+        content: "قد يحتوي موقعنا على روابط لمواقع ويب تابعة لجهات خارجية. ليس لدينا سيطرة على محتوى أو ممارسات الخصوصية لهذه المواقع.",
+      },
+      {
+        title: "7. التغييرات",
+        content: "نحتفظ بالحق في تغيير شروط الاستخدام هذه دون إشعار مسبق. تدخل التغييرات حيز التنفيذ بمجرد نشرها على الموقع.",
+      },
+      {
+        title: "8. القانون المعمول به",
+        content: "تخضع شروط الاستخدام هذه لقوانين جمهورية تركيا. في حالة أي نزاع، تكون محاكم موغلا هي المختصة.",
+      },
+      {
+        title: "9. الاتصال",
+        content: "إذا كانت لديك أسئلة حول شروط الاستخدام، يمكنك الاتصال بنا على معلومات الاتصال التالية:",
+      },
+    ],
+  },
+};
 
 export async function generateMetadata({
   params,
@@ -19,7 +152,19 @@ export async function generateMetadata({
   };
 }
 
-export default function KullanimKosullariPage() {
+export async function generateStaticParams() {
+  return locales.map((locale) => ({ lang: locale }));
+}
+
+export default async function KullanimKosullariPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const locale = resolveLocale(lang) as Locale;
+  const t = texts[locale];
+
   return (
     <>
       {/* Hero */}
@@ -27,11 +172,11 @@ export default function KullanimKosullariPage() {
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">Kullanim Kosullari</span>
+            <span className="text-[#C9A84C]">{t.breadcrumb}</span>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -40,10 +185,10 @@ export default function KullanimKosullariPage() {
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-white">
-                Kullanim Kosullari
+                {t.title}
               </h1>
               <p className="text-gray-400 mt-2">
-                Son guncelleme: 28 Mart 2026
+                {t.lastUpdate}
               </p>
             </div>
           </div>
@@ -55,67 +200,17 @@ export default function KullanimKosullariPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm p-8 md:p-12">
             <div className="prose prose-lg max-w-none">
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">1. Kabul</h2>
-              <p className="text-[#666666] mb-6">
-                Bu web sitesini kullanarak, asagidaki kullanim kosullarini kabul etmis
-                sayilirsiniz. Bu kosullari kabul etmiyorsaniz, lutfen siteyi kullanmayiniz.
-              </p>
+              {t.sections.map((section, index) => (
+                <div key={index} className="mb-6">
+                  <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">{section.title}</h2>
+                  <p className="text-[#666666] mb-4">{section.content}</p>
+                </div>
+              ))}
 
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">2. Hizmet Tanimi</h2>
-              <p className="text-[#666666] mb-6">
-                Kalinda Yapi, emlak danismanligi, insaat ve tadilat hizmetleri sunan bir
-                sirketir. Web sitemiz, hizmetlerimiz hakkinda bilgi vermek ve potansiyel
-                musterilerle iletisim kurmak amaciyla kullanilmaktadir.
-              </p>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">3. İlan Bilgileri</h2>
-              <p className="text-[#666666] mb-6">
-                Web sitemizde yayınlanan emlak ilanları bilgi amaçlıdır. İlan bilgilerinin
-                dogruluğu ve guncelligini saglamak icin caba gostermekteyiz, ancak bilgilerin
-                eksiksiz veya hatasiz olacagini garanti etmemekteyiz. Kesin bilgi icin
-                lutfen bizimle iletisime gecin.
-              </p>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">4. Fikri Mulkiyet</h2>
-              <p className="text-[#666666] mb-6">
-                Bu web sitesindeki tum icerik, tasarim, logolar ve gorseller Kalinda Yapi'ya
-                aittir veya lisanslidir. Izinsiz kopyalama, dagitma veya kullanim yasaktir.
-              </p>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">5. Sorumluluk Sinirlamasi</h2>
-              <p className="text-[#666666] mb-6">
-                Kalinda Yapi, web sitesinin kullanimi sonucu ortaya cikabilecek dogrudan
-                veya dolayli zararlardan sorumlu tutulamaz. Web sitesi "oldugu gibi"
-                sunulmaktadir.
-              </p>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">6. Ucuncu Taraf Baglantilari</h2>
-              <p className="text-[#666666] mb-6">
-                Web sitemiz ucuncu taraf web sitelerine baglantilar icerebilir. Bu sitelerin
-                icerigi veya gizlilik uygulamalari uzerinde kontrolumuz yoktur.
-              </p>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">7. Degisiklikler</h2>
-              <p className="text-[#666666] mb-6">
-                Bu kullanim kosullarini onceden haber vermeksizin degistirme hakkini sakli
-                tutariz. Degisiklikler web sitesinde yayinlandigi anda yururluge girer.
-              </p>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">8. Uygulanacak Hukuk</h2>
-              <p className="text-[#666666] mb-6">
-                Bu kullanim kosullari Turkiye Cumhuriyeti yasalarina tabidir. Herhangi bir
-                uyusmazlik durumunda Mugla Mahkemeleri yetkilidir.
-              </p>
-
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">9. Iletisim</h2>
-              <p className="text-[#666666] mb-6">
-                Kullanim kosullari hakkinda sorulariniz varsa, asagidaki iletisim
-                bilgilerinden bize ulasabilirsiniz:
-              </p>
               <div className="bg-[#F5F5F5] rounded-xl p-6">
-                <p className="text-[#0B1F3A] font-semibold">Kalinda Yapi</p>
-                <p className="text-[#666666]">Ataturk Mah. 58 Sk. No: 2/B</p>
-                <p className="text-[#666666]">Ortaca / Mugla</p>
+                <p className="text-[#0B1F3A] font-semibold">Kalinda Yapı</p>
+                <p className="text-[#666666]">Atatürk Mah. 58 Sk. No: 2/B</p>
+                <p className="text-[#666666]">Ortaca / Muğla</p>
                 <p className="text-[#666666]">Tel: +90 537 053 07 54</p>
                 <p className="text-[#666666]">E-posta: info@kalindayapi.com</p>
               </div>
