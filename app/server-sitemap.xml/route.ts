@@ -71,6 +71,13 @@ export async function GET() {
       { path: 'iletisim', priority: 0.6, changefreq: 'monthly' },
       { path: 'doviz-kurlari', priority: 0.7, changefreq: 'daily' },
       { path: 'sss', priority: 0.5, changefreq: 'monthly' }, // SSS artık çok dilli
+      // SEO Landing Pages
+      { path: 'ortaca-satilik-daire', priority: 0.9, changefreq: 'daily' },
+      { path: 'ortaca-kiralik-daire', priority: 0.9, changefreq: 'daily' },
+      { path: 'dalaman-satilik-ev', priority: 0.9, changefreq: 'daily' },
+      { path: 'ortaca-ogrenci-kiralik', priority: 0.8, changefreq: 'weekly' },
+      { path: 'dalyan-satilik-villa', priority: 0.8, changefreq: 'weekly' },
+      { path: 'ortaca-emlak-ofisi', priority: 0.8, changefreq: 'monthly' },
     ]
 
     // Sadece Türkçe içerik olan sayfalar (çevirisi yok)

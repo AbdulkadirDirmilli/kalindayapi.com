@@ -23,6 +23,7 @@ const footerTexts = {
     services: "Hizmetler",
     categories: "İlan Kategorileri",
     contact: "İletişim",
+    popularSearches: "Popüler Aramalar",
     home: "Ana Sayfa",
     blog: "Blog",
     about: "Hakkımızda",
@@ -69,6 +70,7 @@ const footerTexts = {
     rentApartments: "Apartments for Rent",
     saleVillas: "Villas for Sale",
     lands: "Lands",
+    popularSearches: "Popular Searches",
     eidsTitle: "Listing Verification Info",
     eidsDescription: "EIDS status indicates the listing verification level provided by KalindaYapi platform. This is an informational verification status and does not represent official government verification. For full verification details, please contact the listing owner or consultant.",
     copyright: "Kalinda Yapı — Ortaca, Muğla | All Rights Reserved",
@@ -102,6 +104,7 @@ const footerTexts = {
     rentApartments: "شقق للإيجار",
     saleVillas: "فلل للبيع",
     lands: "أراضي",
+    popularSearches: "عمليات البحث الشائعة",
     eidsTitle: "معلومات التحقق من الإعلان",
     eidsDescription: "تشير حالة EIDS إلى مستوى التحقق من الإعلان المقدم من منصة KalindaYapi. هذه حالة تحقق إعلامية ولا تمثل التحقق الحكومي الرسمي. للحصول على تفاصيل التحقق الكاملة، يرجى الاتصال بمالك الإعلان أو المستشار.",
     copyright: "كالينداي يابي — أورتاجا، موغلا | جميع الحقوق محفوظة",
@@ -144,6 +147,34 @@ export default function Footer() {
     { name: t.saleVillas, href: `/${locale}/${getLocalizedRoute('ilanlar', locale)}?kategori=satilik&tip=villa` },
     { name: t.lands, href: `/${locale}/${getLocalizedRoute('ilanlar', locale)}?kategori=satilik&tip=arsa` },
   ];
+
+  // Popular searches for SEO internal linking
+  const popularSearches = {
+    tr: [
+      { name: "Ortaca Satılık Daire", href: `/${locale}/${getLocalizedRoute('ortaca-satilik-daire', locale)}` },
+      { name: "Ortaca Kiralık Daire", href: `/${locale}/${getLocalizedRoute('ortaca-kiralik-daire', locale)}` },
+      { name: "Dalaman Satılık Ev", href: `/${locale}/${getLocalizedRoute('dalaman-satilik-ev', locale)}` },
+      { name: "Dalyan Satılık Villa", href: `/${locale}/${getLocalizedRoute('dalyan-satilik-villa', locale)}` },
+      { name: "Ortaca Öğrenci Kiralık", href: `/${locale}/${getLocalizedRoute('ortaca-ogrenci-kiralik', locale)}` },
+      { name: "Ortaca Emlak Ofisi", href: `/${locale}/${getLocalizedRoute('ortaca-emlak-ofisi', locale)}` },
+    ],
+    en: [
+      { name: "Ortaca Apartments for Sale", href: `/${locale}/${getLocalizedRoute('ortaca-satilik-daire', locale)}` },
+      { name: "Ortaca Apartments for Rent", href: `/${locale}/${getLocalizedRoute('ortaca-kiralik-daire', locale)}` },
+      { name: "Dalaman Houses for Sale", href: `/${locale}/${getLocalizedRoute('dalaman-satilik-ev', locale)}` },
+      { name: "Dalyan Villas for Sale", href: `/${locale}/${getLocalizedRoute('dalyan-satilik-villa', locale)}` },
+      { name: "Ortaca Student Rentals", href: `/${locale}/${getLocalizedRoute('ortaca-ogrenci-kiralik', locale)}` },
+      { name: "Ortaca Real Estate Office", href: `/${locale}/${getLocalizedRoute('ortaca-emlak-ofisi', locale)}` },
+    ],
+    ar: [
+      { name: "شقق للبيع في أورتاجا", href: `/${locale}/${getLocalizedRoute('ortaca-satilik-daire', locale)}` },
+      { name: "شقق للإيجار في أورتاجا", href: `/${locale}/${getLocalizedRoute('ortaca-kiralik-daire', locale)}` },
+      { name: "منازل للبيع في دالامان", href: `/${locale}/${getLocalizedRoute('dalaman-satilik-ev', locale)}` },
+      { name: "فلل للبيع في دالان", href: `/${locale}/${getLocalizedRoute('dalyan-satilik-villa', locale)}` },
+      { name: "إيجار طلاب في أورتاجا", href: `/${locale}/${getLocalizedRoute('ortaca-ogrenci-kiralik', locale)}` },
+      { name: "مكتب عقارات أورتاجا", href: `/${locale}/${getLocalizedRoute('ortaca-emlak-ofisi', locale)}` },
+    ],
+  };
 
   return (
     <footer className="bg-primary text-white">
@@ -327,6 +358,24 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Popular Searches - SEO Internal Linking */}
+      <div className="border-t border-white/10">
+        <div className="container mx-auto px-4 py-6">
+          <h3 className="text-accent font-bold mb-4 text-center">{t.popularSearches}</h3>
+          <div className="flex flex-wrap justify-center gap-2">
+            {popularSearches[locale].map((search) => (
+              <Link
+                key={search.name}
+                href={search.href}
+                className="px-3 py-1.5 bg-white/5 hover:bg-accent/20 text-gray-300 hover:text-accent text-sm rounded-full transition-colors"
+              >
+                {search.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

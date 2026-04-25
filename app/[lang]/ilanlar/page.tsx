@@ -1,146 +1,221 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { IlanKart, IlanFiltresi, IlanPagination } from "@/components/ilan";
-import { generateBreadcrumbSchema } from "@/lib/jsonld";
-import { Ilan } from "@/lib/utils";
-import { ChevronRight, Home, Loader2 } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { ChevronRight, Home } from "lucide-react";
+import {
+  generateBreadcrumbSchema,
+  generatePropertyListSchema,
+  generateRealEstateAgentSchema,
+} from "@/lib/jsonld";
 import { locales, defaultLocale, type Locale, getLocalizedRoute } from "@/lib/i18n";
+import { getCachedDictionary } from "@/lib/i18n/getDictionary";
+import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { prisma } from "@/lib/prisma";
+import IlanlarClient from "./IlanlarClient";
 
 const ITEMS_PER_PAGE = 12;
-
-interface FilterState {
-  kategori: string;
-  tip: string;
-  konum: string;
-  minFiyat: string;
-  maxFiyat: string;
-  arama: string;
-  eidsStatus: string;
-}
 
 // Dil bazlı metinler
 const texts = {
   tr: {
     title: "Emlak İlanları",
-    subtitle: "Muğla'nın tüm ilçelerinde satılık ve kiralık gayrimenkuller. Hayalinizdeki evi bulun.",
+    metaTitle: "Ortaca Satılık & Kiralık Emlak İlanları 2026 | Kalinda Yapı",
+    metaDescription:
+      "Ortaca, Dalaman, Dalyan ve Köyceğiz'de satılık ve kiralık daire, villa, arsa ilanları ✓ 150+ güncel ilan ✓ Lisanslı danışman. Hemen inceleyin! ☎ 0537 053 07 54",
+    subtitle:
+      "Muğla'nın tüm ilçelerinde satılık ve kiralık gayrimenkuller. Ortaca, Dalaman, Dalyan, Köyceğiz bölgelerinde hayalinizdeki evi bulun.",
     breadcrumb: "İlanlar",
     loading: "İlanlar yükleniyor...",
     error: "Hata Oluştu",
     retry: "Tekrar Dene",
     noResults: "İlan Bulunamadı",
-    noResultsDesc: "Arama kriterlerinize uygun ilan bulunamadı. Filtreleri değiştirmeyi deneyin.",
+    noResultsDesc:
+      "Arama kriterlerinize uygun ilan bulunamadı. Filtreleri değiştirmeyi deneyin.",
     clearFilters: "Tüm filtreleri temizle",
   },
   en: {
     title: "Property Listings",
-    subtitle: "Properties for sale and rent in all districts of Muğla. Find your dream home.",
+    metaTitle: "Property for Sale & Rent in Ortaca 2026 | Kalinda Yapı",
+    metaDescription:
+      "Apartments, villas, and land for sale and rent in Ortaca, Dalaman, Dalyan, and Köyceğiz ✓ 150+ listings ✓ Licensed agents. Browse now! ☎ +90 537 053 07 54",
+    subtitle:
+      "Properties for sale and rent in all districts of Muğla. Find your dream home in Ortaca, Dalaman, Dalyan, Köyceğiz areas.",
     breadcrumb: "Listings",
     loading: "Loading listings...",
     error: "Error Occurred",
     retry: "Try Again",
     noResults: "No Listings Found",
-    noResultsDesc: "No listings found matching your search criteria. Try changing the filters.",
+    noResultsDesc:
+      "No listings found matching your search criteria. Try changing the filters.",
     clearFilters: "Clear all filters",
   },
   ar: {
     title: "قوائم العقارات",
-    subtitle: "عقارات للبيع والإيجار في جميع مناطق موغلا. اعثر على منزل أحلامك.",
+    metaTitle: "عقارات للبيع والإيجار في أورتاجا 2026 | كالينداي يابي",
+    metaDescription:
+      "شقق وفلل وأراضي للبيع والإيجار في أورتاجا ودالامان ودالان وكويجيز ✓ 150+ إعلان ✓ وكلاء مرخصون. تصفح الآن! ☎ 00905370530754",
+    subtitle:
+      "عقارات للبيع والإيجار في جميع مناطق موغلا. اعثر على منزل أحلامك في مناطق أورتاجا ودالامان ودالان وكويجيز.",
     breadcrumb: "العقارات",
     loading: "جاري تحميل العقارات...",
     error: "حدث خطأ",
     retry: "حاول مرة أخرى",
     noResults: "لم يتم العثور على عقارات",
-    noResultsDesc: "لم يتم العثور على عقارات تطابق معايير البحث. حاول تغيير المرشحات.",
+    noResultsDesc:
+      "لم يتم العثور على عقارات تطابق معايير البحث. حاول تغيير المرشحات.",
     clearFilters: "مسح جميع المرشحات",
   },
 };
 
-export default function IlanlarPage() {
-  const params = useParams();
-  const lang = (params?.lang as Locale) || defaultLocale;
-  const locale = locales.includes(lang) ? lang : defaultLocale;
+export async function generateStaticParams() {
+  return locales.map((locale) => ({ lang: locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
   const t = texts[locale];
 
-  const [filters, setFilters] = useState<FilterState>({
-    kategori: "",
-    tip: "",
-    konum: "",
-    minFiyat: "",
-    maxFiyat: "",
-    arama: "",
-    eidsStatus: "",
-  });
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [ilanlar, setIlanlar] = useState<Ilan[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [totalCount, setTotalCount] = useState(0);
-  const [totalPages, setTotalPages] = useState(1);
-
-  // Fetch ilanlar from API
-  useEffect(() => {
-    const fetchIlanlar = async () => {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const params = new URLSearchParams();
-        params.append("page", currentPage.toString());
-        params.append("limit", ITEMS_PER_PAGE.toString());
-
-        if (filters.kategori) params.append("kategori", filters.kategori);
-        if (filters.tip) params.append("tip", filters.tip);
-        if (filters.konum) params.append("konum", filters.konum);
-        if (filters.minFiyat) params.append("minFiyat", filters.minFiyat);
-        if (filters.maxFiyat) params.append("maxFiyat", filters.maxFiyat);
-        if (filters.arama) params.append("search", filters.arama);
-        if (filters.eidsStatus) params.append("eidsStatus", filters.eidsStatus);
-        params.append("lang", locale);
-
-        const response = await fetch(`/api/ilanlar?${params.toString()}`);
-
-        if (!response.ok) {
-          throw new Error("İlanlar yüklenirken hata oluştu");
-        }
-
-        const data = await response.json();
-        setIlanlar(data.ilanlar || []);
-        setTotalCount(data.pagination?.total || 0);
-        setTotalPages(data.pagination?.totalPages || 1);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Bir hata oluştu");
-        setIlanlar([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchIlanlar();
-  }, [currentPage, filters, locale]);
-
-  // Reset page when filters change
-  const handleFilterChange = (newFilters: FilterState) => {
-    setFilters(newFilters);
-    setCurrentPage(1);
+  return {
+    title: t.metaTitle,
+    description: t.metaDescription,
+    alternates: buildSeoAlternates("/ilanlar", locale),
+    openGraph: {
+      title: t.metaTitle,
+      description: t.metaDescription,
+      type: "website",
+    },
   };
+}
+
+// Fetch initial listings server-side
+async function getInitialListings(locale: string) {
+  try {
+    const [ilanlar, total] = await Promise.all([
+      prisma.ilan.findMany({
+        where: { durum: "aktif" },
+        include: {
+          fotograflar: {
+            orderBy: { sira: "asc" },
+          },
+          translations:
+            locale !== "tr"
+              ? {
+                  where: { language: locale, status: "published" },
+                  take: 1,
+                }
+              : false,
+        },
+        orderBy: [{ oneCikan: "desc" }, { createdAt: "desc" }],
+        take: ITEMS_PER_PAGE,
+      }),
+      prisma.ilan.count({ where: { durum: "aktif" } }),
+    ]);
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const formattedIlanlar = ilanlar.map((ilan: any) => {
+      const translation = ilan.translations?.[0];
+
+      return {
+        id: ilan.id,
+        baslik: translation?.baslik || ilan.baslik,
+        slug: translation?.slug || ilan.slug,
+        kategori: translation?.kategori || ilan.kategori,
+        tip: translation?.tip || ilan.tip,
+        fiyat: ilan.fiyat,
+        paraBirimi: ilan.paraBirimi,
+        konum: {
+          il: ilan.il,
+          ilce: ilan.ilce,
+          mahalle: ilan.mahalle || "",
+          koordinatlar: {
+            lat: ilan.koordinatLat || 36.8384,
+            lng: ilan.koordinatLng || 28.7667,
+          },
+        },
+        ozellikler: {
+          metrekare: ilan.metrekare || 0,
+          odaSayisi: ilan.odaSayisi,
+          banyoSayisi: ilan.banyoSayisi,
+          kat: ilan.kat,
+          toplamKat: ilan.toplamKat,
+          binaYasi: ilan.binaYasi,
+          isitma: ilan.isitma,
+          esyali: ilan.esyali,
+          balkon: ilan.balkon,
+          asansor: ilan.asansor,
+          otopark: ilan.otopark,
+          guvenlik: ilan.guvenlik,
+          havuz: ilan.havuz,
+          bahce: ilan.bahce,
+        },
+        aciklama: translation?.aciklama || ilan.aciklama,
+        fotograflar: ilan.fotograflar.map((f: { url: string }) => f.url),
+        oneCikan: ilan.oneCikan,
+        yayinTarihi: ilan.yayinTarihi.toISOString(),
+        guncellenmeTarihi: ilan.guncellenmeTarihi.toISOString(),
+        durum: ilan.durum,
+        ilanNo: ilan.ilanNo || "",
+        eidsStatus: ilan.eidsStatus,
+      };
+    });
+
+    return { ilanlar: formattedIlanlar, total };
+  } catch (error) {
+    console.error("Error fetching initial listings:", error);
+    return { ilanlar: [], total: 0 };
+  }
+}
+
+export default async function IlanlarPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
+  const t = texts[locale];
+  const dict = await getCachedDictionary(locale);
+
+  // Fetch initial data server-side
+  const { ilanlar, total } = await getInitialListings(locale);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === "tr" ? "Ana Sayfa" : locale === "en" ? "Home" : "الرئيسية", url: `/${locale}` },
-    { name: t.breadcrumb, url: `/${locale}/${getLocalizedRoute("ilanlar", locale)}` },
+    {
+      name: locale === "tr" ? "Ana Sayfa" : locale === "en" ? "Home" : "الرئيسية",
+      url: `/${locale}`,
+    },
+    {
+      name: t.breadcrumb,
+      url: `/${locale}/${getLocalizedRoute("ilanlar", locale)}`,
+    },
   ]);
+
+  const propertyListSchema = generatePropertyListSchema(ilanlar, t.title);
+  const realEstateAgentSchema = generateRealEstateAgentSchema();
 
   return (
     <>
-      {/* JSON-LD */}
+      {/* JSON-LD Schemas */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(propertyListSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(realEstateAgentSchema),
         }}
       />
 
@@ -149,169 +224,106 @@ export default function IlanlarPage() {
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link
+              href={`/${locale}`}
+              className="hover:text-[#C9A84C] transition-colors"
+            >
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
             <span className="text-[#C9A84C]">{t.breadcrumb}</span>
           </nav>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               {t.title}
             </h1>
-            <p className="text-gray-300 max-w-2xl">
-              {t.subtitle}
-            </p>
-          </motion.div>
+            <p className="text-gray-300 max-w-2xl">{t.subtitle}</p>
+          </div>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="py-12 bg-[#F5F5F5]">
         <div className="container mx-auto px-4">
-          {/* Filters */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-8"
-          >
-            <IlanFiltresi
-              filters={filters}
-              onFilterChange={handleFilterChange}
-              viewMode={viewMode}
-              onViewModeChange={setViewMode}
-              totalCount={totalCount}
-              locale={locale}
-            />
-          </motion.div>
+          <IlanlarClient
+            initialIlanlar={ilanlar}
+            initialTotal={total}
+            locale={locale}
+            texts={{
+              loading: t.loading,
+              error: t.error,
+              retry: t.retry,
+              noResults: t.noResults,
+              noResultsDesc: t.noResultsDesc,
+              clearFilters: t.clearFilters,
+            }}
+          />
+        </div>
+      </section>
 
-          {/* Loading State */}
-          {loading && (
-            <div className="flex items-center justify-center py-20">
-              <Loader2 className="w-10 h-10 animate-spin text-[#C9A84C]" />
-              <span className="ml-3 text-lg text-gray-600">
-                {t.loading}
-              </span>
-            </div>
-          )}
-
-          {/* Error State */}
-          {error && !loading && (
-            <div className="text-center py-16">
-              <div className="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg
-                  className="w-12 h-12 text-red-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
-                {t.error}
-              </h3>
-              <p className="text-[#666666] mb-6">{error}</p>
-              <button
-                onClick={() => window.location.reload()}
-                className="px-6 py-2 bg-[#C9A84C] text-white rounded-lg hover:bg-[#b8973f] transition-colors"
-              >
-                {t.retry}
-              </button>
-            </div>
-          )}
-
-          {/* Listings */}
-          {!loading && !error && ilanlar.length > 0 && (
-            <>
-              <div
-                className={
-                  viewMode === "grid"
-                    ? "grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-                    : "space-y-4"
-                }
-              >
-                {ilanlar.map((ilan, index) => (
-                  <IlanKart
-                    key={ilan.id}
-                    ilan={ilan}
-                    variant={viewMode}
-                    index={index}
-                    locale={locale}
-                  />
-                ))}
-              </div>
-
-              {/* Pagination */}
-              {totalPages > 1 && (
-                <div className="mt-12">
-                  <IlanPagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    onPageChange={setCurrentPage}
-                  />
-                </div>
-              )}
-            </>
-          )}
-
-          {/* Empty State */}
-          {!loading && !error && ilanlar.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-16"
-            >
-              <div className="w-24 h-24 bg-[#e0e0e0] rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg
-                  className="w-12 h-12 text-[#999999]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
-                {t.noResults}
-              </h3>
-              <p className="text-[#666666] mb-6">
-                {t.noResultsDesc}
-              </p>
-              <button
-                onClick={() =>
-                  handleFilterChange({
-                    kategori: "",
-                    tip: "",
-                    konum: "",
-                    minFiyat: "",
-                    maxFiyat: "",
-                    arama: "",
-                    eidsStatus: "",
-                  })
-                }
-                className="text-[#C9A84C] font-medium hover:underline"
-              >
-                {t.clearFilters}
-              </button>
-            </motion.div>
-          )}
+      {/* SEO Content Section - Hidden but crawlable */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            {locale === "tr" && (
+              <>
+                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+                  Ortaca ve Çevresinde Emlak İlanları
+                </h2>
+                <p className="text-[#666666] mb-4">
+                  Kalinda Yapı olarak Muğla'nın Ortaca, Dalaman, Dalyan ve Köyceğiz
+                  bölgelerinde satılık ve kiralık gayrimenkul hizmetleri sunuyoruz.
+                  Portföyümüzde daireler, villalar, arsalar ve ticari gayrimenkuller
+                  bulunmaktadır.
+                </p>
+                <p className="text-[#666666] mb-4">
+                  Lisanslı emlak danışmanlarımız ile güvenli alım-satım ve kiralama
+                  işlemleri gerçekleştirebilirsiniz. Ücretsiz gayrimenkul değerleme
+                  hizmetimizden yararlanmak için bize ulaşın.
+                </p>
+                <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
+                  Hizmet Verdiğimiz Bölgeler
+                </h3>
+                <ul className="text-[#666666] list-disc pl-5 mb-4">
+                  <li>Ortaca merkez ve tüm mahalleler</li>
+                  <li>Dalyan kanal boyu ve çevresi</li>
+                  <li>Köyceğiz göl manzaralı bölgeler</li>
+                  <li>Dalaman havaalanı yakını</li>
+                  <li>Fethiye, Marmaris ve diğer Muğla ilçeleri</li>
+                </ul>
+              </>
+            )}
+            {locale === "en" && (
+              <>
+                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+                  Property Listings in Ortaca and Surrounding Areas
+                </h2>
+                <p className="text-[#666666] mb-4">
+                  At Kalinda Yapı, we offer properties for sale and rent in Ortaca,
+                  Dalaman, Dalyan, and Köyceğiz regions of Muğla. Our portfolio
+                  includes apartments, villas, land, and commercial properties.
+                </p>
+                <p className="text-[#666666] mb-4">
+                  With our licensed real estate consultants, you can safely conduct
+                  buying, selling, and rental transactions. Contact us to benefit
+                  from our free property valuation service.
+                </p>
+              </>
+            )}
+            {locale === "ar" && (
+              <>
+                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+                  قوائم العقارات في أورتاجا والمناطق المحيطة
+                </h2>
+                <p className="text-[#666666] mb-4">
+                  في كالينداي يابي، نقدم عقارات للبيع والإيجار في مناطق أورتاجا
+                  ودالامان ودالان وكويجيز في موغلا. تشمل محفظتنا الشقق والفلل
+                  والأراضي والعقارات التجارية.
+                </p>
+              </>
+            )}
+          </div>
         </div>
       </section>
     </>

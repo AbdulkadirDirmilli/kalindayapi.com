@@ -261,6 +261,215 @@ export function generateWebSiteSchema() {
   };
 }
 
+// RealEstateAgent Schema for better local SEO
+export function generateRealEstateAgentSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "@id": `${siteConfig.url}/#realestateagent`,
+    name: "Kalinda Yapı Emlak",
+    alternateName: "Kalinda Yapı Emlak Danışmanlığı",
+    description:
+      "Ortaca, Dalaman, Dalyan ve Köyceğiz bölgelerinde lisanslı emlak danışmanlığı hizmetleri. Satılık ve kiralık daire, villa, arsa ilanları.",
+    url: siteConfig.url,
+    logo: siteConfig.logo,
+    image: `${siteConfig.url}/og-image.jpg`,
+    telephone: "+905370530754",
+    email: "info@kalindayapi.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address.streetAddress,
+      addressLocality: siteConfig.address.addressLocality,
+      addressRegion: siteConfig.address.addressRegion,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: siteConfig.address.addressCountry,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
+    },
+    areaServed: siteConfig.areaServed.map((area) => ({
+      "@type": "City",
+      name: area,
+      "@id": `https://www.wikidata.org/wiki/Q${area === "Ortaca" ? "1425053" : area === "Dalaman" ? "926661" : ""}`,
+    })),
+    knowsAbout: [
+      "Satılık daire",
+      "Kiralık daire",
+      "Satılık villa",
+      "Arsa satışı",
+      "Emlak değerleme",
+      "Gayrimenkul danışmanlığı",
+      "Residential real estate",
+      "Commercial real estate",
+      "Property valuation",
+    ],
+    slogan: "Ortaca'nın Güvenilir Emlak Ortağı",
+    foundingDate: "2022",
+    founder: [
+      {
+        "@type": "Person",
+        name: "Zafer Soylu",
+        jobTitle: "Emlak Danışmanı",
+      },
+      {
+        "@type": "Person",
+        name: "Arif Dağdelen",
+        jobTitle: "Yapı & Taahhüt Uzmanı",
+      },
+    ],
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: 3,
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "09:00",
+        closes: "14:00",
+      },
+    ],
+    paymentAccepted: "Cash, Credit Card, Bank Transfer",
+    priceRange: "$$",
+    currenciesAccepted: "TRY, USD, EUR, GBP",
+    sameAs: [
+      "https://www.instagram.com/kalindayapi",
+      "https://www.facebook.com/kalindayapi",
+      "https://www.youtube.com/kalindayapi",
+    ],
+  };
+}
+
+// ItemList Schema for property listings
+export function generatePropertyListSchema(
+  ilanlar: Ilan[],
+  listName: string = "Emlak İlanları"
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: listName,
+    description: `${listName} - Kalinda Yapı`,
+    numberOfItems: ilanlar.length,
+    itemListElement: ilanlar.slice(0, 10).map((ilan, index) => {
+      const kategori = ilan.kategori === "satilik" ? "ForSale" : "ForRent";
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "RealEstateListing",
+          "@id": `${siteConfig.url}/tr/ilanlar/${ilan.slug || ilan.id}`,
+          name: ilan.baslik,
+          url: `${siteConfig.url}/tr/ilanlar/${ilan.slug || ilan.id}`,
+          image: ilan.fotograflar?.[0] || `${siteConfig.url}/og-image.jpg`,
+          offers: {
+            "@type": "Offer",
+            price: ilan.fiyat,
+            priceCurrency: ilan.paraBirimi || "TRY",
+            availability: "https://schema.org/InStock",
+            businessFunction: `https://schema.org/${kategori}`,
+          },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: ilan.konum?.ilce || "Ortaca",
+            addressRegion: ilan.konum?.il || "Muğla",
+            addressCountry: "TR",
+          },
+        },
+      };
+    }),
+  };
+}
+
+// LocalBusiness with enhanced service area for local SEO
+export function generateLocalBusinessSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${siteConfig.url}/#localbusiness`,
+    name: siteConfig.name,
+    description:
+      "Ortaca, Dalaman, Dalyan ve Köyceğiz'de emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri.",
+    url: siteConfig.url,
+    telephone: "+905370530754",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address.streetAddress,
+      addressLocality: siteConfig.address.addressLocality,
+      addressRegion: siteConfig.address.addressRegion,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: siteConfig.address.addressCountry,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
+    },
+    hasMap: `https://www.google.com/maps?q=${siteConfig.geo.latitude},${siteConfig.geo.longitude}`,
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "09:00",
+        closes: "14:00",
+      },
+    ],
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Ortaca",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Muğla",
+        },
+      },
+      {
+        "@type": "City",
+        name: "Dalaman",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Muğla",
+        },
+      },
+      {
+        "@type": "City",
+        name: "Dalyan",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Muğla",
+        },
+      },
+      {
+        "@type": "City",
+        name: "Köyceğiz",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Muğla",
+        },
+      },
+    ],
+    priceRange: "$$",
+    sameAs: [
+      "https://www.instagram.com/kalindayapi",
+      "https://www.facebook.com/kalindayapi",
+    ],
+  };
+}
+
 // AI Summary component for GEO optimization
 export function generateAISummary(): string {
   return `Kalinda Yapı, Muğla'nın Ortaca ilçesinde faaliyet gösteren lisanslı emlak danışmanlığı, tadilat ve inşaat taahhüt firmasıdır. Zafer Soylu (emlak danışmanı, +90 537 053 07 54) ve Arif Dağdelen (yapı & taahhüt uzmanı, +90 532 159 15 56) ortaklığıyla 2022'den bu yana bölgeye hizmet vermektedir. Muğla'nın tüm ilçelerinde (Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça, Menteşe, Yatağan, Ula, Kavaklıdere, Seydikemer) satılık ve kiralık gayrimenkuller, konut ve ticari inşaat projeleri, iç mekan tadilat ve dekorasyon hizmetleri sunmaktadır. 100'den fazla tamamlanmış proje ve 200'den fazla mutlu aile ile %98 müşteri memnuniyeti oranına sahiptir.`;

@@ -60,6 +60,14 @@ export const routeTranslations: Record<string, Record<Locale, string>> = {
   'vizyon-misyon': { tr: 'vizyon-misyon', en: 'vision-mission', ar: 'الرؤية-المهمة' },
   referanslar: { tr: 'referanslar', en: 'references', ar: 'المراجع' },
   belgeler: { tr: 'belgeler', en: 'certificates', ar: 'الشهادات' },
+
+  // SEO Landing Pages
+  'ortaca-satilik-daire': { tr: 'ortaca-satilik-daire', en: 'ortaca-apartments-for-sale', ar: 'شقق-للبيع-أورتاجا' },
+  'ortaca-kiralik-daire': { tr: 'ortaca-kiralik-daire', en: 'ortaca-apartments-for-rent', ar: 'شقق-للإيجار-أورتاجا' },
+  'dalaman-satilik-ev': { tr: 'dalaman-satilik-ev', en: 'dalaman-houses-for-sale', ar: 'منازل-للبيع-دالامان' },
+  'ortaca-ogrenci-kiralik': { tr: 'ortaca-ogrenci-kiralik', en: 'ortaca-student-rentals', ar: 'إيجار-طلاب-أورتاجا' },
+  'dalyan-satilik-villa': { tr: 'dalyan-satilik-villa', en: 'dalyan-villas-for-sale', ar: 'فلل-للبيع-دالان' },
+  'ortaca-emlak-ofisi': { tr: 'ortaca-emlak-ofisi', en: 'ortaca-real-estate-office', ar: 'مكتب-عقارات-أورتاجا' },
 };
 
 // Dil bazlı route'u orijinal route'a çevir
