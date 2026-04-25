@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { TrendingUp, TrendingDown, Minus, RefreshCw } from 'lucide-react';
 import { RateChange } from '@/types/exchange';
 import { cn } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 interface LiveRateCardProps {
   currency: string;
@@ -22,7 +23,14 @@ export default function LiveRateCard({
   icon,
   className,
 }: LiveRateCardProps) {
+  const { locale } = useLocale();
   const { rate, change, changePercent, direction } = data;
+
+  const dailyChangeText: Record<string, string> = {
+    tr: 'günlük değişim',
+    en: 'daily change',
+    ar: 'التغير اليومي',
+  };
 
   const directionColors = {
     up: 'text-green-500',
@@ -91,7 +99,7 @@ export default function LiveRateCard({
             {changePercent >= 0 ? '+' : ''}{changePercent.toFixed(2)}%
           </span>
         </div>
-        <span className="text-xs text-gray-400">günlük değişim</span>
+        <span className="text-xs text-gray-400">{dailyChangeText[locale] || dailyChangeText.tr}</span>
       </div>
 
       {/* Animated pulse indicator */}

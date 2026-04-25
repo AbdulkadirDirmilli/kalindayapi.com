@@ -56,6 +56,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
   const locale = locales.includes(lang as Locale) ? (lang as Locale) : 'tr';
   const texts = hizmetlerTexts[locale];
   const messages = whatsappMessages[locale];
+  const dict = await getCachedDictionary(locale);
 
   const hizmetler = getLocalizedHizmetler(locale);
 
@@ -204,6 +205,8 @@ export default async function HizmetlerPage({ params }: PageProps) {
 
       {/* FAQ Section */}
       <FaqSection
+        lang={locale}
+        dict={dict}
         baslik={texts.faqTitle}
         altBaslik={texts.faqSubtitle}
         sorular={tumSorular}

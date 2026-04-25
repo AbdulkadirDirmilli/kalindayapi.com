@@ -232,10 +232,10 @@ export default async function HakkimizdaPage({
       </section>
 
       {/* Statistics */}
-      <IstatistikSayaclari />
+      <IstatistikSayaclari lang={locale} dict={dict} />
 
       {/* Team Section */}
-      <OrtaklarBolumu />
+      <OrtaklarBolumu lang={locale} dict={dict} />
 
       {/* Certificates */}
       <section className="py-20 bg-white">
