@@ -229,7 +229,90 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // 10. Sadece Türkçe içerik olan sayfaları TR'ye yönlendir
+      // 10. Locale prefix'siz URL'leri varsayılan dile (TR) yönlendir
+      // Bu eski indexlenmiş URL'ler için gerekli
+      {
+        source: "/sss",
+        destination: "/tr/sss",
+        permanent: true,
+      },
+      {
+        source: "/blog",
+        destination: "/tr/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/:slug*",
+        destination: "/tr/blog/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/rehber",
+        destination: "/tr/rehber",
+        permanent: true,
+      },
+      {
+        source: "/rehber/:slug*",
+        destination: "/tr/rehber/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/ilanlar",
+        destination: "/tr/ilanlar",
+        permanent: true,
+      },
+      {
+        source: "/ilanlar/:slug*",
+        destination: "/tr/ilanlar/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/hizmetler",
+        destination: "/tr/hizmetler",
+        permanent: true,
+      },
+      {
+        source: "/hizmetler/:slug*",
+        destination: "/tr/hizmetler/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/hakkimizda",
+        destination: "/tr/hakkimizda",
+        permanent: true,
+      },
+      {
+        source: "/iletisim",
+        destination: "/tr/iletisim",
+        permanent: true,
+      },
+      {
+        source: "/doviz-kurlari",
+        destination: "/tr/doviz-kurlari",
+        permanent: true,
+      },
+      {
+        source: "/kurumsal",
+        destination: "/tr/kurumsal",
+        permanent: true,
+      },
+      {
+        source: "/kurumsal/:slug*",
+        destination: "/tr/kurumsal/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/gizlilik",
+        destination: "/tr/gizlilik",
+        permanent: true,
+      },
+      {
+        source: "/kullanim-kosullari",
+        destination: "/tr/kullanim-kosullari",
+        permanent: true,
+      },
+
+      // 11. Sadece Türkçe içerik olan sayfaları TR'ye yönlendir
       // Rehber sayfaları (çevirisi yok)
       {
         source: "/en/rehber/:path*",
