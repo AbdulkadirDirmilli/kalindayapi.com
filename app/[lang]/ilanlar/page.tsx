@@ -12,6 +12,9 @@ import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { prisma } from "@/lib/prisma";
 import IlanlarClient from "./IlanlarClient";
 
+// Force dynamic rendering to always fetch fresh data
+export const dynamic = 'force-dynamic';
+
 const ITEMS_PER_PAGE = 12;
 
 // Dil bazlı metinler
