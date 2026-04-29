@@ -321,7 +321,7 @@ export const landingPages: Record<string, LandingPageConfig> = {
         faq: [
           {
             question: "Dalaman'da satılık ev fiyatları ne kadar?",
-            answer: "Dalaman'da daire fiyatları 800.000 TL'den, müstakil evler 1.500.000 TL'den, villalar ise 3.000.000 TL'den başlamaktadır.",
+            answer: "Dalaman'da daire fiyatları 3.000.000 TL'den, müstakil evler 4.500.000 TL'den, villalar ise 5.000.000 TL'den başlamaktadır.",
           },
           {
             question: "Dalaman yatırım için uygun mu?",
