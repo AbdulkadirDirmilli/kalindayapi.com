@@ -7,6 +7,9 @@ import { locales, defaultLocale, type Locale } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale, SITE_URL } from "@/lib/seo";
 
+// Force dynamic rendering to always fetch fresh data and translations
+export const dynamic = 'force-dynamic';
+
 const siteUrl = SITE_URL;
 
 interface IlanDetayPageProps {
