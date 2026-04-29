@@ -59,9 +59,9 @@ export const ilceRehberleri: IlceRehber[] = [
     il: "Muğla",
     nufus: "5.500",
     koordinatlar: { lat: 36.8333, lng: 28.6333 },
-    kapakGorsel: "https://images.unsplash.com/photo-1562602833-0f4ab2fc46e5?w=1200&h=630&fit=crop&q=80",
+    kapakGorsel: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1200&h=630&fit=crop&q=80",
     galeriGorseller: [
-      "https://images.unsplash.com/photo-1596627116790-af6f46dddbea?w=800&h=600&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&h=600&fit=crop&q=80",
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&q=80",
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop&q=80",
     ],
@@ -216,7 +216,7 @@ export const ilceRehberleri: IlceRehber[] = [
     koordinatlar: { lat: 37.0343, lng: 27.4305 },
     kapakGorsel: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200&h=630&fit=crop&q=80",
     galeriGorseller: [
-      "https://images.unsplash.com/photo-1568322503652-c2467e71e335?w=800&h=600&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=800&h=600&fit=crop&q=80",
       "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&h=600&fit=crop&q=80",
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop&q=80",
     ],
