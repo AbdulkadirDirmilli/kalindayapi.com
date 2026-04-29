@@ -106,22 +106,43 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Generate ilanNo
-    const lastIlan = await prisma.ilan.findFirst({
-      orderBy: { createdAt: 'desc' },
-      select: { ilanNo: true },
+    // ilanNo kontrolu - form'dan gelen deger varsa kullan, yoksa olustur
+    let finalIlanNo = ilanData.ilanNo
+
+    if (!finalIlanNo) {
+      // En yuksek ilan numarasini bul
+      const lastIlan = await prisma.ilan.findFirst({
+        where: { ilanNo: { startsWith: 'KY-' } },
+        orderBy: { ilanNo: 'desc' },
+        select: { ilanNo: true },
+      })
+
+      let nextNumber = 1
+      if (lastIlan?.ilanNo) {
+        const parts = lastIlan.ilanNo.split('-')
+        const lastPart = parts[parts.length - 1]
+        const parsed = parseInt(lastPart, 10)
+        if (!isNaN(parsed)) nextNumber = parsed + 1
+      }
+      finalIlanNo = `KY-${String(nextNumber).padStart(5, '0')}`
+    }
+
+    // Benzersizlik kontrolu - eger numara varsa timestamp ekle
+    const existingWithNo = await prisma.ilan.findUnique({
+      where: { ilanNo: finalIlanNo },
+      select: { id: true },
     })
 
-    let newIlanNo = 'KY-2024-001'
-    if (lastIlan?.ilanNo) {
-      const lastNumber = parseInt(lastIlan.ilanNo.split('-')[2])
-      newIlanNo = `KY-2024-${String(lastNumber + 1).padStart(3, '0')}`
+    if (existingWithNo) {
+      // Numara zaten var, timestamp ile benzersiz yap
+      const timestamp = Date.now().toString().slice(-6)
+      finalIlanNo = `KY-${timestamp}`
     }
 
     const ilan = await prisma.ilan.create({
       data: {
         ...ilanData,
-        ilanNo: ilanData.ilanNo || newIlanNo,
+        ilanNo: finalIlanNo,
         fotograflar: fotograflar
           ? {
               create: fotograflar.map((url, index) => ({

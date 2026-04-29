@@ -77,14 +77,22 @@ export async function POST(request: NextRequest) {
     let filename: string
 
     if (isImage) {
-      // Optimize image: convert to WebP, resize, create thumbnail
-      const { optimized, thumbnail } = await optimizeImage(buffer)
-      filename = changeExtToWebp(baseFilename)
+      try {
+        // Optimize image: convert to WebP, resize, create thumbnail
+        const { optimized, thumbnail } = await optimizeImage(buffer)
+        filename = changeExtToWebp(baseFilename)
 
-      await writeFile(path.join(uploadsDir, filename), optimized)
-      await writeFile(path.join(thumbDir, filename), thumbnail)
+        await writeFile(path.join(uploadsDir, filename), optimized)
+        await writeFile(path.join(thumbDir, filename), thumbnail)
 
-      url = `/uploads/${subDir}/${filename}`
+        url = `/uploads/${subDir}/${filename}`
+      } catch (optimizeError) {
+        // Sharp başarısız olursa orijinal dosyayı kaydet
+        console.error('Resim optimizasyon hatasi, orijinal kaydediliyor:', optimizeError)
+        filename = baseFilename
+        await writeFile(path.join(uploadsDir, filename), buffer)
+        url = `/uploads/${subDir}/${filename}`
+      }
     } else {
       // Videos: save as-is
       filename = baseFilename
