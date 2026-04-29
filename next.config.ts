@@ -427,8 +427,9 @@ const nextConfig: NextConfig = {
         pathname: "/*.svg",
       },
     ],
-    // Uploaded files are served by nginx, skip optimization for them
-    unoptimized: false,
+    // Uploaded files are served by nginx with proper caching
+    // Skip Next.js image optimization as it doesn't work in standalone mode
+    unoptimized: true,
   },
   experimental: {
     serverActions: {
