@@ -7,6 +7,8 @@ RUN apk add --no-cache libc6-compat
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
+RUN npx prisma generate
+RUN npx prisma db push
 RUN npm run build
 
 FROM node:20-alpine AS runner
