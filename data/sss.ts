@@ -39,6 +39,22 @@ export const faqKategorileri: Record<Locale, FAQCategory[]> = {
     { id: "belge", baslik: "المستندات والإجراءات", ikon: "FileText" },
     { id: "odeme", baslik: "الدفع والتمويل", ikon: "CreditCard" },
   ],
+  de: [
+    { id: "genel", baslik: "Allgemeine Fragen", ikon: "HelpCircle" },
+    { id: "emlak", baslik: "Immobilienberatung", ikon: "Building2" },
+    { id: "kiralik", baslik: "Mietdienstleistungen", ikon: "Key" },
+    { id: "insaat", baslik: "Bau & Renovierung", ikon: "Hammer" },
+    { id: "belge", baslik: "Dokumente & Verfahren", ikon: "FileText" },
+    { id: "odeme", baslik: "Zahlung & Finanzierung", ikon: "CreditCard" },
+  ],
+  ru: [
+    { id: "genel", baslik: "Общие вопросы", ikon: "HelpCircle" },
+    { id: "emlak", baslik: "Консультации по недвижимости", ikon: "Building2" },
+    { id: "kiralik", baslik: "Услуги аренды", ikon: "Key" },
+    { id: "insaat", baslik: "Строительство и ремонт", ikon: "Hammer" },
+    { id: "belge", baslik: "Документы и процедуры", ikon: "FileText" },
+    { id: "odeme", baslik: "Оплата и финансирование", ikon: "CreditCard" },
+  ],
 };
 
 // UI Text translations
@@ -105,6 +121,38 @@ export const sssTexts: Record<Locale, {
     ctaTitle: "هل لديك المزيد من الأسئلة؟",
     ctaText: "تواصل معنا للأسئلة التي لم تجد إجاباتها. سيسعد فريقنا المتخصص بمساعدتك.",
     ctaButton: "تواصل معنا",
+  },
+  de: {
+    title: "Häufig gestellte",
+    titleHighlight: "Fragen",
+    subtitle: "Hier finden Sie Antworten auf die häufigsten Fragen zu unseren Immobilien-, Renovierungs- und Baudienstleistungen. Wenn Sie nicht finden, was Sie suchen, kontaktieren Sie uns.",
+    breadcrumb: "Häufig gestellte Fragen",
+    categories: "Kategorien",
+    questionsCount: "Fragen",
+    contactTitle: "Haben Sie eine Frage?",
+    contactText: "Kontaktieren Sie uns für Fragen, auf die Sie keine Antwort gefunden haben.",
+    whatsappText: "Auf WhatsApp schreiben",
+    popularTitle: "Am häufigsten gestellte Fragen",
+    popularSubtitle: "Kurze Zusammenfassungen der Fragen, die unsere Kunden am häufigsten stellen",
+    ctaTitle: "Haben Sie weitere Fragen?",
+    ctaText: "Kontaktieren Sie uns für Fragen, auf die Sie keine Antwort gefunden haben. Unser Expertenteam hilft Ihnen gerne weiter.",
+    ctaButton: "Kontaktieren Sie uns",
+  },
+  ru: {
+    title: "Часто задаваемые",
+    titleHighlight: "вопросы",
+    subtitle: "Здесь вы найдете ответы на наиболее часто задаваемые вопросы о наших услугах в сфере недвижимости, ремонта и строительства. Если вы не нашли то, что искали, свяжитесь с нами.",
+    breadcrumb: "Часто задаваемые вопросы",
+    categories: "Категории",
+    questionsCount: "вопросов",
+    contactTitle: "У вас есть вопрос?",
+    contactText: "Свяжитесь с нами по вопросам, на которые вы не нашли ответов.",
+    whatsappText: "Написать в WhatsApp",
+    popularTitle: "Самые частые вопросы",
+    popularSubtitle: "Краткие резюме вопросов, которые наши клиенты задают чаще всего",
+    ctaTitle: "Есть еще вопросы?",
+    ctaText: "Свяжитесь с нами по вопросам, на которые вы не нашли ответов. Наша команда экспертов будет рада вам помочь.",
+    ctaButton: "Связаться с нами",
   },
 };
 
@@ -316,6 +364,10 @@ export function getSorular(locale: Locale): FAQ[] {
       return sorularEN.length > 0 ? sorularEN : sorularTR;
     case 'ar':
       return sorularAR.length > 0 ? sorularAR : sorularTR;
+    case 'de':
+      return sorularEN.length > 0 ? sorularEN : sorularTR; // Fallback to EN then TR
+    case 'ru':
+      return sorularEN.length > 0 ? sorularEN : sorularTR; // Fallback to EN then TR
     default:
       return sorularTR;
   }
@@ -420,6 +472,70 @@ export const popularSorular: Record<Locale, Array<{
     {
       soru: "هل يوجد ضمان على أعمال التجديد؟",
       cevap: "نعم، ضمان سنتين على العمالة + ضمان الشركة المصنعة للمواد من الدرجة الأولى.",
+      ikon: "Key",
+    },
+  ],
+  de: [
+    {
+      soru: "Was kosten Wohnungen in Ortaca 2026?",
+      cevap: "2+1 Wohnungen 4-10 Mio. TL, 3+1 Wohnungen 7-18 Mio. TL, Preis pro m² 25-40 Tsd. TL.",
+      ikon: "Building2",
+    },
+    {
+      soru: "Bieten Sie kostenlose Besichtigungen an?",
+      cevap: "Ja, wir bieten kostenlose Vor-Ort-Besichtigungen und detaillierte Preisangebote in ganz Muğla.",
+      ikon: "Hammer",
+    },
+    {
+      soru: "Wie lange dauert ein schlüsselfertiger Bau?",
+      cevap: "Einstöckiges Haus 8-10 Monate, zweistöckige Villa 12-15 Monate, Projekte mit Pool 15-18 Monate.",
+      ikon: "MapPin",
+    },
+    {
+      soru: "Wie hoch ist die Immobilienprovision?",
+      cevap: "2% für Verkäufe, 1 Monatsmiete für Vermietungen. Beratung ist kostenlos, keine versteckten Kosten.",
+      ikon: "CreditCard",
+    },
+    {
+      soru: "Verkaufen Sie Immobilien an Ausländer?",
+      cevap: "Ja, wir haben über 30 ausländische Kunden betreut. Wir bieten Unterstützung bei Grundbuch und Aufenthaltsgenehmigung.",
+      ikon: "FileText",
+    },
+    {
+      soru: "Gibt es Garantie auf Renovierungsarbeiten?",
+      cevap: "Ja, 2 Jahre Arbeitsgarantie + Herstellergarantie für A-Klasse-Materialien.",
+      ikon: "Key",
+    },
+  ],
+  ru: [
+    {
+      soru: "Какие цены на жилье в Ортадже в 2026 году?",
+      cevap: "Квартиры 2+1 от 4-10 млн TL, квартиры 3+1 от 7-18 млн TL, цена за м² 25-40 тыс. TL.",
+      ikon: "Building2",
+    },
+    {
+      soru: "Вы проводите бесплатный осмотр?",
+      cevap: "Да, мы предлагаем бесплатный осмотр на месте и подробные ценовые предложения по всей Мугле.",
+      ikon: "Hammer",
+    },
+    {
+      soru: "Сколько времени занимает строительство под ключ?",
+      cevap: "Одноэтажный дом 8-10 месяцев, двухэтажная вилла 12-15 месяцев, проекты с бассейном 15-18 месяцев.",
+      ikon: "MapPin",
+    },
+    {
+      soru: "Какая комиссия за недвижимость?",
+      cevap: "2% при продаже, 1 месячная аренда при аренде. Консультация бесплатная, без скрытых расходов.",
+      ikon: "CreditCard",
+    },
+    {
+      soru: "Вы продаете недвижимость иностранцам?",
+      cevap: "Да, мы обслужили более 30 иностранных клиентов. Мы оказываем поддержку с документами на собственность и видом на жительство.",
+      ikon: "FileText",
+    },
+    {
+      soru: "Есть ли гарантия на ремонтные работы?",
+      cevap: "Да, 2 года гарантии на работу + гарантия производителя на материалы класса А.",
       ikon: "Key",
     },
   ],

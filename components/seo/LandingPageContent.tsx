@@ -41,7 +41,15 @@ export default function LandingPageContent({
       )
     : null;
 
-  const ctaTexts = {
+  const ctaTexts: Record<Locale, {
+    phone: string;
+    whatsapp: string;
+    viewAll: string;
+    faqTitle: string;
+    ctaTitle: string;
+    ctaSubtitle: string;
+    greeting: string;
+  }> = {
     tr: {
       phone: "Hemen Arayın",
       whatsapp: "WhatsApp ile İletişim",
@@ -68,6 +76,24 @@ export default function LandingPageContent({
       ctaTitle: "احصل على استشارة مجانية",
       ctaSubtitle: "مستشارونا العقاريون مستعدون لمساعدتك. تواصل معنا الآن!",
       greeting: "مرحباً، أتواصل معكم من موقعكم.",
+    },
+    de: {
+      phone: "Jetzt anrufen",
+      whatsapp: "Kontakt über WhatsApp",
+      viewAll: "Alle Angebote anzeigen",
+      faqTitle: "Häufig gestellte Fragen",
+      ctaTitle: "Kostenlose Beratung erhalten",
+      ctaSubtitle: "Unsere Immobilienberater sind bereit, Ihnen zu helfen. Kontaktieren Sie uns jetzt!",
+      greeting: "Hallo, ich kontaktiere Sie über Ihre Website.",
+    },
+    ru: {
+      phone: "Позвонить сейчас",
+      whatsapp: "Связаться через WhatsApp",
+      viewAll: "Смотреть все объявления",
+      faqTitle: "Часто задаваемые вопросы",
+      ctaTitle: "Получить бесплатную консультацию",
+      ctaSubtitle: "Наши консультанты по недвижимости готовы вам помочь. Свяжитесь с нами сейчас!",
+      greeting: "Здравствуйте, я связываюсь с вами через ваш сайт.",
     },
   };
 

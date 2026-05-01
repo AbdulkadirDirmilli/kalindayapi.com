@@ -131,6 +131,70 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     bottomCtaDescription: "تقدم كاليندا يابي خدمات العقارات والتجديد والبناء في {district} ومنطقة موغلا بأكملها. تعرف على فريقنا المحترف.",
     bottomCtaButton: "احصل على استشارة مجانية",
   },
+  de: {
+    // Main page
+    breadcrumb: "Reiseführer",
+    heroTitle: "Muğla",
+    heroTitleHighlight: "Bezirksführer",
+    heroDescription: "Detaillierte Informationen über die 13 Bezirke von Muğla. Entdecken Sie unsere Bezirksführer für Immobilienpreise, Nachbarschaften, Lebensbedingungen und Investitionsmöglichkeiten.",
+    viewGuide: "Führer ansehen",
+    neighborhoods: "Nachbarschaften",
+
+    // CTA section
+    ctaTitle: "Denken Sie an eine Immobilieninvestition in Muğla?",
+    ctaDescription: "Wir bieten Immobilien-, Renovierungs- und Baudienstleistungen in 13 Bezirken an. Erhalten Sie eine kostenlose Beratung von unserem Expertenteam, das die Region kennt.",
+    ctaButton: "Kontaktieren Sie uns",
+
+    // Detail page
+    guideTitle: "Führer",
+    photos: "Fotos",
+    faqTitle: "Häufig gestellte Fragen",
+    population: "Bevölkerung",
+
+    // Sidebar CTA
+    sidebarTitle: " - Immobilie gesucht?",
+    sidebarDescription: "Kontaktieren Sie unser Expertenteam für Häuser, Grundstücke und Villen zum Verkauf in {district} und Umgebung.",
+    contactButton: "Kontakt aufnehmen",
+    viewListings: "Angebote ansehen",
+    relatedSearches: "Verwandte Suchen",
+
+    // Bottom CTA
+    bottomCtaTitle: " - Immobilienberatung",
+    bottomCtaDescription: "Kalinda Yapı bietet Immobilien-, Renovierungs- und Baudienstleistungen in {district} und der gesamten Region Muğla. Lernen Sie unser professionelles Team kennen.",
+    bottomCtaButton: "Kostenlose Beratung erhalten",
+  },
+  ru: {
+    // Main page
+    breadcrumb: "Путеводитель",
+    heroTitle: "Мугла",
+    heroTitleHighlight: "Путеводитель по районам",
+    heroDescription: "Подробная информация о 13 районах Муглы. Изучите наши путеводители по районам для получения информации о ценах на недвижимость, районах, условиях жизни и инвестиционных возможностях.",
+    viewGuide: "Смотреть путеводитель",
+    neighborhoods: "Районы",
+
+    // CTA section
+    ctaTitle: "Думаете об инвестициях в недвижимость в Мугле?",
+    ctaDescription: "Мы предлагаем услуги в сфере недвижимости, ремонта и строительства в 13 районах. Получите бесплатную консультацию от нашей команды экспертов, знающих регион.",
+    ctaButton: "Свяжитесь с нами",
+
+    // Detail page
+    guideTitle: "Путеводитель",
+    photos: "Фотографии",
+    faqTitle: "Часто задаваемые вопросы",
+    population: "Население",
+
+    // Sidebar CTA
+    sidebarTitle: " - Ищете недвижимость?",
+    sidebarDescription: "Свяжитесь с нашей командой экспертов для домов, участков и вилл на продажу в {district} и окрестностях.",
+    contactButton: "Связаться с нами",
+    viewListings: "Смотреть объявления",
+    relatedSearches: "Похожие запросы",
+
+    // Bottom CTA
+    bottomCtaTitle: " - Консультации по недвижимости",
+    bottomCtaDescription: "Kalinda Yapı предлагает услуги в сфере недвижимости, ремонта и строительства в {district} и по всему региону Мугла. Познакомьтесь с нашей профессиональной командой.",
+    bottomCtaButton: "Получить бесплатную консультацию",
+  },
 };
 
 // Helper to format strings with district name

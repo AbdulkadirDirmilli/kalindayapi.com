@@ -187,6 +187,100 @@ export const dovizKurlariTexts: Record<Locale, {
       contactConsultant: "تحدث مع مستشار",
     },
   },
+  de: {
+    breadcrumb: "Wechselkurse",
+    heroTitle: "Live",
+    heroTitleHighlight: "Wechselkurse",
+    heroSubtitle: "Verfolgen Sie USD, EUR, GBP und Goldkurse in Echtzeit. Aktuelle Daten von der TCMB.",
+    lastUpdate: "Letztes Update:",
+    currencies: {
+      USD: "US-Dollar",
+      EUR: "Euro",
+      GBP: "Britisches Pfund",
+      XAU: "Gold (Gramm)",
+    },
+    dailyChange: "Tagesänderung",
+    educationalContent: {
+      whatIsExchange: {
+        title: "Was ist ein Wechselkurs?",
+        paragraph1: "Der Wechselkurs ist der Wert einer Landeswährung im Verhältnis zur Währung eines anderen Landes. Zum Beispiel zeigt der USD/TRY-Kurs, wie viele türkische Lira ein US-Dollar wert ist.",
+        paragraph2: "In der Türkei werden Referenzkurse von der Zentralbank der Republik Türkei (TCMB) an jedem Geschäftstag um 15:30 Uhr bekannt gegeben. Marktkurse schwanken im Tagesverlauf basierend auf Angebot und Nachfrage.",
+      },
+      tcmb: {
+        title: "TCMB und Wechselkurse",
+        paragraph: "Die Zentralbank der Republik Türkei (TCMB) bestimmt und setzt die Geldpolitik der Türkei um. Die TCMB legt Wechselkurse nicht direkt fest, beeinflusst sie aber durch geldpolitische Entscheidungen.",
+        points: [
+          "Tägliche Richtkurse werden an jedem Geschäftstag veröffentlicht",
+          "Effektive und Devisen-Kauf-/Verkaufskurse werden separat angezeigt",
+          "Kurse ändern sich im Tagesverlauf basierend auf Markttransaktionen",
+        ],
+      },
+      realEstate: {
+        title: "Immobilien und Währungsbeziehung",
+        paragraph1: "Obwohl Immobilienpreise in der Türkei in TL festgelegt werden, sind Wechselkurse für ausländische Investoren sehr wichtig. In günstigen Wechselkursperioden können ausländische Investoren Immobilien zu erschwinglicheren Preisen erwerben.",
+        paragraph2: "Bei Kalinda Yapı bieten wir sowohl TL- als auch Fremdwährungspreise für unsere internationalen Kunden. Besuchen Sie unsere Angebotsseite, um unser Immobilienportfolio in Muğla Ortaca, Dalyan und Umgebung zu erkunden.",
+      },
+      digitalResources: {
+        title: "Digitale Ressourcen",
+        paragraph: "Es ist wichtig, Informationen aus zuverlässigen Quellen über Finanzen, Technologie und die digitale Welt zu erhalten. Sie können verschiedene Plattformen verfolgen, um die richtigen Informationen zur Unterstützung Ihrer Investitionsentscheidungen zu erhalten.",
+        linkText: "AKD Universe - Technologie und digitale Welt",
+      },
+    },
+    cta: {
+      title: "Während Sie Wechselkurse verfolgen",
+      titleHighlight: "Entdecken Sie Immobilienchancen",
+      subtitle: "Erkunden Sie Immobilien zum Kauf und zur Miete in Muğla Ortaca, Dalyan und Umgebung mit Fremdwährungspreisen. Investieren Sie mit Kalinda Yapı Garantie.",
+      viewListings: "Alle Angebote anzeigen",
+      contactConsultant: "Mit einem Berater sprechen",
+    },
+  },
+  ru: {
+    breadcrumb: "Курсы валют",
+    heroTitle: "Курсы валют",
+    heroTitleHighlight: "в реальном времени",
+    heroSubtitle: "Отслеживайте курсы USD, EUR, GBP и золота в реальном времени. Актуальные данные от TCMB.",
+    lastUpdate: "Последнее обновление:",
+    currencies: {
+      USD: "Доллар США",
+      EUR: "Евро",
+      GBP: "Британский фунт",
+      XAU: "Золото (грамм)",
+    },
+    dailyChange: "дневное изменение",
+    educationalContent: {
+      whatIsExchange: {
+        title: "Что такое обменный курс?",
+        paragraph1: "Обменный курс — это стоимость валюты одной страны, выраженная в валюте другой страны. Например, курс USD/TRY показывает, сколько турецких лир стоит один доллар США.",
+        paragraph2: "В Турции справочные курсы объявляются Центральным банком Турецкой Республики (TCMB) в 15:30 каждый рабочий день. Рыночные курсы колеблются в течение дня в зависимости от спроса и предложения.",
+      },
+      tcmb: {
+        title: "TCMB и обменные курсы",
+        paragraph: "Центральный банк Турецкой Республики (TCMB) определяет и реализует денежно-кредитную политику Турции. TCMB не устанавливает обменные курсы напрямую, но влияет на них через решения денежно-кредитной политики.",
+        points: [
+          "Ежедневные индикативные курсы публикуются каждый рабочий день",
+          "Курсы покупки/продажи наличных и безналичных валют показаны отдельно",
+          "Курсы меняются в течение дня в зависимости от рыночных операций",
+        ],
+      },
+      realEstate: {
+        title: "Недвижимость и валюта",
+        paragraph1: "Хотя цены на недвижимость в Турции установлены в лирах, обменные курсы очень важны для иностранных инвесторов. В периоды выгодных курсов иностранные инвесторы могут приобретать недвижимость по более доступным ценам.",
+        paragraph2: "В Kalinda Yapı мы предоставляем цены как в лирах, так и в иностранной валюте для наших международных клиентов. Посетите нашу страницу объявлений, чтобы изучить наш портфель недвижимости в Мугле Ортадже, Дальяне и окрестностях.",
+      },
+      digitalResources: {
+        title: "Цифровые ресурсы",
+        paragraph: "Важно получать информацию из надежных источников о финансах, технологиях и цифровом мире. Вы можете следить за различными платформами, чтобы получить правильную информацию для поддержки ваших инвестиционных решений.",
+        linkText: "AKD Universe - Технологии и цифровой мир",
+      },
+    },
+    cta: {
+      title: "Отслеживая курсы валют",
+      titleHighlight: "откройте для себя возможности недвижимости",
+      subtitle: "Изучите недвижимость для продажи и аренды в Мугле Ортадже, Дальяне и окрестностях с ценами в иностранной валюте. Инвестируйте с гарантией Kalinda Yapı.",
+      viewListings: "Смотреть все объявления",
+      contactConsultant: "Поговорить с консультантом",
+    },
+  },
 };
 
 // Localized FAQ data
@@ -267,6 +361,58 @@ export const dovizFaqData: Record<Locale, DovizFAQ[]> = {
     {
       question: 'هل يمكن للأجانب شراء عقار في تركيا؟',
       answer: 'نعم، يمكن للأجانب شراء عقارات في تركيا بموجب شروط معينة. باستثناء المناطق العسكرية المحظورة، يمكن لمواطني الدول التي لديها اتفاقيات متبادلة الحصول على سندات ملكية. لمزيد من المعلومات، يرجى الاتصال بمستشاري العقارات لدينا في كالينداي يابي.',
+    },
+  ],
+  de: [
+    {
+      question: 'Wie viel ist 1 Dollar in TL?',
+      answer: 'Der aktuelle Dollarkurs wird basierend auf TCMB-Daten in Echtzeit aktualisiert. Sie können den aktuellen USD/TRY-Kurs über das Live-Kurspanel oben auf unserer Seite verfolgen. Der Dollarkurs kann sich im Laufe des Tages je nach Marktbedingungen ändern.',
+    },
+    {
+      question: 'Wie viel ist 1 Euro in TL?',
+      answer: 'Der Euro-Kurs wird basierend auf den täglichen Kursen der Zentralbank der Republik Türkei (TCMB) in Echtzeit angezeigt. Sie können die EUR/TRY-Parität über das Live-Kurspanel auf unserer Seite verfolgen.',
+    },
+    {
+      question: 'Wie wird der Wechselkurs berechnet?',
+      answer: 'Der Wechselkurs ist der Wert einer Landeswährung im Verhältnis zur Währung eines anderen Landes. In der Türkei werden Referenzkurse von der TCMB an jedem Geschäftstag um 15:30 Uhr bekannt gegeben. Marktkurse ändern sich sofort basierend auf Angebot und Nachfrage.',
+    },
+    {
+      question: 'Wo kann ich TCMB-Wechselkurse überprüfen?',
+      answer: 'Sie können TCMB-Wechselkurse auf der offiziellen TCMB-Website oder auf unserer Kalinda Yapı Wechselkursseite verfolgen. Unsere Seite zeigt aktuelle TCMB-Kurse in Echtzeit an.',
+    },
+    {
+      question: 'Warum sind Wechselkurse für Immobilieninvestitionen wichtig?',
+      answer: 'Für ausländische Investoren variieren die Immobilienpreise in der Türkei je nach Wechselkursen. Investoren, die in Dollar oder Euro denken, können in günstigen Wechselkursperioden Immobilien zu erschwinglicheren Preisen erwerben. Bei Kalinda Yapı bieten wir Fremdwährungspreise für unsere internationalen Kunden.',
+    },
+    {
+      question: 'Können Ausländer in der Türkei Immobilien kaufen?',
+      answer: 'Ja, ausländische Staatsbürger können unter bestimmten Bedingungen Immobilien in der Türkei erwerben. Außer in militärischen Sperrgebieten können Bürger von Ländern mit Gegenseitigkeitsabkommen Grundbucheinträge erhalten. Für detaillierte Informationen kontaktieren Sie bitte unsere Kalinda Yapı Immobilienberater.',
+    },
+  ],
+  ru: [
+    {
+      question: 'Сколько стоит 1 доллар в TL?',
+      answer: 'Текущий курс доллара обновляется в режиме реального времени на основе данных TCMB. Вы можете отслеживать текущий курс USD/TRY на панели курсов в верхней части нашей страницы. Курс доллара может меняться в течение дня в зависимости от рыночных условий.',
+    },
+    {
+      question: 'Сколько стоит 1 евро в TL?',
+      answer: 'Курс евро отображается в режиме реального времени на основе ежедневных курсов Центрального банка Турецкой Республики (TCMB). Вы можете отслеживать паритет EUR/TRY на панели курсов на нашей странице.',
+    },
+    {
+      question: 'Как рассчитывается обменный курс?',
+      answer: 'Обменный курс — это стоимость валюты одной страны, выраженная в валюте другой страны. В Турции справочные курсы объявляются TCMB в 15:30 каждый рабочий день. Рыночные курсы мгновенно меняются в зависимости от спроса и предложения.',
+    },
+    {
+      question: 'Где можно проверить курсы TCMB?',
+      answer: 'Вы можете отслеживать курсы TCMB на официальном сайте TCMB или на нашей странице курсов валют Kalinda Yapı. Наша страница отображает актуальные курсы от TCMB, обновляемые в режиме реального времени.',
+    },
+    {
+      question: 'Почему курсы валют важны для инвестиций в недвижимость?',
+      answer: 'Для иностранных инвесторов цены на недвижимость в Турции варьируются в зависимости от курсов валют. Инвесторы, думающие в долларах или евро, могут приобретать недвижимость по более доступным ценам в периоды выгодных курсов. В Kalinda Yapı мы предоставляем цены в иностранной валюте для наших международных клиентов.',
+    },
+    {
+      question: 'Могут ли иностранцы покупать недвижимость в Турции?',
+      answer: 'Да, иностранные граждане могут приобретать недвижимость в Турции при определенных условиях. За исключением военных запретных зон, граждане стран с соглашениями о взаимности могут получить свидетельства о праве собственности. Для получения подробной информации свяжитесь с нашими консультантами по недвижимости Kalinda Yapı.',
     },
   ],
 };
