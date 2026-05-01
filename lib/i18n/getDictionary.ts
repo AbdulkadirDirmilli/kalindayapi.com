@@ -209,6 +209,8 @@ export interface Dictionary {
     tr: string;
     en: string;
     ar: string;
+    de: string;
+    ru: string;
   };
 }
 
@@ -217,6 +219,8 @@ const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
   tr: () => import('./dictionaries/tr.json').then((module) => module.default),
   en: () => import('./dictionaries/en.json').then((module) => module.default),
   ar: () => import('./dictionaries/ar.json').then((module) => module.default),
+  de: () => import('./dictionaries/de.json').then((module) => module.default),
+  ru: () => import('./dictionaries/ru.json').then((module) => module.default),
 };
 
 export async function getDictionary(locale: Locale): Promise<Dictionary> {

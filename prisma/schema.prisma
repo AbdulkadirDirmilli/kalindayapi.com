@@ -97,9 +97,11 @@ model Ilan {
   yayinTarihi         DateTime          @default(now())
   guncellenmeTarihi   DateTime          @updatedAt
   createdAt           DateTime          @default(now())
+  viewCount           Int               @default(0)
   danisman            Ortak?            @relation(fields: [danismanId], references: [id])
   fotograflar         IlanFoto[]
   translations        IlanTranslation[]
+  views               IlanView[]
 }
 
 model IlanFoto {
@@ -109,6 +111,17 @@ model IlanFoto {
   sira      Int      @default(0)
   createdAt DateTime @default(now())
   ilan      Ilan     @relation(fields: [ilanId], references: [id], onDelete: Cascade)
+}
+
+model IlanView {
+  id        String   @id @default(uuid())
+  ilanId    String
+  visitorId String
+  viewedAt  DateTime @default(now())
+  ilan      Ilan     @relation(fields: [ilanId], references: [id], onDelete: Cascade)
+
+  @@unique([ilanId, visitorId])
+  @@index([ilanId])
 }
 
 model Hizmet {

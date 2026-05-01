@@ -1,0 +1,529 @@
+{
+  "meta": {
+    "title": "Ortaca Immobilien & Wohnungen zu verkaufen | Kalinda Yapi - Lizenzierte Agentur",
+    "description": "Immobilien zum Verkauf & zur Miete in Ortaca, Türkei. 150+ Angebote. Lizenzierte Makler. Kostenlose Bewertung. Dalaman, Köycegiz, Dalyan. Tel: +90 537 053 07 54",
+    "keywords": "Ortaca Immobilien, Türkei Immobilien kaufen, Mugla Wohnungen, Dalaman Villen, Dalyan Immobilien, Türkische Riviera Investment"
+  },
+  "nav": {
+    "home": "Startseite",
+    "services": "Dienstleistungen",
+    "listings": "Immobilien",
+    "exchange": "Wechselkurse",
+    "blog": "Blog",
+    "corporate": "Unternehmen",
+    "about": "Über uns",
+    "visionMission": "Vision & Mission",
+    "references": "Referenzen",
+    "certificates": "Zertifikate",
+    "contact": "Kontakt",
+    "faq": "FAQ",
+    "searchListings": "Immobilien suchen",
+    "callNow": "Jetzt anrufen"
+  },
+  "services": {
+    "realEstate": "Immobilienberatung",
+    "renovation": "Renovierung & Dekoration",
+    "construction": "Bau & Vertragsarbeit",
+    "planning": "Planung & Design"
+  },
+  "common": {
+    "readMore": "Mehr lesen",
+    "viewAll": "Alle anzeigen",
+    "share": "Teilen",
+    "loading": "Laden...",
+    "error": "Ein Fehler ist aufgetreten",
+    "retry": "Erneut versuchen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "close": "Schließen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "noResults": "Keine Ergebnisse gefunden",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "yes": "Ja",
+    "no": "Nein",
+    "or": "oder",
+    "and": "und"
+  },
+  "home": {
+    "hero": {
+      "badge": "Seit 2022 für Sie da",
+      "title": "Ihr zuverlässiger",
+      "titleHighlight": "Immobilien & Bau",
+      "titleEnd": "Partner an der Türkischen Riviera",
+      "subtitle": "Immobilienberatung, Renovierung und Baudienstleistungen in Ortaca, Mugla. Ihrem Traumhaus oder Projekt einen Schritt näher.",
+      "cta": "Immobilien entdecken",
+      "ctaSecondary": "Kostenlose Beratung",
+      "completedProjects": "Abgeschlossene Projekte",
+      "yearsExperience": "Jahre Erfahrung",
+      "happyFamilies": "Zufriedene Familien"
+    },
+    "stats": {
+      "title": "Kalinda Yapi in Zahlen",
+      "subtitle": "Beweis für Vertrauen und Erfolg",
+      "description": "Wachsend mit jahrelanger Erfahrung und dem Vertrauen unserer Kunden in der Region Ortaca und Mugla.",
+      "experience": "Jahre Erfahrung",
+      "projects": "Abgeschlossene Projekte",
+      "clients": "Zufriedene Familien",
+      "satisfaction": "Kundenzufriedenheit",
+      "projectsDesc": "Wohn-, Villa- und Gewerbeprojekte",
+      "experienceDesc": "Seit 2022 im Dienst",
+      "clientsDesc": "Kunden, die uns vertrauen",
+      "satisfactionDesc": "Qualitätsorientierter Service",
+      "area": "qm Bau",
+      "note": "* Daten spiegeln unsere tatsächlichen Transaktionen wider und werden nach jedem Verkauf und jeder Vermietung aktualisiert."
+    },
+    "featured": {
+      "badge": "Ausgewählte Immobilien",
+      "title": "Neueste Immobilienangebote",
+      "subtitle": "Entdecken Sie unsere ausgewählten Angebote aus allen Bezirken von Mugla. Kauf- und Mietoptionen.",
+      "forSale": "Zu verkaufen",
+      "forRent": "Zu vermieten",
+      "noListings": "Noch keine ausgewählten Angebote.",
+      "viewAll": "Alle Immobilien anzeigen",
+      "perMonth": "/Monat"
+    },
+    "services": {
+      "badge": "Unsere Dienstleistungen",
+      "title": "Wie können wir Ihnen helfen?",
+      "subtitle": "Von der Immobilienberatung bis zum Bauunternehmen - wir sind für alle Ihre Bedürfnisse da. Qualitätsservice mit unserem professionellen Team.",
+      "details": "Details",
+      "viewAll": "Alle Dienstleistungen anzeigen",
+      "realEstate": {
+        "title": "Immobilienberatung",
+        "description": "Immobilien zum Verkauf und zur Miete in Ortaca und Umgebung. Professionelle Bewertung und Anlageberatung."
+      },
+      "renovation": {
+        "title": "Renovierung & Dekoration",
+        "description": "Innenarchitektur, Küchen-Bad-Renovierung, Maler- und Beschichtungsarbeiten. Wir verwandeln Ihr Zuhause wie Sie es sich wünschen."
+      },
+      "construction": {
+        "title": "Bau & Vertragsarbeit",
+        "description": "Neubau von Gebäuden, Restaurierungsprojekte und schlüsselfertige Baulösungen."
+      },
+      "planning": {
+        "title": "Planung & Projekt",
+        "description": "Architektonische, statische, elektrische und mechanische Projektzeichnungen und Genehmigungsberatung."
+      }
+    },
+    "whyUs": {
+      "badge": "Unser Unterschied",
+      "title": "Warum Kalinda Yapi wählen?",
+      "subtitle": "Gründe, warum wir in der Region Ortaca und Mugla vertraut werden. Fokus auf Qualität und Kundenzufriedenheit.",
+      "licensedConsultant": "Lizenzierter Berater",
+      "licensedConsultantDesc": "Zuverlässiger Service von unserem offiziell zertifizierten Immobilienberater.",
+      "localKnowledge": "Lokales Wissen",
+      "localKnowledgeDesc": "Wir kennen Ortaca und Umgebung wie unsere Westentasche. Vertraut mit der Dynamik der Region.",
+      "guaranteedWork": "Garantierte Arbeit",
+      "guaranteedWorkDesc": "Wir bieten Arbeitsgarantie für alle unsere Renovierungs- und Bauarbeiten.",
+      "transparentContract": "Transparenter Vertrag",
+      "transparentContractDesc": "Alle unsere Transaktionen sind durch schriftliche Verträge gesichert. Keine versteckten Kosten.",
+      "personalAttention": "Persönliche Betreuung",
+      "personalAttentionDesc": "Wir schenken jedem Kunden besondere Aufmerksamkeit. Ihre Bedürfnisse zu verstehen hat Priorität.",
+      "onTimeDelivery": "Pünktliche Lieferung",
+      "onTimeDeliveryDesc": "Wir schließen unsere Projekte termingerecht ab. Wir schätzen Zeit.",
+      "serviceArea": "Servicegebiet",
+      "allDistricts": "Alle Bezirke von Mugla",
+      "established": "Gegründet",
+      "since2022": "Seit 2022",
+      "customerSatisfaction": "Kundenzufriedenheit",
+      "serviceNote": "Wir sind mit unseren Immobilien-, Renovierungs- und Baudienstleistungen in allen Bezirken von Mugla für Sie da"
+    },
+    "blog": {
+      "badge": "Blog & Ratgeber",
+      "title": "Neueste",
+      "titleHighlight": "Beiträge",
+      "subtitle": "Expertenmeinungen und praktische Informationen zu Immobilien, Zonierung, Renovierung und Eigentum",
+      "viewAll": "Alle Beiträge anzeigen",
+      "readTime": "Min"
+    },
+    "references": {
+      "badge": "Referenzprojekte",
+      "title": "Vorher - Nachher Galerie",
+      "subtitle": "Beispiele aus unseren abgeschlossenen Projekten. Wir machen den Unterschied mit Qualitätsarbeit und professionellem Ansatz.",
+      "before": "VORHER",
+      "after": "NACHHER",
+      "clickToToggle": "Klicken zum Umschalten",
+      "instruction": "Klicken Sie auf Bilder, um den Vorher-Nachher-Vergleich zu sehen",
+      "prev": "Zurück",
+      "next": "Weiter"
+    },
+    "team": {
+      "badge": "Unser Team",
+      "title": "Gründungspartner",
+      "subtitle": "Erfahrene Namen hinter Kalinda Yapi. Unsere Partner dienen mit höchster Kundenzufriedenheit.",
+      "expertise": "Fachgebiete",
+      "call": "Anrufen"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Häufig gestellte Fragen",
+      "subtitle": "Die am häufigsten gestellten Fragen und Expertenantworten zu Immobilienkauf/-verkauf, Renovierung und Bau in Ortaca, Dalyan und Mugla.",
+      "moreQuestions": "Weitere Fragen?",
+      "contactUs": "Kontaktieren Sie uns"
+    },
+    "contactForm": {
+      "badge": "Kontakt",
+      "title": "Kontaktieren Sie uns jetzt",
+      "subtitle": "Erhalten Sie kostenlose Beratung für Ihre Immobilien-, Renovierungs- oder Bauprojekte. Wir melden uns schnellstmöglich.",
+      "address": "Adresse",
+      "phone": "Telefon",
+      "workingHours": "Öffnungszeiten",
+      "weekdays": "Mo-Fr: 08:00 - 18:00",
+      "saturday": "Samstag: 09:00 - 14:00",
+      "formTitle": "Kostenloses Beratungsformular",
+      "nameLabel": "Vollständiger Name",
+      "namePlaceholder": "Geben Sie Ihren Namen ein",
+      "phoneLabel": "Telefon",
+      "phonePlaceholder": "+90 (5XX) XXX XX XX",
+      "serviceLabel": "Serviceart",
+      "serviceSelect": "Service auswählen",
+      "messageLabel": "Ihre Nachricht",
+      "messagePlaceholder": "Erzählen Sie uns kurz von Ihrem Projekt...",
+      "submit": "Senden",
+      "successTitle": "Nachricht erhalten!",
+      "successMessage": "Wir melden uns schnellstmöglich bei Ihnen.",
+      "privacyNote": "Mit dem Absenden des Formulars akzeptieren Sie unsere",
+      "privacyLink": "Datenschutzrichtlinie",
+      "privacyAccept": "."
+    }
+  },
+  "listings": {
+    "title": "Immobilienangebote",
+    "subtitle": "Immobilien zum Verkauf und zur Miete in Ortaca und Umgebung",
+    "filters": {
+      "all": "Alle",
+      "forSale": "Zu verkaufen",
+      "forRent": "Zu vermieten",
+      "type": "Immobilientyp",
+      "apartment": "Wohnung",
+      "villa": "Villa",
+      "land": "Grundstück",
+      "commercial": "Gewerbe",
+      "priceRange": "Preisbereich",
+      "minPrice": "Min. Preis",
+      "maxPrice": "Max. Preis",
+      "area": "Quadratmeter",
+      "rooms": "Schlafzimmer",
+      "location": "Standort"
+    },
+    "sort": {
+      "newest": "Neueste",
+      "priceAsc": "Preis (aufsteigend)",
+      "priceDesc": "Preis (absteigend)",
+      "areaAsc": "Fläche (aufsteigend)",
+      "areaDesc": "Fläche (absteigend)"
+    },
+    "detail": {
+      "overview": "Übersicht",
+      "features": "Eigenschaften",
+      "location": "Standort",
+      "contact": "Kontakt",
+      "price": "Preis",
+      "area": "Fläche",
+      "rooms": "Schlafzimmer",
+      "bathrooms": "Badezimmer",
+      "floor": "Etage",
+      "buildingAge": "Baujahr",
+      "heating": "Heizung",
+      "furnished": "Möbliert",
+      "elevator": "Aufzug",
+      "parking": "Parkplatz",
+      "pool": "Pool",
+      "garden": "Garten",
+      "security": "Sicherheit",
+      "description": "Beschreibung",
+      "callAgent": "Makler anrufen",
+      "whatsapp": "Kontakt über WhatsApp",
+      "shareOnWhatsapp": "Auf WhatsApp teilen",
+      "listingNo": "Angebots-Nr.",
+      "updated": "Aktualisiert",
+      "similar": "Ähnliche Immobilien"
+    },
+    "categories": {
+      "satilik": "Zu verkaufen",
+      "kiralik": "Zu vermieten"
+    },
+    "types": {
+      "daire": "Wohnung",
+      "villa": "Villa",
+      "mustakil": "Einfamilienhaus",
+      "arsa": "Grundstück",
+      "tarla": "Landwirtschaftsfläche",
+      "ticari": "Gewerbe",
+      "ofis": "Büro",
+      "dukkan": "Geschäft"
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Kontaktieren Sie uns für Ihre Anfragen",
+    "form": {
+      "name": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer",
+      "subject": "Betreff",
+      "message": "Ihre Nachricht",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "success": "Ihre Nachricht wurde erfolgreich gesendet!",
+      "error": "Ein Fehler ist aufgetreten, bitte versuchen Sie es erneut."
+    },
+    "info": {
+      "address": "Adresse",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "workingHours": "Öffnungszeiten",
+      "weekdays": "Montag - Samstag",
+      "hours": "09:00 - 18:00"
+    }
+  },
+  "about": {
+    "title": "Über uns",
+    "subtitle": "Seit 2022 mit Exzellenz und Vertrauen für Sie da",
+    "team": {
+      "title": "Unser Team",
+      "subtitle": "Erfahrene Fachleute, die bereit sind, Ihnen zu helfen"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Neueste Nachrichten aus der Immobilien- und Baubranche",
+    "readTime": "Min. Lesezeit",
+    "categories": {
+      "emlak": "Immobilien",
+      "tadilat": "Renovierung",
+      "insaat": "Bau",
+      "yatirim": "Investment",
+      "dekorasyon": "Dekoration"
+    },
+    "author": "Autor",
+    "publishDate": "Veröffentlicht",
+    "relatedPosts": "Verwandte Beiträge"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Finden Sie Antworten auf häufige Fragen"
+  },
+  "footer": {
+    "description": "Immobilien-, Renovierungs- und Baudienstleistungen in Ortaca und Umgebung.",
+    "quickLinks": "Schnelllinks",
+    "services": "Unsere Dienstleistungen",
+    "contact": "Kontaktinformationen",
+    "followUs": "Folgen Sie uns",
+    "copyright": "© 2026 Kalinda Yapi. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen"
+  },
+  "exchange": {
+    "title": "Wechselkurse",
+    "subtitle": "Aktuelle Währungs- und Goldpreise",
+    "gold": "Gold",
+    "dollar": "Dollar",
+    "euro": "Euro",
+    "sterling": "Pfund Sterling",
+    "buying": "Kauf",
+    "selling": "Verkauf",
+    "lastUpdate": "Letzte Aktualisierung"
+  },
+  "language": {
+    "select": "Sprache wählen",
+    "tr": "Türkçe",
+    "en": "English",
+    "ar": "العربية",
+    "de": "Deutsch",
+    "ru": "Русский",
+    "active": "Aktiv"
+  },
+  "cookie": {
+    "message": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern.",
+    "privacyLink": "Datenschutzrichtlinie",
+    "privacyText": "für weitere Details.",
+    "accept": "Akzeptieren",
+    "reject": "Ablehnen",
+    "close": "Schließen"
+  },
+  "consultants": {
+    "zafer": "Herr Zafer",
+    "arif": "Herr Arif",
+    "hikmet": "Herr Hikmet",
+    "consultant": "Berater"
+  },
+  "address": {
+    "full": "Atatürk Mah. 58 Sk. Nr: 2/B (Hinter dem Rathaus), Ortaca / Mugla, Türkei",
+    "city": "Ortaca, Mugla"
+  },
+  "whatsapp": {
+    "greeting": "Hallo, ich kontaktiere Sie von der Kalinda Yapi Website."
+  },
+  "filters": {
+    "allCategories": "Alle Kategorien",
+    "allTypes": "Alle Typen",
+    "allLocations": "Alle Standorte",
+    "searchPlaceholder": "Angebote suchen...",
+    "filter": "Filtern",
+    "propertyType": "Immobilientyp",
+    "location": "Standort",
+    "minPrice": "Min. Preis (TL)",
+    "maxPrice": "Max. Preis (TL)",
+    "min": "Min",
+    "max": "Max",
+    "onlyVerified": "Nur EIDS-verifizierte Angebote anzeigen",
+    "clearFilters": "Filter löschen",
+    "listingsFound": "Angebote gefunden",
+    "gridView": "Rasteransicht",
+    "listView": "Listenansicht"
+  },
+  "leadForm": {
+    "title": "Informationen zu diesem Angebot erhalten",
+    "namePlaceholder": "Ihr vollständiger Name",
+    "phonePlaceholder": "Telefonnummer",
+    "getInfo": "Info erhalten",
+    "listing": "Angebot",
+    "fullName": "Vollständiger Name",
+    "phone": "Telefon",
+    "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein",
+    "kvkkText": "Ich akzeptiere die Verarbeitung meiner persönlichen Daten und die Weitergabe meiner Informationen gemäß der",
+    "kvkkLink": "Datenschutzrichtlinie",
+    "kvkkAccept": ".",
+    "sending": "Wird gesendet...",
+    "submitButton": "Ich möchte Informationen zu diesem Angebot erhalten",
+    "successTitle": "Anfrage erhalten!",
+    "successMessage": "Wir werden uns schnellstmöglich bei Ihnen melden.",
+    "ok": "OK",
+    "errorGeneric": "Ein Fehler ist aufgetreten.",
+    "errorConnection": "Verbindungsfehler. Bitte versuchen Sie es erneut.",
+    "ariaLabel": "Informationen zu diesem Angebot erhalten"
+  },
+  "pagination": {
+    "label": "Seitennavigation",
+    "previous": "Vorherige Seite",
+    "next": "Nächste Seite",
+    "page": "Seite"
+  },
+  "gallery": {
+    "previous": "Vorheriges Bild",
+    "next": "Nächstes Bild",
+    "fullscreen": "Vollbild anzeigen"
+  },
+  "sideContact": {
+    "email": "E-Mail",
+    "sendEmail": "E-Mail senden",
+    "closeMenu": "Menü schließen"
+  },
+  "exchangePage": {
+    "title": "Wechselkurse & Immobilieninvestition",
+    "subtitle": "Ideale Gelegenheit für ausländische Investoren",
+    "currencyAdvantage": "Währungsvorteil",
+    "currencyAdvantageDesc": "Günstige Immobilienpreise in Dollar und Euro",
+    "expertConsulting": "Expertenberatung",
+    "expertConsultingDesc": "Spezielle Dienstleistungen für ausländische Investoren",
+    "widePortfolio": "Breites Portfolio",
+    "widePortfolioDesc": "Villa-, Wohnungs- und Grundstücksoptionen",
+    "viewInDollar": "Angebote in Dollar anzeigen",
+    "callConsultant": "Berater anrufen",
+    "investmentDescription": "Die beste Zeit für ausländische Investoren, die in Immobilien in der Türkei investieren möchten. Zugang zu hochwertigen Immobilien mit Währungsvorteil.",
+    "propertyOptions": "Immobilienoptionen",
+    "foreignInvestors": "Ausländische Investoren",
+    "customerSatisfaction": "Kundenzufriedenheit",
+    "converter": {
+      "title": "Währungsrechner",
+      "subtitle": "Mit Live-Kursen berechnen",
+      "amount": "Umzurechnender Betrag",
+      "result": "Ergebnis",
+      "source": "Quelle: TCMB • Letzte Aktualisierung:"
+    },
+    "currencies": {
+      "TRY": "Türkische Lira",
+      "USD": "US-Dollar",
+      "EUR": "Euro",
+      "GBP": "Britisches Pfund"
+    },
+    "chart": {
+      "title": "Kurschart",
+      "subtitle": "Historische Kursdaten",
+      "days": "Tage",
+      "current": "Aktuell",
+      "lowest": "Niedrigster",
+      "highest": "Höchster",
+      "average": "Durchschnitt"
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "subtitle": "Häufige Fragen zu Wechselkursen"
+    }
+  },
+  "contactPage": {
+    "heroTitle": "Kontakt",
+    "heroSubtitle": "Kontaktieren Sie uns bei Fragen. Wir helfen Ihnen gerne.",
+    "heroDescription": "Treffen Sie unser Expertenteam für Ihre Immobilien-, Renovierungs- oder Bauprojekte.",
+    "infoTitle": "Kontaktinformationen",
+    "address": "Adresse",
+    "addressLine1": "Atatürk Mah. 58 Sk. Nr: 2/B",
+    "addressLine2": "(Hinter dem Rathaus), Ortaca / Mugla, Türkei",
+    "email": "E-Mail",
+    "workingHours": "Öffnungszeiten",
+    "weekdaysHours": "Montag - Freitag: 09:00 - 18:00",
+    "saturdayHours": "Samstag: 10:00 - 14:00",
+    "sundayClosed": "Sonntag: Geschlossen",
+    "teamTitle": "Unser Team",
+    "socialTitle": "Soziale Medien",
+    "formTitle": "Senden Sie uns eine Nachricht",
+    "successTitle": "Nachricht gesendet!",
+    "successMessage": "Wir melden uns schnellstmöglich bei Ihnen.",
+    "form": {
+      "name": "Vollständiger Name",
+      "namePlaceholder": "Geben Sie Ihren Namen ein",
+      "email": "E-Mail-Adresse",
+      "emailPlaceholder": "beispiel@email.com",
+      "phone": "Telefonnummer",
+      "phonePlaceholder": "+90 (5XX) XXX XX XX",
+      "service": "Interessierte Dienstleistung",
+      "serviceSelect": "Dienstleistung auswählen",
+      "message": "Ihre Nachricht",
+      "messagePlaceholder": "Schreiben Sie hier Ihre Nachricht...",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet..."
+    },
+    "serviceOptions": {
+      "emlak": "Immobilienberatung",
+      "tadilat": "Renovierung & Dekoration",
+      "insaat": "Bau & Vertragsarbeit",
+      "diger": "Sonstiges"
+    },
+    "team": {
+      "zafer": {
+        "name": "Zafer SOYLU",
+        "title": "Mitgründer & Immobilienberater"
+      },
+      "arif": {
+        "name": "Arif DAGDELEN",
+        "title": "Mitgründer & Bauleiter"
+      },
+      "hikmet": {
+        "name": "Hikmet KARAOGLAN",
+        "title": "Mitgründer & Renovierungsexperte"
+      }
+    },
+    "mapTitle": "Kalinda Yapi Standort - Ortaca, Mugla"
+  },
+  "ilanCard": {
+    "forSale": "Zu verkaufen",
+    "forRent": "Zu vermieten",
+    "bathroom": "Bad",
+    "listingNo": "Angebots-Nr.",
+    "perMonth": "/Monat",
+    "rooms": "Zimmer",
+    "area": "qm"
+  },
+  "currencySwitcher": {
+    "selectCurrency": "Währung wählen"
+  },
+  "guide": {
+    "title": "Mugla Bezirksführer",
+    "subtitle": "Immobilien-, Lifestyle- und Investitionsführer für die 13 Bezirke von Mugla"
+  }
+}

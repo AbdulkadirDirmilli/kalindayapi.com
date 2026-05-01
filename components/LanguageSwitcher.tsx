@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Globe, ChevronDown, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { locales, localeConfig, type Locale, getOriginalPath, localizePath } from "@/lib/i18n";
+import { locales, localeConfig, type Locale } from "@/lib/i18n";
 import { useLocale } from "./providers/LocaleProvider";
 import { cn } from "@/lib/utils";
 import FlagIcon from "./ui/FlagIcon";
@@ -47,18 +47,35 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
   }, [pathname]);
 
   const handleLanguageChange = (newLocale: Locale) => {
-    // Get original path (without locale prefix)
-    const originalPath = getOriginalPath(pathname, currentLocale);
+    // Tarayıcıdan doğrudan mevcut path'i al
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
 
-    // Localize to new locale
-    const newPath = localizePath(originalPath, newLocale);
+    // Debug log
+    console.log('[LanguageSwitcher] currentPath:', currentPath);
+    console.log('[LanguageSwitcher] newLocale:', newLocale);
 
-    // Set cookie
+    // Path'i parçalara ayır
+    const segments = currentPath.split('/').filter(Boolean);
+    console.log('[LanguageSwitcher] segments before:', [...segments]);
+
+    // İlk segment bir locale ise kaldır
+    if (segments.length > 0 && locales.includes(segments[0] as Locale)) {
+      segments.shift();
+    }
+    console.log('[LanguageSwitcher] segments after:', [...segments]);
+
+    // Yeni locale ile path oluştur
+    const newPath = segments.length > 0
+      ? `/${newLocale}/${segments.join('/')}`
+      : `/${newLocale}`;
+
+    console.log('[LanguageSwitcher] newPath:', newPath);
+
+    // Cookie ayarla
     document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=${60 * 60 * 24 * 365}`;
 
-    // Navigate
-    router.push(newPath);
-    setIsOpen(false);
+    // Yönlendir
+    window.location.href = newPath;
   };
 
   if (variant === "minimal") {

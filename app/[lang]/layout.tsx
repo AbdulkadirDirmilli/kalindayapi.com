@@ -1,30 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Nunito, Noto_Sans_Arabic } from "next/font/google";
-import "../globals.css";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
-import { locales, localeConfig, defaultLocale, type Locale } from "@/lib/i18n";
+import { locales, localeConfig, type Locale } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { notFound } from "next/navigation";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const nunito = Nunito({
-  variable: "--font-nunito",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const notoSansArabic = Noto_Sans_Arabic({
-  variable: "--font-arabic",
-  subsets: ["arabic"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
 
 // Statik parametre üretimi
 export async function generateStaticParams() {
@@ -63,7 +42,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "website",
-      locale: locale === "tr" ? "tr_TR" : locale === "ar" ? "ar_SA" : "en_US",
+      locale: { tr: "tr_TR", en: "en_US", ar: "ar_SA", de: "de_DE", ru: "ru_RU" }[locale] || "en_US",
       url: homeUrl,
       siteName: "Kalinda Yapı",
       title: dict.home.hero.title,
@@ -118,29 +97,17 @@ export default async function LocaleLayout({
   const locale = lang as Locale;
   const config = localeConfig[locale];
 
-  const fontClasses = locale === 'ar'
-    ? `${inter.variable} ${nunito.variable} ${notoSansArabic.variable}`
-    : `${inter.variable} ${nunito.variable}`;
-
   return (
-    <html
-      lang={config.hreflang}
-      dir={config.dir}
-      className={fontClasses}
-      data-scroll-behavior="smooth"
-    >
-      <head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#0B1F3A" />
-      </head>
-      <body className="min-h-screen flex flex-col antialiased" suppressHydrationWarning>
-        <LayoutWrapper locale={locale}>{children}</LayoutWrapper>
-      </body>
-    </html>
+    <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            document.documentElement.lang = "${config.hreflang}";
+            document.documentElement.dir = "${config.dir}";
+          `,
+        }}
+      />
+      <LayoutWrapper locale={locale}>{children}</LayoutWrapper>
+    </>
   );
 }

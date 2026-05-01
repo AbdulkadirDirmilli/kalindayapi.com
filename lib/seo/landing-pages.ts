@@ -1,5 +1,23 @@
 import { Locale } from "@/lib/i18n";
 
+interface LocaleMeta {
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+}
+
+interface LocaleContent {
+  sections: Array<{
+    title: string;
+    content: string;
+  }>;
+  faq: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
 export interface LandingPageConfig {
   slug: string;
   filter: {
@@ -7,58 +25,8 @@ export interface LandingPageConfig {
     tip?: string;
     konum?: string;
   };
-  meta: {
-    tr: {
-      title: string;
-      description: string;
-      h1: string;
-      intro: string;
-    };
-    en: {
-      title: string;
-      description: string;
-      h1: string;
-      intro: string;
-    };
-    ar: {
-      title: string;
-      description: string;
-      h1: string;
-      intro: string;
-    };
-  };
-  content: {
-    tr: {
-      sections: Array<{
-        title: string;
-        content: string;
-      }>;
-      faq: Array<{
-        question: string;
-        answer: string;
-      }>;
-    };
-    en: {
-      sections: Array<{
-        title: string;
-        content: string;
-      }>;
-      faq: Array<{
-        question: string;
-        answer: string;
-      }>;
-    };
-    ar: {
-      sections: Array<{
-        title: string;
-        content: string;
-      }>;
-      faq: Array<{
-        question: string;
-        answer: string;
-      }>;
-    };
-  };
+  meta: Record<Locale, LocaleMeta>;
+  content: Record<Locale, LocaleContent>;
 }
 
 export const landingPages: Record<string, LandingPageConfig> = {
@@ -87,6 +55,18 @@ export const landingPages: Record<string, LandingPageConfig> = {
         description: "شقق للبيع في أورتاجا ✓ 50+ إعلان ✓ مركز المدينة، الشاطئ، منطقة الجامعة ✓ استشارة عقارية مجانية. تصفح الآن! ☎ 00905370530754",
         h1: "شقق للبيع في أورتاجا 2026",
         intro: "هل تبحث عن شقة للبيع في أورتاجا، إحدى أكثر مناطق موغلا شعبية؟ في كالينداي يابي، نخدمك بمحفظتنا الواسعة من مركز مدينة أورتاجا إلى الشاطئ، ومن محيط الجامعة إلى مشاريع البناء الجديدة.",
+      },
+      de: {
+        title: "Wohnungen zum Verkauf in Ortaca 2026 | Aktuelle Preise & Angebote",
+        description: "Wohnungen zum Verkauf in Ortaca ✓ 50+ Angebote ✓ Stadtzentrum, Strandnähe, Universitätsviertel ✓ Kostenlose Immobilienberatung. Jetzt ansehen! ☎ +90 537 053 07 54",
+        h1: "Wohnungen zum Verkauf in Ortaca 2026",
+        intro: "Suchen Sie eine Wohnung zum Verkauf in Ortaca, einem der beliebtesten Bezirke von Muğla? Bei Kalinda Yapı bedienen wir Sie mit unserem breiten Portfolio vom Stadtzentrum Ortaca bis zur Küste, von der Universitätsumgebung bis zu Neubauprojekten.",
+      },
+      ru: {
+        title: "Квартиры на продажу в Ортадже 2026 | Актуальные цены и объявления",
+        description: "Квартиры на продажу в Ортадже ✓ 50+ объявлений ✓ Центр города, пляж, район университета ✓ Бесплатная консультация. Смотрите сейчас! ☎ +90 537 053 07 54",
+        h1: "Квартиры на продажу в Ортадже 2026",
+        intro: "Ищете квартиру на продажу в Ортадже, одном из самых популярных районов Мугла? В Kalinda Yapı мы обслуживаем вас с нашим широким портфолио от центра Ортаджи до побережья, от окрестностей университета до новых строительных проектов.",
       },
     },
     content: {
@@ -180,6 +160,66 @@ export const landingPages: Record<string, LandingPageConfig> = {
           },
         ],
       },
+      de: {
+        sections: [
+          {
+            title: "Wohnungspreise in Ortaca 2026",
+            content: "Wohnungspreise in Ortaca variieren je nach Lage und Ausstattung. Wohnungen im Zentrum von Ortaca kosten durchschnittlich 1.200.000 - 2.500.000 TL, im Cumhuriyet Viertel 950.000 - 1.800.000 TL und an der Dalyan-Straße 1.500.000 - 3.000.000 TL.",
+          },
+          {
+            title: "Warum sollten Sie in Ortaca kaufen?",
+            content: "Ortaca hat eine strategische Lage, nur 25 Minuten vom Flughafen Dalaman entfernt. Sie können hochwertige Immobilien zu 30-40% günstigeren Preisen als in Fethiye und Marmaris erwerben. Die Infrastruktur entwickelt sich schnell mit neuen Krankenhaus-, Universitäts- und Einkaufszentrumsprojekten.",
+          },
+          {
+            title: "Beliebte Viertel in Ortaca",
+            content: "Das Cumhuriyet Viertel ist das zentralste Gebiet von Ortaca, zu Fuß erreichbar von Markt, Schulen und Krankenhaus. Das Atatürk Viertel bietet eine ruhige Familienumgebung, große Parks und moderne Wohnanlagen.",
+          },
+        ],
+        faq: [
+          {
+            question: "Was kosten Wohnungen in Ortaca?",
+            answer: "Wohnungspreise in Ortaca beginnen bei durchschnittlich 950.000 TL für 2+1 Wohnungen und können in zentralen Lagen bis zu 2.500.000 TL erreichen.",
+          },
+          {
+            question: "Welche sind die besten Viertel in Ortaca?",
+            answer: "Die beliebtesten Viertel in Ortaca sind Cumhuriyet (zentrale Lage), Atatürk (ruhige Familienumgebung) und Karaburun (nahe am Meer).",
+          },
+          {
+            question: "Lohnt sich eine Immobilieninvestition in Ortaca?",
+            answer: "Ja, Ortaca ist mit seiner sich entwickelnden Infrastruktur, Universität und Tourismuspotenzial ein attraktives Investitionsgebiet. Die Immobilienwerte sind in den letzten 5 Jahren um durchschnittlich 200% gestiegen.",
+          },
+        ],
+      },
+      ru: {
+        sections: [
+          {
+            title: "Цены на квартиры в Ортадже 2026",
+            content: "Цены на квартиры в Ортадже варьируются в зависимости от расположения и характеристик. Квартиры в центре Ортаджи стоят в среднем 1.200.000 - 2.500.000 TL, в районе Джумхуриет 950.000 - 1.800.000 TL, а на дороге Далян 1.500.000 - 3.000.000 TL.",
+          },
+          {
+            title: "Почему стоит покупать в Ортадже?",
+            content: "Ортаджа имеет стратегическое расположение всего в 25 минутах от аэропорта Даламан. Вы можете приобрести качественную недвижимость на 30-40% дешевле, чем в Фетхие и Мармарисе. Инфраструктура быстро развивается с новыми проектами больниц, университетов и торговых центров.",
+          },
+          {
+            title: "Популярные районы в Ортадже",
+            content: "Район Джумхуриет - самый центральный район Ортаджи, в пешей доступности от рынка, школ и больницы. Район Ататюрк предлагает спокойную семейную обстановку, большие парки и современные жилые комплексы.",
+          },
+        ],
+        faq: [
+          {
+            question: "Сколько стоят квартиры в Ортадже?",
+            answer: "Цены на квартиры в Ортадже начинаются в среднем от 950.000 TL за квартиры 2+1 и могут достигать 2.500.000 TL в центральных районах.",
+          },
+          {
+            question: "Какие лучшие районы в Ортадже?",
+            answer: "Самые популярные районы в Ортадже - Джумхуриет (центральное расположение), Ататюрк (спокойная семейная обстановка) и Карабурун (близко к морю).",
+          },
+          {
+            question: "Выгодно ли инвестировать в недвижимость в Ортадже?",
+            answer: "Да, Ортаджа - привлекательный район для инвестиций благодаря развивающейся инфраструктуре, университету и туристическому потенциалу. Стоимость недвижимости выросла в среднем на 200% за последние 5 лет.",
+          },
+        ],
+      },
     },
   },
 
@@ -208,6 +248,18 @@ export const landingPages: Record<string, LandingPageConfig> = {
         description: "شقق للإيجار في أورتاجا ✓ شقق للطلاب والعائلات ✓ بالقرب من الجامعة ✓ أسعار معقولة. تصفح الآن! ☎ 00905370530754",
         h1: "شقق للإيجار في أورتاجا 2026",
         intro: "هل تبحث عن شقة للإيجار في أورتاجا؟ نقدم خيارات شقق بأسعار معقولة لطلاب جامعة موغلا صتقي كوجمان والعائلات.",
+      },
+      de: {
+        title: "Wohnungen zur Miete in Ortaca 2026 | Aktuelle Mietpreise & Angebote",
+        description: "Wohnungen zur Miete in Ortaca ✓ Studenten- & Familienwohnungen ✓ Nahe Universität ✓ Günstige Preise. Jetzt ansehen! ☎ +90 537 053 07 54",
+        h1: "Wohnungen zur Miete in Ortaca 2026",
+        intro: "Suchen Sie eine Mietwohnung in Ortaca? Wir bieten erschwingliche Mietwohnungen für Studenten der Muğla Sıtkı Koçman Universität und Familien an.",
+      },
+      ru: {
+        title: "Квартиры в аренду в Ортадже 2026 | Актуальные цены аренды и объявления",
+        description: "Квартиры в аренду в Ортадже ✓ Для студентов и семей ✓ Рядом с университетом ✓ Доступные цены. Смотрите сейчас! ☎ +90 537 053 07 54",
+        h1: "Квартиры в аренду в Ортадже 2026",
+        intro: "Ищете квартиру в аренду в Ортадже? Мы предлагаем доступные варианты аренды для студентов университета Мугла Сытки Кочман и семей.",
       },
     },
     content: {
@@ -277,6 +329,50 @@ export const landingPages: Record<string, LandingPageConfig> = {
           },
         ],
       },
+      de: {
+        sections: [
+          {
+            title: "Mietpreise in Ortaca 2026",
+            content: "Mietwohnungspreise in Ortaca beginnen bei 8.000 TL pro Monat für 1+1 Wohnungen und 12.000 TL für 2+1 Wohnungen. Studentenwohnungen in der Nähe der Universität kosten 6.000-10.000 TL.",
+          },
+          {
+            title: "Wohnungen für Studenten",
+            content: "Studentenfreundliche Mietwohnungen sind in der Nähe des Campus der Muğla Sıtkı Koçman Universität verfügbar. Wir bieten günstige, möblierte oder unmöblierte Optionen an.",
+          },
+        ],
+        faq: [
+          {
+            question: "Was kosten Mietwohnungen in Ortaca?",
+            answer: "Mietwohnungspreise in Ortaca beginnen bei 8.000 TL für 1+1 und 12.000 TL für 2+1 Wohnungen. Studentenwohnungen kosten 6.000-10.000 TL.",
+          },
+          {
+            question: "Gibt es günstige Wohnungen für Studenten in Ortaca?",
+            answer: "Ja, studentenfreundliche Mietwohnungen sind in der Nähe des Universitätscampus für 6.000-10.000 TL verfügbar.",
+          },
+        ],
+      },
+      ru: {
+        sections: [
+          {
+            title: "Цены на аренду в Ортадже 2026",
+            content: "Цены на аренду квартир в Ортадже начинаются от 8.000 TL в месяц за квартиры 1+1 и 12.000 TL за квартиры 2+1. Студенческие квартиры рядом с университетом стоят 6.000-10.000 TL.",
+          },
+          {
+            title: "Квартиры для студентов",
+            content: "Студенческие квартиры доступны рядом с кампусом университета Мугла Сытки Кочман. Мы предлагаем экономичные варианты с мебелью или без.",
+          },
+        ],
+        faq: [
+          {
+            question: "Сколько стоит аренда в Ортадже?",
+            answer: "Цены на аренду квартир начинаются от 8.000 TL за 1+1 и 12.000 TL за 2+1 квартиры. Студенческие квартиры стоят 6.000-10.000 TL.",
+          },
+          {
+            question: "Есть ли доступные квартиры для студентов в Ортадже?",
+            answer: "Да, студенческие квартиры доступны рядом с кампусом университета за 6.000-10.000 TL.",
+          },
+        ],
+      },
     },
   },
 
@@ -304,6 +400,18 @@ export const landingPages: Record<string, LandingPageConfig> = {
         description: "منازل وشقق للبيع في دالامان ✓ قرب المطار ✓ فرص استثمارية ✓ خيارات فلل وأراضي. ☎ 00905370530754",
         h1: "منازل وشقق للبيع في دالامان 2026",
         intro: "منازل وشقق وفلل وأراضي للبيع بالقرب من مطار دالامان. لا تفوت فرص الاستثمار في منطقة دالامان ذات الإمكانيات السياحية العالية.",
+      },
+      de: {
+        title: "Häuser & Wohnungen zum Verkauf in Dalaman 2026 | Immobilien nahe Flughafen",
+        description: "Häuser und Wohnungen zum Verkauf in Dalaman ✓ Nahe Flughafen ✓ Investitionsmöglichkeiten ✓ Villen & Grundstücke. ☎ +90 537 053 07 54",
+        h1: "Häuser und Wohnungen zum Verkauf in Dalaman 2026",
+        intro: "Häuser, Wohnungen, Villen und Grundstücke zum Verkauf in der Nähe des Flughafens Dalaman. Verpassen Sie nicht die Investitionsmöglichkeiten in der touristisch attraktiven Region Dalaman.",
+      },
+      ru: {
+        title: "Дома и квартиры на продажу в Даламане 2026 | Недвижимость рядом с аэропортом",
+        description: "Дома и квартиры на продажу в Даламане ✓ Рядом с аэропортом ✓ Инвестиционные возможности ✓ Виллы и земельные участки. ☎ +90 537 053 07 54",
+        h1: "Дома и квартиры на продажу в Даламане 2026",
+        intro: "Дома, квартиры, виллы и земельные участки на продажу рядом с аэропортом Даламан. Не упустите инвестиционные возможности в регионе с высоким туристическим потенциалом.",
       },
     },
     content: {
@@ -373,6 +481,50 @@ export const landingPages: Record<string, LandingPageConfig> = {
           },
         ],
       },
+      de: {
+        sections: [
+          {
+            title: "Immobilienpreise in Dalaman 2026",
+            content: "Die Immobilienpreise in Dalaman variieren je nach Nähe zum Flughafen und zur Küste. Wohnungen im Zentrum von Dalaman kosten 800.000 - 1.500.000 TL, Villen in Küstengebieten 3.000.000 - 10.000.000 TL.",
+          },
+          {
+            title: "Investitionsmöglichkeiten in Dalaman",
+            content: "Der Flughafen Dalaman ist der größte Flughafen der Region und empfängt jährlich Millionen von Touristen. Dies schafft großes Potenzial für Immobilieninvestitionen.",
+          },
+        ],
+        faq: [
+          {
+            question: "Was kosten Häuser in Dalaman?",
+            answer: "Wohnungspreise in Dalaman beginnen bei 800.000 TL, Einfamilienhäuser bei 1.500.000 TL und Villen bei 3.000.000 TL.",
+          },
+          {
+            question: "Ist Dalaman für Investitionen geeignet?",
+            answer: "Ja, Dalaman ist aufgrund des Flughafens und des hohen Tourismuspotenzials sehr attraktiv für Immobilieninvestitionen.",
+          },
+        ],
+      },
+      ru: {
+        sections: [
+          {
+            title: "Цены на недвижимость в Даламане 2026",
+            content: "Цены на недвижимость в Даламане варьируются в зависимости от близости к аэропорту и побережью. Квартиры в центре Даламана стоят 800.000 - 1.500.000 TL, виллы в прибрежных районах 3.000.000 - 10.000.000 TL.",
+          },
+          {
+            title: "Инвестиционные возможности в Даламане",
+            content: "Аэропорт Даламан - крупнейший аэропорт региона, принимающий миллионы туристов ежегодно. Это создает большой потенциал для инвестиций в недвижимость.",
+          },
+        ],
+        faq: [
+          {
+            question: "Сколько стоят дома в Даламане?",
+            answer: "Цены на квартиры в Даламане начинаются от 800.000 TL, частные дома от 1.500.000 TL, виллы от 3.000.000 TL.",
+          },
+          {
+            question: "Подходит ли Даламан для инвестиций?",
+            answer: "Да, Даламан очень привлекателен для инвестиций в недвижимость благодаря аэропорту и высокому туристическому потенциалу.",
+          },
+        ],
+      },
     },
   },
 
@@ -400,6 +552,18 @@ export const landingPages: Record<string, LandingPageConfig> = {
         description: "شقق طلابية للإيجار بالقرب من حرم جامعة موغلا صتقي كوجمان أورتاجا ✓ أسعار معقولة ✓ خيارات مفروشة. ☎ 00905370530754",
         h1: "شقق طلابية للإيجار في أورتاجا 2026",
         intro: "خيارات شقق بأسعار معقولة للطلاب الذين يدرسون في حرم جامعة موغلا صتقي كوجمان أورتاجا.",
+      },
+      de: {
+        title: "Studentenwohnungen zur Miete in Ortaca 2026 | Günstige Unterkunft nahe Universität",
+        description: "Studentenwohnungen zur Miete nahe Muğla Sıtkı Koçman Universität Campus Ortaca ✓ Günstige Preise ✓ Möblierte Optionen. ☎ +90 537 053 07 54",
+        h1: "Studentenwohnungen zur Miete in Ortaca 2026",
+        intro: "Erschwingliche Mietwohnungen für Studenten der Muğla Sıtkı Koçman Universität Campus Ortaca. Campusnahe, wirtschaftliche und komfortable Studentenunterkünfte.",
+      },
+      ru: {
+        title: "Студенческие квартиры в аренду в Ортадже 2026 | Доступное жилье рядом с университетом",
+        description: "Студенческие квартиры в аренду рядом с кампусом университета Мугла Сытки Кочман Ортаджа ✓ Доступные цены ✓ Меблированные варианты. ☎ +90 537 053 07 54",
+        h1: "Студенческие квартиры в аренду в Ортадже 2026",
+        intro: "Доступные варианты аренды для студентов кампуса университета Мугла Сытки Кочман Ортаджа. Студенческое жилье близко к кампусу, экономичное и комфортное.",
       },
     },
     content: {
@@ -469,6 +633,50 @@ export const landingPages: Record<string, LandingPageConfig> = {
           },
         ],
       },
+      de: {
+        sections: [
+          {
+            title: "Studentenmietpreise",
+            content: "Die Mietpreise für Studenten in Ortaca liegen bei 6.000-8.000 TL monatlich für 1+1 Wohnungen und 10.000-14.000 TL für 2+1 Wohnungen. Bei geteilter Miete können Sie mit einem Budget von 3.000-5.000 TL pro Person in einer guten Wohnung wohnen.",
+          },
+          {
+            title: "Standorte nahe dem Campus",
+            content: "Viele Mietwohnungen sind auf Universitäts-Shuttle-Routen und 5-15 Minuten vom Campus entfernt verfügbar. Cumhuriyet und Atatürk Viertel sind bei Studenten am beliebtesten.",
+          },
+        ],
+        faq: [
+          {
+            question: "Was kosten Studentenwohnungen in Ortaca?",
+            answer: "Studentenwohnungen kosten 6.000-8.000 TL monatlich für 1+1, und ca. 3.000-5.000 TL pro Person für geteilte 2+1 Wohnungen.",
+          },
+          {
+            question: "Gibt es möblierte Studentenwohnungen?",
+            answer: "Ja, sowohl möblierte als auch unmöblierte Optionen sind verfügbar. Möblierte Wohnungen werden in der Regel für 1.000-2.000 TL mehr vermietet.",
+          },
+        ],
+      },
+      ru: {
+        sections: [
+          {
+            title: "Цены на аренду для студентов",
+            content: "Цены на аренду для студентов в Ортадже составляют 6.000-8.000 TL в месяц за квартиры 1+1 и 10.000-14.000 TL за квартиры 2+1. При совместной аренде вы можете жить в хорошей квартире с бюджетом 3.000-5.000 TL на человека.",
+          },
+          {
+            title: "Расположение рядом с кампусом",
+            content: "Многие квартиры доступны на маршрутах университетских автобусов и в 5-15 минутах от кампуса. Районы Джумхуриет и Ататюрк наиболее популярны среди студентов.",
+          },
+        ],
+        faq: [
+          {
+            question: "Сколько стоит студенческое жилье в Ортадже?",
+            answer: "Студенческие квартиры стоят 6.000-8.000 TL в месяц за 1+1 и около 3.000-5.000 TL на человека за совместные квартиры 2+1.",
+          },
+          {
+            question: "Есть ли меблированные студенческие квартиры?",
+            answer: "Да, доступны как меблированные, так и немеблированные варианты. Меблированные квартиры обычно сдаются на 1.000-2.000 TL дороже.",
+          },
+        ],
+      },
     },
   },
 
@@ -497,6 +705,18 @@ export const landingPages: Record<string, LandingPageConfig> = {
         description: "فلل للبيع في دالان ✓ فلل بمسبح ✓ إطلالة على البحر ✓ قرب إزتوزو. فلل دالان للحياة الفاخرة. ☎ 00905370530754",
         h1: "فلل للبيع في دالان 2026",
         intro: "فلل فاخرة للبيع في دالان المحمية من قبل اليونسكو. العيش في انسجام مع الطبيعة، بالقرب من شاطئ إزتوزو حيث تعشش سلاحف كاريتا كاريتا.",
+      },
+      de: {
+        title: "Villen zum Verkauf in Dalyan 2026 | Luxusvillen & Einfamilienhäuser",
+        description: "Villen zum Verkauf in Dalyan ✓ Poolvillen ✓ Meerblick ✓ Nahe Iztuzu. Dalyan Villen für luxuriöses Wohnen. ☎ +90 537 053 07 54",
+        h1: "Villen zum Verkauf in Dalyan 2026",
+        intro: "Luxusvillen zum Verkauf im UNESCO-geschützten Dalyan. Leben im Einklang mit der Natur, nahe dem Iztuzu-Strand, wo Caretta-Caretta-Schildkröten nisten. Villenoptionen mit Pool, Garten, Meer- oder Flussblick.",
+      },
+      ru: {
+        title: "Виллы на продажу в Дальяне 2026 | Роскошные виллы и частные дома",
+        description: "Виллы на продажу в Дальяне ✓ Виллы с бассейном ✓ Вид на море ✓ Рядом с Изтузу. Виллы Дальяна для роскошной жизни. ☎ +90 537 053 07 54",
+        h1: "Виллы на продажу в Дальяне 2026",
+        intro: "Роскошные виллы на продажу в охраняемом ЮНЕСКО Дальяне. Жизнь в гармонии с природой, рядом с пляжем Изтузу, где гнездятся черепахи Каретта-Каретта. Варианты вилл с бассейном, садом, видом на море или реку.",
       },
     },
     content: {
@@ -566,6 +786,50 @@ export const landingPages: Record<string, LandingPageConfig> = {
           },
         ],
       },
+      de: {
+        sections: [
+          {
+            title: "Villenpreise in Dalyan 2026",
+            content: "Villenpreise in Dalyan variieren je nach Lage und Ausstattung zwischen 3.000.000 TL und 15.000.000 TL. Villen mit Flussblick, Villen nahe Iztuzu und Einfamilienhäuser mit Pools sind die gefragtesten Optionen.",
+          },
+          {
+            title: "Vorteile einer Villa in Dalyan",
+            content: "Dalyan ist ein einzigartiger Standort mit dem weltberühmten Iztuzu-Strand, der antiken Stadt Kaunos und Thermalquellen. Als Schutzgebiet ist Neubau begrenzt, was den Wert bestehender Villen steigert. Ideal für alle, die ein friedliches Leben suchen.",
+          },
+        ],
+        faq: [
+          {
+            question: "Was kosten Villen in Dalyan?",
+            answer: "Villenpreise in Dalyan beginnen bei 3.000.000 TL, Luxusvillen erreichen 10-15 Millionen TL.",
+          },
+          {
+            question: "Ist für den Kauf einer Villa in Dalyan eine Denkmalschutzgenehmigung erforderlich?",
+            answer: "Für den Kauf bestehender Villen ist keine Genehmigung erforderlich, aber für Renovierungen und Anbauten kann eine Genehmigung der Denkmalbehörde erforderlich sein.",
+          },
+        ],
+      },
+      ru: {
+        sections: [
+          {
+            title: "Цены на виллы в Дальяне 2026",
+            content: "Цены на виллы в Дальяне варьируются от 3.000.000 до 15.000.000 TL в зависимости от расположения и характеристик. Виллы с видом на реку, виллы рядом с Изтузу и частные дома с бассейнами - самые востребованные варианты.",
+          },
+          {
+            title: "Преимущества владения виллой в Дальяне",
+            content: "Дальян - уникальное место с всемирно известным пляжем Изтузу, древним городом Каунос и термальными источниками. Будучи охраняемой территорией, новое строительство ограничено, что повышает ценность существующих вилл. Идеальный выбор для тех, кто ищет спокойную жизнь.",
+          },
+        ],
+        faq: [
+          {
+            question: "Сколько стоят виллы в Дальяне?",
+            answer: "Цены на виллы в Дальяне начинаются от 3.000.000 TL, роскошные виллы достигают 10-15 миллионов TL.",
+          },
+          {
+            question: "Нужно ли разрешение на охрану для покупки виллы в Дальяне?",
+            answer: "Разрешение не требуется для покупки существующих вилл, но для ремонта и пристроек может потребоваться одобрение Комиссии по охране.",
+          },
+        ],
+      },
     },
   },
 
@@ -590,6 +854,18 @@ export const landingPages: Record<string, LandingPageConfig> = {
         description: "مكتب العقارات الموثوق في أورتاجا ✓ وكيل مرخص ✓ عقارات للبيع والإيجار ✓ تقييم مجاني. كالينداي يابي - نخدمكم منذ 2022. ☎ 00905370530754",
         h1: "مكتب عقارات أورتاجا - كالينداي يابي",
         intro: "أنت في العنوان الصحيح إذا كنت تبحث عن خدمات عقارية موثوقة في أورتاجا والمناطق المحيطة. في كالينداي يابي، نقف بجانبكم مع مستشارينا العقاريين المرخصين منذ عام 2022.",
+      },
+      de: {
+        title: "Ortaca Immobilienbüro | Kalinda Yapı ✓ Lizenzierter Immobilienmakler",
+        description: "Ortacas vertrauenswürdiges Immobilienbüro ✓ Lizenzierter Makler ✓ Immobilien zum Kauf & Miete ✓ Kostenlose Bewertung. Kalinda Yapı - Seit 2022 für Sie da. ☎ +90 537 053 07 54",
+        h1: "Ortaca Immobilienbüro - Kalinda Yapı",
+        intro: "Sie sind an der richtigen Adresse, wenn Sie zuverlässige Immobiliendienstleistungen in Ortaca und Umgebung suchen. Bei Kalinda Yapı stehen wir Ihnen seit 2022 mit unseren lizenzierten Immobilienberatern zur Seite.",
+      },
+      ru: {
+        title: "Агентство недвижимости в Ортадже | Kalinda Yapı ✓ Лицензированный агент",
+        description: "Надежное агентство недвижимости в Ортадже ✓ Лицензированный агент ✓ Недвижимость на продажу и в аренду ✓ Бесплатная оценка. Kalinda Yapı - С 2022 года к вашим услугам. ☎ +90 537 053 07 54",
+        h1: "Агентство недвижимости в Ортадже - Kalinda Yapı",
+        intro: "Вы по правильному адресу, если ищете надежные услуги недвижимости в Ортадже и окрестностях. В Kalinda Yapı мы рядом с вами с нашими лицензированными консультантами по недвижимости с 2022 года.",
       },
     },
     content: {
@@ -668,6 +944,58 @@ export const landingPages: Record<string, LandingPageConfig> = {
           {
             question: "كم تكلفة تقييم العقار؟",
             answer: "في كالينداي يابي، خدمة تقييم العقارات لدينا مجانية تماماً.",
+          },
+        ],
+      },
+      de: {
+        sections: [
+          {
+            title: "Warum Kalinda Yapı?",
+            content: "Wir sind Ortacas vertrauenswürdiges Immobilienbüro mit unseren lizenzierten Immobilienberatern, transparenten Verträgen und kundenorientiertem Serviceansatz. Wir bedienen seit 2022 über 200 zufriedene Familien mit einer Kundenzufriedenheit von 98%.",
+          },
+          {
+            title: "Unsere Servicegebiete",
+            content: "Wir bieten Immobiliendienstleistungen im Zentrum von Ortaca und allen Stadtteilen, Dalaman, Dalyan, Köyceğiz, Fethiye und Marmaris an. Wir bieten professionelle Unterstützung für Wohnungen, Villen, Grundstücke zum Verkauf und Mietobjekte.",
+          },
+          {
+            title: "Kostenlose Immobilienbewertung",
+            content: "Möchten Sie den aktuellen Marktwert Ihrer Immobilie erfahren? Unser Expertenteam bietet kostenlose Bewertungsdienste an. Wir helfen Ihnen, den richtigen Preis vor dem Verkauf oder der Vermietung zu ermitteln.",
+          },
+        ],
+        faq: [
+          {
+            question: "Ich suche ein zuverlässiges Immobilienbüro in Ortaca, haben Sie Empfehlungen?",
+            answer: "Kalinda Yapı ist Ortacas vertrauenswürdiges Immobilienbüro mit lizenzierten Beratern und Erfahrung seit 2022. Wir bedienen mit 200+ erfolgreichen Transaktionen und 98% Kundenzufriedenheit.",
+          },
+          {
+            question: "Wie viel kostet die Immobilienbewertung?",
+            answer: "Bei Kalinda Yapı ist unsere Immobilienbewertung völlig kostenlos. Ob Sie einen Verkaufs- oder Mietplan haben oder nicht, Sie können den Wert Ihrer Immobilie erfahren.",
+          },
+        ],
+      },
+      ru: {
+        sections: [
+          {
+            title: "Почему Kalinda Yapı?",
+            content: "Мы надежное агентство недвижимости в Ортадже с нашими лицензированными консультантами, прозрачными контрактами и клиентоориентированным подходом. Мы обслуживаем с 2022 года более 200 довольных семей с уровнем удовлетворенности клиентов 98%.",
+          },
+          {
+            title: "Наши зоны обслуживания",
+            content: "Мы предоставляем услуги недвижимости в центре Ортаджи и всех районах, Даламане, Дальяне, Кёйджегизе, Фетхие и Мармарисе. Мы предлагаем профессиональную поддержку для квартир, вилл, земельных участков на продажу и аренды.",
+          },
+          {
+            title: "Бесплатная оценка недвижимости",
+            content: "Хотите узнать текущую рыночную стоимость вашей недвижимости? Наша команда экспертов предлагает бесплатные услуги оценки. Мы помогаем определить правильную цену перед продажей или арендой.",
+          },
+        ],
+        faq: [
+          {
+            question: "Ищу надежное агентство недвижимости в Ортадже, есть рекомендации?",
+            answer: "Kalinda Yapı - надежное агентство недвижимости в Ортадже с лицензированными консультантами и опытом с 2022 года. Мы обслуживаем с 200+ успешных сделок и 98% удовлетворенности клиентов.",
+          },
+          {
+            question: "Сколько стоит оценка недвижимости?",
+            answer: "В Kalinda Yapı наша услуга оценки недвижимости полностью бесплатна. Независимо от того, планируете ли вы продажу или аренду, вы можете узнать стоимость вашей недвижимости.",
           },
         ],
       },

@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
 
       // 1. İç içe locale path'leri düzelt (en/contact/tr/iletisim gibi)
       {
-        source: "/:lang1(tr|en|ar)/:path1/:lang2(tr|en|ar)/:path2",
+        source: "/:lang1(tr|en|ar|de|ru)/:path1/:lang2(tr|en|ar|de|ru)/:path2",
         destination: "/:lang2/:path2",
         permanent: true,
       },
@@ -44,34 +44,34 @@ const nextConfig: NextConfig = {
 
       // 3. Blog slug'larında -ar suffix'ini kaldır
       {
-        source: "/:lang(tr|en|ar)/blog/:slug(.*)-ar",
+        source: "/:lang(tr|en|ar|de|ru)/blog/:slug(.*)-ar",
         destination: "/tr/blog/:slug",
         permanent: true,
       },
       {
-        source: "/:lang(tr|en|ar)/مدونة/:slug(.*)-ar",
+        source: "/:lang(tr|en|ar|de|ru)/مدونة/:slug(.*)-ar",
         destination: "/tr/blog/:slug",
         permanent: true,
       },
       {
-        source: "/:lang(tr|en|ar)/%D9%85%D8%AF%D9%88%D9%86%D8%A9/:slug(.*)-ar",
+        source: "/:lang(tr|en|ar|de|ru)/%D9%85%D8%AF%D9%88%D9%86%D8%A9/:slug(.*)-ar",
         destination: "/tr/blog/:slug",
         permanent: true,
       },
 
       // 4. Blog slug'larında -en suffix'ini kaldır
       {
-        source: "/:lang(tr|en|ar)/blog/:slug(.*)-en",
+        source: "/:lang(tr|en|ar|de|ru)/blog/:slug(.*)-en",
         destination: "/tr/blog/:slug",
         permanent: true,
       },
       {
-        source: "/:lang(tr|en|ar)/مدونة/:slug(.*)-en",
+        source: "/:lang(tr|en|ar|de|ru)/مدونة/:slug(.*)-en",
         destination: "/tr/blog/:slug",
         permanent: true,
       },
       {
-        source: "/:lang(tr|en|ar)/%D9%85%D8%AF%D9%88%D9%86%D8%A9/:slug(.*)-en",
+        source: "/:lang(tr|en|ar|de|ru)/%D9%85%D8%AF%D9%88%D9%86%D8%A9/:slug(.*)-en",
         destination: "/tr/blog/:slug",
         permanent: true,
       },
@@ -325,12 +325,32 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/de/rehber/:path*",
+        destination: "/tr/rehber/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/rehber/:path*",
+        destination: "/tr/rehber/:path*",
+        permanent: true,
+      },
+      {
         source: "/en/rehber",
         destination: "/tr/rehber",
         permanent: true,
       },
       {
         source: "/ar/rehber",
+        destination: "/tr/rehber",
+        permanent: true,
+      },
+      {
+        source: "/de/rehber",
+        destination: "/tr/rehber",
+        permanent: true,
+      },
+      {
+        source: "/ru/rehber",
         destination: "/tr/rehber",
         permanent: true,
       },
@@ -347,7 +367,22 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/de/gizlilik",
+        destination: "/tr/gizlilik",
+        permanent: true,
+      },
+      {
+        source: "/ru/gizlilik",
+        destination: "/tr/gizlilik",
+        permanent: true,
+      },
+      {
         source: "/en/privacy",
+        destination: "/tr/gizlilik",
+        permanent: true,
+      },
+      {
+        source: "/de/datenschutz",
         destination: "/tr/gizlilik",
         permanent: true,
       },
@@ -373,7 +408,22 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/de/kullanim-kosullari",
+        destination: "/tr/kullanim-kosullari",
+        permanent: true,
+      },
+      {
+        source: "/ru/kullanim-kosullari",
+        destination: "/tr/kullanim-kosullari",
+        permanent: true,
+      },
+      {
         source: "/en/terms",
+        destination: "/tr/kullanim-kosullari",
+        permanent: true,
+      },
+      {
+        source: "/de/nutzungsbedingungen",
         destination: "/tr/kullanim-kosullari",
         permanent: true,
       },

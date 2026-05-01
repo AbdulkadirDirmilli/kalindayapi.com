@@ -1,8 +1,18 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Nunito } from "next/font/google";
 import "./globals.css";
 
-// Root layout sadece admin ve API için kullanılacak
-// Public sayfalar app/[lang]/layout.tsx kullanacak
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kalindayapi.com"),
@@ -12,6 +22,18 @@ export const metadata: Metadata = {
   },
   description:
     "Muğla Ortaca'da güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
+  },
+  manifest: "/manifest.json",
 };
 
 export const viewport: Viewport = {
@@ -23,7 +45,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Bu layout sadece [lang] dışındaki route'lar için çalışır (admin, api, vb.)
-  // [lang] segmenti kendi layout'unu kullanır
-  return children;
+  return (
+    <html lang="tr" suppressHydrationWarning className={`${inter.variable} ${nunito.variable}`}>
+      <body className="min-h-screen flex flex-col antialiased" suppressHydrationWarning>
+        {children}
+      </body>
+    </html>
+  );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -26,6 +26,7 @@ import {
   Check,
   Play,
   Share2,
+  Eye,
 } from "lucide-react";
 import { IlanGaleri, IlanKart } from "@/components/ilan";
 import Button from "@/components/ui/Button";
@@ -55,45 +56,69 @@ interface IlanDetayClientProps {
 
 export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: IlanDetayClientProps) {
   const { formatConvertedPrice } = useCurrency();
+  const [viewCount, setViewCount] = useState<number | null>(null);
+
+  // Track page view on mount
+  useEffect(() => {
+    const trackView = async () => {
+      try {
+        const response = await fetch(`/api/ilanlar/${ilan.slug}/view`, {
+          method: 'POST',
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setViewCount(data.viewCount);
+        }
+      } catch (error) {
+        console.error('View tracking error:', error);
+      }
+    };
+
+    trackView();
+  }, [ilan.slug]);
 
   // Localized texts
-  const t = {
-    home: locale === 'tr' ? 'Ana Sayfa' : locale === 'en' ? 'Home' : 'الرئيسية',
-    listings: locale === 'tr' ? 'İlanlar' : locale === 'en' ? 'Listings' : 'العقارات',
-    forSale: locale === 'tr' ? 'Satılık' : locale === 'en' ? 'For Sale' : 'للبيع',
-    forRent: locale === 'tr' ? 'Kiralık' : locale === 'en' ? 'For Rent' : 'للإيجار',
-    listingNo: locale === 'tr' ? 'İlan No' : locale === 'en' ? 'Listing No' : 'رقم الإعلان',
-    sqm: locale === 'tr' ? 'Metrekare' : locale === 'en' ? 'Area' : 'المساحة',
-    rooms: locale === 'tr' ? 'Oda Sayısı' : locale === 'en' ? 'Bedrooms' : 'غرف النوم',
-    bathrooms: locale === 'tr' ? 'Banyo' : locale === 'en' ? 'Bathrooms' : 'الحمامات',
-    floor: locale === 'tr' ? 'Kat' : locale === 'en' ? 'Floor' : 'الطابق',
-    buildingAge: locale === 'tr' ? 'Bina Yaşı' : locale === 'en' ? 'Building Age' : 'عمر المبنى',
-    heating: locale === 'tr' ? 'Isıtma' : locale === 'en' ? 'Heating' : 'التدفئة',
-    constructionStatus: locale === 'tr' ? 'İnşaat Durumu' : locale === 'en' ? 'Construction Status' : 'حالة البناء',
-    description: locale === 'tr' ? 'İlan Açıklaması' : locale === 'en' ? 'Description' : 'الوصف',
-    features: locale === 'tr' ? 'Özellikler' : locale === 'en' ? 'Features' : 'المميزات',
-    extraFeatures: locale === 'tr' ? 'Ek Özellikler' : locale === 'en' ? 'Extra Features' : 'مميزات إضافية',
-    location: locale === 'tr' ? 'Konum' : locale === 'en' ? 'Location' : 'الموقع',
-    contact: locale === 'tr' ? 'İletişime Geç' : locale === 'en' ? 'Contact' : 'اتصل',
-    whatsapp: locale === 'tr' ? 'WhatsApp ile Yaz' : locale === 'en' ? 'WhatsApp' : 'واتساب',
-    call: locale === 'tr' ? 'Hemen Ara' : locale === 'en' ? 'Call Now' : 'اتصل الآن',
-    price: locale === 'tr' ? 'Fiyat' : locale === 'en' ? 'Price' : 'السعر',
-    pricePerSqm: locale === 'tr' ? 'm² Fiyatı' : locale === 'en' ? 'Price/sqm' : 'السعر/م²',
-    similar: locale === 'tr' ? 'Benzer İlanlar' : locale === 'en' ? 'Similar Properties' : 'عقارات مماثلة',
-    video: locale === 'tr' ? 'İlan Videosu' : locale === 'en' ? 'Property Video' : 'فيديو العقار',
-    watchVideo: locale === 'tr' ? 'İlanın Videosunu İzle' : locale === 'en' ? 'Watch Video' : 'شاهد الفيديو',
-    consultant: locale === 'tr' ? 'Emlak Danışmanı' : locale === 'en' ? 'Real Estate Agent' : 'وكيل عقاري',
-    balcony: locale === 'tr' ? 'Balkon' : locale === 'en' ? 'Balcony' : 'شرفة',
-    elevator: locale === 'tr' ? 'Asansör' : locale === 'en' ? 'Elevator' : 'مصعد',
-    parking: locale === 'tr' ? 'Otopark' : locale === 'en' ? 'Parking' : 'موقف سيارات',
-    security: locale === 'tr' ? 'Güvenlik' : locale === 'en' ? 'Security' : 'أمن',
-    pool: locale === 'tr' ? 'Havuz' : locale === 'en' ? 'Pool' : 'مسبح',
-    garden: locale === 'tr' ? 'Bahçe' : locale === 'en' ? 'Garden' : 'حديقة',
-    furnished: locale === 'tr' ? 'Eşyalı' : locale === 'en' ? 'Furnished' : 'مفروش',
-    new: locale === 'tr' ? 'Sıfır' : locale === 'en' ? 'New' : 'جديد',
-    years: locale === 'tr' ? 'Yıl' : locale === 'en' ? 'Years' : 'سنوات',
-    month: locale === 'tr' ? '/ay' : locale === 'en' ? '/mo' : '/شهر',
+  const translations: Record<string, Record<string, string>> = {
+    home: { tr: 'Ana Sayfa', en: 'Home', ar: 'الرئيسية', de: 'Startseite', ru: 'Главная' },
+    listings: { tr: 'İlanlar', en: 'Listings', ar: 'العقارات', de: 'Immobilien', ru: 'Недвижимость' },
+    forSale: { tr: 'Satılık', en: 'For Sale', ar: 'للبيع', de: 'Zu verkaufen', ru: 'Продажа' },
+    forRent: { tr: 'Kiralık', en: 'For Rent', ar: 'للإيجار', de: 'Zu vermieten', ru: 'Аренда' },
+    listingNo: { tr: 'İlan No', en: 'Listing No', ar: 'رقم الإعلان', de: 'Angebots-Nr.', ru: '№ объявления' },
+    sqm: { tr: 'Metrekare', en: 'Area', ar: 'المساحة', de: 'Fläche', ru: 'Площадь' },
+    rooms: { tr: 'Oda Sayısı', en: 'Bedrooms', ar: 'غرف النوم', de: 'Schlafzimmer', ru: 'Спальни' },
+    bathrooms: { tr: 'Banyo', en: 'Bathrooms', ar: 'الحمامات', de: 'Badezimmer', ru: 'Ванные' },
+    floor: { tr: 'Kat', en: 'Floor', ar: 'الطابق', de: 'Etage', ru: 'Этаж' },
+    buildingAge: { tr: 'Bina Yaşı', en: 'Building Age', ar: 'عمر المبنى', de: 'Baujahr', ru: 'Возраст здания' },
+    heating: { tr: 'Isıtma', en: 'Heating', ar: 'التدفئة', de: 'Heizung', ru: 'Отопление' },
+    constructionStatus: { tr: 'İnşaat Durumu', en: 'Construction Status', ar: 'حالة البناء', de: 'Bauzustand', ru: 'Статус строительства' },
+    description: { tr: 'İlan Açıklaması', en: 'Description', ar: 'الوصف', de: 'Beschreibung', ru: 'Описание' },
+    features: { tr: 'Özellikler', en: 'Features', ar: 'المميزات', de: 'Eigenschaften', ru: 'Характеристики' },
+    extraFeatures: { tr: 'Ek Özellikler', en: 'Extra Features', ar: 'مميزات إضافية', de: 'Zusätzliche Eigenschaften', ru: 'Дополнительные характеристики' },
+    location: { tr: 'Konum', en: 'Location', ar: 'الموقع', de: 'Standort', ru: 'Расположение' },
+    contact: { tr: 'İletişime Geç', en: 'Contact', ar: 'اتصل', de: 'Kontakt', ru: 'Контакт' },
+    whatsapp: { tr: 'WhatsApp ile Yaz', en: 'WhatsApp', ar: 'واتساب', de: 'WhatsApp', ru: 'WhatsApp' },
+    call: { tr: 'Hemen Ara', en: 'Call Now', ar: 'اتصل الآن', de: 'Jetzt anrufen', ru: 'Позвонить' },
+    price: { tr: 'Fiyat', en: 'Price', ar: 'السعر', de: 'Preis', ru: 'Цена' },
+    pricePerSqm: { tr: 'm² Fiyatı', en: 'Price/sqm', ar: 'السعر/م²', de: 'Preis/qm', ru: 'Цена/м²' },
+    similar: { tr: 'Benzer İlanlar', en: 'Similar Properties', ar: 'عقارات مماثلة', de: 'Ähnliche Immobilien', ru: 'Похожая недвижимость' },
+    video: { tr: 'İlan Videosu', en: 'Property Video', ar: 'فيديو العقار', de: 'Immobilienvideo', ru: 'Видео объекта' },
+    watchVideo: { tr: 'İlanın Videosunu İzle', en: 'Watch Video', ar: 'شاهد الفيديو', de: 'Video ansehen', ru: 'Смотреть видео' },
+    consultant: { tr: 'Emlak Danışmanı', en: 'Real Estate Agent', ar: 'وكيل عقاري', de: 'Immobilienmakler', ru: 'Агент по недвижимости' },
+    balcony: { tr: 'Balkon', en: 'Balcony', ar: 'شرفة', de: 'Balkon', ru: 'Балкон' },
+    elevator: { tr: 'Asansör', en: 'Elevator', ar: 'مصعد', de: 'Aufzug', ru: 'Лифт' },
+    parking: { tr: 'Otopark', en: 'Parking', ar: 'موقف سيارات', de: 'Parkplatz', ru: 'Парковка' },
+    security: { tr: 'Güvenlik', en: 'Security', ar: 'أمن', de: 'Sicherheit', ru: 'Охрана' },
+    pool: { tr: 'Havuz', en: 'Pool', ar: 'مسبح', de: 'Pool', ru: 'Бассейн' },
+    garden: { tr: 'Bahçe', en: 'Garden', ar: 'حديقة', de: 'Garten', ru: 'Сад' },
+    furnished: { tr: 'Eşyalı', en: 'Furnished', ar: 'مفروش', de: 'Möbliert', ru: 'Меблирована' },
+    new: { tr: 'Sıfır', en: 'New', ar: 'جديد', de: 'Neu', ru: 'Новый' },
+    years: { tr: 'Yıl', en: 'Years', ar: 'سنوات', de: 'Jahre', ru: 'лет' },
+    month: { tr: '/ay', en: '/mo', ar: '/شهر', de: '/Monat', ru: '/мес' },
+    viewCount: { tr: 'Bu ilan {count} kez görüntülendi', en: 'This listing has been viewed {count} times', ar: 'تم عرض هذا الإعلان {count} مرات', de: 'Dieses Angebot wurde {count} mal angesehen', ru: 'Это объявление просмотрено {count} раз' },
   };
+  const t = Object.fromEntries(
+    Object.entries(translations).map(([key, value]) => [key, value[locale] || value['en']])
+  ) as Record<string, string>;
 
   const ozellikler = [
     {
@@ -188,6 +213,12 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                 )}
                 {ilan.ilanNo && (
                   <span className="text-gray-400 text-xs sm:text-sm">{t.listingNo}: {ilan.ilanNo}</span>
+                )}
+                {viewCount !== null && viewCount > 0 && (
+                  <span className="inline-flex items-center gap-1 text-gray-400 text-xs sm:text-sm">
+                    <Eye className="w-3.5 h-3.5" />
+                    {t.viewCount.replace('{count}', viewCount.toString())}
+                  </span>
                 )}
               </div>
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
@@ -414,11 +445,13 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                   <a
                     href={createWhatsAppLink(
                       ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905370530754",
-                      locale === 'en'
-                        ? `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${ilan.baslik}".`
-                        : locale === 'ar'
-                          ? `مرحباً، أود الاستفسار عن الإعلان ${ilan.ilanNo || ''} "${ilan.baslik}".`
-                          : `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`
+                      {
+                        tr: `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`,
+                        en: `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${ilan.baslik}".`,
+                        ar: `مرحباً، أود الاستفسار عن الإعلان ${ilan.ilanNo || ''} "${ilan.baslik}".`,
+                        de: `Hallo, ich möchte mich über das Angebot ${ilan.ilanNo || ''} "${ilan.baslik}" erkundigen.`,
+                        ru: `Здравствуйте, я хотел бы узнать об объявлении ${ilan.ilanNo || ''} "${ilan.baslik}".`,
+                      }[locale] || `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${ilan.baslik}".`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -504,11 +537,13 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
             <a
               href={createWhatsAppLink(
                 ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905370530754",
-                locale === 'en'
-                  ? `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${ilan.baslik}".`
-                  : locale === 'ar'
-                    ? `مرحباً، أود الاستفسار عن الإعلان ${ilan.ilanNo || ''} "${ilan.baslik}".`
-                    : `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`
+                {
+                  tr: `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`,
+                  en: `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${ilan.baslik}".`,
+                  ar: `مرحباً، أود الاستفسار عن الإعلان ${ilan.ilanNo || ''} "${ilan.baslik}".`,
+                  de: `Hallo, ich möchte mich über das Angebot ${ilan.ilanNo || ''} "${ilan.baslik}" erkundigen.`,
+                  ru: `Здравствуйте, я хотел бы узнать об объявлении ${ilan.ilanNo || ''} "${ilan.baslik}".`,
+                }[locale] || `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${ilan.baslik}".`
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -531,7 +566,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                 className="w-full sm:w-auto"
                 leftIcon={<Phone className="w-4 h-4" />}
               >
-                {locale === 'en' ? 'Call' : locale === 'ar' ? 'اتصل' : 'Ara'}
+                {{ tr: 'Ara', en: 'Call', ar: 'اتصل', de: 'Anrufen', ru: 'Звонок' }[locale] || 'Call'}
               </Button>
             </a>
             <button
@@ -544,11 +579,11 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                   }).catch(() => {});
                 } else if (navigator.clipboard) {
                   navigator.clipboard.writeText(window.location.href);
-                  alert(locale === 'en' ? "Link copied!" : locale === 'ar' ? "تم نسخ الرابط!" : "Link kopyalandı!");
+                  alert({ tr: "Link kopyalandı!", en: "Link copied!", ar: "تم نسخ الرابط!", de: "Link kopiert!", ru: "Ссылка скопирована!" }[locale] || "Link copied!");
                 }
               }}
               className="p-2.5 bg-[#F5F5F5] rounded-lg hover:bg-[#e0e0e0] transition-colors sm:hidden"
-              aria-label={locale === 'en' ? 'Share' : locale === 'ar' ? 'مشاركة' : 'Paylaş'}
+              aria-label={{ tr: 'Paylaş', en: 'Share', ar: 'مشاركة', de: 'Teilen', ru: 'Поделиться' }[locale] || 'Share'}
             >
               <Share2 className="w-5 h-5 text-[#0B1F3A]" />
             </button>

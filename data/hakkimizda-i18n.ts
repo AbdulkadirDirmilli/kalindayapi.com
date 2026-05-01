@@ -167,6 +167,76 @@ export const hakkimizdaTexts: Record<Locale, HakkimizdaTexts> = {
     whatsappButton: "اكتب على واتساب",
     whatsappMessage: "مرحباً، أود الحصول على معلومات حول كاليندا يابي.",
   },
+  de: {
+    heroTitle: "Über",
+    heroTitleHighlight: "Kalinda Yapı",
+    heroDescription1: "Seit 2022 bieten wir Immobilienberatung, Renovierung und Bauunternehmensdienste in Ortaca, Muğla an. Unser Unternehmen, gegründet durch die Partnerschaft von Zafer Soylu und Arif Dağdelen, strebt an, eine der vertrauenswürdigsten Bau- und Immobilienmarken der Region zu werden.",
+    heroDescription2: "Mit über 200 erfolgreichen Immobilientransaktionen und mehr als 100 Renovierungsprojekten in Ortaca Zentrum, Dalyan, Köyceğiz, Dalaman und Fethiye sind wir der vertrauenswürdige Baupartner der Region.",
+
+    storyBadge: "Unsere Geschichte",
+    storyTitle: "In Ortaca geboren, für Ortaca arbeiten",
+    storyParagraph1: "Kalinda Yapı wurde 2022 in Ortaca durch die Partnerschaft von Zafer Soylu und Arif Dağdelen gegründet. Beide Partner sind in dieser Region geboren und aufgewachsen und kennen die lokalen Bedürfnisse genau.",
+    storyParagraph2: "Zafer Soylu ist ein Profi, der die Immobiliendynamik der Regionen Ortaca, Dalyan und Köyceğiz mit seiner Erfahrung in der Immobilienberatung versteht. Arif Dağdelen hat mit seiner Erfahrung im Bau- und Vertragsbereich zahlreiche Wohn-, Villen- und Gewerbeprojekte abgeschlossen.",
+    storyParagraph3: "Wir haben mehr als 100 Projekte mit unseren Renovierungs- und Projektdienstleistungen abgeschlossen. Unser Immobilienportfolio umfasst Optionen im Zentrum von Ortaca, am Dalyan-Kanal, mit Köyceğiz-Seeblick und in der Nähe des Flughafens Dalaman.",
+    storyParagraph4: "Heute sind wir weiterhin der vertrauenswürdige Bau- und Immobilienpartner der Region Muğla mit mehr als 200 zufriedenen Familien.",
+
+    missionTitle: "Unsere Mission",
+    missionText: "Zuverlässige, transparente und qualitativ hochwertige Immobilienberatung und Baulösungen in der Region Ortaca und Muğla anzubieten. Unseren Kunden zu helfen, ihre Träume zu verwirklichen und in jedem Projekt höchste Zufriedenheit zu gewährleisten.",
+    visionTitle: "Unsere Vision",
+    visionText: "Die angesehenste und bevorzugte Bau- und Immobilienmarke in der Region Muğla zu werden. Mit innovativen Ansätzen und Technologie Vorreiter in der Branche zu sein. Nachhaltige und umweltfreundliche Baupraktiken zu übernehmen.",
+
+    valuesBadge: "Unsere Werte",
+    valuesTitle: "Werte, die uns definieren",
+    valuesSubtitle: "Wir folgen diesen Werten in jeder Entscheidung und jedem Projekt.",
+
+    certsBadge: "Unsere Dokumente",
+    certsTitle: "Zertifikate & Dokumente",
+    certsSubtitle: "Wir bieten offiziell autorisierte und zertifizierte Dienstleistungen an.",
+
+    webDesignText: "Unsere Website wurde entworfen und entwickelt von",
+    webDesignBy: "",
+
+    ctaTitle: "Möchten Sie mit uns arbeiten?",
+    ctaSubtitle: "Kontaktieren Sie uns für Ihre Immobilien-, Renovierungs- oder Bauprojekte. Nutzen Sie unseren kostenlosen Beratungsservice.",
+    ctaButton: "Kontaktieren Sie uns",
+    whatsappButton: "Auf WhatsApp schreiben",
+    whatsappMessage: "Hallo, ich möchte Informationen über Kalinda Yapı erhalten.",
+  },
+  ru: {
+    heroTitle: "О нас",
+    heroTitleHighlight: "Kalinda Yapı",
+    heroDescription1: "С 2022 года мы предоставляем услуги по консультированию в сфере недвижимости, ремонту и строительному подряду в Ортадже, Мугла. Наша компания, основанная партнерством Зафера Сойлу и Арифа Дагделена, стремится стать одним из самых надежных строительных и риэлторских брендов региона.",
+    heroDescription2: "С более чем 200 успешными сделками с недвижимостью и более чем 100 ремонтными проектами в центре Ортаджи, Дальяне, Кёйджегизе, Даламане и Фетхие мы являемся надежным строительным партнером региона.",
+
+    storyBadge: "Наша история",
+    storyTitle: "Родились в Ортадже, работаем для Ортаджи",
+    storyParagraph1: "Kalinda Yapı была основана в 2022 году в Ортадже благодаря партнерству Зафера Сойлу и Арифа Дагделена. Оба партнера родились и выросли в этом регионе и хорошо знают местные потребности.",
+    storyParagraph2: "Зафер Сойлу — профессионал, который понимает динамику рынка недвижимости регионов Ортаджа, Дальян и Кёйджегиз благодаря своему опыту в консультировании по недвижимости. Ариф Дагделен завершил множество жилых, вилловых и коммерческих проектов благодаря своему опыту в строительстве и подряде.",
+    storyParagraph3: "Мы завершили более 100 проектов с нашими услугами по ремонту и проектированию. Наш портфель недвижимости включает варианты в центре Ортаджи, на канале Дальян, с видом на озеро Кёйджегиз и вблизи аэропорта Даламан.",
+    storyParagraph4: "Сегодня мы продолжаем быть надежным строительным и риэлторским партнером региона Мугла с более чем 200 довольными семьями.",
+
+    missionTitle: "Наша миссия",
+    missionText: "Предоставлять надежные, прозрачные и качественные консультации по недвижимости и строительные решения в регионе Ортаджа и Мугла. Помогать нашим клиентам воплощать мечты в реальность и обеспечивать высочайшее удовлетворение в каждом проекте.",
+    visionTitle: "Наше видение",
+    visionText: "Стать самым уважаемым и предпочтительным строительным и риэлторским брендом в регионе Мугла. Быть лидером отрасли с инновационными подходами и технологиями. Внедрять устойчивые и экологически чистые строительные практики.",
+
+    valuesBadge: "Наши ценности",
+    valuesTitle: "Ценности, которые нас определяют",
+    valuesSubtitle: "Мы следуем этим ценностям в каждом решении и каждом проекте.",
+
+    certsBadge: "Наши документы",
+    certsTitle: "Сертификаты и документы",
+    certsSubtitle: "Мы предоставляем официально авторизованные и сертифицированные услуги.",
+
+    webDesignText: "Наш сайт был разработан и создан",
+    webDesignBy: "",
+
+    ctaTitle: "Хотите работать с нами?",
+    ctaSubtitle: "Свяжитесь с нами для ваших проектов недвижимости, ремонта или строительства. Воспользуйтесь нашей бесплатной консультационной службой.",
+    ctaButton: "Связаться с нами",
+    whatsappButton: "Написать в WhatsApp",
+    whatsappMessage: "Здравствуйте, я хотел бы получить информацию о Kalinda Yapı.",
+  },
 };
 
 // Values data
@@ -237,6 +307,50 @@ export const degerler: Record<Locale, Value[]> = {
       aciklama: "نساهم في تنمية منطقة أورتاجا وموغلا. نفخر بأن نكون جزءًا من المجتمع المحلي.",
     },
   ],
+  de: [
+    {
+      ikon: "Shield",
+      baslik: "Vertrauen",
+      aciklama: "Wir bauen vertrauensbasierte Beziehungen zu unseren Kunden auf. Wir machen den Unterschied durch transparente Kommunikation und ehrlichen Serviceansatz.",
+    },
+    {
+      ikon: "Lightbulb",
+      baslik: "Transparenz",
+      aciklama: "Wir bieten klare und offene Informationen in allen Prozessen. Wir arbeiten ohne versteckte Kosten oder Überraschungen.",
+    },
+    {
+      ikon: "Award",
+      baslik: "Qualität",
+      aciklama: "Wir streben in jedem Projekt nach höchsten Qualitätsstandards. Wir garantieren hochwertige Materialien und Handwerkskunst.",
+    },
+    {
+      ikon: "MapPin",
+      baslik: "Regionale Verbundenheit",
+      aciklama: "Wir tragen zur Entwicklung der Region Ortaca und Muğla bei. Wir sind stolz, Teil der lokalen Gemeinschaft zu sein.",
+    },
+  ],
+  ru: [
+    {
+      ikon: "Shield",
+      baslik: "Доверие",
+      aciklama: "Мы строим доверительные отношения с нашими клиентами. Мы делаем разницу благодаря прозрачному общению и честному подходу к обслуживанию.",
+    },
+    {
+      ikon: "Lightbulb",
+      baslik: "Прозрачность",
+      aciklama: "Мы предоставляем четкую и открытую информацию во всех процессах. Мы работаем без скрытых расходов или сюрпризов.",
+    },
+    {
+      ikon: "Award",
+      baslik: "Качество",
+      aciklama: "Мы стремимся к высочайшим стандартам качества в каждом проекте. Мы гарантируем качественные материалы и мастерство.",
+    },
+    {
+      ikon: "MapPin",
+      baslik: "Региональная приверженность",
+      aciklama: "Мы вносим вклад в развитие региона Ортаджа и Мугла. Мы гордимся тем, что являемся частью местного сообщества.",
+    },
+  ],
 };
 
 // Timeline data
@@ -259,6 +373,18 @@ export const timeline: Record<Locale, TimelineItem[]> = {
     { yil: "2024", baslik: "التوسع", aciklama: "وسعنا منطقة الخدمة إلى دالان وكويجغيز" },
     { yil: "2025", baslik: "التحول الرقمي", aciklama: "الموقع الإلكتروني والتحول الرقمي مع AKD Universe" },
   ],
+  de: [
+    { yil: "2022", baslik: "Gründung", aciklama: "Kalinda Yapı nahm den Betrieb in Ortaca auf" },
+    { yil: "2023", baslik: "Wachstum", aciklama: "Unsere ersten Projekte erfolgreich abgeschlossen" },
+    { yil: "2024", baslik: "Erweiterung", aciklama: "Servicebereich auf Dalyan und Köyceğiz erweitert" },
+    { yil: "2025", baslik: "Digitalisierung", aciklama: "Website und digitale Transformation mit AKD Universe" },
+  ],
+  ru: [
+    { yil: "2022", baslik: "Основание", aciklama: "Kalinda Yapı начала работу в Ортадже" },
+    { yil: "2023", baslik: "Рост", aciklama: "Успешно завершили наши первые проекты" },
+    { yil: "2024", baslik: "Расширение", aciklama: "Расширили зону обслуживания на Дальян и Кёйджегиз" },
+    { yil: "2025", baslik: "Цифровизация", aciklama: "Веб-сайт и цифровая трансформация с AKD Universe" },
+  ],
 };
 
 // Certificates data
@@ -280,5 +406,17 @@ export const sertifikalar: Record<Locale, Certificate[]> = {
     { baslik: "تسجيل غرفة التجارة", aciklama: "عضوية غرفة التجارة موغلا" },
     { baslik: "شهادة السلامة المهنية", aciklama: "شهادة الصحة والسلامة المهنية" },
     { baslik: "ISO 9001 (الهدف)", aciklama: "هدف نظام إدارة الجودة" },
+  ],
+  de: [
+    { baslik: "Immobilienberatungslizenz", aciklama: "Offizielle Immobilienberatungsgenehmigung" },
+    { baslik: "Handelskammereintragung", aciklama: "Mitgliedschaft in der Handelskammer Muğla" },
+    { baslik: "Arbeitssicherheitszertifikat", aciklama: "Arbeitsschutz- und Sicherheitszertifikat" },
+    { baslik: "ISO 9001 (Ziel)", aciklama: "Qualitätsmanagementsystem-Ziel" },
+  ],
+  ru: [
+    { baslik: "Лицензия на консультирование по недвижимости", aciklama: "Официальное разрешение на консультирование по недвижимости" },
+    { baslik: "Регистрация в Торговой палате", aciklama: "Членство в Торговой палате Мугла" },
+    { baslik: "Сертификат охраны труда", aciklama: "Сертификат охраны труда и безопасности" },
+    { baslik: "ISO 9001 (Цель)", aciklama: "Цель системы менеджмента качества" },
   ],
 };
