@@ -3,32 +3,32 @@ import type { NextRequest } from 'next/server'
 import { getToken } from 'next-auth/jwt'
 
 // Supported locales
-const locales = ['tr', 'en', 'ar'] as const
+const locales = ['tr', 'en', 'ar', 'de', 'ru'] as const
 type Locale = (typeof locales)[number]
 const defaultLocale: Locale = 'tr'
 
 // Route translations (localized → original)
 // Keys are original Turkish routes, values are translations per locale
 const routeRewrites: Record<string, Record<Locale, string>> = {
-  ilanlar: { tr: 'ilanlar', en: 'listings', ar: 'عقارات' },
-  hizmetler: { tr: 'hizmetler', en: 'services', ar: 'خدمات' },
-  blog: { tr: 'blog', en: 'blog', ar: 'مدونة' },
-  hakkimizda: { tr: 'hakkimizda', en: 'about', ar: 'حول' },
-  iletisim: { tr: 'iletisim', en: 'contact', ar: 'اتصل' },
-  sss: { tr: 'sss', en: 'faq', ar: 'الأسئلة-الشائعة' },
-  gizlilik: { tr: 'gizlilik', en: 'privacy', ar: 'الخصوصية' },
-  'kullanim-kosullari': { tr: 'kullanim-kosullari', en: 'terms', ar: 'الشروط' },
-  'doviz-kurlari': { tr: 'doviz-kurlari', en: 'exchange-rates', ar: 'أسعار-الصرف' },
-  rehber: { tr: 'rehber', en: 'guide', ar: 'دليل' },
-  kurumsal: { tr: 'kurumsal', en: 'corporate', ar: 'الشركة' },
+  ilanlar: { tr: 'ilanlar', en: 'listings', ar: 'عقارات', de: 'immobilien', ru: 'недвижимость' },
+  hizmetler: { tr: 'hizmetler', en: 'services', ar: 'خدمات', de: 'dienstleistungen', ru: 'услуги' },
+  blog: { tr: 'blog', en: 'blog', ar: 'مدونة', de: 'blog', ru: 'блог' },
+  hakkimizda: { tr: 'hakkimizda', en: 'about', ar: 'حول', de: 'ueber-uns', ru: 'о-нас' },
+  iletisim: { tr: 'iletisim', en: 'contact', ar: 'اتصل', de: 'kontakt', ru: 'контакты' },
+  sss: { tr: 'sss', en: 'faq', ar: 'الأسئلة-الشائعة', de: 'faq', ru: 'чаво' },
+  gizlilik: { tr: 'gizlilik', en: 'privacy', ar: 'الخصوصية', de: 'datenschutz', ru: 'конфиденциальность' },
+  'kullanim-kosullari': { tr: 'kullanim-kosullari', en: 'terms', ar: 'الشروط', de: 'nutzungsbedingungen', ru: 'условия' },
+  'doviz-kurlari': { tr: 'doviz-kurlari', en: 'exchange-rates', ar: 'أسعار-الصرف', de: 'wechselkurse', ru: 'курсы-валют' },
+  rehber: { tr: 'rehber', en: 'guide', ar: 'دليل', de: 'ratgeber', ru: 'гид' },
+  kurumsal: { tr: 'kurumsal', en: 'corporate', ar: 'الشركة', de: 'unternehmen', ru: 'компания' },
   // Alt sayfalar
-  'emlak-danismanligi': { tr: 'emlak-danismanligi', en: 'real-estate-consulting', ar: 'استشارات-عقارية' },
-  'tadilat-dekorasyon': { tr: 'tadilat-dekorasyon', en: 'renovation-decoration', ar: 'تجديد-ديكور' },
-  'taahhut-insaat': { tr: 'taahhut-insaat', en: 'construction-contracting', ar: 'المقاولات-البناء' },
-  'plan-proje': { tr: 'plan-proje', en: 'planning-design', ar: 'التخطيط-التصميم' },
-  'vizyon-misyon': { tr: 'vizyon-misyon', en: 'vision-mission', ar: 'الرؤية-المهمة' },
-  referanslar: { tr: 'referanslar', en: 'references', ar: 'المراجع' },
-  belgeler: { tr: 'belgeler', en: 'certificates', ar: 'الشهادات' },
+  'emlak-danismanligi': { tr: 'emlak-danismanligi', en: 'real-estate-consulting', ar: 'استشارات-عقارية', de: 'immobilienberatung', ru: 'консультации-по-недвижимости' },
+  'tadilat-dekorasyon': { tr: 'tadilat-dekorasyon', en: 'renovation-decoration', ar: 'تجديد-ديكور', de: 'renovierung-dekoration', ru: 'ремонт-декор' },
+  'taahhut-insaat': { tr: 'taahhut-insaat', en: 'construction-contracting', ar: 'المقاولات-البناء', de: 'bauunternehmen', ru: 'строительство' },
+  'plan-proje': { tr: 'plan-proje', en: 'planning-design', ar: 'التخطيط-التصميم', de: 'planung-design', ru: 'планирование-дизайн' },
+  'vizyon-misyon': { tr: 'vizyon-misyon', en: 'vision-mission', ar: 'الرؤية-المهمة', de: 'vision-mission', ru: 'миссия-видение' },
+  referanslar: { tr: 'referanslar', en: 'references', ar: 'المراجع', de: 'referenzen', ru: 'рекомендации' },
+  belgeler: { tr: 'belgeler', en: 'certificates', ar: 'الشهادات', de: 'zertifikate', ru: 'сертификаты' },
 }
 
 // Convert localized route to original Turkish route
