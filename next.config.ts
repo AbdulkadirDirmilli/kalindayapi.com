@@ -229,7 +229,250 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // 10. Locale prefix'siz URL'leri varsayılan dile (TR) yönlendir
+      // 10. Almanca (de) route'larını Türkçe slug'lara yönlendir
+      // immobilien (ilanlar)
+      {
+        source: "/de/immobilien/:path*",
+        destination: "/de/ilanlar/:path*",
+        permanent: true,
+      },
+      {
+        source: "/de/immobilien",
+        destination: "/de/ilanlar",
+        permanent: true,
+      },
+      // dienstleistungen (hizmetler)
+      {
+        source: "/de/dienstleistungen/:path*",
+        destination: "/de/hizmetler/:path*",
+        permanent: true,
+      },
+      {
+        source: "/de/dienstleistungen",
+        destination: "/de/hizmetler",
+        permanent: true,
+      },
+      // ueber-uns (hakkimizda)
+      {
+        source: "/de/ueber-uns",
+        destination: "/de/hakkimizda",
+        permanent: true,
+      },
+      // kontakt (iletisim)
+      {
+        source: "/de/kontakt",
+        destination: "/de/iletisim",
+        permanent: true,
+      },
+      // wechselkurse (doviz-kurlari)
+      {
+        source: "/de/wechselkurse",
+        destination: "/de/doviz-kurlari",
+        permanent: true,
+      },
+      // ratgeber (rehber)
+      {
+        source: "/de/ratgeber/:path*",
+        destination: "/de/rehber/:path*",
+        permanent: true,
+      },
+      {
+        source: "/de/ratgeber",
+        destination: "/de/rehber",
+        permanent: true,
+      },
+      // unternehmen (kurumsal)
+      {
+        source: "/de/unternehmen/:path*",
+        destination: "/de/kurumsal/:path*",
+        permanent: true,
+      },
+      {
+        source: "/de/unternehmen",
+        destination: "/de/kurumsal",
+        permanent: true,
+      },
+      // faq (sss)
+      {
+        source: "/de/faq",
+        destination: "/de/sss",
+        permanent: true,
+      },
+
+      // 11. Rusça (ru) route'larını Türkçe slug'lara yönlendir
+      // недвижимость (ilanlar)
+      {
+        source: "/ru/недвижимость/:path*",
+        destination: "/ru/ilanlar/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/недвижимость",
+        destination: "/ru/ilanlar",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C/:path*",
+        destination: "/ru/ilanlar/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C",
+        destination: "/ru/ilanlar",
+        permanent: true,
+      },
+      // услуги (hizmetler)
+      {
+        source: "/ru/услуги/:path*",
+        destination: "/ru/hizmetler/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/услуги",
+        destination: "/ru/hizmetler",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/:path*",
+        destination: "/ru/hizmetler/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8",
+        destination: "/ru/hizmetler",
+        permanent: true,
+      },
+      // блог (blog)
+      {
+        source: "/ru/блог/:path*",
+        destination: "/ru/blog/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/блог",
+        destination: "/ru/blog",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%B1%D0%BB%D0%BE%D0%B3/:path*",
+        destination: "/ru/blog/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%B1%D0%BB%D0%BE%D0%B3",
+        destination: "/ru/blog",
+        permanent: true,
+      },
+      // о-нас (hakkimizda)
+      {
+        source: "/ru/о-нас",
+        destination: "/ru/hakkimizda",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%BE-%D0%BD%D0%B0%D1%81",
+        destination: "/ru/hakkimizda",
+        permanent: true,
+      },
+      // контакты (iletisim)
+      {
+        source: "/ru/контакты",
+        destination: "/ru/iletisim",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D1%8B",
+        destination: "/ru/iletisim",
+        permanent: true,
+      },
+      // курсы-валют (doviz-kurlari)
+      {
+        source: "/ru/курсы-валют",
+        destination: "/ru/doviz-kurlari",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%BA%D1%83%D1%80%D1%81%D1%8B-%D0%B2%D0%B0%D0%BB%D1%8E%D1%82",
+        destination: "/ru/doviz-kurlari",
+        permanent: true,
+      },
+      // гид (rehber)
+      {
+        source: "/ru/гид/:path*",
+        destination: "/ru/rehber/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/гид",
+        destination: "/ru/rehber",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%B3%D0%B8%D0%B4/:path*",
+        destination: "/ru/rehber/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%B3%D0%B8%D0%B4",
+        destination: "/ru/rehber",
+        permanent: true,
+      },
+      // компания (kurumsal)
+      {
+        source: "/ru/компания/:path*",
+        destination: "/ru/kurumsal/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/компания",
+        destination: "/ru/kurumsal",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F/:path*",
+        destination: "/ru/kurumsal/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F",
+        destination: "/ru/kurumsal",
+        permanent: true,
+      },
+      // чаво (sss)
+      {
+        source: "/ru/чаво",
+        destination: "/ru/sss",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D1%87%D0%B0%D0%B2%D0%BE",
+        destination: "/ru/sss",
+        permanent: true,
+      },
+      // конфиденциальность (gizlilik)
+      {
+        source: "/ru/конфиденциальность",
+        destination: "/ru/gizlilik",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C",
+        destination: "/ru/gizlilik",
+        permanent: true,
+      },
+      // условия (kullanim-kosullari)
+      {
+        source: "/ru/условия",
+        destination: "/ru/kullanim-kosullari",
+        permanent: true,
+      },
+      {
+        source: "/ru/%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F",
+        destination: "/ru/kullanim-kosullari",
+        permanent: true,
+      },
+
+      // 12. Locale prefix'siz URL'leri varsayılan dile (TR) yönlendir
       // Bu eski indexlenmiş URL'ler için gerekli
       {
         source: "/sss",
