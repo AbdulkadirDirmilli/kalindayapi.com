@@ -7,6 +7,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
+import { fallbackProjeler as localizedFallbackProjeler } from "@/data/referans-projeler-i18n";
 
 interface ReferansGaleriProps {
   lang?: Locale;
@@ -22,54 +23,13 @@ interface Proje {
   sonrasiFoto: string;
 }
 
-// Fallback data in case API fails
-const fallbackProjeler: Proje[] = [
-  {
-    id: "1",
-    baslik: "Villa Projesi - Dalyan",
-    kategori: "İnşaat",
-    konum: "Dalyan, Ortaca",
-    oncesiFoto: "/images/projects/villa-oncesi.jpg",
-    sonrasiFoto: "/images/projects/villa-sonrasi.jpg",
-  },
-  {
-    id: "2",
-    baslik: "Mutfak Yenileme - Ortaca",
-    kategori: "Tadilat",
-    konum: "Ortaca Merkez",
-    oncesiFoto: "/images/projects/mutfak-oncesi.jpg",
-    sonrasiFoto: "/images/projects/mutfak-sonrasi.jpg",
-  },
-  {
-    id: "3",
-    baslik: "Daire Renovasyonu - Köyceğiz",
-    kategori: "Tadilat",
-    konum: "Köyceğiz Merkez",
-    oncesiFoto: "/images/projects/daire-oncesi.jpg",
-    sonrasiFoto: "/images/projects/daire-sonrasi.jpg",
-  },
-  {
-    id: "4",
-    baslik: "Bahçeli Ev - Dalaman",
-    kategori: "İnşaat",
-    konum: "Dalaman",
-    oncesiFoto: "/images/projects/bahce-oncesi.jpg",
-    sonrasiFoto: "/images/projects/bahce-sonrasi.jpg",
-  },
-  {
-    id: "5",
-    baslik: "Banyo Yenileme - Ortaca",
-    kategori: "Tadilat",
-    konum: "Ortaca Merkez",
-    oncesiFoto: "/images/projects/banyo-oncesi.jpg",
-    sonrasiFoto: "/images/projects/banyo-sonrasi.jpg",
-  },
-];
-
 export default function ReferansGaleri({ lang = 'tr', dict }: ReferansGaleriProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [showAfter, setShowAfter] = useState<{ [key: string]: boolean }>({});
+
+  // Get localized fallback data
+  const fallbackProjeler = localizedFallbackProjeler[lang] || localizedFallbackProjeler.tr;
   const [projeler, setProjeler] = useState<Proje[]>(fallbackProjeler);
 
   // Fallback translations

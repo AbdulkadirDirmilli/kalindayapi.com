@@ -525,5 +525,13 @@
   "guide": {
     "title": "Muğla İlçe Rehberi",
     "subtitle": "Muğla'nın 13 ilçesi için emlak, yaşam ve yatırım rehberi"
+  },
+  "videoGallery": {
+    "badge": "Bölgemizi Keşfedin",
+    "title": "Ortaca ve",
+    "titleHighlight": "Çevresi",
+    "mapView": "Harita Görünümü",
+    "droneView": "Drone Çekimi",
+    "description": "Muğla'nın incisi Ortaca ve çevresindeki eşsiz lokasyonları keşfedin. Dalyan, Köyceğiz, Dalaman ve daha fazlası..."
   }
 }

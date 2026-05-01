@@ -141,6 +141,96 @@ const texts = {
       },
     ],
   },
+  de: {
+    breadcrumb: "Datenschutzrichtlinie",
+    title: "Datenschutzrichtlinie",
+    lastUpdate: "Letzte Aktualisierung: 28. März 2026",
+    sections: [
+      {
+        title: "1. Einleitung",
+        content: "Bei Kalinda Yapı legen wir großen Wert auf die Privatsphäre der Besucher unserer Website. Diese Datenschutzrichtlinie informiert darüber, wie Ihre personenbezogenen Daten erfasst, verwendet und geschützt werden.",
+      },
+      {
+        title: "2. Erfasste Informationen",
+        content: "Folgende Informationen können bei der Nutzung unserer Website erfasst werden:",
+        list: [
+          "Name, E-Mail und Telefonnummer, die über das Kontaktformular übermittelt werden",
+          "IP-Adresse und Browser-Informationen",
+          "Nutzungsdaten, die durch Cookies erfasst werden",
+        ],
+      },
+      {
+        title: "3. Verwendung der Informationen",
+        content: "Die erfassten Informationen werden für folgende Zwecke verwendet:",
+        list: [
+          "Beantwortung von Kundenanfragen",
+          "Verbesserung der Servicequalität",
+          "Erfüllung gesetzlicher Verpflichtungen",
+        ],
+      },
+      {
+        title: "4. Informationssicherheit",
+        content: "Geeignete technische und organisatorische Maßnahmen werden ergriffen, um die Sicherheit Ihrer personenbezogenen Daten zu gewährleisten. Ihre Daten sind vor unbefugtem Zugriff, Änderung oder Offenlegung geschützt.",
+      },
+      {
+        title: "5. Cookies",
+        content: "Unsere Website verwendet Cookies, um die Benutzererfahrung zu verbessern. Sie können Cookies in Ihren Browsereinstellungen deaktivieren, jedoch funktionieren einige Funktionen möglicherweise nicht ordnungsgemäß.",
+      },
+      {
+        title: "6. Links zu Drittanbietern",
+        content: "Unsere Website kann Links zu Websites Dritter enthalten. Wir haben keine Kontrolle über die Datenschutzpraktiken dieser Websites und übernehmen daher keine Verantwortung.",
+      },
+      {
+        title: "7. Kontakt",
+        content: "Wenn Sie Fragen zu unserer Datenschutzrichtlinie haben, können Sie uns über die folgenden Kontaktdaten erreichen:",
+      },
+    ],
+  },
+  ru: {
+    breadcrumb: "Политика конфиденциальности",
+    title: "Политика конфиденциальности",
+    lastUpdate: "Последнее обновление: 28 марта 2026",
+    sections: [
+      {
+        title: "1. Введение",
+        content: "В Kalinda Yapı мы ценим конфиденциальность посетителей нашего сайта. Настоящая политика конфиденциальности предоставляет информацию о том, как собираются, используются и защищаются ваши персональные данные.",
+      },
+      {
+        title: "2. Собираемая информация",
+        content: "При использовании нашего сайта может собираться следующая информация:",
+        list: [
+          "Имя, электронная почта и номер телефона, отправленные через контактную форму",
+          "IP-адрес и информация о браузере",
+          "Данные об использовании, собранные с помощью файлов cookie",
+        ],
+      },
+      {
+        title: "3. Использование информации",
+        content: "Собранная информация используется для следующих целей:",
+        list: [
+          "Ответы на запросы клиентов",
+          "Улучшение качества обслуживания",
+          "Выполнение юридических обязательств",
+        ],
+      },
+      {
+        title: "4. Безопасность информации",
+        content: "Принимаются соответствующие технические и организационные меры для обеспечения безопасности ваших персональных данных. Ваши данные защищены от несанкционированного доступа, изменения или раскрытия.",
+      },
+      {
+        title: "5. Файлы cookie",
+        content: "Наш сайт использует файлы cookie для улучшения пользовательского опыта. Вы можете отключить файлы cookie в настройках браузера, но некоторые функции могут работать некорректно.",
+      },
+      {
+        title: "6. Ссылки на сторонние ресурсы",
+        content: "Наш сайт может содержать ссылки на сторонние веб-сайты. Мы не контролируем практики конфиденциальности этих сайтов и поэтому не несем ответственности.",
+      },
+      {
+        title: "7. Контакты",
+        content: "Если у вас есть вопросы о нашей политике конфиденциальности, вы можете связаться с нами по следующим контактным данным:",
+      },
+    ],
+  },
 };
 
 export async function generateMetadata({

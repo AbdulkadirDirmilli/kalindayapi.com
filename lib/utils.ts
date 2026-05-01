@@ -241,7 +241,7 @@ export function getCategoryLabel(kategori: string): string {
   return labels[kategori] || kategori;
 }
 
-// İnşaat Durumu enum değerleri ve Türkçe karşılıkları
+// İnşaat Durumu enum değerleri ve çok dilli karşılıkları
 export const INSAAT_DURUMU_OPTIONS = [
   { value: 'PROJE', label: 'Proje aşamasında' },
   { value: 'TEMEL', label: 'Temel aşamasında' },
@@ -252,10 +252,49 @@ export const INSAAT_DURUMU_OPTIONS = [
 
 export type InsaatDurumuValue = typeof INSAAT_DURUMU_OPTIONS[number]['value'];
 
-export function getInsaatDurumuLabel(value: string | null | undefined): string {
+// Localized construction status labels
+const INSAAT_DURUMU_LABELS: Record<string, Record<string, string>> = {
+  tr: {
+    PROJE: 'Proje aşamasında',
+    TEMEL: 'Temel aşamasında',
+    KABA_INSAAT: 'Kaba inşaat',
+    INCE_INSAAT: 'İnce inşaat',
+    SATISA_HAZIR: 'Satışa hazır',
+  },
+  en: {
+    PROJE: 'Project phase',
+    TEMEL: 'Foundation phase',
+    KABA_INSAAT: 'Rough construction',
+    INCE_INSAAT: 'Finishing phase',
+    SATISA_HAZIR: 'Ready for sale',
+  },
+  ar: {
+    PROJE: 'مرحلة المشروع',
+    TEMEL: 'مرحلة الأساس',
+    KABA_INSAAT: 'بناء خام',
+    INCE_INSAAT: 'مرحلة التشطيب',
+    SATISA_HAZIR: 'جاهز للبيع',
+  },
+  de: {
+    PROJE: 'Projektphase',
+    TEMEL: 'Fundamentphase',
+    KABA_INSAAT: 'Rohbau',
+    INCE_INSAAT: 'Ausbauphase',
+    SATISA_HAZIR: 'Verkaufsbereit',
+  },
+  ru: {
+    PROJE: 'Этап проекта',
+    TEMEL: 'Этап фундамента',
+    KABA_INSAAT: 'Черновое строительство',
+    INCE_INSAAT: 'Этап отделки',
+    SATISA_HAZIR: 'Готов к продаже',
+  },
+};
+
+export function getInsaatDurumuLabel(value: string | null | undefined, locale: string = 'tr'): string {
   if (!value) return '';
-  const option = INSAAT_DURUMU_OPTIONS.find((o) => o.value === value);
-  return option?.label || value;
+  const labels = INSAAT_DURUMU_LABELS[locale] || INSAAT_DURUMU_LABELS.tr;
+  return labels[value] || value;
 }
 
 export function getInsaatDurumuBadgeClass(value: string): string {
@@ -269,14 +308,39 @@ export function getInsaatDurumuBadgeClass(value: string): string {
   return classes[value] || 'bg-gray-500 text-white';
 }
 
-// EIDS Durum yardımcıları
-export function getEidsStatusLabel(value: string | null | undefined): string {
-  const labels: Record<string, string> = {
+// EIDS Durum yardımcıları - çok dilli destek
+const EIDS_STATUS_LABELS: Record<string, Record<string, string>> = {
+  tr: {
     verified: 'EIDS Doğrulanmış',
     pending: 'EIDS Beklemede',
     not_available: 'EIDS Mevcut Değil',
-  };
-  return value ? labels[value] || '' : '';
+  },
+  en: {
+    verified: 'EIDS Verified',
+    pending: 'EIDS Pending',
+    not_available: 'EIDS Not Available',
+  },
+  ar: {
+    verified: 'EIDS تم التحقق',
+    pending: 'EIDS قيد الانتظار',
+    not_available: 'EIDS غير متوفر',
+  },
+  de: {
+    verified: 'EIDS Verifiziert',
+    pending: 'EIDS Ausstehend',
+    not_available: 'EIDS Nicht verfügbar',
+  },
+  ru: {
+    verified: 'EIDS Подтверждено',
+    pending: 'EIDS Ожидает',
+    not_available: 'EIDS Недоступно',
+  },
+};
+
+export function getEidsStatusLabel(value: string | null | undefined, locale: string = 'tr'): string {
+  if (!value) return '';
+  const labels = EIDS_STATUS_LABELS[locale] || EIDS_STATUS_LABELS.tr;
+  return labels[value] || '';
 }
 
 export function getEidsStatusBadgeClass(value: string): string {

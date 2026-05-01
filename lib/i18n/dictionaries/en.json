@@ -525,5 +525,13 @@
   "guide": {
     "title": "Muğla District Guide",
     "subtitle": "Property, lifestyle and investment guide for Muğla's 13 districts"
+  },
+  "videoGallery": {
+    "badge": "Explore Our Region",
+    "title": "Ortaca and",
+    "titleHighlight": "Surroundings",
+    "mapView": "Map View",
+    "droneView": "Drone Footage",
+    "description": "Discover the unique locations in Ortaca and its surroundings, the pearl of Muğla. Dalyan, Köyceğiz, Dalaman and more..."
   }
 }

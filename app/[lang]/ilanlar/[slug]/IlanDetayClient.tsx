@@ -153,7 +153,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
     },
     ilan.insaatDurumu && {
       label: t.constructionStatus,
-      value: getInsaatDurumuLabel(ilan.insaatDurumu),
+      value: getInsaatDurumuLabel(ilan.insaatDurumu, locale),
       icon: HardHat,
     },
   ].filter(Boolean);
@@ -200,7 +200,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                 </Badge>
                 {ilan.insaatDurumu && (
                   <span className={`inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full ${getInsaatDurumuBadgeClass(ilan.insaatDurumu)}`}>
-                    {getInsaatDurumuLabel(ilan.insaatDurumu)}
+                    {getInsaatDurumuLabel(ilan.insaatDurumu, locale)}
                   </span>
                 )}
                 {ilan.eidsStatus && (
@@ -208,7 +208,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                     {ilan.eidsStatus === 'verified' && <ShieldCheck className="w-3.5 h-3.5" />}
                     {ilan.eidsStatus === 'pending' && <Clock className="w-3.5 h-3.5" />}
                     {ilan.eidsStatus === 'not_available' && <Info className="w-3.5 h-3.5" />}
-                    {getEidsStatusLabel(ilan.eidsStatus)}
+                    {getEidsStatusLabel(ilan.eidsStatus, locale)}
                   </span>
                 )}
                 {ilan.ilanNo && (

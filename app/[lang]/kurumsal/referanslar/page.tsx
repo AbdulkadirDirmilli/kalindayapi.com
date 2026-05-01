@@ -222,6 +222,142 @@ const texts = {
       "إكينجيك",
     ],
   },
+  de: {
+    breadcrumbs: {
+      home: "Startseite",
+      corporate: "Unternehmen",
+      references: "Referenzen",
+    },
+    hero: {
+      titleHighlight: "Unsere Referenzen",
+      description: "Projekte, die wir seit 2022 in den Regionen Ortaca, Dalyan, Köyceğiz, Dalaman und Fethiye abgeschlossen haben, und unsere zufriedenen Kunden. Mit über 200 Immobilientransaktionen und mehr als 100 Renovierungsprojekten ist jedes Projekt ein Beweis für unser Engagement für Vertrauen und Qualität.",
+    },
+    projects: {
+      badge: "Projektkategorien",
+      title: "Abgeschlossene Projekte",
+      description: "Wir schaffen Mehrwert für unsere Kunden mit Projekten in verschiedenen Kategorien.",
+    },
+    reviews: {
+      badge: "Kundenbewertungen",
+      title: "Was unsere Kunden sagen",
+      description: "Bewertungen unserer Kunden über unsere mit 4,9 Sternen auf Google bewerteten Dienstleistungen.",
+    },
+    areas: {
+      badge: "Servicegebiete",
+      title: "Wo bieten wir Dienstleistungen an?",
+      description: "Wir bieten Dienstleistungen im Zentrum von Ortaca und in den umliegenden Bezirken und Städten an.",
+    },
+    cta: {
+      title: "Werden Sie Teil unserer Referenzen",
+      description: "Kontaktieren Sie uns für Ihre Immobilien-, Renovierungs- oder Bauprojekte. Erleben Sie die Kalinda Yapı-Qualität.",
+      contact: "Kontaktieren Sie uns",
+      listings: "Anzeigen durchsuchen",
+    },
+    projeler: [
+      {
+        kategori: "Wohnprojekte",
+        sayi: "50+",
+        aciklama: "Wohnrenovierungs- und Erneuerungsprojekte",
+        ornekler: ["Wohnungsrenovierungen", "Villarenovierungen", "Gartenhausproekte"],
+      },
+      {
+        kategori: "Gewerbeprojekte",
+        sayi: "25+",
+        aciklama: "Gewerbeflächen-Arrangements",
+        ornekler: ["Büroausstattung", "Ladenrenovierungen", "Restaurantprojekte"],
+      },
+      {
+        kategori: "Renovierungsprojekte",
+        sayi: "100+",
+        aciklama: "Umfassende Renovierungsprojekte",
+        ornekler: ["Küchenerneuerung", "Badezimmerrenovierung", "Außenanstrich"],
+      },
+      {
+        kategori: "Immobilientransaktionen",
+        sayi: "200+",
+        aciklama: "Erfolgreiche Immobilientransaktionen",
+        ornekler: ["Verkaufsberatung", "Vermietungsservice", "Investitionsberatung"],
+      },
+    ],
+    hizmetBolgeleri: [
+      "Ortaca Zentrum",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Sarıgerme",
+      "Sultaniye",
+      "Ekincik",
+    ],
+  },
+  ru: {
+    breadcrumbs: {
+      home: "Главная",
+      corporate: "Компания",
+      references: "Референсы",
+    },
+    hero: {
+      titleHighlight: "Наши референсы",
+      description: "Проекты, которые мы завершили с 2022 года в регионах Ортака, Далян, Кёйджеиз, Даламан и Фетхие, и наши довольные клиенты. С более чем 200 сделками с недвижимостью и более чем 100 проектами ремонта каждый проект является отражением нашей приверженности доверию и качеству.",
+    },
+    projects: {
+      badge: "Категории проектов",
+      title: "Завершенные проекты",
+      description: "Мы создаем ценность для наших клиентов проектами в различных категориях.",
+    },
+    reviews: {
+      badge: "Отзывы клиентов",
+      title: "Что говорят наши клиенты",
+      description: "Отзывы наших клиентов о наших услугах с рейтингом 4,9 звезды в Google.",
+    },
+    areas: {
+      badge: "Районы обслуживания",
+      title: "Где мы предоставляем услуги?",
+      description: "Мы предоставляем услуги в центре Ортака и окружающих районах и городах.",
+    },
+    cta: {
+      title: "Станьте частью наших референсов",
+      description: "Свяжитесь с нами по поводу ваших проектов в сфере недвижимости, ремонта или строительства. Испытайте качество Kalinda Yapı.",
+      contact: "Связаться с нами",
+      listings: "Просмотреть объявления",
+    },
+    projeler: [
+      {
+        kategori: "Жилые проекты",
+        sayi: "50+",
+        aciklama: "Проекты ремонта и обновления жилья",
+        ornekler: ["Ремонт квартир", "Ремонт вилл", "Проекты садовых домов"],
+      },
+      {
+        kategori: "Коммерческие проекты",
+        sayi: "25+",
+        aciklama: "Оформление коммерческих помещений",
+        ornekler: ["Оформление офисов", "Ремонт магазинов", "Проекты ресторанов"],
+      },
+      {
+        kategori: "Проекты ремонта",
+        sayi: "100+",
+        aciklama: "Комплексные проекты ремонта",
+        ornekler: ["Обновление кухни", "Ремонт ванной", "Наружная покраска"],
+      },
+      {
+        kategori: "Сделки с недвижимостью",
+        sayi: "200+",
+        aciklama: "Успешные сделки с недвижимостью",
+        ornekler: ["Консультации по продаже", "Услуги аренды", "Инвестиционные консультации"],
+      },
+    ],
+    hizmetBolgeleri: [
+      "Центр Ортака",
+      "Далян",
+      "Кёйджеиз",
+      "Даламан",
+      "Фетхие",
+      "Сарыгерме",
+      "Султание",
+      "Экинджик",
+    ],
+  },
 };
 
 const iconMap = [HomeIcon, Building2, PaintBucket, Users];

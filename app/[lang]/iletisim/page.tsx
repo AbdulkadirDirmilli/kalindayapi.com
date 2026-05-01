@@ -517,10 +517,10 @@ export default function IletisimPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 lg:mb-10">
             <span className="text-[#C9A84C] font-semibold text-xs sm:text-sm uppercase tracking-wider">
-              Bölgemizi Keşfedin
+              {dict?.videoGallery?.badge || "Bölgemizi Keşfedin"}
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2">
-              Ortaca ve <span className="text-[#C9A84C]">Çevresi</span>
+              {dict?.videoGallery?.title || "Ortaca ve"} <span className="text-[#C9A84C]">{dict?.videoGallery?.titleHighlight || "Çevresi"}</span>
             </h2>
           </div>
 
@@ -543,7 +543,7 @@ export default function IletisimPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/50 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
                     <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#C9A84C] text-[#0B1F3A] text-xs sm:text-sm font-bold rounded-full shadow-lg">
-                      Harita Görünümü
+                      {dict?.videoGallery?.mapView || "Harita Görünümü"}
                     </span>
                   </div>
                 </div>
@@ -568,7 +568,7 @@ export default function IletisimPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/50 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
                     <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-[#0B1F3A] text-xs sm:text-sm font-bold rounded-full shadow-lg">
-                      Drone Çekimi
+                      {dict?.videoGallery?.droneView || "Drone Çekimi"}
                     </span>
                   </div>
                 </div>
@@ -577,8 +577,7 @@ export default function IletisimPage() {
           </div>
 
           <p className="text-center text-gray-400 text-sm sm:text-base mt-6 lg:mt-8 max-w-2xl mx-auto px-4">
-            Muğla'nın incisi Ortaca ve çevresindeki eşsiz lokasyonları keşfedin.
-            Dalyan, Köyceğiz, Dalaman ve daha fazlası...
+            {dict?.videoGallery?.description || "Muğla'nın incisi Ortaca ve çevresindeki eşsiz lokasyonları keşfedin. Dalyan, Köyceğiz, Dalaman ve daha fazlası..."}
           </p>
         </div>
       </section>

@@ -525,5 +525,13 @@
   "guide": {
     "title": "Mugla Bezirksführer",
     "subtitle": "Immobilien-, Lifestyle- und Investitionsführer für die 13 Bezirke von Mugla"
+  },
+  "videoGallery": {
+    "badge": "Entdecken Sie unsere Region",
+    "title": "Ortaca und",
+    "titleHighlight": "Umgebung",
+    "mapView": "Kartenansicht",
+    "droneView": "Drohnenaufnahmen",
+    "description": "Entdecken Sie die einzigartigen Orte in Ortaca und Umgebung, der Perle von Muğla. Dalyan, Köyceğiz, Dalaman und mehr..."
   }
 }

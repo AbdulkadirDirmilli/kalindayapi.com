@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
+import { varsayilanSorular as localizedFaqData } from "@/data/sss-varsayilan-i18n";
 
 interface FaqItem {
   soru: string;
@@ -19,47 +20,17 @@ interface FaqSectionProps {
   darkMode?: boolean;
 }
 
-const varsayilanSorular: FaqItem[] = [
-  {
-    soru: "Ortaca'da ev almak için hangi belgeler gerekiyor?",
-    cevap:
-      "T.C. vatandaşları için nüfus cüzdanı fotokopisi, vergi numarası ve ikametgah belgesi yeterlidir. Yabancı uyruklu alıcılar için tapu müdürlüğü onayı, pasaport tercümesi ve potansiyel vergi numarası gerekir. 2022'den bu yana 200+ satış işlemi tamamlayan ekibimiz, tüm evrak sürecinizi ücretsiz yönetiyor.",
-  },
-  {
-    soru: "2026'da Ortaca ve Dalyan'da m² fiyatları ne kadar?",
-    cevap:
-      "Ortaca merkezde konut m² fiyatları 25.000-40.000 ₺, Dalyan'da villa arsaları 35.000-60.000 ₺/m² aralığında seyrediyor. Köyceğiz gölü çevresi ve Dalyan kanal manzaralı bölgeler prim yapıyor. Ücretsiz gayrimenkul değerleme hizmetimizle mülkünüzün güncel piyasa değerini öğrenebilirsiniz.",
-  },
-  {
-    soru: "Tadilat projelerinde yazılı sözleşme yapıyor musunuz?",
-    cevap:
-      "Evet, her projede iş kapsamı, başlangıç-bitiş tarihi, malzeme listesi, ödeme planı ve garanti koşullarını içeren yazılı sözleşme düzenliyoruz. 100+ tamamlanmış tadilat projemizde sürpriz fatura çıkmadı. Şeffaflık ilkemiz gereği tüm değişiklikler yazılı onayınızla yapılır.",
-  },
-  {
-    soru: "İnşaat ve tadilat işlerinizde garanti veriyor musunuz?",
-    cevap:
-      "Tüm işçilik ve uygulama için 2 yıl garanti sunuyoruz. Kullandığımız A sınıfı malzemeler (Vitra, Kütahya, Eca, Jotun) için üretici garantisi ayrıca geçerlidir. Garanti kapsamındaki sorunlar 48 saat içinde yerinde değerlendirilir. Garanti şartları sözleşmede açıkça belirtilir.",
-  },
-  {
-    soru: "Emlak danışmanlık hizmeti ücretli mi?",
-    cevap:
-      "Ev arayanlar için danışmanlık tamamen ücretsizdir. Satış tamamlandığında satış bedelinin %2'si, kiralama işlemlerinde 1 aylık kira bedeli komisyon alınır. Tüm ücretler işlem öncesi yazılı bildirilir, gizli maliyet yoktur. İşlem gerçekleşmezse ücret talep etmiyoruz.",
-  },
-  {
-    soru: "Muğla'nın hangi bölgelerine hizmet veriyorsunuz?",
-    cevap:
-      "Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça ve tüm Muğla genelinde aktif portföyümüz bulunuyor. Yerinde keşif için mesafe fark etmez. Bölgenin 4 yıllık deneyimli ekibi olarak yerel piyasayı, imar durumlarını ve yatırım potansiyellerini yakından takip ediyoruz.",
-  },
-];
-
 export default function FaqSection({
   lang = 'tr',
   dict,
   baslik,
   altBaslik,
-  sorular = varsayilanSorular,
+  sorular,
   darkMode = false,
 }: FaqSectionProps) {
+  // Use localized default FAQ data based on locale
+  const defaultSorular = localizedFaqData[lang] || localizedFaqData.tr;
+  const finalSorular = sorular || defaultSorular;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -115,7 +86,7 @@ export default function FaqSection({
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-3xl mx-auto space-y-4"
         >
-          {sorular.map((soru, index) => (
+          {finalSorular.map((soru, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

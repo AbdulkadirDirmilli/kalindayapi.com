@@ -63,6 +63,32 @@ const texts = {
     ctaButton: "اتصل بنا",
     min: "دقيقة",
   },
+  de: {
+    title: "Blog &",
+    titleHighlight: "Ratgeber",
+    subtitle: "Aktuelle Informationen, Expertenansichten und praktische Leitfäden zu Immobilien, Bau, Renovierung und Zonierung",
+    all: "Alle",
+    search: "In Artikeln suchen...",
+    noResults: "Keine Artikel gefunden, die Ihrer Suche entsprechen.",
+    loading: "Artikel werden geladen...",
+    ctaTitle: "Möchten Sie eine professionelle Beratung?",
+    ctaSubtitle: "Erhalten Sie eine kostenlose Beratung von unserem Expertenteam zu Immobilien, Renovierung oder Bauprojekten.",
+    ctaButton: "Kontaktieren Sie uns",
+    min: "Min",
+  },
+  ru: {
+    title: "Блог и",
+    titleHighlight: "Руководство",
+    subtitle: "Актуальная информация, экспертные мнения и практические руководства по недвижимости, строительству, ремонту и зонированию",
+    all: "Все",
+    search: "Поиск статей...",
+    noResults: "Статьи, соответствующие вашему запросу, не найдены.",
+    loading: "Загрузка статей...",
+    ctaTitle: "Хотите получить профессиональную консультацию?",
+    ctaSubtitle: "Получите бесплатную консультацию от нашей команды экспертов по недвижимости, ремонту или строительству.",
+    ctaButton: "Свяжитесь с нами",
+    min: "мин",
+  },
 };
 
 // Localized categories with internal keys for filtering
@@ -90,6 +116,20 @@ const categoryLabels: Record<Locale, Record<CategoryKey, string>> = {
     imar: "التخطيط",
     tadilat: "التجديد",
     gayrimenkul: "الملكية",
+  },
+  de: {
+    all: "Alle",
+    emlak: "Immobilien",
+    imar: "Zonierung",
+    tadilat: "Renovierung",
+    gayrimenkul: "Eigentum",
+  },
+  ru: {
+    all: "Все",
+    emlak: "Недвижимость",
+    imar: "Зонирование",
+    tadilat: "Ремонт",
+    gayrimenkul: "Собственность",
   },
 };
 

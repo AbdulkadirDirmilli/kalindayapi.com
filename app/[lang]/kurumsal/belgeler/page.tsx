@@ -278,6 +278,178 @@ const texts = {
       "اتحاد مستشاري العقارات في تركيا",
     ],
   },
+  de: {
+    breadcrumbs: {
+      home: "Startseite",
+      corporate: "Unternehmen",
+      certificates: "Zertifikate & Dokumente",
+    },
+    hero: {
+      title: "Zertifikate &",
+      titleHighlight: "Dokumente",
+      description: "Bei Kalinda Yapı erbringen wir unsere Dienstleistungen mit offiziellen Dokumenten und Zertifikaten in Übereinstimmung mit allen gesetzlichen Anforderungen in Ortaca, Dalyan, Köyceğiz und der gesamten Region Muğla. Gemäß unserem Transparenzprinzip teilen wir unsere Dokumente mit Ihnen. Unsere Immobilienberatung, Renovierungs- und Baudienstleistungen werden durch offizielle Lizenzen und Zertifikate unterstützt.",
+    },
+    activeCerts: {
+      badge: "Aktive Dokumente",
+      title: "Unsere aktuellen Zertifikate",
+      description: "Offiziell autorisierte und aktuelle Dokumente.",
+      status: "Aktiv",
+      dateLabel: "Erhalten:",
+    },
+    targetCerts: {
+      badge: "Zieldokumente",
+      title: "Zertifikate, die wir anstreben",
+      description: "Dokumente, an denen wir arbeiten, um unsere Qualitätsstandards zu erhöhen.",
+      progress: "Fortschritt",
+      target: "Ziel:",
+    },
+    memberships: {
+      badge: "Mitgliedschaften",
+      title: "Organisationen, bei denen wir Mitglied sind",
+      description: "Wir haben aktive Mitgliedschaften in Branchenorganisationen.",
+    },
+    trust: {
+      title: "Zuverlässiger und transparenter Service",
+      description: "Alle unsere Dokumente sind aktuell und gültig. Wir bieten unseren Kunden sicheren Service durch vollständige Einhaltung gesetzlicher Vorschriften. Wenn Sie eines unserer Dokumente einsehen möchten, können Sie unser Büro besuchen.",
+    },
+    cta: {
+      title: "Möchten Sie mehr Informationen?",
+      description: "Kontaktieren Sie uns für detaillierte Informationen über unsere Dokumente und Dienstleistungen.",
+      contact: "Kontaktieren Sie uns",
+      about: "Über uns",
+    },
+    belgeler: [
+      {
+        baslik: "Immobilienberatungslizenz",
+        aciklama: "Vom türkischen Handelsministerium genehmigte Immobilienberatungslizenz",
+        tarih: "2022",
+        detay: "Berechtigung zur Durchführung offizieller Immobilienkauf- und Mietgeschäfte",
+      },
+      {
+        baslik: "Handelsregisterbescheinigung",
+        aciklama: "Registrierungsbescheinigung der Handelsregisterdirektion Muğla",
+        tarih: "2022",
+        detay: "Unternehmensgründungs- und Tätigkeitsbescheinigung",
+      },
+      {
+        baslik: "Arbeitsschutzzertifikat",
+        aciklama: "Schulungszertifikat für Arbeitsschutz und Sicherheit",
+        tarih: "2023",
+        detay: "Arbeitsschutzstandards bei Bau- und Renovierungsarbeiten",
+      },
+      {
+        baslik: "Steuerbescheinigung",
+        aciklama: "Registrierter Steuerzahlerbescheinigung des Finanzamts Muğla",
+        tarih: "2022",
+        detay: "Offizielle Steuerzahlerregistrierung",
+      },
+    ],
+    hedefBelgeler: [
+      {
+        baslik: "ISO 9001 Qualitätsmanagement",
+        aciklama: "Qualitätsmanagementsystem-Zertifikat",
+        hedefTarih: "2025",
+        ilerleme: 60,
+      },
+      {
+        baslik: "Grünes Gebäude-Zertifikat",
+        aciklama: "Zertifikat für nachhaltige Baupraktiken",
+        hedefTarih: "2026",
+        ilerleme: 30,
+      },
+    ],
+    uyeler: [
+      "Industrie- und Handelskammer Muğla",
+      "Handwerks- und Gewerbeverein Ortaca",
+      "Türkischer Immobilienmaklerverband",
+    ],
+  },
+  ru: {
+    breadcrumbs: {
+      home: "Главная",
+      corporate: "Компания",
+      certificates: "Сертификаты и документы",
+    },
+    hero: {
+      title: "Сертификаты и",
+      titleHighlight: "Документы",
+      description: "В Kalinda Yapı мы предоставляем услуги с официальными документами и сертификатами в соответствии со всеми законодательными требованиями в Ортаке, Даляне, Кёйджеизе и всем регионе Мугла. В соответствии с нашим принципом прозрачности мы делимся с вами нашими документами. Наши услуги по консультированию в сфере недвижимости, ремонту и строительству подкреплены официальными лицензиями и сертификатами.",
+    },
+    activeCerts: {
+      badge: "Действующие документы",
+      title: "Наши текущие сертификаты",
+      description: "Официально уполномоченные и актуальные документы.",
+      status: "Активен",
+      dateLabel: "Получено:",
+    },
+    targetCerts: {
+      badge: "Целевые документы",
+      title: "Сертификаты, которые мы планируем получить",
+      description: "Документы, над которыми мы работаем для повышения стандартов качества.",
+      progress: "Прогресс",
+      target: "Цель:",
+    },
+    memberships: {
+      badge: "Членства",
+      title: "Организации, членами которых мы являемся",
+      description: "Мы имеем активное членство в отраслевых организациях.",
+    },
+    trust: {
+      title: "Надежный и прозрачный сервис",
+      description: "Все наши документы актуальны и действительны. Мы обеспечиваем безопасный сервис для наших клиентов, полностью соблюдая законодательные нормы. Если вы хотите увидеть любой из наших документов, вы можете посетить наш офис.",
+    },
+    cta: {
+      title: "Хотите получить больше информации?",
+      description: "Свяжитесь с нами для получения подробной информации о наших документах и услугах.",
+      contact: "Связаться с нами",
+      about: "О нас",
+    },
+    belgeler: [
+      {
+        baslik: "Лицензия на консультирование по недвижимости",
+        aciklama: "Лицензия на консультирование по недвижимости, одобренная Министерством торговли Турции",
+        tarih: "2022",
+        detay: "Полномочия на проведение официальных операций купли-продажи и аренды недвижимости",
+      },
+      {
+        baslik: "Свидетельство о регистрации в торговом реестре",
+        aciklama: "Свидетельство о регистрации Управления торгового реестра Мугла",
+        tarih: "2022",
+        detay: "Свидетельство о регистрации и деятельности компании",
+      },
+      {
+        baslik: "Сертификат охраны труда",
+        aciklama: "Сертификат обучения по охране труда и технике безопасности",
+        tarih: "2023",
+        detay: "Стандарты охраны труда при строительных и ремонтных работах",
+      },
+      {
+        baslik: "Налоговое свидетельство",
+        aciklama: "Свидетельство зарегистрированного налогоплательщика налоговой инспекции Мугла",
+        tarih: "2022",
+        detay: "Официальная регистрация налогоплательщика",
+      },
+    ],
+    hedefBelgeler: [
+      {
+        baslik: "ISO 9001 Управление качеством",
+        aciklama: "Сертификат системы управления качеством",
+        hedefTarih: "2025",
+        ilerleme: 60,
+      },
+      {
+        baslik: "Сертификат зеленого здания",
+        aciklama: "Сертификат устойчивых строительных практик",
+        hedefTarih: "2026",
+        ilerleme: 30,
+      },
+    ],
+    uyeler: [
+      "Торгово-промышленная палата Мугла",
+      "Палата ремесленников и торговцев Ортака",
+      "Федерация консультантов по недвижимости Турции",
+    ],
+  },
 };
 
 const iconMap = [FileCheck, Building2, Shield, Briefcase];

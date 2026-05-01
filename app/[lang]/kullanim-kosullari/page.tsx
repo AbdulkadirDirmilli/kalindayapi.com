@@ -135,6 +135,92 @@ const texts = {
       },
     ],
   },
+  de: {
+    breadcrumb: "Nutzungsbedingungen",
+    title: "Nutzungsbedingungen",
+    lastUpdate: "Letzte Aktualisierung: 28. März 2026",
+    sections: [
+      {
+        title: "1. Akzeptanz",
+        content: "Durch die Nutzung dieser Website akzeptieren Sie die folgenden Nutzungsbedingungen. Wenn Sie diese Bedingungen nicht akzeptieren, nutzen Sie die Website bitte nicht.",
+      },
+      {
+        title: "2. Servicebeschreibung",
+        content: "Kalinda Yapı ist ein Unternehmen, das Immobilienberatung, Bau- und Renovierungsdienstleistungen anbietet. Unsere Website dient der Information über unsere Dienstleistungen und der Kommunikation mit potenziellen Kunden.",
+      },
+      {
+        title: "3. Anzeigeninformationen",
+        content: "Die auf unserer Website veröffentlichten Immobilienanzeigen dienen Informationszwecken. Wir bemühen uns, die Genauigkeit und Aktualität der Anzeigeninformationen sicherzustellen, garantieren jedoch nicht, dass die Informationen vollständig oder fehlerfrei sind. Bitte kontaktieren Sie uns für verbindliche Informationen.",
+      },
+      {
+        title: "4. Geistiges Eigentum",
+        content: "Alle Inhalte, Designs, Logos und Bilder auf dieser Website sind Eigentum von Kalinda Yapı oder lizenziert. Unbefugtes Kopieren, Verteilen oder Verwenden ist untersagt.",
+      },
+      {
+        title: "5. Haftungsbeschränkung",
+        content: "Kalinda Yapı kann nicht für direkte oder indirekte Schäden haftbar gemacht werden, die aus der Nutzung der Website entstehen können. Die Website wird \"wie besehen\" bereitgestellt.",
+      },
+      {
+        title: "6. Links zu Drittanbietern",
+        content: "Unsere Website kann Links zu Websites Dritter enthalten. Wir haben keine Kontrolle über den Inhalt oder die Datenschutzpraktiken dieser Websites.",
+      },
+      {
+        title: "7. Änderungen",
+        content: "Wir behalten uns das Recht vor, diese Nutzungsbedingungen ohne vorherige Ankündigung zu ändern. Änderungen treten in Kraft, sobald sie auf der Website veröffentlicht werden.",
+      },
+      {
+        title: "8. Anwendbares Recht",
+        content: "Diese Nutzungsbedingungen unterliegen den Gesetzen der Republik Türkei. Im Falle von Streitigkeiten sind die Gerichte von Muğla zuständig.",
+      },
+      {
+        title: "9. Kontakt",
+        content: "Wenn Sie Fragen zu den Nutzungsbedingungen haben, können Sie uns über die folgenden Kontaktdaten erreichen:",
+      },
+    ],
+  },
+  ru: {
+    breadcrumb: "Условия использования",
+    title: "Условия использования",
+    lastUpdate: "Последнее обновление: 28 марта 2026",
+    sections: [
+      {
+        title: "1. Принятие условий",
+        content: "Используя этот веб-сайт, вы принимаете следующие условия использования. Если вы не принимаете эти условия, пожалуйста, не используйте сайт.",
+      },
+      {
+        title: "2. Описание услуг",
+        content: "Kalinda Yapı - это компания, предоставляющая услуги консультирования по недвижимости, строительства и ремонта. Наш веб-сайт используется для предоставления информации о наших услугах и для связи с потенциальными клиентами.",
+      },
+      {
+        title: "3. Информация об объявлениях",
+        content: "Объявления о недвижимости, размещенные на нашем сайте, носят информационный характер. Мы стремимся обеспечить точность и актуальность информации в объявлениях, но не гарантируем, что информация является полной или безошибочной. Для получения точной информации, пожалуйста, свяжитесь с нами.",
+      },
+      {
+        title: "4. Интеллектуальная собственность",
+        content: "Весь контент, дизайн, логотипы и изображения на этом веб-сайте принадлежат или лицензированы Kalinda Yapı. Несанкционированное копирование, распространение или использование запрещено.",
+      },
+      {
+        title: "5. Ограничение ответственности",
+        content: "Kalinda Yapı не несет ответственности за прямые или косвенные убытки, которые могут возникнуть в результате использования веб-сайта. Веб-сайт предоставляется \"как есть\".",
+      },
+      {
+        title: "6. Ссылки на сторонние ресурсы",
+        content: "Наш веб-сайт может содержать ссылки на сторонние веб-сайты. Мы не контролируем содержание или политику конфиденциальности этих сайтов.",
+      },
+      {
+        title: "7. Изменения",
+        content: "Мы оставляем за собой право изменять эти условия использования без предварительного уведомления. Изменения вступают в силу с момента их публикации на веб-сайте.",
+      },
+      {
+        title: "8. Применимое право",
+        content: "Настоящие условия использования регулируются законодательством Турецкой Республики. В случае возникновения споров компетентными являются суды Мугла.",
+      },
+      {
+        title: "9. Контакты",
+        content: "Если у вас есть вопросы об условиях использования, вы можете связаться с нами по следующим контактным данным:",
+      },
+    ],
+  },
 };
 
 export async function generateMetadata({

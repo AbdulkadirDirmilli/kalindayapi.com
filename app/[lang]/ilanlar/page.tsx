@@ -67,6 +67,38 @@ const texts = {
       "لم يتم العثور على عقارات تطابق معايير البحث. حاول تغيير المرشحات.",
     clearFilters: "مسح جميع المرشحات",
   },
+  de: {
+    title: "Immobilienanzeigen",
+    metaTitle: "Immobilien zum Verkauf & zur Miete in Ortaca 2026 | Kalinda Yapı",
+    metaDescription:
+      "Wohnungen, Villen und Grundstücke zum Verkauf und zur Miete in Ortaca, Dalaman, Dalyan und Köyceğiz ✓ 150+ Anzeigen ✓ Lizenzierte Makler. Jetzt ansehen! ☎ +90 537 053 07 54",
+    subtitle:
+      "Immobilien zum Verkauf und zur Miete in allen Bezirken von Muğla. Finden Sie Ihr Traumhaus in Ortaca, Dalaman, Dalyan, Köyceğiz.",
+    breadcrumb: "Anzeigen",
+    loading: "Anzeigen werden geladen...",
+    error: "Fehler aufgetreten",
+    retry: "Erneut versuchen",
+    noResults: "Keine Anzeigen gefunden",
+    noResultsDesc:
+      "Keine Anzeigen gefunden, die Ihren Suchkriterien entsprechen. Versuchen Sie, die Filter zu ändern.",
+    clearFilters: "Alle Filter löschen",
+  },
+  ru: {
+    title: "Объявления о недвижимости",
+    metaTitle: "Недвижимость на продажу и в аренду в Ортаке 2026 | Kalinda Yapı",
+    metaDescription:
+      "Квартиры, виллы и земельные участки на продажу и в аренду в Ортаке, Даламане, Даляне и Кёйджеизе ✓ 150+ объявлений ✓ Лицензированные агенты. Смотрите сейчас! ☎ +90 537 053 07 54",
+    subtitle:
+      "Недвижимость на продажу и в аренду во всех районах Мугла. Найдите дом своей мечты в районах Ортака, Даламан, Далян, Кёйджеиз.",
+    breadcrumb: "Объявления",
+    loading: "Загрузка объявлений...",
+    error: "Произошла ошибка",
+    retry: "Повторить",
+    noResults: "Объявления не найдены",
+    noResultsDesc:
+      "Объявления, соответствующие вашим критериям поиска, не найдены. Попробуйте изменить фильтры.",
+    clearFilters: "Очистить все фильтры",
+  },
 };
 
 export async function generateStaticParams() {
@@ -188,7 +220,7 @@ export default async function IlanlarPage({
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     {
-      name: locale === "tr" ? "Ana Sayfa" : locale === "en" ? "Home" : "الرئيسية",
+      name: locale === "tr" ? "Ana Sayfa" : locale === "en" ? "Home" : locale === "de" ? "Startseite" : locale === "ru" ? "Главная" : "الرئيسية",
       url: `/${locale}`,
     },
     {
@@ -323,6 +355,42 @@ export default async function IlanlarPage({
                   في كالينداي يابي، نقدم عقارات للبيع والإيجار في مناطق أورتاجا
                   ودالامان ودالان وكويجيز في موغلا. تشمل محفظتنا الشقق والفلل
                   والأراضي والعقارات التجارية.
+                </p>
+              </>
+            )}
+            {locale === "de" && (
+              <>
+                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+                  Immobilienanzeigen in Ortaca und Umgebung
+                </h2>
+                <p className="text-[#666666] mb-4">
+                  Bei Kalinda Yapı bieten wir Immobilien zum Verkauf und zur Miete
+                  in den Regionen Ortaca, Dalaman, Dalyan und Köyceğiz in Muğla an.
+                  Unser Portfolio umfasst Wohnungen, Villen, Grundstücke und
+                  Gewerbeimmobilien.
+                </p>
+                <p className="text-[#666666] mb-4">
+                  Mit unseren lizenzierten Immobilienberatern können Sie sicher
+                  Kauf-, Verkaufs- und Mietgeschäfte abwickeln. Kontaktieren Sie
+                  uns für unseren kostenlosen Immobilienbewertungsservice.
+                </p>
+              </>
+            )}
+            {locale === "ru" && (
+              <>
+                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+                  Объявления о недвижимости в Ортаке и окрестностях
+                </h2>
+                <p className="text-[#666666] mb-4">
+                  В Kalinda Yapı мы предлагаем недвижимость на продажу и в аренду
+                  в регионах Ортака, Даламан, Далян и Кёйджеиз в Мугла. Наше
+                  портфолио включает квартиры, виллы, земельные участки и
+                  коммерческую недвижимость.
+                </p>
+                <p className="text-[#666666] mb-4">
+                  С нашими лицензированными консультантами по недвижимости вы
+                  можете безопасно проводить операции купли-продажи и аренды.
+                  Свяжитесь с нами для получения бесплатной оценки недвижимости.
                 </p>
               </>
             )}

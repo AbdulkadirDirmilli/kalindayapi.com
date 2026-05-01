@@ -190,6 +190,118 @@ const texts = {
       about: "من نحن",
     },
   },
+  de: {
+    breadcrumbs: {
+      home: "Startseite",
+      corporate: "Unternehmen",
+      visionMission: "Vision & Mission",
+    },
+    hero: {
+      titleHighlight: "Vision",
+      title: "& Mission",
+      description: "Unser Ziel bei Kalinda Yapı ist es, die vertrauenswürdigste und bevorzugte Bau- und Immobilienmarke in Ortaca, Dalyan, Köyceğiz und der gesamten Region Muğla zu sein. Wir teilen mit Ihnen unsere Vision- und Missionsprinzipien, die wir uns gesetzt haben, um dieses Ziel mit unserer Erfahrung und unserem kundenorientierten Ansatz seit 2022 zu erreichen.",
+    },
+    mission: {
+      title: "Unsere Mission",
+      paragraphs: [
+        "<strong>Zuverlässige, transparente und qualitativ hochwertige</strong> Immobilienberatung und Baulösungen im Zentrum von Ortaca, Dalyan, Köyceğiz, Dalaman und Fethiye anzubieten. Jedem unserer Kunden eine realistische und ehrliche Beratung entsprechend den regionalen Gegebenheiten zu bieten.",
+        "Unseren Kunden zu helfen, ihre Träume vom Eigenheim zu verwirklichen und <strong>höchste Zufriedenheit</strong> in jedem Projekt zu gewährleisten. Ob Sie Ihr erstes Zuhause oder eine Investitionsimmobilie suchen, wir bieten Lösungen, die auf Ihre Bedürfnisse zugeschnitten sind.",
+        "Der Gesellschaft einen Mehrwert zu bieten, indem wir moderne, nachhaltige und umweltfreundliche Lösungen für die Wohn- und Gewerbeimmobilienbedürfnisse der Region Muğla anbieten. Zur lokalen Beschäftigung beizutragen und die regionale Wirtschaft zu stärken.",
+      ],
+    },
+    vision: {
+      title: "Unsere Vision",
+      paragraphs: [
+        "Die <strong>angesehenste und bevorzugte</strong> Bau- und Immobilienmarke in Ortaca, Dalyan, Köyceğiz und der gesamten Region Muğla zu sein. Branchenführerschaft in der Kundenzufriedenheit zu erreichen.",
+        "Mit <strong>innovativen Ansätzen und digitaler Technologie</strong> Vorreiter in der Branche zu sein. Unseren Kunden mit virtuellen Rundgängen, Online-Anzeigenverwaltung und schnellen Kommunikationskanälen ein modernes Erlebnis zu bieten.",
+        "In die Zukunft zu investieren, indem wir <strong>nachhaltige und umweltfreundliche</strong> Baupraktiken übernehmen. Die Umweltwerte der Region mit energieeffizienten Häusern, natürlichen Materialien und Grünflächenprojekten zu schützen.",
+      ],
+    },
+    goals: {
+      badge: "Strategische Ziele",
+      title: "Unsere Ziele für 2026 und darüber hinaus",
+      description: "Wir wachsen und entwickeln uns entsprechend unserer strategischen Ziele weiter.",
+      items: [
+        { baslik: "Nachhaltiges Wachstum", aciklama: "Stabile Entwicklung mit 20% jährlichem Wachstumsziel" },
+        { baslik: "Kundenzufriedenheit", aciklama: "Über 95% Kundenzufriedenheitsrate" },
+        { baslik: "Regionale Expansion", aciklama: "Servicenetzwerk in allen Bezirken von Muğla" },
+        { baslik: "Gesellschaftlicher Beitrag", aciklama: "Beitrag zur lokalen Beschäftigung und Wirtschaft" },
+      ],
+    },
+    values: {
+      badge: "Unsere Werte",
+      title: "Die Werte, die uns ausmachen",
+      description: "Wir nehmen diese Werte als Leitfaden bei jeder Entscheidung und jedem Projekt.",
+      items: [
+        { baslik: "Vertrauen", aciklama: "Wir bauen vertrauensbasierte Beziehungen zu unseren Kunden auf. Wir machen einen Unterschied mit unserem transparenten Kommunikations- und ehrlichen Serviceansatz." },
+        { baslik: "Transparenz", aciklama: "Wir bieten klare und präzise Informationen in allen Prozessen. Wir arbeiten ohne versteckte Kosten oder Überraschungen." },
+        { baslik: "Qualität", aciklama: "Wir streben in jedem Projekt die höchsten Qualitätsstandards an. Wir garantieren qualitativ hochwertige Materialien und Verarbeitung." },
+        { baslik: "Regionales Engagement", aciklama: "Wir tragen zur Entwicklung der Region Ortaca und Muğla bei. Wir sind stolz darauf, Teil der lokalen Gemeinschaft zu sein." },
+      ],
+    },
+    cta: {
+      title: "Teilen Sie unsere Werte?",
+      description: "Kontaktieren Sie uns, um mit Kalinda Yapı zu arbeiten und einen zuverlässigen Geschäftspartner zu gewinnen.",
+      contact: "Kontaktieren Sie uns",
+      about: "Über uns",
+    },
+  },
+  ru: {
+    breadcrumbs: {
+      home: "Главная",
+      corporate: "Компания",
+      visionMission: "Видение и миссия",
+    },
+    hero: {
+      titleHighlight: "Видение",
+      title: "и Миссия",
+      description: "Наша цель в Kalinda Yapı — быть самым надежным и предпочтительным брендом в сфере строительства и недвижимости в Ортаке, Даляне, Кёйджеизе и всем регионе Мугла. Мы делимся с вами нашими принципами видения и миссии, которые мы установили для достижения этой цели благодаря нашему опыту и ориентированному на клиента подходу с 2022 года.",
+    },
+    mission: {
+      title: "Наша миссия",
+      paragraphs: [
+        "Предоставлять <strong>надежные, прозрачные и качественные</strong> консультации по недвижимости и строительные решения в центре Ортака, Даляне, Кёйджеизе, Даламане и Фетхие. Предоставлять каждому клиенту реалистичные и честные консультации в соответствии с региональными условиями.",
+        "Помогать нашим клиентам осуществить мечту о собственном доме и обеспечивать <strong>высочайшее удовлетворение</strong> в каждом проекте. Ищете ли вы первый дом или инвестиционную недвижимость, мы предлагаем решения, адаптированные к вашим потребностям.",
+        "Приносить пользу обществу, предлагая современные, устойчивые и экологически чистые решения для жилой и коммерческой недвижимости региона Мугла. Содействовать местной занятости и укреплять региональную экономику.",
+      ],
+    },
+    vision: {
+      title: "Наше видение",
+      paragraphs: [
+        "Быть <strong>самым уважаемым и предпочтительным</strong> брендом в сфере строительства и недвижимости в Ортаке, Даляне, Кёйджеизе и всем регионе Мугла. Достичь лидерства в отрасли по удовлетворенности клиентов.",
+        "Быть пионером в отрасли благодаря <strong>инновационным подходам и цифровым технологиям</strong>. Предоставлять нашим клиентам современный опыт с виртуальными турами, онлайн-управлением объявлениями и быстрыми каналами связи.",
+        "Инвестировать в будущее, применяя <strong>устойчивые и экологически чистые</strong> строительные практики. Защищать экологические ценности региона с помощью энергоэффективных домов, натуральных материалов и проектов зеленых зон.",
+      ],
+    },
+    goals: {
+      badge: "Стратегические цели",
+      title: "Наши цели на 2026 год и далее",
+      description: "Мы продолжаем расти и развиваться в соответствии с нашими стратегическими целями.",
+      items: [
+        { baslik: "Устойчивый рост", aciklama: "Стабильное развитие с целью ежегодного роста 20%" },
+        { baslik: "Удовлетворенность клиентов", aciklama: "Уровень удовлетворенности клиентов более 95%" },
+        { baslik: "Региональное расширение", aciklama: "Сеть услуг во всех районах Мугла" },
+        { baslik: "Социальный вклад", aciklama: "Вклад в местную занятость и экономику" },
+      ],
+    },
+    values: {
+      badge: "Наши ценности",
+      title: "Ценности, которые делают нас теми, кто мы есть",
+      description: "Мы руководствуемся этими ценностями в каждом решении и каждом проекте.",
+      items: [
+        { baslik: "Доверие", aciklama: "Мы строим отношения с клиентами на основе доверия. Мы делаем различие благодаря нашему подходу прозрачного общения и честного сервиса." },
+        { baslik: "Прозрачность", aciklama: "Мы предоставляем четкую и точную информацию во всех процессах. Мы работаем без скрытых затрат или сюрпризов." },
+        { baslik: "Качество", aciklama: "Мы стремимся к высочайшим стандартам качества в каждом проекте. Мы гарантируем качественные материалы и работу." },
+        { baslik: "Региональная приверженность", aciklama: "Мы вносим вклад в развитие региона Ортака и Мугла. Мы гордимся тем, что являемся частью местного сообщества." },
+      ],
+    },
+    cta: {
+      title: "Разделяете ли вы наши ценности?",
+      description: "Свяжитесь с нами, чтобы работать с Kalinda Yapı и получить надежного делового партнера.",
+      contact: "Связаться с нами",
+      about: "О нас",
+    },
+  },
 };
 
 const goalIcons = [TrendingUp, Users, Compass, Heart];
