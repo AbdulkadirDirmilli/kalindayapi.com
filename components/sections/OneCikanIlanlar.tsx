@@ -9,7 +9,7 @@ import { MapPin, Maximize2, BedDouble, Bath, ArrowRight, Loader2 } from "lucide-
 import { Card } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { formatPrice, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
+import { formatPrice, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, getIlanBaslik, Ilan } from "@/lib/utils";
 import type { Locale } from "@/lib/i18n";
 
 // Video dosyası olup olmadığını kontrol et
@@ -128,7 +128,7 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
                         return kapakFoto ? (
                           <WatermarkImage
                             src={kapakFoto}
-                            alt={ilan.baslik}
+                            alt={getIlanBaslik(ilan, lang)}
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -195,7 +195,7 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
 
                       {/* Title */}
                       <h3 className="text-lg font-bold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors">
-                        {ilan.baslik}
+                        {getIlanBaslik(ilan, lang)}
                       </h3>
 
                       {/* Features */}

@@ -40,6 +40,8 @@ import {
   getInsaatDurumuBadgeClass,
   getEidsStatusLabel,
   getEidsStatusBadgeClass,
+  getIlanBaslik,
+  getIlanAciklama,
   Ilan,
 } from "@/lib/utils";
 import { PriceConverter } from "@/components/exchange";
@@ -185,7 +187,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
               {t.listings}
             </Link>
             <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span className="text-[#C9A84C] line-clamp-1 max-w-[150px] sm:max-w-none">{ilan.baslik}</span>
+            <span className="text-[#C9A84C] line-clamp-1 max-w-[150px] sm:max-w-none">{getIlanBaslik(ilan, locale)}</span>
           </nav>
 
           <div className="flex flex-col gap-3 sm:gap-4">
@@ -222,7 +224,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                 )}
               </div>
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
-                {ilan.baslik}
+                {getIlanBaslik(ilan, locale)}
               </h1>
               <div className="flex items-center gap-1 text-gray-300 text-sm sm:text-base">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#C9A84C] flex-shrink-0" />
@@ -259,7 +261,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
             <div className="lg:col-span-2 space-y-4 sm:space-y-6 lg:space-y-8 order-2 lg:order-1">
               {/* Gallery */}
               <Card padding="md" className="sm:p-6 lg:p-8">
-                <IlanGaleri fotograflar={ilan.fotograflar || []} baslik={ilan.baslik} />
+                <IlanGaleri fotograflar={ilan.fotograflar || []} baslik={getIlanBaslik(ilan, locale)} />
 
                 {ilan.videoUrl && (
                   <button
@@ -324,7 +326,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                     prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-0
                     prose-strong:text-[#0B1F3A] prose-headings:text-[#0B1F3A]
                     break-words overflow-hidden [word-break:break-word]"
-                  dangerouslySetInnerHTML={{ __html: ilan.aciklama }}
+                  dangerouslySetInnerHTML={{ __html: getIlanAciklama(ilan, locale) }}
                 />
               </Card>
 
@@ -393,7 +395,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      title={`${ilan.baslik} ${t.location}`}
+                      title={`${getIlanBaslik(ilan, locale)} ${t.location}`}
                     />
                   </div>
                   <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-[#666666]">
@@ -446,12 +448,12 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                     href={createWhatsAppLink(
                       ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905370530754",
                       {
-                        tr: `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`,
-                        en: `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${ilan.baslik}".`,
-                        ar: `مرحباً، أود الاستفسار عن الإعلان ${ilan.ilanNo || ''} "${ilan.baslik}".`,
-                        de: `Hallo, ich möchte mich über das Angebot ${ilan.ilanNo || ''} "${ilan.baslik}" erkundigen.`,
-                        ru: `Здравствуйте, я хотел бы узнать об объявлении ${ilan.ilanNo || ''} "${ilan.baslik}".`,
-                      }[locale] || `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${ilan.baslik}".`
+                        tr: `Merhaba, ${ilan.ilanNo || ''} numarali "${getIlanBaslik(ilan, 'tr')}" ilani hakkinda bilgi almak istiyorum.`,
+                        en: `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'en')}".`,
+                        ar: `مرحباً، أود الاستفسار عن الإعلان ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'ar')}".`,
+                        de: `Hallo, ich möchte mich über das Angebot ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'de')}" erkundigen.`,
+                        ru: `Здравствуйте, я хотел бы узнать об объявлении ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'ru')}".`,
+                      }[locale] || `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'en')}".`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -479,8 +481,8 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                   </a>
 
                   <ShareButton
-                    title={ilan.baslik}
-                    text={ilan.aciklama?.slice(0, 100) || ''}
+                    title={getIlanBaslik(ilan, locale)}
+                    text={getIlanAciklama(ilan, locale)?.slice(0, 100) || ''}
                   />
                 </div>
 
@@ -538,12 +540,12 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
               href={createWhatsAppLink(
                 ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905370530754",
                 {
-                  tr: `Merhaba, ${ilan.ilanNo || ''} numarali "${ilan.baslik}" ilani hakkinda bilgi almak istiyorum.`,
-                  en: `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${ilan.baslik}".`,
-                  ar: `مرحباً، أود الاستفسار عن الإعلان ${ilan.ilanNo || ''} "${ilan.baslik}".`,
-                  de: `Hallo, ich möchte mich über das Angebot ${ilan.ilanNo || ''} "${ilan.baslik}" erkundigen.`,
-                  ru: `Здравствуйте, я хотел бы узнать об объявлении ${ilan.ilanNo || ''} "${ilan.baslik}".`,
-                }[locale] || `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${ilan.baslik}".`
+                  tr: `Merhaba, ${ilan.ilanNo || ''} numarali "${getIlanBaslik(ilan, 'tr')}" ilani hakkinda bilgi almak istiyorum.`,
+                  en: `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'en')}".`,
+                  ar: `مرحباً، أود الاستفسار عن الإعلان ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'ar')}".`,
+                  de: `Hallo, ich möchte mich über das Angebot ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'de')}" erkundigen.`,
+                  ru: `Здравствуйте, я хотел бы узнать об объявлении ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'ru')}".`,
+                }[locale] || `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'en')}".`
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -573,8 +575,8 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
               onClick={() => {
                 if (navigator.share) {
                   navigator.share({
-                    title: ilan.baslik,
-                    text: ilan.aciklama?.slice(0, 100) || '',
+                    title: getIlanBaslik(ilan, locale),
+                    text: getIlanAciklama(ilan, locale)?.slice(0, 100) || '',
                     url: window.location.href,
                   }).catch(() => {});
                 } else if (navigator.clipboard) {

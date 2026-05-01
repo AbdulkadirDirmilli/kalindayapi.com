@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import IlanDetayClient from "./IlanDetayClient";
-import { Ilan, getEidsStatusLabel } from "@/lib/utils";
+import { Ilan, getEidsStatusLabel, getIlanBaslik, getIlanAciklama } from "@/lib/utils";
 import { locales, defaultLocale, type Locale } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale, SITE_URL } from "@/lib/seo";
@@ -257,8 +257,10 @@ export async function generateMetadata({ params }: IlanDetayPageProps): Promise<
       ? (ilan.kategori === "satilik" ? "For Sale" : "For Rent")
       : (ilan.kategori === "satilik" ? "للبيع" : "للإيجار");
 
-  const title = `${ilan.baslik} | ${ilan.konum.ilce}`;
-  const description = `${kategoriText} ${ilan.ozellikler.metrekare}m² ${ilan.tip} - ${ilan.konum.mahalle ? ilan.konum.mahalle + ", " : ""}${ilan.konum.ilce}. ${ilan.aciklama?.slice(0, 120) || ""}...`;
+  const ilanBaslik = getIlanBaslik(ilan, locale);
+  const ilanAciklama = getIlanAciklama(ilan, locale);
+  const title = `${ilanBaslik} | ${ilan.konum.ilce}`;
+  const description = `${kategoriText} ${ilan.ozellikler.metrekare}m² ${ilan.tip} - ${ilan.konum.mahalle ? ilan.konum.mahalle + ", " : ""}${ilan.konum.ilce}. ${ilanAciklama?.slice(0, 120) || ""}...`;
   const url = buildLocalizedUrl(`/ilanlar/${ilan.slug}`, locale);
 
   const fotograflar = ilan.fotograflar.filter((f: string) => !isVideo(f));
@@ -288,7 +290,7 @@ export async function generateMetadata({ params }: IlanDetayPageProps): Promise<
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: ilan.baslik,
+          alt: ilanBaslik,
         },
       ],
       locale: locale === "tr" ? "tr_TR" : locale === "en" ? "en_US" : "ar_SA",
@@ -324,12 +326,14 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
   const benzerIlanlar = await getBenzerIlanlar(ilan.kategori, slug, locale);
 
   const eidsLabel = getEidsStatusLabel(ilan.eidsStatus);
+  const structuredDataBaslik = getIlanBaslik(ilan, locale);
+  const structuredDataAciklama = getIlanAciklama(ilan, locale);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
-    "name": ilan.baslik,
+    "name": structuredDataBaslik,
     "url": `${siteUrl}/${locale}/ilanlar/${ilan.slug}`,
-    "description": ilan.aciklama?.slice(0, 200),
+    "description": structuredDataAciklama?.slice(0, 200),
     "additionalProperty": {
       "@type": "PropertyValue",
       "name": "İlan doğrulama durumu",

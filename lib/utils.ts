@@ -404,10 +404,19 @@ export function generateIlanNo(): string {
   return `KY-${year}-${random}`;
 }
 
+// Çoklu dil metin tipi
+export type LocalizedText = {
+  tr: string;
+  en: string;
+  de: string;
+  ru: string;
+  ar: string;
+};
+
 // Type definitions for data
 export interface Ilan {
   id: string;
-  baslik: string;
+  baslik: string | LocalizedText;
   slug: string;
   kategori: "satilik" | "kiralik";
   tip: "daire" | "villa" | "arsa" | "ticari";
@@ -457,7 +466,7 @@ export interface Ilan {
     // Insaat durumu
     insaatDurumu?: string;
   };
-  aciklama: string;
+  aciklama: string | LocalizedText;
   fotograflar: string[];
   videoUrl?: string | null;
   oneCikan: boolean;
@@ -476,6 +485,21 @@ export interface Ilan {
     email?: string | null;
     foto?: string | null;
   } | null;
+}
+
+// İlan için çoklu dil yardımcı fonksiyonları
+export function getIlanBaslik(ilan: Ilan, locale: string = 'tr'): string {
+  if (typeof ilan.baslik === 'string') {
+    return ilan.baslik;
+  }
+  return ilan.baslik[locale as keyof LocalizedText] || ilan.baslik.tr;
+}
+
+export function getIlanAciklama(ilan: Ilan, locale: string = 'tr'): string {
+  if (typeof ilan.aciklama === 'string') {
+    return ilan.aciklama;
+  }
+  return ilan.aciklama[locale as keyof LocalizedText] || ilan.aciklama.tr;
 }
 
 export interface Hizmet {

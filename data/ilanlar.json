@@ -2,7 +2,13 @@
   "ilanlar": [
     {
       "id": "1",
-      "baslik": "Ortaca Merkezde Satılık 3+1 Daire",
+      "baslik": {
+        "tr": "Ortaca Merkezde Satılık 3+1 Daire",
+        "en": "3+1 Apartment for Sale in Ortaca Center",
+        "de": "3+1 Wohnung zum Verkauf im Zentrum von Ortaca",
+        "ru": "Квартира 3+1 на продажу в центре Ортаджа",
+        "ar": "شقة 3+1 للبيع في وسط أورتاجا"
+      },
       "slug": "ortaca-merkezde-satilik-3-1-daire",
       "kategori": "satilik",
       "tip": "daire",
@@ -31,7 +37,13 @@
         "otopark": true,
         "guvenlik": false
       },
-      "aciklama": "Ortaca merkezde, tüm sosyal olanaklara yakın, güneş alan ferah daire. Amerikan mutfak, geniş salon, ebeveyn banyosu mevcut. Site içerisinde kapalı otopark ve çocuk oyun alanı bulunmaktadır.",
+      "aciklama": {
+        "tr": "Ortaca merkezde, tüm sosyal olanaklara yakın, güneş alan ferah daire. Amerikan mutfak, geniş salon, ebeveyn banyosu mevcut. Site içerisinde kapalı otopark ve çocuk oyun alanı bulunmaktadır.",
+        "en": "Spacious, sun-filled apartment in Ortaca center, close to all amenities. Features American kitchen, large living room, and master bathroom. Includes covered parking and children's playground within the complex.",
+        "de": "Geräumige, sonnige Wohnung im Zentrum von Ortaca, in der Nähe aller Annehmlichkeiten. Mit amerikanischer Küche, großem Wohnzimmer und eigenem Badezimmer. Überdachter Parkplatz und Kinderspielplatz in der Anlage vorhanden.",
+        "ru": "Просторная, солнечная квартира в центре Ортаджа, рядом со всеми удобствами. Американская кухня, просторная гостиная, собственная ванная комната. Крытая парковка и детская площадка на территории комплекса.",
+        "ar": "شقة واسعة ومشمسة في وسط أورتاجا، قريبة من جميع المرافق. تتميز بمطبخ أمريكي وغرفة معيشة كبيرة وحمام رئيسي. تشمل موقف سيارات مغطى وملعب للأطفال داخل المجمع."
+      },
       "fotograflar": [
         "/images/listings/daire-1.jpg",
         "/images/listings/daire-2.jpg",
@@ -46,7 +58,13 @@
     },
     {
       "id": "2",
-      "baslik": "Dalyan'da Satılık Müstakil Villa",
+      "baslik": {
+        "tr": "Dalyan'da Satılık Müstakil Villa",
+        "en": "Detached Villa for Sale in Dalyan",
+        "de": "Freistehende Villa zum Verkauf in Dalyan",
+        "ru": "Отдельная вилла на продажу в Дальяне",
+        "ar": "فيلا مستقلة للبيع في داليان"
+      },
       "slug": "dalyanda-satilik-mustakil-villa",
       "kategori": "satilik",
       "tip": "villa",
@@ -78,7 +96,13 @@
         "bahce": true,
         "bahceMetrekare": 500
       },
-      "aciklama": "Dalyan'ın en güzel lokasyonunda, özel havuzlu, geniş bahçeli müstakil villa. Doğa manzaralı, sessiz ve huzurlu bir ortamda. Yüzme havuzu, barbekü alanı ve peyzaj düzenlemesi tamamlanmış bahçe. Yazlık veya yatırım için ideal.",
+      "aciklama": {
+        "tr": "Dalyan'ın en güzel lokasyonunda, özel havuzlu, geniş bahçeli müstakil villa. Doğa manzaralı, sessiz ve huzurlu bir ortamda. Yüzme havuzu, barbekü alanı ve peyzaj düzenlemesi tamamlanmış bahçe. Yazlık veya yatırım için ideal.",
+        "en": "Detached villa with private pool and large garden in Dalyan's most beautiful location. Nature views, quiet and peaceful environment. Swimming pool, barbecue area and landscaped garden. Ideal for summer residence or investment.",
+        "de": "Freistehende Villa mit privatem Pool und großem Garten in der schönsten Lage von Dalyan. Naturblick, ruhige und friedliche Umgebung. Swimmingpool, Grillplatz und angelegter Garten. Ideal als Sommerresidenz oder Investition.",
+        "ru": "Отдельная вилла с частным бассейном и большим садом в самом красивом месте Дальяна. Вид на природу, тихая и спокойная обстановка. Бассейн, зона барбекю и ландшафтный сад. Идеально для летнего проживания или инвестиций.",
+        "ar": "فيلا مستقلة مع مسبح خاص وحديقة كبيرة في أجمل موقع في داليان. إطلالات طبيعية وبيئة هادئة ومريحة. مسبح ومنطقة شواء وحديقة منسقة. مثالية للإقامة الصيفية أو الاستثمار."
+      },
       "fotograflar": [
         "/images/listings/villa-1.jpg",
         "/images/listings/villa-2.jpg",
@@ -93,7 +117,13 @@
     },
     {
       "id": "3",
-      "baslik": "Köyceğiz Gölü Manzaralı Kiralık Daire",
+      "baslik": {
+        "tr": "Köyceğiz Gölü Manzaralı Kiralık Daire",
+        "en": "Apartment for Rent with Köyceğiz Lake View",
+        "de": "Wohnung zur Miete mit Blick auf den Köyceğiz-See",
+        "ru": "Квартира в аренду с видом на озеро Кёйджегиз",
+        "ar": "شقة للإيجار مع إطلالة على بحيرة كويجيز"
+      },
       "slug": "koycegiz-golu-manzarali-kiralik-daire",
       "kategori": "kiralik",
       "tip": "daire",
@@ -122,7 +152,13 @@
         "otopark": false,
         "guvenlik": false
       },
-      "aciklama": "Köyceğiz Gölü'ne nazır, eşşiz manzaralı kiralık daire. Tam eşyalı, klimalı, hemen taşınmaya hazır. Göl kenarındaki yürüyüş yoluna 200 metre mesafede.",
+      "aciklama": {
+        "tr": "Köyceğiz Gölü'ne nazır, eşsiz manzaralı kiralık daire. Tam eşyalı, klimalı, hemen taşınmaya hazır. Göl kenarındaki yürüyüş yoluna 200 metre mesafede.",
+        "en": "Rental apartment overlooking Köyceğiz Lake with unique views. Fully furnished, air-conditioned, ready to move in. 200 meters from the lakeside walking path.",
+        "de": "Mietwohnung mit Blick auf den Köyceğiz-See mit einzigartigem Panorama. Voll möbliert, klimatisiert, bezugsfertig. 200 Meter vom Seeuferwanderweg entfernt.",
+        "ru": "Квартира в аренду с видом на озеро Кёйджегиз с уникальной панорамой. Полностью меблирована, кондиционирована, готова к заселению. 200 метров от прогулочной дорожки у озера.",
+        "ar": "شقة للإيجار تطل على بحيرة كويجيز بإطلالات فريدة. مفروشة بالكامل ومكيفة وجاهزة للسكن. على بعد 200 متر من مسار المشي على ضفاف البحيرة."
+      },
       "fotograflar": [
         "/images/listings/daire-5.jpg",
         "/images/listings/daire-6.jpg",
@@ -136,7 +172,13 @@
     },
     {
       "id": "4",
-      "baslik": "Dalaman'da Satılık Ticari İşyeri",
+      "baslik": {
+        "tr": "Dalaman'da Satılık Ticari İşyeri",
+        "en": "Commercial Property for Sale in Dalaman",
+        "de": "Gewerbeimmobilie zum Verkauf in Dalaman",
+        "ru": "Коммерческая недвижимость на продажу в Даламане",
+        "ar": "عقار تجاري للبيع في دالامان"
+      },
       "slug": "dalamanda-satilik-ticari-isyeri",
       "kategori": "satilik",
       "tip": "ticari",
@@ -165,7 +207,13 @@
         "otopark": true,
         "guvenlik": true
       },
-      "aciklama": "Dalaman ana cadde üzerinde, yoğun yaya trafiği olan bölgede satılık işyeri. Geniş cephe, yüksek tavan, depo alanı mevcut. Market, mağaza veya ofis olarak kullanıma uygun.",
+      "aciklama": {
+        "tr": "Dalaman ana cadde üzerinde, yoğun yaya trafiği olan bölgede satılık işyeri. Geniş cephe, yüksek tavan, depo alanı mevcut. Market, mağaza veya ofis olarak kullanıma uygun.",
+        "en": "Commercial property for sale on Dalaman main street, in high foot traffic area. Wide frontage, high ceiling, storage space available. Suitable for market, store or office use.",
+        "de": "Gewerbeimmobilie zum Verkauf an der Hauptstraße von Dalaman, in einem Bereich mit hohem Fußgängeraufkommen. Breite Front, hohe Decken, Lagerfläche vorhanden. Geeignet für Markt, Geschäft oder Büro.",
+        "ru": "Коммерческая недвижимость на продажу на главной улице Даламана, в зоне с высокой проходимостью. Широкий фасад, высокие потолки, складское помещение. Подходит для магазина, торговли или офиса.",
+        "ar": "عقار تجاري للبيع على الشارع الرئيسي في دالامان، في منطقة ذات حركة مرور عالية. واجهة واسعة وسقف عالي ومساحة تخزين متاحة. مناسب للسوق أو المتجر أو المكتب."
+      },
       "fotograflar": [
         "/images/listings/isyeri-1.jpg",
         "/images/listings/isyeri-2.jpg",
@@ -179,7 +227,13 @@
     },
     {
       "id": "5",
-      "baslik": "Ortaca'da Satılık İmarlı Arsa",
+      "baslik": {
+        "tr": "Ortaca'da Satılık İmarlı Arsa",
+        "en": "Zoned Land for Sale in Ortaca",
+        "de": "Erschlossenes Grundstück zum Verkauf in Ortaca",
+        "ru": "Земельный участок с разрешением на строительство в Ортадже",
+        "ar": "أرض مخططة للبيع في أورتاجا"
+      },
       "slug": "ortacada-satilik-imarli-arsa",
       "kategori": "satilik",
       "tip": "arsa",
@@ -201,7 +255,13 @@
         "yolCephesi": 20,
         "altyapi": true
       },
-      "aciklama": "Ortaca'da konut imarlı, 5 kat gabari izinli satılık arsa. Elektrik, su, doğalgaz altyapısı mevcut. Ana yola cepheli, köşe parsel. İnşaat firmaları ve yatırımcılar için ideal fırsat.",
+      "aciklama": {
+        "tr": "Ortaca'da konut imarlı, 5 kat gabari izinli satılık arsa. Elektrik, su, doğalgaz altyapısı mevcut. Ana yola cepheli, köşe parsel. İnşaat firmaları ve yatırımcılar için ideal fırsat.",
+        "en": "Zoned residential land for sale in Ortaca with 5-floor building permit. Electricity, water, natural gas infrastructure available. Corner plot facing main road. Ideal opportunity for construction companies and investors.",
+        "de": "Erschlossenes Wohngrundstück zum Verkauf in Ortaca mit 5-stöckiger Baugenehmigung. Strom-, Wasser- und Erdgasinfrastruktur vorhanden. Eckgrundstück zur Hauptstraße. Ideale Gelegenheit für Bauunternehmen und Investoren.",
+        "ru": "Земельный участок под жилую застройку в Ортадже с разрешением на 5-этажное строительство. Электричество, вода, газ подведены. Угловой участок с выходом на главную дорогу. Идеальная возможность для строительных компаний и инвесторов.",
+        "ar": "أرض سكنية مخططة للبيع في أورتاجا مع تصريح بناء 5 طوابق. البنية التحتية للكهرباء والمياه والغاز الطبيعي متوفرة. قطعة أرض ركنية مواجهة للطريق الرئيسي. فرصة مثالية لشركات البناء والمستثمرين."
+      },
       "fotograflar": [
         "/images/listings/arsa-1.jpg",
         "/images/listings/arsa-2.jpg"
@@ -214,7 +274,13 @@
     },
     {
       "id": "6",
-      "baslik": "Dalyan Kanalı Yakını Kiralık Villa",
+      "baslik": {
+        "tr": "Dalyan Kanalı Yakını Kiralık Villa",
+        "en": "Villa for Rent Near Dalyan Canal",
+        "de": "Villa zur Miete in der Nähe des Dalyan-Kanals",
+        "ru": "Вилла в аренду рядом с каналом Дальян",
+        "ar": "فيلا للإيجار بالقرب من قناة داليان"
+      },
       "slug": "dalyan-kanali-yakini-kiralik-villa",
       "kategori": "kiralik",
       "tip": "villa",
@@ -246,7 +312,13 @@
         "bahce": true,
         "bahceMetrekare": 300
       },
-      "aciklama": "Dalyan kanalına yürüme mesafesinde, özel havuzlu kiralık villa. Yıllık veya sezonluk kiralama seçenekleri mevcut. Bahçe bakımı ve havuz temizliği dahil.",
+      "aciklama": {
+        "tr": "Dalyan kanalına yürüme mesafesinde, özel havuzlu kiralık villa. Yıllık veya sezonluk kiralama seçenekleri mevcut. Bahçe bakımı ve havuz temizliği dahil.",
+        "en": "Rental villa with private pool within walking distance to Dalyan canal. Annual or seasonal rental options available. Garden maintenance and pool cleaning included.",
+        "de": "Villa zur Miete mit privatem Pool in Gehweite zum Dalyan-Kanal. Jahres- oder Saisonmiete möglich. Gartenpflege und Poolreinigung inklusive.",
+        "ru": "Вилла в аренду с частным бассейном в пешей доступности от канала Дальян. Возможна годовая или сезонная аренда. Уход за садом и чистка бассейна включены.",
+        "ar": "فيلا للإيجار مع مسبح خاص على مسافة قريبة من قناة داليان. خيارات الإيجار السنوي أو الموسمي متاحة. صيانة الحديقة وتنظيف المسبح مشمولة."
+      },
       "fotograflar": [
         "/images/listings/villa-5.jpg",
         "/images/listings/villa-6.jpg",
@@ -260,7 +332,13 @@
     },
     {
       "id": "7",
-      "baslik": "Ortaca'da Satılık 2+1 Sıfır Daire",
+      "baslik": {
+        "tr": "Ortaca'da Satılık 2+1 Sıfır Daire",
+        "en": "Brand New 2+1 Apartment for Sale in Ortaca",
+        "de": "Brandneue 2+1 Wohnung zum Verkauf in Ortaca",
+        "ru": "Новая квартира 2+1 на продажу в Ортадже",
+        "ar": "شقة 2+1 جديدة للبيع في أورتاجا"
+      },
       "slug": "ortacada-satilik-2-1-sifir-daire",
       "kategori": "satilik",
       "tip": "daire",
@@ -289,7 +367,13 @@
         "otopark": true,
         "guvenlik": false
       },
-      "aciklama": "Yeni teslim, sıfır daire. Modern mimari, kaliteli malzeme. Açık mutfak, geniş balkon. Merkeze 5 dakika yürüme mesafesinde. Kredi kullanıma uygun.",
+      "aciklama": {
+        "tr": "Yeni teslim, sıfır daire. Modern mimari, kaliteli malzeme. Açık mutfak, geniş balkon. Merkeze 5 dakika yürüme mesafesinde. Kredi kullanıma uygun.",
+        "en": "Newly delivered, brand new apartment. Modern architecture, quality materials. Open kitchen, large balcony. 5 minutes walk to center. Suitable for bank loan.",
+        "de": "Neu geliefert, brandneue Wohnung. Moderne Architektur, hochwertige Materialien. Offene Küche, großer Balkon. 5 Minuten zu Fuß ins Zentrum. Für Bankkredit geeignet.",
+        "ru": "Новая квартира с отделкой. Современная архитектура, качественные материалы. Открытая кухня, большой балкон. 5 минут пешком до центра. Подходит для ипотеки.",
+        "ar": "شقة جديدة تم تسليمها حديثاً. هندسة معمارية حديثة ومواد عالية الجودة. مطبخ مفتوح وشرفة كبيرة. 5 دقائق سيراً على الأقدام إلى المركز. مناسبة للقرض البنكي."
+      },
       "fotograflar": [
         "/images/listings/daire-8.jpg",
         "/images/listings/daire-3.jpg",
@@ -303,7 +387,13 @@
     },
     {
       "id": "8",
-      "baslik": "Köyceğiz Merkezde Kiralık İşyeri",
+      "baslik": {
+        "tr": "Köyceğiz Merkezde Kiralık İşyeri",
+        "en": "Commercial Space for Rent in Köyceğiz Center",
+        "de": "Gewerbefläche zur Miete im Zentrum von Köyceğiz",
+        "ru": "Коммерческое помещение в аренду в центре Кёйджегиза",
+        "ar": "مساحة تجارية للإيجار في وسط كويجيز"
+      },
       "slug": "koycegiz-merkezde-kiralik-isyeri",
       "kategori": "kiralik",
       "tip": "ticari",
@@ -332,7 +422,13 @@
         "otopark": false,
         "guvenlik": false
       },
-      "aciklama": "Köyceğiz çarşı içinde, işlek caddede kiralık dükkan. Restoran, kafe veya mağaza için uygun. Turist bölgesinde, yaz sezonunda yoğun müşteri potansiyeli.",
+      "aciklama": {
+        "tr": "Köyceğiz çarşı içinde, işlek caddede kiralık dükkan. Restoran, kafe veya mağaza için uygun. Turist bölgesinde, yaz sezonunda yoğun müşteri potansiyeli.",
+        "en": "Shop for rent on busy street in Köyceğiz bazaar. Suitable for restaurant, cafe or store. In tourist area, high customer potential during summer season.",
+        "de": "Laden zur Miete an belebter Straße im Köyceğiz-Basar. Geeignet für Restaurant, Café oder Geschäft. Im Touristengebiet, hohes Kundenpotenzial in der Sommersaison.",
+        "ru": "Магазин в аренду на оживленной улице базара Кёйджегиз. Подходит для ресторана, кафе или магазина. В туристической зоне, высокий потенциал клиентов в летний сезон.",
+        "ar": "محل للإيجار في شارع مزدحم في سوق كويجيز. مناسب للمطعم أو المقهى أو المتجر. في منطقة سياحية مع إمكانية عالية للعملاء خلال موسم الصيف."
+      },
       "fotograflar": [
         "/images/listings/isyeri-4.jpg",
         "/images/listings/isyeri-5.jpg"
@@ -345,7 +441,13 @@
     },
     {
       "id": "9",
-      "baslik": "Dalaman Havalimanı Yakını Satılık Arsa",
+      "baslik": {
+        "tr": "Dalaman Havalimanı Yakını Satılık Arsa",
+        "en": "Land for Sale Near Dalaman Airport",
+        "de": "Grundstück zum Verkauf in der Nähe des Flughafens Dalaman",
+        "ru": "Земельный участок на продажу рядом с аэропортом Даламан",
+        "ar": "أرض للبيع بالقرب من مطار دالامان"
+      },
       "slug": "dalaman-havalimani-yakini-satilik-arsa",
       "kategori": "satilik",
       "tip": "arsa",
@@ -367,7 +469,13 @@
         "yolCephesi": 30,
         "altyapi": true
       },
-      "aciklama": "Dalaman Havalimanı'na 5 km mesafede, ana yol üzerinde ticari imarlı arsa. Otel, apart otel veya iş merkezi için ideal konum. Yatırım değeri yüksek.",
+      "aciklama": {
+        "tr": "Dalaman Havalimanı'na 5 km mesafede, ana yol üzerinde ticari imarlı arsa. Otel, apart otel veya iş merkezi için ideal konum. Yatırım değeri yüksek.",
+        "en": "Commercial zoned land on main road, 5 km from Dalaman Airport. Ideal location for hotel, apart hotel or business center. High investment value.",
+        "de": "Gewerbegrundstück an der Hauptstraße, 5 km vom Flughafen Dalaman entfernt. Ideale Lage für Hotel, Aparthotel oder Geschäftszentrum. Hoher Investitionswert.",
+        "ru": "Коммерческий земельный участок на главной дороге, в 5 км от аэропорта Даламан. Идеальное место для отеля, апарт-отеля или бизнес-центра. Высокая инвестиционная ценность.",
+        "ar": "أرض تجارية مخططة على الطريق الرئيسي، على بعد 5 كم من مطار دالامان. موقع مثالي للفندق أو الشقق الفندقية أو مركز الأعمال. قيمة استثمارية عالية."
+      },
       "fotograflar": [
         "/images/listings/arsa-1.jpg",
         "/images/listings/arsa-3.jpg"
@@ -380,7 +488,13 @@
     },
     {
       "id": "10",
-      "baslik": "Ortaca'da Kiralık Geniş 3+1 Daire",
+      "baslik": {
+        "tr": "Ortaca'da Kiralık Geniş 3+1 Daire",
+        "en": "Spacious 3+1 Apartment for Rent in Ortaca",
+        "de": "Geräumige 3+1 Wohnung zur Miete in Ortaca",
+        "ru": "Просторная квартира 3+1 в аренду в Ортадже",
+        "ar": "شقة 3+1 واسعة للإيجار في أورتاجا"
+      },
       "slug": "ortacada-kiralik-genis-3-1-daire",
       "kategori": "kiralik",
       "tip": "daire",
@@ -409,7 +523,13 @@
         "otopark": true,
         "guvenlik": false
       },
-      "aciklama": "Ortaca merkezde, okullara ve hastaneye yakın, aile için ideal kiralık daire. Geniş odalar, bol dolaplu mutfak. Depozito: 2 ay.",
+      "aciklama": {
+        "tr": "Ortaca merkezde, okullara ve hastaneye yakın, aile için ideal kiralık daire. Geniş odalar, bol dolapli mutfak. Depozito: 2 ay.",
+        "en": "Rental apartment in Ortaca center, close to schools and hospital, ideal for families. Spacious rooms, kitchen with plenty of cabinets. Deposit: 2 months.",
+        "de": "Mietwohnung im Zentrum von Ortaca, in der Nähe von Schulen und Krankenhaus, ideal für Familien. Geräumige Zimmer, Küche mit vielen Schränken. Kaution: 2 Monate.",
+        "ru": "Квартира в аренду в центре Ортаджа, рядом со школами и больницей, идеально для семей. Просторные комнаты, кухня с большим количеством шкафов. Залог: 2 месяца.",
+        "ar": "شقة للإيجار في وسط أورتاجا، قريبة من المدارس والمستشفى، مثالية للعائلات. غرف واسعة ومطبخ مع الكثير من الخزائن. الوديعة: شهران."
+      },
       "fotograflar": [
         "/images/listings/daire-1.jpg",
         "/images/listings/daire-4.jpg",

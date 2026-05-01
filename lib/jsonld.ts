@@ -1,4 +1,4 @@
-import { Ilan, Hizmet } from "./utils";
+import { Ilan, Hizmet, getIlanBaslik, getIlanAciklama } from "./utils";
 
 const siteConfig = {
   name: "Kalinda Yapı",
@@ -117,7 +117,7 @@ export function generateOrganizationSchema() {
   };
 }
 
-export function generateRealEstateListingSchema(ilan: Ilan) {
+export function generateRealEstateListingSchema(ilan: Ilan, locale: string = 'tr') {
   const kategori = ilan.kategori === "satilik" ? "ForSale" : "ForRent";
   const propertyType =
     ilan.tip === "daire"
@@ -132,8 +132,8 @@ export function generateRealEstateListingSchema(ilan: Ilan) {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "@id": `${siteConfig.url}/ilanlar/${ilan.id}`,
-    name: ilan.baslik,
-    description: ilan.aciklama,
+    name: getIlanBaslik(ilan, locale),
+    description: getIlanAciklama(ilan, locale),
     url: `${siteConfig.url}/ilanlar/${ilan.id}`,
     datePosted: ilan.yayinTarihi,
     dateModified: ilan.guncellenmeTarihi,
@@ -351,7 +351,8 @@ export function generateRealEstateAgentSchema() {
 // ItemList Schema for property listings
 export function generatePropertyListSchema(
   ilanlar: Ilan[],
-  listName: string = "Emlak İlanları"
+  listName: string = "Emlak İlanları",
+  locale: string = 'tr'
 ) {
   return {
     "@context": "https://schema.org",
@@ -366,9 +367,9 @@ export function generatePropertyListSchema(
         position: index + 1,
         item: {
           "@type": "RealEstateListing",
-          "@id": `${siteConfig.url}/tr/ilanlar/${ilan.slug || ilan.id}`,
-          name: ilan.baslik,
-          url: `${siteConfig.url}/tr/ilanlar/${ilan.slug || ilan.id}`,
+          "@id": `${siteConfig.url}/${locale}/ilanlar/${ilan.slug || ilan.id}`,
+          name: getIlanBaslik(ilan, locale),
+          url: `${siteConfig.url}/${locale}/ilanlar/${ilan.slug || ilan.id}`,
           image: ilan.fotograflar?.[0] || `${siteConfig.url}/og-image.jpg`,
           offers: {
             "@type": "Offer",

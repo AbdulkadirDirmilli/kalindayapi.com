@@ -8,7 +8,7 @@ import { MapPin, Maximize2, BedDouble, Bath, Calendar } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import LeadForm from "@/components/ilan/LeadForm";
-import { getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, Ilan } from "@/lib/utils";
+import { getRelativeTime, getInsaatDurumuLabel, getInsaatDurumuBadgeClass, getIlanBaslik, getIlanAciklama, Ilan } from "@/lib/utils";
 import { useCurrency } from "@/components/providers/CurrencyProvider";
 import { type Locale, getLocalizedRoute, defaultLocale } from "@/lib/i18n";
 import { useLocale } from "@/components/providers/LocaleProvider";
@@ -61,7 +61,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
               {kapakFoto ? (
                 <WatermarkImage
                   src={kapakFoto}
-                  alt={ilan.baslik}
+                  alt={getIlanBaslik(ilan, locale)}
                   fill
                   sizes="(max-width: 640px) 100vw, 288px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -114,12 +114,12 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
 
                 {/* Title */}
                 <h3 className="text-lg font-bold text-[#0B1F3A] mb-2 group-hover:text-[#C9A84C] transition-colors">
-                  {ilan.baslik}
+                  {getIlanBaslik(ilan, locale)}
                 </h3>
 
                 {/* Description */}
                 <p className="text-sm text-[#666666] line-clamp-2 mb-4">
-                  {ilan.aciklama}
+                  {getIlanAciklama(ilan, locale)}
                 </p>
 
                 {/* Features */}
@@ -159,7 +159,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
                 <div className="flex items-center gap-3">
                   <LeadForm
                     listingId={ilan.id}
-                    listingTitle={ilan.baslik}
+                    listingTitle={getIlanBaslik(ilan, locale)}
                     variant="icon"
                   />
                   <span className="text-xs text-[#999999] flex items-center gap-1">
@@ -193,7 +193,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
             {kapakFoto ? (
               <WatermarkImage
                 src={kapakFoto}
-                alt={ilan.baslik}
+                alt={getIlanBaslik(ilan, locale)}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -259,7 +259,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
 
             {/* Title */}
             <h3 className="text-lg font-bold text-[#0B1F3A] mb-3 line-clamp-2 group-hover:text-[#C9A84C] transition-colors min-h-[3.5rem]">
-              {ilan.baslik}
+              {getIlanBaslik(ilan, locale)}
             </h3>
 
             {/* Features */}
@@ -299,7 +299,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
               <div className="flex items-center gap-3">
                 <LeadForm
                   listingId={ilan.id}
-                  listingTitle={ilan.baslik}
+                  listingTitle={getIlanBaslik(ilan, locale)}
                   variant="icon"
                 />
                 <span className="text-xs text-[#999999] flex items-center gap-1">
