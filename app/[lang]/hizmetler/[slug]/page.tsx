@@ -35,7 +35,7 @@ import hizmetlerData from "@/data/hizmetler.json";
 import { getHizmetBySlug, getHizmetler, TranslatedHizmet } from "@/data/hizmetler-translations";
 import { hizmetlerTexts, formatWhatsAppMessage, whatsappMessages } from "@/data/hizmetler-i18n";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale, SITE_URL } from "@/lib/seo";
-import { locales, type Locale } from "@/lib/i18n/config";
+import { locales, type Locale, getOriginalRoute, routeTranslations } from "@/lib/i18n/config";
 
 // Dinamik sayaç hesaplama - 5 günde 1 artış
 function hesaplaDinamikDeger(baslangicDegeri: number): number {
@@ -104,13 +104,16 @@ const ekip = [
 
 // Helper to get localized service data
 function getLocalizedHizmet(slug: string, locale: Locale): Hizmet | TranslatedHizmet | null {
-  // First try translated version
-  const translated = getHizmetBySlug(slug, locale);
+  // Convert localized slug to original Turkish slug
+  const originalSlug = getOriginalRoute(slug, locale);
+
+  // First try translated version using the original slug
+  const translated = getHizmetBySlug(originalSlug, locale);
   if (translated) {
     return translated;
   }
   // Fall back to Turkish original
-  return (hizmetlerData.hizmetler as Hizmet[]).find((h) => h.slug === slug) || null;
+  return (hizmetlerData.hizmetler as Hizmet[]).find((h) => h.slug === originalSlug) || null;
 }
 
 function getLocalizedHizmetler(locale: Locale): (Hizmet | TranslatedHizmet)[] {
@@ -129,14 +132,23 @@ export async function generateMetadata({
   const hizmet = getLocalizedHizmet(slug, locale);
 
   if (!hizmet) {
+    const notFoundTitles: Record<Locale, string> = {
+      tr: 'Hizmet Bulunamadı',
+      en: 'Service Not Found',
+      ar: 'الخدمة غير موجودة',
+      de: 'Dienst nicht gefunden',
+      ru: 'Услуга не найдена',
+    };
     return {
-      title: locale === 'en' ? 'Service Not Found' : locale === 'ar' ? 'الخدمة غير موجودة' : 'Hizmet Bulunamadı',
+      title: notFoundTitles[locale],
     };
   }
 
+  // Get the original Turkish slug for consistent URLs
+  const originalSlug = getOriginalRoute(slug, locale);
   const title = `${hizmet.baslik} | Ortaca`;
   const description = `${hizmet.kisaAciklama}`;
-  const url = buildLocalizedUrl(`/hizmetler/${hizmet.slug}`, locale);
+  const url = buildLocalizedUrl(`/hizmetler/${originalSlug}`, locale);
 
   return {
     title,
@@ -168,14 +180,24 @@ export async function generateMetadata({
       description,
       images: [`${SITE_URL}/og-image.jpg`],
     },
-    alternates: buildSeoAlternates(`/hizmetler/${hizmet.slug}`, locale),
+    alternates: buildSeoAlternates(`/hizmetler/${originalSlug}`, locale),
   };
 }
 
 export async function generateStaticParams() {
-  return (hizmetlerData.hizmetler as Hizmet[]).map((hizmet) => ({
-    slug: hizmet.slug,
-  }));
+  const params: { lang: string; slug: string }[] = [];
+  const hizmetler = hizmetlerData.hizmetler as Hizmet[];
+
+  // Generate all language/slug combinations
+  for (const locale of locales) {
+    for (const hizmet of hizmetler) {
+      // Get the localized slug for this language
+      const localizedSlug = routeTranslations[hizmet.slug]?.[locale] || hizmet.slug;
+      params.push({ lang: locale, slug: localizedSlug });
+    }
+  }
+
+  return params;
 }
 
 export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) {
@@ -193,8 +215,9 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
 
   const Icon = ikonlar[hizmet.ikon] || Home;
 
-  // Get original Turkish service for schema (since schema should be consistent)
-  const originalHizmet = (hizmetlerData.hizmetler as Hizmet[]).find((h) => h.slug === slug);
+  // Get original Turkish slug and service for schema (since schema should be consistent)
+  const originalSlug = getOriginalRoute(slug, locale);
+  const originalHizmet = (hizmetlerData.hizmetler as Hizmet[]).find((h) => h.slug === originalSlug);
   const serviceSchema = originalHizmet ? generateServiceSchema(originalHizmet) : null;
 
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -428,8 +451,11 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {digerHizmetler.map((diger) => {
               const DigerIcon = ikonlar[diger.ikon] || Home;
+              // Get localized slug for the other service
+              const digerOriginalSlug = (hizmetlerData.hizmetler as Hizmet[]).find(h => h.id === diger.id)?.slug || diger.slug;
+              const digerLocalizedSlug = routeTranslations[digerOriginalSlug]?.[locale] || digerOriginalSlug;
               return (
-                <Link key={diger.id} href={`/${locale}/hizmetler/${diger.slug}`}>
+                <Link key={diger.id} href={`/${locale}/hizmetler/${digerLocalizedSlug}`}>
                   <Card
                     variant="interactive"
                     padding="lg"

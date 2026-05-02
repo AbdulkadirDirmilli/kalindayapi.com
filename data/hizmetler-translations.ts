@@ -302,6 +302,436 @@ export const hizmetlerEN: TranslatedHizmet[] = [
   }
 ];
 
+export const hizmetlerDE: TranslatedHizmet[] = [
+  {
+    "id": "emlak-danismanligi",
+    "slug": "emlak-danismanligi",
+    "baslik": "Immobilienberatung",
+    "kisaAciklama": "Immobiliendienstleistungen zum Verkauf und zur Miete in Ortaca und Umgebung. Professionelle Bewertung und Investitionsberatung.",
+    "uzunAciklama": "Als Kalinda Yapı bieten wir umfassende Immobilienberatung mit über 12 Jahren Erfahrung im Bezirk Ortaca in Muğla und den umliegenden Regionen. Alles, was Sie suchen, finden Sie hier für Wohnungen, Villen, Grundstücke und Gewerbeimmobilien zum Verkauf und zur Miete in Ortaca, Dalyan, Köyceğiz, Dalaman und Fethiye.\n\nUnser lizenzierter Immobilienberater Zafer Soylu hilft Ihnen mit seiner Erfahrung, die Dynamik der Region genau zu kennen, die besten Investitionsentscheidungen zu treffen. Im Jahr 2026 variieren die Wohnungspreise in Ortaca zwischen 18.000-35.000 TL pro m², und die Villapreise in Dalyan zwischen 4-18 Millionen TL.\n\nUnsere Dienstleistungen umfassen: Immobilienportfolio zum Verkauf (Wohnung, Villa, Grundstück, Gewerbe), Mietimmobilienverwaltung, professionelle Immobilienbewertung, Investitionsberatung und Marktanalyse, Grundbuch- und Bebauungsstatuskontrolle, Kauf-Verkauf-Prozessmanagement. Wir haben mehr als 300 Familien mit unserem transparenten, zuverlässigen und ergebnisorientierten Serviceansatz geholfen, ihr Traumhaus zu finden.",
+    "ikon": "Home",
+    "altHizmetler": [
+      {
+        "baslik": "Immobilien zum Verkauf",
+        "aciklama": "Verkauf von Wohnungen, Villen, Grundstücken und Gewerbeimmobilien. Sicherer Vermittlungsservice zwischen Käufer und Verkäufer.",
+        "ikon": "Building2"
+      },
+      {
+        "baslik": "Immobilien zur Miete",
+        "aciklama": "Wohn- und Arbeitsplatzvermietung. Professionelle Unterstützung bei Mieterauswahl und Vertragsabwicklung.",
+        "ikon": "Key"
+      },
+      {
+        "baslik": "Immobilienbewertung",
+        "aciklama": "Erfahren Sie den aktuellen Marktwert Ihrer Immobilie. Regionale Vergleichsanalyseberichte.",
+        "ikon": "Calculator"
+      },
+      {
+        "baslik": "Investitionsberatung",
+        "aciklama": "Immobilieninvestitionsmöglichkeiten in Ortaca und Umgebung. Mieteinnahmen- und Wertsteigerungsanalyse.",
+        "ikon": "TrendingUp"
+      }
+    ],
+    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+    "sss": [
+      {
+        "soru": "Was wird benötigt, um ein Haus in Ortaca zu kaufen?",
+        "cevap": "Um ein Haus in Ortaca zu kaufen, genügen ein Ausweisdokument, eine Aufenthaltserlaubnis und der notwendige Zahlungsplan. Für ausländische Käufer können zusätzliche Dokumente angefordert werden. Als Kalinda Yapı begleiten wir Sie durch Ihren gesamten Kaufprozess."
+      },
+      {
+        "soru": "Wie hoch sind die m²-Preise 2026 in Ortaca?",
+        "cevap": "Im Jahr 2026 variieren die Wohnungs-m²-Preise in Ortaca je nach Lage zwischen 18.000-35.000 TL. Die Villapreise in Dalyan liegen bei 40.000-70.000 TL pro m², in Köyceğiz bei 15.000-25.000 TL."
+      },
+      {
+        "soru": "Wie wird die Immobilienberatungsgebühr berechnet?",
+        "cevap": "Bei Verkaufstransaktionen werden 2% Provision, bei Miettransaktionen eine Monatsmiete als Provision berechnet. Alle Gebühren werden vor Vertragsabschluss transparent angegeben."
+      },
+      {
+        "soru": "Wie viel Budget wird benötigt, um eine Villa in Dalyan zu kaufen?",
+        "cevap": "Die Preise für freistehende Villen mit Pool in Dalyan variieren 2026 zwischen 4-18 Millionen TL. Standorte mit Kanalblick sind höher bepreist, während zentrumsnahe Standorte erschwinglicher sind."
+      },
+      {
+        "soru": "Können Ausländer in der Türkei ein Haus kaufen?",
+        "cevap": "Ja, ausländische Staatsbürger können in der Türkei Immobilien kaufen. In einigen Gebieten (militärische Sperrzonen, innere Dorfgebiete) gibt es Einschränkungen. Der Verkauf an Ausländer ist in ganz Ortaca und Dalyan frei. Kontaktieren Sie unsere Berater für detaillierte Informationen."
+      }
+    ]
+  },
+  {
+    "id": "tadilat-dekorasyon",
+    "slug": "tadilat-dekorasyon",
+    "baslik": "Renovierung & Dekoration",
+    "kisaAciklama": "Innenarchitektur, Küchen- und Badezimmerrenovierung, Maler- und Beschichtungsarbeiten. Wir verwandeln Ihr Zuhause nach Ihren Träumen.",
+    "uzunAciklama": "Wenn Sie Ihr Zuhause oder Ihren Arbeitsplatz erneuern und modernisieren möchten, sind Sie hier richtig. Mit über 20 Jahren Erfahrung setzt das Renovierungs- und Dekorationsteam von Kalinda Yapı Projekte aller Größenordnungen professionell um, von kleinen Veränderungen bis hin zu kompletten Innenraumtransformationen.\n\nUnsere Handwerker unter der Leitung von Arif Dağdelen arbeiten mit Qualitätsmaterialien und 2 Jahren Arbeitsgarantie. Wir haben mehr als 500 Renovierungsprojekte in ganz Ortaca und Muğla abgeschlossen.\n\nInformationen zu Renovierungskosten für 2026: Komplette Wohnungsrenovierung (100 m²) variiert zwischen 250.000-600.000 TL, Badrenovierung 60.000-150.000 TL, Küchenrenovierung 120.000-350.000 TL, Malerarbeiten zwischen 80-150 TL pro m².\n\nUnser Leistungsumfang: Innenarchitektonisches Design und 3D-Visualisierung, Küchenschrank- und Arbeitsplattenerneuerung, komplette Badrenovierung, Maler- und Dekorputzarbeiten, Bodenbeläge (Parkett, Keramik, Laminat), Gipskartondecken und Trennwände, Elektro- und Sanitärerneuerung. Alle unsere Projekte sind durch einen schriftlichen Vertrag gesichert, transparente Preisgestaltung und stufenweise Zahlungsoptionen werden angeboten.",
+    "ikon": "Paintbrush",
+    "altHizmetler": [
+      {
+        "baslik": "Innenarchitektonisches Design",
+        "aciklama": "Spezielle Designprojekte für Ihre Räume. Sehen Sie Ihren Traum im Voraus mit 3D-Visualisierung.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "Küchenrenovierung",
+        "aciklama": "Moderne Küchendesigns, Schrank- und Arbeitsplattenersatz, Einbau von Einbaugeräten.",
+        "ikon": "ChefHat"
+      },
+      {
+        "baslik": "Badrenovierung",
+        "aciklama": "Fliesen, Sanitärkeramik, Duschkabinenersatz. Renovierung von Sanitär- und Heizungssystemen.",
+        "ikon": "Bath"
+      },
+      {
+        "baslik": "Maler- & Beschichtungsarbeiten",
+        "aciklama": "Innen- und Außenanstrich. Tapeten, Dekorputz und Paneelverkleidungsanwendungen.",
+        "ikon": "Palette"
+      }
+    ],
+    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+    "sss": [
+      {
+        "soru": "Ist ein Vertrag für Renovierungen erforderlich?",
+        "cevap": "Ja, alle unsere Renovierungsprojekte sind durch einen schriftlichen Vertrag gesichert. Der Vertrag legt den Arbeitsumfang, die Dauer, den Zahlungsplan und die Garantiebedingungen klar fest."
+      },
+      {
+        "soru": "Wie läuft der Renovierungsprozess ab?",
+        "cevap": "Zunächst führen wir eine kostenlose Besichtigung durch. Dann erstellen wir ein detailliertes Angebot. Nach Genehmigung beginnen Materialbeschaffung und Arbeiten. Am Ende des Projekts erfolgen detaillierte Kontrolle und Übergabe."
+      },
+      {
+        "soru": "Gewähren Sie eine Renovierungsgarantie?",
+        "cevap": "Ja, wir gewähren 2 Jahre Garantie auf alle Arbeiten und 5 Jahre auf Sanitärinstallationen. Für das Material gilt die Herstellergarantie. Probleme unter Garantie werden kostenlos behoben."
+      },
+      {
+        "soru": "Wie viel kostet eine komplette Wohnungsrenovierung 2026?",
+        "cevap": "Im Jahr 2026 kostet die komplette Renovierung einer 100-m²-Wohnung (Küche, Bad, Anstrich, Boden) je nach Materialqualität zwischen 250.000-600.000 TL. Wir bieten ein detailliertes Angebot mit kostenloser Besichtigung."
+      },
+      {
+        "soru": "Was ist die beste Zeit für Renovierungen in Muğla?",
+        "cevap": "Frühling (März-Mai) und Herbst (September-November) sind ideal für Renovierungen. In den Sommermonaten kann es schwierig sein, Handwerker zu finden, und im Winter können einige Außenarbeiten durch Wetterbedingungen beeinträchtigt werden."
+      }
+    ]
+  },
+  {
+    "id": "taahhut-insaat",
+    "slug": "taahhut-insaat",
+    "baslik": "Bauunternehmen & Konstruktion",
+    "kisaAciklama": "Gebäudebau von Grund auf, Restaurierungsprojekte und schlüsselfertige Baulösungen.",
+    "uzunAciklama": "Kalinda Yapı führt schlüsselfertige Bauprojekte in den Regionen Ortaca und Muğla mit mehr als 12 Jahren Erfahrung durch. Wir bieten qualitativ hochwertige und wirtschaftliche Lösungen mit unserem erfahrenen Team und starkem Lieferantennetzwerk im Wohn-, Villen-, Arbeitsplatz- und landwirtschaftlichen Gebäudebau.\n\nSchlüsselfertige Baukosten für 2026: Standardwohnung variiert zwischen 25.000-35.000 TL pro m², Villabau zwischen 35.000-55.000 TL pro m², Gewerbebau zwischen 20.000-40.000 TL pro m². Diese Preise beinhalten Rohbau, Ausbauarbeiten und Grundinstallation, ohne Grundstückskosten.\n\nUnser Leistungsumfang: Bau von Einfamilienhäusern und Villen, Wohnungs- und Wohnprojekte, Arbeitsplatz- und Gewerbebau, Lager- und landwirtschaftliche Gebäude, Restaurierung alter Gebäude, Gebäudeverstärkung. Wir bieten unseren Kunden auch umfassende Beratungsdienstleistungen für Genehmigungs- und Baugenehmigungsverfahren.\n\nWarum Kalinda Yapı? Da Muğla eine Erdbebenzone 1. Grades ist, legen wir besonderen Wert auf Gebäudesicherheit. Alle unsere Bauvorhaben werden gemäß den aktuellen Erdbebenvorschriften, unter Bauaufsichtskontrolle und versichert durchgeführt. Wir bieten transparente Preisgestaltung, schriftlichen Vertrag und stufenweisen Zahlungsplan.",
+    "ikon": "HardHat",
+    "altHizmetler": [
+      {
+        "baslik": "Wohnungsbau",
+        "aciklama": "Bau von Einfamilienhäusern, Villen und Apartments. Grundstücksbewertung und Projektentwicklung.",
+        "ikon": "Building"
+      },
+      {
+        "baslik": "Gewerbebau",
+        "aciklama": "Bau von Arbeitsplätzen, Geschäften, Lagern und Industrieanlagen. Professionelles Projektmanagement.",
+        "ikon": "Factory"
+      },
+      {
+        "baslik": "Restaurierung",
+        "aciklama": "Restaurierung historischer und alter Gebäude. Gebäudeverstärkungs- und Modernisierungsarbeiten.",
+        "ikon": "Hammer"
+      },
+      {
+        "baslik": "Genehmigungs- & Lizenzberatung",
+        "aciklama": "Baugenehmigung, Nutzungsgenehmigung, Bebauungsstatusabfrage. Beratung für Gemeinde- und Grundbuchverfahren.",
+        "ikon": "FileCheck"
+      }
+    ],
+    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+    "sss": [
+      {
+        "soru": "Worauf sollte man bei der Auswahl eines Bauunternehmens achten?",
+        "cevap": "Referenzen, zuvor abgeschlossene Projekte, Versicherungs- und Garantiebedingungen, Vertragsbedingungen und Kommunikationsqualität sind wichtige Kriterien. Als Kalinda Yapı informieren wir transparent über alle diese Kriterien."
+      },
+      {
+        "soru": "Wie viel kostet ein schlüsselfertiges Haus 2026?",
+        "cevap": "Schlüsselfertige Baukosten in der Region Ortaca 2026: Standardwohnung variiert zwischen 25.000-35.000 TL pro m², Villabau zwischen 35.000-55.000 TL pro m². Die Grundstückskosten sind in diesen Zahlen nicht enthalten."
+      },
+      {
+        "soru": "Gibt es Kontrollen während des Bauprozesses?",
+        "cevap": "Ja, wir kontrollieren in jeder Phase mit unseren Kunden. Es gibt mindestens 4 Kontrollpunkte: Fundament, Rohbau, Ausbauarbeiten und vor der Übergabe. Zusätzlich führt die Bauaufsichtsfirma unabhängige Inspektionen durch."
+      },
+      {
+        "soru": "Wie lange dauert der Villabau?",
+        "cevap": "Der schlüsselfertige Bau einer 150-200 m² Villa dauert durchschnittlich 8-12 Monate. Der Genehmigungsprozess ist mit 1-2 Monaten, der Rohbau mit 3-4 Monaten, die Ausbauarbeiten mit 3-4 Monaten und die Landschaftsgestaltung mit 1-2 Monaten geplant."
+      },
+      {
+        "soru": "Muss ich ein Grundstück für den Bau haben?",
+        "cevap": "Ja, Sie müssen ein für den Bau ausgewiesenes Grundstück haben. Wenn Sie kein Grundstück haben, helfen wir Ihnen im Rahmen unserer Immobilienberatung bei der Suche nach einem geeigneten Grundstück. Wir führen auch die Bebauungsstatuskontrolle und Genehmigungskonformitätsbewertung durch."
+      }
+    ]
+  },
+  {
+    "id": "plan-proje",
+    "slug": "plan-proje",
+    "baslik": "Planung & Projektierung",
+    "kisaAciklama": "Architektur-, Statik-, Elektro- und Mechanikprojektzeichnungen sowie Genehmigungsberatung.",
+    "uzunAciklama": "Als Kalinda Yapı sind wir von Anfang an bei Ihren Bauprojekten dabei. Wir decken alle Ihre Projektbedürfnisse ab, von Architekturprojekten über statische Berechnungen bis hin zu Elektro- und Mechanikinstallationsprojekten und Genehmigungsverfahren. Mit unserem erfahrenen Team aus Ingenieuren und Architekten stellen wir sicher, dass Ihr Projekt den gesetzlichen Anforderungen entspricht und technisch einwandfrei ist.\n\nProjektkosten für 2026: Architekturprojekt für eine 150 m² Villa 25.000-45.000 TL, Statikprojekt 20.000-35.000 TL, Elektro-Mechanik-Projekte insgesamt 15.000-30.000 TL. Das Genehmigungsverfahren bei der Gemeinde Ortaca dauert 15-30 Werktage.\n\nUnser Leistungsumfang: Original-Architekturentwurf und Ausführungsprojekte, Stahlbeton- und Stahl-Statikprojekte, Elektroinstallations- und Beleuchtungsprojekte, Mechanische Installationsprojekte (Heizung-Kühlung-Sanitär), Landschafts- und Gartengestaltungsprojekte, Baugenehmigungsantrag und -verfolgung, Nutzungszertifikat-Prozessmanagement.\n\nMit unserem Team, das mit den Einschränkungen für Schutzgebiete, Schutzzonen und Küstenlinien in den Regionen Ortaca, Dalyan und Köyceğiz vertraut ist, stellen wir sicher, dass Ihr Projekt allen gesetzlichen Anforderungen entspricht. Wir überwachen Bebauungsstatusanfragen, Bodengutachtenkoordination und alle Korrespondenz mit der Gemeinde in Ihrem Namen.",
+    "ikon": "FileText",
+    "altHizmetler": [
+      {
+        "baslik": "Architekturprojekt",
+        "aciklama": "Originaler Architekturentwurf und Ausführungsprojekte für Wohnhäuser, Villen und Gewerbegebäude.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "Statikprojekt",
+        "aciklama": "Statische Berechnungen und Tragwerksprojekte für Stahlbeton- und Stahlkonstruktionen.",
+        "ikon": "Building"
+      },
+      {
+        "baslik": "Elektro- & Mechanikprojekt",
+        "aciklama": "Elektroinstallations-, Beleuchtungs-, Heizungs-Kühlungs- und Sanitärprojekte.",
+        "ikon": "Zap"
+      },
+      {
+        "baslik": "Genehmigungsberatung",
+        "aciklama": "Beratung zu Baugenehmigungsanträgen, Bebauungsstatus, Nutzungsgenehmigung und Gemeindeverfahren.",
+        "ikon": "FileCheck"
+      }
+    ],
+    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+    "sss": [
+      {
+        "soru": "Wie lange dauert die Erstellung eines Architekturprojekts?",
+        "cevap": "Abhängig von der Größe und Komplexität des Projekts wird die Architekturprojektzeichnung innerhalb von 2-4 Wochen abgeschlossen. Revisionsprozesse sind in diesem Zeitraum nicht enthalten."
+      },
+      {
+        "soru": "Welche Dokumente werden für einen Genehmigungsantrag benötigt?",
+        "cevap": "Grundbuchauszug, Ausweis, Lageskizze, Architekturprojekt, Statikprojekt, Elektro-Mechanik-Projekte, Bodengutachten, Bauaufsichtsvertrag und technische Haftungsverträge gehören zu den grundlegenden Dokumenten."
+      },
+      {
+        "soru": "Wie viel kosten Projekte 2026?",
+        "cevap": "Die Gesamtprojektkosten (Architektur + Statik + Elektrik + Mechanik) für eine 150 m² Villa variieren 2026 zwischen 80.000-150.000 TL. Wir erstellen mit einem kostenlosen Vorgespräch ein spezielles Angebot für Sie."
+      },
+      {
+        "soru": "Wie lange dauert das Genehmigungsverfahren bei der Gemeinde Ortaca?",
+        "cevap": "Wenn alle Dokumente vollständig eingereicht werden, wird das Baugenehmigungsprüfverfahren bei der Gemeinde Ortaca innerhalb von 15-30 Werktagen abgeschlossen. Bei fehlenden Dokumenten kann sich der Zeitraum verlängern."
+      },
+      {
+        "soru": "Kann in Schutzgebieten gebaut werden?",
+        "cevap": "Bauen in Schutzgebieten unterliegt besonderen Genehmigungen. Die Genehmigung des Denkmalschutzausschusses ist erforderlich und das zu errichtende Gebäude muss bestimmte Kriterien erfüllen. In Dalyan und Köyceğiz gibt es Schutzgebiete; bevor in diesen Regionen ein Projekt erstellt wird, muss der Bebauungsstatus überprüft werden."
+      }
+    ]
+  }
+];
+
+export const hizmetlerRU: TranslatedHizmet[] = [
+  {
+    "id": "emlak-danismanligi",
+    "slug": "emlak-danismanligi",
+    "baslik": "Консультации по недвижимости",
+    "kisaAciklama": "Услуги по недвижимости для продажи и аренды в Ортаке и окрестностях. Профессиональная оценка и инвестиционные консультации.",
+    "uzunAciklama": "Как Kalinda Yapı мы предлагаем комплексные консультационные услуги по недвижимости с более чем 12-летним опытом работы в районе Ортака в Мугле и прилегающих регионах. Все, что вы ищете, здесь — квартиры, виллы, земельные участки и коммерческая недвижимость для продажи и аренды в Ортаке, Даляне, Кёйджеизе, Даламане и Фетхие.\n\nНаш лицензированный консультант по недвижимости Зафер Сойлу помогает вам принимать лучшие инвестиционные решения благодаря своему опыту глубокого понимания динамики региона. В 2026 году цены на жилье в Ортаке будут варьироваться от 18 000 до 35 000 турецких лир за м², а цены на виллы в Даляне — от 4 до 18 миллионов турецких лир.\n\nВ рамках наших услуг: портфолио недвижимости на продажу (квартира, вилла, земля, коммерческая), управление арендной недвижимостью, профессиональная оценка недвижимости, инвестиционные консультации и анализ рынка, контроль права собственности и статуса зонирования, управление процессом купли-продажи. Мы помогли более чем 300 семьям найти дом своей мечты благодаря нашему прозрачному, надежному и ориентированному на результат подходу к обслуживанию.",
+    "ikon": "Home",
+    "altHizmetler": [
+      {
+        "baslik": "Недвижимость на продажу",
+        "aciklama": "Продажа квартир, вилл, земельных участков и коммерческой недвижимости. Безопасное посредничество между покупателем и продавцом.",
+        "ikon": "Building2"
+      },
+      {
+        "baslik": "Недвижимость в аренду",
+        "aciklama": "Аренда жилья и офисов. Профессиональная поддержка в выборе арендаторов и договорных процессах.",
+        "ikon": "Key"
+      },
+      {
+        "baslik": "Оценка недвижимости",
+        "aciklama": "Узнайте текущую рыночную стоимость вашей недвижимости. Региональные сравнительные аналитические отчеты.",
+        "ikon": "Calculator"
+      },
+      {
+        "baslik": "Инвестиционные консультации",
+        "aciklama": "Инвестиционные возможности в недвижимость в Ортаке и окрестностях. Анализ арендного дохода и роста стоимости.",
+        "ikon": "TrendingUp"
+      }
+    ],
+    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+    "sss": [
+      {
+        "soru": "Что нужно для покупки дома в Ортаке?",
+        "cevap": "Для покупки дома в Ортаке достаточно удостоверения личности, вида на жительство и необходимого плана оплаты. Для иностранных покупателей могут потребоваться дополнительные документы. Как Kalinda Yapı мы сопровождаем вас на протяжении всего процесса покупки."
+      },
+      {
+        "soru": "Каковы цены за м² в Ортаке в 2026 году?",
+        "cevap": "В 2026 году цены за м² жилья в Ортаке варьируются от 18 000 до 35 000 турецких лир в зависимости от местоположения. Цены на виллы в Даляне составляют 40 000-70 000 турецких лир за м², в Кёйджеизе — 15 000-25 000 турецких лир."
+      },
+      {
+        "soru": "Как рассчитывается плата за консультации по недвижимости?",
+        "cevap": "При сделках купли-продажи комиссия составляет 2%, при аренде — месячная арендная плата. Все сборы указываются прозрачно до подписания договора."
+      },
+      {
+        "soru": "Какой бюджет нужен для покупки виллы в Даляне?",
+        "cevap": "Цены на отдельные виллы с бассейном в Даляне в 2026 году варьируются от 4 до 18 миллионов турецких лир. Локации с видом на канал стоят дороже, а ближе к центру — доступнее."
+      },
+      {
+        "soru": "Могут ли иностранцы купить дом в Турции?",
+        "cevap": "Да, иностранные граждане могут покупать недвижимость в Турции. В некоторых районах (военные запретные зоны, внутренние деревенские зоны) есть ограничения. Продажа иностранцам свободна по всей территории Ортаки и Даляна. Свяжитесь с нашими консультантами для получения подробной информации."
+      }
+    ]
+  },
+  {
+    "id": "tadilat-dekorasyon",
+    "slug": "tadilat-dekorasyon",
+    "baslik": "Ремонт и декорирование",
+    "kisaAciklama": "Дизайн интерьера, ремонт кухни и ванной комнаты, малярные и отделочные работы. Мы преобразим ваш дом так, как вы мечтаете.",
+    "uzunAciklama": "Если вы хотите обновить и модернизировать свой дом или рабочее место, вы обратились по адресу. Команда по ремонту и декорированию Kalinda Yapı с более чем 20-летним опытом профессионально реализует проекты любого масштаба — от небольших изменений до полной трансформации интерьера.\n\nНаши мастера под руководством Арифа Дагделена работают с качественными материалами и 2-летней гарантией на работы. Мы завершили более 500 проектов ремонта по всей Ортаке и Мугле.\n\nИнформация о стоимости ремонта на 2026 год: Полный ремонт квартиры (100 м²) варьируется от 250 000 до 600 000 турецких лир, ремонт ванной комнаты 60 000-150 000 турецких лир, ремонт кухни 120 000-350 000 турецких лир, покраска 80-150 турецких лир за м².\n\nНаш спектр услуг: дизайн интерьера и 3D-визуализация, обновление кухонных шкафов и столешниц, полный ремонт ванной комнаты, покраска и декоративная штукатурка, напольные покрытия (паркет, керамика, ламинат), гипсокартонные потолки и перегородки, обновление электрики и сантехники. Все наши проекты защищены письменным договором, предлагаются прозрачное ценообразование и поэтапная оплата.",
+    "ikon": "Paintbrush",
+    "altHizmetler": [
+      {
+        "baslik": "Дизайн интерьера",
+        "aciklama": "Специальные дизайн-проекты для ваших помещений. Увидьте свою мечту заранее с 3D-визуализацией.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "Ремонт кухни",
+        "aciklama": "Современный дизайн кухни, замена шкафов и столешниц, установка встроенной техники.",
+        "ikon": "ChefHat"
+      },
+      {
+        "baslik": "Ремонт ванной комнаты",
+        "aciklama": "Замена плитки, сантехники, душевой кабины. Обновление водопровода и системы отопления.",
+        "ikon": "Bath"
+      },
+      {
+        "baslik": "Покраска и отделка",
+        "aciklama": "Внутренняя и наружная покраска. Обои, декоративная штукатурка и панельная отделка.",
+        "ikon": "Palette"
+      }
+    ],
+    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+    "sss": [
+      {
+        "soru": "Требуется ли договор на ремонт?",
+        "cevap": "Да, все наши ремонтные проекты защищены письменным договором. В договоре четко указываются объем работ, сроки, план оплаты и условия гарантии."
+      },
+      {
+        "soru": "Как проходит процесс ремонта?",
+        "cevap": "Сначала мы проводим бесплатный осмотр. Затем готовим детальное предложение. После утверждения начинается закупка материалов и работа. По завершении проекта проводится детальный контроль и сдача."
+      },
+      {
+        "soru": "Предоставляете ли вы гарантию на ремонт?",
+        "cevap": "Да, мы предоставляем 2-летнюю гарантию на все работы и 5-летнюю на сантехнику. На материалы действует гарантия производителя. Проблемы по гарантии устраняются бесплатно."
+      },
+      {
+        "soru": "Сколько будет стоить полный ремонт квартиры в 2026 году?",
+        "cevap": "В 2026 году полный ремонт квартиры площадью 100 м² (кухня, ванная, покраска, пол) будет стоить от 250 000 до 600 000 турецких лир в зависимости от качества материалов. Мы предлагаем детальное ценовое предложение с бесплатным осмотром."
+      },
+      {
+        "soru": "Какое лучшее время для ремонта в Мугле?",
+        "cevap": "Весенний (март-май) и осенний (сентябрь-ноябрь) периоды идеальны для ремонта. Летом может быть сложно найти мастеров, а зимой некоторые наружные работы могут быть затронуты погодными условиями."
+      }
+    ]
+  },
+  {
+    "id": "taahhut-insaat",
+    "slug": "taahhut-insaat",
+    "baslik": "Строительный подряд",
+    "kisaAciklama": "Строительство зданий с нуля, реставрационные проекты и строительные решения под ключ.",
+    "uzunAciklama": "Kalinda Yapı выполняет строительные проекты под ключ в регионах Ортака и Мугла с более чем 12-летним опытом. Мы предлагаем качественные и экономичные решения с нашей опытной командой и сильной сетью поставщиков в строительстве жилых домов, вилл, офисов и сельскохозяйственных зданий.\n\nСтоимость строительства под ключ на 2026 год: Стандартное жилье варьируется от 25 000 до 35 000 турецких лир за м², строительство вилл — от 35 000 до 55 000 турецких лир за м², коммерческое строительство — от 20 000 до 40 000 турецких лир за м². Эти цены включают черновые работы, отделочные работы и базовые инженерные системы, без стоимости земельного участка.\n\nНаш спектр услуг: строительство частных домов и вилл, жилые и многоквартирные проекты, строительство офисов и коммерческих зданий, склады и сельскохозяйственные постройки, реставрация старых зданий, укрепление зданий. Мы также предоставляем комплексные консультационные услуги нашим клиентам по процессам лицензирования и получения разрешений на строительство.\n\nПочему Kalinda Yapı? Поскольку Мугла является сейсмической зоной 1-й степени, мы уделяем особое внимание безопасности зданий. Все наши строительные работы выполняются в соответствии с действующими сейсмическими нормами, под контролем строительной инспекции и застрахованы. Мы предлагаем прозрачное ценообразование, письменный договор и поэтапный план оплаты.",
+    "ikon": "HardHat",
+    "altHizmetler": [
+      {
+        "baslik": "Жилищное строительство",
+        "aciklama": "Строительство частных домов, вилл и многоквартирных домов. Оценка участка и разработка проекта.",
+        "ikon": "Building"
+      },
+      {
+        "baslik": "Коммерческое строительство",
+        "aciklama": "Строительство офисов, магазинов, складов и промышленных объектов. Профессиональное управление проектами.",
+        "ikon": "Factory"
+      },
+      {
+        "baslik": "Реставрация",
+        "aciklama": "Реставрация исторических и старых зданий. Работы по укреплению и модернизации зданий.",
+        "ikon": "Hammer"
+      },
+      {
+        "baslik": "Консультации по лицензированию",
+        "aciklama": "Разрешение на строительство, ввод в эксплуатацию, запрос статуса зонирования. Консультации по муниципальным и кадастровым процедурам.",
+        "ikon": "FileCheck"
+      }
+    ],
+    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+    "sss": [
+      {
+        "soru": "На что обратить внимание при выборе строительной компании?",
+        "cevap": "Рекомендации, ранее завершенные проекты, условия страхования и гарантии, условия договора и качество коммуникации являются важными критериями. Как Kalinda Yapı мы прозрачно предоставляем информацию по всем этим критериям."
+      },
+      {
+        "soru": "Сколько будет стоить дом под ключ в 2026 году?",
+        "cevap": "Стоимость строительства под ключ в регионе Ортака в 2026 году: стандартное жилье варьируется от 25 000 до 35 000 турецких лир за м², строительство вилл — от 35 000 до 55 000 турецких лир за м². Стоимость земельного участка не включена в эти цифры."
+      },
+      {
+        "soru": "Проводится ли контроль в процессе строительства?",
+        "cevap": "Да, мы проверяем с нашими клиентами на каждом этапе. Есть как минимум 4 контрольные точки: фундамент, черновые работы, отделочные работы и перед сдачей. Кроме того, строительная инспекционная компания также проводит независимые проверки."
+      },
+      {
+        "soru": "Сколько времени занимает строительство виллы?",
+        "cevap": "Строительство виллы площадью 150-200 м² под ключ занимает в среднем 8-12 месяцев. Процесс получения разрешения планируется на 1-2 месяца, черновые работы — на 3-4 месяца, отделочные работы — на 3-4 месяца, благоустройство и финальные корректировки — на 1-2 месяца."
+      },
+      {
+        "soru": "Нужно ли иметь земельный участок для строительства?",
+        "cevap": "Да, у вас должен быть земельный участок, отведенный под строительство. Если у вас нет участка, мы помогаем найти подходящий в рамках нашей услуги консультирования по недвижимости. Мы также проводим проверку статуса зонирования и оценку соответствия разрешениям."
+      }
+    ]
+  },
+  {
+    "id": "plan-proje",
+    "slug": "plan-proje",
+    "baslik": "Планирование и проектирование",
+    "kisaAciklama": "Архитектурные, статические, электрические и механические проектные чертежи и консультации по лицензированию.",
+    "uzunAciklama": "Как Kalinda Yapı мы сопровождаем ваши строительные проекты с самого начала. Мы удовлетворяем все ваши проектные потребности — от архитектурных проектов до статических расчетов, от электрических и механических инженерных проектов до процессов лицензирования. С нашей опытной командой инженеров и архитекторов мы гарантируем, что ваш проект соответствует законодательным требованиям и технически безупречен.\n\nСтоимость проектов на 2026 год: Архитектурный проект для виллы 150 м² — 25 000-45 000 турецких лир, статический проект — 20 000-35 000 турецких лир, электро-механические проекты — всего 15 000-30 000 турецких лир. Процесс подачи заявки на лицензию в муниципалитет Ортака занимает 15-30 рабочих дней.\n\nНаш спектр услуг: оригинальный архитектурный дизайн и рабочие проекты, железобетонные и стальные статические проекты, проекты электроустановок и освещения, проекты механических установок (отопление-охлаждение-сантехника), проекты ландшафтного дизайна, подача и сопровождение заявки на разрешение на строительство, управление процессом получения акта ввода в эксплуатацию.\n\nС нашей командой, знакомой с ограничениями охраняемых территорий, защитных зон и береговых линий в регионах Ортака, Далян и Кёйджеиз, мы гарантируем, что ваш проект соответствует всем законодательным требованиям. Мы отслеживаем запросы статуса зонирования, координацию геологических изысканий и всю переписку с муниципалитетом от вашего имени.",
+    "ikon": "FileText",
+    "altHizmetler": [
+      {
+        "baslik": "Архитектурный проект",
+        "aciklama": "Оригинальный архитектурный дизайн и рабочие проекты для жилых домов, вилл и коммерческих зданий.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "Статический проект",
+        "aciklama": "Статические расчеты и проекты несущих систем для железобетонных и стальных конструкций.",
+        "ikon": "Building"
+      },
+      {
+        "baslik": "Электрический и механический проект",
+        "aciklama": "Проекты электроустановок, освещения, отопления-охлаждения и сантехники.",
+        "ikon": "Zap"
+      },
+      {
+        "baslik": "Консультации по лицензированию",
+        "aciklama": "Консультации по заявкам на разрешение на строительство, статусу зонирования, вводу в эксплуатацию и муниципальным процедурам.",
+        "ikon": "FileCheck"
+      }
+    ],
+    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+    "sss": [
+      {
+        "soru": "Сколько времени занимает разработка архитектурного проекта?",
+        "cevap": "В зависимости от размера и сложности проекта архитектурный чертеж завершается в течение 2-4 недель. Процессы ревизии не включены в этот период."
+      },
+      {
+        "soru": "Какие документы требуются для заявки на лицензию?",
+        "cevap": "Копия правоустанавливающего документа, копия удостоверения личности, геодезическая съемка, архитектурный проект, статический проект, электро-механические проекты, отчет о геологических изысканиях, договор со строительной инспекцией и договоры технической ответственности входят в число основных документов."
+      },
+      {
+        "soru": "Сколько будут стоить проекты в 2026 году?",
+        "cevap": "Общая стоимость проекта (архитектурный + статический + электрический + механический) для виллы 150 м² в 2026 году варьируется от 80 000 до 150 000 турецких лир. Мы подготовим специальное предложение для вас с бесплатной предварительной консультацией."
+      },
+      {
+        "soru": "Сколько длится процесс лицензирования в муниципалитете Ортака?",
+        "cevap": "При подаче всех документов в полном объеме процесс рассмотрения разрешения на строительство в муниципалитете Ортака завершается в течение 15-30 рабочих дней. При отсутствии документов срок может быть продлен."
+      },
+      {
+        "soru": "Можно ли строить в охраняемой зоне?",
+        "cevap": "Строительство в охраняемых зонах требует специальных разрешений. Требуется одобрение совета по охране, и возводимое строение должно соответствовать определенным критериям. В Даляне и Кёйджеизе есть охраняемые территории; перед разработкой проекта в этих регионах необходимо проверить статус зонирования."
+      }
+    ]
+  }
+];
+
 export const hizmetlerAR: TranslatedHizmet[] = [
   {
     "id": "emlak-danismanligi",
@@ -584,6 +1014,10 @@ export function getHizmetler(locale: Locale): TranslatedHizmet[] {
       return hizmetlerEN;
     case 'ar':
       return hizmetlerAR;
+    case 'de':
+      return hizmetlerDE;
+    case 'ru':
+      return hizmetlerRU;
     default:
       // Return empty array for TR - use original hizmetler.json
       return [];
