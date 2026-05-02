@@ -154,7 +154,7 @@ export default function NedenBiz({ lang = 'tr', dict }: NedenBizProps) {
                 className="flex gap-4 p-6 rounded-2xl hover:bg-surface transition-colors group"
               >
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
                   <Icon className="w-7 h-7 text-primary group-hover:text-accent transition-colors" />
                 </div>
 

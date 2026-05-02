@@ -99,7 +99,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
   };
 
   return (
-    <section className="py-20 bg-[#0B1F3A]" ref={ref}>
+    <section className="py-20 bg-primary" ref={ref}>
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Info */}
@@ -109,7 +109,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
             transition={{ duration: 0.6 }}
             className="text-white"
           >
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-accent font-semibold text-sm uppercase tracking-wider">
               {t.badge}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
@@ -123,7 +123,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-[#C9A84C]" />
+                  <MapPin className="w-6 h-6 text-accent" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">{t.address}</p>
@@ -133,7 +133,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-[#C9A84C]" />
+                  <Phone className="w-6 h-6 text-accent" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">{t.phone}</p>
@@ -144,7 +144,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-[#C9A84C]" />
+                  <Clock className="w-6 h-6 text-accent" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">{t.workingHours}</p>
@@ -176,7 +176,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl">
-              <h3 className="text-xl font-bold text-[#0B1F3A] mb-6">
+              <h3 className="text-xl font-bold text-primary mb-6">
                 {t.formTitle}
               </h3>
 
@@ -207,10 +207,10 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
                       />
                     </svg>
                   </div>
-                  <h4 className="text-lg font-bold text-[#0B1F3A] mb-2">
+                  <h4 className="text-lg font-bold text-primary mb-2">
                     {t.successTitle}
                   </h4>
-                  <p className="text-[#666666]">
+                  <p className="text-text-light">
                     {t.successMessage}
                   </p>
                 </motion.div>
@@ -256,9 +256,9 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
                     {t.submit}
                   </Button>
 
-                  <p className="text-xs text-[#999999] text-center">
+                  <p className="text-xs text-text-muted text-center">
                     {t.privacyNote}{" "}
-                    <a href={`/${lang}/gizlilik`} className="text-[#C9A84C] hover:underline">
+                    <a href={`/${lang}/gizlilik`} className="text-accent hover:underline">
                       {t.privacyLink}
                     </a>{" "}
                     {t.privacyAccept}
