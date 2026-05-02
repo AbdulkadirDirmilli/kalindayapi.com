@@ -60,8 +60,16 @@ export default async function HizmetlerPage({ params }: PageProps) {
 
   const hizmetler = getLocalizedHizmetler(locale);
 
+  const homeNames: Record<Locale, string> = {
+    tr: 'Ana Sayfa',
+    en: 'Home',
+    ar: 'الرئيسية',
+    de: 'Startseite',
+    ru: 'Главная',
+  };
+
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === 'en' ? 'Home' : locale === 'ar' ? 'الرئيسية' : 'Ana Sayfa', url: `/${locale}` },
+    { name: homeNames[locale], url: `/${locale}` },
     { name: texts.breadcrumb, url: `/${locale}/hizmetler` },
   ]);
 
@@ -93,8 +101,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               {texts.title}{" "}
-              <span className="text-[#C9A84C]">{texts.titleHighlight}</span>{" "}
-              {locale === 'tr' ? 'Hizmetleri' : locale === 'en' ? 'Services' : 'المهنية'}
+              <span className="text-[#C9A84C]">{texts.titleHighlight}</span>
             </h1>
             <p className="text-gray-300 text-lg">
               {texts.subtitle}
