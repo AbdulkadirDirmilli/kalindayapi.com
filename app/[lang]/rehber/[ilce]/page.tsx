@@ -9,7 +9,7 @@ import { rehberTexts, formatDistrictText } from "@/data/rehber-i18n";
 import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/jsonld";
 import ExpandableMahalleler from "@/components/ui/ExpandableMahalleler";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
-import { locales, type Locale } from "@/lib/i18n/config";
+import { locales, type Locale, getLocalizedRoute } from "@/lib/i18n/config";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 
 interface PageProps {
@@ -59,8 +59,8 @@ export default async function IlceRehberPage({ params }: PageProps) {
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: dict.nav.home, url: `/${locale}` },
-    { name: texts.breadcrumb, url: `/${locale}/rehber` },
-    { name: ilce.ad, url: `/${locale}/rehber/${ilce.slug}` },
+    { name: texts.breadcrumb, url: `/${locale}/${getLocalizedRoute('rehber', locale)}` },
+    { name: ilce.ad, url: `/${locale}/${getLocalizedRoute('rehber', locale)}/${ilce.slug}` },
   ]);
 
   const faqSchema = generateFAQSchema(ilce.sss);
@@ -98,7 +98,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href={`/${locale}/rehber`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}/${getLocalizedRoute('rehber', locale)}`} className="hover:text-[#C9A84C] transition-colors">
               {texts.breadcrumb}
             </Link>
             <ChevronRight className="w-4 h-4" />
@@ -189,14 +189,14 @@ export default async function IlceRehberPage({ params }: PageProps) {
                 </p>
                 <div className="space-y-3">
                   <Link
-                    href={`/${locale}/iletisim`}
+                    href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
                     className="flex items-center justify-center gap-2 w-full bg-[#C9A84C] text-[#0B1F3A] py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
                   >
                     <Phone className="w-4 h-4" />
                     {texts.contactButton}
                   </Link>
                   <Link
-                    href={`/${locale}/ilanlar`}
+                    href={`/${locale}/${getLocalizedRoute('ilanlar', locale)}`}
                     className="flex items-center justify-center gap-2 w-full border border-white/30 text-white py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
                   >
                     {texts.viewListings}
@@ -234,7 +234,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
             {formatDistrictText(texts.bottomCtaDescription, ilce.ad)}
           </p>
           <Link
-            href={`/${locale}/iletisim`}
+            href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
             className="inline-flex items-center gap-2 bg-[#C9A84C] text-[#0B1F3A] px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
           >
             {texts.bottomCtaButton}

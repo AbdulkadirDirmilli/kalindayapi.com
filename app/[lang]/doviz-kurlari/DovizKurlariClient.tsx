@@ -23,7 +23,7 @@ import {
 } from '@/components/doviz';
 import { useCurrency } from '@/components/providers/CurrencyProvider';
 import { LiveRates, RateChange, DovizFAQ as FAQType } from '@/types/exchange';
-import type { Locale } from '@/lib/i18n';
+import { type Locale, getLocalizedRoute } from '@/lib/i18n';
 
 // Fallback rates for initial render (April 2026)
 const FALLBACK_RATES: LiveRates = {
@@ -359,14 +359,14 @@ export default function DovizKurlariClient({ locale, texts, faqs }: DovizKurlari
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href={`/${locale}/ilanlar`}
+                href={`/${locale}/${getLocalizedRoute('ilanlar', locale)}`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C9A84C] text-[#0B1F3A] font-bold rounded-xl hover:bg-[#d4b969] transition-colors"
               >
                 {texts.cta.viewListings}
                 <ChevronRight className="w-5 h-5" />
               </Link>
               <Link
-                href={`/${locale}/iletisim`}
+                href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-[#0B1F3A] transition-colors"
               >
                 {texts.cta.contactConsultant}

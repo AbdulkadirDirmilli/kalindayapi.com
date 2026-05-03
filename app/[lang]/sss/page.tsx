@@ -20,7 +20,7 @@ import {
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { createWhatsAppLink } from "@/lib/utils";
-import { locales, type Locale } from "@/lib/i18n/config";
+import { locales, type Locale, getLocalizedRoute } from "@/lib/i18n/config";
 import { getSorular, faqKategorileri, sssTexts, popularSorular, type FAQ } from "@/data/sss";
 
 const ikonlar: { [key: string]: React.ComponentType<{ className?: string }> } = {
@@ -257,7 +257,7 @@ export default function SSSPage() {
             {texts.ctaText}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={`/${locale}/iletisim`}>
+            <Link href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}>
               <Button variant="accent" size="lg">
                 {texts.ctaButton}
               </Button>

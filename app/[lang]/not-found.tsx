@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Home, Phone, ArrowLeft, Search, HelpCircle } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { locales, type Locale } from "@/lib/i18n/config";
+import { locales, type Locale, getLocalizedRoute } from "@/lib/i18n/config";
 
 // 404 page texts for all supported languages
 const notFoundTexts: Record<Locale, {
@@ -16,7 +16,7 @@ const notFoundTexts: Record<Locale, {
   contactButton: string;
   searchTitle: string;
   backButton: string;
-  links: { text: string; href: string }[];
+  links: { text: string; routeKey: string }[];
 }> = {
   tr: {
     title: "404",
@@ -27,10 +27,10 @@ const notFoundTexts: Record<Locale, {
     searchTitle: "Belki bunlar işinize yarar:",
     backButton: "Geri Dön",
     links: [
-      { text: "İlanlar", href: "/ilanlar" },
-      { text: "Hizmetler", href: "/hizmetler" },
-      { text: "Hakkımızda", href: "/hakkimizda" },
-      { text: "İletişim", href: "/iletisim" },
+      { text: "İlanlar", routeKey: "ilanlar" },
+      { text: "Hizmetler", routeKey: "hizmetler" },
+      { text: "Hakkımızda", routeKey: "hakkimizda" },
+      { text: "İletişim", routeKey: "iletisim" },
     ],
   },
   en: {
@@ -42,10 +42,10 @@ const notFoundTexts: Record<Locale, {
     searchTitle: "Maybe these will help:",
     backButton: "Go Back",
     links: [
-      { text: "Listings", href: "/ilanlar" },
-      { text: "Services", href: "/hizmetler" },
-      { text: "About Us", href: "/hakkimizda" },
-      { text: "Contact", href: "/iletisim" },
+      { text: "Listings", routeKey: "ilanlar" },
+      { text: "Services", routeKey: "hizmetler" },
+      { text: "About Us", routeKey: "hakkimizda" },
+      { text: "Contact", routeKey: "iletisim" },
     ],
   },
   ar: {
@@ -57,10 +57,10 @@ const notFoundTexts: Record<Locale, {
     searchTitle: "ربما يساعدك هذا:",
     backButton: "العودة",
     links: [
-      { text: "العقارات", href: "/ilanlar" },
-      { text: "الخدمات", href: "/hizmetler" },
-      { text: "من نحن", href: "/hakkimizda" },
-      { text: "اتصل بنا", href: "/iletisim" },
+      { text: "العقارات", routeKey: "ilanlar" },
+      { text: "الخدمات", routeKey: "hizmetler" },
+      { text: "من نحن", routeKey: "hakkimizda" },
+      { text: "اتصل بنا", routeKey: "iletisim" },
     ],
   },
   de: {
@@ -72,10 +72,10 @@ const notFoundTexts: Record<Locale, {
     searchTitle: "Vielleicht hilft das:",
     backButton: "Zurück",
     links: [
-      { text: "Anzeigen", href: "/ilanlar" },
-      { text: "Dienstleistungen", href: "/hizmetler" },
-      { text: "Über uns", href: "/hakkimizda" },
-      { text: "Kontakt", href: "/iletisim" },
+      { text: "Anzeigen", routeKey: "ilanlar" },
+      { text: "Dienstleistungen", routeKey: "hizmetler" },
+      { text: "Über uns", routeKey: "hakkimizda" },
+      { text: "Kontakt", routeKey: "iletisim" },
     ],
   },
   ru: {
@@ -87,10 +87,10 @@ const notFoundTexts: Record<Locale, {
     searchTitle: "Возможно, это поможет:",
     backButton: "Назад",
     links: [
-      { text: "Объявления", href: "/ilanlar" },
-      { text: "Услуги", href: "/hizmetler" },
-      { text: "О нас", href: "/hakkimizda" },
-      { text: "Контакты", href: "/iletisim" },
+      { text: "Объявления", routeKey: "ilanlar" },
+      { text: "Услуги", routeKey: "hizmetler" },
+      { text: "О нас", routeKey: "hakkimizda" },
+      { text: "Контакты", routeKey: "iletisim" },
     ],
   },
 };
@@ -146,7 +146,7 @@ export default function NotFound() {
               {t.homeButton}
             </Button>
           </Link>
-          <Link href={`/${locale}/iletisim`}>
+          <Link href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}>
             <Button
               variant="outline"
               size="lg"
@@ -168,8 +168,8 @@ export default function NotFound() {
             <div className="flex flex-wrap justify-center gap-3">
               {t.links.map((link) => (
                 <Link
-                  key={link.href}
-                  href={`/${locale}${link.href}`}
+                  key={link.routeKey}
+                  href={`/${locale}/${getLocalizedRoute(link.routeKey, locale)}`}
                   className="px-4 py-2 bg-white/10 hover:bg-[#C9A84C] text-white hover:text-[#0B1F3A] rounded-full text-sm font-medium transition-colors"
                 >
                   {link.text}

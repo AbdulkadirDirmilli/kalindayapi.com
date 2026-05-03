@@ -16,7 +16,7 @@ import Button from "@/components/ui/Button";
 import { OrtaklarBolumu, IstatistikSayaclari } from "@/components/sections";
 import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/jsonld";
 import { createWhatsAppLink } from "@/lib/utils";
-import { locales, type Locale } from "@/lib/i18n";
+import { locales, type Locale, getLocalizedRoute } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { hakkimizdaTexts, degerler, timeline, sertifikalar } from "@/data/hakkimizda-i18n";
@@ -63,7 +63,7 @@ export default async function HakkimizdaPage({
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: dict.nav.home, url: `/${locale}` },
-    { name: dict.nav.about, url: `/${locale}/hakkimizda` },
+    { name: dict.nav.about, url: `/${locale}/${getLocalizedRoute('hakkimizda', locale)}` },
   ]);
 
   const organizationSchema = generateOrganizationSchema();
@@ -296,7 +296,7 @@ export default async function HakkimizdaPage({
             {texts.ctaSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={`/${locale}/iletisim`}>
+            <Link href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}>
               <Button variant="accent" size="lg">
                 {texts.ctaButton}
               </Button>

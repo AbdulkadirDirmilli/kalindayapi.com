@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Cookie, X } from "lucide-react";
 import { useLocale } from "./providers/LocaleProvider";
+import { getLocalizedRoute } from "@/lib/i18n";
 
 const COOKIE_CONSENT_KEY = "kalinda-cookie-consent";
 
@@ -73,7 +74,7 @@ export default function CookieConsent() {
                 <p className="text-white text-sm md:text-base leading-relaxed">
                   {t.message}{" "}
                   <Link
-                    href={`/${locale}/gizlilik`}
+                    href={`/${locale}/${getLocalizedRoute('gizlilik', locale)}`}
                     className="text-[#C9A84C] hover:underline font-medium"
                   >
                     {t.privacyLink}

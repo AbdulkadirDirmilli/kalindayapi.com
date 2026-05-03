@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, Search, ArrowRight, Loader2 } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import { useParams } from "next/navigation";
-import { type Locale, defaultLocale, locales } from "@/lib/i18n";
+import { type Locale, defaultLocale, locales, getLocalizedRoute } from "@/lib/i18n";
 
 interface BlogPost {
   id: string;
@@ -341,7 +341,7 @@ export default function BlogPage() {
             {t.ctaSubtitle}
           </p>
           <Link
-            href={`/${locale}/iletisim`}
+            href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
             className="inline-flex items-center gap-2 bg-[#C9A84C] text-[#0B1F3A] px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
           >
             {t.ctaButton}

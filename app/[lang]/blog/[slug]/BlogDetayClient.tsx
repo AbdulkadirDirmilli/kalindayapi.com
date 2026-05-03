@@ -13,7 +13,7 @@ import {
   Phone,
 } from "lucide-react";
 import { formatDate, createWhatsAppLink } from "@/lib/utils";
-import { type Locale } from "@/lib/i18n";
+import { type Locale, getLocalizedRoute } from "@/lib/i18n";
 
 interface BlogYazi {
   id: string;
@@ -128,7 +128,7 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
             transition={{ duration: 0.6 }}
           >
             <Link
-              href={`/${locale}/blog`}
+              href={`/${locale}/${getLocalizedRoute('blog', locale)}`}
               className="inline-flex items-center gap-2 text-[#C9A84C] hover:text-white transition-colors mb-6"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -279,7 +279,7 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
                   {t.consultingDesc}
                 </p>
                 <Link
-                  href={`/${locale}/iletisim`}
+                  href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
                   className="inline-flex items-center gap-2 bg-[#C9A84C] text-[#0B1F3A] px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#a88a3d] transition-colors w-full justify-center"
                 >
                   {t.contactUs}
@@ -296,7 +296,7 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
                   {digerYazilar.map((diger) => (
                     <Link
                       key={diger.id}
-                      href={`/${locale}/blog/${diger.slug}`}
+                      href={`/${locale}/${getLocalizedRoute('blog', locale)}/${diger.slug}`}
                       className="block group"
                     >
                       <div className="bg-[#F5F5F5] rounded-xl p-4 hover:bg-[#E5E5E5] transition-colors">

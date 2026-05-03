@@ -7,7 +7,7 @@ import { getMahalleler } from "@/data/konum";
 import { rehberTexts } from "@/data/rehber-i18n";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
-import { locales, type Locale } from "@/lib/i18n/config";
+import { locales, type Locale, getLocalizedRoute } from "@/lib/i18n/config";
 
 export async function generateMetadata({
   params,
@@ -125,7 +125,7 @@ export default async function RehberPage({
             {texts.ctaDescription}
           </p>
           <Link
-            href={`/${locale}/iletisim`}
+            href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
             className="inline-flex items-center gap-2 bg-[#C9A84C] text-[#0B1F3A] px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
           >
             {texts.ctaButton}

@@ -35,7 +35,7 @@ import hizmetlerData from "@/data/hizmetler.json";
 import { getHizmetBySlug, getHizmetler, TranslatedHizmet } from "@/data/hizmetler-translations";
 import { hizmetlerTexts, formatWhatsAppMessage, whatsappMessages } from "@/data/hizmetler-i18n";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale, SITE_URL } from "@/lib/seo";
-import { locales, type Locale, getOriginalRoute, routeTranslations } from "@/lib/i18n/config";
+import { locales, type Locale, getOriginalRoute, routeTranslations, getLocalizedRoute } from "@/lib/i18n/config";
 
 // Dinamik sayaç hesaplama - 5 günde 1 artış
 function hesaplaDinamikDeger(baslangicDegeri: number): number {
@@ -222,8 +222,8 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: locale === 'en' ? 'Home' : locale === 'ar' ? 'الرئيسية' : 'Ana Sayfa', url: `/${locale}` },
-    { name: texts.breadcrumb, url: `/${locale}/hizmetler` },
-    { name: hizmet.baslik, url: `/${locale}/hizmetler/${hizmet.slug}` },
+    { name: texts.breadcrumb, url: `/${locale}/${getLocalizedRoute('hizmetler', locale)}` },
+    { name: hizmet.baslik, url: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute(originalSlug, locale)}` },
   ]);
   const faqSchema = generateFAQSchema(hizmet.sss);
 
@@ -263,7 +263,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href={`/${locale}/hizmetler`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}/${getLocalizedRoute('hizmetler', locale)}`} className="hover:text-[#C9A84C] transition-colors">
               {texts.breadcrumb}
             </Link>
             <ChevronRight className="w-4 h-4" />
@@ -344,7 +344,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
 
               {/* Buttons */}
               <div className="space-y-3">
-                <Link href={`/${locale}/iletisim`} className="block">
+                <Link href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`} className="block">
                   <Button
                     variant="primary"
                     size="lg"
@@ -455,7 +455,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
               const digerOriginalSlug = (hizmetlerData.hizmetler as Hizmet[]).find(h => h.id === diger.id)?.slug || diger.slug;
               const digerLocalizedSlug = routeTranslations[digerOriginalSlug]?.[locale] || digerOriginalSlug;
               return (
-                <Link key={diger.id} href={`/${locale}/hizmetler/${digerLocalizedSlug}`}>
+                <Link key={diger.id} href={`/${locale}/${getLocalizedRoute('hizmetler', locale)}/${digerLocalizedSlug}`}>
                   <Card
                     variant="interactive"
                     padding="lg"
@@ -504,7 +504,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                 {texts.whatsappQuote}
               </Button>
             </a>
-            <Link href={`/${locale}/iletisim`}>
+            <Link href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}>
               <Button
                 variant="accent"
                 size="lg"

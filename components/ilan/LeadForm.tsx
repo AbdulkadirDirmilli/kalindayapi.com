@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { Heart, Loader2, CheckCircle } from "lucide-react";
 import Modal from "@/components/ui/Modal";
 import { useLocale } from "@/components/providers/LocaleProvider";
+import { getLocalizedRoute } from "@/lib/i18n";
 
 interface LeadFormProps {
   listingId: string;
@@ -242,7 +243,7 @@ export default function LeadForm({
               <span className="text-xs text-[#666666] leading-relaxed">
                 {t.kvkkText}{" "}
                 <a
-                  href={`/${locale}/gizlilik`}
+                  href={`/${locale}/${getLocalizedRoute('gizlilik', locale)}`}
                   target="_blank"
                   className="text-[#C9A84C] underline"
                 >

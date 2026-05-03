@@ -11,7 +11,7 @@ import { getHizmetler, TranslatedHizmet } from "@/data/hizmetler-translations";
 import { hizmetlerTexts, formatWhatsAppMessage, whatsappMessages } from "@/data/hizmetler-i18n";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
-import { locales, type Locale } from "@/lib/i18n/config";
+import { locales, type Locale, getLocalizedRoute } from "@/lib/i18n/config";
 
 interface PageProps {
   params: Promise<{ lang: string }>;
@@ -70,7 +70,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: homeNames[locale], url: `/${locale}` },
-    { name: texts.breadcrumb, url: `/${locale}/hizmetler` },
+    { name: texts.breadcrumb, url: `/${locale}/${getLocalizedRoute('hizmetler', locale)}` },
   ]);
 
   // Combine all FAQs
@@ -150,7 +150,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
                   {/* Actions */}
                   <div className="pt-4 border-t border-[#e0e0e0]">
                     <div className="flex gap-2">
-                      <Link href={`/${locale}/hizmetler/${hizmet.slug}`} className="flex-1">
+                      <Link href={`/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute(hizmet.slug, locale)}`} className="flex-1">
                         <Button
                           variant="outline"
                           size="sm"
@@ -229,7 +229,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
             {texts.ctaSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={`/${locale}/iletisim`}>
+            <Link href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}>
               <Button variant="accent" size="lg">
                 {texts.ctaButton}
               </Button>

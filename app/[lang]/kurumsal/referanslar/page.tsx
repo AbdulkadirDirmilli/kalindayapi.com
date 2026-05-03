@@ -15,7 +15,7 @@ import { IstatistikSayaclari, GoogleReviews } from "@/components/sections";
 import { generateBreadcrumbSchema } from "@/lib/jsonld";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
-import { locales, type Locale } from "@/lib/i18n";
+import { locales, type Locale, getLocalizedRoute } from "@/lib/i18n";
 
 const texts = {
   tr: {
@@ -399,8 +399,8 @@ export default async function ReferanslarPage({
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: t.breadcrumbs.home, url: `/${locale}` },
-    { name: t.breadcrumbs.corporate, url: `/${locale}/hakkimizda` },
-    { name: t.breadcrumbs.references, url: `/${locale}/kurumsal/referanslar` },
+    { name: t.breadcrumbs.corporate, url: `/${locale}/${getLocalizedRoute('hakkimizda', locale)}` },
+    { name: t.breadcrumbs.references, url: `/${locale}/${getLocalizedRoute('kurumsal', locale)}/${getLocalizedRoute('referanslar', locale)}` },
   ]);
 
   return (
@@ -422,7 +422,7 @@ export default async function ReferanslarPage({
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href={`/${locale}/hakkimizda`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}/${getLocalizedRoute('hakkimizda', locale)}`} className="hover:text-[#C9A84C] transition-colors">
               {t.breadcrumbs.corporate}
             </Link>
             <ChevronRight className="w-4 h-4" />
@@ -542,12 +542,12 @@ export default async function ReferanslarPage({
             {t.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={`/${locale}/iletisim`}>
+            <Link href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}>
               <Button variant="accent" size="lg">
                 {t.cta.contact}
               </Button>
             </Link>
-            <Link href={`/${locale}/ilanlar`}>
+            <Link href={`/${locale}/${getLocalizedRoute('ilanlar', locale)}`}>
               <Button variant="outline" size="lg" className="text-white border-white hover:bg-white/10">
                 {t.cta.listings}
               </Button>
