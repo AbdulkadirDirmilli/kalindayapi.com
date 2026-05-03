@@ -6,11 +6,10 @@ RUN apk add --no-cache libc6-compat
 
 COPY package.json package-lock.json ./
 RUN npm install
-
-# Create uploads directories before copying files
-RUN mkdir -p public/uploads/ilanlar public/uploads/videos public/uploads/thumbnails
-
 COPY . .
+
+# Create uploads directories after copying files
+RUN mkdir -p public/uploads/ilanlar public/uploads/videos public/uploads/thumbnails
 
 RUN npx prisma generate
 RUN npx prisma db push
