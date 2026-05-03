@@ -25,7 +25,11 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/lib/generated ./lib/generated
 
 # Create directories for SQLite database and uploads
-RUN mkdir -p /app/prisma /app/public/uploads/ilanlar /app/public/uploads/videos /app/public/uploads/thumbnails
+RUN mkdir -p /app/prisma && \
+    mkdir -p /app/public/uploads && \
+    mkdir -p /app/public/uploads/ilanlar && \
+    mkdir -p /app/public/uploads/videos && \
+    mkdir -p /app/public/uploads/thumbnails
 
 EXPOSE 3001
 CMD ["node", "server.js"]
