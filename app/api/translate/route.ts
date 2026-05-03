@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
     // Validate target locale
     if (!targetLocale || !locales.includes(targetLocale as Locale)) {
       return NextResponse.json(
-        { error: 'Invalid target locale. Supported: tr, en, ar' },
+        { error: 'Invalid target locale. Supported: tr, en, ar, de, ru' },
         { status: 400 }
       );
     }
@@ -198,6 +198,79 @@ export async function POST(request: NextRequest) {
         success: true,
         data: result,
         message: `Service translated to ${targetLocale}`,
+      });
+    }
+
+    if (type === 'blog' && id) {
+      // Translate a blog post
+      const blog = await prisma.blogPost.findUnique({
+        where: { id },
+        select: { baslik: true, ozet: true, icerik: true, etiketler: true },
+      });
+
+      if (!blog) {
+        return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
+      }
+
+      const result = await translateContent(
+        {
+          title: blog.baslik,
+          description: blog.ozet,
+          content: blog.icerik,
+        },
+        {
+          targetLocale: targetLocale as Locale,
+          contentType: 'blog',
+        }
+      );
+
+      if (!result) {
+        return NextResponse.json(
+          { error: 'Translation failed. Please try again.' },
+          { status: 500 }
+        );
+      }
+
+      if (!result.slug) {
+        result.slug = generateSlug(result.title, targetLocale as Locale);
+      }
+
+      // Save to database
+      await prisma.blogPostTranslation.upsert({
+        where: {
+          postId_language: {
+            postId: id,
+            language: targetLocale,
+          },
+        },
+        update: {
+          baslik: result.title,
+          slug: result.slug,
+          ozet: result.description,
+          icerik: result.content,
+          seoTitle: result.seoTitle,
+          seoDescription: result.seoDescription,
+          status: 'published',
+          updatedAt: new Date(),
+        },
+        create: {
+          postId: id,
+          language: targetLocale,
+          baslik: result.title,
+          slug: result.slug,
+          ozet: result.description,
+          icerik: result.content,
+          etiketler: blog.etiketler || '[]',
+          seoTitle: result.seoTitle,
+          seoDescription: result.seoDescription,
+          status: 'published',
+        },
+      });
+
+      return NextResponse.json({
+        success: true,
+        data: result,
+        message: `Blog post translated to ${targetLocale}`,
       });
     }
 
