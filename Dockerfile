@@ -7,6 +7,10 @@ RUN apk add --no-cache libc6-compat
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
+
+# Create uploads directories in builder
+RUN mkdir -p public/uploads/ilanlar public/uploads/videos public/uploads/thumbnails
+
 RUN npx prisma generate
 RUN npx prisma db push
 RUN npm run build
@@ -24,12 +28,8 @@ COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/lib/generated ./lib/generated
 
-# Create directories for SQLite database and uploads
-RUN mkdir -p /app/prisma && \
-    mkdir -p /app/public/uploads && \
-    mkdir -p /app/public/uploads/ilanlar && \
-    mkdir -p /app/public/uploads/videos && \
-    mkdir -p /app/public/uploads/thumbnails
+# Create directory for SQLite database
+RUN mkdir -p /app/prisma
 
 EXPOSE 3001
 CMD ["node", "server.js"]
