@@ -27,4 +27,5 @@ jobs:
               rm -rf public/uploads
               mv /tmp/uploads_backup public/uploads
             fi
-            docker compose up -d --build
+            docker compose build --no-cache
+            docker compose up -d
