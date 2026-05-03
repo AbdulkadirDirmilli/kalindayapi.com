@@ -202,15 +202,17 @@ export async function POST(request: NextRequest) {
     }
 
     if (type === 'blog' && id) {
-      // Translate a blog post
-      const blog = await prisma.blogPost.findUnique({
-        where: { id },
+      // Translate a blog post - get Turkish translation as source
+      const blogTr = await prisma.blogPostTranslation.findFirst({
+        where: { postId: id, language: 'tr' },
         select: { baslik: true, ozet: true, icerik: true, etiketler: true },
       });
 
-      if (!blog) {
-        return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
+      if (!blogTr) {
+        return NextResponse.json({ error: 'Blog post Turkish translation not found' }, { status: 404 });
       }
+
+      const blog = blogTr;
 
       const result = await translateContent(
         {
