@@ -15,6 +15,7 @@ jobs:
           host: 89.252.179.121
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script_stop: true
           script: |
             cd /root/kalindayapi.com
             git pull origin main
