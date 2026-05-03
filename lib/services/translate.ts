@@ -1,12 +1,20 @@
 /**
- * DeepL API Translation Service
- * Ücretsiz plan: Aylık 500.000 karakter
- * https://www.deepl.com/pro-api
+ * Google Translate API Service
+ * Ücretsiz Google Translate API kullanır
  */
 
-const DEEPL_API_URL = 'https://api-free.deepl.com/v2/translate';
+import translate from 'google-translate-api-x';
 
 type SupportedLanguage = 'TR' | 'EN' | 'AR' | 'DE' | 'RU';
+
+// Google Translate dil kodları
+const langCodeMap: Record<SupportedLanguage, string> = {
+  TR: 'tr',
+  EN: 'en',
+  AR: 'ar',
+  DE: 'de',
+  RU: 'ru',
+};
 
 interface TranslateOptions {
   text: string;
@@ -14,48 +22,21 @@ interface TranslateOptions {
   sourceLang?: SupportedLanguage;
 }
 
-interface DeepLResponse {
-  translations: Array<{
-    detected_source_language: string;
-    text: string;
-  }>;
-}
-
 /**
- * DeepL API ile metin çevirisi yapar
+ * Google Translate ile metin çevirisi yapar
  */
 export async function translateText({ text, targetLang, sourceLang = 'TR' }: TranslateOptions): Promise<string> {
-  const apiKey = process.env.DEEPL_API_KEY;
-
-  if (!apiKey) {
-    throw new Error('DEEPL_API_KEY environment variable is not set');
-  }
-
   if (!text || text.trim().length === 0) {
     return text;
   }
 
   try {
-    const response = await fetch(DEEPL_API_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `DeepL-Auth-Key ${apiKey}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams({
-        text: text,
-        target_lang: targetLang,
-        source_lang: sourceLang,
-      }),
+    const result = await translate(text, {
+      from: langCodeMap[sourceLang],
+      to: langCodeMap[targetLang],
     });
 
-    if (!response.ok) {
-      const error = await response.text();
-      throw new Error(`DeepL API error: ${response.status} - ${error}`);
-    }
-
-    const data: DeepLResponse = await response.json();
-    return data.translations[0]?.text || text;
+    return result.text;
   } catch (error) {
     console.error('Translation error:', error);
     throw error;
@@ -70,12 +51,6 @@ export async function translateMultiple(
   targetLang: SupportedLanguage,
   sourceLang: SupportedLanguage = 'TR'
 ): Promise<string[]> {
-  const apiKey = process.env.DEEPL_API_KEY;
-
-  if (!apiKey) {
-    throw new Error('DEEPL_API_KEY environment variable is not set');
-  }
-
   // Boş metinleri filtrele
   const validTexts = texts.filter(t => t && t.trim().length > 0);
   if (validTexts.length === 0) {
@@ -83,27 +58,16 @@ export async function translateMultiple(
   }
 
   try {
-    const params = new URLSearchParams();
-    validTexts.forEach(text => params.append('text', text));
-    params.append('target_lang', targetLang);
-    params.append('source_lang', sourceLang);
+    const results = await Promise.all(
+      validTexts.map(text =>
+        translate(text, {
+          from: langCodeMap[sourceLang],
+          to: langCodeMap[targetLang],
+        })
+      )
+    );
 
-    const response = await fetch(DEEPL_API_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `DeepL-Auth-Key ${apiKey}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: params,
-    });
-
-    if (!response.ok) {
-      const error = await response.text();
-      throw new Error(`DeepL API error: ${response.status} - ${error}`);
-    }
-
-    const data: DeepLResponse = await response.json();
-    return data.translations.map(t => t.text);
+    return results.map(r => r.text);
   } catch (error) {
     console.error('Translation error:', error);
     throw error;

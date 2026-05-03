@@ -25,14 +25,6 @@ export async function POST(
       );
     }
 
-    // DeepL API key kontrolü
-    if (!process.env.DEEPL_API_KEY) {
-      return NextResponse.json(
-        { error: 'Çeviri servisi yapılandırılmamış. DEEPL_API_KEY gerekli.' },
-        { status: 500 }
-      );
-    }
-
     // İlanı getir
     const ilan = await prisma.ilan.findUnique({
       where: { id },
@@ -98,7 +90,7 @@ export async function POST(
         kategori: translated.kategori,
         tip: translated.tip,
         status: 'published',
-        translatedBy: 'DeepL API',
+        translatedBy: 'Google Translate',
       },
       update: {
         baslik: translated.baslik,
@@ -107,7 +99,7 @@ export async function POST(
         kategori: translated.kategori,
         tip: translated.tip,
         status: 'published',
-        translatedBy: 'DeepL API',
+        translatedBy: 'Google Translate',
         updatedAt: new Date(),
       },
     });
@@ -138,14 +130,6 @@ export async function PUT(
 ) {
   try {
     const { id } = await params;
-
-    // DeepL API key kontrolü
-    if (!process.env.DEEPL_API_KEY) {
-      return NextResponse.json(
-        { error: 'Çeviri servisi yapılandırılmamış. DEEPL_API_KEY gerekli.' },
-        { status: 500 }
-      );
-    }
 
     // İlanı getir
     const ilan = await prisma.ilan.findUnique({
@@ -214,7 +198,7 @@ export async function PUT(
             kategori: translated.kategori,
             tip: translated.tip,
             status: 'published',
-            translatedBy: 'DeepL API',
+            translatedBy: 'Google Translate',
           },
           update: {
             baslik: translated.baslik,
@@ -223,7 +207,7 @@ export async function PUT(
             kategori: translated.kategori,
             tip: translated.tip,
             status: 'published',
-            translatedBy: 'DeepL API',
+            translatedBy: 'Google Translate',
             updatedAt: new Date(),
           },
         });
