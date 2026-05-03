@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { translateIlan, createSlug } from "@/lib/services/translate";
 
-type TargetLang = 'EN' | 'AR';
+type TargetLang = 'EN' | 'AR' | 'DE' | 'RU';
 
 interface TranslateRequestBody {
   targetLang: TargetLang;
@@ -18,9 +18,9 @@ export async function POST(
     const { targetLang } = body;
 
     // Geçerli dil kontrolü
-    if (!['EN', 'AR'].includes(targetLang)) {
+    if (!['EN', 'AR', 'DE', 'RU'].includes(targetLang)) {
       return NextResponse.json(
-        { error: 'Geçersiz hedef dil. EN veya AR olmalı.' },
+        { error: 'Geçersiz hedef dil. EN, AR, DE veya RU olmalı.' },
         { status: 400 }
       );
     }
@@ -54,7 +54,7 @@ export async function POST(
     }
 
     // Çeviri yap
-    const langCode = targetLang.toLowerCase() as 'en' | 'ar';
+    const langCode = targetLang.toLowerCase() as 'en' | 'ar' | 'de' | 'ru';
     const translated = await translateIlan(
       {
         baslik: ilan.baslik,
@@ -168,11 +168,11 @@ export async function PUT(
     }
 
     const results = [];
-    const targetLangs: TargetLang[] = ['EN', 'AR'];
+    const targetLangs: TargetLang[] = ['EN', 'AR', 'DE', 'RU'];
 
     for (const targetLang of targetLangs) {
       try {
-        const langCode = targetLang.toLowerCase() as 'en' | 'ar';
+        const langCode = targetLang.toLowerCase() as 'en' | 'ar' | 'de' | 'ru';
         const translated = await translateIlan(
           {
             baslik: ilan.baslik,
