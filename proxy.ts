@@ -167,9 +167,28 @@ export async function proxy(request: NextRequest) {
     if (segments.length > 1) {
       const localizedRoute = segments[1]
       const originalRoute = getOriginalRoute(localizedRoute, pathLocale)
-      if (localizedRoute !== originalRoute) {
-        const remainingSegments = segments.slice(2).join('/')
-        const newPath = `/${segments[0]}/${originalRoute}${remainingSegments ? '/' + remainingSegments : ''}`
+
+      // Alt sayfa varsa onu da çevir (örn: /ar/الشركة/الرؤية-المهمة → /ar/kurumsal/vizyon-misyon)
+      let translatedSubRoute = ''
+      if (segments.length > 2) {
+        const localizedSubRoute = segments[2]
+        const originalSubRoute = getOriginalRoute(localizedSubRoute, pathLocale)
+        translatedSubRoute = originalSubRoute
+      }
+
+      // Herhangi bir segment çevrildiyse rewrite yap
+      const needsRewrite = localizedRoute !== originalRoute ||
+        (segments.length > 2 && segments[2] !== translatedSubRoute)
+
+      if (needsRewrite) {
+        const remainingSegments = segments.slice(3).join('/')
+        let newPath = `/${segments[0]}/${originalRoute}`
+        if (translatedSubRoute) {
+          newPath += `/${translatedSubRoute}`
+        }
+        if (remainingSegments) {
+          newPath += `/${remainingSegments}`
+        }
         const url = request.nextUrl.clone()
         url.pathname = newPath
         return NextResponse.rewrite(url)
