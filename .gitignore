@@ -47,7 +47,8 @@ next-env.d.ts
 *.db-journal
 
 # User uploads (stored on server, not in git)
-/public/uploads/
+/public/uploads/*
+!/public/uploads/.gitkeep
 
 # Claude Code local settings
 .claude/settings.local.json
