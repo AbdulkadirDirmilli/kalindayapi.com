@@ -9,7 +9,11 @@ RUN npm install
 COPY . .
 
 # Create uploads directories after copying files
-RUN mkdir -p public/uploads/ilanlar public/uploads/videos public/uploads/thumbnails
+RUN mkdir -p public && \
+    mkdir -p public/uploads && \
+    mkdir -p public/uploads/ilanlar && \
+    mkdir -p public/uploads/videos && \
+    mkdir -p public/uploads/thumbnails
 
 RUN npx prisma generate
 RUN npx prisma db push
