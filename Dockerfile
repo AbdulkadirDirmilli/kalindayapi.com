@@ -6,10 +6,11 @@ RUN apk add --no-cache libc6-compat
 
 COPY package.json package-lock.json ./
 RUN npm install
-COPY . .
 
-# Create uploads directories in builder (use install -d for Alpine compatibility)
-RUN install -d public/uploads public/uploads/ilanlar public/uploads/videos public/uploads/thumbnails
+# Create uploads directories before copying files
+RUN mkdir -p public/uploads/ilanlar public/uploads/videos public/uploads/thumbnails
+
+COPY . .
 
 RUN npx prisma generate
 RUN npx prisma db push

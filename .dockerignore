@@ -4,9 +4,4 @@ node_modules
 .github
 .claude
 *.md
-public/uploads/originals
-public/uploads/thumbnails
-public/uploads/ilanlar
-public/uploads/videos
-!public/uploads/.gitkeep
 scripts
