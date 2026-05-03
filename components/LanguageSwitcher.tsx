@@ -47,8 +47,9 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
   }, [pathname]);
 
   const handleLanguageChange = (newLocale: Locale) => {
-    // Tarayıcıdan doğrudan mevcut path'i al
-    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+    // Tarayıcıdan doğrudan mevcut path'i al ve URL decode et
+    const rawPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+    const currentPath = decodeURIComponent(rawPath);
 
     // Önce mevcut path'i orijinal Türkçe'ye çevir
     const originalPath = getOriginalPath(currentPath, currentLocale);
@@ -59,7 +60,7 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
     // Cookie ayarla
     document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=${60 * 60 * 24 * 365}`;
 
-    // Yönlendir
+    // Navigate to new path
     window.location.href = newPath;
   };
 

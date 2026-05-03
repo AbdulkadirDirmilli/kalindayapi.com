@@ -163,7 +163,9 @@ export async function proxy(request: NextRequest) {
     }
 
     // Route rewrite: localize edilmis URL'yi dahili Turkce rotaya map et
-    const segments = pathname.split('/').filter(Boolean)
+    // URL decode et - Cyrillic/Arabic karakterler encode edilmiş olabilir
+    const decodedPathname = decodeURIComponent(pathname)
+    const segments = decodedPathname.split('/').filter(Boolean)
     if (segments.length > 1) {
       const localizedRoute = segments[1]
       const originalRoute = getOriginalRoute(localizedRoute, pathLocale)
