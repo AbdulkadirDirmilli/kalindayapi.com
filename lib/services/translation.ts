@@ -21,18 +21,20 @@ const localeToGoogleLang: Record<Locale, string> = {
   tr: 'tr',
   en: 'en',
   ar: 'ar',
+  de: 'de',
+  ru: 'ru',
 };
 
 // Emlak terimleri - çeviri sonrası düzeltme için
 const realEstateTerms: Record<string, Record<Locale, string>> = {
-  'satılık': { tr: 'satılık', en: 'for sale', ar: 'للبيع' },
-  'kiralık': { tr: 'kiralık', en: 'for rent', ar: 'للإيجار' },
-  'daire': { tr: 'daire', en: 'apartment', ar: 'شقة' },
-  'villa': { tr: 'villa', en: 'villa', ar: 'فيلا' },
-  'arsa': { tr: 'arsa', en: 'land', ar: 'أرض' },
-  'ticari': { tr: 'ticari', en: 'commercial', ar: 'تجاري' },
-  'm²': { tr: 'm²', en: 'sqm', ar: 'م²' },
-  'metrekare': { tr: 'metrekare', en: 'square meters', ar: 'متر مربع' },
+  'satılık': { tr: 'satılık', en: 'for sale', ar: 'للبيع', de: 'zu verkaufen', ru: 'продажа' },
+  'kiralık': { tr: 'kiralık', en: 'for rent', ar: 'للإيجار', de: 'zu vermieten', ru: 'аренда' },
+  'daire': { tr: 'daire', en: 'apartment', ar: 'شقة', de: 'Wohnung', ru: 'квартира' },
+  'villa': { tr: 'villa', en: 'villa', ar: 'فيلا', de: 'Villa', ru: 'вилла' },
+  'arsa': { tr: 'arsa', en: 'land', ar: 'أرض', de: 'Grundstück', ru: 'участок' },
+  'ticari': { tr: 'ticari', en: 'commercial', ar: 'تجاري', de: 'Gewerbe', ru: 'коммерческая' },
+  'm²': { tr: 'm²', en: 'sqm', ar: 'م²', de: 'm²', ru: 'м²' },
+  'metrekare': { tr: 'metrekare', en: 'square meters', ar: 'متر مربع', de: 'Quadratmeter', ru: 'квадратных метров' },
 };
 
 // Konum açıklamaları - uluslararası kitle için
@@ -41,31 +43,43 @@ const locationEnhancements: Record<string, Record<Locale, string>> = {
     tr: 'Ortaca',
     en: 'Ortaca, Turkish Riviera',
     ar: 'أورتاجا، الريفييرا التركية',
+    de: 'Ortaca, Türkische Riviera',
+    ru: 'Ортаджа, Турецкая Ривьера',
   },
   'Dalyan': {
     tr: 'Dalyan',
     en: 'Dalyan, Mediterranean Turkey',
     ar: 'داليان، البحر المتوسط التركي',
+    de: 'Dalyan, Mittelmeer-Türkei',
+    ru: 'Далян, Средиземноморская Турция',
   },
   'Köyceğiz': {
     tr: 'Köyceğiz',
     en: 'Köyceğiz, Aegean Turkey',
     ar: 'كويجيز، بحر إيجة التركي',
+    de: 'Köyceğiz, Ägäische Türkei',
+    ru: 'Кёйджегиз, Эгейская Турция',
   },
   'Muğla': {
     tr: 'Muğla',
     en: 'Muğla Province, Southwest Turkey',
     ar: 'محافظة موغلا، جنوب غرب تركيا',
+    de: 'Provinz Muğla, Südwesttürkei',
+    ru: 'Провинция Мугла, Юго-Западная Турция',
   },
   'Dalaman': {
     tr: 'Dalaman',
     en: 'Dalaman, near international airport',
     ar: 'دالامان، بالقرب من المطار الدولي',
+    de: 'Dalaman, nahe internationalem Flughafen',
+    ru: 'Даламан, рядом с международным аэропортом',
   },
   'Fethiye': {
     tr: 'Fethiye',
     en: 'Fethiye, Turquoise Coast',
     ar: 'فتحية، الساحل الفيروزي',
+    de: 'Fethiye, Türkisküste',
+    ru: 'Фетхие, Бирюзовый берег',
   },
 };
 
@@ -234,12 +248,14 @@ export function translateTerms(text: string, targetLocale: Locale): string {
 
 import { prisma } from '@/lib/prisma';
 
-const targetLocales = ['en', 'ar'] as const;
-type TargetLocale = 'en' | 'ar';
+const targetLocales = ['en', 'ar', 'de', 'ru'] as const;
+type TargetLocale = 'en' | 'ar' | 'de' | 'ru';
 
 const localeNamesMap: Record<TargetLocale, string> = {
   en: 'İngilizce',
   ar: 'Arapça',
+  de: 'Almanca',
+  ru: 'Rusça',
 };
 
 /**

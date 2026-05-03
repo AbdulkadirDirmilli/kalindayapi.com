@@ -81,6 +81,30 @@ const texts = {
     otherPosts: "مقالات أخرى",
     whatsappMessage: "مرحباً، أود الحصول على معلومات حول مقالتكم \"{title}\".",
   },
+  de: {
+    backToBlog: "Zurück zum Blog",
+    readingTime: "Min. Lesezeit",
+    author: "Autor",
+    consultant: "Immobilien- & Bauberater",
+    call: "Anrufen",
+    getConsulting: "Beratung erhalten",
+    consultingDesc: "Möchten Sie professionelle Unterstützung zu diesem Thema? Unser Expertenteam steht Ihnen zur Seite.",
+    contactUs: "Kontaktieren Sie uns",
+    otherPosts: "Weitere Beiträge",
+    whatsappMessage: "Hallo, ich möchte Informationen zu Ihrem Artikel \"{title}\" erhalten.",
+  },
+  ru: {
+    backToBlog: "Вернуться в блог",
+    readingTime: "мин. чтения",
+    author: "Автор",
+    consultant: "Консультант по недвижимости и строительству",
+    call: "Позвонить",
+    getConsulting: "Получить консультацию",
+    consultingDesc: "Хотите получить профессиональную поддержку по этой теме? Наша команда экспертов к вашим услугам.",
+    contactUs: "Свяжитесь с нами",
+    otherPosts: "Другие статьи",
+    whatsappMessage: "Здравствуйте, я хочу получить информацию о вашей статье \"{title}\".",
+  },
 };
 
 export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: BlogDetayClientProps) {
