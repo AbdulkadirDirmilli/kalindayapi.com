@@ -18,5 +18,13 @@ jobs:
           script_stop: true
           script: |
             cd /root/kalindayapi.com
+            # Backup uploads if exists, then restore after pull
+            if [ -d "public/uploads" ]; then
+              mv public/uploads /tmp/uploads_backup
+            fi
             git pull origin main
+            if [ -d "/tmp/uploads_backup" ]; then
+              rm -rf public/uploads
+              mv /tmp/uploads_backup public/uploads
+            fi
             docker compose up -d --build
