@@ -237,6 +237,10 @@ export async function POST(request: NextRequest) {
         result.slug = generateSlug(result.title, targetLocale as Locale);
       }
 
+      // Add unique suffix to prevent slug collisions (especially for non-Latin scripts)
+      const shortId = id.substring(0, 8);
+      result.slug = result.slug ? `${result.slug}-${shortId}` : `blog-${shortId}`;
+
       // Save to database
       await prisma.blogPostTranslation.upsert({
         where: {
