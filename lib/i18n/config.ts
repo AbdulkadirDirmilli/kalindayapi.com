@@ -94,8 +94,16 @@ export function getOriginalRoute(localizedRoute: string, locale: Locale): string
   return localizedRoute;
 }
 
+// Çevrilmemesi gereken route'lar (klasör adları)
+// Bu route'lar tüm dillerde aynı kalır
+const nonTranslatableRoutes = ['rehber'];
+
 // Orijinal route'u dil bazlı route'a çevir
 export function getLocalizedRoute(originalRoute: string, locale: Locale): string {
+  // Çevrilmemesi gereken route'lar için direkt döndür
+  if (nonTranslatableRoutes.includes(originalRoute)) {
+    return originalRoute;
+  }
   const translation = routeTranslations[originalRoute];
   return translation ? translation[locale] : originalRoute;
 }

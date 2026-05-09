@@ -32,6 +32,11 @@ export interface RehberTexts {
   bottomCtaTitle: string;     // "{district}'da Gayrimenkul Danışmanlığı" pattern
   bottomCtaDescription: string;
   bottomCtaButton: string;
+
+  // Metadata
+  metaTitle: string;          // "{district} Emlak Rehberi | Satılık Ev, Arsa, Villa"
+  metaKeywords: string;       // "{district}, {district} emlak, ..."
+  ogTitle: string;            // "{district} İlçe Rehberi ve Emlak Fırsatları"
 }
 
 export const rehberTexts: Record<Locale, RehberTexts> = {
@@ -66,6 +71,11 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     bottomCtaTitle: "'da Gayrimenkul Danışmanlığı",
     bottomCtaDescription: "Kalinda Yapı olarak {district} ve tüm Muğla bölgesinde emlak, tadilat ve inşaat hizmetleri sunuyoruz. Profesyonel ekibimizle tanışın.",
     bottomCtaButton: "Ücretsiz Danışmanlık Al",
+
+    // Metadata
+    metaTitle: "{district} Emlak Rehberi | Satılık Ev, Arsa, Villa",
+    metaKeywords: "{district}, {district} emlak, {district} satılık ev, {district} arsa, {district} villa, Muğla emlak",
+    ogTitle: "{district} İlçe Rehberi ve Emlak Fırsatları",
   },
   en: {
     // Main page
@@ -98,6 +108,11 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     bottomCtaTitle: " - Real Estate Consulting",
     bottomCtaDescription: "Kalinda Yapı offers real estate, renovation and construction services in {district} and the entire Muğla region. Meet our professional team.",
     bottomCtaButton: "Get Free Consultation",
+
+    // Metadata
+    metaTitle: "{district} Real Estate Guide | Houses, Land, Villas for Sale",
+    metaKeywords: "{district}, {district} real estate, {district} houses for sale, {district} land, {district} villas, Muğla property",
+    ogTitle: "{district} District Guide and Real Estate Opportunities",
   },
   ar: {
     // Main page
@@ -130,6 +145,11 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     bottomCtaTitle: " - استشارات عقارية",
     bottomCtaDescription: "تقدم كاليندا يابي خدمات العقارات والتجديد والبناء في {district} ومنطقة موغلا بأكملها. تعرف على فريقنا المحترف.",
     bottomCtaButton: "احصل على استشارة مجانية",
+
+    // Metadata
+    metaTitle: "دليل عقارات {district} | منازل وأراضي وفلل للبيع",
+    metaKeywords: "{district}, عقارات {district}, منازل للبيع {district}, أراضي {district}, فلل {district}, عقارات موغلا",
+    ogTitle: "دليل منطقة {district} وفرص العقارات",
   },
   de: {
     // Main page
@@ -162,6 +182,11 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     bottomCtaTitle: " - Immobilienberatung",
     bottomCtaDescription: "Kalinda Yapı bietet Immobilien-, Renovierungs- und Baudienstleistungen in {district} und der gesamten Region Muğla. Lernen Sie unser professionelles Team kennen.",
     bottomCtaButton: "Kostenlose Beratung erhalten",
+
+    // Metadata
+    metaTitle: "{district} Immobilienführer | Häuser, Grundstücke, Villen zu verkaufen",
+    metaKeywords: "{district}, {district} Immobilien, {district} Häuser kaufen, {district} Grundstücke, {district} Villen, Muğla Immobilien",
+    ogTitle: "{district} Bezirksführer und Immobilienmöglichkeiten",
   },
   ru: {
     // Main page
@@ -194,6 +219,11 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     bottomCtaTitle: " - Консультации по недвижимости",
     bottomCtaDescription: "Kalinda Yapı предлагает услуги в сфере недвижимости, ремонта и строительства в {district} и по всему региону Мугла. Познакомьтесь с нашей профессиональной командой.",
     bottomCtaButton: "Получить бесплатную консультацию",
+
+    // Metadata
+    metaTitle: "Гид по недвижимости {district} | Дома, участки, виллы на продажу",
+    metaKeywords: "{district}, недвижимость {district}, дома на продажу {district}, участки {district}, виллы {district}, недвижимость Мугла",
+    ogTitle: "Путеводитель по району {district} и возможности недвижимости",
   },
 };
 

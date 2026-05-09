@@ -172,25 +172,25 @@ const nextConfig: NextConfig = {
         destination: "/ar/iletisim",
         permanent: true,
       },
-      // دليل (rehber): Rehber sadece Türkçe olduğu için doğrudan /tr'ye yönlendir (chain önleme)
+      // دليل (rehber): Arapça lokalize URL'leri doğru yola yönlendir
       {
         source: "/ar/دليل/:path*",
-        destination: "/tr/rehber/:path*",
+        destination: "/ar/rehber/:path*",
         permanent: true,
       },
       {
         source: "/ar/دليل",
-        destination: "/tr/rehber",
+        destination: "/ar/rehber",
         permanent: true,
       },
       {
         source: "/ar/%D8%AF%D9%84%D9%8A%D9%84/:path*",
-        destination: "/tr/rehber/:path*",
+        destination: "/ar/rehber/:path*",
         permanent: true,
       },
       {
         source: "/ar/%D8%AF%D9%84%D9%8A%D9%84",
-        destination: "/tr/rehber",
+        destination: "/ar/rehber",
         permanent: true,
       },
 
@@ -215,15 +215,15 @@ const nextConfig: NextConfig = {
         destination: "/en/iletisim",
         permanent: true,
       },
-      // guide → rehber: Rehber sadece Türkçe olduğu için doğrudan /tr'ye yönlendir (chain önleme)
+      // guide → rehber: İngilizce lokalize URL'leri doğru yola yönlendir
       {
         source: "/en/guide/:path*",
-        destination: "/tr/rehber/:path*",
+        destination: "/en/rehber/:path*",
         permanent: true,
       },
       {
         source: "/en/guide",
-        destination: "/tr/rehber",
+        destination: "/en/rehber",
         permanent: true,
       },
       {
@@ -318,15 +318,15 @@ const nextConfig: NextConfig = {
         destination: "/de/doviz-kurlari",
         permanent: true,
       },
-      // ratgeber (rehber): Rehber sadece Türkçe olduğu için doğrudan /tr'ye yönlendir (chain önleme)
+      // ratgeber → rehber: Almanca lokalize URL'leri doğru yola yönlendir
       {
         source: "/de/ratgeber/:path*",
-        destination: "/tr/rehber/:path*",
+        destination: "/de/rehber/:path*",
         permanent: true,
       },
       {
         source: "/de/ratgeber",
-        destination: "/tr/rehber",
+        destination: "/de/rehber",
         permanent: true,
       },
       // unternehmen (kurumsal)
@@ -444,25 +444,25 @@ const nextConfig: NextConfig = {
         destination: "/ru/doviz-kurlari",
         permanent: true,
       },
-      // гид (rehber): Rehber sadece Türkçe olduğu için doğrudan /tr'ye yönlendir (chain önleme)
+      // гид → rehber: Rusça lokalize URL'leri doğru yola yönlendir
       {
         source: "/ru/гид/:path*",
-        destination: "/tr/rehber/:path*",
+        destination: "/ru/rehber/:path*",
         permanent: true,
       },
       {
         source: "/ru/гид",
-        destination: "/tr/rehber",
+        destination: "/ru/rehber",
         permanent: true,
       },
       {
         source: "/ru/%D0%B3%D0%B8%D0%B4/:path*",
-        destination: "/tr/rehber/:path*",
+        destination: "/ru/rehber/:path*",
         permanent: true,
       },
       {
         source: "/ru/%D0%B3%D0%B8%D0%B4",
-        destination: "/tr/rehber",
+        destination: "/ru/rehber",
         permanent: true,
       },
       // компания (kurumsal)

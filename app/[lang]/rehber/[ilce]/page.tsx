@@ -6,7 +6,7 @@ import { Home, ChevronRight, MapPin, Users, Plane, Phone, ArrowRight } from "luc
 import { getIlceBySlug, getAllIlceSlugs } from "@/data/ilce-rehber";
 import { getIlceTranslation } from "@/data/ilce-rehber-i18n";
 import { getMahalleler } from "@/data/konum";
-import { rehberTexts, formatDistrictText } from "@/data/rehber-i18n";
+import { rehberTexts, formatDistrictText, type RehberTexts } from "@/data/rehber-i18n";
 import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/jsonld";
 import ExpandableMahalleler from "@/components/ui/ExpandableMahalleler";
 import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo";
@@ -39,16 +39,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!ilce) return { title: "Sayfa Bulunamadı" };
 
   const translation = getIlceTranslation(slug, locale);
+  const texts = rehberTexts[locale];
   const metaDescription = translation?.metaDescription || ilce.metaDescription;
 
   const url = buildLocalizedUrl(`/rehber/${slug}`, locale);
 
+  // Format metadata with district name
+  const title = formatDistrictText(texts.metaTitle, ilce.ad);
+  const keywords = formatDistrictText(texts.metaKeywords, ilce.ad);
+  const ogTitle = formatDistrictText(texts.ogTitle, ilce.ad);
+
   return {
-    title: `${ilce.ad} Emlak Rehberi | Satılık Ev, Arsa, Villa`,
+    title,
     description: metaDescription,
-    keywords: `${ilce.ad}, ${ilce.ad} emlak, ${ilce.ad} satılık ev, ${ilce.ad} arsa, ${ilce.ad} villa, Muğla emlak`,
+    keywords,
     openGraph: {
-      title: `${ilce.ad} İlçe Rehberi ve Emlak Fırsatları`,
+      title: ogTitle,
       description: metaDescription,
       url,
       images: [ilce.kapakGorsel],
