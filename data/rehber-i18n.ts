@@ -37,6 +37,12 @@ export interface RehberTexts {
   metaTitle: string;          // "{district} Emlak Rehberi | Satılık Ev, Arsa, Villa"
   metaKeywords: string;       // "{district}, {district} emlak, ..."
   ogTitle: string;            // "{district} İlçe Rehberi ve Emlak Fırsatları"
+
+  // Neighborhoods section
+  neighborhoodsTitle: string;      // "{district} Mahalleleri"
+  neighborhoodsDescription: string; // "{district} ilçesinde toplam {count} mahalle..."
+  moreNeighborhoods: string;       // "+{count} mahalle daha"
+  showLess: string;                // "Daha az göster"
 }
 
 export const rehberTexts: Record<Locale, RehberTexts> = {
@@ -76,6 +82,12 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     metaTitle: "{district} Emlak Rehberi | Satılık Ev, Arsa, Villa",
     metaKeywords: "{district}, {district} emlak, {district} satılık ev, {district} arsa, {district} villa, Muğla emlak",
     ogTitle: "{district} İlçe Rehberi ve Emlak Fırsatları",
+
+    // Neighborhoods section
+    neighborhoodsTitle: "{district} Mahalleleri",
+    neighborhoodsDescription: "{district} ilçesinde toplam {count} mahalle bulunmaktadır. Emlak, tadilat ve inşaat hizmetlerimiz tüm mahallelerde geçerlidir.",
+    moreNeighborhoods: "+{count} mahalle daha",
+    showLess: "Daha az göster",
   },
   en: {
     // Main page
@@ -113,6 +125,12 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     metaTitle: "{district} Real Estate Guide | Houses, Land, Villas for Sale",
     metaKeywords: "{district}, {district} real estate, {district} houses for sale, {district} land, {district} villas, Muğla property",
     ogTitle: "{district} District Guide and Real Estate Opportunities",
+
+    // Neighborhoods section
+    neighborhoodsTitle: "{district} Neighborhoods",
+    neighborhoodsDescription: "There are {count} neighborhoods in {district} district. Our real estate, renovation and construction services are available in all neighborhoods.",
+    moreNeighborhoods: "+{count} more neighborhoods",
+    showLess: "Show less",
   },
   ar: {
     // Main page
@@ -150,6 +168,12 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     metaTitle: "دليل عقارات {district} | منازل وأراضي وفلل للبيع",
     metaKeywords: "{district}, عقارات {district}, منازل للبيع {district}, أراضي {district}, فلل {district}, عقارات موغلا",
     ogTitle: "دليل منطقة {district} وفرص العقارات",
+
+    // Neighborhoods section
+    neighborhoodsTitle: "أحياء {district}",
+    neighborhoodsDescription: "يوجد {count} حي في منطقة {district}. خدماتنا العقارية والتجديد والبناء متاحة في جميع الأحياء.",
+    moreNeighborhoods: "+{count} أحياء أخرى",
+    showLess: "عرض أقل",
   },
   de: {
     // Main page
@@ -187,6 +211,12 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     metaTitle: "{district} Immobilienführer | Häuser, Grundstücke, Villen zu verkaufen",
     metaKeywords: "{district}, {district} Immobilien, {district} Häuser kaufen, {district} Grundstücke, {district} Villen, Muğla Immobilien",
     ogTitle: "{district} Bezirksführer und Immobilienmöglichkeiten",
+
+    // Neighborhoods section
+    neighborhoodsTitle: "Stadtteile von {district}",
+    neighborhoodsDescription: "In {district} gibt es {count} Stadtteile. Unsere Immobilien-, Renovierungs- und Baudienstleistungen sind in allen Stadtteilen verfügbar.",
+    moreNeighborhoods: "+{count} weitere Stadtteile",
+    showLess: "Weniger anzeigen",
   },
   ru: {
     // Main page
@@ -224,6 +254,12 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
     metaTitle: "Гид по недвижимости {district} | Дома, участки, виллы на продажу",
     metaKeywords: "{district}, недвижимость {district}, дома на продажу {district}, участки {district}, виллы {district}, недвижимость Мугла",
     ogTitle: "Путеводитель по району {district} и возможности недвижимости",
+
+    // Neighborhoods section
+    neighborhoodsTitle: "Районы {district}",
+    neighborhoodsDescription: "В {district} {count} районов. Наши услуги по недвижимости, ремонту и строительству доступны во всех районах.",
+    moreNeighborhoods: "+{count} районов ещё",
+    showLess: "Показать меньше",
   },
 };
 

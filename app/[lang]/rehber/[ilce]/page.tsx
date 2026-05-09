@@ -184,7 +184,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
               </div>
 
               {/* Mahalleler */}
-              <ExpandableMahalleler mahalleler={mahalleler} ilceAd={ilce.ad} />
+              <ExpandableMahalleler mahalleler={mahalleler} ilceAd={ilce.ad} locale={locale} />
 
               {/* SSS */}
               <div>
