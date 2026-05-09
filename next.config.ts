@@ -7,6 +7,37 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
   skipTrailingSlashRedirect: false,
 
+  // Güvenlik başlıkları
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(self)',
+          },
+        ],
+      },
+    ];
+  },
+
   // SEO: Tüm trafiği https://www.kalindayapi.com'a yönlendir
   async redirects() {
     return [
@@ -96,7 +127,8 @@ const nextConfig: NextConfig = {
         destination: "/ar/ilanlar/:path*",
         permanent: true,
       },
-      // مدونة (blog)
+      // مدونة (blog): Türkçe slug'lar için doğrudan /tr'ye yönlendir (chain önleme)
+      // Arapça çevirisi olan slug'lar /ar/blog/:slug formatında olacak
       {
         source: "/ar/مدونة/:path*",
         destination: "/ar/blog/:path*",
@@ -140,15 +172,25 @@ const nextConfig: NextConfig = {
         destination: "/ar/iletisim",
         permanent: true,
       },
-      // دليل (rehber)
+      // دليل (rehber): Rehber sadece Türkçe olduğu için doğrudan /tr'ye yönlendir (chain önleme)
       {
         source: "/ar/دليل/:path*",
-        destination: "/ar/rehber/:path*",
+        destination: "/tr/rehber/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ar/دليل",
+        destination: "/tr/rehber",
         permanent: true,
       },
       {
         source: "/ar/%D8%AF%D9%84%D9%8A%D9%84/:path*",
-        destination: "/ar/rehber/:path*",
+        destination: "/tr/rehber/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ar/%D8%AF%D9%84%D9%8A%D9%84",
+        destination: "/tr/rehber",
         permanent: true,
       },
 
@@ -173,9 +215,15 @@ const nextConfig: NextConfig = {
         destination: "/en/iletisim",
         permanent: true,
       },
+      // guide → rehber: Rehber sadece Türkçe olduğu için doğrudan /tr'ye yönlendir (chain önleme)
       {
         source: "/en/guide/:path*",
-        destination: "/en/rehber/:path*",
+        destination: "/tr/rehber/:path*",
+        permanent: true,
+      },
+      {
+        source: "/en/guide",
+        destination: "/tr/rehber",
         permanent: true,
       },
       {
@@ -270,15 +318,15 @@ const nextConfig: NextConfig = {
         destination: "/de/doviz-kurlari",
         permanent: true,
       },
-      // ratgeber (rehber)
+      // ratgeber (rehber): Rehber sadece Türkçe olduğu için doğrudan /tr'ye yönlendir (chain önleme)
       {
         source: "/de/ratgeber/:path*",
-        destination: "/de/rehber/:path*",
+        destination: "/tr/rehber/:path*",
         permanent: true,
       },
       {
         source: "/de/ratgeber",
-        destination: "/de/rehber",
+        destination: "/tr/rehber",
         permanent: true,
       },
       // unternehmen (kurumsal)
@@ -396,25 +444,25 @@ const nextConfig: NextConfig = {
         destination: "/ru/doviz-kurlari",
         permanent: true,
       },
-      // гид (rehber)
+      // гид (rehber): Rehber sadece Türkçe olduğu için doğrudan /tr'ye yönlendir (chain önleme)
       {
         source: "/ru/гид/:path*",
-        destination: "/ru/rehber/:path*",
+        destination: "/tr/rehber/:path*",
         permanent: true,
       },
       {
         source: "/ru/гид",
-        destination: "/ru/rehber",
+        destination: "/tr/rehber",
         permanent: true,
       },
       {
         source: "/ru/%D0%B3%D0%B8%D0%B4/:path*",
-        destination: "/ru/rehber/:path*",
+        destination: "/tr/rehber/:path*",
         permanent: true,
       },
       {
         source: "/ru/%D0%B3%D0%B8%D0%B4",
-        destination: "/ru/rehber",
+        destination: "/tr/rehber",
         permanent: true,
       },
       // компания (kurumsal)
@@ -598,81 +646,53 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // SSS sayfası - artık çoklu dil desteği var, redirect kaldırıldı
-      // Gizlilik sayfası (çevirisi yok)
-      {
-        source: "/en/gizlilik",
-        destination: "/tr/gizlilik",
-        permanent: true,
-      },
-      {
-        source: "/ar/gizlilik",
-        destination: "/tr/gizlilik",
-        permanent: true,
-      },
-      {
-        source: "/de/gizlilik",
-        destination: "/tr/gizlilik",
-        permanent: true,
-      },
-      {
-        source: "/ru/gizlilik",
-        destination: "/tr/gizlilik",
-        permanent: true,
-      },
+      // Gizlilik sayfası - artık çoklu dil desteği var
+      // Çevrilen path'leri kendi dillerindeki Türkçe path'e yönlendir
       {
         source: "/en/privacy",
-        destination: "/tr/gizlilik",
+        destination: "/en/gizlilik",
         permanent: true,
       },
       {
         source: "/de/datenschutz",
-        destination: "/tr/gizlilik",
+        destination: "/de/gizlilik",
         permanent: true,
       },
       {
         source: "/ar/الخصوصية",
-        destination: "/tr/gizlilik",
+        destination: "/ar/gizlilik",
         permanent: true,
       },
       {
         source: "/ar/%D8%A7%D9%84%D8%AE%D8%B5%D9%88%D8%B5%D9%8A%D8%A9",
-        destination: "/tr/gizlilik",
-        permanent: true,
-      },
-      // Kullanım koşulları (çevirisi yok)
-      {
-        source: "/en/kullanim-kosullari",
-        destination: "/tr/kullanim-kosullari",
+        destination: "/ar/gizlilik",
         permanent: true,
       },
       {
-        source: "/ar/kullanim-kosullari",
-        destination: "/tr/kullanim-kosullari",
+        source: "/ru/конфиденциальность",
+        destination: "/ru/gizlilik",
         permanent: true,
       },
       {
-        source: "/de/kullanim-kosullari",
-        destination: "/tr/kullanim-kosullari",
+        source: "/ru/%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C",
+        destination: "/ru/gizlilik",
         permanent: true,
       },
-      {
-        source: "/ru/kullanim-kosullari",
-        destination: "/tr/kullanim-kosullari",
-        permanent: true,
-      },
+      // Kullanım koşulları - artık çoklu dil desteği var
+      // Çevrilen path'leri kendi dillerindeki Türkçe path'e yönlendir
       {
         source: "/en/terms",
-        destination: "/tr/kullanim-kosullari",
+        destination: "/en/kullanim-kosullari",
         permanent: true,
       },
       {
         source: "/de/nutzungsbedingungen",
-        destination: "/tr/kullanim-kosullari",
+        destination: "/de/kullanim-kosullari",
         permanent: true,
       },
       {
         source: "/ar/الشروط",
-        destination: "/tr/kullanim-kosullari",
+        destination: "/ar/kullanim-kosullari",
         permanent: true,
       },
       {

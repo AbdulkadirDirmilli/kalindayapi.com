@@ -111,6 +111,8 @@ model IlanFoto {
   sira      Int      @default(0)
   createdAt DateTime @default(now())
   ilan      Ilan     @relation(fields: [ilanId], references: [id], onDelete: Cascade)
+
+  @@index([ilanId]) // Performans: ilan fotoğraflarını hızlı getir
 }
 
 model IlanView {
@@ -365,6 +367,7 @@ model HizmetTranslation {
 
   @@unique([hizmetId, language])
   @@unique([slug, language])
+  @@index([language]) // Performans: dil bazlı hizmet aramalarını hızlandır
 }
 
 model BlogPost {
@@ -397,4 +400,5 @@ model BlogPostTranslation {
 
   @@unique([postId, language])
   @@unique([slug, language])
+  @@index([language]) // Performans: dil bazlı blog aramalarını hızlandır
 }

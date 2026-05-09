@@ -137,6 +137,31 @@ async function getBlogPost(slug: string, locale: Locale): Promise<{
   }
 }
 
+// Blog yazısının mevcut çevirilerini getir (hreflang için)
+async function getAvailableTranslations(slug: string): Promise<{ locale: Locale; slug: string }[]> {
+  try {
+    // Önce bu slug'ın hangi post'a ait olduğunu bul
+    const translation = await prisma.blogPostTranslation.findFirst({
+      where: { slug, status: 'published' },
+      select: { postId: true },
+    });
+
+    if (!translation) return [];
+
+    // Bu post'un tüm çevirilerini getir
+    const allTranslations = await prisma.blogPostTranslation.findMany({
+      where: { postId: translation.postId, status: 'published' },
+      select: { language: true, slug: true },
+    });
+
+    return allTranslations
+      .filter(t => locales.includes(t.language as Locale))
+      .map(t => ({ locale: t.language as Locale, slug: t.slug }));
+  } catch {
+    return [];
+  }
+}
+
 // Diğer yazıları getir
 async function getOtherPosts(currentId: string, locale: Locale, limit = 3) {
   try {
@@ -238,6 +263,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const url = buildLocalizedUrl(`/blog/${yazi.slug}`, locale);
 
+  // Sadece çevirisi olan diller için hreflang ekle
+  const translations = await getAvailableTranslations(slug);
+  const availableLocales = translations.length > 0
+    ? translations.map(t => t.locale)
+    : [locale]; // fallback: sadece mevcut dil
+
   return {
     title: `${yazi.baslik} | Kalinda Yapı`,
     description: yazi.ozet,
@@ -253,7 +284,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: yazi.kapakGorsel ? [{ url: yazi.kapakGorsel, alt: yazi.baslik }] : [],
       locale: locale === 'tr' ? 'tr_TR' : locale === 'en' ? 'en_US' : 'ar_SA',
     },
-    alternates: buildSeoAlternates(`/blog/${yazi.slug}`, locale),
+    alternates: buildSeoAlternates(`/blog/${yazi.slug}`, locale, availableLocales),
   };
 }
 

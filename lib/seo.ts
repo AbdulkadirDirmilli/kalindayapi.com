@@ -24,14 +24,32 @@ export function buildLocalizedUrl(logicalPath: string, locale: Locale): string {
 /**
  * Produce the `alternates` field for Next.js Metadata, with a self-referencing
  * canonical URL + per-locale hreflang map + x-default.
+ *
+ * @param logicalPath - The logical path (e.g., '/blog/my-post')
+ * @param currentLocale - The current locale
+ * @param availableLocales - Optional array of locales that have translations.
+ *                           If not provided, all locales are included.
+ *                           Use this for dynamic content (blog, ilanlar, hizmetler)
+ *                           to only include locales that actually have translations.
  */
 export function buildSeoAlternates(
   logicalPath: string,
   currentLocale: Locale,
+  availableLocales?: Locale[],
 ): NonNullable<Metadata['alternates']> {
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = buildLocalizedUrl(logicalPath, l);
-  languages['x-default'] = languages[defaultLocale];
+  const targetLocales = availableLocales || locales;
+
+  for (const l of targetLocales) {
+    languages[l] = buildLocalizedUrl(logicalPath, l);
+  }
+
+  // x-default: prefer defaultLocale if available, otherwise use currentLocale
+  if (targetLocales.includes(defaultLocale)) {
+    languages['x-default'] = languages[defaultLocale];
+  } else if (targetLocales.length > 0) {
+    languages['x-default'] = languages[targetLocales[0]];
+  }
 
   return {
     canonical: buildLocalizedUrl(logicalPath, currentLocale),

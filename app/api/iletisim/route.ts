@@ -1,10 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { sendContactFormNotification } from '@/lib/email'
+import { checkRateLimit, getClientIP, getRateLimitHeaders, RATE_LIMITS } from '@/lib/rate-limit'
 
 // POST - Create new contact form submission (public)
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting - form gönderimi için 5 istek/dakika
+    const clientIP = getClientIP(request)
+    const rateLimitResult = checkRateLimit(`iletisim:${clientIP}`, RATE_LIMITS.form)
+
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        { error: rateLimitResult.message },
+        {
+          status: 429,
+          headers: getRateLimitHeaders(rateLimitResult),
+        }
+      )
+    }
+
     const body = await request.json()
 
     const { ad, email, telefon, konu, mesaj } = body

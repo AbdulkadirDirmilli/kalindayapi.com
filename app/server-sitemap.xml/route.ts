@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 // Desteklenen diller
-const locales = ['tr', 'en', 'ar'] as const
+const locales = ['tr', 'en', 'ar', 'de', 'ru'] as const
 type Locale = (typeof locales)[number]
 const defaultLocale: Locale = 'tr'
 
@@ -333,16 +333,19 @@ export async function GET() {
   } catch (error) {
     console.error('Server sitemap error:', error)
 
-    // Hata durumunda boş sitemap döndür
-    const emptyXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-</urlset>`
-
-    return new NextResponse(emptyXml, {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/xml',
-      },
-    })
+    // Hata durumunda HTTP 500 döndür - Google boş sitemap'i indexlemesin
+    // NOT: Boş sitemap + 200 OK = Google tüm URL'leri silmeye çalışabilir!
+    return new NextResponse(
+      `<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap generation error - please retry later -->
+<error>Internal Server Error</error>`,
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/xml',
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+        },
+      }
+    )
   }
 }

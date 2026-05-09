@@ -78,9 +78,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
-    console.log('Gelen veri:', JSON.stringify(body, null, 2))
     const validatedData = ilanSchema.parse(body)
-    console.log('Validated veri:', JSON.stringify(validatedData, null, 2))
 
     const { fotograflar, ...ilanData } = validatedData
 

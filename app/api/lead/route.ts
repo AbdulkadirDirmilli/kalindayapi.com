@@ -1,7 +1,8 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { sendLeadSms } from '@/lib/lead-sms'
 import { sendLeadEmailNotification } from '@/lib/lead-email'
+import { checkRateLimit, getClientIP, getRateLimitHeaders, RATE_LIMITS } from '@/lib/rate-limit'
 
 // Turkish phone validation: accepts 05XX XXX XX XX or variants
 const TURKISH_PHONE_REGEX = /^(0?5\d{9}|905\d{9}|\+905\d{9})$/
@@ -12,6 +13,20 @@ function cleanPhone(raw: string): string {
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting - form gönderimi için 5 istek/dakika
+    const clientIP = getClientIP(request)
+    const rateLimitResult = checkRateLimit(`lead:${clientIP}`, RATE_LIMITS.form)
+
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        { error: rateLimitResult.message },
+        {
+          status: 429,
+          headers: getRateLimitHeaders(rateLimitResult),
+        }
+      )
+    }
+
     const body = await request.json()
     const { name, phone, listingId, listingTitle } = body
 

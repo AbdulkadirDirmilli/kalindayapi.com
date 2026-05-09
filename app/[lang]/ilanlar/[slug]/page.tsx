@@ -174,6 +174,48 @@ async function getIlan(slug: string, locale: Locale = 'tr'): Promise<{
   return { ilan: formatIlan(ilan, locale), hasTranslation: true };
 }
 
+// İlanın mevcut çevirilerini getir (hreflang için)
+async function getAvailableTranslations(slug: string): Promise<Locale[]> {
+  try {
+    // Önce bu slug'ın hangi ilana ait olduğunu bul
+    let ilan = await prisma.ilan.findUnique({
+      where: { slug },
+      select: { id: true },
+    });
+
+    // Orijinal slug ile bulunamadıysa, çeviri slug ile dene
+    if (!ilan) {
+      const translation = await prisma.ilanTranslation.findFirst({
+        where: { slug, status: 'published' },
+        select: { ilanId: true },
+      });
+      if (translation) {
+        ilan = { id: translation.ilanId };
+      }
+    }
+
+    if (!ilan) return ['tr']; // fallback
+
+    // Bu ilanın tüm çevirilerini getir
+    const allTranslations = await prisma.ilanTranslation.findMany({
+      where: { ilanId: ilan.id, status: 'published' },
+      select: { language: true },
+    });
+
+    // TR her zaman var (orijinal)
+    const availableLocales: Locale[] = ['tr'];
+    for (const t of allTranslations) {
+      if (locales.includes(t.language as Locale) && t.language !== 'tr') {
+        availableLocales.push(t.language as Locale);
+      }
+    }
+
+    return availableLocales;
+  } catch {
+    return ['tr'];
+  }
+}
+
 // Benzer ilanları getir
 async function getBenzerIlanlar(kategori: string, currentSlug: string, locale: Locale = 'tr') {
   const ilanlar = await prisma.ilan.findMany({
@@ -302,7 +344,8 @@ export async function generateMetadata({ params }: IlanDetayPageProps): Promise<
       description,
       images: [ogImage],
     },
-    alternates: buildSeoAlternates(`/ilanlar/${ilan.slug}`, locale),
+    // Sadece çevirisi olan diller için hreflang ekle
+    alternates: buildSeoAlternates(`/ilanlar/${ilan.slug}`, locale, await getAvailableTranslations(slug)),
   };
 }
 
