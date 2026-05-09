@@ -84,8 +84,23 @@ export async function GET() {
     const turkishOnlyPages = [
       { path: 'gizlilik', priority: 0.5, changefreq: 'monthly' },
       { path: 'kullanim-kosullari', priority: 0.5, changefreq: 'monthly' },
-      { path: 'rehber', priority: 0.7, changefreq: 'weekly' },
     ]
+
+    // Çok dilli rehber sayfası
+    const rehberAlternates: { locale: Locale; href: string }[] = locales.map((loc) => ({
+      locale: loc,
+      href: `${baseUrl}/${loc}/rehber`,
+    }))
+
+    for (const locale of locales) {
+      urls.push({
+        loc: `${baseUrl}/${locale}/rehber`,
+        lastmod: now,
+        changefreq: 'weekly',
+        priority: 0.7,
+        alternates: rehberAlternates,
+      })
+    }
 
     // Çok dilli sayfalar - tüm dillerde URL ekle
     for (const page of multiLangPages) {
@@ -120,7 +135,7 @@ export async function GET() {
       })
     }
 
-    // Rehber ilçe sayfaları - sadece Türkçe (çevirisi yok)
+    // Rehber ilçe sayfaları - tüm dillerde çevirisi var
     const ilceSlugs = [
       'ortaca', 'dalyan', 'koycegiz', 'dalaman', 'fethiye', 'marmaris',
       'bodrum', 'milas', 'mentese', 'datca', 'ula', 'yatagan',
@@ -128,13 +143,22 @@ export async function GET() {
     ]
 
     for (const slug of ilceSlugs) {
-      urls.push({
-        loc: `${baseUrl}/tr/rehber/${slug}`,
-        lastmod: now,
-        changefreq: 'monthly',
-        priority: 0.6,
-        // Sadece Türkçe olduğu için alternate yok
-      })
+      // Her ilçe için tüm dillerde hreflang alternates oluştur
+      const ilceAlternates: { locale: Locale; href: string }[] = locales.map((loc) => ({
+        locale: loc,
+        href: `${baseUrl}/${loc}/rehber/${slug}`,
+      }))
+
+      // Her dil için URL ekle
+      for (const locale of locales) {
+        urls.push({
+          loc: `${baseUrl}/${locale}/rehber/${slug}`,
+          lastmod: now,
+          changefreq: 'monthly',
+          priority: 0.6,
+          alternates: ilceAlternates,
+        })
+      }
     }
 
     // 1. Aktif ilanları getir (tüm dillerdeki çevirileriyle)
