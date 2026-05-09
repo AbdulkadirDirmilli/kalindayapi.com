@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Home, ChevronRight, MapPin, Users, Plane, Phone, ArrowRight } from "lucide-react";
 import { getIlceBySlug, getAllIlceSlugs } from "@/data/ilce-rehber";
+import { getIlceTranslation } from "@/data/ilce-rehber-i18n";
 import { getMahalleler } from "@/data/konum";
 import { rehberTexts, formatDistrictText } from "@/data/rehber-i18n";
 import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/jsonld";
@@ -28,15 +29,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!ilce) return { title: "Sayfa Bulunamadı" };
 
+  const translation = getIlceTranslation(slug, locale);
+  const metaDescription = translation?.metaDescription || ilce.metaDescription;
+
   const url = buildLocalizedUrl(`/rehber/${slug}`, locale);
 
   return {
     title: `${ilce.ad} Emlak Rehberi | Satılık Ev, Arsa, Villa`,
-    description: ilce.metaDescription,
+    description: metaDescription,
     keywords: `${ilce.ad}, ${ilce.ad} emlak, ${ilce.ad} satılık ev, ${ilce.ad} arsa, ${ilce.ad} villa, Muğla emlak`,
     openGraph: {
       title: `${ilce.ad} İlçe Rehberi ve Emlak Fırsatları`,
-      description: ilce.metaDescription,
+      description: metaDescription,
       url,
       images: [ilce.kapakGorsel],
     },
@@ -55,6 +59,12 @@ export default async function IlceRehberPage({ params }: PageProps) {
     notFound();
   }
 
+  // Get translated content for non-Turkish locales
+  const translation = getIlceTranslation(slug, locale);
+  const kisaTanitim = translation?.kisaTanitim || ilce.kisaTanitim;
+  const sss = translation?.sss || ilce.sss;
+  const seoBasliklar = translation?.seoBasliklar || ilce.seoBasliklar;
+
   const mahalleler = getMahalleler(ilce.ad);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -63,7 +73,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
     { name: ilce.ad, url: `/${locale}/${getLocalizedRoute('rehber', locale)}/${ilce.slug}` },
   ]);
 
-  const faqSchema = generateFAQSchema(ilce.sss);
+  const faqSchema = generateFAQSchema(sss);
 
   return (
     <>
@@ -109,7 +119,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
             {ilce.ad} <span className="text-[#C9A84C]">{texts.guideTitle}</span>
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-3xl mb-8">
-            {ilce.kisaTanitim}
+            {kisaTanitim}
           </p>
 
           {/* Quick Stats */}
@@ -167,7 +177,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
                   {texts.faqTitle}
                 </h2>
                 <div className="space-y-4">
-                  {ilce.sss.map((item, index) => (
+                  {sss.map((item, index) => (
                     <div key={index} className="bg-[#F5F5F5] rounded-xl p-5">
                       <h3 className="font-bold text-[#0B1F3A] mb-2">{item.soru}</h3>
                       <p className="text-[#666666]">{item.cevap}</p>
@@ -209,7 +219,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
               <div className="bg-[#F5F5F5] rounded-2xl p-6">
                 <h3 className="font-bold text-[#0B1F3A] mb-4">{texts.relatedSearches}</h3>
                 <div className="flex flex-wrap gap-2">
-                  {ilce.seoBasliklar.slice(0, 5).map((baslik, index) => (
+                  {seoBasliklar.slice(0, 5).map((baslik, index) => (
                     <span
                       key={index}
                       className="px-3 py-1 bg-white text-[#666666] text-xs rounded-full"
