@@ -14,6 +14,7 @@ import { Instagram, Facebook, Youtube } from "@/components/icons/SocialIcons";
 import { createWhatsAppLink } from "@/lib/utils";
 import { useLocale } from "@/components/providers/LocaleProvider";
 import { getLocalizedRoute } from "@/lib/i18n";
+import VisitorCounter from "@/components/ui/VisitorCounter";
 
 // Footer translations
 const footerTexts = {
@@ -443,6 +444,13 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+
+      {/* Visitor Counter */}
+      <div className="border-t border-white/10">
+        <div className="container mx-auto px-4 py-6">
+          <VisitorCounter locale={locale} />
         </div>
       </div>
 

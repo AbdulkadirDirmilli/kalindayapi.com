@@ -402,3 +402,32 @@ model BlogPostTranslation {
   @@unique([slug, language])
   @@index([language]) // Performans: dil bazlı blog aramalarını hızlandır
 }
+
+// ==========================================
+// SITE ANALYTICS - Ziyaretçi Sayacı
+// ==========================================
+
+model SiteVisit {
+  id          String   @id @default(uuid())
+  visitorHash String   // IP hash (gizlilik için)
+  userAgent   String?
+  path        String?
+  referrer    String?
+  country     String?
+  visitedAt   DateTime @default(now())
+
+  @@index([visitedAt])
+  @@index([visitorHash, visitedAt])
+}
+
+model SiteStats {
+  id              String   @id @default(uuid())
+  date            DateTime @unique // Her gün için bir kayıt
+  totalVisits     Int      @default(0)
+  uniqueVisitors  Int      @default(0)
+  pageViews       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([date])
+}
