@@ -19,7 +19,16 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const slugs = getAllIlceSlugs();
-  return slugs.map((ilce) => ({ ilce }));
+  const langs = ['tr', 'en', 'ar', 'de', 'ru'];
+
+  // Generate params for all combinations of lang and ilce
+  const params: { lang: string; ilce: string }[] = [];
+  for (const lang of langs) {
+    for (const ilce of slugs) {
+      params.push({ lang, ilce });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

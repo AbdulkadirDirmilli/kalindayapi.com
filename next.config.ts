@@ -603,48 +603,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // 11. Sadece Türkçe içerik olan sayfaları TR'ye yönlendir
-      // Rehber sayfaları (çevirisi yok)
-      {
-        source: "/en/rehber/:path*",
-        destination: "/tr/rehber/:path*",
-        permanent: true,
-      },
-      {
-        source: "/ar/rehber/:path*",
-        destination: "/tr/rehber/:path*",
-        permanent: true,
-      },
-      {
-        source: "/de/rehber/:path*",
-        destination: "/tr/rehber/:path*",
-        permanent: true,
-      },
-      {
-        source: "/ru/rehber/:path*",
-        destination: "/tr/rehber/:path*",
-        permanent: true,
-      },
-      {
-        source: "/en/rehber",
-        destination: "/tr/rehber",
-        permanent: true,
-      },
-      {
-        source: "/ar/rehber",
-        destination: "/tr/rehber",
-        permanent: true,
-      },
-      {
-        source: "/de/rehber",
-        destination: "/tr/rehber",
-        permanent: true,
-      },
-      {
-        source: "/ru/rehber",
-        destination: "/tr/rehber",
-        permanent: true,
-      },
+      // Rehber sayfaları artık çok dilli - redirect kaldırıldı
       // SSS sayfası - artık çoklu dil desteği var, redirect kaldırıldı
       // Gizlilik sayfası - artık çoklu dil desteği var
       // Çevrilen path'leri kendi dillerindeki Türkçe path'e yönlendir
