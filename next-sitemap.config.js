@@ -25,6 +25,10 @@ module.exports = {
     '/en/*',
     '/ar',
     '/ar/*',
+    '/de',
+    '/de/*',
+    '/ru',
+    '/ru/*',
     // Non-localized routes
     '/ilanlar',
     '/ilanlar/*',
