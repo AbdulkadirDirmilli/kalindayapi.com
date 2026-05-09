@@ -79,20 +79,23 @@ export default function VisitorCounter({ locale = "tr" }: VisitorCounterProps) {
 
   // Sayfa yüklendiğinde ziyareti kaydet ve istatistikleri al
   useEffect(() => {
-    // Ziyareti kaydet
+    // Önce ziyareti kaydet, sonra istatistikleri al
     fetch("/api/analytics/track", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ path: window.location.pathname }),
-    }).catch(() => {
-      // Hata olursa sessizce devam et
-    });
-
-    // İstatistikleri al
-    fetch("/api/analytics/stats")
+    })
+      .then(() => {
+        // Ziyaret kaydedildikten sonra istatistikleri al
+        return fetch("/api/analytics/stats");
+      })
       .then((res) => res.json())
       .then((data) => {
-        setStats(data);
+        // Online sayısı minimum 1 olmalı (mevcut ziyaretçi)
+        setStats({
+          ...data,
+          online: Math.max(1, data.online),
+        });
         setIsLoading(false);
       })
       .catch(() => {

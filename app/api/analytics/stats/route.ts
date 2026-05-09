@@ -84,10 +84,10 @@ export async function GET() {
     const realVisitors = allTimeStats._sum.uniqueVisitors || 0;
     const totalVisitors = BASE_VISITORS + bonusVisitors + realVisitors;
 
-    // Gerçek online + simüle edilmiş
+    // Gerçek online + simüle edilmiş (minimum 1 - mevcut ziyaretçi)
     const realOnline = onlineNow.length;
     const simulatedOnline = getSimulatedOnline();
-    const totalOnline = realOnline + simulatedOnline;
+    const totalOnline = Math.max(1, realOnline + simulatedOnline);
 
     return NextResponse.json({
       launchDate: LAUNCH_DATE.toISOString(),
@@ -117,7 +117,7 @@ export async function GET() {
         uniqueVisitors: BASE_VISITORS + bonusVisitors
       },
       today: { totalVisits: 0, uniqueVisitors: 0 },
-      online: getSimulatedOnline(),
+      online: Math.max(1, getSimulatedOnline()),
     });
   }
 }
