@@ -4,11 +4,40 @@ import { prisma } from '@/lib/prisma';
 // Site yayına alınma tarihi
 const LAUNCH_DATE = new Date('2026-04-03T00:00:00Z');
 
+// Başlangıç ziyaretçi sayısı
+const BASE_VISITORS = 101;
+
 // Günün başlangıcını al (UTC)
 function getStartOfDay(date: Date): Date {
   const d = new Date(date);
   d.setUTCHours(0, 0, 0, 0);
   return d;
+}
+
+// Her 3 günde 2 artış hesapla
+function calculateBonusVisitors(daysSinceLaunch: number): number {
+  // Her 3 günde 2 artış = (gün / 3) * 2
+  return Math.floor(daysSinceLaunch / 3) * 2;
+}
+
+// Simüle edilmiş online kullanıcı sayısı (20 dk'da bir, 5 dk boyunca 1-5 arası)
+function getSimulatedOnline(): number {
+  const now = new Date();
+  const minutes = now.getMinutes();
+
+  // Her 20 dakikada bir (0, 20, 40 dk) 5 dakika boyunca aktif
+  // 0-4, 20-24, 40-44 dakikaları arasında aktif
+  const cycleMinute = minutes % 20;
+
+  if (cycleMinute < 5) {
+    // Aktif dönem: 1-5 arası rastgele değer
+    // Seed olarak dakika ve saat kullan (aynı dakikada aynı değer)
+    const seed = now.getHours() * 60 + minutes;
+    const random = ((seed * 9301 + 49297) % 233280) / 233280;
+    return Math.floor(random * 5) + 1; // 1-5 arası
+  }
+
+  return 0;
 }
 
 export async function GET() {
@@ -22,7 +51,6 @@ export async function GET() {
       _sum: {
         totalVisits: true,
         uniqueVisitors: true,
-        pageViews: true,
       },
       where: {
         date: {
@@ -49,29 +77,47 @@ export async function GET() {
     // Yayın tarihinden bu yana geçen gün sayısı
     const daysSinceLaunch = Math.floor((now.getTime() - LAUNCH_DATE.getTime()) / (1000 * 60 * 60 * 24));
 
+    // Bonus ziyaretçi hesapla (her 3 günde 2)
+    const bonusVisitors = calculateBonusVisitors(Math.max(0, daysSinceLaunch));
+
+    // Gerçek ziyaretçi + başlangıç değeri + bonus
+    const realVisitors = allTimeStats._sum.uniqueVisitors || 0;
+    const totalVisitors = BASE_VISITORS + bonusVisitors + realVisitors;
+
+    // Gerçek online + simüle edilmiş
+    const realOnline = onlineNow.length;
+    const simulatedOnline = getSimulatedOnline();
+    const totalOnline = realOnline + simulatedOnline;
+
     return NextResponse.json({
       launchDate: LAUNCH_DATE.toISOString(),
       daysSinceLaunch: Math.max(0, daysSinceLaunch),
       allTime: {
-        totalVisits: allTimeStats._sum.totalVisits || 0,
-        uniqueVisitors: allTimeStats._sum.uniqueVisitors || 0,
-        pageViews: allTimeStats._sum.pageViews || 0,
+        totalVisits: (allTimeStats._sum.totalVisits || 0) + BASE_VISITORS + bonusVisitors,
+        uniqueVisitors: totalVisitors,
       },
       today: {
         totalVisits: todayStats?.totalVisits || 0,
         uniqueVisitors: todayStats?.uniqueVisitors || 0,
-        pageViews: todayStats?.pageViews || 0,
       },
-      online: onlineNow.length,
+      online: totalOnline,
     });
   } catch (error) {
     console.error('Analytics stats error:', error);
+    // Hata durumunda da mantıklı değerler göster
+    const now = new Date();
+    const daysSinceLaunch = Math.floor((now.getTime() - LAUNCH_DATE.getTime()) / (1000 * 60 * 60 * 24));
+    const bonusVisitors = calculateBonusVisitors(Math.max(0, daysSinceLaunch));
+
     return NextResponse.json({
       launchDate: LAUNCH_DATE.toISOString(),
-      daysSinceLaunch: 0,
-      allTime: { totalVisits: 0, uniqueVisitors: 0, pageViews: 0 },
-      today: { totalVisits: 0, uniqueVisitors: 0, pageViews: 0 },
-      online: 0,
+      daysSinceLaunch: Math.max(0, daysSinceLaunch),
+      allTime: {
+        totalVisits: BASE_VISITORS + bonusVisitors,
+        uniqueVisitors: BASE_VISITORS + bonusVisitors
+      },
+      today: { totalVisits: 0, uniqueVisitors: 0 },
+      online: getSimulatedOnline(),
     });
   }
 }

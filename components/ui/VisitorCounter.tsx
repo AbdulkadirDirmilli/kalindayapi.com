@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Users, Eye, Calendar, Activity } from "lucide-react";
+import { Users, Calendar, Activity } from "lucide-react";
 
 interface VisitorStats {
   launchDate: string;
@@ -9,12 +9,10 @@ interface VisitorStats {
   allTime: {
     totalVisits: number;
     uniqueVisitors: number;
-    pageViews: number;
   };
   today: {
     totalVisits: number;
     uniqueVisitors: number;
-    pageViews: number;
   };
   online: number;
 }
@@ -40,35 +38,30 @@ const translations = {
   tr: {
     totalVisitors: "Toplam Ziyaretçi",
     onlineNow: "Şu an sitede",
-    pageViews: "Sayfa Görüntüleme",
     since: "tarihinden beri",
     person: "kişi",
   },
   en: {
     totalVisitors: "Total Visitors",
     onlineNow: "Online now",
-    pageViews: "Page Views",
     since: "since",
     person: "person",
   },
   ar: {
     totalVisitors: "إجمالي الزوار",
     onlineNow: "متصل الآن",
-    pageViews: "مشاهدات الصفحة",
     since: "منذ",
     person: "شخص",
   },
   de: {
     totalVisitors: "Gesamtbesucher",
     onlineNow: "Jetzt online",
-    pageViews: "Seitenaufrufe",
     since: "seit",
     person: "Person",
   },
   ru: {
     totalVisitors: "Всего посетителей",
     onlineNow: "Сейчас онлайн",
-    pageViews: "Просмотров",
     since: "с",
     person: "чел.",
   },
@@ -179,22 +172,6 @@ export default function VisitorCounter({ locale = "tr" }: VisitorCounterProps) {
 
         {/* Ayraç */}
         <div className="hidden md:block w-px h-12 bg-white/20"></div>
-
-        {/* Sayfa Görüntüleme */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
-            <Eye className="w-5 h-5 text-blue-400" />
-          </div>
-          <div>
-            <div className="text-xl md:text-2xl font-bold text-blue-400 tabular-nums">
-              {formatNumber(stats.allTime.pageViews)}
-            </div>
-            <div className="text-xs text-gray-400">{t.pageViews}</div>
-          </div>
-        </div>
-
-        {/* Ayraç */}
-        <div className="hidden lg:block w-px h-12 bg-white/20"></div>
 
         {/* Tarih */}
         <div className="flex items-center gap-2 text-xs text-gray-500">
