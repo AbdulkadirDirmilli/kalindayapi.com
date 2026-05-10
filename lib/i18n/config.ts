@@ -96,7 +96,16 @@ export function getOriginalRoute(localizedRoute: string, locale: Locale): string
 
 // Çevrilmemesi gereken route'lar (klasör adları)
 // Bu route'lar tüm dillerde aynı kalır
-const nonTranslatableRoutes = ['rehber'];
+const nonTranslatableRoutes = [
+  'rehber',
+  // SEO Landing Pages - Türkçe klasör adları kullanılıyor
+  'ortaca-satilik-daire',
+  'ortaca-kiralik-daire',
+  'dalaman-satilik-ev',
+  'dalyan-satilik-villa',
+  'ortaca-ogrenci-kiralik',
+  'ortaca-emlak-ofisi',
+];
 
 // Orijinal route'u dil bazlı route'a çevir
 export function getLocalizedRoute(originalRoute: string, locale: Locale): string {
