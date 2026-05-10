@@ -112,7 +112,7 @@ model IlanFoto {
   createdAt DateTime @default(now())
   ilan      Ilan     @relation(fields: [ilanId], references: [id], onDelete: Cascade)
 
-  @@index([ilanId]) // Performans: ilan fotoğraflarını hızlı getir
+  @@index([ilanId])
 }
 
 model IlanView {
@@ -238,10 +238,6 @@ model OncesiSonrasi {
   updatedAt   DateTime @updatedAt
 }
 
-// ==========================================
-// LEAD CAPTURE - İlan Bilgi Talepleri
-// ==========================================
-
 model Lead {
   id           String   @id @default(uuid())
   name         String
@@ -254,10 +250,6 @@ model Lead {
   @@index([listingId])
   @@index([createdAt])
 }
-
-// ==========================================
-// SMS MODÜLÜ - NetGSM Entegrasyonu
-// ==========================================
 
 model SmsGroup {
   id        String       @id @default(uuid())
@@ -367,7 +359,7 @@ model HizmetTranslation {
 
   @@unique([hizmetId, language])
   @@unique([slug, language])
-  @@index([language]) // Performans: dil bazlı hizmet aramalarını hızlandır
+  @@index([language])
 }
 
 model BlogPost {
@@ -400,16 +392,12 @@ model BlogPostTranslation {
 
   @@unique([postId, language])
   @@unique([slug, language])
-  @@index([language]) // Performans: dil bazlı blog aramalarını hızlandır
+  @@index([language])
 }
-
-// ==========================================
-// SITE ANALYTICS - Ziyaretçi Sayacı
-// ==========================================
 
 model SiteVisit {
   id          String   @id @default(uuid())
-  visitorHash String   // IP hash (gizlilik için)
+  visitorHash String
   userAgent   String?
   path        String?
   referrer    String?
@@ -421,13 +409,13 @@ model SiteVisit {
 }
 
 model SiteStats {
-  id              String   @id @default(uuid())
-  date            DateTime @unique // Her gün için bir kayıt
-  totalVisits     Int      @default(0)
-  uniqueVisitors  Int      @default(0)
-  pageViews       Int      @default(0)
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id             String   @id @default(uuid())
+  date           DateTime @unique
+  totalVisits    Int      @default(0)
+  uniqueVisitors Int      @default(0)
+  pageViews      Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
   @@index([date])
 }

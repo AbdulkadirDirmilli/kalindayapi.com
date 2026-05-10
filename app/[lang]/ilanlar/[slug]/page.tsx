@@ -120,16 +120,28 @@ async function getIlan(slug: string, locale: Locale = 'tr'): Promise<{
 
   let foundByTranslationSlug = false;
 
-  // Bulunamadıysa ve Türkçe değilse, çeviri slug'ı ile ara
-  if (!ilan && locale !== 'tr') {
-    const translation = await prisma.ilanTranslation.findFirst({
+  // Bulunamadıysa, çeviri slug'ı ile ara (TÜM DİLLERDE)
+  if (!ilan) {
+    // Önce istenen dilde ara
+    let translation = locale !== 'tr' ? await prisma.ilanTranslation.findFirst({
       where: {
         slug: slug,
         language: locale,
         status: 'published',
       },
       select: { ilanId: true },
-    });
+    }) : null;
+
+    // İstenen dilde bulunamadıysa, diğer dillerde ara (cross-language redirect için)
+    if (!translation) {
+      translation = await prisma.ilanTranslation.findFirst({
+        where: {
+          slug: slug,
+          status: 'published',
+        },
+        select: { ilanId: true },
+      });
+    }
 
     if (translation) {
       foundByTranslationSlug = true;
@@ -141,8 +153,7 @@ async function getIlan(slug: string, locale: Locale = 'tr'): Promise<{
           },
           danisman: true,
           translations: {
-            where: { language: locale, status: 'published' },
-            take: 1,
+            where: { status: 'published' },
           },
         },
       });
@@ -155,23 +166,35 @@ async function getIlan(slug: string, locale: Locale = 'tr'): Promise<{
 
   // TR locale için her zaman çeviri var sayılır
   if (locale === 'tr') {
+    // Eğer çeviri slug ile bulunduysa, Türkçe slug'a redirect et
+    if (foundByTranslationSlug) {
+      return { ilan: null, hasTranslation: false, redirectSlug: ilan.slug };
+    }
     return { ilan: formatIlan(ilan, locale), hasTranslation: true };
   }
 
-  // Çeviri slug ile bulunduysa, çeviri var demektir
-  if (foundByTranslationSlug) {
-    return { ilan: formatIlan(ilan, locale), hasTranslation: true };
+  // İstenen dilde çeviri var mı kontrol et
+  const targetTranslation = Array.isArray(ilan.translations)
+    ? ilan.translations.find((t: any) => t.language === locale)
+    : null;
+
+  if (targetTranslation) {
+    // İstenen dilde çeviri var
+    // Eğer URL'deki slug bu dilin slug'ı değilse, doğru slug'a redirect et
+    if (targetTranslation.slug !== slug) {
+      return { ilan: null, hasTranslation: true, redirectSlug: targetTranslation.slug };
+    }
+    // Doğru slug ile erişildi, formatla ve döndür
+    // translations'ı sadece istenen dile filtrele
+    const ilanWithFilteredTranslations = {
+      ...ilan,
+      translations: [targetTranslation],
+    };
+    return { ilan: formatIlan(ilanWithFilteredTranslations, locale), hasTranslation: true };
   }
 
-  // Orijinal slug ile bulundu - çeviri var mı kontrol et
-  const hasTranslation = Array.isArray(ilan.translations) && ilan.translations.length > 0;
-
-  if (!hasTranslation) {
-    // Çeviri yok, Türkçe slug'a redirect gerekli
-    return { ilan: null, hasTranslation: false, redirectSlug: ilan.slug };
-  }
-
-  return { ilan: formatIlan(ilan, locale), hasTranslation: true };
+  // İstenen dilde çeviri yok, Türkçe'ye redirect
+  return { ilan: null, hasTranslation: false, redirectSlug: ilan.slug };
 }
 
 // İlanın mevcut çevirilerini getir (hreflang için)
@@ -355,9 +378,15 @@ export default async function IlanDetayPage({ params }: IlanDetayPageProps) {
   const dict = await getCachedDictionary(locale);
   const result = await getIlan(slug, locale);
 
-  // Çeviri yoksa Türkçe'ye redirect yap (301 permanent)
-  if (!result.hasTranslation && result.redirectSlug) {
-    redirect(`/tr/ilanlar/${result.redirectSlug}`);
+  // Redirect gerekiyorsa yap
+  if (result.redirectSlug) {
+    if (result.hasTranslation) {
+      // Aynı dilde doğru slug'a redirect (örn: /ru/ilanlar/wrong-slug -> /ru/ilanlar/correct-slug)
+      redirect(`/${locale}/ilanlar/${result.redirectSlug}`);
+    } else {
+      // Çeviri yok, Türkçe'ye redirect yap
+      redirect(`/tr/ilanlar/${result.redirectSlug}`);
+    }
   }
 
   const ilan = result.ilan;
