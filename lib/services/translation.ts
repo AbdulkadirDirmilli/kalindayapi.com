@@ -1,4 +1,4 @@
-import { type Locale } from '@/lib/i18n';
+import { type Locale } from '../i18n';
 import translate from 'google-translate-api-x';
 
 interface TranslationResult {
@@ -246,7 +246,7 @@ export function translateTerms(text: string, targetLocale: Locale): string {
 // OTOMATİK ÇEVİRİ VE VERİTABANI KAYIT FONKSİYONLARI
 // =====================================================
 
-import { prisma } from '@/lib/prisma';
+import { prisma } from '../prisma';
 
 const targetLocales = ['en', 'ar', 'de', 'ru'] as const;
 type TargetLocale = 'en' | 'ar' | 'de' | 'ru';
