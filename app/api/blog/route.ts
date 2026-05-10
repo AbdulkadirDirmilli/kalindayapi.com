@@ -37,8 +37,7 @@ export async function GET(request: NextRequest) {
         where,
         include: {
           translations: {
-            where: { language: lang, status: 'published' },
-            take: 1,
+            where: { status: 'published' },
           },
         },
         orderBy: { yayinTarihi: 'desc' },
@@ -48,27 +47,28 @@ export async function GET(request: NextRequest) {
       prisma.blogPost.count({ where }),
     ])
 
-    // Format posts
+    // Format posts with fallback to Turkish
     const formattedPosts = posts.map(post => {
-      const translation = post.translations[0]
+      // Önce istenen dili dene, sonra Türkçe'ye fallback yap
+      const translation = post.translations.find(t => t.language === lang)
+        || post.translations.find(t => t.language === 'tr')
 
-      // Eğer çeviri yoksa, Türkçe'yi dene
-      if (!translation && lang !== 'tr') {
-        // Türkçe'yi senkron olarak alamayız, bu yüzden null döndürürüz
+      // Hiç çeviri yoksa bu postu atla
+      if (!translation) {
         return null
       }
 
       return {
         id: post.id,
-        slug: translation?.slug || post.originalSlug,
-        baslik: translation?.baslik || '',
-        ozet: translation?.ozet || '',
+        slug: translation.slug || post.originalSlug,
+        baslik: translation.baslik || '',
+        ozet: translation.ozet || '',
         kategori: post.kategori,
         yazar: post.yazar,
         kapakGorsel: post.kapakGorsel,
         yayinTarihi: post.yayinTarihi.toISOString(),
-        etiketler: translation?.etiketler ? JSON.parse(translation.etiketler) : [],
-        okunmaSuresi: Math.ceil((translation?.icerik?.length || 1000) / 1000),
+        etiketler: translation.etiketler ? JSON.parse(translation.etiketler) : [],
+        okunmaSuresi: Math.ceil((translation.icerik?.length || 1000) / 1000),
       }
     }).filter(Boolean)
 
