@@ -30,8 +30,9 @@ COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
-# Create directory for SQLite database
-RUN mkdir -p /app/prisma
+# Copy Prisma schema and config
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/prisma.config.ts ./prisma.config.ts
 
 EXPOSE 3001
 CMD ["node", "server.js"]
