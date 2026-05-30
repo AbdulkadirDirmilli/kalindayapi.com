@@ -296,6 +296,59 @@ export async function generateStaticParams() {
   return params;
 }
 
+// İlanın her dildeki KENDİ slug'ini dondurur (hreflang/canonical icin)
+async function getIlanSlugMap(incomingSlug: string): Promise<Partial<Record<Locale, string>>> {
+  let ilan = await prisma.ilan.findUnique({
+    where: { slug: incomingSlug },
+    select: {
+      slug: true,
+      durum: true,
+      translations: { where: { status: 'published' }, select: { language: true, slug: true } },
+    },
+  });
+  if (!ilan) {
+    const tr = await prisma.ilanTranslation.findFirst({
+      where: { slug: incomingSlug, status: 'published' },
+      select: { ilanId: true },
+    });
+    if (tr) {
+      ilan = await prisma.ilan.findUnique({
+        where: { id: tr.ilanId },
+        select: {
+          slug: true,
+          durum: true,
+          translations: { where: { status: 'published' }, select: { language: true, slug: true } },
+        },
+      });
+    }
+  }
+  if (!ilan || ilan.durum !== 'aktif') return {};
+  const map: Partial<Record<Locale, string>> = { tr: ilan.slug };
+  for (const t of ilan.translations) {
+    if ((locales as readonly string[]).includes(t.language)) {
+      map[t.language as Locale] = t.slug;
+    }
+  }
+  return map;
+}
+
+// hreflang + canonical: her dil KENDI slug'i + gercek 'ilanlar' segmenti (301 yok)
+async function buildIlanAlternates(incomingSlug: string, currentLocale: Locale): Promise<NonNullable<Metadata['alternates']>> {
+  const slugByLocale = await getIlanSlugMap(incomingSlug);
+  const languages: Record<string, string> = {};
+  for (const loc of Object.keys(slugByLocale) as Locale[]) {
+    languages[loc] = `${SITE_URL}/${loc}/ilanlar/${slugByLocale[loc]}`;
+  }
+  if (slugByLocale.tr) {
+    languages['x-default'] = `${SITE_URL}/tr/ilanlar/${slugByLocale.tr}`;
+  }
+  const canonicalSlug = slugByLocale[currentLocale] ?? slugByLocale.tr;
+  return {
+    canonical: canonicalSlug ? `${SITE_URL}/${currentLocale}/ilanlar/${canonicalSlug}` : undefined,
+    languages,
+  };
+}
+
 // Metadata oluştur
 export async function generateMetadata({ params }: IlanDetayPageProps): Promise<Metadata> {
   const { slug, lang } = await params;
@@ -368,7 +421,7 @@ export async function generateMetadata({ params }: IlanDetayPageProps): Promise<
       images: [ogImage],
     },
     // Sadece çevirisi olan diller için hreflang ekle
-    alternates: buildSeoAlternates(`/ilanlar/${ilan.slug}`, locale, await getAvailableTranslations(slug)),
+    alternates: await buildIlanAlternates(slug, locale),
   };
 }
 

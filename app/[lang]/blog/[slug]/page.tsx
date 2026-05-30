@@ -241,6 +241,25 @@ export async function generateStaticParams() {
   return params;
 }
 
+// hreflang + canonical: her dil KENDI slug'i + gercek 'blog' segmenti (301 yok)
+async function buildBlogAlternates(incomingSlug: string, currentLocale: Locale): Promise<NonNullable<Metadata['alternates']>> {
+  const translations = await getAvailableTranslations(incomingSlug);
+  const languages: Record<string, string> = {};
+  for (const t of translations) {
+    languages[t.locale] = `${SITE_URL}/${t.locale}/blog/${t.slug}`;
+  }
+  const trEntry = translations.find((t) => t.locale === 'tr');
+  if (trEntry) {
+    languages['x-default'] = `${SITE_URL}/tr/blog/${trEntry.slug}`;
+  }
+  const current = translations.find((t) => t.locale === currentLocale);
+  const canonicalSlug = current?.slug ?? trEntry?.slug;
+  return {
+    canonical: canonicalSlug ? `${SITE_URL}/${currentLocale}/blog/${canonicalSlug}` : undefined,
+    languages,
+  };
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, lang } = await params;
   const locale = resolveLocale(lang);
@@ -284,7 +303,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: yazi.kapakGorsel ? [{ url: yazi.kapakGorsel, alt: yazi.baslik }] : [],
       locale: locale === 'tr' ? 'tr_TR' : locale === 'en' ? 'en_US' : 'ar_SA',
     },
-    alternates: buildSeoAlternates(`/blog/${yazi.slug}`, locale, availableLocales),
+    alternates: await buildBlogAlternates(slug, locale),
   };
 }
 
