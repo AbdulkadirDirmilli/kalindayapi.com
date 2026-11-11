@@ -194,7 +194,7 @@ export default function SmsSablonlarPage() {
         {/* Add Form */}
         {showAddForm && (
           <div className="bg-white rounded-xl border border-border p-4 sm:p-6 mb-6">
-            <h3 className="text-lg font-semibold text-primary mb-4">
+            <h3 className="text-lg font-semibold text-ink mb-4">
               Yeni Şablon Oluştur
             </h3>
 
@@ -206,7 +206,7 @@ export default function SmsSablonlarPage() {
                   <button
                     key={index}
                     onClick={() => handleUseSuggestion(suggestion)}
-                    className="text-xs px-3 py-1.5 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors"
+                    className="text-xs px-3 py-1.5 bg-primary/10 text-ink rounded-full hover:bg-primary/20 transition-colors"
                   >
                     {suggestion.title}
                   </button>
@@ -384,7 +384,7 @@ export default function SmsSablonlarPage() {
                           onClick={() => handleEditTemplate(template)}
                           className="p-2 hover:bg-white rounded-lg transition-colors"
                         >
-                          <Edit className="w-4 h-4 text-primary" />
+                          <Edit className="w-4 h-4 text-ink" />
                         </button>
                         <button
                           onClick={() => setDeleteId(template.id)}

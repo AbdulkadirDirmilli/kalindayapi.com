@@ -57,7 +57,7 @@ export function ToastProvider({ children }: ToastProviderProps) {
   const colors = {
     success: 'bg-success text-white',
     error: 'bg-error text-white',
-    warning: 'bg-accent text-primary',
+    warning: 'bg-accent text-ink',
     info: 'bg-primary text-white',
   }
 

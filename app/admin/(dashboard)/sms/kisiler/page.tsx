@@ -392,7 +392,7 @@ export default function SmsKisilerPage() {
         {/* Add Form */}
         {showAddForm && (
           <div className="bg-white rounded-xl border border-border p-4 sm:p-6 mb-4">
-            <h3 className="text-lg font-semibold text-primary mb-4">
+            <h3 className="text-lg font-semibold text-ink mb-4">
               Yeni Kişi Ekle
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -663,7 +663,7 @@ export default function SmsKisilerPage() {
                           </td>
                           <td className="px-4 py-3 hidden md:table-cell">
                             {contact.group ? (
-                              <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
+                              <span className="text-xs px-2 py-1 bg-primary/10 text-ink rounded-full">
                                 {contact.group.name}
                               </span>
                             ) : (
@@ -681,7 +681,7 @@ export default function SmsKisilerPage() {
                                 onClick={() => handleEditContact(contact)}
                                 className="p-2 hover:bg-surface rounded-lg transition-colors"
                               >
-                                <Edit className="w-4 h-4 text-primary" />
+                                <Edit className="w-4 h-4 text-ink" />
                               </button>
                               <button
                                 onClick={() => setDeleteId(contact.id)}
@@ -745,7 +745,7 @@ export default function SmsKisilerPage() {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl w-full max-w-lg">
             <div className="p-6 border-b border-border">
-              <h3 className="text-lg font-semibold text-primary">
+              <h3 className="text-lg font-semibold text-ink">
                 Toplu Kişi İçe Aktar
               </h3>
             </div>
@@ -787,7 +787,7 @@ export default function SmsKisilerPage() {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl w-full max-w-md">
             <div className="p-6 border-b border-border">
-              <h3 className="text-lg font-semibold text-primary">
+              <h3 className="text-lg font-semibold text-ink">
                 Yeni Grup Oluştur
               </h3>
             </div>

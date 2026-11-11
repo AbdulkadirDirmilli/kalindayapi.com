@@ -193,8 +193,8 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero Banner */}
-      <section className="relative bg-[#0B1F3A] pt-32 pb-16 md:pt-40 md:pb-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F3A] via-[#1a3a5c] to-[#0B1F3A]" />
+      <section className="relative bg-primary pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-light to-primary" />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -208,7 +208,7 @@ export default function BlogPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-300 text-lg max-w-2xl mx-auto"
+            className="text-white/85 text-lg max-w-2xl mx-auto"
           >
             {t.subtitle}
           </motion.p>
@@ -216,7 +216,7 @@ export default function BlogPage() {
       </section>
 
       {/* Filters */}
-      <section className="bg-white border-b border-[#e0e0e0] sticky top-[64px] z-30">
+      <section className="bg-white border-b border-border sticky top-[64px] z-30">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Kategori Filtreleri */}
@@ -227,8 +227,8 @@ export default function BlogPage() {
                   onClick={() => setAktifKategori(key)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     aktifKategori === key
-                      ? "bg-[#0B1F3A] text-white"
-                      : "bg-[#F5F5F5] text-[#666666] hover:bg-[#E5E5E5]"
+                      ? "bg-primary text-white"
+                      : "bg-surface text-text-light hover:bg-[#E5E5E5]"
                   }`}
                 >
                   {categories[key]}
@@ -238,13 +238,13 @@ export default function BlogPage() {
 
             {/* Arama */}
             <div className="relative w-full md:w-72">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#999999]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
               <input
                 type="text"
                 placeholder={t.search}
                 value={aramaMetni}
                 onChange={(e) => setAramaMetni(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border-2 border-[#e0e0e0] rounded-lg text-sm focus:outline-none focus:border-[#0B1F3A] transition-colors"
+                className="w-full pl-10 pr-4 py-2 border-2 border-border rounded-lg text-sm focus:outline-none focus:border-primary transition-colors"
               />
             </div>
           </div>
@@ -252,19 +252,19 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Listesi */}
-      <section className="py-12 md:py-16 bg-[#F5F5F5]">
+      <section className="py-12 md:py-16 bg-surface">
         <div className="container mx-auto px-4">
           {/* Loading State */}
           {loading && (
             <div className="flex items-center justify-center py-16">
               <Loader2 className="w-8 h-8 animate-spin text-[#C9A84C]" />
-              <span className="ml-3 text-[#666666]">{t.loading}</span>
+              <span className="ml-3 text-text-light">{t.loading}</span>
             </div>
           )}
 
           {!loading && filtrelenmisYazilar.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-[#666666] text-lg">
+              <p className="text-text-light text-lg">
                 {t.noResults}
               </p>
             </div>
@@ -280,7 +280,7 @@ export default function BlogPage() {
                   <Link href={`/${locale}/blog/${yazi.slug}`}>
                     <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
                       {/* Kapak Görseli */}
-                      <div className="relative h-48 bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] overflow-hidden">
+                      <div className="relative h-48 bg-gradient-to-br from-primary to-primary-light overflow-hidden">
                         {yazi.kapakGorsel && (
                           <Image
                             src={yazi.kapakGorsel}
@@ -290,9 +290,9 @@ export default function BlogPage() {
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/80 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
                         <div className="absolute bottom-3 left-3">
-                          <span className="inline-block px-3 py-1 bg-[#C9A84C] text-[#0B1F3A] text-xs font-bold rounded-full">
+                          <span className="inline-block px-3 py-1 bg-[#C9A84C] text-ink text-xs font-bold rounded-full">
                             {yazi.kategori}
                           </span>
                         </div>
@@ -300,15 +300,15 @@ export default function BlogPage() {
 
                       {/* İçerik */}
                       <div className="p-6 flex-1 flex flex-col">
-                        <h2 className="text-lg font-bold text-[#0B1F3A] mb-3 line-clamp-2 group-hover:text-[#C9A84C] transition-colors">
+                        <h2 className="text-lg font-bold text-ink mb-3 line-clamp-2 group-hover:text-[#C9A84C] transition-colors">
                           {yazi.baslik}
                         </h2>
-                        <p className="text-[#666666] text-sm mb-4 line-clamp-3 flex-1">
+                        <p className="text-text-light text-sm mb-4 line-clamp-3 flex-1">
                           {yazi.ozet}
                         </p>
 
                         {/* Meta Bilgiler */}
-                        <div className="flex items-center justify-between text-xs text-[#999999] pt-4 border-t border-[#e0e0e0]">
+                        <div className="flex items-center justify-between text-xs text-text-muted pt-4 border-t border-border">
                           <div className="flex items-center gap-3">
                             <span className="flex items-center gap-1">
                               <Calendar className="w-3.5 h-3.5" />
@@ -332,17 +332,17 @@ export default function BlogPage() {
       </section>
 
       {/* CTA Bölümü */}
-      <section className="py-16 bg-[#0B1F3A]">
+      <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             {t.ctaTitle}
           </h2>
-          <p className="text-gray-300 mb-8 max-w-xl mx-auto">
+          <p className="text-white/85 mb-8 max-w-xl mx-auto">
             {t.ctaSubtitle}
           </p>
           <Link
             href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
-            className="inline-flex items-center gap-2 bg-[#C9A84C] text-[#0B1F3A] px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#C9A84C] text-ink px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
           >
             {t.ctaButton}
             <ArrowRight className="w-5 h-5" />

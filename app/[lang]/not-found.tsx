@@ -111,7 +111,7 @@ export default function NotFound() {
   const t = notFoundTexts[locale];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0B1F3A] to-[#1a3a5c] flex items-center justify-center px-4 py-20">
+    <div className="min-h-screen bg-gradient-to-b from-primary to-primary-light flex items-center justify-center px-4 py-20">
       <div className="max-w-2xl mx-auto text-center">
         {/* 404 Icon/Number */}
         <div className="relative mb-8">
@@ -131,7 +131,7 @@ export default function NotFound() {
         </h1>
 
         {/* Description */}
-        <p className="text-gray-300 text-lg mb-8 max-w-lg mx-auto">
+        <p className="text-white/85 text-lg mb-8 max-w-lg mx-auto">
           {t.description}
         </p>
 
@@ -170,7 +170,7 @@ export default function NotFound() {
                 <Link
                   key={link.routeKey}
                   href={`/${locale}/${getLocalizedRoute(link.routeKey, locale)}`}
-                  className="px-4 py-2 bg-white/10 hover:bg-[#C9A84C] text-white hover:text-[#0B1F3A] rounded-full text-sm font-medium transition-colors"
+                  className="px-4 py-2 bg-white/10 hover:bg-[#C9A84C] text-white hover:text-ink rounded-full text-sm font-medium transition-colors"
                 >
                   {link.text}
                 </Link>
@@ -182,7 +182,7 @@ export default function NotFound() {
         {/* Back Link */}
         <button
           onClick={() => typeof window !== "undefined" && window.history.back()}
-          className="mt-8 inline-flex items-center gap-2 text-gray-400 hover:text-[#C9A84C] transition-colors"
+          className="mt-8 inline-flex items-center gap-2 text-white/70 hover:text-[#C9A84C] transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>{t.backButton}</span>

@@ -62,12 +62,12 @@ export default function CookieConsent() {
         isVisible ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <div className="bg-[#0B1F3A] border-t border-[#C9A84C]/20 shadow-2xl">
+      <div className="bg-primary border-t border-white/20 shadow-2xl">
         <div className="container mx-auto px-4 py-4 md:py-5">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
             {/* Icon & Text */}
             <div className="flex items-start gap-3 flex-1">
-              <div className="w-10 h-10 rounded-full bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Cookie className="w-5 h-5 text-[#C9A84C]" />
               </div>
               <div>
@@ -88,13 +88,13 @@ export default function CookieConsent() {
             <div className="flex items-center gap-3 w-full md:w-auto">
               <button
                 onClick={handleReject}
-                className="flex-1 md:flex-none px-5 py-2.5 text-sm font-medium text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors"
+                className="flex-1 md:flex-none px-5 py-2.5 text-sm font-medium text-white/85 hover:text-white border border-white/30 hover:border-white/60 rounded-lg transition-colors"
               >
                 {t.reject}
               </button>
               <button
                 onClick={handleAccept}
-                className="flex-1 md:flex-none px-5 py-2.5 text-sm font-medium text-[#0B1F3A] bg-[#C9A84C] hover:bg-[#d4b65d] rounded-lg transition-colors"
+                className="flex-1 md:flex-none px-5 py-2.5 text-sm font-medium text-ink bg-[#C9A84C] hover:bg-[#d4b65d] rounded-lg transition-colors"
               >
                 {t.accept}
               </button>
@@ -103,7 +103,7 @@ export default function CookieConsent() {
             {/* Close button for mobile */}
             <button
               onClick={handleReject}
-              className="absolute top-3 right-3 md:hidden text-gray-400 hover:text-white"
+              className="absolute top-3 right-3 md:hidden text-white/70 hover:text-white"
               aria-label={t.close}
             >
               <X className="w-5 h-5" />

@@ -1,20 +1,25 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Kalinda Yapı Renk Paleti */
-  --color-primary: #0B1F3A;
-  --color-primary-light: #1a3a5c;
-  --color-primary-dark: #071428;
+  /* Kalinda Yapı Emlak Renk Paleti
+     primary : açık mavi — zeminler, butonlar, şeritler
+     ink     : koyu mürekkep — başlıklar ve koyu metin
+     accent  : altın — rozet, ikon ve vurgular (logo ile uyumlu) */
+  --color-primary: #418FDE;
+  --color-primary-light: #6BA7E7;
+  --color-primary-dark: #2A6FB8;
+  --color-ink: #0F2742;
+  --color-ink-light: #1E3A5F;
   --color-accent: #C9A84C;
   --color-accent-light: #d4b969;
   --color-accent-dark: #a88a3d;
   --color-background: #FFFFFF;
-  --color-surface: #F5F5F5;
-  --color-surface-dark: #E5E5E5;
+  --color-surface: #F3F6FA;
+  --color-surface-dark: #E4EAF2;
   --color-text: #1a1a1a;
-  --color-text-light: #666666;
-  --color-text-muted: #999999;
-  --color-border: #e0e0e0;
+  --color-text-light: #5A6572;
+  --color-text-muted: #8A93A0;
+  --color-border: #DCE3EC;
   --color-success: #22c55e;
   --color-error: #ef4444;
   --color-whatsapp: #25D366;
@@ -64,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Selection */
 ::selection {
   background-color: var(--color-accent);
-  color: var(--color-primary);
+  color: var(--color-ink);
 }
 
 /* Container */
@@ -115,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(11, 31, 58, 0.15);
+  box-shadow: 0 20px 40px rgba(15, 39, 66, 0.12);
 }
 
 /* Button Base */
@@ -143,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-accent {
   background-color: var(--color-accent);
-  color: var(--color-primary);
+  color: var(--color-ink);
 }
 
 .btn-accent:hover {
@@ -151,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline {
-  border: 2px solid var(--color-primary);
+  border: 1px solid var(--color-primary);
   color: var(--color-primary);
   background-color: transparent;
 }
@@ -178,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .badge-kiralik {
   background-color: var(--color-accent);
-  color: var(--color-primary);
+  color: var(--color-ink);
 }
 
 .badge-ticari {
@@ -200,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
 .input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(11, 31, 58, 0.1);
+  box-shadow: 0 0 0 3px rgba(65, 143, 222, 0.18);
 }
 
 .input::placeholder {
@@ -251,7 +256,7 @@ h1, h2, h3, h4, h5, h6 {
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(11, 31, 58, 0.7), rgba(11, 31, 58, 0.9));
+  background: linear-gradient(to bottom, rgba(15, 39, 66, 0.65), rgba(15, 39, 66, 0.85));
 }
 
 /* Aspect Ratios */

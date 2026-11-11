@@ -183,64 +183,102 @@ export default function IletisimPage() {
         }}
       />
 
-      {/* Hero with Video Background */}
-      <section className="relative bg-[#0B1F3A] pt-32 pb-20 overflow-hidden">
-        {/* Video Background */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
-          aria-hidden="true"
-        >
-          <source src="/videos/drone-iletisim.mp4" type="video/mp4" />
-        </video>
-        {/* Dark Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/60 via-[#0B1F3A]/40 to-[#0B1F3A]/70" />
-
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Kompakt başlık - banner yok */}
+      <section className="pt-28 md:pt-32 pb-8 bg-white border-b border-border">
+        <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-[#C9A84C] transition-colors">
+          <nav className="flex items-center gap-2 text-sm text-text-muted mb-5">
+            <Link href="/" className="hover:text-accent transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{nav.contact}</span>
+            <span className="text-ink">{nav.contact}</span>
           </nav>
 
           <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              <span className="text-[#C9A84C]">{t.heroTitle}</span>
+            <h1 className="text-2xl md:text-4xl font-bold text-ink">
+              {t.heroTitle}
             </h1>
-            <p className="text-gray-300 text-lg">
-              {t.heroSubtitle}
-            </p>
+            <p className="text-text-light mt-3">{t.heroSubtitle}</p>
+          </div>
+
+          {/* Hızlı iletişim kanalları */}
+          <div className="grid sm:grid-cols-3 gap-3 mt-6">
+            <a
+              href="tel:+905321591556"
+              className="flex items-center gap-3 p-3.5 rounded-lg border border-border bg-surface hover:border-accent transition-colors"
+            >
+              <span className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                <Phone className="w-5 h-5 text-white" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs text-text-muted">
+                  {dict?.nav?.callNow || "Telefon"}
+                </span>
+                <span className="block text-sm font-semibold text-ink truncate">
+                  +90 532 159 15 56
+                </span>
+              </span>
+            </a>
+
+            <a
+              href={createWhatsAppLink(
+                "905321591556",
+                dict?.whatsapp?.greeting || "Merhaba, bilgi almak istiyorum."
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3.5 rounded-lg border border-border bg-surface hover:border-accent transition-colors"
+            >
+              <span className="w-10 h-10 rounded-lg bg-whatsapp flex items-center justify-center flex-shrink-0">
+                <MessageCircle className="w-5 h-5 text-white" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs text-text-muted">WhatsApp</span>
+                <span className="block text-sm font-semibold text-ink truncate">
+                  +90 532 159 15 56
+                </span>
+              </span>
+            </a>
+
+            <a
+              href="mailto:info@kalindayapi.com"
+              className="flex items-center gap-3 p-3.5 rounded-lg border border-border bg-surface hover:border-accent transition-colors"
+            >
+              <span className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center flex-shrink-0">
+                <Mail className="w-5 h-5 text-ink" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs text-text-muted">{t.email}</span>
+                <span className="block text-sm font-semibold text-ink truncate">
+                  info@kalindayapi.com
+                </span>
+              </span>
+            </a>
           </div>
         </div>
       </section>
 
       {/* Contact Content */}
-      <section className="py-20 bg-[#F5F5F5]">
+      <section className="py-14 bg-surface">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left Side - Contact Info */}
             <div className="space-y-8">
               {/* Quick Contact */}
               <div>
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-6">
+                <h2 className="text-2xl font-bold text-ink mb-6">
                   {t.infoTitle}
                 </h2>
 
                 {/* Address */}
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-[#C9A84C]" />
+                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#0B1F3A]">{t.address}</h3>
-                    <p className="text-[#666666]">
+                    <h3 className="font-semibold text-ink">{t.address}</h3>
+                    <p className="text-text-light">
                       {t.addressLine1}
                       <br />
                       {t.addressLine2}
@@ -250,14 +288,14 @@ export default function IletisimPage() {
 
                 {/* Email */}
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-[#C9A84C]" />
+                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#0B1F3A]">{t.email}</h3>
+                    <h3 className="font-semibold text-ink">{t.email}</h3>
                     <a
                       href="mailto:info@kalindayapi.com"
-                      className="text-[#C9A84C] hover:underline"
+                      className="text-primary-dark font-medium hover:text-accent transition-colors"
                     >
                       info@kalindayapi.com
                     </a>
@@ -266,12 +304,12 @@ export default function IletisimPage() {
 
                 {/* Working Hours */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-[#C9A84C]" />
+                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#0B1F3A]">{t.workingHours}</h3>
-                    <p className="text-[#666666]">
+                    <h3 className="font-semibold text-ink">{t.workingHours}</h3>
+                    <p className="text-text-light">
                       {t.weekdaysHours}
                       <br />
                       {t.saturdayHours}
@@ -284,7 +322,7 @@ export default function IletisimPage() {
 
               {/* Team Contacts */}
               <div>
-                <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">
+                <h2 className="text-xl font-bold text-ink mb-4">
                   {t.teamTitle}
                 </h2>
                 <div className="space-y-2">
@@ -306,12 +344,12 @@ export default function IletisimPage() {
                             />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-bold text-[#0B1F3A] text-sm">
+                            <h3 className="font-bold text-ink text-sm">
                               {teamMember.name}
                             </h3>
                             <a
                               href={`tel:${yetkili.telefon.replace(/\s/g, "")}`}
-                              className="text-xs text-[#666666] hover:text-[#C9A84C] transition-colors"
+                              className="text-xs text-text-light hover:text-[#C9A84C] transition-colors"
                             >
                               {yetkili.telefon}
                             </a>
@@ -342,7 +380,7 @@ export default function IletisimPage() {
 
               {/* Social Media */}
               <div>
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-6">
+                <h2 className="text-2xl font-bold text-ink mb-6">
                   {t.socialTitle}
                 </h2>
                 <div className="flex gap-4">
@@ -381,7 +419,7 @@ export default function IletisimPage() {
             {/* Right Side - Form */}
             <div>
               <Card padding="md" className="!p-5">
-                <h2 className="text-xl font-bold text-[#0B1F3A] mb-4">
+                <h2 className="text-xl font-bold text-ink mb-4">
                   {t.formTitle}
                 </h2>
 
@@ -408,10 +446,10 @@ export default function IletisimPage() {
                         />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-bold text-[#0B1F3A] mb-2">
+                    <h3 className="text-lg font-bold text-ink mb-2">
                       {t.successTitle}
                     </h3>
-                    <p className="text-sm text-[#666666]">
+                    <p className="text-sm text-text-light">
                       {t.successMessage}
                     </p>
                   </div>
@@ -476,9 +514,9 @@ export default function IletisimPage() {
                       {t.form?.submit || "Mesaj Gönder"}
                     </Button>
 
-                    <p className="text-xs text-[#999999] text-center">
+                    <p className="text-xs text-text-muted text-center">
                       {homeContactForm.privacyNote}{" "}
-                      <Link href="/gizlilik" className="text-[#C9A84C] hover:underline">
+                      <Link href="/gizlilik" className="text-primary-dark font-medium hover:text-accent transition-colors">
                         {homeContactForm.privacyLink}
                       </Link>{" "}
                       {homeContactForm.privacyAccept}
@@ -492,7 +530,7 @@ export default function IletisimPage() {
       </section>
 
       {/* Video Gallery Section - Responsive */}
-      <section className="py-12 lg:py-16 bg-[#0B1F3A]">
+      <section className="py-12 lg:py-16 bg-primary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 lg:mb-10">
             <span className="text-[#C9A84C] font-semibold text-xs sm:text-sm uppercase tracking-wider">
@@ -506,7 +544,7 @@ export default function IletisimPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {/* Video 1 - Harita */}
             <div className="relative group">
-              <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-[#C9A84C] via-[#0B1F3A] to-[#C9A84C] rounded-2xl sm:rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-[#C9A84C] via-primary to-[#C9A84C] rounded-2xl sm:rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative bg-white p-1.5 sm:p-2 rounded-xl sm:rounded-2xl shadow-2xl">
                 <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden">
                   <video
@@ -519,9 +557,9 @@ export default function IletisimPage() {
                   >
                     <source src="/videos/mapharita.mp4" type="video/mp4" />
                   </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/50 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
-                    <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#C9A84C] text-[#0B1F3A] text-xs sm:text-sm font-bold rounded-full shadow-lg">
+                    <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#C9A84C] text-ink text-xs sm:text-sm font-bold rounded-full shadow-lg">
                       {dict?.videoGallery?.mapView || "Harita Görünümü"}
                     </span>
                   </div>
@@ -531,7 +569,7 @@ export default function IletisimPage() {
 
             {/* Video 2 - Drone */}
             <div className="relative group">
-              <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-[#0B1F3A] via-[#C9A84C] to-[#0B1F3A] rounded-2xl sm:rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-primary via-[#C9A84C] to-primary rounded-2xl sm:rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative bg-white p-1.5 sm:p-2 rounded-xl sm:rounded-2xl shadow-2xl">
                 <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden">
                   <video
@@ -544,9 +582,9 @@ export default function IletisimPage() {
                   >
                     <source src="/videos/drone-iletisim.mp4" type="video/mp4" />
                   </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/50 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
-                    <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-[#0B1F3A] text-xs sm:text-sm font-bold rounded-full shadow-lg">
+                    <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-ink text-xs sm:text-sm font-bold rounded-full shadow-lg">
                       {dict?.videoGallery?.droneView || "Drone Çekimi"}
                     </span>
                   </div>
@@ -555,14 +593,14 @@ export default function IletisimPage() {
             </div>
           </div>
 
-          <p className="text-center text-gray-400 text-sm sm:text-base mt-6 lg:mt-8 max-w-2xl mx-auto px-4">
+          <p className="text-center text-white/70 text-sm sm:text-base mt-6 lg:mt-8 max-w-2xl mx-auto px-4">
             {dict?.videoGallery?.description || "Muğla'nın incisi Ortaca ve çevresindeki eşsiz lokasyonları keşfedin. Dalyan, Köyceğiz, Dalaman ve daha fazlası..."}
           </p>
         </div>
       </section>
 
       {/* Map */}
-      <section className="h-[400px] bg-[#e0e0e0]">
+      <section className="h-[400px] bg-surface-dark">
         <iframe
           src="https://maps.google.com/maps?q=36.83947,28.76639&t=&z=17&ie=UTF8&iwloc=&output=embed"
           width="100%"

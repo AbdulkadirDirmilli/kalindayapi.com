@@ -189,7 +189,7 @@ export default function HizmetlerPage() {
                       <GripVertical className="w-5 h-5" />
                     </div>
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Briefcase className="w-5 h-5 text-primary" />
+                      <Briefcase className="w-5 h-5 text-ink" />
                     </div>
                     <div>
                       {editingId === hizmet.id ? (
@@ -248,7 +248,7 @@ export default function HizmetlerPage() {
                           onClick={() => handleEdit(hizmet)}
                           className="p-2 hover:bg-surface rounded-lg transition-colors"
                         >
-                          <Edit className="w-4 h-4 text-primary" />
+                          <Edit className="w-4 h-4 text-ink" />
                         </button>
                         <button
                           onClick={() => setDeleteId(hizmet.id)}
@@ -348,7 +348,7 @@ export default function HizmetlerPage() {
                         {hizmet.bolgeler.map((b, i) => (
                           <span
                             key={i}
-                            className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full"
+                            className="text-xs px-2 py-1 bg-primary/10 text-ink rounded-full"
                           >
                             {b.bolge}
                           </span>

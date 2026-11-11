@@ -90,7 +90,7 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             {t.badge}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-ink mt-2 mb-4">
             {t.title}
           </h2>
           <p className="text-text-light max-w-2xl mx-auto">
@@ -194,7 +194,7 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-lg font-bold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors">
+                      <h3 className="text-lg font-bold text-ink mb-3 line-clamp-2 group-hover:text-accent transition-colors">
                         {getIlanBaslik(ilan, lang)}
                       </h3>
 

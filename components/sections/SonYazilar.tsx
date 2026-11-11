@@ -44,7 +44,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-2xl md:text-4xl font-bold text-primary mb-4"
+            className="text-2xl md:text-4xl font-bold text-ink mb-4"
           >
             {t.title} <span className="text-accent">{t.titleHighlight}</span>
           </motion.h2>
@@ -53,7 +53,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[#666666] max-w-xl mx-auto"
+            className="text-text-light max-w-xl mx-auto"
           >
             {t.subtitle}
           </motion.p>
@@ -72,7 +72,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
               <Link href={`/${lang}/blog/${yazi.slug}`}>
                 <div className="bg-white rounded-xl overflow-hidden border border-black/5 shadow-sm hover:shadow-md transition-shadow duration-200 group h-full flex flex-col">
                   {/* Kapak */}
-                  <div className="relative aspect-[4/3] bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] overflow-hidden">
+                  <div className="relative aspect-[4/3] bg-gradient-to-br from-primary to-primary-light overflow-hidden">
                     {yazi.kapakGorsel && (
                       <Image
                         src={yazi.kapakGorsel}
@@ -82,9 +82,9 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/80 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
                     <div className="absolute bottom-3 left-3">
-                      <span className="px-3 py-1 bg-[#C9A84C] text-primary text-xs font-bold rounded-full">
+                      <span className="px-3 py-1 bg-[#C9A84C] text-ink text-xs font-bold rounded-full">
                         {yazi.kategori}
                       </span>
                     </div>
@@ -92,13 +92,13 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
 
                   {/* İçerik */}
                   <div className="p-5 flex-1 flex flex-col">
-                    <h3 className="text-base font-bold text-primary mb-2 line-clamp-2 group-hover:text-accent transition-colors">
+                    <h3 className="text-base font-bold text-ink mb-2 line-clamp-2 group-hover:text-accent transition-colors">
                       {yazi.baslik}
                     </h3>
-                    <p className="text-[#666666] text-sm mb-4 line-clamp-2 flex-1">
+                    <p className="text-text-light text-sm mb-4 line-clamp-2 flex-1">
                       {yazi.ozet}
                     </p>
-                    <div className="flex items-center justify-between text-xs text-[#999999] pt-3 border-t border-[#e0e0e0]">
+                    <div className="flex items-center justify-between text-xs text-text-muted pt-3 border-t border-border">
                       <div className="flex items-center gap-3">
                         <span className="flex items-center gap-1">
                           <Calendar className="w-3 h-3" />
@@ -128,7 +128,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
         >
           <Link
             href={`/${lang}/blog`}
-            className="inline-flex items-center gap-2 bg-[#0B1F3A] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1a3a5c] transition-colors"
+            className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-light transition-colors"
           >
             {t.viewAll}
             <ArrowRight className="w-5 h-5" />

@@ -21,7 +21,7 @@ export default function StatsCard({
 }: StatsCardProps) {
   const colors = {
     primary: 'bg-primary text-white',
-    accent: 'bg-accent text-primary',
+    accent: 'bg-accent text-ink',
     success: 'bg-success text-white',
     error: 'bg-error text-white',
     warning: 'bg-amber-500 text-white',

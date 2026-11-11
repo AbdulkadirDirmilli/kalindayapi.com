@@ -254,10 +254,10 @@ export default async function KullanimKosullariPage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#0B1F3A] pt-32 pb-12">
+      <section className="bg-primary pt-32 pb-12">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
             <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
@@ -273,7 +273,7 @@ export default async function KullanimKosullariPage({
               <h1 className="text-3xl md:text-4xl font-bold text-white">
                 {t.title}
               </h1>
-              <p className="text-gray-400 mt-2">
+              <p className="text-white/70 mt-2">
                 {t.lastUpdate}
               </p>
             </div>
@@ -282,23 +282,23 @@ export default async function KullanimKosullariPage({
       </section>
 
       {/* Content */}
-      <section className="py-16 bg-[#F5F5F5]">
+      <section className="py-16 bg-surface">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm p-8 md:p-12">
             <div className="prose prose-lg max-w-none">
               {t.sections.map((section, index) => (
                 <div key={index} className="mb-6">
-                  <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">{section.title}</h2>
-                  <p className="text-[#666666] mb-4">{section.content}</p>
+                  <h2 className="text-2xl font-bold text-ink mb-4">{section.title}</h2>
+                  <p className="text-text-light mb-4">{section.content}</p>
                 </div>
               ))}
 
-              <div className="bg-[#F5F5F5] rounded-xl p-6">
-                <p className="text-[#0B1F3A] font-semibold">Kalinda Yapı</p>
-                <p className="text-[#666666]">Atatürk Mah. 58 Sk. No: 2/B</p>
-                <p className="text-[#666666]">Ortaca / Muğla</p>
-                <p className="text-[#666666]">Tel: +90 532 159 15 56</p>
-                <p className="text-[#666666]">E-posta: info@kalindayapi.com</p>
+              <div className="bg-surface rounded-xl p-6">
+                <p className="text-ink font-semibold">Kalinda Yapı</p>
+                <p className="text-text-light">Atatürk Mah. 58 Sk. No: 2/B</p>
+                <p className="text-text-light">Ortaca / Muğla</p>
+                <p className="text-text-light">Tel: +90 532 159 15 56</p>
+                <p className="text-text-light">E-posta: info@kalindayapi.com</p>
               </div>
             </div>
           </div>

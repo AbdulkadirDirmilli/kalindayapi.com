@@ -115,7 +115,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
             <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
               {t.title}
             </h2>
-            <p className="text-gray-300 mb-8">
+            <p className="text-white/85 mb-8">
               {t.subtitle}
             </p>
 
@@ -126,7 +126,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
                   <MapPin className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">{t.address}</p>
+                  <p className="text-sm text-white/70">{t.address}</p>
                   <p className="font-medium">Ortaca, Muğla</p>
                 </div>
               </div>
@@ -136,7 +136,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
                   <Phone className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">{t.phone}</p>
+                  <p className="text-sm text-white/70">{t.phone}</p>
                   <p className="font-medium">+90 532 159 15 56</p>
                   <p className="font-medium">+90 532 159 15 56</p>
                 </div>
@@ -147,7 +147,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
                   <Clock className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">{t.workingHours}</p>
+                  <p className="text-sm text-white/70">{t.workingHours}</p>
                   <p className="font-medium">{t.weekdays}</p>
                   <p className="font-medium">{t.saturday}</p>
                 </div>
@@ -176,7 +176,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
             transition={{ duration: 0.4, delay: 0.2 }}
           >
             <div className="bg-white rounded-xl p-6 md:p-8 shadow-md">
-              <h3 className="text-xl font-bold text-primary mb-6">
+              <h3 className="text-xl font-bold text-ink mb-6">
                 {t.formTitle}
               </h3>
 
@@ -207,7 +207,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
                       />
                     </svg>
                   </div>
-                  <h4 className="text-lg font-bold text-primary mb-2">
+                  <h4 className="text-lg font-bold text-ink mb-2">
                     {t.successTitle}
                   </h4>
                   <p className="text-text-light">

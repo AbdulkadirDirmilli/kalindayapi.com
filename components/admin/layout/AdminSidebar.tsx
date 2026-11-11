@@ -194,7 +194,7 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
                 className={clsx(
                   'flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors relative',
                   active
-                    ? 'bg-accent text-primary font-semibold'
+                    ? 'bg-accent text-ink font-semibold'
                     : 'text-white/80 hover:bg-white/10 hover:text-white',
                   isCollapsed && 'lg:justify-center'
                 )}

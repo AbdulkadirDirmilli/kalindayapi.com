@@ -82,7 +82,7 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
   return (
     <div className="space-y-4">
       {/* Main Carousel */}
-      <div className="relative rounded-2xl overflow-hidden bg-[#F5F5F5]">
+      <div className="relative rounded-2xl overflow-hidden bg-surface">
         <div className="overflow-hidden" ref={mainRef}>
           <div className="flex">
             {sadeceFotograflar.map((foto, index) => (
@@ -110,14 +110,14 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
           <>
             <button
               onClick={scrollPrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-[#0B1F3A] hover:bg-white transition-colors shadow-lg"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-ink hover:bg-white transition-colors shadow-lg"
               aria-label={t.previous}
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={scrollNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-[#0B1F3A] hover:bg-white transition-colors shadow-lg"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-ink hover:bg-white transition-colors shadow-lg"
               aria-label={t.next}
             >
               <ChevronRight className="w-5 h-5" />
@@ -128,7 +128,7 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
         {/* Expand Button */}
         <button
           onClick={() => openLightbox(selectedIndex)}
-          className="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-[#0B1F3A] hover:bg-white transition-colors shadow-lg"
+          className="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-ink hover:bg-white transition-colors shadow-lg"
           aria-label={t.fullscreen}
         >
           <Expand className="w-5 h-5" />

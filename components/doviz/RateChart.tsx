@@ -59,11 +59,11 @@ export default function RateChart() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] flex items-center justify-center">
-            <TrendingUp className="w-6 h-6 text-[#C9A84C]" />
+          <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
+            <TrendingUp className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-[#0B1F3A]">{t.title}</h2>
+            <h2 className="text-xl font-bold text-ink">{t.title}</h2>
             <p className="text-sm text-gray-500">{t.subtitle}</p>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function RateChart() {
               className={cn(
                 'px-4 py-2 text-sm font-medium rounded-lg transition-colors',
                 period === p
-                  ? 'bg-[#0B1F3A] text-white'
+                  ? 'bg-primary text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               )}
             >
@@ -173,7 +173,7 @@ export default function RateChart() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
         <div className="bg-gray-50 rounded-xl p-3 sm:p-4">
           <p className="text-xs text-gray-500 mb-1">{t.current}</p>
-          <p className="text-base sm:text-lg font-bold text-[#0B1F3A]">₺{stats.current.toFixed(2)}</p>
+          <p className="text-base sm:text-lg font-bold text-ink">₺{stats.current.toFixed(2)}</p>
         </div>
         <div className="bg-gray-50 rounded-xl p-3 sm:p-4">
           <p className="text-xs text-gray-500 mb-1">{t.lowest} ({period}g)</p>

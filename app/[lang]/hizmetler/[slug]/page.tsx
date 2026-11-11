@@ -241,10 +241,10 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
       />
 
       {/* Hero */}
-      <section className="bg-[#0B1F3A] pt-32 pb-20">
+      <section className="bg-primary pt-32 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6 flex-wrap">
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6 flex-wrap">
             <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
@@ -266,7 +266,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                 {hizmet.baslik}
               </h1>
-              <p className="text-gray-300 text-lg leading-relaxed">
+              <p className="text-white/85 text-lg leading-relaxed">
                 {hizmet.uzunAciklama}
               </p>
 
@@ -285,14 +285,14 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
 
             {/* Contact Card */}
             <Card padding="lg" className="bg-white">
-              <h3 className="text-lg font-bold text-[#0B1F3A] mb-6">
+              <h3 className="text-lg font-bold text-ink mb-6">
                 {texts.contactTeam}
               </h3>
 
               {/* Team Members */}
               <div className="space-y-3 mb-6">
                 {ekip.map((kisi) => (
-                  <div key={kisi.whatsapp} className="flex items-center gap-3 p-3 bg-[#F5F5F5] rounded-xl">
+                  <div key={kisi.whatsapp} className="flex items-center gap-3 p-3 bg-surface rounded-xl">
                     <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-[#C9A84C]">
                       <Image
                         src={kisi.foto}
@@ -303,7 +303,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-bold text-[#0B1F3A] text-sm truncate">{kisi.ad}</p>
+                      <p className="font-bold text-ink text-sm truncate">{kisi.ad}</p>
                       <a
                         href={`tel:${kisi.telefon.replace(/\s/g, "")}`}
                         className="text-[#C9A84C] font-medium text-xs hover:underline"
@@ -350,10 +350,10 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mb-4">
+            <h2 className="text-3xl font-bold text-ink mb-4">
               {hizmet.baslik} {texts.servicesScope}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {texts.servicesScopeSubtitle}
             </p>
           </div>
@@ -363,11 +363,11 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
               const AltIcon = ikonlar[alt.ikon] || Check;
               return (
                 <Card key={alt.baslik} padding="lg" className="text-center group">
-                  <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A84C]/20 transition-colors">
-                    <AltIcon className="w-7 h-7 text-[#0B1F3A] group-hover:text-[#C9A84C] transition-colors" />
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A84C]/20 transition-colors">
+                    <AltIcon className="w-7 h-7 text-ink group-hover:text-[#C9A84C] transition-colors" />
                   </div>
-                  <h3 className="font-bold text-[#0B1F3A] mb-2">{alt.baslik}</h3>
-                  <p className="text-sm text-[#666666]">{alt.aciklama}</p>
+                  <h3 className="font-bold text-ink mb-2">{alt.baslik}</h3>
+                  <p className="text-sm text-text-light">{alt.aciklama}</p>
                 </Card>
               );
             })}
@@ -376,11 +376,11 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-[#F5F5F5]">
+      <section className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-[#0B1F3A] mb-6">
+              <h2 className="text-3xl font-bold text-ink mb-6">
                 {texts.whyUs}
               </h2>
               <div className="space-y-4">
@@ -389,7 +389,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                     <div className="w-6 h-6 rounded-full bg-[#22c55e] flex items-center justify-center flex-shrink-0">
                       <Check className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-[#0B1F3A]">{item}</span>
+                    <span className="text-ink">{item}</span>
                   </div>
                 ))}
               </div>
@@ -407,7 +407,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                   <p className="text-3xl font-bold text-[#C9A84C] mb-1">
                     {stat.value}
                   </p>
-                  <p className="text-sm text-[#666666]">{stat.label}</p>
+                  <p className="text-sm text-text-light">{stat.label}</p>
                 </Card>
               ))}
             </div>
@@ -426,10 +426,10 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mb-4">
+            <h2 className="text-3xl font-bold text-ink mb-4">
               {texts.otherServices}
             </h2>
-            <p className="text-[#666666]">
+            <p className="text-text-light">
               {texts.otherServicesSubtitle}
             </p>
           </div>
@@ -447,12 +447,12 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                     padding="lg"
                     className="flex items-center gap-4"
                   >
-                    <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A]/10 flex items-center justify-center flex-shrink-0">
-                      <DigerIcon className="w-7 h-7 text-[#0B1F3A]" />
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <DigerIcon className="w-7 h-7 text-ink" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-[#0B1F3A]">{diger.baslik}</h3>
-                      <p className="text-sm text-[#666666] line-clamp-1">
+                      <h3 className="font-bold text-ink">{diger.baslik}</h3>
+                      <p className="text-sm text-text-light line-clamp-1">
                         {diger.kisaAciklama}
                       </p>
                     </div>
@@ -465,12 +465,12 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#0B1F3A]">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             {hizmet.baslik} {texts.getQuote}
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-white/85 max-w-2xl mx-auto mb-8">
             {texts.getQuoteSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

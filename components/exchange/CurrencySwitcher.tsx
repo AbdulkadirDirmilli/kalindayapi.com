@@ -50,7 +50,7 @@ export default function CurrencySwitcher({
         className={cn(
           'flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300',
           isScrolled
-            ? 'bg-[#0B1F3A]/5 text-[#0B1F3A] hover:bg-[#0B1F3A]/10'
+            ? 'bg-primary/5 text-ink hover:bg-primary/10'
             : 'bg-white/10 text-white hover:bg-white/20'
         )}
         aria-label={t.selectCurrency}
@@ -91,11 +91,11 @@ export default function CurrencySwitcher({
                     className={cn(
                       'w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-colors',
                       isSelected
-                        ? 'bg-[#C9A84C]/10 text-[#0B1F3A]'
+                        ? 'bg-[#C9A84C]/10 text-ink'
                         : 'hover:bg-gray-50 text-gray-700'
                     )}
                   >
-                    <span className="w-6 h-6 flex items-center justify-center bg-[#0B1F3A]/5 rounded-full text-[#C9A84C] font-bold text-sm">
+                    <span className="w-6 h-6 flex items-center justify-center bg-primary/5 rounded-full text-[#C9A84C] font-bold text-sm">
                       {config.symbol}
                     </span>
                     <div className="flex-1">

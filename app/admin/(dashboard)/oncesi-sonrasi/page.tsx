@@ -312,7 +312,7 @@ export default function OncesiSonrasiPage() {
         >
           {isUploading[type] ? (
             <>
-              <Loader2 className="w-8 h-8 text-primary animate-spin" />
+              <Loader2 className="w-8 h-8 text-ink animate-spin" />
               <span className="text-sm text-text-light">Yükleniyor... %{uploadProgress[type]}</span>
             </>
           ) : (
@@ -387,7 +387,7 @@ export default function OncesiSonrasiPage() {
         {/* Add Form */}
         {showAddForm && (
           <div className="bg-white rounded-xl border border-border p-4 sm:p-6 mb-4 sm:mb-6">
-            <h3 className="text-lg font-semibold text-primary mb-4">
+            <h3 className="text-lg font-semibold text-ink mb-4">
               Yeni Proje Ekle
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -587,7 +587,7 @@ export default function OncesiSonrasiPage() {
                             sizes="300px"
                             unoptimized
                           />
-                          <span className="absolute bottom-2 right-2 bg-accent text-primary text-xs px-2 py-1 rounded font-semibold">
+                          <span className="absolute bottom-2 right-2 bg-accent text-ink text-xs px-2 py-1 rounded font-semibold">
                             Sonrası
                           </span>
                         </div>
@@ -634,7 +634,7 @@ export default function OncesiSonrasiPage() {
                           onClick={() => handleEdit(proje)}
                           className="p-2 hover:bg-surface rounded-lg transition-colors"
                         >
-                          <Edit className="w-4 h-4 text-primary" />
+                          <Edit className="w-4 h-4 text-ink" />
                         </button>
                         <button
                           onClick={() => setDeleteId(proje.id)}

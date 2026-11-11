@@ -35,11 +35,11 @@ export async function sendContactFormNotification(data: ContactFormData) {
           <style>
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: #0B1F3A; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+            .header { background: #418FDE; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
             .header h1 { margin: 0; font-size: 24px; }
             .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
             .field { margin-bottom: 15px; }
-            .field-label { font-weight: bold; color: #0B1F3A; margin-bottom: 5px; }
+            .field-label { font-weight: bold; color: #0F2742; margin-bottom: 5px; }
             .field-value { background: white; padding: 10px; border-radius: 4px; border: 1px solid #eee; }
             .message-box { background: white; padding: 15px; border-radius: 4px; border-left: 4px solid #C9A84C; }
             .footer { text-align: center; padding: 15px; color: #666; font-size: 12px; }

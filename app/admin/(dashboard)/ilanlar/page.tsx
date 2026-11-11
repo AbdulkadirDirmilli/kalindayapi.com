@@ -193,7 +193,7 @@ export default function IlanlarPage() {
       key: 'fiyat',
       header: 'Fiyat',
       render: (ilan: Ilan) => (
-        <span className="font-medium text-primary">
+        <span className="font-medium text-ink">
           {formatPrice(ilan.fiyat, ilan.paraBirimi)}
         </span>
       ),
@@ -260,7 +260,7 @@ export default function IlanlarPage() {
             className="p-2 hover:bg-surface rounded-lg transition-colors"
             title="Düzenle"
           >
-            <Edit className="w-4 h-4 text-primary" />
+            <Edit className="w-4 h-4 text-ink" />
           </Link>
           <button
             onClick={() => setDeleteId(ilan.id)}
@@ -342,7 +342,7 @@ export default function IlanlarPage() {
           <div className="flex items-center gap-2 mb-4 flex-wrap">
             <span className="text-sm text-text-light">Filtreler:</span>
             {search && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">
+              <span className="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-ink rounded-full text-xs">
                 Arama: {search}
                 <button onClick={() => setSearch('')}>
                   <X className="w-3 h-3" />
@@ -350,7 +350,7 @@ export default function IlanlarPage() {
               </span>
             )}
             {kategori && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">
+              <span className="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-ink rounded-full text-xs">
                 {kategori === 'satilik' ? 'Satılık' : 'Kiralık'}
                 <button onClick={() => setKategori('')}>
                   <X className="w-3 h-3" />
@@ -358,7 +358,7 @@ export default function IlanlarPage() {
               </span>
             )}
             {tip && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary rounded-full text-xs capitalize">
+              <span className="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-ink rounded-full text-xs capitalize">
                 {tip}
                 <button onClick={() => setTip('')}>
                   <X className="w-3 h-3" />
@@ -366,7 +366,7 @@ export default function IlanlarPage() {
               </span>
             )}
             {durum && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary rounded-full text-xs capitalize">
+              <span className="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-ink rounded-full text-xs capitalize">
                 {durum}
                 <button onClick={() => setDurum('')}>
                   <X className="w-3 h-3" />

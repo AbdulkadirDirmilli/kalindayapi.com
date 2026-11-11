@@ -34,11 +34,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       primary:
         "bg-primary text-white hover:bg-primary-light focus:ring-primary",
       accent:
-        "bg-accent text-primary hover:bg-accent-dark focus:ring-accent",
+        "bg-accent text-ink hover:bg-accent-dark focus:ring-accent",
       outline:
-        "border border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary",
+        "border border-primary text-ink hover:bg-primary hover:text-white focus:ring-primary",
       ghost:
-        "text-primary hover:bg-surface focus:ring-primary",
+        "text-ink hover:bg-surface focus:ring-primary",
       whatsapp:
         "bg-whatsapp text-white hover:bg-[#128C7E] focus:ring-whatsapp",
     };

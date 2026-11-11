@@ -87,10 +87,10 @@ export default async function HizmetlerPage({ params }: PageProps) {
       />
 
       {/* Hero */}
-      <section className="bg-[#0B1F3A] pt-32 pb-20">
+      <section className="bg-primary pt-32 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
             <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
@@ -103,7 +103,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
               {texts.title}{" "}
               <span className="text-[#C9A84C]">{texts.titleHighlight}</span>
             </h1>
-            <p className="text-gray-300 text-lg">
+            <p className="text-white/85 text-lg">
               {texts.subtitle}
             </p>
           </div>
@@ -111,7 +111,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-[#F5F5F5]">
+      <section className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {hizmetler.map((hizmet) => {
@@ -124,22 +124,22 @@ export default async function HizmetlerPage({ params }: PageProps) {
                   className="group"
                 >
                   {/* Icon */}
-                  <div className="w-16 h-16 rounded-2xl bg-[#0B1F3A]/10 flex items-center justify-center mb-6 group-hover:bg-[#C9A84C]/20 transition-colors">
-                    <Icon className="w-8 h-8 text-[#0B1F3A] group-hover:text-[#C9A84C] transition-colors" />
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-[#C9A84C]/20 transition-colors">
+                    <Icon className="w-8 h-8 text-ink group-hover:text-[#C9A84C] transition-colors" />
                   </div>
 
                   {/* Content */}
-                  <h2 className="text-xl font-bold text-[#0B1F3A] mb-3 group-hover:text-[#C9A84C] transition-colors">
+                  <h2 className="text-xl font-bold text-ink mb-3 group-hover:text-[#C9A84C] transition-colors">
                     {hizmet.baslik}
                   </h2>
-                  <p className="text-[#666666] mb-6">{hizmet.kisaAciklama}</p>
+                  <p className="text-text-light mb-6">{hizmet.kisaAciklama}</p>
 
                   {/* Sub Services */}
                   <div className="space-y-2 mb-6">
                     {hizmet.altHizmetler.slice(0, 3).map((alt) => (
                       <div
                         key={alt.baslik}
-                        className="flex items-center gap-2 text-sm text-[#666666]"
+                        className="flex items-center gap-2 text-sm text-text-light"
                       >
                         <ChevronRight className="w-4 h-4 text-[#C9A84C]" />
                         <span>{alt.baslik}</span>
@@ -148,7 +148,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
                   </div>
 
                   {/* Actions */}
-                  <div className="pt-4 border-t border-[#e0e0e0]">
+                  <div className="pt-4 border-t border-border">
                     <div className="flex gap-2">
                       <Link href={`/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute(hizmet.slug, locale)}`} className="flex-1">
                         <Button
@@ -189,10 +189,10 @@ export default async function HizmetlerPage({ params }: PageProps) {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mb-4">
+            <h2 className="text-3xl font-bold text-ink mb-4">
               {texts.serviceAreasTitle}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {texts.serviceAreasSubtitle}
             </p>
           </div>
@@ -201,7 +201,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
             {["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"].map((bolge) => (
               <span
                 key={bolge}
-                className="px-4 py-2 bg-[#0B1F3A] text-white rounded-full font-medium text-sm"
+                className="px-4 py-2 bg-primary text-white rounded-full font-medium text-sm"
               >
                 {bolge}
               </span>
@@ -220,12 +220,12 @@ export default async function HizmetlerPage({ params }: PageProps) {
       />
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#0B1F3A]">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             {texts.ctaTitle}
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-white/85 max-w-2xl mx-auto mb-8">
             {texts.ctaSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -128,7 +128,7 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
                 variant="outline"
                 size="lg"
                 leftIcon={<Phone className="w-5 h-5" />}
-                className="border-white text-white hover:bg-white hover:text-primary"
+                className="border-white text-white hover:bg-white hover:text-ink"
               >
                 {t.ctaSecondary}
               </Button>

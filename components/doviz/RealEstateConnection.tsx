@@ -38,7 +38,7 @@ export default function RealEstateConnection() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] p-8 md:p-10"
+      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary-light p-8 md:p-10"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -50,13 +50,13 @@ export default function RealEstateConnection() {
         {/* Header */}
         <div className="flex items-start gap-4 mb-6">
           <div className="w-14 h-14 rounded-2xl bg-[#C9A84C] flex items-center justify-center flex-shrink-0">
-            <Home className="w-7 h-7 text-[#0B1F3A]" />
+            <Home className="w-7 h-7 text-ink" />
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
               {t.title}
             </h2>
-            <p className="text-gray-300">
+            <p className="text-white/85">
               {t.subtitle}
             </p>
           </div>
@@ -67,28 +67,28 @@ export default function RealEstateConnection() {
           <div className="bg-white/10 backdrop-blur rounded-xl p-4">
             <TrendingUp className="w-6 h-6 text-[#C9A84C] mb-2" />
             <h3 className="font-semibold text-white mb-1">{t.currencyAdvantage}</h3>
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-white/85">
               {t.currencyAdvantageDesc}
             </p>
           </div>
           <div className="bg-white/10 backdrop-blur rounded-xl p-4">
             <Users className="w-6 h-6 text-[#C9A84C] mb-2" />
             <h3 className="font-semibold text-white mb-1">{t.expertConsulting}</h3>
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-white/85">
               {t.expertConsultingDesc}
             </p>
           </div>
           <div className="bg-white/10 backdrop-blur rounded-xl p-4">
             <Home className="w-6 h-6 text-[#C9A84C] mb-2" />
             <h3 className="font-semibold text-white mb-1">{t.widePortfolio}</h3>
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-white/85">
               {t.widePortfolioDesc}
             </p>
           </div>
         </div>
 
         {/* Info Text */}
-        <p className="text-gray-300 mb-8 leading-relaxed">
+        <p className="text-white/85 mb-8 leading-relaxed">
           {t.investmentDescription}
         </p>
 
@@ -109,7 +109,7 @@ export default function RealEstateConnection() {
             <Button
               variant="outline"
               size="lg"
-              className="w-full border-white text-white hover:bg-white hover:text-[#0B1F3A]"
+              className="w-full border-white text-white hover:bg-white hover:text-ink"
             >
               <Phone className="w-5 h-5" />
               <span>{t.callConsultant}</span>
@@ -118,7 +118,7 @@ export default function RealEstateConnection() {
         </div>
 
         {/* Trust Badge */}
-        <div className="mt-6 pt-6 border-t border-white/20 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-gray-400">
+        <div className="mt-6 pt-6 border-t border-white/20 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-white/70">
           <span>✓ {getTamamlananProjeSayisi()}+ {stats.projects}</span>
           <span>✓ {hesaplaYilDeneyimi()}+ {stats.experience}</span>
           <span>✓ %98 {t.customerSatisfaction}</span>

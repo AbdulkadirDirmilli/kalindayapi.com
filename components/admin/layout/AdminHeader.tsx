@@ -14,7 +14,7 @@ export default function AdminHeader({ title, subtitle }: AdminHeaderProps) {
         <div className="flex items-center justify-between gap-4">
           {/* Title Section */}
           <div className="min-w-0 flex-1">
-            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary truncate">
+            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-ink truncate">
               {title}
             </h1>
             {subtitle && (

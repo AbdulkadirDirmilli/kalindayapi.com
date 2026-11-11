@@ -105,7 +105,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
             <div className="flex-1 p-5 flex flex-col justify-between">
               <div>
                 {/* Location */}
-                <div className="flex items-center gap-1 text-[#666666] text-sm mb-2">
+                <div className="flex items-center gap-1 text-text-light text-sm mb-2">
                   <MapPin className="w-4 h-4 text-[#C9A84C]" />
                   <span>
                     {ilan.konum.mahalle}, {ilan.konum.ilce}
@@ -113,17 +113,17 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-[#0B1F3A] mb-2 group-hover:text-[#C9A84C] transition-colors">
+                <h3 className="text-lg font-bold text-ink mb-2 group-hover:text-[#C9A84C] transition-colors">
                   {getIlanBaslik(ilan, locale)}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-[#666666] line-clamp-2 mb-4">
+                <p className="text-sm text-text-light line-clamp-2 mb-4">
                   {getIlanAciklama(ilan, locale)}
                 </p>
 
                 {/* Features */}
-                <div className="flex flex-wrap items-center gap-4 text-sm text-[#666666]">
+                <div className="flex flex-wrap items-center gap-4 text-sm text-text-light">
                   <div className="flex items-center gap-1">
                     <Maximize2 className="w-4 h-4" />
                     <span>{ilan.ozellikler.metrekare} m²</span>
@@ -149,11 +149,11 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
               </div>
 
               {/* Footer */}
-              <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#e0e0e0]">
-                <span className="text-xl font-bold text-[#0B1F3A]">
+              <div className="flex items-center justify-between mt-4 pt-4 border-t border-border">
+                <span className="text-xl font-bold text-ink">
                   {formatConvertedPrice(ilan.fiyat)}
                   {ilan.kategori === "kiralik" && (
-                    <span className="text-sm font-normal text-[#666666]">{t.perMonth}</span>
+                    <span className="text-sm font-normal text-text-light">{t.perMonth}</span>
                   )}
                 </span>
                 <div className="flex items-center gap-3">
@@ -162,7 +162,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
                     listingTitle={getIlanBaslik(ilan, locale)}
                     variant="icon"
                   />
-                  <span className="text-xs text-[#999999] flex items-center gap-1">
+                  <span className="text-xs text-text-muted flex items-center gap-1">
                     <Calendar className="w-3 h-3" />
                     {getRelativeTime(ilan.yayinTarihi)}
                   </span>
@@ -238,7 +238,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
 
             {/* Price */}
             <div className="absolute bottom-4 right-4">
-              <span className="bg-[#0B1F3A] text-white px-3 py-1.5 rounded-lg font-bold">
+              <span className="bg-primary text-white px-3 py-1.5 rounded-lg font-bold">
                 {formatConvertedPrice(ilan.fiyat)}
                 {ilan.kategori === "kiralik" && (
                   <span className="text-xs font-normal">{t.perMonth}</span>
@@ -250,7 +250,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
           {/* Content */}
           <div className="p-5">
             {/* Location */}
-            <div className="flex items-center gap-1 text-[#666666] text-sm mb-2">
+            <div className="flex items-center gap-1 text-text-light text-sm mb-2">
               <MapPin className="w-4 h-4 text-[#C9A84C]" />
               <span>
                 {ilan.konum.mahalle}, {ilan.konum.ilce}
@@ -258,12 +258,12 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
             </div>
 
             {/* Title */}
-            <h3 className="text-lg font-bold text-[#0B1F3A] mb-3 line-clamp-2 group-hover:text-[#C9A84C] transition-colors min-h-[3.5rem]">
+            <h3 className="text-lg font-bold text-ink mb-3 line-clamp-2 group-hover:text-[#C9A84C] transition-colors min-h-[3.5rem]">
               {getIlanBaslik(ilan, locale)}
             </h3>
 
             {/* Features */}
-            <div className="flex items-center gap-4 text-sm text-[#666666]">
+            <div className="flex items-center gap-4 text-sm text-text-light">
               <div className="flex items-center gap-1">
                 <Maximize2 className="w-4 h-4" />
                 <span>{ilan.ozellikler.metrekare} m²</span>
@@ -292,8 +292,8 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
             )}
 
             {/* Date & Lead */}
-            <div className="mt-4 pt-4 border-t border-[#e0e0e0] flex items-center justify-between">
-              <span className="text-xs text-[#999999]">
+            <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+              <span className="text-xs text-text-muted">
                 {t.listingNo}: {ilan.ilanNo}
               </span>
               <div className="flex items-center gap-3">
@@ -302,7 +302,7 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
                   listingTitle={getIlanBaslik(ilan, locale)}
                   variant="icon"
                 />
-                <span className="text-xs text-[#999999] flex items-center gap-1">
+                <span className="text-xs text-text-muted flex items-center gap-1">
                   <Calendar className="w-3 h-3" />
                   {getRelativeTime(ilan.yayinTarihi)}
                 </span>

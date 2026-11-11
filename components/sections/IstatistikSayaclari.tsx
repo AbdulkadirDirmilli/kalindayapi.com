@@ -116,7 +116,7 @@ function StatCard({
       <h3 className="text-lg font-semibold text-white mb-1">{stat.etiket}</h3>
 
       {/* Description */}
-      <p className="text-sm text-gray-400">{stat.aciklama}</p>
+      <p className="text-sm text-white/70">{stat.aciklama}</p>
     </motion.div>
   );
 }
@@ -174,7 +174,7 @@ export default function IstatistikSayaclari({ lang = 'tr', dict }: IstatistikSay
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
             {t.subtitle}
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-white/70 max-w-2xl mx-auto">
             {t.description}
           </p>
         </motion.div>

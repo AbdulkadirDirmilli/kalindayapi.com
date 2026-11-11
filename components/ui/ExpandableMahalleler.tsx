@@ -65,17 +65,17 @@ export default function ExpandableMahalleler({
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-[#0B1F3A] mb-6">
+      <h2 className="text-2xl font-bold text-ink mb-6">
         {formatText(t.title)}
       </h2>
-      <p className="text-[#666666] mb-4">
+      <p className="text-text-light mb-4">
         {formatText(t.description)}
       </p>
       <div className="flex flex-wrap gap-2">
         {displayedMahalleler.map((mahalle) => (
           <span
             key={mahalle}
-            className="px-3 py-1.5 bg-[#F5F5F5] text-[#666666] text-sm rounded-full"
+            className="px-3 py-1.5 bg-surface text-text-light text-sm rounded-full"
           >
             {mahalle.replace(" Mahallesi", "")}
           </span>
@@ -83,7 +83,7 @@ export default function ExpandableMahalleler({
         {hasMore && !expanded && (
           <button
             onClick={() => setExpanded(true)}
-            className="px-3 py-1.5 bg-[#0B1F3A] text-white text-sm rounded-full hover:bg-[#1a3a5c] transition-colors flex items-center gap-1 cursor-pointer"
+            className="px-3 py-1.5 bg-primary text-white text-sm rounded-full hover:bg-primary-light transition-colors flex items-center gap-1 cursor-pointer"
           >
             {t.more.replace("{count}", remainingCount.toString())}
             <ChevronDown className="w-4 h-4" />
@@ -93,7 +93,7 @@ export default function ExpandableMahalleler({
       {hasMore && expanded && (
         <button
           onClick={() => setExpanded(false)}
-          className="mt-4 px-4 py-2 bg-[#F5F5F5] text-[#666666] text-sm rounded-lg hover:bg-[#E5E5E5] transition-colors flex items-center gap-1 cursor-pointer"
+          className="mt-4 px-4 py-2 bg-surface text-text-light text-sm rounded-lg hover:bg-[#E5E5E5] transition-colors flex items-center gap-1 cursor-pointer"
         >
           <ChevronUp className="w-4 h-4" />
           {t.less}

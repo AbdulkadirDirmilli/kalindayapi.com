@@ -109,7 +109,7 @@ export default function IlanFiltresi({
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
       {/* Quick Filters Bar */}
-      <div className="p-4 border-b border-[#e0e0e0]">
+      <div className="p-4 border-b border-border">
         <div className="flex flex-col md:flex-row gap-4">
           {/* Search */}
           <div className="flex-1">
@@ -134,8 +134,8 @@ export default function IlanFiltresi({
                 }
                 className={`px-4 py-2.5 rounded-lg font-medium transition-colors ${
                   filters.kategori === opt.value
-                    ? "bg-[#0B1F3A] text-white"
-                    : "bg-[#F5F5F5] text-[#666666] hover:bg-[#e0e0e0]"
+                    ? "bg-primary text-white"
+                    : "bg-surface text-text-light hover:bg-surface-dark"
                 }`}
               >
                 {opt.label}
@@ -169,7 +169,7 @@ export default function IlanFiltresi({
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="p-4 bg-[#F5F5F5] border-b border-[#e0e0e0]">
+            <div className="p-4 bg-surface border-b border-border">
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <Select
                   label={filtersT.propertyType || "Emlak Tipi"}
@@ -240,18 +240,18 @@ export default function IlanFiltresi({
 
       {/* Results Bar */}
       <div className="px-4 py-3 flex items-center justify-between bg-white">
-        <p className="text-sm text-[#666666]">
-          <span className="font-semibold text-[#0B1F3A]">{totalCount}</span> {filtersT.listingsFound || "ilan bulundu"}
+        <p className="text-sm text-text-light">
+          <span className="font-semibold text-ink">{totalCount}</span> {filtersT.listingsFound || "ilan bulundu"}
         </p>
 
         {/* View Mode Toggle */}
-        <div className="flex items-center gap-1 bg-[#F5F5F5] rounded-lg p-1">
+        <div className="flex items-center gap-1 bg-surface rounded-lg p-1">
           <button
             onClick={() => onViewModeChange("grid")}
             className={`p-2 rounded-md transition-colors ${
               viewMode === "grid"
-                ? "bg-white text-[#0B1F3A] shadow-sm"
-                : "text-[#666666] hover:text-[#0B1F3A]"
+                ? "bg-white text-ink shadow-sm"
+                : "text-text-light hover:text-ink"
             }`}
             aria-label={filtersT.gridView || "Grid görünümü"}
           >
@@ -261,8 +261,8 @@ export default function IlanFiltresi({
             onClick={() => onViewModeChange("list")}
             className={`p-2 rounded-md transition-colors ${
               viewMode === "list"
-                ? "bg-white text-[#0B1F3A] shadow-sm"
-                : "text-[#666666] hover:text-[#0B1F3A]"
+                ? "bg-white text-ink shadow-sm"
+                : "text-text-light hover:text-ink"
             }`}
             aria-label={filtersT.listView || "Liste görünümü"}
           >

@@ -118,10 +118,10 @@ export default function LandingPageContent({
       )}
 
       {/* Hero Section */}
-      <section className="bg-[#0B1F3A] pt-32 pb-16">
+      <section className="bg-primary pt-32 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
             <Link
               href={`/${locale}`}
               className="hover:text-[#C9A84C] transition-colors"
@@ -136,7 +136,7 @@ export default function LandingPageContent({
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               {meta.h1}
             </h1>
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">
+            <p className="text-white/85 text-lg leading-relaxed mb-8">
               {meta.intro}
             </p>
 
@@ -175,10 +175,10 @@ export default function LandingPageContent({
           <div className="max-w-4xl mx-auto">
             {content.sections.map((section, index) => (
               <div key={index} className="mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3A] mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-ink mb-4">
                   {section.title}
                 </h2>
-                <p className="text-[#666666] leading-relaxed text-lg">
+                <p className="text-text-light leading-relaxed text-lg">
                   {section.content}
                 </p>
               </div>
@@ -189,10 +189,10 @@ export default function LandingPageContent({
 
       {/* Property Listings */}
       {ilanlar.length > 0 && (
-        <section className="py-16 bg-[#F5F5F5]">
+        <section className="py-16 bg-surface">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3A] mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-ink mb-4">
                 {meta.h1}
               </h2>
             </div>
@@ -227,17 +227,17 @@ export default function LandingPageContent({
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3A] mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-ink mb-8 text-center">
                 {texts.faqTitle}
               </h2>
 
               <div className="space-y-4">
                 {content.faq.map((item, index) => (
                   <Card key={index} padding="lg">
-                    <h3 className="font-bold text-[#0B1F3A] mb-2">
+                    <h3 className="font-bold text-ink mb-2">
                       {item.question}
                     </h3>
-                    <p className="text-[#666666]">{item.answer}</p>
+                    <p className="text-text-light">{item.answer}</p>
                   </Card>
                 ))}
               </div>
@@ -247,12 +247,12 @@ export default function LandingPageContent({
       )}
 
       {/* Bottom CTA */}
-      <section className="py-16 bg-[#0B1F3A]">
+      <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             {texts.ctaTitle}
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-white/85 max-w-2xl mx-auto mb-8">
             {texts.ctaSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

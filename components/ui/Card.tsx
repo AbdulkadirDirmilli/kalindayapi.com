@@ -64,7 +64,7 @@ const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
     return (
       <Component
         ref={ref}
-        className={cn("text-xl font-bold text-primary", className)}
+        className={cn("text-xl font-bold text-ink", className)}
         {...props}
       >
         {children}

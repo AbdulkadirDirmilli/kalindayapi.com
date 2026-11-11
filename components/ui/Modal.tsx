@@ -93,12 +93,12 @@ export default function Modal({
             {(title || showCloseButton) && (
               <div className="flex items-center justify-between px-6 py-4 border-b border-border">
                 {title && (
-                  <h2 className="text-xl font-bold text-primary">{title}</h2>
+                  <h2 className="text-xl font-bold text-ink">{title}</h2>
                 )}
                 {showCloseButton && (
                   <button
                     onClick={onClose}
-                    className="p-2 rounded-lg text-text-light hover:bg-surface hover:text-primary transition-colors"
+                    className="p-2 rounded-lg text-text-light hover:bg-surface hover:text-ink transition-colors"
                     aria-label="Kapat"
                   >
                     <X className="w-5 h-5" />

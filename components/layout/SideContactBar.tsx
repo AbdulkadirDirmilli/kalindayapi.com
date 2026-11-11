@@ -131,7 +131,7 @@ export default function SideContactBar() {
                           className="whitespace-nowrap overflow-hidden"
                         >
                           <p className="text-xs text-text-light">{item.label}</p>
-                          <p className="text-sm font-semibold text-primary group-hover:text-accent transition-colors">
+                          <p className="text-sm font-semibold text-ink group-hover:text-accent transition-colors">
                             {item.name}
                           </p>
                         </motion.div>
@@ -149,7 +149,7 @@ export default function SideContactBar() {
                   title={t.sendEmail}
                 >
                   <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-4 h-4 text-primary" />
+                    <Mail className="w-4 h-4 text-ink" />
                   </div>
                   <AnimatePresence>
                     {isExpanded && (
@@ -160,7 +160,7 @@ export default function SideContactBar() {
                         className="whitespace-nowrap overflow-hidden"
                       >
                         <p className="text-xs text-text-light">{t.email}</p>
-                        <p className="text-sm font-semibold text-primary group-hover:text-accent transition-colors">
+                        <p className="text-sm font-semibold text-ink group-hover:text-accent transition-colors">
                           info@kalindayapi.com
                         </p>
                       </motion.div>
@@ -194,7 +194,7 @@ export default function SideContactBar() {
                             initial={{ opacity: 0, width: 0 }}
                             animate={{ opacity: 1, width: "auto" }}
                             exit={{ opacity: 0, width: 0 }}
-                            className="text-sm font-medium text-primary group-hover:text-accent transition-colors whitespace-nowrap overflow-hidden"
+                            className="text-sm font-medium text-ink group-hover:text-accent transition-colors whitespace-nowrap overflow-hidden"
                           >
                             {item.name}
                           </motion.span>

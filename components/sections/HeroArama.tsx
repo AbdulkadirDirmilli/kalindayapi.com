@@ -94,7 +94,7 @@ export default function HeroArama({ lang = "tr", dict }: HeroAramaProps) {
       <div className="container mx-auto px-4">
         {/* Baslik - buyuk banner yerine kompakt metin */}
         <div className="max-w-3xl">
-          <h1 className="text-2xl md:text-4xl font-bold text-primary leading-tight">
+          <h1 className="text-2xl md:text-4xl font-bold text-ink leading-tight">
             {t.title}
           </h1>
           <p className="text-text-light mt-3 text-sm md:text-base">{t.subtitle}</p>
@@ -118,7 +118,7 @@ export default function HeroArama({ lang = "tr", dict }: HeroAramaProps) {
                 className={`px-5 py-1.5 text-sm font-semibold rounded transition-colors ${
                   kategori === opt.value
                     ? "bg-primary text-white"
-                    : "text-text-light hover:text-primary"
+                    : "text-text-light hover:text-ink"
                 }`}
               >
                 {opt.label}
@@ -220,7 +220,7 @@ export default function HeroArama({ lang = "tr", dict }: HeroAramaProps) {
                   }}
                   className={`px-3 py-1 text-xs rounded-full border transition-colors ${
                     aktif
-                      ? "border-accent bg-accent/10 text-primary font-semibold"
+                      ? "border-accent bg-accent/10 text-ink font-semibold"
                       : "border-border text-text-light hover:border-accent/50"
                   }`}
                 >
@@ -239,14 +239,14 @@ export default function HeroArama({ lang = "tr", dict }: HeroAramaProps) {
           </span>
           <a
             href="tel:+905321591556"
-            className="inline-flex items-center gap-1.5 text-primary font-semibold hover:text-accent transition-colors"
+            className="inline-flex items-center gap-1.5 text-ink font-semibold hover:text-accent transition-colors"
           >
             <Phone className="w-4 h-4" />
             +90 532 159 15 56
           </a>
           <Link
             href={ilanlarYolu}
-            className="text-primary font-semibold hover:text-accent transition-colors"
+            className="text-ink font-semibold hover:text-accent transition-colors"
           >
             {dict?.home?.featured?.viewAll || "Tüm İlanları Gör"} →
           </Link>

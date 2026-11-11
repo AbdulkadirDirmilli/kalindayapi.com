@@ -304,7 +304,7 @@ export default function MedyaPage() {
             {selectedFile ? (
               <div className="bg-white rounded-xl border border-gray-200 p-4 sticky top-20">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold text-primary">Dosya Detayı</h3>
+                  <h3 className="font-semibold text-ink">Dosya Detayı</h3>
                   <button
                     onClick={() => setSelectedFile(null)}
                     className="p-1 hover:bg-gray-100 rounded-lg"

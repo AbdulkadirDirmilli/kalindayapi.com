@@ -105,8 +105,8 @@ export default async function AdminDashboardPage() {
           <div className="bg-white rounded-xl border border-border">
             <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-border flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-primary" />
-                <h2 className="font-semibold text-primary">Son İlanlar</h2>
+                <Building2 className="w-5 h-5 text-ink" />
+                <h2 className="font-semibold text-ink">Son İlanlar</h2>
               </div>
               <Link
                 href="/admin/ilanlar"
@@ -149,7 +149,7 @@ export default async function AdminDashboardPage() {
                       </div>
                       <Link
                         href={`/admin/ilanlar/${ilan.id}/duzenle`}
-                        className="text-xs text-primary hover:text-primary-light"
+                        className="text-xs text-ink hover:text-ink-light"
                       >
                         Düzenle
                       </Link>
@@ -164,8 +164,8 @@ export default async function AdminDashboardPage() {
           <div className="bg-white rounded-xl border border-border">
             <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-border flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-primary" />
-                <h2 className="font-semibold text-primary">Son Mesajlar</h2>
+                <Mail className="w-5 h-5 text-ink" />
+                <h2 className="font-semibold text-ink">Son Mesajlar</h2>
               </div>
               <Link
                 href="/admin/iletisim"
@@ -219,7 +219,7 @@ export default async function AdminDashboardPage() {
 
         {/* Quick Actions */}
         <div className="mt-6 sm:mt-8">
-          <h2 className="text-base sm:text-lg font-semibold text-primary mb-3 sm:mb-4">
+          <h2 className="text-base sm:text-lg font-semibold text-ink mb-3 sm:mb-4">
             Hızlı İşlemler
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
@@ -228,7 +228,7 @@ export default async function AdminDashboardPage() {
               className="bg-white rounded-xl border border-border p-4 hover:border-primary transition-colors group"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
-                <Building2 className="w-5 h-5 text-primary group-hover:text-white" />
+                <Building2 className="w-5 h-5 text-ink group-hover:text-white" />
               </div>
               <p className="font-medium text-sm text-text">Yeni İlan Ekle</p>
             </Link>
@@ -237,7 +237,7 @@ export default async function AdminDashboardPage() {
               className="bg-white rounded-xl border border-border p-4 hover:border-primary transition-colors group"
             >
               <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3 group-hover:bg-accent transition-colors">
-                <Briefcase className="w-5 h-5 text-accent-dark group-hover:text-primary" />
+                <Briefcase className="w-5 h-5 text-accent-dark group-hover:text-ink" />
               </div>
               <p className="font-medium text-sm text-text">Hizmetleri Yönet</p>
             </Link>

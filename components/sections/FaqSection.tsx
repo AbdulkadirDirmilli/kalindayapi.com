@@ -69,7 +69,7 @@ export default function FaqSection({
           </span>
           <h2
             className={`text-3xl md:text-4xl font-bold mt-2 mb-4 ${
-              darkMode ? "text-white" : "text-primary"
+              darkMode ? "text-white" : "text-ink"
             }`}
           >
             {displayBaslik}
@@ -112,7 +112,7 @@ export default function FaqSection({
                   />
                   <span
                     className={`font-semibold ${
-                      darkMode ? "text-white" : "text-primary"
+                      darkMode ? "text-white" : "text-ink"
                     } ${openIndex === index ? "text-accent" : ""}`}
                   >
                     {soru.soru}

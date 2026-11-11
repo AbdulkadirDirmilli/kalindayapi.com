@@ -507,10 +507,10 @@ export default async function BelgelerPage({
       />
 
       {/* Hero */}
-      <section className="bg-[#0B1F3A] pt-32 pb-20">
+      <section className="bg-primary pt-32 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
             <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
@@ -526,7 +526,7 @@ export default async function BelgelerPage({
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               {t.hero.title} <span className="text-[#C9A84C]">{t.hero.titleHighlight}</span>
             </h1>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-white/85 text-lg leading-relaxed">
               {t.hero.description}
             </p>
           </div>
@@ -540,10 +540,10 @@ export default async function BelgelerPage({
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
               {t.activeCerts.badge}
             </span>
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
+            <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
               {t.activeCerts.title}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {t.activeCerts.description}
             </p>
           </div>
@@ -558,14 +558,14 @@ export default async function BelgelerPage({
                     {t.activeCerts.status}
                   </div>
                   <div className="flex gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-[#0B1F3A] flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-8 h-8 text-[#C9A84C]" />
+                    <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-[#0B1F3A] mb-1">{belge.baslik}</h3>
-                      <p className="text-sm text-[#666666] mb-2">{belge.aciklama}</p>
-                      <p className="text-xs text-[#666666]">{belge.detay}</p>
-                      <div className="mt-3 flex items-center gap-2 text-xs text-[#666666]">
+                      <h3 className="font-bold text-ink mb-1">{belge.baslik}</h3>
+                      <p className="text-sm text-text-light mb-2">{belge.aciklama}</p>
+                      <p className="text-xs text-text-light">{belge.detay}</p>
+                      <div className="mt-3 flex items-center gap-2 text-xs text-text-light">
                         <Clock className="w-3 h-3" />
                         {t.activeCerts.dateLabel} {belge.tarih}
                       </div>
@@ -579,16 +579,16 @@ export default async function BelgelerPage({
       </section>
 
       {/* Target Certificates */}
-      <section className="py-20 bg-[#F5F5F5]">
+      <section className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
               {t.targetCerts.badge}
             </span>
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
+            <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
               {t.targetCerts.title}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {t.targetCerts.description}
             </p>
           </div>
@@ -603,14 +603,14 @@ export default async function BelgelerPage({
                       <Icon className="w-7 h-7 text-[#C9A84C]" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-[#0B1F3A]">{belge.baslik}</h3>
-                      <p className="text-sm text-[#666666]">{belge.aciklama}</p>
+                      <h3 className="font-bold text-ink">{belge.baslik}</h3>
+                      <p className="text-sm text-text-light">{belge.aciklama}</p>
                     </div>
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#666666]">{t.targetCerts.progress}</span>
-                      <span className="font-medium text-[#0B1F3A]">{belge.ilerleme}%</span>
+                      <span className="text-text-light">{t.targetCerts.progress}</span>
+                      <span className="font-medium text-ink">{belge.ilerleme}%</span>
                     </div>
                     <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                       <div
@@ -618,7 +618,7 @@ export default async function BelgelerPage({
                         style={{ width: `${belge.ilerleme}%` }}
                       />
                     </div>
-                    <p className="text-xs text-[#666666] text-right">
+                    <p className="text-xs text-text-light text-right">
                       {t.targetCerts.target} {belge.hedefTarih}
                     </p>
                   </div>
@@ -636,10 +636,10 @@ export default async function BelgelerPage({
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
               {t.memberships.badge}
             </span>
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
+            <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
               {t.memberships.title}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {t.memberships.description}
             </p>
           </div>
@@ -648,12 +648,12 @@ export default async function BelgelerPage({
             {t.uyeler.map((uye) => (
               <div
                 key={uye}
-                className="flex items-center gap-3 px-6 py-4 bg-[#F5F5F5] rounded-xl"
+                className="flex items-center gap-3 px-6 py-4 bg-surface rounded-xl"
               >
-                <div className="w-10 h-10 rounded-full bg-[#0B1F3A] flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-[#C9A84C]" />
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                  <Building2 className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-medium text-[#0B1F3A]">{uye}</span>
+                <span className="font-medium text-ink">{uye}</span>
               </div>
             ))}
           </div>
@@ -661,14 +661,14 @@ export default async function BelgelerPage({
       </section>
 
       {/* Trust Message */}
-      <section className="py-16 bg-[#F5F5F5]">
+      <section className="py-16 bg-surface">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <Shield className="w-16 h-16 text-[#C9A84C] mx-auto mb-6" />
-            <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+            <h2 className="text-2xl font-bold text-ink mb-4">
               {t.trust.title}
             </h2>
-            <p className="text-[#666666] leading-relaxed">
+            <p className="text-text-light leading-relaxed">
               {t.trust.description}
             </p>
           </div>
@@ -676,12 +676,12 @@ export default async function BelgelerPage({
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#0B1F3A]">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             {t.cta.title}
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-white/85 max-w-2xl mx-auto mb-8">
             {t.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

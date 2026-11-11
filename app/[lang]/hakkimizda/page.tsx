@@ -85,10 +85,10 @@ export default async function HakkimizdaPage({
       />
 
       {/* Hero */}
-      <section className="bg-[#0B1F3A] pt-32 pb-20">
+      <section className="bg-primary pt-32 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
             <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
@@ -100,10 +100,10 @@ export default async function HakkimizdaPage({
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               <span className="text-[#C9A84C]">{texts.heroTitleHighlight}</span> {texts.heroTitle}
             </h1>
-            <p className="text-gray-300 text-lg leading-relaxed mb-4">
+            <p className="text-white/85 text-lg leading-relaxed mb-4">
               {texts.heroDescription1}
             </p>
-            <p className="text-gray-400 text-base leading-relaxed">
+            <p className="text-white/70 text-base leading-relaxed">
               {texts.heroDescription2}
             </p>
           </div>
@@ -118,10 +118,10 @@ export default async function HakkimizdaPage({
               <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
                 {texts.storyBadge}
               </span>
-              <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-6">
+              <h2 className="text-3xl font-bold text-ink mt-2 mb-6">
                 {texts.storyTitle}
               </h2>
-              <div className="space-y-4 text-[#666666] leading-relaxed">
+              <div className="space-y-4 text-text-light leading-relaxed">
                 <p>{texts.storyParagraph1}</p>
                 <p>
                   {locale === 'tr' ? (
@@ -150,16 +150,16 @@ export default async function HakkimizdaPage({
               {timelineItems.map((item, index) => (
                 <div key={item.yil} className="flex gap-4">
                   <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-[#C9A84C] flex items-center justify-center text-[#0B1F3A] font-bold text-sm">
+                    <div className="w-12 h-12 rounded-full bg-[#C9A84C] flex items-center justify-center text-ink font-bold text-sm">
                       {item.yil}
                     </div>
                     {index < timelineItems.length - 1 && (
-                      <div className="w-0.5 h-full bg-[#e0e0e0] my-2" />
+                      <div className="w-0.5 h-full bg-surface-dark my-2" />
                     )}
                   </div>
                   <div className="pt-2">
-                    <h3 className="font-bold text-[#0B1F3A]">{item.baslik}</h3>
-                    <p className="text-sm text-[#666666]">{item.aciklama}</p>
+                    <h3 className="font-bold text-ink">{item.baslik}</h3>
+                    <p className="text-sm text-text-light">{item.aciklama}</p>
                   </div>
                 </div>
               ))}
@@ -169,17 +169,17 @@ export default async function HakkimizdaPage({
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-[#F5F5F5]">
+      <section className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             <Card padding="lg">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] flex items-center justify-center">
-                  <Target className="w-7 h-7 text-[#C9A84C]" />
+                <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center">
+                  <Target className="w-7 h-7 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#0B1F3A]">{texts.missionTitle}</h2>
+                <h2 className="text-2xl font-bold text-ink">{texts.missionTitle}</h2>
               </div>
-              <p className="text-[#666666] leading-relaxed">
+              <p className="text-text-light leading-relaxed">
                 {texts.missionText}
               </p>
             </Card>
@@ -187,11 +187,11 @@ export default async function HakkimizdaPage({
             <Card padding="lg">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-14 h-14 rounded-2xl bg-[#C9A84C] flex items-center justify-center">
-                  <Eye className="w-7 h-7 text-[#0B1F3A]" />
+                  <Eye className="w-7 h-7 text-ink" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#0B1F3A]">{texts.visionTitle}</h2>
+                <h2 className="text-2xl font-bold text-ink">{texts.visionTitle}</h2>
               </div>
-              <p className="text-[#666666] leading-relaxed">
+              <p className="text-text-light leading-relaxed">
                 {texts.visionText}
               </p>
             </Card>
@@ -206,10 +206,10 @@ export default async function HakkimizdaPage({
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
               {texts.valuesBadge}
             </span>
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
+            <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
               {texts.valuesTitle}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {texts.valuesSubtitle}
             </p>
           </div>
@@ -219,11 +219,11 @@ export default async function HakkimizdaPage({
               const Icon = ikonlar[deger.ikon] || Shield;
               return (
                 <Card key={deger.baslik} padding="lg" className="text-center group">
-                  <div className="w-16 h-16 rounded-2xl bg-[#0B1F3A]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A84C]/20 transition-colors">
-                    <Icon className="w-8 h-8 text-[#0B1F3A] group-hover:text-[#C9A84C] transition-colors" />
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A84C]/20 transition-colors">
+                    <Icon className="w-8 h-8 text-ink group-hover:text-[#C9A84C] transition-colors" />
                   </div>
-                  <h3 className="font-bold text-[#0B1F3A] mb-2">{deger.baslik}</h3>
-                  <p className="text-sm text-[#666666]">{deger.aciklama}</p>
+                  <h3 className="font-bold text-ink mb-2">{deger.baslik}</h3>
+                  <p className="text-sm text-text-light">{deger.aciklama}</p>
                 </Card>
               );
             })}
@@ -244,10 +244,10 @@ export default async function HakkimizdaPage({
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
               {texts.certsBadge}
             </span>
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
+            <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
               {texts.certsTitle}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {texts.certsSubtitle}
             </p>
           </div>
@@ -255,11 +255,11 @@ export default async function HakkimizdaPage({
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {certificates.map((belge) => (
               <Card key={belge.baslik} padding="lg" className="text-center">
-                <div className="w-16 h-16 rounded-full bg-[#F5F5F5] flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 rounded-full bg-surface flex items-center justify-center mx-auto mb-4">
                   <Award className="w-8 h-8 text-[#C9A84C]" />
                 </div>
-                <h3 className="font-bold text-[#0B1F3A] mb-1">{belge.baslik}</h3>
-                <p className="text-xs text-[#666666]">{belge.aciklama}</p>
+                <h3 className="font-bold text-ink mb-1">{belge.baslik}</h3>
+                <p className="text-xs text-text-light">{belge.aciklama}</p>
               </Card>
             ))}
           </div>
@@ -267,16 +267,16 @@ export default async function HakkimizdaPage({
       </section>
 
       {/* Web Design Credit */}
-      <section className="py-12 bg-[#F5F5F5]">
+      <section className="py-12 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <p className="text-[#666666]">
+            <p className="text-text-light">
               {texts.webDesignText}{" "}
               <a
                 href="https://www.akduniverse.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#C9A84C] hover:text-[#0B1F3A] font-semibold transition-colors"
+                className="text-[#C9A84C] hover:text-ink font-semibold transition-colors"
               >
                 AKD Universe
               </a>
@@ -287,12 +287,12 @@ export default async function HakkimizdaPage({
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#0B1F3A]">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             {texts.ctaTitle}
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-white/85 max-w-2xl mx-auto mb-8">
             {texts.ctaSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -305,7 +305,7 @@ export default function IletisimPage() {
                     <p className="text-xs text-gray-400 mb-1">Email</p>
                     <a
                       href={`mailto:${selectedContact.email}`}
-                      className="text-primary hover:underline flex items-center gap-1 text-sm"
+                      className="text-ink hover:underline flex items-center gap-1 text-sm"
                     >
                       <Mail className="w-4 h-4" />
                       {selectedContact.email}
@@ -317,7 +317,7 @@ export default function IletisimPage() {
                       <p className="text-xs text-gray-400 mb-1">Telefon</p>
                       <a
                         href={`tel:${selectedContact.telefon}`}
-                        className="text-primary hover:underline flex items-center gap-1 text-sm"
+                        className="text-ink hover:underline flex items-center gap-1 text-sm"
                       >
                         <Phone className="w-4 h-4" />
                         {selectedContact.telefon}
@@ -404,7 +404,7 @@ export default function IletisimPage() {
             {selectedContact ? (
               <div className="bg-white rounded-xl border border-gray-200 p-6 sticky top-20">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold text-primary">Mesaj Detayı</h3>
+                  <h3 className="font-semibold text-ink">Mesaj Detayı</h3>
                   <button
                     onClick={() => setSelectedContact(null)}
                     className="p-1 hover:bg-gray-100 rounded-lg"
@@ -423,7 +423,7 @@ export default function IletisimPage() {
                     <p className="text-xs text-gray-400 mb-1">Email</p>
                     <a
                       href={`mailto:${selectedContact.email}`}
-                      className="text-primary hover:underline flex items-center gap-1 text-sm"
+                      className="text-ink hover:underline flex items-center gap-1 text-sm"
                     >
                       <Mail className="w-4 h-4" />
                       {selectedContact.email}
@@ -435,7 +435,7 @@ export default function IletisimPage() {
                       <p className="text-xs text-gray-400 mb-1">Telefon</p>
                       <a
                         href={`tel:${selectedContact.telefon}`}
-                        className="text-primary hover:underline flex items-center gap-1 text-sm"
+                        className="text-ink hover:underline flex items-center gap-1 text-sm"
                       >
                         <Phone className="w-4 h-4" />
                         {selectedContact.telefon}

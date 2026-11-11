@@ -64,7 +64,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       baslik: t.valuation.title,
       aciklama: t.valuation.description,
       ikon: Calculator,
-      renk: "#0B1F3A",
+      renk: "#2A6FB8",
       href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("gayrimenkul-degerleme", lang)}`,
     },
     {
@@ -72,7 +72,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       baslik: t.investment.title,
       aciklama: t.investment.description,
       ikon: TrendingUp,
-      renk: "#1a3a5c",
+      renk: "#2A6FB8",
       href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("yatirim-danismanligi", lang)}`,
     },
     {
@@ -98,7 +98,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             {t.badge}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-ink mt-2 mb-4">
             {t.title}
           </h2>
           <p className="text-text-light max-w-2xl mx-auto">
@@ -134,7 +134,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-bold text-ink mb-3 group-hover:text-accent transition-colors">
                     {hizmet.baslik}
                   </h3>
                   <p className="text-text-light mb-6 flex-1">{hizmet.aciklama}</p>

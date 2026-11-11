@@ -160,16 +160,16 @@ export default function LeadForm({
         {status === "success" ? (
           <div className="text-center py-6">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
+            <h3 className="text-xl font-bold text-ink mb-2">
               {t.successTitle}
             </h3>
-            <p className="text-[#666666] mb-6">
+            <p className="text-text-light mb-6">
               {t.successMessage}
             </p>
             <button
               type="button"
               onClick={() => setModalOpen(false)}
-              className="px-6 py-2.5 bg-[#0B1F3A] text-white rounded-lg font-medium hover:bg-[#0B1F3A]/90 transition-colors"
+              className="px-6 py-2.5 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors"
             >
               {t.ok}
             </button>
@@ -177,9 +177,9 @@ export default function LeadForm({
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Listing info */}
-            <div className="bg-[#F5F5F5] rounded-lg p-3">
-              <p className="text-sm text-[#666666]">{t.listing}:</p>
-              <p className="font-semibold text-[#0B1F3A] text-sm line-clamp-2">
+            <div className="bg-surface rounded-lg p-3">
+              <p className="text-sm text-text-light">{t.listing}:</p>
+              <p className="font-semibold text-ink text-sm line-clamp-2">
                 {listingTitle}
               </p>
             </div>
@@ -188,7 +188,7 @@ export default function LeadForm({
             <div>
               <label
                 htmlFor="lead-name"
-                className="block text-sm font-medium text-[#0B1F3A] mb-1"
+                className="block text-sm font-medium text-ink mb-1"
               >
                 {t.fullName}
               </label>
@@ -208,7 +208,7 @@ export default function LeadForm({
             <div>
               <label
                 htmlFor="lead-phone"
-                className="block text-sm font-medium text-[#0B1F3A] mb-1"
+                className="block text-sm font-medium text-ink mb-1"
               >
                 {t.phone}
               </label>
@@ -240,7 +240,7 @@ export default function LeadForm({
                 onChange={(e) => setKvkkAccepted(e.target.checked)}
                 className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#C9A84C] focus:ring-[#C9A84C]"
               />
-              <span className="text-xs text-[#666666] leading-relaxed">
+              <span className="text-xs text-text-light leading-relaxed">
                 {t.kvkkText}{" "}
                 <a
                   href={`/${locale}/${getLocalizedRoute('gizlilik', locale)}`}

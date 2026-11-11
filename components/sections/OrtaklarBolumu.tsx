@@ -58,7 +58,7 @@ export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProp
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             {t.badge}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-ink mt-2 mb-4">
             {t.title}
           </h2>
           <p className="text-text-light max-w-2xl mx-auto">{t.subtitle}</p>
@@ -97,7 +97,7 @@ export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProp
 
               {/* Expertise */}
               <div className="mt-6">
-                <h4 className="text-sm font-semibold text-primary mb-3">
+                <h4 className="text-sm font-semibold text-ink mb-3">
                   {t.expertise}
                 </h4>
                 <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
@@ -117,14 +117,14 @@ export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProp
               <div className="mt-6 pt-6 border-t border-black/5 space-y-2">
                 <a
                   href={`tel:${danisman.telefon.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
+                  className="flex items-center gap-2 text-ink hover:text-accent transition-colors"
                 >
                   <Phone className="w-4 h-4" />
                   <span>{danisman.telefon}</span>
                 </a>
                 <a
                   href={`mailto:${danisman.email}`}
-                  className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
+                  className="flex items-center gap-2 text-ink hover:text-accent transition-colors"
                 >
                   <Mail className="w-4 h-4" />
                   <span>{danisman.email}</span>

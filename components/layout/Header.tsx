@@ -221,7 +221,7 @@ export default function Header() {
                     isActive(item.href)
                       ? "text-accent"
                       : isScrolled
-                        ? "text-primary hover:text-accent"
+                        ? "text-ink hover:text-accent"
                         : "text-white hover:text-accent"
                   )}
                 >
@@ -250,7 +250,7 @@ export default function Header() {
                             key={child.name}
                             href={child.href}
                             className={cn(
-                              "block px-4 py-3 text-primary hover:bg-surface hover:text-accent transition-colors",
+                              "block px-4 py-3 text-ink hover:bg-surface hover:text-accent transition-colors",
                               isActive(child.href) && "bg-surface text-accent"
                             )}
                           >
@@ -291,7 +291,7 @@ export default function Header() {
           <button
             className={cn(
               "lg:hidden p-2 rounded-lg transition-colors",
-              isScrolled ? "text-primary" : "text-white"
+              isScrolled ? "text-ink" : "text-white"
             )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Menü"
@@ -330,7 +330,7 @@ export default function Header() {
                           "w-full flex items-center justify-between px-4 py-3 font-medium rounded-lg",
                           isActive(item.href)
                             ? "text-accent bg-surface"
-                            : "text-primary"
+                            : "text-ink"
                         )}
                       >
                         <span className="flex items-center gap-3">
@@ -377,7 +377,7 @@ export default function Header() {
                         "flex items-center gap-3 px-4 py-3 font-medium rounded-lg",
                         isActive(item.href)
                           ? "text-accent bg-surface"
-                          : "text-primary"
+                          : "text-ink"
                       )}
                     >
                       <item.icon className="w-5 h-5" />

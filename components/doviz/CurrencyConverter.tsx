@@ -90,7 +90,7 @@ export default function CurrencyConverter() {
           <Calculator className="w-6 h-6 text-white" />
         </div>
         <div>
-          <h2 className="text-xl font-bold text-[#0B1F3A]">{t.title}</h2>
+          <h2 className="text-xl font-bold text-ink">{t.title}</h2>
           <p className="text-sm text-gray-500">{t.subtitle}</p>
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function CurrencyConverter() {
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="w-full px-4 py-3 sm:py-4 text-xl sm:text-2xl font-bold text-[#0B1F3A] bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-[#C9A84C] focus:ring-0 outline-none transition-colors"
+                className="w-full px-4 py-3 sm:py-4 text-xl sm:text-2xl font-bold text-ink bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-[#C9A84C] focus:ring-0 outline-none transition-colors"
                 placeholder="0"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-lg sm:text-xl text-gray-400">
@@ -116,7 +116,7 @@ export default function CurrencyConverter() {
             <select
               value={fromCurrency}
               onChange={(e) => setFromCurrency(e.target.value as ConvertCurrency)}
-              className="w-full sm:w-32 px-3 py-3 sm:py-4 bg-[#0B1F3A] text-white font-bold rounded-xl cursor-pointer outline-none"
+              className="w-full sm:w-32 px-3 py-3 sm:py-4 bg-primary text-white font-bold rounded-xl cursor-pointer outline-none"
             >
               {Object.entries(CURRENCY_INFO).map(([code, info]) => (
                 <option key={code} value={code}>
@@ -170,7 +170,7 @@ export default function CurrencyConverter() {
             <select
               value={toCurrency}
               onChange={(e) => setToCurrency(e.target.value as ConvertCurrency)}
-              className="w-full sm:w-32 px-3 py-3 sm:py-4 bg-[#0B1F3A] text-white font-bold rounded-xl cursor-pointer outline-none"
+              className="w-full sm:w-32 px-3 py-3 sm:py-4 bg-primary text-white font-bold rounded-xl cursor-pointer outline-none"
             >
               {Object.entries(CURRENCY_INFO).map(([code, info]) => (
                 <option key={code} value={code}>
@@ -185,7 +185,7 @@ export default function CurrencyConverter() {
         <div className="pt-4 border-t border-gray-100">
           <p className="text-sm text-gray-500 text-center">
             1 {fromCurrency} = {' '}
-            <span className="font-bold text-[#0B1F3A]">
+            <span className="font-bold text-ink">
               {fromCurrency === toCurrency
                 ? '1.0000'
                 : (getRate(fromCurrency) / getRate(toCurrency)).toFixed(4)}

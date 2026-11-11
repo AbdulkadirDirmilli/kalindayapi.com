@@ -104,7 +104,7 @@ export default function SmsPage() {
                     <Icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-text group-hover:text-primary transition-colors">
+                    <h3 className="font-semibold text-text group-hover:text-ink transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-sm text-text-light mt-0.5">

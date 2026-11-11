@@ -43,10 +43,10 @@ export default async function RehberPage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#0B1F3A] pt-32 pb-16">
+      <section className="bg-primary pt-32 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
             <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
@@ -57,14 +57,14 @@ export default async function RehberPage({
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
             {texts.heroTitle} <span className="text-[#C9A84C]">{texts.heroTitleHighlight}</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-3xl">
+          <p className="text-white/85 text-lg max-w-3xl">
             {texts.heroDescription}
           </p>
         </div>
       </section>
 
       {/* Districts Grid */}
-      <section className="py-16 bg-[#F5F5F5]">
+      <section className="py-16 bg-surface">
         <div className="container mx-auto px-4">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {ilceRehberleri.map((ilce) => {
@@ -81,7 +81,7 @@ export default async function RehberPage({
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/80 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
                       <div className="absolute bottom-3 left-3 right-3">
                         <h2 className="text-xl font-bold text-white">{ilce.ad}</h2>
                       </div>
@@ -89,7 +89,7 @@ export default async function RehberPage({
 
                     {/* Content */}
                     <div className="p-5">
-                      <div className="flex items-center gap-4 text-sm text-[#666666] mb-3">
+                      <div className="flex items-center gap-4 text-sm text-text-light mb-3">
                         <span className="flex items-center gap-1">
                           <Users className="w-4 h-4 text-[#C9A84C]" />
                           {ilce.nufus}
@@ -99,10 +99,10 @@ export default async function RehberPage({
                           {mahalleSayisi} {texts.neighborhoods}
                         </span>
                       </div>
-                      <p className="text-[#666666] text-sm line-clamp-2 mb-4">
+                      <p className="text-text-light text-sm line-clamp-2 mb-4">
                         {ilce.kisaTanitim}
                       </p>
-                      <span className="inline-flex items-center gap-1 text-[#0B1F3A] font-semibold text-sm group-hover:text-[#C9A84C] transition-colors">
+                      <span className="inline-flex items-center gap-1 text-ink font-semibold text-sm group-hover:text-[#C9A84C] transition-colors">
                         {texts.viewGuide}
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </span>
@@ -116,17 +116,17 @@ export default async function RehberPage({
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#0B1F3A]">
+      <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             {texts.ctaTitle}
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-white/85 max-w-2xl mx-auto mb-8">
             {texts.ctaDescription}
           </p>
           <Link
             href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
-            className="inline-flex items-center gap-2 bg-[#C9A84C] text-[#0B1F3A] px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#C9A84C] text-ink px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
           >
             {texts.ctaButton}
             <ArrowRight className="w-5 h-5" />

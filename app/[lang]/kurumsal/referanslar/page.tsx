@@ -414,10 +414,10 @@ export default async function ReferanslarPage({
       />
 
       {/* Hero */}
-      <section className="bg-[#0B1F3A] pt-32 pb-20">
+      <section className="bg-primary pt-32 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
             <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
@@ -433,7 +433,7 @@ export default async function ReferanslarPage({
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               <span className="text-[#C9A84C]">{t.hero.titleHighlight}</span>
             </h1>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-white/85 text-lg leading-relaxed">
               {t.hero.description}
             </p>
           </div>
@@ -450,10 +450,10 @@ export default async function ReferanslarPage({
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
               {t.projects.badge}
             </span>
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
+            <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
               {t.projects.title}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {t.projects.description}
             </p>
           </div>
@@ -463,15 +463,15 @@ export default async function ReferanslarPage({
               const Icon = iconMap[index];
               return (
                 <Card key={proje.kategori} padding="lg" className="group hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 rounded-2xl bg-[#0B1F3A] flex items-center justify-center mb-4 group-hover:bg-[#C9A84C] transition-colors">
-                    <Icon className="w-8 h-8 text-[#C9A84C] group-hover:text-[#0B1F3A] transition-colors" />
+                  <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-4 group-hover:bg-[#C9A84C] transition-colors">
+                    <Icon className="w-8 h-8 text-white group-hover:text-ink transition-colors" />
                   </div>
-                  <h3 className="font-bold text-[#0B1F3A] mb-1">{proje.kategori}</h3>
+                  <h3 className="font-bold text-ink mb-1">{proje.kategori}</h3>
                   <p className="text-3xl font-bold text-[#C9A84C] mb-2">{proje.sayi}</p>
-                  <p className="text-sm text-[#666666] mb-4">{proje.aciklama}</p>
+                  <p className="text-sm text-text-light mb-4">{proje.aciklama}</p>
                   <ul className="space-y-1">
                     {proje.ornekler.map((ornek, i) => (
-                      <li key={i} className="text-xs text-[#666666] flex items-center gap-2">
+                      <li key={i} className="text-xs text-text-light flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
                         {ornek}
                       </li>
@@ -485,16 +485,16 @@ export default async function ReferanslarPage({
       </section>
 
       {/* Google Reviews */}
-      <section className="py-20 bg-[#F5F5F5]">
+      <section className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
               {t.reviews.badge}
             </span>
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
+            <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
               {t.reviews.title}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {t.reviews.description}
             </p>
           </div>
@@ -510,10 +510,10 @@ export default async function ReferanslarPage({
             <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
               {t.areas.badge}
             </span>
-            <h2 className="text-3xl font-bold text-[#0B1F3A] mt-2 mb-4">
+            <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
               {t.areas.title}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {t.areas.description}
             </p>
           </div>
@@ -522,7 +522,7 @@ export default async function ReferanslarPage({
             {t.hizmetBolgeleri.map((bolge) => (
               <div
                 key={bolge}
-                className="flex items-center gap-2 px-6 py-3 bg-[#F5F5F5] rounded-full hover:bg-[#0B1F3A] hover:text-white transition-colors group"
+                className="flex items-center gap-2 px-6 py-3 bg-surface rounded-full hover:bg-primary hover:text-white transition-colors group"
               >
                 <MapPin className="w-4 h-4 text-[#C9A84C]" />
                 <span className="font-medium">{bolge}</span>
@@ -533,12 +533,12 @@ export default async function ReferanslarPage({
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#0B1F3A]">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             {t.cta.title}
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-white/85 max-w-2xl mx-auto mb-8">
             {t.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

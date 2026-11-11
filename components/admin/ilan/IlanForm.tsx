@@ -224,7 +224,7 @@ function CollapsibleSection({
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors"
       >
-        <h2 className="text-lg font-semibold text-primary">{title}</h2>
+        <h2 className="text-lg font-semibold text-ink">{title}</h2>
         {isOpen ? (
           <ChevronUp className="w-5 h-5 text-gray-500" />
         ) : (
@@ -898,7 +898,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                 name="oneCikan"
                 checked={formData.oneCikan}
                 onChange={handleChange}
-                className="w-5 h-5 rounded border-border text-primary focus:ring-primary"
+                className="w-5 h-5 rounded border-border text-ink focus:ring-primary"
               />
               <span className="text-sm font-medium text-text">Öne Çıkan İlan</span>
             </label>
@@ -1256,7 +1256,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                   name={item.name}
                   checked={formData[item.name as keyof IlanFormData] as boolean}
                   onChange={handleChange}
-                  className="w-4 h-4 rounded border-border text-primary"
+                  className="w-4 h-4 rounded border-border text-ink"
                 />
                 <span className="text-sm text-text">{item.label}</span>
               </label>
@@ -1571,7 +1571,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                   name={item.name}
                   checked={formData[item.name as keyof IlanFormData] as boolean}
                   onChange={handleChange}
-                  className="w-4 h-4 rounded border-border text-primary"
+                  className="w-4 h-4 rounded border-border text-ink"
                 />
                 <span className="text-sm text-text">{item.label}</span>
               </label>
@@ -1786,7 +1786,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                   name={item.name}
                   checked={formData[item.name as keyof IlanFormData] as boolean}
                   onChange={handleChange}
-                  className="w-4 h-4 rounded border-border text-primary"
+                  className="w-4 h-4 rounded border-border text-ink"
                 />
                 <span className="text-sm text-text">{item.label}</span>
               </label>
@@ -2037,7 +2037,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                     <span className="text-sm text-text truncate max-w-[200px]">{file.name}</span>
                     <span className={`text-xs ${
                       file.status === 'done' ? 'text-green-600' :
-                      file.status === 'error' ? 'text-red-600' : 'text-primary'
+                      file.status === 'error' ? 'text-red-600' : 'text-ink'
                     }`}>
                       {file.status === 'done' ? 'Tamamlandı' :
                        file.status === 'error' ? 'Hata!' : `%${file.progress}`}
@@ -2092,7 +2092,7 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
                           />
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-12 h-12 rounded-full bg-white/80 flex items-center justify-center">
-                              <Play className="w-6 h-6 text-primary ml-1" />
+                              <Play className="w-6 h-6 text-ink ml-1" />
                             </div>
                           </div>
                         </div>

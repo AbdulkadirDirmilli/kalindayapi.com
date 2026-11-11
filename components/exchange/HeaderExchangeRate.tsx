@@ -27,7 +27,7 @@ export default function HeaderExchangeRate({ isScrolled = false }: HeaderExchang
       className={cn(
         'flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-300 animate-ticker-pulse',
         isScrolled
-          ? 'bg-[#0B1F3A]/5 text-[#0B1F3A]'
+          ? 'bg-primary/5 text-ink'
           : 'bg-white/10 text-white'
       )}
     >
@@ -36,7 +36,7 @@ export default function HeaderExchangeRate({ isScrolled = false }: HeaderExchang
         <span className="animate-symbol-flash font-bold text-sm sm:text-base">$</span>
         <span className={cn(
           'tabular-nums animate-ticker-glow',
-          isScrolled ? 'text-[#0B1F3A]' : 'text-white'
+          isScrolled ? 'text-ink' : 'text-white'
         )}>
           {rates.rates.USD.toFixed(2)}
         </span>
@@ -45,7 +45,7 @@ export default function HeaderExchangeRate({ isScrolled = false }: HeaderExchang
       {/* Separator */}
       <span className={cn(
         'w-px h-3 sm:h-4',
-        isScrolled ? 'bg-[#0B1F3A]/20' : 'bg-white/30'
+        isScrolled ? 'bg-primary/20' : 'bg-white/30'
       )} />
 
       {/* EUR */}
@@ -53,7 +53,7 @@ export default function HeaderExchangeRate({ isScrolled = false }: HeaderExchang
         <span className="animate-symbol-flash font-bold text-sm sm:text-base" style={{ animationDelay: '0.3s' }}>€</span>
         <span className={cn(
           'tabular-nums animate-ticker-glow',
-          isScrolled ? 'text-[#0B1F3A]' : 'text-white'
+          isScrolled ? 'text-ink' : 'text-white'
         )} style={{ animationDelay: '0.3s' }}>
           {rates.rates.EUR.toFixed(2)}
         </span>

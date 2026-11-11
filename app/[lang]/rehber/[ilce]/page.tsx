@@ -103,7 +103,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
       />
 
       {/* Hero */}
-      <section className="relative bg-[#0B1F3A] pt-32 pb-20 md:pt-40 md:pb-28">
+      <section className="relative bg-primary pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="absolute inset-0">
           <Image
             src={ilce.kapakGorsel}
@@ -113,12 +113,12 @@ export default async function IlceRehberPage({ params }: PageProps) {
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A] via-[#0B1F3A]/70 to-[#0B1F3A]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/40" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-white/85 mb-6">
             <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
@@ -133,7 +133,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             {ilce.ad} <span className="text-[#C9A84C]">{texts.guideTitle}</span>
           </h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-3xl mb-8">
+          <p className="text-white/85 text-lg md:text-xl max-w-3xl mb-8">
             {kisaTanitim}
           </p>
 
@@ -165,7 +165,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
             <div className="lg:col-span-2 space-y-12">
               {/* Galeri */}
               <div>
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-6">
+                <h2 className="text-2xl font-bold text-ink mb-6">
                   {ilce.ad} {texts.photos}
                 </h2>
                 <div className="grid grid-cols-3 gap-4">
@@ -188,14 +188,14 @@ export default async function IlceRehberPage({ params }: PageProps) {
 
               {/* SSS */}
               <div>
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-6">
+                <h2 className="text-2xl font-bold text-ink mb-6">
                   {texts.faqTitle}
                 </h2>
                 <div className="space-y-4">
                   {sss.map((item, index) => (
-                    <div key={index} className="bg-[#F5F5F5] rounded-xl p-5">
-                      <h3 className="font-bold text-[#0B1F3A] mb-2">{item.soru}</h3>
-                      <p className="text-[#666666]">{item.cevap}</p>
+                    <div key={index} className="bg-surface rounded-xl p-5">
+                      <h3 className="font-bold text-ink mb-2">{item.soru}</h3>
+                      <p className="text-text-light">{item.cevap}</p>
                     </div>
                   ))}
                 </div>
@@ -205,17 +205,17 @@ export default async function IlceRehberPage({ params }: PageProps) {
             {/* Sidebar */}
             <div className="space-y-6">
               {/* CTA Card */}
-              <div className="bg-[#0B1F3A] rounded-2xl p-6 text-white sticky top-24">
+              <div className="bg-primary rounded-2xl p-6 text-white sticky top-24">
                 <h3 className="text-xl font-bold mb-3">
                   {ilce.ad}{texts.sidebarTitle}
                 </h3>
-                <p className="text-gray-300 text-sm mb-6">
+                <p className="text-white/85 text-sm mb-6">
                   {formatDistrictText(texts.sidebarDescription, ilce.ad)}
                 </p>
                 <div className="space-y-3">
                   <Link
                     href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
-                    className="flex items-center justify-center gap-2 w-full bg-[#C9A84C] text-[#0B1F3A] py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
+                    className="flex items-center justify-center gap-2 w-full bg-[#C9A84C] text-ink py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
                   >
                     <Phone className="w-4 h-4" />
                     {texts.contactButton}
@@ -231,13 +231,13 @@ export default async function IlceRehberPage({ params }: PageProps) {
               </div>
 
               {/* SEO Keywords */}
-              <div className="bg-[#F5F5F5] rounded-2xl p-6">
-                <h3 className="font-bold text-[#0B1F3A] mb-4">{texts.relatedSearches}</h3>
+              <div className="bg-surface rounded-2xl p-6">
+                <h3 className="font-bold text-ink mb-4">{texts.relatedSearches}</h3>
                 <div className="flex flex-wrap gap-2">
                   {seoBasliklar.slice(0, 5).map((baslik, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-white text-[#666666] text-xs rounded-full"
+                      className="px-3 py-1 bg-white text-text-light text-xs rounded-full"
                     >
                       {baslik}
                     </span>
@@ -250,17 +250,17 @@ export default async function IlceRehberPage({ params }: PageProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#0B1F3A]">
+      <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             {ilce.ad}{texts.bottomCtaTitle}
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-white/85 max-w-2xl mx-auto mb-8">
             {formatDistrictText(texts.bottomCtaDescription, ilce.ad)}
           </p>
           <Link
             href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
-            className="inline-flex items-center gap-2 bg-[#C9A84C] text-[#0B1F3A] px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#C9A84C] text-ink px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
           >
             {texts.bottomCtaButton}
             <ArrowRight className="w-5 h-5" />

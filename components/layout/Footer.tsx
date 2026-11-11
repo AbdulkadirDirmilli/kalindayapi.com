@@ -269,7 +269,7 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-white/85 text-sm leading-relaxed">
               {t.description}
             </p>
             {/* Social Media */}
@@ -313,7 +313,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-1"
+                      className="text-white/85 hover:text-accent transition-colors text-sm flex items-center gap-1"
                     >
                       <ChevronRight className="w-4 h-4" />
                       {link.name}
@@ -329,7 +329,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-1"
+                      className="text-white/85 hover:text-accent transition-colors text-sm flex items-center gap-1"
                     >
                       <ChevronRight className="w-4 h-4" />
                       {link.name}
@@ -348,7 +348,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-1"
+                    className="text-white/85 hover:text-accent transition-colors text-sm flex items-center gap-1"
                   >
                     <ChevronRight className="w-4 h-4" />
                     {link.name}
@@ -365,7 +365,7 @@ export default function Footer() {
               <li>
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300 text-sm">
+                  <span className="text-white/85 text-sm">
                     {t.addressLine1}<br />
                     {t.addressLine2}
                   </span>
@@ -377,11 +377,11 @@ export default function Footer() {
                   <div className="text-sm">
                     <a
                       href="tel:+905321591556"
-                      className="text-gray-300 hover:text-accent transition-colors block"
+                      className="text-white/85 hover:text-accent transition-colors block"
                     >
                       +90 532 159 15 56
                     </a>
-                    <span className="text-gray-500 text-xs">{t.arif}</span>
+                    <span className="text-white/60 text-xs">{t.arif}</span>
                   </div>
                 </div>
               </li>
@@ -390,7 +390,7 @@ export default function Footer() {
                   <Mail className="w-5 h-5 text-accent flex-shrink-0" />
                   <a
                     href="mailto:info@kalindayapi.com"
-                    className="text-gray-300 hover:text-accent transition-colors text-sm"
+                    className="text-white/85 hover:text-accent transition-colors text-sm"
                   >
                     info@kalindayapi.com
                   </a>
@@ -399,7 +399,7 @@ export default function Footer() {
               <li>
                 <div className="flex items-center gap-3">
                   <Clock className="w-5 h-5 text-accent flex-shrink-0" />
-                  <div className="text-gray-300 text-sm">
+                  <div className="text-white/85 text-sm">
                     <p>{t.weekdays}</p>
                     <p>{t.saturday}</p>
                   </div>
@@ -426,7 +426,7 @@ export default function Footer() {
               <Link
                 key={search.name}
                 href={search.href}
-                className="px-3 py-1.5 bg-white/5 hover:bg-accent/20 text-gray-300 hover:text-accent text-sm rounded-full transition-colors"
+                className="px-3 py-1.5 bg-white/5 hover:bg-accent/20 text-white/85 hover:text-accent text-sm rounded-full transition-colors"
               >
                 {search.name}
               </Link>
@@ -450,7 +450,7 @@ export default function Footer() {
               <h4 className="text-sm font-semibold text-white mb-1">
                 {t.eidsTitle}
               </h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
+              <p className="text-xs text-white/70 leading-relaxed">
                 {t.eidsDescription}
               </p>
             </div>
@@ -461,7 +461,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/70">
             <p>
               © {currentYear} {t.copyright}
             </p>
@@ -473,18 +473,18 @@ export default function Footer() {
               >
                 <Settings className="w-4 h-4" />
               </Link>
-              <span className="text-gray-600">|</span>
+              <span className="text-white/40">|</span>
               <Link href={`/${locale}/${getLocalizedRoute('gizlilik', locale)}`} className="hover:text-accent transition-colors">
                 {t.privacy}
               </Link>
-              <span className="text-gray-600">|</span>
+              <span className="text-white/40">|</span>
               <Link href={`/${locale}/${getLocalizedRoute('kullanim-kosullari', locale)}`} className="hover:text-accent transition-colors">
                 {t.terms}
               </Link>
             </div>
           </div>
           <div className="text-center mt-4 pt-4 border-t border-white/5">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-white/60">
               {t.designBy}{" "}
               <a
                 href="https://www.akduniverse.com/"

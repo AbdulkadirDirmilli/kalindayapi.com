@@ -224,7 +224,7 @@ export default function SmsGecmisPage() {
                             className="p-2 hover:bg-surface rounded-lg transition-colors"
                             title="Detay"
                           >
-                            <Eye className="w-4 h-4 text-primary" />
+                            <Eye className="w-4 h-4 text-ink" />
                           </button>
                         </td>
                       </tr>
@@ -270,7 +270,7 @@ export default function SmsGecmisPage() {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
             <div className="p-6 border-b border-border flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-primary">Gönderim Detayı</h3>
+              <h3 className="text-lg font-semibold text-ink">Gönderim Detayı</h3>
               <button
                 onClick={() => setSelectedLog(null)}
                 className="p-2 hover:bg-surface rounded-lg transition-colors"
@@ -304,7 +304,7 @@ export default function SmsGecmisPage() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="bg-surface rounded-lg p-3 text-center">
-                  <p className="text-2xl font-bold text-primary">{selectedLog.totalSent}</p>
+                  <p className="text-2xl font-bold text-ink">{selectedLog.totalSent}</p>
                   <p className="text-xs text-text-muted">Toplam</p>
                 </div>
                 <div className="bg-green-50 rounded-lg p-3 text-center">

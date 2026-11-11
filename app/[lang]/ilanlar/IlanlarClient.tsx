@@ -197,8 +197,8 @@ export default function IlanlarClient({
               />
             </svg>
           </div>
-          <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">{texts.error}</h3>
-          <p className="text-[#666666] mb-6">{error}</p>
+          <h3 className="text-xl font-bold text-ink mb-2">{texts.error}</h3>
+          <p className="text-text-light mb-6">{error}</p>
           <button
             onClick={() => window.location.reload()}
             className="px-6 py-2 bg-[#C9A84C] text-white rounded-lg hover:bg-[#b8973f] transition-colors"
@@ -249,9 +249,9 @@ export default function IlanlarClient({
           animate={{ opacity: 1 }}
           className="text-center py-16"
         >
-          <div className="w-24 h-24 bg-[#e0e0e0] rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="w-24 h-24 bg-surface-dark rounded-full flex items-center justify-center mx-auto mb-6">
             <svg
-              className="w-12 h-12 text-[#999999]"
+              className="w-12 h-12 text-text-muted"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -264,8 +264,8 @@ export default function IlanlarClient({
               />
             </svg>
           </div>
-          <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">{texts.noResults}</h3>
-          <p className="text-[#666666] mb-6">{texts.noResultsDesc}</p>
+          <h3 className="text-xl font-bold text-ink mb-2">{texts.noResults}</h3>
+          <p className="text-text-light mb-6">{texts.noResultsDesc}</p>
           <button
             onClick={() =>
               handleFilterChange({

@@ -294,7 +294,7 @@ export default function SmsGonderPage() {
                 </label>
                 <button
                   onClick={() => setShowTemplates(!showTemplates)}
-                  className="text-sm text-primary hover:underline flex items-center gap-1"
+                  className="text-sm text-ink hover:underline flex items-center gap-1"
                 >
                   <FileText className="w-4 h-4" />
                   Şablon Kullan
@@ -313,7 +313,7 @@ export default function SmsGonderPage() {
                         <button
                           key={template.id}
                           onClick={() => applyTemplate(template)}
-                          className="text-xs px-3 py-1.5 bg-white border border-border rounded-full hover:border-primary hover:text-primary transition-colors"
+                          className="text-xs px-3 py-1.5 bg-white border border-border rounded-full hover:border-primary hover:text-ink transition-colors"
                         >
                           {template.title}
                         </button>
@@ -451,7 +451,7 @@ export default function SmsGonderPage() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-text-light">Toplam SMS:</span>
-                  <span className="font-medium text-primary">
+                  <span className="font-medium text-ink">
                     {selectedRecipients.length * getCharacterInfo(message).smsCount} SMS
                   </span>
                 </div>
@@ -476,7 +476,7 @@ export default function SmsGonderPage() {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl w-full max-w-md">
             <div className="p-6 border-b border-border">
-              <h3 className="text-lg font-semibold text-primary">SMS Gönderimini Onayla</h3>
+              <h3 className="text-lg font-semibold text-ink">SMS Gönderimini Onayla</h3>
             </div>
             <div className="p-6">
               <div className="bg-surface rounded-lg p-4 mb-4">
@@ -491,7 +491,7 @@ export default function SmsGonderPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-text-light">Toplam SMS:</span>
-                    <span className="font-medium text-primary">
+                    <span className="font-medium text-ink">
                       {selectedRecipients.length * getCharacterInfo(message).smsCount} SMS
                     </span>
                   </div>

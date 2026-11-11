@@ -72,7 +72,7 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
           className={cn(
             "flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200",
             isScrolled
-              ? "bg-gray-100 hover:bg-gray-200 text-primary hover:scale-105"
+              ? "bg-gray-100 hover:bg-gray-200 text-ink hover:scale-105"
               : "bg-white/10 hover:bg-white/20 text-white hover:scale-105"
           )}
           aria-label="Select language"
@@ -125,7 +125,7 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
           className={cn(
             "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
             isScrolled
-              ? "text-primary hover:bg-gray-100 hover:scale-105"
+              ? "text-ink hover:bg-gray-100 hover:scale-105"
               : "text-white hover:bg-white/10 hover:scale-105"
           )}
           aria-label="Select language"
@@ -183,7 +183,7 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
         className={cn(
           "flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200",
           isScrolled
-            ? "bg-gray-100 hover:bg-gray-200 text-primary hover:scale-105 hover:shadow-md"
+            ? "bg-gray-100 hover:bg-gray-200 text-ink hover:scale-105 hover:shadow-md"
             : "bg-white/10 hover:bg-white/20 text-white hover:scale-105 backdrop-blur-sm"
         )}
         aria-label="Select language"

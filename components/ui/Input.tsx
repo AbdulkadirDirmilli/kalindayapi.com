@@ -20,7 +20,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-primary mb-1.5"
+            className="block text-sm font-medium text-ink mb-1.5"
           >
             {label}
           </label>
@@ -78,7 +78,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-primary mb-1.5"
+            className="block text-sm font-medium text-ink mb-1.5"
           >
             {label}
           </label>
@@ -124,7 +124,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-primary mb-1.5"
+            className="block text-sm font-medium text-ink mb-1.5"
           >
             {label}
           </label>

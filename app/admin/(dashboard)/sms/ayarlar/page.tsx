@@ -203,7 +203,7 @@ export default function SmsAyarlarPage() {
             <div className="bg-white rounded-xl border border-border p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Settings className="w-5 h-5 text-primary" />
+                  <Settings className="w-5 h-5 text-ink" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-text">NetGSM API Bilgileri</h3>
@@ -293,7 +293,7 @@ export default function SmsAyarlarPage() {
                 {getSenderNames().map((name, index) => (
                   <span
                     key={index}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-ink rounded-full text-sm"
                   >
                     {name}
                     <button

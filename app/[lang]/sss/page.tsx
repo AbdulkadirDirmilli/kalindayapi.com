@@ -41,7 +41,7 @@ function FAQItem({ faq, isOpen, onToggle }: { faq: FAQ; isOpen: boolean; onToggl
         className="w-full py-5 flex items-center justify-between text-left hover:bg-gray-50 px-4 -mx-4 transition-colors"
         aria-expanded={isOpen}
       >
-        <span className="font-semibold text-[#0B1F3A] pr-4">{faq.soru}</span>
+        <span className="font-semibold text-ink pr-4">{faq.soru}</span>
         <ChevronDown
           className={`w-5 h-5 text-[#C9A84C] flex-shrink-0 transition-transform ${
             isOpen ? "rotate-180" : ""
@@ -50,7 +50,7 @@ function FAQItem({ faq, isOpen, onToggle }: { faq: FAQ; isOpen: boolean; onToggl
       </button>
       {isOpen && (
         <div className="pb-5 px-4 -mx-4">
-          <p className="text-[#666666] leading-relaxed">{faq.cevap}</p>
+          <p className="text-text-light leading-relaxed">{faq.cevap}</p>
         </div>
       )}
     </div>
@@ -86,10 +86,10 @@ export default function SSSPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#0B1F3A] pt-32 pb-16">
+      <section className="bg-primary pt-32 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
             <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
               <Home className="w-4 h-4" />
             </Link>
@@ -101,7 +101,7 @@ export default function SSSPage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               {texts.title} <span className="text-[#C9A84C]">{texts.titleHighlight}</span>
             </h1>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-white/85 text-lg leading-relaxed">
               {texts.subtitle}
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function SSSPage() {
             {/* Kategori Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-24">
-                <h2 className="font-bold text-[#0B1F3A] mb-4">{texts.categories}</h2>
+                <h2 className="font-bold text-ink mb-4">{texts.categories}</h2>
                 <div className="space-y-2">
                   {kategoriler.map((kat) => {
                     const Icon = ikonlar[kat.ikon] || HelpCircle;
@@ -129,8 +129,8 @@ export default function SSSPage() {
                         }}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                           isActive
-                            ? "bg-[#0B1F3A] text-white"
-                            : "bg-gray-100 text-[#666666] hover:bg-gray-200"
+                            ? "bg-primary text-white"
+                            : "bg-gray-100 text-text-light hover:bg-gray-200"
                         }`}
                       >
                         <Icon className={`w-5 h-5 ${isActive ? "text-[#C9A84C]" : ""}`} />
@@ -142,16 +142,16 @@ export default function SSSPage() {
 
                 {/* Quick Contact */}
                 <Card className="mt-8" padding="md">
-                  <h3 className="font-bold text-[#0B1F3A] mb-3">
+                  <h3 className="font-bold text-ink mb-3">
                     {texts.contactTitle}
                   </h3>
-                  <p className="text-sm text-[#666666] mb-4">
+                  <p className="text-sm text-text-light mb-4">
                     {texts.contactText}
                   </p>
                   <div className="space-y-2">
                     <a
                       href="tel:+905321591556"
-                      className="flex items-center gap-2 text-sm text-[#0B1F3A] hover:text-[#C9A84C]"
+                      className="flex items-center gap-2 text-sm text-ink hover:text-[#C9A84C]"
                     >
                       <Phone className="w-4 h-4" />
                       +90 532 159 15 56
@@ -187,10 +187,10 @@ export default function SSSPage() {
                         <Icon className="w-6 h-6 text-[#C9A84C]" />
                       </div>
                       <div>
-                        <h2 className="text-xl font-bold text-[#0B1F3A]">
+                        <h2 className="text-xl font-bold text-ink">
                           {aktifKat?.baslik}
                         </h2>
-                        <p className="text-sm text-[#666666]">
+                        <p className="text-sm text-text-light">
                           {filtreliSorular.length} {texts.questionsCount}
                         </p>
                       </div>
@@ -215,13 +215,13 @@ export default function SSSPage() {
       </section>
 
       {/* Popular Questions Summary */}
-      <section className="py-16 bg-[#F5F5F5]">
+      <section className="py-16 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3A] mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-ink mb-4">
               {texts.popularTitle}
             </h2>
-            <p className="text-[#666666] max-w-2xl mx-auto">
+            <p className="text-text-light max-w-2xl mx-auto">
               {texts.popularSubtitle}
             </p>
           </div>
@@ -232,12 +232,12 @@ export default function SSSPage() {
               return (
                 <Card key={index} padding="lg" className="hover:shadow-lg transition-shadow">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#0B1F3A] flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-[#C9A84C]" />
+                    <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-[#0B1F3A] mb-2">{item.soru}</h3>
-                      <p className="text-sm text-[#666666]">{item.cevap}</p>
+                      <h3 className="font-bold text-ink mb-2">{item.soru}</h3>
+                      <p className="text-sm text-text-light">{item.cevap}</p>
                     </div>
                   </div>
                 </Card>
@@ -248,12 +248,12 @@ export default function SSSPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#0B1F3A]">
+      <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             {texts.ctaTitle}
           </h2>
-          <p className="text-gray-300 max-w-xl mx-auto mb-8">
+          <p className="text-white/85 max-w-xl mx-auto mb-8">
             {texts.ctaText}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

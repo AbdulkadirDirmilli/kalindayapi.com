@@ -255,10 +255,10 @@ export default async function IlanlarPage({
       />
 
       {/* Hero Banner */}
-      <section className="bg-[#0B1F3A] pt-32 pb-16">
+      <section className="bg-primary pt-32 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
             <Link
               href={`/${locale}`}
               className="hover:text-[#C9A84C] transition-colors"
@@ -273,13 +273,13 @@ export default async function IlanlarPage({
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               {t.title}
             </h1>
-            <p className="text-gray-300 max-w-2xl">{t.subtitle}</p>
+            <p className="text-white/85 max-w-2xl">{t.subtitle}</p>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-12 bg-[#F5F5F5]">
+      <section className="py-12 bg-surface">
         <div className="container mx-auto px-4">
           <IlanlarClient
             initialIlanlar={ilanlar}
@@ -303,24 +303,24 @@ export default async function IlanlarPage({
           <div className="max-w-4xl mx-auto prose prose-lg">
             {locale === "tr" && (
               <>
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+                <h2 className="text-2xl font-bold text-ink mb-4">
                   Ortaca ve Çevresinde Emlak İlanları
                 </h2>
-                <p className="text-[#666666] mb-4">
+                <p className="text-text-light mb-4">
                   Kalinda Yapı olarak Muğla'nın Ortaca, Dalaman, Dalyan ve Köyceğiz
                   bölgelerinde satılık ve kiralık gayrimenkul hizmetleri sunuyoruz.
                   Portföyümüzde daireler, villalar, arsalar ve ticari gayrimenkuller
                   bulunmaktadır.
                 </p>
-                <p className="text-[#666666] mb-4">
+                <p className="text-text-light mb-4">
                   Lisanslı emlak danışmanlarımız ile güvenli alım-satım ve kiralama
                   işlemleri gerçekleştirebilirsiniz. Ücretsiz gayrimenkul değerleme
                   hizmetimizden yararlanmak için bize ulaşın.
                 </p>
-                <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
+                <h3 className="text-xl font-bold text-ink mb-2">
                   Hizmet Verdiğimiz Bölgeler
                 </h3>
-                <ul className="text-[#666666] list-disc pl-5 mb-4">
+                <ul className="text-text-light list-disc pl-5 mb-4">
                   <li>Ortaca merkez ve tüm mahalleler</li>
                   <li>Dalyan kanal boyu ve çevresi</li>
                   <li>Köyceğiz göl manzaralı bölgeler</li>
@@ -331,15 +331,15 @@ export default async function IlanlarPage({
             )}
             {locale === "en" && (
               <>
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+                <h2 className="text-2xl font-bold text-ink mb-4">
                   Property Listings in Ortaca and Surrounding Areas
                 </h2>
-                <p className="text-[#666666] mb-4">
+                <p className="text-text-light mb-4">
                   At Kalinda Yapı, we offer properties for sale and rent in Ortaca,
                   Dalaman, Dalyan, and Köyceğiz regions of Muğla. Our portfolio
                   includes apartments, villas, land, and commercial properties.
                 </p>
-                <p className="text-[#666666] mb-4">
+                <p className="text-text-light mb-4">
                   With our licensed real estate consultants, you can safely conduct
                   buying, selling, and rental transactions. Contact us to benefit
                   from our free property valuation service.
@@ -348,10 +348,10 @@ export default async function IlanlarPage({
             )}
             {locale === "ar" && (
               <>
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+                <h2 className="text-2xl font-bold text-ink mb-4">
                   قوائم العقارات في أورتاجا والمناطق المحيطة
                 </h2>
-                <p className="text-[#666666] mb-4">
+                <p className="text-text-light mb-4">
                   في كالينداي يابي، نقدم عقارات للبيع والإيجار في مناطق أورتاجا
                   ودالامان ودالان وكويجيز في موغلا. تشمل محفظتنا الشقق والفلل
                   والأراضي والعقارات التجارية.
@@ -360,16 +360,16 @@ export default async function IlanlarPage({
             )}
             {locale === "de" && (
               <>
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+                <h2 className="text-2xl font-bold text-ink mb-4">
                   Immobilienanzeigen in Ortaca und Umgebung
                 </h2>
-                <p className="text-[#666666] mb-4">
+                <p className="text-text-light mb-4">
                   Bei Kalinda Yapı bieten wir Immobilien zum Verkauf und zur Miete
                   in den Regionen Ortaca, Dalaman, Dalyan und Köyceğiz in Muğla an.
                   Unser Portfolio umfasst Wohnungen, Villen, Grundstücke und
                   Gewerbeimmobilien.
                 </p>
-                <p className="text-[#666666] mb-4">
+                <p className="text-text-light mb-4">
                   Mit unseren lizenzierten Immobilienberatern können Sie sicher
                   Kauf-, Verkaufs- und Mietgeschäfte abwickeln. Kontaktieren Sie
                   uns für unseren kostenlosen Immobilienbewertungsservice.
@@ -378,16 +378,16 @@ export default async function IlanlarPage({
             )}
             {locale === "ru" && (
               <>
-                <h2 className="text-2xl font-bold text-[#0B1F3A] mb-4">
+                <h2 className="text-2xl font-bold text-ink mb-4">
                   Объявления о недвижимости в Ортаке и окрестностях
                 </h2>
-                <p className="text-[#666666] mb-4">
+                <p className="text-text-light mb-4">
                   В Kalinda Yapı мы предлагаем недвижимость на продажу и в аренду
                   в регионах Ортака, Даламан, Далян и Кёйджеиз в Мугла. Наше
                   портфолио включает квартиры, виллы, земельные участки и
                   коммерческую недвижимость.
                 </p>
-                <p className="text-[#666666] mb-4">
+                <p className="text-text-light mb-4">
                   С нашими лицензированными консультантами по недвижимости вы
                   можете безопасно проводить операции купли-продажи и аренды.
                   Свяжитесь с нами для получения бесплатной оценки недвижимости.

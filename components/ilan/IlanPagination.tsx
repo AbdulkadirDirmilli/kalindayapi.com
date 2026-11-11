@@ -78,8 +78,8 @@ export default function IlanPagination({
         disabled={currentPage === 1}
         className={`flex items-center gap-1 px-3 py-2 rounded-lg font-medium transition-colors ${
           currentPage === 1
-            ? "text-[#999999] cursor-not-allowed"
-            : "text-[#0B1F3A] hover:bg-[#F5F5F5]"
+            ? "text-text-muted cursor-not-allowed"
+            : "text-ink hover:bg-surface"
         }`}
         aria-label={t.previous}
       >
@@ -94,7 +94,7 @@ export default function IlanPagination({
             return (
               <span
                 key={`ellipsis-${index}`}
-                className="w-10 h-10 flex items-center justify-center text-[#999999]"
+                className="w-10 h-10 flex items-center justify-center text-text-muted"
               >
                 <MoreHorizontal className="w-4 h-4" />
               </span>
@@ -110,8 +110,8 @@ export default function IlanPagination({
               onClick={() => onPageChange(pageNum)}
               className={`w-10 h-10 rounded-lg font-medium transition-colors ${
                 isActive
-                  ? "bg-[#0B1F3A] text-white"
-                  : "text-[#0B1F3A] hover:bg-[#F5F5F5]"
+                  ? "bg-primary text-white"
+                  : "text-ink hover:bg-surface"
               }`}
               aria-label={`${t.page} ${pageNum}`}
               aria-current={isActive ? "page" : undefined}
@@ -128,8 +128,8 @@ export default function IlanPagination({
         disabled={currentPage === totalPages}
         className={`flex items-center gap-1 px-3 py-2 rounded-lg font-medium transition-colors ${
           currentPage === totalPages
-            ? "text-[#999999] cursor-not-allowed"
-            : "text-[#0B1F3A] hover:bg-[#F5F5F5]"
+            ? "text-text-muted cursor-not-allowed"
+            : "text-ink hover:bg-surface"
         }`}
         aria-label={t.next}
       >

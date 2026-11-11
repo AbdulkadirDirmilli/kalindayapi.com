@@ -56,12 +56,12 @@ export default function ConfirmDialog({
   const iconColors = {
     danger: 'text-error',
     warning: 'text-accent',
-    info: 'text-primary',
+    info: 'text-ink',
   }
 
   const buttonColors = {
     danger: 'bg-error hover:bg-error/90',
-    warning: 'bg-accent hover:bg-accent-dark text-primary',
+    warning: 'bg-accent hover:bg-accent-dark text-ink',
     info: 'bg-primary hover:bg-primary-light',
   }
 
@@ -96,7 +96,7 @@ export default function ConfirmDialog({
 
         {/* Content */}
         <div className="text-center mb-6">
-          <h3 className="text-lg font-semibold text-primary mb-2">{title}</h3>
+          <h3 className="text-lg font-semibold text-ink mb-2">{title}</h3>
           <p className="text-text-light">{message}</p>
         </div>
 

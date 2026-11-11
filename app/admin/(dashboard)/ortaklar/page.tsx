@@ -221,7 +221,7 @@ export default function OrtaklarPage() {
         {/* Add Form */}
         {showAddForm && (
           <div className="bg-white rounded-xl border border-border p-4 sm:p-6 mb-4 sm:mb-6">
-            <h3 className="text-lg font-semibold text-primary mb-4">
+            <h3 className="text-lg font-semibold text-ink mb-4">
               Yeni Ortak Ekle
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -408,7 +408,7 @@ export default function OrtaklarPage() {
                               className="w-full h-full object-cover"
                             />
                           ) : (
-                            <User className="w-8 h-8 text-primary" />
+                            <User className="w-8 h-8 text-ink" />
                           )}
                         </div>
                         <div className="flex-1 min-w-0">
@@ -417,7 +417,7 @@ export default function OrtaklarPage() {
                           <div className="mt-2 space-y-1">
                             <a
                               href={`tel:${ortak.telefon}`}
-                              className="flex items-center gap-1 text-xs text-text-muted hover:text-primary"
+                              className="flex items-center gap-1 text-xs text-text-muted hover:text-ink"
                             >
                               <Phone className="w-3 h-3" />
                               {ortak.telefon}
@@ -425,7 +425,7 @@ export default function OrtaklarPage() {
                             {ortak.email && (
                               <a
                                 href={`mailto:${ortak.email}`}
-                                className="flex items-center gap-1 text-xs text-text-muted hover:text-primary"
+                                className="flex items-center gap-1 text-xs text-text-muted hover:text-ink"
                               >
                                 <Mail className="w-3 h-3" />
                                 {ortak.email}
@@ -441,7 +441,7 @@ export default function OrtaklarPage() {
                           (alan, i) => (
                             <span
                               key={i}
-                              className="text-xs px-2 py-0.5 bg-primary/10 text-primary rounded-full"
+                              className="text-xs px-2 py-0.5 bg-primary/10 text-ink rounded-full"
                             >
                               {alan}
                             </span>
@@ -466,7 +466,7 @@ export default function OrtaklarPage() {
                           onClick={() => handleEdit(ortak)}
                           className="p-2 hover:bg-surface rounded-lg transition-colors"
                         >
-                          <Edit className="w-4 h-4 text-primary" />
+                          <Edit className="w-4 h-4 text-ink" />
                         </button>
                         <button
                           onClick={() => setDeleteId(ortak.id)}

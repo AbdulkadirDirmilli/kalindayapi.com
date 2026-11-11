@@ -15,7 +15,7 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
 
     const variants = {
       satilik: "bg-success text-white",
-      kiralik: "bg-accent text-primary",
+      kiralik: "bg-accent text-ink",
       ticari: "bg-primary text-white",
       default: "bg-surface text-text-light",
       success: "bg-success text-white",
