@@ -13,11 +13,11 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     const baseStyles = "bg-white rounded-xl";
 
     const variants = {
-      default: "shadow-md",
-      elevated: "shadow-xl",
+      default: "border border-black/5 shadow-sm",
+      elevated: "border border-black/5 shadow-md",
       bordered: "border border-border",
       interactive:
-        "shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer",
+        "border border-black/5 shadow-sm hover:shadow-md hover:border-accent/40 transition-[box-shadow,border-color] duration-200 cursor-pointer",
     };
 
     const paddings = {

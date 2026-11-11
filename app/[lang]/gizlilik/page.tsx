@@ -314,7 +314,7 @@ export default async function GizlilikPage({
                 <p className="text-[#0B1F3A] font-semibold">Kalinda Yapı</p>
                 <p className="text-[#666666]">Atatürk Mah. 58 Sk. No: 2/B</p>
                 <p className="text-[#666666]">Ortaca / Muğla</p>
-                <p className="text-[#666666]">Tel: +90 537 053 07 54</p>
+                <p className="text-[#666666]">Tel: +90 532 159 15 56</p>
                 <p className="text-[#666666]">E-posta: info@kalindayapi.com</p>
               </div>
             </div>

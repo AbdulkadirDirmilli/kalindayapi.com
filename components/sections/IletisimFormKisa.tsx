@@ -24,7 +24,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
   const t = dict?.home?.contactForm || {
     badge: "İletişim",
     title: "Hemen Bize Ulaşın",
-    subtitle: "Emlak, tadilat veya inşaat projeleriniz için ücretsiz danışmanlık alın. Size en kısa sürede dönüş yapacağız.",
+    subtitle: "Alım, satım veya kiralama planınız için ücretsiz ön görüşme alın. Size en kısa sürede dönüş yapacağız.",
     address: "Adres",
     phone: "Telefon",
     workingHours: "Çalışma Saatleri",
@@ -38,7 +38,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
     serviceLabel: "Hizmet Türü",
     serviceSelect: "Hizmet Seçin",
     messageLabel: "Mesajınız",
-    messagePlaceholder: "Projeniz hakkında kısaca bilgi verin...",
+    messagePlaceholder: "Aradığınız gayrimenkul hakkında kısaca bilgi verin...",
     submit: "Gönder",
     successTitle: "Mesajınız Alındı!",
     successMessage: "En kısa sürede size dönüş yapacağız.",
@@ -51,9 +51,9 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
   const hizmetSecenekleri = [
     { value: "", label: t.serviceSelect },
     { value: "emlak", label: servicesDict.realEstate?.title || "Emlak Danışmanlığı" },
-    { value: "tadilat", label: servicesDict.renovation?.title || "Tadilat & Dekorasyon" },
-    { value: "taahhut", label: servicesDict.construction?.title || "Taahhüt & İnşaat" },
-    { value: "plan-proje", label: servicesDict.planning?.title || "Plan & Proje" },
+    { value: "degerleme", label: servicesDict.valuation?.title || "Gayrimenkul Değerleme" },
+    { value: "yatirim", label: servicesDict.investment?.title || "Yatırım Danışmanlığı" },
+    { value: "tapu", label: servicesDict.titleDeed?.title || "Tapu & Resmi İşlemler" },
     { value: "diger", label: dict?.common?.other || "Diğer" },
   ];
 
@@ -106,7 +106,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-white"
           >
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">
@@ -137,7 +137,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">{t.phone}</p>
-                  <p className="font-medium">+90 537 053 07 54</p>
+                  <p className="font-medium">+90 532 159 15 56</p>
                   <p className="font-medium">+90 532 159 15 56</p>
                 </div>
               </div>
@@ -155,7 +155,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
             </div>
 
             {/* Map Preview */}
-            <div className="mt-8 rounded-2xl overflow-hidden h-40 md:h-48 lg:h-56 bg-white/10">
+            <div className="mt-8 rounded-lg overflow-hidden h-40 md:h-48 lg:h-56 bg-white/10">
               <iframe
                 src="https://maps.google.com/maps?q=36.83947,28.76639&t=&z=17&ie=UTF8&iwloc=&output=embed"
                 width="100%"
@@ -173,9 +173,9 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
           >
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white rounded-xl p-6 md:p-8 shadow-md">
               <h3 className="text-xl font-bold text-primary mb-6">
                 {t.formTitle}
               </h3>

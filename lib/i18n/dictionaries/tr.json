@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Ortaca Emlak & Satılık Daire | Kalinda Yapı ✓ Lisanslı Danışmanlık",
-    "description": "Ortaca'da satılık & kiralık emlak ilanları 🏠 150+ güncel ilan ✓ Lisanslı danışman ✓ Ücretsiz değerleme. Dalaman, Köyceğiz, Dalyan bölgelerinde hizmet. ☎ 0537 053 07 54",
+    "description": "Ortaca'da satılık & kiralık emlak ilanları 🏠 150+ güncel ilan ✓ Lisanslı danışman ✓ Ücretsiz değerleme. Dalaman, Köyceğiz, Dalyan bölgelerinde hizmet. ☎ 0532 159 15 56",
     "keywords": "Ortaca satılık daire, Ortaca kiralık daire, Ortaca emlak ofisleri, Dalaman satılık ev, Dalyan satılık villa, Muğla emlak, Köyceğiz satılık, Ortaca emlak danışmanı"
   },
   "nav": {
@@ -19,12 +19,6 @@
     "faq": "S.S.S",
     "searchListings": "İlan Sorgula",
     "callNow": "Hemen Arayın"
-  },
-  "services": {
-    "realEstate": "Emlak Danışmanlığı",
-    "renovation": "Tadilat & Dekorasyon",
-    "construction": "Taahhüt & İnşaat",
-    "planning": "Plan & Proje"
   },
   "common": {
     "readMore": "Devamını Oku",
@@ -52,12 +46,12 @@
     "hero": {
       "badge": "2022'den Bu Yana Hizmetinizdeyiz",
       "title": "Ortaca'nın Güvenilir",
-      "titleHighlight": "Yapı & Emlak",
-      "titleEnd": "Ortağı",
-      "subtitle": "Muğla Ortaca'da emlak danışmanlığı, tadilat ve taahhüt hizmetleri. Hayalinizdeki eve veya projeye bir adım daha yakınsınız.",
+      "titleHighlight": "Gayrimenkul",
+      "titleEnd": "Danışmanı",
+      "subtitle": "Ortaca, Dalyan, Köyceğiz ve Dalaman'da satılık ve kiralık gayrimenkul danışmanlığı. Doğru portföy, şeffaf süreç, lisanslı hizmet.",
       "cta": "İlanları Keşfet",
-      "ctaSecondary": "Ücretsiz Danışmanlık Al",
-      "completedProjects": "Tamamlanan Proje",
+      "ctaSecondary": "Ücretsiz Değerleme Al",
+      "completedProjects": "Tamamlanan İşlem",
       "yearsExperience": "Yıl Deneyim",
       "happyFamilies": "Mutlu Aile"
     },
@@ -66,14 +60,13 @@
       "subtitle": "Güvenin ve Başarının Kanıtı",
       "description": "Ortaca ve Muğla bölgesinde yılların getirdiği deneyim ve müşterilerimizin güveniyle büyüyoruz.",
       "experience": "Yıl Deneyim",
-      "projects": "Tamamlanan Proje",
+      "projects": "Tamamlanan İşlem",
       "clients": "Mutlu Aile",
       "satisfaction": "Müşteri Memnuniyeti",
-      "projectsDesc": "Konut, villa ve ticari projeler",
+      "projectsDesc": "Satış ve kiralama işlemleri",
       "experienceDesc": "2022'den bu yana hizmet",
       "clientsDesc": "Güvenle tercih eden müşteriler",
-      "satisfactionDesc": "Kalite odaklı hizmet",
-      "area": "m² İnşaat",
+      "satisfactionDesc": "Şeffaf ve sonuç odaklı hizmet",
       "note": "* Veriler gerçek işlemlerimizi yansıtmakta olup, her satış ve kiralama sonrası güncellenmektedir."
     },
     "featured": {
@@ -89,24 +82,24 @@
     "services": {
       "badge": "Hizmetlerimiz",
       "title": "Size Nasıl Yardımcı Olabiliriz?",
-      "subtitle": "Emlak danışmanlığından inşaat taahhüdüne kadar tüm ihtiyaçlarınız için yanınızdayız. Profesyonel ekibimizle kaliteli hizmet sunuyoruz.",
+      "subtitle": "Alım, satım, kiralama ve yatırım süreçlerinizin tamamında lisanslı gayrimenkul danışmanlığı sunuyoruz.",
       "details": "Detaylar",
       "viewAll": "Tüm Hizmetlerimizi Görün",
       "realEstate": {
         "title": "Emlak Danışmanlığı",
-        "description": "Ortaca ve çevresinde satılık, kiralık gayrimenkul hizmetleri. Profesyonel değerleme ve yatırım danışmanlığı."
+        "description": "Ortaca ve çevresinde satılık ve kiralık gayrimenkul portföyü. Alıcı ve satıcı arasında güvenli aracılık."
       },
-      "renovation": {
-        "title": "Tadilat & Dekorasyon",
-        "description": "İç mimari, mutfak-banyo yenileme, boya ve kaplama işleri. Evinizi hayalinizdeki gibi dönüştürüyoruz."
+      "valuation": {
+        "title": "Gayrimenkul Değerleme",
+        "description": "Mülkünüzün güncel piyasa değerini bölgesel karşılaştırmalı analizle raporluyoruz."
       },
-      "construction": {
-        "title": "Taahhüt & İnşaat",
-        "description": "Sıfırdan bina inşaatı, restorasyon projeleri ve anahtar teslim yapı çözümleri."
+      "investment": {
+        "title": "Yatırım Danışmanlığı",
+        "description": "Kira getirisi ve değer artış potansiyeline göre bölgedeki yatırım fırsatlarını birlikte değerlendiriyoruz."
       },
-      "planning": {
-        "title": "Plan & Proje",
-        "description": "Mimari, statik, elektrik-mekanik proje çizimleri ve ruhsat danışmanlığı hizmetleri."
+      "titleDeed": {
+        "title": "Tapu & Resmi İşlemler",
+        "description": "Tapu, imar durumu ve sözleşme süreçlerinde baştan sona evrak ve işlem takibi."
       }
     },
     "whyUs": {
@@ -117,20 +110,20 @@
       "licensedConsultantDesc": "Resmi olarak sertifikalı emlak danışmanımızla güvenilir hizmet alırsınız.",
       "localKnowledge": "Yerel Bilgi",
       "localKnowledgeDesc": "Ortaca ve çevresini avucumuzun içi gibi biliyoruz. Bölgenin dinamiklerine hakimiz.",
-      "guaranteedWork": "Garantili İşçilik",
-      "guaranteedWorkDesc": "Tüm tadilat ve inşaat işlerimizde işçilik garantisi sunuyoruz.",
+      "guaranteedWork": "Doğrulanmış Portföy",
+      "guaranteedWorkDesc": "Listelediğimiz her gayrimenkulü yerinde inceler, tapu ve imar durumunu kontrol ederiz.",
       "transparentContract": "Şeffaf Sözleşme",
       "transparentContractDesc": "Tüm işlemlerimiz yazılı sözleşme ile güvence altındadır. Gizli maliyet yoktur.",
       "personalAttention": "Kişisel İlgi",
       "personalAttentionDesc": "Her müşterimize özel ilgi gösteriyoruz. İhtiyaçlarınızı anlamak önceliğimiz.",
-      "onTimeDelivery": "Zamanında Teslimat",
-      "onTimeDeliveryDesc": "Projelerimizi söz verdiğimiz sürede tamamlıyoruz. Zamana değer veriyoruz.",
+      "onTimeDelivery": "Hızlı Süreç Yönetimi",
+      "onTimeDeliveryDesc": "Teklif, pazarlık ve tapu randevusu dahil tüm adımları sizin adınıza takip ederiz.",
       "serviceArea": "Hizmet Bölgesi",
       "allDistricts": "Muğla'nın Tüm İlçeleri",
       "established": "Kuruluş",
       "since2022": "2022'den Bu Yana",
       "customerSatisfaction": "Müşteri Memnuniyeti",
-      "serviceNote": "Emlak, tadilat ve inşaat hizmetlerimiz ile tüm Muğla ilçelerinde yanınızdayız"
+      "serviceNote": "Satılık ve kiralık gayrimenkul danışmanlığımızla Muğla'nın tüm ilçelerinde yanınızdayız"
     },
     "blog": {
       "badge": "Blog & Rehber",
@@ -140,35 +133,24 @@
       "viewAll": "Tüm Yazıları Gör",
       "readTime": "dk"
     },
-    "references": {
-      "badge": "Referans Projeler",
-      "title": "Öncesi - Sonrası Galeri",
-      "subtitle": "Tamamladığımız projelerden örnekler. Kaliteli işçilik ve profesyonel yaklaşımımızla fark yaratıyoruz.",
-      "before": "ÖNCESİ",
-      "after": "SONRASI",
-      "clickToToggle": "Tıkla & Değiştir",
-      "instruction": "Görsellere tıklayarak öncesi-sonrası karşılaştırmasını görebilirsiniz",
-      "prev": "Önceki",
-      "next": "Sonraki"
-    },
     "team": {
-      "badge": "Ekibimiz",
-      "title": "Kurucu Ortaklarımız",
-      "subtitle": "Kalinda Yapı'nın arkasındaki deneyimli isimler. Ortaklarımız müşteri memnuniyetini en üst düzeyde tutarak hizmet vermektedir.",
+      "badge": "Danışmanınız",
+      "title": "Tek Muhatap, Net Bilgi",
+      "subtitle": "Gayrimenkul alım, satım ve kiralama süreçlerinizde baştan sona aynı danışmanla çalışırsınız.",
       "expertise": "Uzmanlık Alanları",
       "call": "Ara"
     },
     "faq": {
       "badge": "SSS",
       "title": "Sıkça Sorulan Sorular",
-      "subtitle": "Ortaca, Dalyan ve Muğla'da emlak alım-satım, tadilat ve inşaat hakkında en çok merak edilen sorular ve uzman cevapları.",
+      "subtitle": "Ortaca, Dalyan ve Muğla'da gayrimenkul alım, satım ve kiralama hakkında en çok merak edilen sorular ve danışman cevapları.",
       "moreQuestions": "Başka sorularınız mı var?",
       "contactUs": "Bize ulaşın"
     },
     "contactForm": {
       "badge": "İletişim",
       "title": "Hemen Bize Ulaşın",
-      "subtitle": "Emlak, tadilat veya inşaat projeleriniz için ücretsiz danışmanlık alın. Size en kısa sürede dönüş yapacağız.",
+      "subtitle": "Alım, satım veya kiralama planınız için ücretsiz ön görüşme alın. Size en kısa sürede dönüş yapacağız.",
       "address": "Adres",
       "phone": "Telefon",
       "workingHours": "Çalışma Saatleri",
@@ -297,8 +279,7 @@
       "emlak": "Emlak",
       "tadilat": "Tadilat",
       "insaat": "İnşaat",
-      "yatirim": "Yatırım",
-      "dekorasyon": "Dekorasyon"
+      "yatirim": "Yatırım"
     },
     "author": "Yazar",
     "publishDate": "Yayın Tarihi",
@@ -309,7 +290,7 @@
     "subtitle": "Merak ettiklerinizin cevapları burada"
   },
   "footer": {
-    "description": "Ortaca ve çevresinde emlak, tadilat ve inşaat taahhüt hizmetleri.",
+    "description": "Ortaca ve çevresinde satılık ve kiralık gayrimenkul danışmanlığı.",
     "quickLinks": "Hızlı Bağlantılar",
     "services": "Hizmetlerimiz",
     "contact": "İletişim Bilgileri",
@@ -347,10 +328,8 @@
     "close": "Kapat"
   },
   "consultants": {
-    "zafer": "Zafer Bey",
     "arif": "Arif Bey",
-    "hikmet": "Hikmet Bey",
-    "consultant": "Danışman"
+    "consultant": "Gayrimenkul Danışmanı"
   },
   "address": {
     "full": "Atatürk Mah. 58 Sk. No: 2/B (Belediye Arkası), Ortaca / Muğla",
@@ -459,7 +438,7 @@
   "contactPage": {
     "heroTitle": "İletişim",
     "heroSubtitle": "Sorularınız için bizimle iletişime geçin. Size yardımcı olmaktan mutluluk duyarız.",
-    "heroDescription": "Emlak, tadilat veya inşaat projeleriniz için uzman ekibimizle görüşün.",
+    "heroDescription": "Alım, satım veya kiralama planınız için lisanslı danışmanımızla görüşün.",
     "infoTitle": "İletişim Bilgileri",
     "address": "Adres",
     "addressLine1": "Atatürk Mah. 58 Sk. No: 2/B",
@@ -469,7 +448,7 @@
     "weekdaysHours": "Pazartesi - Cuma: 09:00 - 18:00",
     "saturdayHours": "Cumartesi: 10:00 - 14:00",
     "sundayClosed": "Pazar: Kapalı",
-    "teamTitle": "Yetkililerimiz",
+    "teamTitle": "Danışmanınız",
     "socialTitle": "Sosyal Medya",
     "formTitle": "Bize Mesaj Gönderin",
     "successTitle": "Mesajınız Gönderildi!",
@@ -490,22 +469,15 @@
     },
     "serviceOptions": {
       "emlak": "Emlak Danışmanlığı",
-      "tadilat": "Tadilat & Dekorasyon",
-      "insaat": "İnşaat & Taahhüt",
+      "degerleme": "Gayrimenkul Değerleme",
+      "yatirim": "Yatırım Danışmanlığı",
+      "tapu": "Tapu & Resmi İşlemler",
       "diger": "Diğer"
     },
     "team": {
-      "zafer": {
-        "name": "Zafer SOYLU",
-        "title": "Kurucu Ortak & Emlak Danışmanı"
-      },
       "arif": {
         "name": "Arif DAĞDELEN",
-        "title": "Kurucu Ortak & İnşaat Müdürü"
-      },
-      "hikmet": {
-        "name": "Hikmet KARAOĞLAN",
-        "title": "Kurucu Ortak & Tadilat Uzmanı"
+        "title": "Kurucu | Lisanslı Gayrimenkul Danışmanı"
       }
     },
     "mapTitle": "Kalinda Yapı Konum - Ortaca, Muğla"

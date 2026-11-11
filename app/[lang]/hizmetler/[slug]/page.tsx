@@ -77,28 +77,14 @@ const ikonlar: { [key: string]: React.ComponentType<{ className?: string }> } = 
   Zap,
 };
 
-// Ekip bilgileri - tüm hizmetler için ortak
+// Danışman bilgisi - tüm hizmetler için ortak
 const ekip = [
   {
-    ad: "Zafer SOYLU",
-    unvan: "Gayrimenkul & Yapı Danışmanı",
-    telefon: "+90 537 053 07 54",
-    whatsapp: "905370530754",
-    foto: "/zafersoylu.png",
-  },
-  {
     ad: "Arif DAĞDELEN",
-    unvan: "Gayrimenkul & Yapı Danışmanı",
+    unvan: "Kurucu | Lisanslı Gayrimenkul Danışmanı",
     telefon: "+90 532 159 15 56",
     whatsapp: "905321591556",
     foto: "/arifdagdelen.png",
-  },
-  {
-    ad: "Hikmet KARAOĞLAN",
-    unvan: "Gayrimenkul & Yapı Danışmanı",
-    telefon: "+90 555 453 12 07",
-    whatsapp: "905554531207",
-    foto: "/hikmetkaraoglan.svg",
   },
 ];
 
@@ -490,7 +476,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={createWhatsAppLink(
-                "905370530754",
+                "905321591556",
                 formatWhatsAppMessage(messages.quoteRequest, hizmet.baslik)
               )}
               target="_blank"

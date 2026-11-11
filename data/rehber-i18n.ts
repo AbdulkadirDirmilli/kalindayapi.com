@@ -57,7 +57,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // CTA section
     ctaTitle: "Muğla'da Emlak Yatırımı mı Düşünüyorsunuz?",
-    ctaDescription: "13 ilçede emlak, tadilat ve inşaat hizmetleri sunuyoruz. Bölgeyi tanıyan uzman ekibimizle ücretsiz danışmanlık alın.",
+    ctaDescription: "13 ilçede satılık ve kiralık gayrimenkul danışmanlığı sunuyoruz. Bölgeyi tanıyan danışmanımızla ücretsiz ön görüşme yapın.",
     ctaButton: "İletişime Geçin",
 
     // Detail page
@@ -75,7 +75,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // Bottom CTA
     bottomCtaTitle: "'da Gayrimenkul Danışmanlığı",
-    bottomCtaDescription: "Kalinda Yapı olarak {district} ve tüm Muğla bölgesinde emlak, tadilat ve inşaat hizmetleri sunuyoruz. Profesyonel ekibimizle tanışın.",
+    bottomCtaDescription: "Kalinda Yapı Emlak olarak {district} ve tüm Muğla bölgesinde gayrimenkul danışmanlığı sunuyoruz. Portföyümüzü inceleyin.",
     bottomCtaButton: "Ücretsiz Danışmanlık Al",
 
     // Metadata
@@ -85,7 +85,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // Neighborhoods section
     neighborhoodsTitle: "{district} Mahalleleri",
-    neighborhoodsDescription: "{district} ilçesinde toplam {count} mahalle bulunmaktadır. Emlak, tadilat ve inşaat hizmetlerimiz tüm mahallelerde geçerlidir.",
+    neighborhoodsDescription: "{district} ilçesinde toplam {count} mahalle bulunmaktadır. Emlak danışmanlığı hizmetimiz tüm mahallelerde geçerlidir.",
     moreNeighborhoods: "+{count} mahalle daha",
     showLess: "Daha az göster",
   },
@@ -100,7 +100,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // CTA section
     ctaTitle: "Considering Property Investment in Muğla?",
-    ctaDescription: "We offer real estate, renovation and construction services in 13 districts. Get free consultation with our expert team who knows the region.",
+    ctaDescription: "We offer property sales and rental consulting across 13 districts. Book a free initial consultation with a consultant who knows the region.",
     ctaButton: "Contact Us",
 
     // Detail page
@@ -118,7 +118,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // Bottom CTA
     bottomCtaTitle: " - Real Estate Consulting",
-    bottomCtaDescription: "Kalinda Yapı offers real estate, renovation and construction services in {district} and the entire Muğla region. Meet our professional team.",
+    bottomCtaDescription: "Kalinda Yapı Emlak offers property consulting in {district} and the entire Muğla region. Browse our portfolio.",
     bottomCtaButton: "Get Free Consultation",
 
     // Metadata
@@ -128,7 +128,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // Neighborhoods section
     neighborhoodsTitle: "{district} Neighborhoods",
-    neighborhoodsDescription: "There are {count} neighborhoods in {district} district. Our real estate, renovation and construction services are available in all neighborhoods.",
+    neighborhoodsDescription: "There are {count} neighborhoods in {district} district. Our real estate consulting service covers all of them.",
     moreNeighborhoods: "+{count} more neighborhoods",
     showLess: "Show less",
   },
@@ -143,7 +143,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // CTA section
     ctaTitle: "هل تفكر في الاستثمار العقاري في موغلا؟",
-    ctaDescription: "نقدم خدمات العقارات والتجديد والبناء في 13 منطقة. احصل على استشارة مجانية مع فريقنا الخبير الذي يعرف المنطقة.",
+    ctaDescription: "نقدم استشارات بيع وتأجير العقارات في 13 منطقة. احجز استشارة أولية مجانية مع مستشار يعرف المنطقة.",
     ctaButton: "اتصل بنا",
 
     // Detail page
@@ -161,7 +161,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // Bottom CTA
     bottomCtaTitle: " - استشارات عقارية",
-    bottomCtaDescription: "تقدم كاليندا يابي خدمات العقارات والتجديد والبناء في {district} ومنطقة موغلا بأكملها. تعرف على فريقنا المحترف.",
+    bottomCtaDescription: "تقدم كاليندا يابي العقارية استشارات عقارية في {district} ومنطقة موغلا بأكملها. تصفح محفظتنا.",
     bottomCtaButton: "احصل على استشارة مجانية",
 
     // Metadata
@@ -171,7 +171,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // Neighborhoods section
     neighborhoodsTitle: "أحياء {district}",
-    neighborhoodsDescription: "يوجد {count} حي في منطقة {district}. خدماتنا العقارية والتجديد والبناء متاحة في جميع الأحياء.",
+    neighborhoodsDescription: "يوجد {count} حي في منطقة {district}. خدمة الاستشارات العقارية لدينا متاحة في جميع الأحياء.",
     moreNeighborhoods: "+{count} أحياء أخرى",
     showLess: "عرض أقل",
   },
@@ -186,7 +186,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // CTA section
     ctaTitle: "Denken Sie an eine Immobilieninvestition in Muğla?",
-    ctaDescription: "Wir bieten Immobilien-, Renovierungs- und Baudienstleistungen in 13 Bezirken an. Erhalten Sie eine kostenlose Beratung von unserem Expertenteam, das die Region kennt.",
+    ctaDescription: "Wir bieten Beratung zu Verkauf und Vermietung von Immobilien in 13 Bezirken. Vereinbaren Sie ein kostenloses Erstgespräch mit einem ortskundigen Berater.",
     ctaButton: "Kontaktieren Sie uns",
 
     // Detail page
@@ -204,7 +204,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // Bottom CTA
     bottomCtaTitle: " - Immobilienberatung",
-    bottomCtaDescription: "Kalinda Yapı bietet Immobilien-, Renovierungs- und Baudienstleistungen in {district} und der gesamten Region Muğla. Lernen Sie unser professionelles Team kennen.",
+    bottomCtaDescription: "Kalinda Yapı Emlak bietet Immobilienberatung in {district} und der gesamten Region Muğla. Sehen Sie sich unser Portfolio an.",
     bottomCtaButton: "Kostenlose Beratung erhalten",
 
     // Metadata
@@ -214,7 +214,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // Neighborhoods section
     neighborhoodsTitle: "Stadtteile von {district}",
-    neighborhoodsDescription: "In {district} gibt es {count} Stadtteile. Unsere Immobilien-, Renovierungs- und Baudienstleistungen sind in allen Stadtteilen verfügbar.",
+    neighborhoodsDescription: "In {district} gibt es {count} Stadtteile. Unsere Immobilienberatung ist in allen Stadtteilen verfügbar.",
     moreNeighborhoods: "+{count} weitere Stadtteile",
     showLess: "Weniger anzeigen",
   },
@@ -229,7 +229,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // CTA section
     ctaTitle: "Думаете об инвестициях в недвижимость в Мугле?",
-    ctaDescription: "Мы предлагаем услуги в сфере недвижимости, ремонта и строительства в 13 районах. Получите бесплатную консультацию от нашей команды экспертов, знающих регион.",
+    ctaDescription: "Мы предлагаем консультации по продаже и аренде недвижимости в 13 районах. Запишитесь на бесплатную первичную консультацию к знающему регион специалисту.",
     ctaButton: "Свяжитесь с нами",
 
     // Detail page
@@ -247,7 +247,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // Bottom CTA
     bottomCtaTitle: " - Консультации по недвижимости",
-    bottomCtaDescription: "Kalinda Yapı предлагает услуги в сфере недвижимости, ремонта и строительства в {district} и по всему региону Мугла. Познакомьтесь с нашей профессиональной командой.",
+    bottomCtaDescription: "Kalinda Yapı Emlak предоставляет консультации по недвижимости в {district} и по всему региону Мугла. Посмотрите наш портфель объектов.",
     bottomCtaButton: "Получить бесплатную консультацию",
 
     // Metadata
@@ -257,7 +257,7 @@ export const rehberTexts: Record<Locale, RehberTexts> = {
 
     // Neighborhoods section
     neighborhoodsTitle: "Районы {district}",
-    neighborhoodsDescription: "В {district} {count} районов. Наши услуги по недвижимости, ремонту и строительству доступны во всех районах.",
+    neighborhoodsDescription: "В {district} {count} районов. Наши консультации по недвижимости доступны во всех районах.",
     moreNeighborhoods: "+{count} районов ещё",
     showLess: "Показать меньше",
   },

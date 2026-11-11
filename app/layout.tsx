@@ -17,11 +17,11 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kalindayapi.com"),
   title: {
-    default: "Kalinda Yapı | Ortaca Emlak, Tadilat & Taahhüt",
+    default: "Kalinda Yapı Emlak | Ortaca Satılık & Kiralık Gayrimenkul",
     template: "%s | Kalinda Yapı",
   },
   description:
-    "Muğla Ortaca'da güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri.",
+    "Muğla Ortaca'da lisanslı emlak danışmanlığı. Satılık ve kiralık gayrimenkul portföyü.",
   icons: {
     icon: [
       { url: "/favicon.ico", type: "image/x-icon" },

@@ -69,7 +69,7 @@ export default function NedenBiz({ lang = 'tr', dict }: NedenBizProps) {
     localKnowledge: "Yerel Bilgi",
     localKnowledgeDesc: "Ortaca ve çevresini avucumuzun içi gibi biliyoruz. Bölgenin dinamiklerine hakimiz.",
     guaranteedWork: "Garantili İşçilik",
-    guaranteedWorkDesc: "Tüm tadilat ve inşaat işlerimizde işçilik garantisi sunuyoruz.",
+    guaranteedWorkDesc: "Listelediğimiz her gayrimenkulü yerinde inceler, tapu ve imar durumunu kontrol ederiz.",
     transparentContract: "Şeffaf Sözleşme",
     transparentContractDesc: "Tüm işlemlerimiz yazılı sözleşme ile güvence altındadır. Gizli maliyet yoktur.",
     personalAttention: "Kişisel İlgi",
@@ -81,7 +81,7 @@ export default function NedenBiz({ lang = 'tr', dict }: NedenBizProps) {
     established: "Kuruluş",
     since2022: "2022'den Bu Yana",
     customerSatisfaction: "Müşteri Memnuniyeti",
-    serviceNote: "Emlak, tadilat ve inşaat hizmetlerimiz ile tüm Muğla ilçelerinde yanınızdayız",
+    serviceNote: "Satılık ve kiralık gayrimenkul danışmanlığımızla Muğla'nın tüm ilçelerinde yanınızdayız",
   };
 
   const ozellikler = [
@@ -122,9 +122,9 @@ export default function NedenBiz({ lang = 'tr', dict }: NedenBizProps) {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
@@ -151,10 +151,10 @@ export default function NedenBiz({ lang = 'tr', dict }: NedenBizProps) {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="flex gap-4 p-6 rounded-2xl hover:bg-surface transition-colors group"
+                className="flex gap-4 p-6 rounded-lg hover:bg-surface transition-colors group"
               >
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
+                <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
                   <Icon className="w-7 h-7 text-primary group-hover:text-accent transition-colors" />
                 </div>
 
@@ -174,9 +174,9 @@ export default function NedenBiz({ lang = 'tr', dict }: NedenBizProps) {
 
         {/* Trust Badges */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
           className="mt-12 pt-12 border-t border-border"
         >
           <div className="flex flex-wrap items-center justify-center gap-8">

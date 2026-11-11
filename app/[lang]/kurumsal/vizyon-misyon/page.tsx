@@ -31,12 +31,12 @@ const texts = {
     hero: {
       titleHighlight: "Vizyon",
       title: "& Misyon",
-      description: "Kalinda Yapı olarak hedefimiz, Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinin en güvenilir ve tercih edilen yapı ve emlak markası olmaktır. 2022'den bu yana edindiğimiz deneyim ve müşteri memnuniyeti odaklı yaklaşımımızla bu hedefe ulaşmak için belirlediğimiz vizyon ve misyon ilkelerimizi sizlerle paylaşıyoruz.",
+      description: "Kalinda Yapı Emlak olarak hedefimiz, Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinin en güvenilir ve tercih edilen emlak markası olmaktır. 2022'den bu yana edindiğimiz deneyim ve müşteri memnuniyeti odaklı yaklaşımımızla bu hedefe ulaşmak için belirlediğimiz vizyon ve misyon ilkelerimizi sizlerle paylaşıyoruz.",
     },
     mission: {
       title: "Misyonumuz",
       paragraphs: [
-        "Ortaca merkez, Dalyan, Köyceğiz, Dalaman ve Fethiye bölgelerinde <strong>güvenilir, şeffaf ve kaliteli</strong> emlak danışmanlığı ile yapı çözümleri sunmak. Her müşterimize bölgenin koşullarına uygun, gerçekçi ve dürüst danışmanlık hizmeti sağlamak.",
+        "Ortaca merkez, Dalyan, Köyceğiz, Dalaman ve Fethiye bölgelerinde <strong>güvenilir, şeffaf ve lisanslı</strong> gayrimenkul danışmanlığı sunmak. Her müşterimize bölgenin koşullarına uygun, gerçekçi ve dürüst danışmanlık hizmeti sağlamak.",
         "Müşterilerimizin ev sahibi olma hayallerini gerçeğe dönüştürmelerine yardımcı olmak ve her projede <strong>en yüksek memnuniyeti</strong> sağlamak. İster ilk evinizi arıyor olun, ister yatırım amaçlı gayrimenkul, ihtiyacınıza uygun çözümler sunuyoruz.",
         "Muğla bölgesinin konut ve ticari gayrimenkul ihtiyaçlarına modern, sürdürülebilir ve çevre dostu çözümler sunarak topluma değer katmak. Yerel istihdama katkı sağlamak ve bölge ekonomisini güçlendirmek.",
       ],
@@ -44,9 +44,9 @@ const texts = {
     vision: {
       title: "Vizyonumuz",
       paragraphs: [
-        "Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinin <strong>en saygın ve tercih edilen</strong> yapı ve emlak markası olmak. Müşteri memnuniyetinde sektör lideri konumuna ulaşmak.",
+        "Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinin <strong>en saygın ve tercih edilen</strong> emlak markası olmak. Müşteri memnuniyetinde sektör lideri konumuna ulaşmak.",
         "<strong>Yenilikçi yaklaşımlar ve dijital teknoloji</strong> ile sektörde öncü olmak. Sanal turlar, online ilan yönetimi ve hızlı iletişim kanallarıyla müşterilerimize modern deneyim sunmak.",
-        "<strong>Sürdürülebilir ve çevre dostu</strong> yapı uygulamalarını benimseyerek geleceğe yatırım yapmak. Enerji verimli konutlar, doğal malzemeler ve yeşil alan projeleriyle bölgenin çevresel değerlerini korumak.",
+        "<strong>Şeffaf ve doğrulanabilir</strong> bir portföy anlayışını benimsemek. Her ilanı yerinde inceleyerek, tapu ve imar durumunu kontrol ederek müşterilerimizi riskten korumak.",
       ],
     },
     goals: {
@@ -87,12 +87,12 @@ const texts = {
     hero: {
       titleHighlight: "Vision",
       title: "& Mission",
-      description: "Our goal at Kalinda Yapı is to be the most trusted and preferred construction and real estate brand in Ortaca, Dalyan, Köyceğiz, and the entire Muğla region. We share with you our vision and mission principles that we have set to achieve this goal with our experience and customer satisfaction-focused approach since 2022.",
+      description: "Our goal at Kalinda Yapı Emlak is to be the most trusted and preferred real estate brand in Ortaca, Dalyan, Köyceğiz and the entire Muğla region. We share with you the vision and mission principles we have set to achieve this goal with our experience and customer-focused approach since 2022.",
     },
     mission: {
       title: "Our Mission",
       paragraphs: [
-        "To provide <strong>reliable, transparent, and quality</strong> real estate consultancy and construction solutions in Ortaca center, Dalyan, Köyceğiz, Dalaman, and Fethiye regions. To provide realistic and honest consultancy service to each of our customers according to regional conditions.",
+        "To provide <strong>reliable, transparent and licensed</strong> real estate consultancy in Ortaca centre, Dalyan, Köyceğiz, Dalaman and Fethiye. To give every client realistic and honest advice suited to local conditions.",
         "To help our customers realize their dreams of homeownership and to ensure <strong>the highest satisfaction</strong> in every project. Whether you are looking for your first home or investment property, we offer solutions tailored to your needs.",
         "To add value to society by offering modern, sustainable, and environmentally friendly solutions for the residential and commercial real estate needs of the Muğla region. To contribute to local employment and strengthen the regional economy.",
       ],
@@ -100,7 +100,7 @@ const texts = {
     vision: {
       title: "Our Vision",
       paragraphs: [
-        "To be <strong>the most respected and preferred</strong> construction and real estate brand in Ortaca, Dalyan, Köyceğiz, and the entire Muğla region. To achieve industry leadership in customer satisfaction.",
+        "To be <strong>the most respected and preferred</strong> real estate brand in Ortaca, Dalyan, Köyceğiz and the entire Muğla region. To achieve industry leadership in customer satisfaction.",
         "To be a pioneer in the sector with <strong>innovative approaches and digital technology</strong>. To offer our customers a modern experience with virtual tours, online listing management, and fast communication channels.",
         "To invest in the future by adopting <strong>sustainable and environmentally friendly</strong> building practices. To protect the environmental values of the region with energy-efficient homes, natural materials, and green space projects.",
       ],
@@ -199,7 +199,7 @@ const texts = {
     hero: {
       titleHighlight: "Vision",
       title: "& Mission",
-      description: "Unser Ziel bei Kalinda Yapı ist es, die vertrauenswürdigste und bevorzugte Bau- und Immobilienmarke in Ortaca, Dalyan, Köyceğiz und der gesamten Region Muğla zu sein. Wir teilen mit Ihnen unsere Vision- und Missionsprinzipien, die wir uns gesetzt haben, um dieses Ziel mit unserer Erfahrung und unserem kundenorientierten Ansatz seit 2022 zu erreichen.",
+      description: "Unser Ziel bei Kalinda Yapı Emlak ist es, die vertrauenswürdigste und bevorzugte Immobilienmarke in Ortaca, Dalyan, Köyceğiz und der gesamten Region Muğla zu sein. Wir teilen mit Ihnen unsere Vision- und Missionsprinzipien, die wir uns gesetzt haben, um dieses Ziel mit unserer Erfahrung und unserem kundenorientierten Ansatz seit 2022 zu erreichen.",
     },
     mission: {
       title: "Unsere Mission",
@@ -255,7 +255,7 @@ const texts = {
     hero: {
       titleHighlight: "Видение",
       title: "и Миссия",
-      description: "Наша цель в Kalinda Yapı — быть самым надежным и предпочтительным брендом в сфере строительства и недвижимости в Ортаке, Даляне, Кёйджеизе и всем регионе Мугла. Мы делимся с вами нашими принципами видения и миссии, которые мы установили для достижения этой цели благодаря нашему опыту и ориентированному на клиента подходу с 2022 года.",
+      description: "Наша цель в Kalinda Yapı Emlak — быть самым надежным и предпочтительным брендом на рынке недвижимости в Ортадже, Дальяне, Кёйджегизе и всем регионе Мугла. Мы делимся с вами принципами нашего видения и миссии, которые мы установили для достижения этой цели благодаря опыту и клиентоориентированному подходу с 2022 года.",
     },
     mission: {
       title: "Наша миссия",
@@ -268,7 +268,7 @@ const texts = {
     vision: {
       title: "Наше видение",
       paragraphs: [
-        "Быть <strong>самым уважаемым и предпочтительным</strong> брендом в сфере строительства и недвижимости в Ортаке, Даляне, Кёйджеизе и всем регионе Мугла. Достичь лидерства в отрасли по удовлетворенности клиентов.",
+        "Быть <strong>самым уважаемым и предпочтительным</strong> брендом на рынке недвижимости в Ортадже, Дальяне, Кёйджегизе и всем регионе Мугла. Достичь лидерства в отрасли по удовлетворенности клиентов.",
         "Быть пионером в отрасли благодаря <strong>инновационным подходам и цифровым технологиям</strong>. Предоставлять нашим клиентам современный опыт с виртуальными турами, онлайн-управлением объявлениями и быстрыми каналами связи.",
         "Инвестировать в будущее, применяя <strong>устойчивые и экологически чистые</strong> строительные практики. Защищать экологические ценности региона с помощью энергоэффективных домов, натуральных материалов и проектов зеленых зон.",
       ],

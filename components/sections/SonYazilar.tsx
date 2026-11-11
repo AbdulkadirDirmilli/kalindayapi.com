@@ -21,7 +21,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
     badge: "Blog & Rehber",
     title: "Son",
     titleHighlight: "Yazılarımız",
-    subtitle: "Emlak, imar, tadilat ve gayrimenkul konularında uzman görüşleri ve pratik bilgiler",
+    subtitle: "Gayrimenkul, imar ve yatırım konularında danışman görüşleri ve pratik bilgiler",
     viewAll: "Tüm Yazıları Gör",
     readTime: "dk",
   };
@@ -40,7 +40,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
             {t.badge}
           </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
@@ -49,7 +49,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
             {t.title} <span className="text-accent">{t.titleHighlight}</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
@@ -64,13 +64,13 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
           {sonYazilar.map((yazi, index) => (
             <motion.article
               key={yazi.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
             >
               <Link href={`/${lang}/blog/${yazi.slug}`}>
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
+                <div className="bg-white rounded-xl overflow-hidden border border-black/5 shadow-sm hover:shadow-md transition-shadow duration-200 group h-full flex flex-col">
                   {/* Kapak */}
                   <div className="relative aspect-[4/3] bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] overflow-hidden">
                     {yazi.kapakGorsel && (
@@ -120,7 +120,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
 
         {/* Tümünü Gör */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}

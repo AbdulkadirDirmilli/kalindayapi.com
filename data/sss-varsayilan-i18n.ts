@@ -19,14 +19,14 @@ export const varsayilanSorular: Record<Locale, FaqItem[]> = {
         "Ortaca merkezde konut m² fiyatları 25.000-40.000 ₺, Dalyan'da villa arsaları 35.000-60.000 ₺/m² aralığında seyrediyor. Köyceğiz gölü çevresi ve Dalyan kanal manzaralı bölgeler prim yapıyor. Ücretsiz gayrimenkul değerleme hizmetimizle mülkünüzün güncel piyasa değerini öğrenebilirsiniz.",
     },
     {
-      soru: "Tadilat projelerinde yazılı sözleşme yapıyor musunuz?",
+      soru: "Satış ve kiralama işlemlerinde yazılı sözleşme yapıyor musunuz?",
       cevap:
-        "Evet, her projede iş kapsamı, başlangıç-bitiş tarihi, malzeme listesi, ödeme planı ve garanti koşullarını içeren yazılı sözleşme düzenliyoruz. 100+ tamamlanmış tadilat projemizde sürpriz fatura çıkmadı. Şeffaflık ilkemiz gereği tüm değişiklikler yazılı onayınızla yapılır.",
+        "Evet, her işlemde tarafların yükümlülükleri, ödeme planı, teslim tarihi ve komisyon oranını içeren yazılı sözleşme düzenliyoruz. Kaparo karşılığında makbuz verilir. Şeffaflık ilkemiz gereği tüm değişiklikler yazılı onayınızla yapılır.",
     },
     {
-      soru: "İnşaat ve tadilat işlerinizde garanti veriyor musunuz?",
+      soru: "İlanlardaki bilgilerin doğruluğunu nasıl güvence altına alıyorsunuz?",
       cevap:
-        "Tüm işçilik ve uygulama için 2 yıl garanti sunuyoruz. Kullandığımız A sınıfı malzemeler (Vitra, Kütahya, Eca, Jotun) için üretici garantisi ayrıca geçerlidir. Garanti kapsamındaki sorunlar 48 saat içinde yerinde değerlendirilir. Garanti şartları sözleşmede açıkça belirtilir.",
+        "Listelediğimiz her gayrimenkulü satışa sunmadan önce yerinde görüyor, tapu kaydını ve imar durumunu kontrol ediyoruz. Metrekare, kat, ısıtma, aidat ve iskan bilgileri mülk sahibinden alınan belgeyle doğrulanır. Doğrulayamadığımız bilgiyi ilanda yayınlamıyoruz.",
     },
     {
       soru: "Emlak danışmanlık hizmeti ücretli mi?",
@@ -51,14 +51,14 @@ export const varsayilanSorular: Record<Locale, FaqItem[]> = {
         "Residential m² prices in Ortaca center range from 25,000-40,000 ₺, villa plots in Dalyan range from 35,000-60,000 ₺/m². Areas around Köyceğiz lake and Dalyan canal views are appreciating. With our free property valuation service, you can learn the current market value of your property.",
     },
     {
-      soru: "Do you provide written contracts for renovation projects?",
+      soru: "Do you provide written contracts for sales and rentals?",
       cevap:
-        "Yes, for every project we prepare a written contract including scope of work, start-end dates, material list, payment plan, and warranty terms. In our 100+ completed renovation projects, there have been no surprise bills. In accordance with our transparency principle, all changes are made with your written approval.",
+        "Yes. Every transaction is covered by a written contract setting out each party's obligations, the payment plan, the handover date and the commission rate. Deposits are always receipted, and any change is made only with your written approval.",
     },
     {
-      soru: "Do you provide warranty for construction and renovation work?",
+      soru: "How do you guarantee the accuracy of listing information?",
       cevap:
-        "We offer a 2-year warranty for all workmanship and application. Manufacturer warranty also applies for the A-class materials we use (Vitra, Kütahya, Eca, Jotun). Issues covered by warranty are evaluated on-site within 48 hours. Warranty terms are clearly stated in the contract.",
+        "We inspect every property on site before listing it and check its title deed and zoning status. Floor area, storey, heating, service charge and occupancy permit details are verified against the owner's documents. We do not publish information we cannot verify.",
     },
     {
       soru: "Is real estate consulting service paid?",
@@ -83,14 +83,14 @@ export const varsayilanSorular: Record<Locale, FaqItem[]> = {
         "تتراوح أسعار المتر المربع السكني في وسط أورتاجا بين 25,000-40,000 ليرة تركية، وقطع أراضي الفلل في دالان تتراوح بين 35,000-60,000 ليرة تركية/م². المناطق حول بحيرة كويجيز وإطلالات قناة دالان ترتفع قيمتها. مع خدمة تقييم العقارات المجانية لدينا، يمكنك معرفة القيمة السوقية الحالية لعقارك.",
     },
     {
-      soru: "هل تقدمون عقودًا مكتوبة لمشاريع التجديد؟",
+      soru: "هل تقدمون عقوداً مكتوبة لعمليات البيع والتأجير؟",
       cevap:
-        "نعم، لكل مشروع نعد عقدًا مكتوبًا يشمل نطاق العمل وتواريخ البدء والانتهاء وقائمة المواد وخطة الدفع وشروط الضمان. في أكثر من 100 مشروع تجديد مكتمل، لم تكن هناك فواتير مفاجئة. وفقًا لمبدأ الشفافية لدينا، تتم جميع التغييرات بموافقتك الخطية.",
+        "نعم. كل معاملة يغطيها عقد مكتوب يحدد التزامات الطرفين وخطة الدفع وتاريخ التسليم ونسبة العمولة. يتم إصدار إيصال مقابل العربون، ولا يُجرى أي تعديل إلا بموافقتكم الخطية.",
     },
     {
-      soru: "هل تقدمون ضمانًا لأعمال البناء والتجديد؟",
+      soru: "كيف تضمنون دقة المعلومات الواردة في الإعلانات؟",
       cevap:
-        "نقدم ضمانًا لمدة عامين لجميع الأعمال والتطبيقات. ينطبق ضمان الشركة المصنعة أيضًا على المواد من الدرجة الأولى التي نستخدمها (Vitra، Kütahya، Eca، Jotun). يتم تقييم المشكلات المشمولة بالضمان في الموقع خلال 48 ساعة. شروط الضمان مذكورة بوضوح في العقد.",
+        "نعاين كل عقار على الطبيعة قبل إدراجه ونتحقق من سند الملكية وحالة التنظيم العمراني. يتم التحقق من المساحة والطابق والتدفئة ورسوم الخدمات ورخصة الإشغال من وثائق المالك. ولا ننشر أي معلومة لا يمكننا التحقق منها.",
     },
     {
       soru: "هل خدمة الاستشارات العقارية مدفوعة؟",
@@ -115,14 +115,14 @@ export const varsayilanSorular: Record<Locale, FaqItem[]> = {
         "Die Wohnungs-m²-Preise im Zentrum von Ortaca liegen zwischen 25.000-40.000 ₺, Villagrundstücke in Dalyan zwischen 35.000-60.000 ₺/m². Gebiete rund um den Köyceğiz-See und mit Blick auf den Dalyan-Kanal gewinnen an Wert. Mit unserem kostenlosen Immobilienbewertungsservice können Sie den aktuellen Marktwert Ihrer Immobilie erfahren.",
     },
     {
-      soru: "Bieten Sie schriftliche Verträge für Renovierungsprojekte an?",
+      soru: "Bieten Sie schriftliche Verträge für Verkauf und Vermietung an?",
       cevap:
-        "Ja, für jedes Projekt erstellen wir einen schriftlichen Vertrag mit Arbeitsumfang, Start- und Enddatum, Materialliste, Zahlungsplan und Garantiebedingungen. Bei unseren über 100 abgeschlossenen Renovierungsprojekten gab es keine Überraschungsrechnungen. Gemäß unserem Transparenzprinzip werden alle Änderungen mit Ihrer schriftlichen Genehmigung vorgenommen.",
+        "Ja. Jede Transaktion wird durch einen schriftlichen Vertrag abgesichert, der die Pflichten beider Seiten, den Zahlungsplan, den Übergabetermin und die Provision festhält. Für Anzahlungen wird stets eine Quittung ausgestellt; Änderungen erfolgen nur mit Ihrer schriftlichen Zustimmung.",
     },
     {
-      soru: "Bieten Sie Garantie für Bau- und Renovierungsarbeiten?",
+      soru: "Wie stellen Sie die Richtigkeit der Angaben in den Inseraten sicher?",
       cevap:
-        "Wir bieten eine 2-Jahres-Garantie für alle Arbeiten und Anwendungen. Die Herstellergarantie gilt auch für die von uns verwendeten A-Klasse-Materialien (Vitra, Kütahya, Eca, Jotun). Probleme, die unter die Garantie fallen, werden innerhalb von 48 Stunden vor Ort bewertet. Die Garantiebedingungen sind im Vertrag klar angegeben.",
+        "Wir besichtigen jede Immobilie vor der Aufnahme vor Ort und prüfen Grundbuch und Bebauungsstatus. Wohnfläche, Etage, Heizung, Hausgeld und Nutzungsgenehmigung werden anhand der Unterlagen des Eigentümers verifiziert. Nicht überprüfbare Angaben veröffentlichen wir nicht.",
     },
     {
       soru: "Ist die Immobilienberatung kostenpflichtig?",
@@ -147,14 +147,14 @@ export const varsayilanSorular: Record<Locale, FaqItem[]> = {
         "Цены за м² жилья в центре Ортака составляют 25 000-40 000 ₺, участки под виллы в Даляне - 35 000-60 000 ₺/м². Районы вокруг озера Кёйджеиз и с видом на канал Далян растут в цене. С нашей бесплатной услугой оценки недвижимости вы можете узнать текущую рыночную стоимость вашей собственности.",
     },
     {
-      soru: "Предоставляете ли вы письменные договоры для проектов ремонта?",
+      soru: "Заключаете ли вы письменные договоры при продаже и аренде?",
       cevap:
-        "Да, для каждого проекта мы готовим письменный договор, включающий объем работ, даты начала и окончания, список материалов, план платежей и условия гарантии. В наших более чем 100 завершенных проектах ремонта не было неожиданных счетов. В соответствии с нашим принципом прозрачности все изменения вносятся с вашего письменного согласия.",
+        "Да. Каждая сделка оформляется письменным договором, в котором указаны обязательства сторон, план платежей, дата передачи и размер комиссии. На задаток всегда выдается расписка, а любые изменения вносятся только с вашего письменного согласия.",
     },
     {
-      soru: "Предоставляете ли вы гарантию на строительные и ремонтные работы?",
+      soru: "Как вы гарантируете достоверность информации в объявлениях?",
       cevap:
-        "Мы предлагаем 2-летнюю гарантию на все работы и применение. Гарантия производителя также распространяется на используемые нами материалы класса А (Vitra, Kütahya, Eca, Jotun). Проблемы, покрываемые гарантией, оцениваются на месте в течение 48 часов. Условия гарантии четко указаны в договоре.",
+        "Мы лично осматриваем каждый объект до публикации и проверяем ТАПУ и градостроительный статус. Площадь, этаж, отопление, коммунальные взносы и разрешение на эксплуатацию сверяются с документами собственника. Информацию, которую невозможно проверить, мы не публикуем.",
     },
     {
       soru: "Платная ли услуга консультирования по недвижимости?",

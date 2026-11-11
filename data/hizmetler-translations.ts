@@ -1,5 +1,5 @@
 // Auto-generated translations for hizmetler
-// Generated on: 2026-04-24T21:10:02.408Z
+// Generated on: 2026-11-11T19:15:07.528Z
 // DO NOT EDIT MANUALLY - Run scripts/translate-hizmetler.ts to regenerate
 
 import type { Locale } from '@/lib/i18n/config';
@@ -32,8 +32,8 @@ export const hizmetlerEN: TranslatedHizmet[] = [
     "id": "emlak-danismanligi",
     "slug": "emlak-danismanligi",
     "baslik": "Real Estate Consultancy",
-    "kisaAciklama": "Real estate services for sale and rent in Ortaca and its surroundings. Professional valuation and investment consultancy.",
-    "uzunAciklama": "As Kalinda Yapı, we offer comprehensive real estate consultancy services with more than 12 years of experience in Muğla's Ortaca district and surrounding regions. Everything you are looking for is here for flats, villas, lands and commercial real estate for sale and rent in Ortaca, Dalyan, Köyceğiz, Dalaman and Fethiye. \n\nOur licensed real estate consultant, Zafer Soylu, helps you make the best investment decisions with his experience of closely knowing the dynamics of the region. In 2026, housing prices in Ortaca will vary between 18,000-35,000 TL per m², and villa prices in Dalyan will vary between 4-18 million TL. \n\nWithin the scope of our services: Real estate portfolio for sale (apartment, villa, land, commercial), rental real estate management, professional real estate valuation, investment consultancy and market analysis, title deed and zoning status control, purchase-sale process management. We have helped more than 300 families find their dream home with our transparent, reliable and result-oriented service approach to our customers.",
+    "kisaAciklama": "Real estate portfolio for sale and rent in Ortaca and its surroundings. Secure intermediary between buyer and seller.",
+    "uzunAciklama": "As Kalinda Yapı Emlak, we offer licensed real estate consultancy services in Muğla's Ortaca district and surrounding regions. Flats, villas, lands and commercial real estate for sale and rent in Ortaca, Dalyan, Köyceğiz, Dalaman and Fethiye come together in a single portfolio. \n\nOur founder and licensed real estate consultant, Arif Dağdelen, accompanies you in making the right investment decision with his experience of closely knowing the dynamics of the region. We examine each real estate we list on site, check the title deed and zoning status, and compare the price expectation with current market data. \n\nOur services include: real estate portfolio for sale (apartment, villa, land, commercial), rental real estate management, safe intermediary between buyer and seller, offer and negotiation management, contract preparation and process follow-up until the title deed appointment. We helped more than 300 families find their dream home with our transparent, reliable and result-oriented service approach.",
     "ikon": "Home",
     "altHizmetler": [
       {
@@ -47,14 +47,14 @@ export const hizmetlerEN: TranslatedHizmet[] = [
         "ikon": "Key"
       },
       {
-        "baslik": "Real Estate Valuation",
-        "aciklama": "Find out the current market value of your property. Regional comparative analysis reports.",
-        "ikon": "Calculator"
+        "baslik": "Portfolio Management",
+        "aciklama": "Photography of your property, ad text, publication and buyer candidate management are carried out from a single source.",
+        "ikon": "Building"
       },
       {
-        "baslik": "Investment Consultancy",
-        "aciklama": "Real estate investment opportunities in Ortaca and its surroundings. Rental income and value increase analysis.",
-        "ikon": "TrendingUp"
+        "baslik": "On-Site Inspection",
+        "aciklama": "Each property is inspected on site before it is offered for sale; Title deed and zoning status are checked.",
+        "ikon": "FileCheck"
       }
     ],
     "bolge": [
@@ -76,7 +76,7 @@ export const hizmetlerEN: TranslatedHizmet[] = [
     "sss": [
       {
         "soru": "What is needed to buy a house in Ortaca?",
-        "cevap": "To buy a house in Ortaca, an identity document, residence permit and the necessary payment plan are sufficient. Additional documents may be requested for foreign buyers. As Kalinda Yapı, we guide you through your entire purchasing process."
+        "cevap": "To buy a house in Ortaca, an identity document, residence permit and the necessary payment plan are sufficient. Additional documents may be requested for foreign buyers. As Kalinda Yapı Emlak, we guide you through your entire purchasing process."
       },
       {
         "soru": "How much are the prices for 2026 m² in Ortaca?",
@@ -88,108 +88,40 @@ export const hizmetlerEN: TranslatedHizmet[] = [
       },
       {
         "soru": "How much budget is required to buy a villa in Dalyan?",
-        "cevap": "Prices of detached villas with pools in Dalyan in 2026 vary between 4-18 million TL. While locations with canal views are priced higher, locations closer to the center are more affordable."
+        "cevap": "Prices of detached villas with pools in Dalyan in 2026 vary between 4-18 million TL. While locations with canal views are priced higher, locations close to the center are more affordable."
       },
       {
         "soru": "Can foreigners buy a house in Türkiye?",
-        "cevap": "Yes, foreign nationals can buy real estate in Türkiye. There are restrictions in some areas (military exclusion zones, inner village areas). Sales to foreigners are free throughout Ortaca and Dalyan. You can contact our consultants for detailed information."
+        "cevap": "Yes, foreign nationals can buy real estate in Türkiye. There are restrictions in some areas (military exclusion zones, inner village areas). Sales to foreigners are free throughout Ortaca and Dalyan. You can contact our consultant for detailed information."
       }
     ]
   },
   {
-    "id": "tadilat-dekorasyon",
-    "slug": "tadilat-dekorasyon",
-    "baslik": "Renovation & Decoration",
-    "kisaAciklama": "Interior architecture, kitchen-bathroom renovation, painting and coating works. We transform your home as you dream.",
-    "uzunAciklama": "If you want to renew and modernize your home or workplace, you are at the right place. With over 20 years of experience, Kalinda Yapı's renovation and decoration team professionally implements projects of all sizes, from small touches to complete interior transformations. \n\nOur masters, led by Arif Dağdelen, work with quality materials and a 2-year workmanship guarantee. We have completed more than 500 renovation projects throughout Ortaca and Muğla. \n\nInformation about renovation costs for 2026: Complete flat renovation (100 m²) varies between 250,000-600,000 TL, bathroom renovation 60,000-150,000 TL, kitchen renovation 120,000-350,000 TL, painting-whitewash varies between 80-150 TL per m². \n\nOur scope of services: Interior architectural design and 3D visualization, kitchen cabinet and countertop renewal, bathroom complete renovation, paint-whitewash and decorative plaster, floor covering (parquet, ceramic, laminate), plasterboard ceiling and partition wall, electrical and plumbing renewal. All our projects are secured by a written contract, transparent pricing and staged payment options are offered.",
-    "ikon": "Paintbrush",
+    "id": "gayrimenkul-degerleme",
+    "slug": "gayrimenkul-degerleme",
+    "baslik": "Real Estate Valuation",
+    "kisaAciklama": "We report the current market value of your property with regional comparative analysis.",
+    "uzunAciklama": "Correct pricing of a real estate is the most important factor that determines the sales time. A property priced above the market remains uninterested for months, while a property priced below the market causes losses to its owner. As Kalinda Yapı Emlak, we examine your property on site and determine a realistic value range. \n\nOur valuation study; It covers topics such as location, square meter, building age, floor and facade, heating system, on-site facilities and title deed-zoning status. We compare this data with similar sales recently realized in Ortaca, Dalyan, Köyceğiz and Dalaman, and present a value range taking into account the supply-demand balance in the region. \n\nOur valuation report; It includes the suggested list price, expected sales time, the strengths and weaknesses of the property, and suggestions for minor improvements that can be made before the sale. When you choose to work with us for sales or rental purposes, the preliminary valuation meeting is free.",
+    "ikon": "Calculator",
     "altHizmetler": [
       {
-        "baslik": "Interior Architectural Design",
-        "aciklama": "Special design projects for your spaces. See your dream in advance with 3D visualization.",
+        "baslik": "On-Site Expertise",
+        "aciklama": "Your property is inspected on site; Location, age, floor, facade and general condition are evaluated in detail.",
         "ikon": "Ruler"
       },
       {
-        "baslik": "Kitchen Renovation",
-        "aciklama": "Modern kitchen designs, cabinet and countertop replacement, built-in white goods installation.",
-        "ikon": "ChefHat"
+        "baslik": "Comparative Market Analysis",
+        "aciklama": "A comparative price analysis is made with similar sales in the region recently.",
+        "ikon": "TrendingUp"
       },
       {
-        "baslik": "Bathroom Renovation",
-        "aciklama": "Tile, sanitary ware, shower cabin replacement. Plumbing and heating system renovation.",
-        "ikon": "Bath"
+        "baslik": "Value Report",
+        "aciklama": "Written report that includes the proposed listing price, expected sales time, and the property's strengths.",
+        "ikon": "FileText"
       },
       {
-        "baslik": "Paint & Coating",
-        "aciklama": "Interior and exterior painting. Wallpaper, decorative plaster and panel covering applications.",
-        "ikon": "Palette"
-      }
-    ],
-    "bolge": [
-      "Ortaca",
-      "Dalyan",
-      "Köyceğiz",
-      "Dalaman",
-      "Fethiye",
-      "Marmaris",
-      "Bodrum",
-      "Milas",
-      "Datça",
-      "Menteşe",
-      "Yatağan",
-      "Ula",
-      "Kavaklıdere",
-      "Seydikemer"
-    ],
-    "sss": [
-      {
-        "soru": "Is a contract required for renovation?",
-        "cevap": "Yes, all our renovation projects are secured by a written contract. The contract clearly states the scope of work, duration, payment plan and warranty conditions."
-      },
-      {
-        "soru": "How does the renovation process work?",
-        "cevap": "First of all, we do free discovery. Then we prepare a detailed offer. After approval, material supply and labor begin. At the end of the project, detailed control and delivery are made."
-      },
-      {
-        "soru": "Do you provide a renovation warranty?",
-        "cevap": "Yes, we provide a 2-year warranty on all labor and a 5-year warranty on plumbing. The manufacturer's warranty applies to the material. Problems under warranty are fixed free of charge."
-      },
-      {
-        "soru": "How much will a complete flat renovation cost in 2026?",
-        "cevap": "In 2026, the complete renovation of a 100 m² flat (kitchen, bathroom, paint, floor) will cost between 250,000-600,000 TL depending on the quality of the materials. We offer a detailed quote with free discovery."
-      },
-      {
-        "soru": "What is the best period for renovation in Muğla?",
-        "cevap": "Spring (March-May) and autumn (September-November) periods are ideal for renovations. It may be difficult to find a master in the summer months, and some exterior works may be affected by weather conditions in the winter months."
-      }
-    ]
-  },
-  {
-    "id": "taahhut-insaat",
-    "slug": "taahhut-insaat",
-    "baslik": "Contracting & Construction",
-    "kisaAciklama": "Building construction from scratch, restoration projects and turnkey building solutions.",
-    "uzunAciklama": "Kalinda Yapı carries out turnkey construction projects in Ortaca and Muğla regions with more than 12 years of experience. We offer quality and economical solutions with our experienced team and strong supplier network in residential, villa, workplace and agricultural building construction. \n\nTurnkey construction costs for 2026: Standard housing varies between 25,000-35,000 TL per m², villa type construction between 35,000-55,000 TL per m², commercial construction between 20,000-40,000 TL per m². These prices include rough construction, finishing works and basic installation, and exclude the land cost. \n\nOur scope of services: Detached house and villa construction, apartment and residential projects, workplace and commercial building construction, warehouse and agricultural buildings, old building restoration, building reinforcement. We also provide end-to-end consultancy services to our customers in license and building permit processes. \n\nWhy Kalinda Yapı? Since Muğla is a 1st degree earthquake zone, we pay special attention to building safety. All our constructions are carried out in accordance with the current earthquake regulations, under building inspection control and insured. We offer transparent pricing, a written contract and a phased payment plan.",
-    "ikon": "HardHat",
-    "altHizmetler": [
-      {
-        "baslik": "Residential Construction",
-        "aciklama": "Construction of detached houses, villas and apartments. Land evaluation and project development.",
-        "ikon": "Building"
-      },
-      {
-        "baslik": "Commercial Building Construction",
-        "aciklama": "Workplace, store, warehouse and industrial facility construction. Professional project management.",
-        "ikon": "Factory"
-      },
-      {
-        "baslik": "Restoration",
-        "aciklama": "Restoration of historical and old buildings. Building strengthening and modernization works.",
-        "ikon": "Hammer"
-      },
-      {
-        "baslik": "License & Permit Consultancy",
-        "aciklama": "Building permit, occupancy, zoning status inquiry. Municipality and title deed transactions consultancy.",
+        "baslik": "Pre-Sale Recommendations",
+        "aciklama": "Low-cost and high-yield improvement suggestions that will strengthen the presentation of the property.",
         "ikon": "FileCheck"
       }
     ],
@@ -200,533 +132,159 @@ export const hizmetlerEN: TranslatedHizmet[] = [
       "Dalaman",
       "Fethiye",
       "Marmaris",
-      "Bodrum",
       "Milas",
-      "Datça",
       "Menteşe",
-      "Yatağan",
       "Ula",
-      "Kavaklıdere",
       "Seydikemer"
     ],
     "sss": [
       {
-        "soru": "What to look for when choosing a contracting company?",
-        "cevap": "References, previously completed projects, insurance and warranty conditions, contract terms and communication quality are important criteria. As Kalinda Yapı, we provide information transparently on all these criteria."
+        "soru": "Is there a fee for real estate appraisal?",
+        "cevap": "When you choose to work with us during the sales or rental process, our preliminary valuation meeting is free. Official appraisal reports to be submitted to the bank or the court are prepared by CMB licensed appraisal companies; In this process, we direct you to the right institution."
       },
       {
-        "soru": "How much will a turnkey house cost in 2026?",
-        "cevap": "Turnkey construction costs in the Ortaca region in 2026: Standard housing varies between 25,000-35,000 TL per m², villa type construction varies between 35,000-55,000 TL per m². Land cost is not included in these figures."
+        "soru": "How long does the valuation take?",
+        "cevap": "On-site inspection of the property usually takes 30-60 minutes. We deliver the written value report containing comparative market analysis to you within an average of 2 business days."
       },
       {
-        "soru": "Are there any controls during the construction process?",
-        "cevap": "Yes, we check with our customers at every stage. There are at least 4 control points: foundation, rough construction, finishing works and pre-delivery. In addition, the building inspection company also carries out independent inspections."
+        "soru": "What data determines the value of my property?",
+        "cevap": "Location, square meter, building age, floor and facade, heating system, site facilities, title deed and zoning status and the current supply-demand balance in the region are the main determinants. Each of these headings is reflected separately in the report."
       },
       {
-        "soru": "How long does villa construction take?",
-        "cevap": "Turnkey construction of a 150-200 m² villa takes an average of 8-12 months. The license process is planned as 1-2 months, rough construction 3-4 months, finishing works 3-4 months, landscaping and final corrections 1-2 months."
+        "soru": "Do online advertisement prices show the real value?",
+        "cevap": "No. Advertised prices reflect the seller's expectations, not the actual sales price. There is often a significant difference between the announcement price and the closing price in Ortaca and its surroundings. For this reason, we base the valuation on actual sales."
       },
       {
-        "soru": "Do I have to have land for construction?",
-        "cevap": "Yes, you must have land zoned for construction. If you do not have land, we help you find suitable land within the scope of our real estate consultancy service. We also carry out zoning status control and license compliance evaluation."
+        "soru": "Do you also do land valuation?",
+        "cevap": "Yes. The zoning status of the land, precedent and storey height, road frontage, infrastructure and field-land separation directly affect the value. We work on land valuations by examining the zoning status document together."
       }
     ]
   },
   {
-    "id": "plan-proje",
-    "slug": "plan-proje",
-    "baslik": "Plan & Project",
-    "kisaAciklama": "Architectural, static, electrical-mechanical project drawings and license consultancy services.",
-    "uzunAciklama": "As Kalinda Yapı, we are with you from the very beginning of your construction projects. We meet all your project needs, from architectural projects to static calculations, from electrical and mechanical installation projects to licensing processes. With our experienced team of engineers and architects, we ensure that your project complies with legal requirements and is technically perfect. \n\nProject costs for 2026: Architectural project for a 150 m² villa is 25,000-45,000 TL, static project is 20,000-35,000 TL, electrical-mechanical projects are 15,000-30,000 TL in total. The license application process for Ortaca Municipality takes 15-30 business days. \n\nOur service scope: Original architectural design and application projects, reinforced concrete and steel static projects, electrical installation and lighting projects, mechanical installation (heating-cooling-sanitary) projects, landscaping and landscaping projects, building license application and follow-up, occupancy certificate process management. \n\nWe ensure that your project complies with all legal requirements with our team who is familiar with the protected area, protection zone and coastal edge line restrictions in Ortaca, Dalyan and Köyceğiz regions. We monitor zoning status inquiries, ground survey coordination and all correspondence with the municipality on your behalf.",
-    "ikon": "FileText",
+    "id": "yatirim-danismanligi",
+    "slug": "yatirim-danismanligi",
+    "baslik": "Investment Consultancy",
+    "kisaAciklama": "We evaluate investment opportunities in the region together based on rental income and value increase potential.",
+    "uzunAciklama": "In real estate investment, the right region and the right timing determine most of the return. Ortaca, Dalyan, Köyceğiz and Dalaman; It offers very different investment profiles with tourism, agriculture and airport access. As Kalinda Yapı Emlak, we evaluate these regions together according to your budget and the type of return you expect. \n\nOur investment advisory process starts with clarifying your expectations: regular rental income, medium-term appreciation, or a balance of the two? We then determine the property types that fit your target and transparently share the expected rental income, vacancy risk and annual operating cost for each option. \n\nAlthough the seasonal rental income in Dalyan and Köyceğiz is high, it does not extend throughout the year; In Ortaca center, rental income is more stable due to student and civil servant demand. In land investment, zoning status and infrastructure plans are decisive. Whichever option you choose, we give you the data you need to base your decision on the numbers.",
+    "ikon": "TrendingUp",
     "altHizmetler": [
       {
-        "baslik": "Architectural Project",
-        "aciklama": "Original architectural design and application projects for residences, villas and commercial buildings.",
-        "ikon": "Ruler"
-      },
-      {
-        "baslik": "Static Project",
-        "aciklama": "Static calculations and carrier system projects for reinforced concrete and steel structures.",
-        "ikon": "Building"
-      },
-      {
-        "baslik": "Electrical & Mechanical Project",
-        "aciklama": "Electrical installation, lighting, heating-cooling and plumbing projects.",
-        "ikon": "Zap"
-      },
-      {
-        "baslik": "License Consultancy",
-        "aciklama": "Consultancy on building permit applications, zoning status, housing and municipal transactions.",
-        "ikon": "FileCheck"
-      }
-    ],
-    "bolge": [
-      "Ortaca",
-      "Dalyan",
-      "Köyceğiz",
-      "Dalaman",
-      "Fethiye",
-      "Marmaris",
-      "Bodrum",
-      "Milas",
-      "Datça",
-      "Menteşe",
-      "Yatağan",
-      "Ula",
-      "Kavaklıdere",
-      "Seydikemer"
-    ],
-    "sss": [
-      {
-        "soru": "How long does architectural project drawing take?",
-        "cevap": "Depending on the size and complexity of the project, architectural project drawing is completed within 2-4 weeks. Revision processes are not included in this period."
-      },
-      {
-        "soru": "What documents are required for a license application?",
-        "cevap": "Deed photocopy, ID photocopy, application sketch, architectural project, static project, electrical-mechanical projects, ground survey report, building inspection contract and technical liability contracts are among the basic documents."
-      },
-      {
-        "soru": "How much will the project cost in 2026?",
-        "cevap": "The total project cost (architectural + static + electrical + mechanical) for a 150 m² villa in 2026 varies between 80,000-150,000 TL. We prepare a special offer for you with a free preliminary consultation."
-      },
-      {
-        "soru": "How long does the licensing process take in Ortaca Municipality?",
-        "cevap": "When all documents are submitted in full, the building permit review process in Ortaca Municipality is completed within 15-30 business days. In case of missing documents, the period may be extended."
-      },
-      {
-        "soru": "Can construction be done in the protected area?",
-        "cevap": "Construction in protected areas is subject to special permits. Preservation board approval is required and the structure to be constructed must comply with certain criteria. There are protected areas in Dalyan and Köyceğiz; Before drawing a project in these regions, the zoning status must be checked."
-      }
-    ]
-  }
-];
-
-export const hizmetlerDE: TranslatedHizmet[] = [
-  {
-    "id": "emlak-danismanligi",
-    "slug": "emlak-danismanligi",
-    "baslik": "Immobilienberatung",
-    "kisaAciklama": "Immobiliendienstleistungen zum Verkauf und zur Miete in Ortaca und Umgebung. Professionelle Bewertung und Investitionsberatung.",
-    "uzunAciklama": "Als Kalinda Yapı bieten wir umfassende Immobilienberatung mit über 12 Jahren Erfahrung im Bezirk Ortaca in Muğla und den umliegenden Regionen. Alles, was Sie suchen, finden Sie hier für Wohnungen, Villen, Grundstücke und Gewerbeimmobilien zum Verkauf und zur Miete in Ortaca, Dalyan, Köyceğiz, Dalaman und Fethiye.\n\nUnser lizenzierter Immobilienberater Zafer Soylu hilft Ihnen mit seiner Erfahrung, die Dynamik der Region genau zu kennen, die besten Investitionsentscheidungen zu treffen. Im Jahr 2026 variieren die Wohnungspreise in Ortaca zwischen 18.000-35.000 TL pro m², und die Villapreise in Dalyan zwischen 4-18 Millionen TL.\n\nUnsere Dienstleistungen umfassen: Immobilienportfolio zum Verkauf (Wohnung, Villa, Grundstück, Gewerbe), Mietimmobilienverwaltung, professionelle Immobilienbewertung, Investitionsberatung und Marktanalyse, Grundbuch- und Bebauungsstatuskontrolle, Kauf-Verkauf-Prozessmanagement. Wir haben mehr als 300 Familien mit unserem transparenten, zuverlässigen und ergebnisorientierten Serviceansatz geholfen, ihr Traumhaus zu finden.",
-    "ikon": "Home",
-    "altHizmetler": [
-      {
-        "baslik": "Immobilien zum Verkauf",
-        "aciklama": "Verkauf von Wohnungen, Villen, Grundstücken und Gewerbeimmobilien. Sicherer Vermittlungsservice zwischen Käufer und Verkäufer.",
-        "ikon": "Building2"
-      },
-      {
-        "baslik": "Immobilien zur Miete",
-        "aciklama": "Wohn- und Arbeitsplatzvermietung. Professionelle Unterstützung bei Mieterauswahl und Vertragsabwicklung.",
-        "ikon": "Key"
-      },
-      {
-        "baslik": "Immobilienbewertung",
-        "aciklama": "Erfahren Sie den aktuellen Marktwert Ihrer Immobilie. Regionale Vergleichsanalyseberichte.",
+        "baslik": "Rental Income Analysis",
+        "aciklama": "The net return is calculated by calculating the property's annual rental income, idle risk and operating costs.",
         "ikon": "Calculator"
       },
       {
-        "baslik": "Investitionsberatung",
-        "aciklama": "Immobilieninvestitionsmöglichkeiten in Ortaca und Umgebung. Mieteinnahmen- und Wertsteigerungsanalyse.",
-        "ikon": "TrendingUp"
-      }
-    ],
-    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
-    "sss": [
-      {
-        "soru": "Was wird benötigt, um ein Haus in Ortaca zu kaufen?",
-        "cevap": "Um ein Haus in Ortaca zu kaufen, genügen ein Ausweisdokument, eine Aufenthaltserlaubnis und der notwendige Zahlungsplan. Für ausländische Käufer können zusätzliche Dokumente angefordert werden. Als Kalinda Yapı begleiten wir Sie durch Ihren gesamten Kaufprozess."
-      },
-      {
-        "soru": "Wie hoch sind die m²-Preise 2026 in Ortaca?",
-        "cevap": "Im Jahr 2026 variieren die Wohnungs-m²-Preise in Ortaca je nach Lage zwischen 18.000-35.000 TL. Die Villapreise in Dalyan liegen bei 40.000-70.000 TL pro m², in Köyceğiz bei 15.000-25.000 TL."
-      },
-      {
-        "soru": "Wie wird die Immobilienberatungsgebühr berechnet?",
-        "cevap": "Bei Verkaufstransaktionen werden 2% Provision, bei Miettransaktionen eine Monatsmiete als Provision berechnet. Alle Gebühren werden vor Vertragsabschluss transparent angegeben."
-      },
-      {
-        "soru": "Wie viel Budget wird benötigt, um eine Villa in Dalyan zu kaufen?",
-        "cevap": "Die Preise für freistehende Villen mit Pool in Dalyan variieren 2026 zwischen 4-18 Millionen TL. Standorte mit Kanalblick sind höher bepreist, während zentrumsnahe Standorte erschwinglicher sind."
-      },
-      {
-        "soru": "Können Ausländer in der Türkei ein Haus kaufen?",
-        "cevap": "Ja, ausländische Staatsbürger können in der Türkei Immobilien kaufen. In einigen Gebieten (militärische Sperrzonen, innere Dorfgebiete) gibt es Einschränkungen. Der Verkauf an Ausländer ist in ganz Ortaca und Dalyan frei. Kontaktieren Sie unsere Berater für detaillierte Informationen."
-      }
-    ]
-  },
-  {
-    "id": "tadilat-dekorasyon",
-    "slug": "tadilat-dekorasyon",
-    "baslik": "Renovierung & Dekoration",
-    "kisaAciklama": "Innenarchitektur, Küchen- und Badezimmerrenovierung, Maler- und Beschichtungsarbeiten. Wir verwandeln Ihr Zuhause nach Ihren Träumen.",
-    "uzunAciklama": "Wenn Sie Ihr Zuhause oder Ihren Arbeitsplatz erneuern und modernisieren möchten, sind Sie hier richtig. Mit über 20 Jahren Erfahrung setzt das Renovierungs- und Dekorationsteam von Kalinda Yapı Projekte aller Größenordnungen professionell um, von kleinen Veränderungen bis hin zu kompletten Innenraumtransformationen.\n\nUnsere Handwerker unter der Leitung von Arif Dağdelen arbeiten mit Qualitätsmaterialien und 2 Jahren Arbeitsgarantie. Wir haben mehr als 500 Renovierungsprojekte in ganz Ortaca und Muğla abgeschlossen.\n\nInformationen zu Renovierungskosten für 2026: Komplette Wohnungsrenovierung (100 m²) variiert zwischen 250.000-600.000 TL, Badrenovierung 60.000-150.000 TL, Küchenrenovierung 120.000-350.000 TL, Malerarbeiten zwischen 80-150 TL pro m².\n\nUnser Leistungsumfang: Innenarchitektonisches Design und 3D-Visualisierung, Küchenschrank- und Arbeitsplattenerneuerung, komplette Badrenovierung, Maler- und Dekorputzarbeiten, Bodenbeläge (Parkett, Keramik, Laminat), Gipskartondecken und Trennwände, Elektro- und Sanitärerneuerung. Alle unsere Projekte sind durch einen schriftlichen Vertrag gesichert, transparente Preisgestaltung und stufenweise Zahlungsoptionen werden angeboten.",
-    "ikon": "Paintbrush",
-    "altHizmetler": [
-      {
-        "baslik": "Innenarchitektonisches Design",
-        "aciklama": "Spezielle Designprojekte für Ihre Räume. Sehen Sie Ihren Traum im Voraus mit 3D-Visualisierung.",
-        "ikon": "Ruler"
-      },
-      {
-        "baslik": "Küchenrenovierung",
-        "aciklama": "Moderne Küchendesigns, Schrank- und Arbeitsplattenersatz, Einbau von Einbaugeräten.",
-        "ikon": "ChefHat"
-      },
-      {
-        "baslik": "Badrenovierung",
-        "aciklama": "Fliesen, Sanitärkeramik, Duschkabinenersatz. Renovierung von Sanitär- und Heizungssystemen.",
-        "ikon": "Bath"
-      },
-      {
-        "baslik": "Maler- & Beschichtungsarbeiten",
-        "aciklama": "Innen- und Außenanstrich. Tapeten, Dekorputz und Paneelverkleidungsanwendungen.",
-        "ikon": "Palette"
-      }
-    ],
-    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
-    "sss": [
-      {
-        "soru": "Ist ein Vertrag für Renovierungen erforderlich?",
-        "cevap": "Ja, alle unsere Renovierungsprojekte sind durch einen schriftlichen Vertrag gesichert. Der Vertrag legt den Arbeitsumfang, die Dauer, den Zahlungsplan und die Garantiebedingungen klar fest."
-      },
-      {
-        "soru": "Wie läuft der Renovierungsprozess ab?",
-        "cevap": "Zunächst führen wir eine kostenlose Besichtigung durch. Dann erstellen wir ein detailliertes Angebot. Nach Genehmigung beginnen Materialbeschaffung und Arbeiten. Am Ende des Projekts erfolgen detaillierte Kontrolle und Übergabe."
-      },
-      {
-        "soru": "Gewähren Sie eine Renovierungsgarantie?",
-        "cevap": "Ja, wir gewähren 2 Jahre Garantie auf alle Arbeiten und 5 Jahre auf Sanitärinstallationen. Für das Material gilt die Herstellergarantie. Probleme unter Garantie werden kostenlos behoben."
-      },
-      {
-        "soru": "Wie viel kostet eine komplette Wohnungsrenovierung 2026?",
-        "cevap": "Im Jahr 2026 kostet die komplette Renovierung einer 100-m²-Wohnung (Küche, Bad, Anstrich, Boden) je nach Materialqualität zwischen 250.000-600.000 TL. Wir bieten ein detailliertes Angebot mit kostenloser Besichtigung."
-      },
-      {
-        "soru": "Was ist die beste Zeit für Renovierungen in Muğla?",
-        "cevap": "Frühling (März-Mai) und Herbst (September-November) sind ideal für Renovierungen. In den Sommermonaten kann es schwierig sein, Handwerker zu finden, und im Winter können einige Außenarbeiten durch Wetterbedingungen beeinträchtigt werden."
-      }
-    ]
-  },
-  {
-    "id": "taahhut-insaat",
-    "slug": "taahhut-insaat",
-    "baslik": "Bauunternehmen & Konstruktion",
-    "kisaAciklama": "Gebäudebau von Grund auf, Restaurierungsprojekte und schlüsselfertige Baulösungen.",
-    "uzunAciklama": "Kalinda Yapı führt schlüsselfertige Bauprojekte in den Regionen Ortaca und Muğla mit mehr als 12 Jahren Erfahrung durch. Wir bieten qualitativ hochwertige und wirtschaftliche Lösungen mit unserem erfahrenen Team und starkem Lieferantennetzwerk im Wohn-, Villen-, Arbeitsplatz- und landwirtschaftlichen Gebäudebau.\n\nSchlüsselfertige Baukosten für 2026: Standardwohnung variiert zwischen 25.000-35.000 TL pro m², Villabau zwischen 35.000-55.000 TL pro m², Gewerbebau zwischen 20.000-40.000 TL pro m². Diese Preise beinhalten Rohbau, Ausbauarbeiten und Grundinstallation, ohne Grundstückskosten.\n\nUnser Leistungsumfang: Bau von Einfamilienhäusern und Villen, Wohnungs- und Wohnprojekte, Arbeitsplatz- und Gewerbebau, Lager- und landwirtschaftliche Gebäude, Restaurierung alter Gebäude, Gebäudeverstärkung. Wir bieten unseren Kunden auch umfassende Beratungsdienstleistungen für Genehmigungs- und Baugenehmigungsverfahren.\n\nWarum Kalinda Yapı? Da Muğla eine Erdbebenzone 1. Grades ist, legen wir besonderen Wert auf Gebäudesicherheit. Alle unsere Bauvorhaben werden gemäß den aktuellen Erdbebenvorschriften, unter Bauaufsichtskontrolle und versichert durchgeführt. Wir bieten transparente Preisgestaltung, schriftlichen Vertrag und stufenweisen Zahlungsplan.",
-    "ikon": "HardHat",
-    "altHizmetler": [
-      {
-        "baslik": "Wohnungsbau",
-        "aciklama": "Bau von Einfamilienhäusern, Villen und Apartments. Grundstücksbewertung und Projektentwicklung.",
+        "baslik": "Region Comparison",
+        "aciklama": "Investment profiles of Ortaca, Dalyan, Köyceğiz and Dalaman are compared according to your budget.",
         "ikon": "Building"
       },
       {
-        "baslik": "Gewerbebau",
-        "aciklama": "Bau von Arbeitsplätzen, Geschäften, Lagern und Industrieanlagen. Professionelles Projektmanagement.",
-        "ikon": "Factory"
-      },
-      {
-        "baslik": "Restaurierung",
-        "aciklama": "Restaurierung historischer und alter Gebäude. Gebäudeverstärkungs- und Modernisierungsarbeiten.",
-        "ikon": "Hammer"
-      },
-      {
-        "baslik": "Genehmigungs- & Lizenzberatung",
-        "aciklama": "Baugenehmigung, Nutzungsgenehmigung, Bebauungsstatusabfrage. Beratung für Gemeinde- und Grundbuchverfahren.",
-        "ikon": "FileCheck"
-      }
-    ],
-    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
-    "sss": [
-      {
-        "soru": "Worauf sollte man bei der Auswahl eines Bauunternehmens achten?",
-        "cevap": "Referenzen, zuvor abgeschlossene Projekte, Versicherungs- und Garantiebedingungen, Vertragsbedingungen und Kommunikationsqualität sind wichtige Kriterien. Als Kalinda Yapı informieren wir transparent über alle diese Kriterien."
-      },
-      {
-        "soru": "Wie viel kostet ein schlüsselfertiges Haus 2026?",
-        "cevap": "Schlüsselfertige Baukosten in der Region Ortaca 2026: Standardwohnung variiert zwischen 25.000-35.000 TL pro m², Villabau zwischen 35.000-55.000 TL pro m². Die Grundstückskosten sind in diesen Zahlen nicht enthalten."
-      },
-      {
-        "soru": "Gibt es Kontrollen während des Bauprozesses?",
-        "cevap": "Ja, wir kontrollieren in jeder Phase mit unseren Kunden. Es gibt mindestens 4 Kontrollpunkte: Fundament, Rohbau, Ausbauarbeiten und vor der Übergabe. Zusätzlich führt die Bauaufsichtsfirma unabhängige Inspektionen durch."
-      },
-      {
-        "soru": "Wie lange dauert der Villabau?",
-        "cevap": "Der schlüsselfertige Bau einer 150-200 m² Villa dauert durchschnittlich 8-12 Monate. Der Genehmigungsprozess ist mit 1-2 Monaten, der Rohbau mit 3-4 Monaten, die Ausbauarbeiten mit 3-4 Monaten und die Landschaftsgestaltung mit 1-2 Monaten geplant."
-      },
-      {
-        "soru": "Muss ich ein Grundstück für den Bau haben?",
-        "cevap": "Ja, Sie müssen ein für den Bau ausgewiesenes Grundstück haben. Wenn Sie kein Grundstück haben, helfen wir Ihnen im Rahmen unserer Immobilienberatung bei der Suche nach einem geeigneten Grundstück. Wir führen auch die Bebauungsstatuskontrolle und Genehmigungskonformitätsbewertung durch."
-      }
-    ]
-  },
-  {
-    "id": "plan-proje",
-    "slug": "plan-proje",
-    "baslik": "Planung & Projektierung",
-    "kisaAciklama": "Architektur-, Statik-, Elektro- und Mechanikprojektzeichnungen sowie Genehmigungsberatung.",
-    "uzunAciklama": "Als Kalinda Yapı sind wir von Anfang an bei Ihren Bauprojekten dabei. Wir decken alle Ihre Projektbedürfnisse ab, von Architekturprojekten über statische Berechnungen bis hin zu Elektro- und Mechanikinstallationsprojekten und Genehmigungsverfahren. Mit unserem erfahrenen Team aus Ingenieuren und Architekten stellen wir sicher, dass Ihr Projekt den gesetzlichen Anforderungen entspricht und technisch einwandfrei ist.\n\nProjektkosten für 2026: Architekturprojekt für eine 150 m² Villa 25.000-45.000 TL, Statikprojekt 20.000-35.000 TL, Elektro-Mechanik-Projekte insgesamt 15.000-30.000 TL. Das Genehmigungsverfahren bei der Gemeinde Ortaca dauert 15-30 Werktage.\n\nUnser Leistungsumfang: Original-Architekturentwurf und Ausführungsprojekte, Stahlbeton- und Stahl-Statikprojekte, Elektroinstallations- und Beleuchtungsprojekte, Mechanische Installationsprojekte (Heizung-Kühlung-Sanitär), Landschafts- und Gartengestaltungsprojekte, Baugenehmigungsantrag und -verfolgung, Nutzungszertifikat-Prozessmanagement.\n\nMit unserem Team, das mit den Einschränkungen für Schutzgebiete, Schutzzonen und Küstenlinien in den Regionen Ortaca, Dalyan und Köyceğiz vertraut ist, stellen wir sicher, dass Ihr Projekt allen gesetzlichen Anforderungen entspricht. Wir überwachen Bebauungsstatusanfragen, Bodengutachtenkoordination und alle Korrespondenz mit der Gemeinde in Ihrem Namen.",
-    "ikon": "FileText",
-    "altHizmetler": [
-      {
-        "baslik": "Architekturprojekt",
-        "aciklama": "Originaler Architekturentwurf und Ausführungsprojekte für Wohnhäuser, Villen und Gewerbegebäude.",
+        "baslik": "Land Investment",
+        "aciklama": "Medium-long term land opportunities are evaluated by examining the zoning status, precedent and infrastructure plans.",
         "ikon": "Ruler"
       },
       {
-        "baslik": "Statikprojekt",
-        "aciklama": "Statische Berechnungen und Tragwerksprojekte für Stahlbeton- und Stahlkonstruktionen.",
-        "ikon": "Building"
-      },
-      {
-        "baslik": "Elektro- & Mechanikprojekt",
-        "aciklama": "Elektroinstallations-, Beleuchtungs-, Heizungs-Kühlungs- und Sanitärprojekte.",
-        "ikon": "Zap"
-      },
-      {
-        "baslik": "Genehmigungsberatung",
-        "aciklama": "Beratung zu Baugenehmigungsanträgen, Bebauungsstatus, Nutzungsgenehmigung und Gemeindeverfahren.",
-        "ikon": "FileCheck"
-      }
-    ],
-    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
-    "sss": [
-      {
-        "soru": "Wie lange dauert die Erstellung eines Architekturprojekts?",
-        "cevap": "Abhängig von der Größe und Komplexität des Projekts wird die Architekturprojektzeichnung innerhalb von 2-4 Wochen abgeschlossen. Revisionsprozesse sind in diesem Zeitraum nicht enthalten."
-      },
-      {
-        "soru": "Welche Dokumente werden für einen Genehmigungsantrag benötigt?",
-        "cevap": "Grundbuchauszug, Ausweis, Lageskizze, Architekturprojekt, Statikprojekt, Elektro-Mechanik-Projekte, Bodengutachten, Bauaufsichtsvertrag und technische Haftungsverträge gehören zu den grundlegenden Dokumenten."
-      },
-      {
-        "soru": "Wie viel kosten Projekte 2026?",
-        "cevap": "Die Gesamtprojektkosten (Architektur + Statik + Elektrik + Mechanik) für eine 150 m² Villa variieren 2026 zwischen 80.000-150.000 TL. Wir erstellen mit einem kostenlosen Vorgespräch ein spezielles Angebot für Sie."
-      },
-      {
-        "soru": "Wie lange dauert das Genehmigungsverfahren bei der Gemeinde Ortaca?",
-        "cevap": "Wenn alle Dokumente vollständig eingereicht werden, wird das Baugenehmigungsprüfverfahren bei der Gemeinde Ortaca innerhalb von 15-30 Werktagen abgeschlossen. Bei fehlenden Dokumenten kann sich der Zeitraum verlängern."
-      },
-      {
-        "soru": "Kann in Schutzgebieten gebaut werden?",
-        "cevap": "Bauen in Schutzgebieten unterliegt besonderen Genehmigungen. Die Genehmigung des Denkmalschutzausschusses ist erforderlich und das zu errichtende Gebäude muss bestimmte Kriterien erfüllen. In Dalyan und Köyceğiz gibt es Schutzgebiete; bevor in diesen Regionen ein Projekt erstellt wird, muss der Bebauungsstatus überprüft werden."
-      }
-    ]
-  }
-];
-
-export const hizmetlerRU: TranslatedHizmet[] = [
-  {
-    "id": "emlak-danismanligi",
-    "slug": "emlak-danismanligi",
-    "baslik": "Консультации по недвижимости",
-    "kisaAciklama": "Услуги по недвижимости для продажи и аренды в Ортаке и окрестностях. Профессиональная оценка и инвестиционные консультации.",
-    "uzunAciklama": "Как Kalinda Yapı мы предлагаем комплексные консультационные услуги по недвижимости с более чем 12-летним опытом работы в районе Ортака в Мугле и прилегающих регионах. Все, что вы ищете, здесь — квартиры, виллы, земельные участки и коммерческая недвижимость для продажи и аренды в Ортаке, Даляне, Кёйджеизе, Даламане и Фетхие.\n\nНаш лицензированный консультант по недвижимости Зафер Сойлу помогает вам принимать лучшие инвестиционные решения благодаря своему опыту глубокого понимания динамики региона. В 2026 году цены на жилье в Ортаке будут варьироваться от 18 000 до 35 000 турецких лир за м², а цены на виллы в Даляне — от 4 до 18 миллионов турецких лир.\n\nВ рамках наших услуг: портфолио недвижимости на продажу (квартира, вилла, земля, коммерческая), управление арендной недвижимостью, профессиональная оценка недвижимости, инвестиционные консультации и анализ рынка, контроль права собственности и статуса зонирования, управление процессом купли-продажи. Мы помогли более чем 300 семьям найти дом своей мечты благодаря нашему прозрачному, надежному и ориентированному на результат подходу к обслуживанию.",
-    "ikon": "Home",
-    "altHizmetler": [
-      {
-        "baslik": "Недвижимость на продажу",
-        "aciklama": "Продажа квартир, вилл, земельных участков и коммерческой недвижимости. Безопасное посредничество между покупателем и продавцом.",
+        "baslik": "Portfolio Diversification",
+        "aciklama": "Portfolio recommendations for risk allocation for multi-property investors.",
         "ikon": "Building2"
+      }
+    ],
+    "bolge": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Marmaris",
+      "Bodrum",
+      "Milas",
+      "Datça",
+      "Menteşe"
+    ],
+    "sss": [
+      {
+        "soru": "How much is the rental income in Ortaca?",
+        "cevap": "The annual gross rental income of an apartment in Ortaca center is around 4-6% of the property price. Due to student and civil servant demand, idle time is short, which makes the return stable."
       },
       {
-        "baslik": "Недвижимость в аренду",
-        "aciklama": "Аренда жилья и офисов. Профессиональная поддержка в выборе арендаторов и договорных процессах.",
+        "soru": "Does seasonal rental make sense in Dalyan?",
+        "cevap": "Seasonal rental in Dalyan provides high returns on a daily basis, but the income is not spread throughout the year and the operating burden is heavier. For investors looking for regular and passive income, long-term rental in Ortaca center is generally more suitable."
+      },
+      {
+        "soru": "Should I buy land or flat?",
+        "cevap": "The flat provides regular rental income and has high liquidity. Land, on the other hand, does not generate rent, but may offer a higher increase in value in the medium-long term depending on zoning developments. The decision depends on your holding period and cash flow needs."
+      },
+      {
+        "soru": "Do you provide consultancy to foreign investors?",
+        "cevap": "Yes. We provide services with content in English, German, Russian and Arabic. For foreign buyers, we also include additional steps such as military permit letter, tax number and foreign exchange purchase document in the process plan."
+      },
+      {
+        "soru": "Do you charge additional fees for investment advice?",
+        "cevap": "When you work with us during the acquisition process, our investment advisory service is included in the standard brokerage commission; No additional consultancy fee is required."
+      }
+    ]
+  },
+  {
+    "id": "tapu-islemleri",
+    "slug": "tapu-islemleri",
+    "baslik": "Land Registry & Official Transactions",
+    "kisaAciklama": "Document and transaction tracking from start to finish in title deed, zoning status and contract processes.",
+    "uzunAciklama": "The most critical stage of a real estate purchase or sale is not the moment when the agreement is reached, but the moment when the documents are completed completely and correctly. As Kalinda Yapı Emlak, we follow the process on your behalf, from the acceptance of the offer to the title deed transfer. \n\nThe process begins with an examination of the title deed record: it is checked whether there is a mortgage, lien, annotation or usufruct on the property. Then, zoning status and building registration information, compulsory earthquake insurance (DASK), energy identity certificate and numbering certificate are obtained from the municipality when necessary. \n\nOur services also include making a land registry appointment, calculating fees and revolving fund fees, putting the payment plan between the parties in writing, and being present at the land registry office on the transfer day. For foreign buyers, additional steps such as military permit letter, tax number, sworn translator and CMB licensed valuation report are also carried out in the same plan.",
+    "ikon": "FileCheck",
+    "altHizmetler": [
+      {
+        "baslik": "Land Registry Examination",
+        "aciklama": "Restrictions on the property such as mortgages, liens, annotations and usufruct rights are checked before the transfer.",
+        "ikon": "FileText"
+      },
+      {
+        "baslik": "Zoning Status Inquiry",
+        "aciklama": "The zoning status, building registration certificate and occupancy information are obtained from the municipality and evaluated together.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "Contract Preparation",
+        "aciklama": "The payment plan, delivery date and obligations of the parties are secured by a written contract.",
+        "ikon": "FileCheck"
+      },
+      {
+        "baslik": "Sales Transactions to Foreigners",
+        "aciklama": "Follow-up of all steps including military permit letter, tax number, translator and valuation report.",
         "ikon": "Key"
-      },
-      {
-        "baslik": "Оценка недвижимости",
-        "aciklama": "Узнайте текущую рыночную стоимость вашей недвижимости. Региональные сравнительные аналитические отчеты.",
-        "ikon": "Calculator"
-      },
-      {
-        "baslik": "Инвестиционные консультации",
-        "aciklama": "Инвестиционные возможности в недвижимость в Ортаке и окрестностях. Анализ арендного дохода и роста стоимости.",
-        "ikon": "TrendingUp"
       }
     ],
-    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
-    "sss": [
-      {
-        "soru": "Что нужно для покупки дома в Ортаке?",
-        "cevap": "Для покупки дома в Ортаке достаточно удостоверения личности, вида на жительство и необходимого плана оплаты. Для иностранных покупателей могут потребоваться дополнительные документы. Как Kalinda Yapı мы сопровождаем вас на протяжении всего процесса покупки."
-      },
-      {
-        "soru": "Каковы цены за м² в Ортаке в 2026 году?",
-        "cevap": "В 2026 году цены за м² жилья в Ортаке варьируются от 18 000 до 35 000 турецких лир в зависимости от местоположения. Цены на виллы в Даляне составляют 40 000-70 000 турецких лир за м², в Кёйджеизе — 15 000-25 000 турецких лир."
-      },
-      {
-        "soru": "Как рассчитывается плата за консультации по недвижимости?",
-        "cevap": "При сделках купли-продажи комиссия составляет 2%, при аренде — месячная арендная плата. Все сборы указываются прозрачно до подписания договора."
-      },
-      {
-        "soru": "Какой бюджет нужен для покупки виллы в Даляне?",
-        "cevap": "Цены на отдельные виллы с бассейном в Даляне в 2026 году варьируются от 4 до 18 миллионов турецких лир. Локации с видом на канал стоят дороже, а ближе к центру — доступнее."
-      },
-      {
-        "soru": "Могут ли иностранцы купить дом в Турции?",
-        "cevap": "Да, иностранные граждане могут покупать недвижимость в Турции. В некоторых районах (военные запретные зоны, внутренние деревенские зоны) есть ограничения. Продажа иностранцам свободна по всей территории Ортаки и Даляна. Свяжитесь с нашими консультантами для получения подробной информации."
-      }
-    ]
-  },
-  {
-    "id": "tadilat-dekorasyon",
-    "slug": "tadilat-dekorasyon",
-    "baslik": "Ремонт и декорирование",
-    "kisaAciklama": "Дизайн интерьера, ремонт кухни и ванной комнаты, малярные и отделочные работы. Мы преобразим ваш дом так, как вы мечтаете.",
-    "uzunAciklama": "Если вы хотите обновить и модернизировать свой дом или рабочее место, вы обратились по адресу. Команда по ремонту и декорированию Kalinda Yapı с более чем 20-летним опытом профессионально реализует проекты любого масштаба — от небольших изменений до полной трансформации интерьера.\n\nНаши мастера под руководством Арифа Дагделена работают с качественными материалами и 2-летней гарантией на работы. Мы завершили более 500 проектов ремонта по всей Ортаке и Мугле.\n\nИнформация о стоимости ремонта на 2026 год: Полный ремонт квартиры (100 м²) варьируется от 250 000 до 600 000 турецких лир, ремонт ванной комнаты 60 000-150 000 турецких лир, ремонт кухни 120 000-350 000 турецких лир, покраска 80-150 турецких лир за м².\n\nНаш спектр услуг: дизайн интерьера и 3D-визуализация, обновление кухонных шкафов и столешниц, полный ремонт ванной комнаты, покраска и декоративная штукатурка, напольные покрытия (паркет, керамика, ламинат), гипсокартонные потолки и перегородки, обновление электрики и сантехники. Все наши проекты защищены письменным договором, предлагаются прозрачное ценообразование и поэтапная оплата.",
-    "ikon": "Paintbrush",
-    "altHizmetler": [
-      {
-        "baslik": "Дизайн интерьера",
-        "aciklama": "Специальные дизайн-проекты для ваших помещений. Увидьте свою мечту заранее с 3D-визуализацией.",
-        "ikon": "Ruler"
-      },
-      {
-        "baslik": "Ремонт кухни",
-        "aciklama": "Современный дизайн кухни, замена шкафов и столешниц, установка встроенной техники.",
-        "ikon": "ChefHat"
-      },
-      {
-        "baslik": "Ремонт ванной комнаты",
-        "aciklama": "Замена плитки, сантехники, душевой кабины. Обновление водопровода и системы отопления.",
-        "ikon": "Bath"
-      },
-      {
-        "baslik": "Покраска и отделка",
-        "aciklama": "Внутренняя и наружная покраска. Обои, декоративная штукатурка и панельная отделка.",
-        "ikon": "Palette"
-      }
+    "bolge": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Marmaris",
+      "Milas",
+      "Menteşe",
+      "Ula",
+      "Seydikemer"
     ],
-    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
     "sss": [
       {
-        "soru": "Требуется ли договор на ремонт?",
-        "cevap": "Да, все наши ремонтные проекты защищены письменным договором. В договоре четко указываются объем работ, сроки, план оплаты и условия гарантии."
+        "soru": "How long does the title deed transfer take?",
+        "cevap": "When the documents are complete, the title deed appointment is usually made within 3-7 business days and the transfer process is completed on the same day. For foreign buyers, the period may extend to 2-6 weeks due to military leave and valuation report."
       },
       {
-        "soru": "Как проходит процесс ремонта?",
-        "cevap": "Сначала мы проводим бесплатный осмотр. Затем готовим детальное предложение. После утверждения начинается закупка материалов и работа. По завершении проекта проводится детальный контроль и сдача."
+        "soru": "How much is the title deed fee and who pays it?",
+        "cevap": "Title deed fee is collected at the rate of 2% from the buyer and seller separately on the declared sales price. In practice, it may be paid entirely by one party, depending on the agreement of the parties; We clarify this issue at the contract stage."
       },
       {
-        "soru": "Предоставляете ли вы гарантию на ремонт?",
-        "cevap": "Да, мы предоставляем 2-летнюю гарантию на все работы и 5-летнюю на сантехнику. На материалы действует гарантия производителя. Проблемы по гарантии устраняются бесплатно."
+        "soru": "What if there is a mortgage on the property I will buy?",
+        "cevap": "A mortgaged property can be sold, but before the transfer, the mortgage must be removed or the payment plan must be carried out simultaneously with the bank. We reveal this risk at the beginning of the process by examining the land registry from the beginning."
       },
       {
-        "soru": "Сколько будет стоить полный ремонт квартиры в 2026 году?",
-        "cevap": "В 2026 году полный ремонт квартиры площадью 100 м² (кухня, ванная, покраска, пол) будет стоить от 250 000 до 600 000 турецких лир в зависимости от качества материалов. Мы предлагаем детальное ценовое предложение с бесплатным осмотром."
+        "soru": "Are DASK and energy identity certificates mandatory?",
+        "cevap": "Yes. During the title deed transfer, a compulsory earthquake insurance (DASK) policy is required; Energy identity certificate is also required for residences. We assist you in the process of obtaining both documents."
       },
       {
-        "soru": "Какое лучшее время для ремонта в Мугле?",
-        "cevap": "Весенний (март-май) и осенний (сентябрь-ноябрь) периоды идеальны для ремонта. Летом может быть сложно найти мастеров, а зимой некоторые наружные работы могут быть затронуты погодными условиями."
-      }
-    ]
-  },
-  {
-    "id": "taahhut-insaat",
-    "slug": "taahhut-insaat",
-    "baslik": "Строительный подряд",
-    "kisaAciklama": "Строительство зданий с нуля, реставрационные проекты и строительные решения под ключ.",
-    "uzunAciklama": "Kalinda Yapı выполняет строительные проекты под ключ в регионах Ортака и Мугла с более чем 12-летним опытом. Мы предлагаем качественные и экономичные решения с нашей опытной командой и сильной сетью поставщиков в строительстве жилых домов, вилл, офисов и сельскохозяйственных зданий.\n\nСтоимость строительства под ключ на 2026 год: Стандартное жилье варьируется от 25 000 до 35 000 турецких лир за м², строительство вилл — от 35 000 до 55 000 турецких лир за м², коммерческое строительство — от 20 000 до 40 000 турецких лир за м². Эти цены включают черновые работы, отделочные работы и базовые инженерные системы, без стоимости земельного участка.\n\nНаш спектр услуг: строительство частных домов и вилл, жилые и многоквартирные проекты, строительство офисов и коммерческих зданий, склады и сельскохозяйственные постройки, реставрация старых зданий, укрепление зданий. Мы также предоставляем комплексные консультационные услуги нашим клиентам по процессам лицензирования и получения разрешений на строительство.\n\nПочему Kalinda Yapı? Поскольку Мугла является сейсмической зоной 1-й степени, мы уделяем особое внимание безопасности зданий. Все наши строительные работы выполняются в соответствии с действующими сейсмическими нормами, под контролем строительной инспекции и застрахованы. Мы предлагаем прозрачное ценообразование, письменный договор и поэтапный план оплаты.",
-    "ikon": "HardHat",
-    "altHizmetler": [
-      {
-        "baslik": "Жилищное строительство",
-        "aciklama": "Строительство частных домов, вилл и многоквартирных домов. Оценка участка и разработка проекта.",
-        "ikon": "Building"
-      },
-      {
-        "baslik": "Коммерческое строительство",
-        "aciklama": "Строительство офисов, магазинов, складов и промышленных объектов. Профессиональное управление проектами.",
-        "ikon": "Factory"
-      },
-      {
-        "baslik": "Реставрация",
-        "aciklama": "Реставрация исторических и старых зданий. Работы по укреплению и модернизации зданий.",
-        "ikon": "Hammer"
-      },
-      {
-        "baslik": "Консультации по лицензированию",
-        "aciklama": "Разрешение на строительство, ввод в эксплуатацию, запрос статуса зонирования. Консультации по муниципальным и кадастровым процедурам.",
-        "ikon": "FileCheck"
-      }
-    ],
-    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
-    "sss": [
-      {
-        "soru": "На что обратить внимание при выборе строительной компании?",
-        "cevap": "Рекомендации, ранее завершенные проекты, условия страхования и гарантии, условия договора и качество коммуникации являются важными критериями. Как Kalinda Yapı мы прозрачно предоставляем информацию по всем этим критериям."
-      },
-      {
-        "soru": "Сколько будет стоить дом под ключ в 2026 году?",
-        "cevap": "Стоимость строительства под ключ в регионе Ортака в 2026 году: стандартное жилье варьируется от 25 000 до 35 000 турецких лир за м², строительство вилл — от 35 000 до 55 000 турецких лир за м². Стоимость земельного участка не включена в эти цифры."
-      },
-      {
-        "soru": "Проводится ли контроль в процессе строительства?",
-        "cevap": "Да, мы проверяем с нашими клиентами на каждом этапе. Есть как минимум 4 контрольные точки: фундамент, черновые работы, отделочные работы и перед сдачей. Кроме того, строительная инспекционная компания также проводит независимые проверки."
-      },
-      {
-        "soru": "Сколько времени занимает строительство виллы?",
-        "cevap": "Строительство виллы площадью 150-200 м² под ключ занимает в среднем 8-12 месяцев. Процесс получения разрешения планируется на 1-2 месяца, черновые работы — на 3-4 месяца, отделочные работы — на 3-4 месяца, благоустройство и финальные корректировки — на 1-2 месяца."
-      },
-      {
-        "soru": "Нужно ли иметь земельный участок для строительства?",
-        "cevap": "Да, у вас должен быть земельный участок, отведенный под строительство. Если у вас нет участка, мы помогаем найти подходящий в рамках нашей услуги консультирования по недвижимости. Мы также проводим проверку статуса зонирования и оценку соответствия разрешениям."
-      }
-    ]
-  },
-  {
-    "id": "plan-proje",
-    "slug": "plan-proje",
-    "baslik": "Планирование и проектирование",
-    "kisaAciklama": "Архитектурные, статические, электрические и механические проектные чертежи и консультации по лицензированию.",
-    "uzunAciklama": "Как Kalinda Yapı мы сопровождаем ваши строительные проекты с самого начала. Мы удовлетворяем все ваши проектные потребности — от архитектурных проектов до статических расчетов, от электрических и механических инженерных проектов до процессов лицензирования. С нашей опытной командой инженеров и архитекторов мы гарантируем, что ваш проект соответствует законодательным требованиям и технически безупречен.\n\nСтоимость проектов на 2026 год: Архитектурный проект для виллы 150 м² — 25 000-45 000 турецких лир, статический проект — 20 000-35 000 турецких лир, электро-механические проекты — всего 15 000-30 000 турецких лир. Процесс подачи заявки на лицензию в муниципалитет Ортака занимает 15-30 рабочих дней.\n\nНаш спектр услуг: оригинальный архитектурный дизайн и рабочие проекты, железобетонные и стальные статические проекты, проекты электроустановок и освещения, проекты механических установок (отопление-охлаждение-сантехника), проекты ландшафтного дизайна, подача и сопровождение заявки на разрешение на строительство, управление процессом получения акта ввода в эксплуатацию.\n\nС нашей командой, знакомой с ограничениями охраняемых территорий, защитных зон и береговых линий в регионах Ортака, Далян и Кёйджеиз, мы гарантируем, что ваш проект соответствует всем законодательным требованиям. Мы отслеживаем запросы статуса зонирования, координацию геологических изысканий и всю переписку с муниципалитетом от вашего имени.",
-    "ikon": "FileText",
-    "altHizmetler": [
-      {
-        "baslik": "Архитектурный проект",
-        "aciklama": "Оригинальный архитектурный дизайн и рабочие проекты для жилых домов, вилл и коммерческих зданий.",
-        "ikon": "Ruler"
-      },
-      {
-        "baslik": "Статический проект",
-        "aciklama": "Статические расчеты и проекты несущих систем для железобетонных и стальных конструкций.",
-        "ikon": "Building"
-      },
-      {
-        "baslik": "Электрический и механический проект",
-        "aciklama": "Проекты электроустановок, освещения, отопления-охлаждения и сантехники.",
-        "ikon": "Zap"
-      },
-      {
-        "baslik": "Консультации по лицензированию",
-        "aciklama": "Консультации по заявкам на разрешение на строительство, статусу зонирования, вводу в эксплуатацию и муниципальным процедурам.",
-        "ikon": "FileCheck"
-      }
-    ],
-    "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
-    "sss": [
-      {
-        "soru": "Сколько времени занимает разработка архитектурного проекта?",
-        "cevap": "В зависимости от размера и сложности проекта архитектурный чертеж завершается в течение 2-4 недель. Процессы ревизии не включены в этот период."
-      },
-      {
-        "soru": "Какие документы требуются для заявки на лицензию?",
-        "cevap": "Копия правоустанавливающего документа, копия удостоверения личности, геодезическая съемка, архитектурный проект, статический проект, электро-механические проекты, отчет о геологических изысканиях, договор со строительной инспекцией и договоры технической ответственности входят в число основных документов."
-      },
-      {
-        "soru": "Сколько будут стоить проекты в 2026 году?",
-        "cevap": "Общая стоимость проекта (архитектурный + статический + электрический + механический) для виллы 150 м² в 2026 году варьируется от 80 000 до 150 000 турецких лир. Мы подготовим специальное предложение для вас с бесплатной предварительной консультацией."
-      },
-      {
-        "soru": "Сколько длится процесс лицензирования в муниципалитете Ортака?",
-        "cevap": "При подаче всех документов в полном объеме процесс рассмотрения разрешения на строительство в муниципалитете Ортака завершается в течение 15-30 рабочих дней. При отсутствии документов срок может быть продлен."
-      },
-      {
-        "soru": "Можно ли строить в охраняемой зоне?",
-        "cevap": "Строительство в охраняемых зонах требует специальных разрешений. Требуется одобрение совета по охране, и возводимое строение должно соответствовать определенным критериям. В Даляне и Кёйджеизе есть охраняемые территории; перед разработкой проекта в этих регионах необходимо проверить статус зонирования."
+        "soru": "What additional documents are required for a foreign buyer?",
+        "cevap": "Foreign buyers are required to have a tax identification number, passport translation, biometric photo, military permit letter, CMB licensed valuation report and a sworn translator during the title deed process."
       }
     ]
   }
@@ -737,8 +295,8 @@ export const hizmetlerAR: TranslatedHizmet[] = [
     "id": "emlak-danismanligi",
     "slug": "emlak-danismanligi",
     "baslik": "الاستشارات العقارية",
-    "kisaAciklama": "خدمات عقارية للبيع والإيجار في أورتاكا وضواحيها. التقييم المهني والاستشارات الاستثمارية.",
-    "uzunAciklama": "نحن كاليندا يابي نقدم خدمات استشارية عقارية شاملة مع أكثر من 12 عامًا من الخبرة في منطقة أورتاكا في موغلا والمناطق المحيطة بها. كل ما تبحث عنه موجود هنا للشقق والفلل والأراضي والعقارات التجارية المعروضة للبيع والإيجار في أورتاكا وداليان وكويجيز ودالامان وفتحية. \n\nيساعدك مستشارنا العقاري المرخص، ظافر صويلو، على اتخاذ أفضل القرارات الاستثمارية من خلال خبرته في معرفة ديناميكيات المنطقة عن كثب. في عام 2026، ستتراوح أسعار المساكن في أورتاكا بين 18.000-35.000 ليرة تركية لكل متر مربع، وستتراوح أسعار الفلل في داليان بين 4-18 مليون ليرة تركية. \n\nضمن نطاق خدماتنا: المحفظة العقارية للبيع (شقة، فيلا، أرض، تجارية)، إدارة العقارات المستأجرة، التقييم العقاري الاحترافي، الاستشارات الاستثمارية وتحليل السوق، سند الملكية ومراقبة حالة التقسيم، إدارة عمليات البيع والشراء. لقد ساعدنا أكثر من 300 عائلة في العثور على منزل أحلامهم من خلال نهج الخدمة الشفاف والموثوق والموجه نحو تحقيق النتائج لعملائنا.",
+    "kisaAciklama": "محفظة عقارات للبيع والإيجار في أورتاكا وضواحيها. وسيط آمن بين المشتري والبائع.",
+    "uzunAciklama": "باعتبارنا كاليندا يابي إملاك، نقدم خدمات استشارية عقارية مرخصة في منطقة أورتاكا في موغلا والمناطق المحيطة بها. الشقق والفلل والأراضي والعقارات التجارية المعروضة للبيع والإيجار في أورتاكا وداليان وكويجيز ودالامان وفتحية مجتمعة في محفظة واحدة. \n\nيرافقك مؤسسنا ومستشارنا العقاري المرخص، عارف داجديلين، في اتخاذ القرار الاستثماري الصحيح من خلال خبرته في التعرف على ديناميكيات المنطقة عن كثب. نقوم بفحص كل عقار ندرجه في الموقع، والتحقق من سند الملكية وحالة تقسيم المناطق، ومقارنة توقعات السعر مع بيانات السوق الحالية. \n\nتشمل خدماتنا: المحفظة العقارية للبيع (شقة، فيلا، أرض، تجاري)، إدارة العقارات المؤجرة، وسيط آمن بين المشتري والبائع، إدارة العروض والتفاوض، إعداد العقود ومتابعة الإجراءات حتى موعد تحديد سند الملكية. لقد ساعدنا أكثر من 300 عائلة في العثور على منزل أحلامهم من خلال نهج الخدمة الشفاف والموثوق والموجه نحو تحقيق النتائج.",
     "ikon": "Home",
     "altHizmetler": [
       {
@@ -752,14 +310,14 @@ export const hizmetlerAR: TranslatedHizmet[] = [
         "ikon": "Key"
       },
       {
-        "baslik": "تقييم العقارات",
-        "aciklama": "معرفة القيمة السوقية الحالية للممتلكات الخاصة بك. تقارير التحليل المقارن الإقليمية.",
-        "ikon": "Calculator"
+        "baslik": "إدارة المحافظ",
+        "aciklama": "يتم تصوير الممتلكات الخاصة بك ونص الإعلان والنشر وإدارة مرشح المشتري من مصدر واحد.",
+        "ikon": "Building"
       },
       {
-        "baslik": "استشارات الاستثمار",
-        "aciklama": "فرص الاستثمار العقاري في اورتاكا وضواحيها. تحليل إيرادات الإيجار وزيادة القيمة.",
-        "ikon": "TrendingUp"
+        "baslik": "التفتيش في الموقع",
+        "aciklama": "يتم فحص كل عقار في الموقع قبل عرضه للبيع؛ يتم التحقق من سند الملكية وحالة تقسيم المناطق.",
+        "ikon": "FileCheck"
       }
     ],
     "bolge": [
@@ -781,7 +339,7 @@ export const hizmetlerAR: TranslatedHizmet[] = [
     "sss": [
       {
         "soru": "ما هو المطلوب لشراء منزل في أورتاكا؟",
-        "cevap": "لشراء منزل في أورتاكا، تكفي وثيقة الهوية وتصريح الإقامة وخطة الدفع اللازمة. قد يتم طلب وثائق إضافية للمشترين الأجانب. باعتبارنا Kalinda Yapı، نقوم بإرشادك خلال عملية الشراء بأكملها."
+        "cevap": "لشراء منزل في أورتاكا، تكفي وثيقة الهوية وتصريح الإقامة وخطة الدفع اللازمة. قد يتم طلب وثائق إضافية للمشترين الأجانب. باعتبارنا Kalinda Yapı Emlak، نقوم بإرشادك خلال عملية الشراء بأكملها."
       },
       {
         "soru": "كم أسعار مساحة 2026 متر مربع في أورتاكا؟",
@@ -793,41 +351,105 @@ export const hizmetlerAR: TranslatedHizmet[] = [
       },
       {
         "soru": "ما هي الميزانية المطلوبة لشراء فيلا في داليان؟",
-        "cevap": "تتراوح أسعار الفلل المنفصلة مع مسابح في داليان في عام 2026 بين 4-18 مليون ليرة تركية. في حين أن المواقع المطلة على القناة تكون أسعارها أعلى، فإن المواقع الأقرب إلى المركز تكون أقل تكلفة."
+        "cevap": "تتراوح أسعار الفلل المنفصلة مع مسابح في داليان في عام 2026 بين 4-18 مليون ليرة تركية. في حين أن المواقع المطلة على القناة تكون أسعارها أعلى، فإن المواقع القريبة من المركز تكون بأسعار معقولة أكثر."
       },
       {
         "soru": "هل يمكن للأجانب شراء منزل في تركيا؟",
-        "cevap": "نعم، يمكن للمواطنين الأجانب شراء العقارات في تركيا. هناك قيود في بعض المناطق (مناطق الحظر العسكري، مناطق القرى الداخلية). المبيعات للأجانب مجانية في جميع أنحاء أورتاكا وداليان. يمكنك الاتصال بمستشارينا للحصول على معلومات مفصلة."
+        "cevap": "نعم، يمكن للمواطنين الأجانب شراء العقارات في تركيا. هناك قيود في بعض المناطق (مناطق الحظر العسكري، مناطق القرى الداخلية). المبيعات للأجانب مجانية في جميع أنحاء أورتاكا وداليان. يمكنك الاتصال بمستشارنا للحصول على معلومات مفصلة."
       }
     ]
   },
   {
-    "id": "tadilat-dekorasyon",
-    "slug": "tadilat-dekorasyon",
-    "baslik": "التجديد والديكور",
-    "kisaAciklama": "الهندسة المعمارية الداخلية وتجديد المطبخ والحمام وأعمال الطلاء والطلاء. نحن نحول منزلك كما تحلم.",
-    "uzunAciklama": "إذا كنت ترغب في تجديد وتحديث منزلك أو مكان عملك، فأنت في المكان الصحيح. مع أكثر من 20 عامًا من الخبرة، يقوم فريق التجديد والديكور في Kalinda Yapı بتنفيذ مشاريع من جميع الأحجام بشكل احترافي، بدءًا من اللمسات الصغيرة وحتى التحولات الداخلية الكاملة. \n\nيعمل أسيادنا، بقيادة عارف داغديلين، بمواد عالية الجودة مع ضمان التصنيع لمدة عامين. لقد أكملنا أكثر من 500 مشروع تجديد في جميع أنحاء أورتاكا وموغلا. \n\nمعلومات حول تكاليف التجديد لعام 2026: تجديد الشقة بالكامل (100 متر مربع) يتراوح بين 250.000-600.000 ليرة تركية، تجديد الحمام 60.000-150.000 ليرة تركية، تجديد المطبخ 120.000-350.000 ليرة تركية، طلاء التبييض يتراوح بين 80-150 ليرة تركية لكل متر مربع. \n\nنطاق خدماتنا: التصميم المعماري الداخلي والتصور ثلاثي الأبعاد، وتجديد خزائن المطبخ وأسطح العمل، والتجديد الكامل للحمامات، وطلاء الطلاء والجص الزخرفي، وأغطية الأرضيات (الباركيه، والسيراميك، والصفائح)، والسقف الجصي وجدران التقسيم، وتجديد الكهرباء والسباكة. يتم تأمين جميع مشاريعنا من خلال عقد مكتوب، ويتم تقديم أسعار شفافة وخيارات دفع مرحلية.",
-    "ikon": "Paintbrush",
+    "id": "gayrimenkul-degerleme",
+    "slug": "gayrimenkul-degerleme",
+    "baslik": "تقييم العقارات",
+    "kisaAciklama": "نقوم بالإبلاغ عن القيمة السوقية الحالية لممتلكاتك من خلال التحليل المقارن الإقليمي.",
+    "uzunAciklama": "التسعير الصحيح للعقار هو العامل الأكثر أهمية الذي يحدد وقت البيع. العقار الذي سعره أعلى من سعر السوق يبقى غير مهتم لعدة أشهر، في حين أن العقار الذي سعره أقل من السوق يسبب خسائر لصاحبه. بصفتنا كاليندا يابي إملاك، نقوم بفحص الممتلكات الخاصة بك في الموقع وتحديد نطاق قيمة واقعي. \n\nدراسة التقييم لدينا؛ ويغطي موضوعات مثل الموقع والمتر المربع وعمر المبنى والأرضية والواجهة ونظام التدفئة والمرافق الموجودة في الموقع وحالة تقسيم سند الملكية. قمنا بمقارنة هذه البيانات مع المبيعات المماثلة التي تم تحقيقها مؤخرًا في أورتاكا وداليان وكويسيغيز ودالامان، ونقدم نطاقًا للقيمة مع الأخذ في الاعتبار توازن العرض والطلب في المنطقة. \n\nتقرير التقييم الخاص بنا؛ ويتضمن قائمة الأسعار المقترحة، ووقت البيع المتوقع، ونقاط القوة والضعف في العقار، واقتراحات للتحسينات الطفيفة التي يمكن إجراؤها قبل البيع. عندما تختار العمل معنا لأغراض المبيعات أو الإيجار، يكون اجتماع التقييم الأولي مجانيًا.",
+    "ikon": "Calculator",
     "altHizmetler": [
       {
-        "baslik": "التصميم المعماري الداخلي",
-        "aciklama": "مشاريع تصميم خاصة للمساحات الخاصة بك. شاهد حلمك مقدمًا باستخدام التصور ثلاثي الأبعاد.",
+        "baslik": "الخبرة في الموقع",
+        "aciklama": "يتم فحص الممتلكات الخاصة بك في الموقع؛ يتم تقييم الموقع والعمر والأرضية والواجهة والحالة العامة بالتفصيل.",
         "ikon": "Ruler"
       },
       {
-        "baslik": "تجديد المطبخ",
-        "aciklama": "تصميمات المطبخ الحديثة، واستبدال الخزانات وأسطح العمل، وتركيب الأجهزة البيضاء المدمجة.",
-        "ikon": "ChefHat"
+        "baslik": "تحليل السوق المقارن",
+        "aciklama": "تم إجراء تحليل مقارن للأسعار مع مبيعات مماثلة في المنطقة مؤخرًا.",
+        "ikon": "TrendingUp"
       },
       {
-        "baslik": "تجديد الحمام",
-        "aciklama": "البلاط، والأدوات الصحية، واستبدال كابينة الاستحمام. تجديد نظام السباكة والتدفئة.",
-        "ikon": "Bath"
+        "baslik": "تقرير القيمة",
+        "aciklama": "تقرير مكتوب يتضمن سعر الإدراج المقترح، ووقت البيع المتوقع، ونقاط قوة العقار.",
+        "ikon": "FileText"
       },
       {
-        "baslik": "الطلاء والطلاء",
-        "aciklama": "اللوحة الداخلية والخارجية. تطبيقات ورق الحائط والجص الزخرفي وتغطية الألواح.",
-        "ikon": "Palette"
+        "baslik": "توصيات ما قبل البيع",
+        "aciklama": "اقتراحات تحسين منخفضة التكلفة وعالية العائد من شأنها تعزيز عرض العقار.",
+        "ikon": "FileCheck"
+      }
+    ],
+    "bolge": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Marmaris",
+      "Milas",
+      "Menteşe",
+      "Ula",
+      "Seydikemer"
+    ],
+    "sss": [
+      {
+        "soru": "هل هناك رسوم للتقييم العقاري؟",
+        "cevap": "عندما تختار العمل معنا أثناء عملية البيع أو الإيجار، فإن اجتماع التقييم الأولي الخاص بنا يكون مجانيًا. يتم إعداد تقارير التقييم الرسمية التي سيتم تقديمها إلى البنك أو المحكمة من قبل شركات التقييم المرخصة من CMB؛ في هذه العملية، نقوم بتوجيهك إلى المؤسسة المناسبة."
+      },
+      {
+        "soru": "كم من الوقت يستغرق التقييم؟",
+        "cevap": "عادةً ما يستغرق فحص العقار في الموقع من 30 إلى 60 دقيقة. نقوم بتسليمك تقرير القيمة المكتوب الذي يحتوي على تحليل مقارن للسوق خلال يومي عمل في المتوسط."
+      },
+      {
+        "soru": "ما هي البيانات التي تحدد قيمة الممتلكات الخاصة بي؟",
+        "cevap": "الموقع والمتر المربع وعمر المبنى والأرضية والواجهة ونظام التدفئة ومرافق الموقع وسند الملكية وحالة تقسيم المناطق والتوازن الحالي بين العرض والطلب في المنطقة هي المحددات الرئيسية. وينعكس كل عنوان من هذه العناوين بشكل منفصل في التقرير."
+      },
+      {
+        "soru": "هل تظهر أسعار الإعلانات عبر الإنترنت القيمة الحقيقية؟",
+        "cevap": "لا، الأسعار المعلنة تعكس توقعات البائع، وليس سعر البيع الفعلي. غالبا ما يكون هناك فرق كبير بين سعر الإعلان وسعر الإغلاق في أورتاكا وضواحيها. ولهذا السبب، فإننا نبني التقييم على المبيعات الفعلية."
+      },
+      {
+        "soru": "هل تقومون أيضًا بتقييم الأراضي؟",
+        "cevap": "نعم. تؤثر حالة تقسيم الأرض والسابقة وارتفاع الطوابق وواجهة الطريق والبنية التحتية وفصل الأرض عن الأرض بشكل مباشر على القيمة. نحن نعمل على تقييم الأراضي من خلال فحص وثيقة حالة تقسيم المناطق معًا."
+      }
+    ]
+  },
+  {
+    "id": "yatirim-danismanligi",
+    "slug": "yatirim-danismanligi",
+    "baslik": "استشارات الاستثمار",
+    "kisaAciklama": "نقوم بتقييم فرص الاستثمار في المنطقة معًا بناءً على إيرادات الإيجار وإمكانية زيادة القيمة.",
+    "uzunAciklama": "في الاستثمار العقاري، تحدد المنطقة المناسبة والتوقيت المناسب معظم العائد. أورتاكا، داليان، كويجيجيز ودالامان؛ إنها تقدم ملفات استثمارية مختلفة جدًا في مجالات السياحة والزراعة والوصول إلى المطار. نحن في كاليندا يابي إملاك نقوم بتقييم هذه المناطق معًا وفقًا لميزانيتك ونوع العائد الذي تتوقعه. \n\nتبدأ عملية استشاراتنا الاستثمارية بتوضيح توقعاتك: دخل الإيجار المنتظم، أو ارتفاع القيمة على المدى المتوسط، أو التوازن بين الاثنين؟ نقوم بعد ذلك بتحديد أنواع العقارات التي تناسب هدفك ونشارك بشفافية دخل الإيجار المتوقع ومخاطر الشواغر وتكلفة التشغيل السنوية لكل خيار. \n\nعلى الرغم من أن دخل الإيجار الموسمي في داليان وكويجيز مرتفع، إلا أنه لا يمتد طوال العام؛ في مركز أورتاكا، يعتبر دخل الإيجار أكثر استقرارًا بسبب الطلب من الطلاب والموظفين الحكوميين. وفي مجال الاستثمار في الأراضي، تعتبر حالة تقسيم المناطق وخطط البنية التحتية حاسمة. أيًا كان الخيار الذي تختاره، فإننا نقدم لك البيانات التي تحتاجها لتبني قرارك على الأرقام.",
+    "ikon": "TrendingUp",
+    "altHizmetler": [
+      {
+        "baslik": "تحليل دخل الإيجار",
+        "aciklama": "يتم احتساب صافي العائد عن طريق حساب دخل الإيجار السنوي للعقار ومخاطر الخمول وتكاليف التشغيل.",
+        "ikon": "Calculator"
+      },
+      {
+        "baslik": "مقارنة المنطقة",
+        "aciklama": "تتم مقارنة ملفات الاستثمار في Ortaca وDalyan وKöyceğiz وDalaman وفقًا لميزانيتك.",
+        "ikon": "Building"
+      },
+      {
+        "baslik": "استثمار الأراضي",
+        "aciklama": "ويتم تقييم فرص الأراضي على المدى المتوسط ​​والطويل من خلال دراسة حالة تقسيم المناطق والسابقة وخطط البنية التحتية.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "تنويع المحفظة",
+        "aciklama": "توصيات المحفظة لتوزيع المخاطر للمستثمرين متعددي العقارات.",
+        "ikon": "Building2"
       }
     ],
     "bolge": [
@@ -840,61 +462,124 @@ export const hizmetlerAR: TranslatedHizmet[] = [
       "Bodrum",
       "Milas",
       "Datça",
-      "Menteşe",
-      "Yatağan",
-      "Ula",
-      "Kavaklıdere",
-      "Seydikemer"
+      "Menteşe"
     ],
     "sss": [
       {
-        "soru": "هل يشترط عقد للتجديد؟",
-        "cevap": "نعم، جميع مشاريع التجديد لدينا مضمونة بعقد مكتوب. ينص العقد بوضوح على نطاق العمل والمدة وخطة الدفع وشروط الضمان."
+        "soru": "كم هو دخل الإيجار في أورتاكا؟",
+        "cevap": "يبلغ إجمالي دخل الإيجار السنوي للشقة في مركز أورتاكا حوالي 4-6% من سعر العقار. ونظرًا لطلب الطلاب والموظفين الحكوميين، فإن وقت الخمول قصير، مما يجعل العائد مستقرًا."
       },
       {
-        "soru": "كيف تتم عملية التجديد؟",
-        "cevap": "بادئ ذي بدء، نقوم بالاكتشاف المجاني. ثم نقوم بإعداد عرض مفصل. بعد الموافقة، يبدأ توريد المواد والعمالة. وفي نهاية المشروع يتم إجراء المراقبة التفصيلية والتسليم."
+        "soru": "هل الإيجار الموسمي منطقي في داليان؟",
+        "cevap": "يوفر الإيجار الموسمي في داليان عوائد عالية على أساس يومي، ولكن الدخل لا يتوزع على مدار العام ويكون عبء التشغيل أثقل. بالنسبة للمستثمرين الذين يبحثون عن دخل منتظم وسلبي، فإن الإيجار طويل الأجل في مركز أورتاكا هو أكثر ملاءمة بشكل عام."
       },
       {
-        "soru": "هل تقدمون ضمان التجديد؟",
-        "cevap": "نعم، نحن نقدم ضمان لمدة عامين على جميع الأعمال وضمان لمدة 5 سنوات على السباكة. ينطبق ضمان الشركة المصنعة على المادة. يتم إصلاح المشاكل تحت الضمان مجانًا."
+        "soru": "هل أشتري أرض أم شقة؟",
+        "cevap": "توفر الشقة دخل إيجار منتظم وتتمتع بسيولة عالية. Land, on the other hand, does not generate rent, but may offer a higher increase in value in the medium-long term depending on zoning developments. يعتمد القرار على فترة عقدك واحتياجات التدفق النقدي."
       },
       {
-        "soru": "كم ستكون تكلفة تجديد الشقة بالكامل في عام 2026؟",
-        "cevap": "في عام 2026، ستتكلف عملية التجديد الكاملة لشقة بمساحة 100 متر مربع (المطبخ والحمام والطلاء والأرضية) ما بين 250.000 إلى 600.000 ليرة تركية اعتمادًا على جودة المواد. نحن نقدم عرض أسعار مفصل مع اكتشاف مجاني."
+        "soru": "هل تقدمون استشارات للمستثمرين الأجانب؟",
+        "cevap": "نعم. نحن نقدم خدمات ذات محتوى باللغات الإنجليزية والألمانية والروسية والعربية. بالنسبة للمشترين الأجانب، نقوم أيضًا بتضمين خطوات إضافية مثل خطاب التصريح العسكري والرقم الضريبي ووثيقة شراء العملات الأجنبية في خطة العملية."
       },
       {
-        "soru": "ما هي أفضل فترة للتجديد في موغلا؟",
-        "cevap": "تعتبر فترات الربيع (مارس-مايو) والخريف (سبتمبر-نوفمبر) مثالية للتجديدات. قد يكون من الصعب العثور على سيد في أشهر الصيف، وقد تتأثر بعض الأعمال الخارجية بالظروف الجوية في أشهر الشتاء."
+        "soru": "هل تتقاضى رسومًا إضافية مقابل الاستشارة الاستثمارية؟",
+        "cevap": "عندما تعمل معنا أثناء عملية الاستحواذ، يتم تضمين خدماتنا الاستشارية الاستثمارية في عمولة الوساطة القياسية؛ لا توجد رسوم استشارية إضافية مطلوبة."
       }
     ]
   },
   {
-    "id": "taahhut-insaat",
-    "slug": "taahhut-insaat",
-    "baslik": "المقاولات والبناء",
-    "kisaAciklama": "تشييد المباني من الصفر ومشاريع الترميم وحلول البناء الجاهزة.",
-    "uzunAciklama": "تقوم كاليندا يابي بتنفيذ مشاريع البناء الجاهزة في منطقتي أورتاجا وموغلا مع أكثر من 12 عامًا من الخبرة. نحن نقدم حلولاً عالية الجودة واقتصادية مع فريقنا ذو الخبرة وشبكة الموردين القوية في تشييد المباني السكنية والفيلات وأماكن العمل والزراعية. \n\nتكاليف البناء الجاهزة لعام 2026: يتراوح السكن القياسي بين 25.000-35.000 ليرة تركية لكل متر مربع، وبناء نوع الفيلا بين 35.000-55.000 ليرة تركية لكل متر مربع، والبناء التجاري بين 20.000-40.000 ليرة تركية لكل متر مربع. وتشمل هذه الأسعار البناء الخام وأعمال التشطيب والتركيب الأساسي، ولا تشمل تكلفة الأرض. \n\nنطاق خدماتنا: بناء المنازل والفيلات المنفصلة، ​​والمشاريع السكنية والسكنية، وبناء أماكن العمل والمباني التجارية، والمستودعات والمباني الزراعية، وترميم المباني القديمة، وتعزيز المباني. كما نقدم أيضًا خدمات استشارية شاملة لعملائنا فيما يتعلق بعمليات الترخيص وتصاريح البناء. \n\nلماذا كاليندا يابي؟ بما أن موغلا منطقة زلزال من الدرجة الأولى، فإننا نولي اهتمامًا خاصًا لسلامة المباني. يتم تنفيذ جميع الإنشاءات لدينا وفقًا للوائح الزلازل الحالية، وتحت مراقبة تفتيش المباني ومؤمنة. نحن نقدم أسعارًا شفافة وعقدًا مكتوبًا وخطة سداد مرحلية.",
-    "ikon": "HardHat",
+    "id": "tapu-islemleri",
+    "slug": "tapu-islemleri",
+    "baslik": "السجل العقاري والمعاملات الرسمية",
+    "kisaAciklama": "تتبع المستندات والمعاملات من البداية إلى النهاية في سند الملكية وحالة تقسيم المناطق وعمليات العقد.",
+    "uzunAciklama": "إن المرحلة الأكثر أهمية في عملية شراء أو بيع العقارات ليست لحظة التوصل إلى الاتفاق، بل اللحظة التي يتم فيها استكمال المستندات بشكل كامل وصحيح. باعتبارنا Kalinda Yapı Emlak، فإننا نتابع العملية نيابةً عنك، بدءًا من قبول العرض وحتى نقل سند الملكية. \n\nتبدأ العملية بفحص سجل سند الملكية: يتم التحقق مما إذا كان هناك رهن عقاري أو امتياز أو شرح أو حق انتفاع على العقار. بعد ذلك، يتم الحصول على حالة تقسيم المناطق ومعلومات تسجيل المبنى والتأمين الإلزامي ضد الزلازل (DASK) وشهادة هوية الطاقة وشهادة الترقيم من البلدية عند الضرورة. \n\nتشمل خدماتنا أيضًا تحديد موعد لتسجيل الأراضي، واحتساب الرسوم ورسوم الصندوق الدوار، ووضع خطة الدفع بين الطرفين كتابيًا، والتواجد في مكتب السجل العقاري في يوم النقل. بالنسبة للمشترين الأجانب، يتم أيضًا تنفيذ خطوات إضافية مثل خطاب التصريح العسكري والرقم الضريبي والمترجم المحلف وتقرير التقييم المرخص من CMB في نفس الخطة.",
+    "ikon": "FileCheck",
     "altHizmetler": [
       {
-        "baslik": "البناء السكني",
-        "aciklama": "بناء المنازل المنفصلة والفلل والشقق. تقييم الأراضي وتطوير المشاريع.",
+        "baslik": "فحص السجل العقاري",
+        "aciklama": "يتم التحقق من القيود المفروضة على الممتلكات مثل الرهون العقارية والامتيازات والشروح وحقوق الانتفاع قبل النقل.",
+        "ikon": "FileText"
+      },
+      {
+        "baslik": "الاستعلام عن حالة التقسيم",
+        "aciklama": "يتم الحصول على حالة التقسيم وشهادة تسجيل المبنى ومعلومات الإشغال من البلدية ويتم تقييمها معًا.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "إعداد العقد",
+        "aciklama": "يتم ضمان خطة الدفع وتاريخ التسليم والتزامات الأطراف بموجب عقد مكتوب.",
+        "ikon": "FileCheck"
+      },
+      {
+        "baslik": "عمليات البيع للأجانب",
+        "aciklama": "متابعة جميع الخطوات بما في ذلك خطاب التصريح العسكري والرقم الضريبي والمترجم وتقرير التقييم.",
+        "ikon": "Key"
+      }
+    ],
+    "bolge": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Marmaris",
+      "Milas",
+      "Menteşe",
+      "Ula",
+      "Seydikemer"
+    ],
+    "sss": [
+      {
+        "soru": "كم من الوقت يستغرق نقل سند الملكية؟",
+        "cevap": "عند اكتمال المستندات، يتم عادةً تحديد موعد سند الملكية خلال 3-7 أيام عمل وتكتمل عملية النقل في نفس اليوم. بالنسبة للمشترين الأجانب، قد تمتد الفترة إلى 2-6 أسابيع بسبب الإجازة العسكرية وتقرير التقييم."
+      },
+      {
+        "soru": "كم تبلغ رسوم سند الملكية ومن يدفعها؟",
+        "cevap": "يتم تحصيل رسوم سند الملكية بنسبة 2% من المشتري والبائع بشكل منفصل على سعر البيع المعلن. ومن الناحية العملية، قد يتم دفعها بالكامل من قبل طرف واحد، اعتمادًا على اتفاق الطرفين؛ نوضح هذه المشكلة في مرحلة العقد."
+      },
+      {
+        "soru": "ماذا لو كان هناك رهن عقاري على العقار الذي سأشتريه؟",
+        "cevap": "يمكن بيع العقار المرهون، ولكن قبل النقل، يجب إزالة الرهن العقاري أو تنفيذ خطة السداد في وقت واحد مع البنك. نكشف عن هذا الخطر في بداية العملية من خلال فحص السجل العقاري منذ البداية."
+      },
+      {
+        "soru": "هل شهادات DASK وهوية الطاقة إلزامية؟",
+        "cevap": "نعم. أثناء نقل سند الملكية، يلزم توفر بوليصة التأمين الإلزامي ضد الزلازل (DASK)؛ شهادة هوية الطاقة مطلوبة أيضًا للمساكن. نحن نساعدك في عملية الحصول على كلا الوثيقتين."
+      },
+      {
+        "soru": "ما هي المستندات الإضافية المطلوبة للمشتري الأجنبي؟",
+        "cevap": "يُطلب من المشترين الأجانب الحصول على رقم تعريف ضريبي، وترجمة جواز السفر، وصورة بيومترية، وخطاب تصريح عسكري، وتقرير تقييم مرخص من CMB ومترجم محلف أثناء عملية سند الملكية."
+      }
+    ]
+  }
+];
+
+export const hizmetlerDE: TranslatedHizmet[] = [
+  {
+    "id": "emlak-danismanligi",
+    "slug": "emlak-danismanligi",
+    "baslik": "Immobilienberatung",
+    "kisaAciklama": "Immobilienportfolio zum Verkauf und zur Miete in Ortaca und Umgebung. Sicherer Vermittler zwischen Käufer und Verkäufer.",
+    "uzunAciklama": "Als Kalinda Yapı Emlak bieten wir lizenzierte Immobilienberatungsdienste im Bezirk Ortaca in Muğla und den umliegenden Regionen an. Wohnungen, Villen, Grundstücke und Gewerbeimmobilien zum Verkauf und zur Miete in Ortaca, Dalyan, Köyceğiz, Dalaman und Fethiye vereinen sich in einem einzigen Portfolio. \n\nUnser Gründer und lizenzierter Immobilienberater Arif Dağdelen begleitet Sie mit seiner Erfahrung und der genauen Kenntnis der Dynamik der Region bei der richtigen Investitionsentscheidung. Wir begutachten jede von uns angebotene Immobilie vor Ort, überprüfen die Eigentumsurkunde und den Bebauungsstatus und gleichen die Preiserwartung mit aktuellen Marktdaten ab. \n\nUnsere Dienstleistungen umfassen: Immobilienportfolio zum Verkauf (Wohnung, Villa, Grundstück, Gewerbe), Mietimmobilienverwaltung, sichere Vermittlung zwischen Käufer und Verkäufer, Angebots- und Verhandlungsmanagement, Vertragsvorbereitung und Prozessverfolgung bis zum Termin der Eigentumsurkunde. Mit unserem transparenten, zuverlässigen und ergebnisorientierten Serviceansatz haben wir mehr als 300 Familien dabei geholfen, ihr Traumhaus zu finden.",
+    "ikon": "Home",
+    "altHizmetler": [
+      {
+        "baslik": "Immobilien zum Verkauf",
+        "aciklama": "Verkauf von Wohnungen, Villen, Grundstücken und Gewerbeimmobilien. Sicherer Vermittlungsservice zwischen Käufer und Verkäufer.",
+        "ikon": "Building2"
+      },
+      {
+        "baslik": "Immobilien zur Miete",
+        "aciklama": "Vermietung von Wohnungen und Arbeitsplätzen. Professionelle Unterstützung bei der Mieterauswahl und Vertragsabwicklung.",
+        "ikon": "Key"
+      },
+      {
+        "baslik": "Portfoliomanagement",
+        "aciklama": "Fotografie Ihrer Immobilie, Anzeigentext, Veröffentlichung und Käuferkandidatenmanagement erfolgen aus einer Hand.",
         "ikon": "Building"
       },
       {
-        "baslik": "تشييد المباني التجارية",
-        "aciklama": "بناء أماكن العمل والمخازن والمستودعات والمرافق الصناعية. إدارة المشاريع المهنية.",
-        "ikon": "Factory"
-      },
-      {
-        "baslik": "استعادة",
-        "aciklama": "ترميم المباني التاريخية والقديمة. أعمال تقوية وتحديث المباني.",
-        "ikon": "Hammer"
-      },
-      {
-        "baslik": "استشارات التراخيص والتصاريح",
-        "aciklama": "رخصة البناء، الإشغال، الاستعلام عن حالة التقسيم. استشارات البلدية ومعاملات الطابو.",
+        "baslik": "Inspektion vor Ort",
+        "aciklama": "Jede Immobilie wird vor Ort besichtigt, bevor sie zum Verkauf angeboten wird; Eigentumsurkunde und Zoneneinteilungsstatus werden überprüft.",
         "ikon": "FileCheck"
       }
     ],
@@ -916,53 +601,248 @@ export const hizmetlerAR: TranslatedHizmet[] = [
     ],
     "sss": [
       {
-        "soru": "ما الذي يجب أن تبحث عنه عند اختيار شركة المقاولات؟",
-        "cevap": "تعتبر المراجع والمشاريع المكتملة مسبقًا وشروط التأمين والضمان وشروط العقد وجودة الاتصال معايير مهمة. نحن كاليندا يابي نقدم المعلومات بشفافية حول جميع هذه المعايير."
+        "soru": "Was wird benötigt, um ein Haus in Ortaca zu kaufen?",
+        "cevap": "Um ein Haus in Ortaca zu kaufen, reichen ein Ausweis, eine Aufenthaltserlaubnis und der erforderliche Zahlungsplan aus. Für ausländische Käufer können zusätzliche Dokumente angefordert werden. Als Kalinda Yapı Emlak begleiten wir Sie durch Ihren gesamten Einkaufsprozess."
       },
       {
-        "soru": "كم ستكون تكلفة المنزل الجاهز في عام 2026؟",
-        "cevap": "تكاليف البناء الجاهزة في منطقة أورتاكا في عام 2026: يتراوح السكن القياسي بين 25.000-35.000 ليرة تركية لكل متر مربع، ويتراوح بناء نوع الفيلا بين 35.000-55.000 ليرة تركية لكل متر مربع. لم يتم تضمين تكلفة الأرض في هذه الأرقام."
+        "soru": "Wie hoch sind die Preise für 2026 m² in Ortaca?",
+        "cevap": "Im Jahr 2026 schwanken die m²-Wohnpreise in Ortaca je nach Standort zwischen 18.000 und 35.000 TL. Die Villenpreise in Dalyan liegen zwischen 40.000 und 70.000 TL pro m² und in Köyceğiz zwischen 15.000 und 25.000 TL."
       },
       {
-        "soru": "هل هناك أي ضوابط أثناء عملية البناء؟",
-        "cevap": "نعم، نحن نتحقق مع عملائنا في كل مرحلة. هناك ما لا يقل عن 4 نقاط مراقبة: الأساس، والبناء الخام، وأعمال التشطيب وما قبل التسليم. بالإضافة إلى ذلك، تقوم شركة فحص المباني أيضًا بإجراء عمليات تفتيش مستقلة."
+        "soru": "Wie wird das Honorar für eine Immobilienberatung berechnet?",
+        "cevap": "Bei Verkaufstransaktionen werden 2 % als Provision und bei Miettransaktionen 1 Monatsmiete als Provision erhoben. Alle Gebühren werden vor Vertragsabschluss transparent ausgewiesen."
       },
       {
-        "soru": "كم يستغرق بناء الفيلا؟",
-        "cevap": "يستغرق بناء فيلا بمساحة 150-200 متر مربع بنظام تسليم المفتاح من 8 إلى 12 شهرًا في المتوسط. تم التخطيط لعملية الترخيص خلال شهر إلى شهرين، والبناء الأولي من 3 إلى 4 أشهر، وأعمال التشطيب من 3 إلى 4 أشهر، وتنسيق الحدائق والتصحيحات النهائية من شهر إلى شهرين."
+        "soru": "Wie viel Budget ist erforderlich, um eine Villa in Dalyan zu kaufen?",
+        "cevap": "Die Preise für freistehende Villen mit Pool in Dalyan schwanken im Jahr 2026 zwischen 4 und 18 Millionen TL. Während Standorte mit Blick auf den Kanal teurer sind, sind zentrumsnahe Standorte günstiger."
       },
       {
-        "soru": "هل يجب أن يكون لدي أرض للبناء؟",
-        "cevap": "نعم، يجب أن تكون لديك أرض مخصصة للبناء. إذا لم يكن لديك أرض، فنحن نساعدك في العثور على أرض مناسبة ضمن نطاق خدمة الاستشارات العقارية لدينا. نقوم أيضًا بتنفيذ مراقبة حالة تقسيم المناطق وتقييم الامتثال للترخيص."
+        "soru": "Können Ausländer ein Haus in Türkiye kaufen?",
+        "cevap": "Ja, Ausländer können in Türkiye Immobilien kaufen. In einigen Bereichen (militärische Sperrzonen, innerörtliche Bereiche) bestehen Einschränkungen. Der Verkauf an Ausländer ist in ganz Ortaca und Dalyan kostenlos. Für detaillierte Informationen können Sie sich gerne an unseren Berater wenden."
       }
     ]
   },
   {
-    "id": "plan-proje",
-    "slug": "plan-proje",
-    "baslik": "الخطة والمشروع",
-    "kisaAciklama": "رسومات المشاريع المعمارية والثابتة والكهربائية والميكانيكية والخدمات الاستشارية للتراخيص.",
-    "uzunAciklama": "بصفتنا كاليندا يابي، نحن معك منذ بداية مشاريع البناء الخاصة بك. نحن نلبي جميع احتياجات مشروعك، بدءًا من المشاريع المعمارية وحتى الحسابات الثابتة، ومن مشاريع التركيبات الكهربائية والميكانيكية إلى عمليات الترخيص. مع فريقنا من المهندسين والمعماريين ذوي الخبرة، نضمن أن مشروعك يتوافق مع المتطلبات القانونية وأنه مثالي من الناحية الفنية. \n\nتكاليف المشروع لعام 2026: المشروع المعماري لفيلا بمساحة 150 متر مربع هو 25.000-45.000 ليرة تركية، المشروع الثابت هو 20.000-35.000 ليرة تركية، والمشاريع الكهربائية والميكانيكية هي 15.000-30.000 ليرة تركية إجمالاً. تستغرق عملية طلب الترخيص لبلدية Ortaca من 15 إلى 30 يوم عمل. \n\nنطاق خدماتنا: مشاريع التصميم والتطبيق المعماري الأصلي، مشاريع الخرسانة المسلحة والصلب الثابتة، مشاريع التركيبات الكهربائية والإضاءة، مشاريع التركيبات الميكانيكية (التدفئة والتبريد والصرف الصحي)، مشاريع تنسيق الحدائق والمناظر الطبيعية، طلب رخصة البناء ومتابعتها، إدارة عملية شهادة الإشغال. \n\nنحن نضمن أن مشروعك يتوافق مع جميع المتطلبات القانونية مع فريقنا الذي هو على دراية بالمنطقة المحمية ومنطقة الحماية وقيود خط الحافة الساحلية في مناطق أورتاكا وداليان وكويجيز. نقوم بمراقبة الاستفسارات عن حالة تقسيم المناطق وتنسيق المسح الأرضي وجميع المراسلات مع البلدية نيابة عنك.",
-    "ikon": "FileText",
+    "id": "gayrimenkul-degerleme",
+    "slug": "gayrimenkul-degerleme",
+    "baslik": "Immobilienbewertung",
+    "kisaAciklama": "Wir ermitteln den aktuellen Marktwert Ihrer Immobilie mit regional vergleichender Analyse.",
+    "uzunAciklama": "Die korrekte Preisgestaltung einer Immobilie ist der wichtigste Faktor, der den Verkaufszeitpunkt bestimmt. Eine Immobilie, deren Preis über dem Marktpreis liegt, bleibt monatelang uninteressiert, während eine Immobilie, deren Preis unter dem Marktpreis liegt, ihrem Eigentümer Verluste verursacht. Als Kalinda Yapı Emlak begutachten wir Ihre Immobilie vor Ort und ermitteln eine realistische Wertspanne. \n\nUnsere Bewertungsstudie; Es behandelt Themen wie Standort, Quadratmeter, Gebäudealter, Boden und Fassade, Heizsystem, Einrichtungen vor Ort und Status der Eigentumsurkunde. Wir vergleichen diese Daten mit ähnlichen Verkäufen, die kürzlich in Ortaca, Dalyan, Köyceğiz und Dalaman realisiert wurden, und präsentieren eine Wertespanne unter Berücksichtigung des Angebots-Nachfrage-Gleichgewichts in der Region. \n\nUnser Wertgutachten; Darin enthalten sind der empfohlene Listenpreis, die voraussichtliche Verkaufsdauer, die Stärken und Schwächen der Immobilie sowie Vorschläge für kleinere Verbesserungen, die vor dem Verkauf vorgenommen werden können. Wenn Sie sich für eine Zusammenarbeit mit uns zu Verkaufs- oder Vermietungszwecken entscheiden, ist das vorläufige Wertermittlungsgespräch kostenlos.",
+    "ikon": "Calculator",
     "altHizmetler": [
       {
-        "baslik": "المشروع المعماري",
-        "aciklama": "التصميم المعماري الأصلي ومشاريع التطبيق للمساكن والفيلات والمباني التجارية.",
+        "baslik": "Fachkompetenz vor Ort",
+        "aciklama": "Ihre Immobilie wird vor Ort besichtigt; Standort, Alter, Boden, Fassade und Allgemeinzustand werden detailliert bewertet.",
         "ikon": "Ruler"
       },
       {
-        "baslik": "مشروع ثابت",
-        "aciklama": "الحسابات الساكنة ومشاريع الأنظمة الحاملة للهياكل الخرسانية والفولاذية.",
+        "baslik": "Vergleichende Marktanalyse",
+        "aciklama": "Kürzlich wurde eine vergleichende Preisanalyse mit ähnlichen Verkäufen in der Region durchgeführt.",
+        "ikon": "TrendingUp"
+      },
+      {
+        "baslik": "Wertbericht",
+        "aciklama": "Schriftlicher Bericht, der den vorgeschlagenen Listenpreis, die erwartete Verkaufszeit und die Stärken der Immobilie enthält.",
+        "ikon": "FileText"
+      },
+      {
+        "baslik": "Empfehlungen vor dem Verkauf",
+        "aciklama": "Kostengünstige und ertragreiche Verbesserungsvorschläge, die die Präsentation der Immobilie stärken.",
+        "ikon": "FileCheck"
+      }
+    ],
+    "bolge": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Marmaris",
+      "Milas",
+      "Menteşe",
+      "Ula",
+      "Seydikemer"
+    ],
+    "sss": [
+      {
+        "soru": "Gayrimenkul değerleme ücretli mi?",
+        "cevap": "Wenn Sie sich während des Verkaufs- oder Vermietungsprozesses für eine Zusammenarbeit mit uns entscheiden, ist unser vorläufiges Wertermittlungsgespräch kostenlos. Offizielle Bewertungsberichte zur Vorlage bei der Bank oder dem Gericht werden von CMB-lizenzierten Bewertungsunternehmen erstellt; Dabei leiten wir Sie an die richtige Institution weiter."
+      },
+      {
+        "soru": "Wie lange dauert die Wertermittlung?",
+        "cevap": "Die Besichtigung der Immobilie vor Ort dauert in der Regel 30-60 Minuten. Wir liefern Ihnen den schriftlichen Wertbericht mit vergleichender Marktanalyse innerhalb von durchschnittlich 2 Werktagen."
+      },
+      {
+        "soru": "Welche Daten bestimmen den Wert meiner Immobilie?",
+        "cevap": "Standort, Quadratmeterzahl, Gebäudealter, Boden und Fassade, Heizsystem, Standortausstattung, Eigentumsurkunde und Bebauungsstatus sowie das aktuelle Angebot-Nachfrage-Gleichgewicht in der Region sind die wichtigsten Bestimmungsfaktoren. Jede dieser Überschriften wird im Bericht separat wiedergegeben."
+      },
+      {
+        "soru": "Zeigen die Preise für Online-Werbung den wahren Wert?",
+        "cevap": "Nein. Die angegebenen Preise spiegeln die Erwartungen des Verkäufers wider, nicht den tatsächlichen Verkaufspreis. In Ortaca und Umgebung besteht oft ein erheblicher Unterschied zwischen dem Ankündigungspreis und dem Schlusskurs. Aus diesem Grund orientieren wir uns bei der Bewertung an den tatsächlichen Umsätzen."
+      },
+      {
+        "soru": "Führen Sie auch eine Grundstücksbewertung durch?",
+        "cevap": "Ja. Der Bebauungsstatus des Grundstücks, Präzedenz- und Geschosshöhe, Straßenfront, Infrastruktur und Feld-Land-Trennung wirken sich direkt auf den Wert aus. Wir erstellen Grundstücksbewertungen, indem wir gemeinsam das Bebauungsstatusdokument prüfen."
+      }
+    ]
+  },
+  {
+    "id": "yatirim-danismanligi",
+    "slug": "yatirim-danismanligi",
+    "baslik": "Anlageberatung",
+    "kisaAciklama": "Wir bewerten gemeinsam Investitionsmöglichkeiten in der Region anhand von Mieteinnahmen und Wertsteigerungspotenzialen.",
+    "uzunAciklama": "Bei Immobilieninvestitionen bestimmen die richtige Region und der richtige Zeitpunkt den größten Teil der Rendite. Ortaca, Dalyan, Köyceğiz und Dalaman; Es bietet sehr unterschiedliche Investitionsprofile mit Tourismus, Landwirtschaft und Flughafenanbindung. Als Kalinda Yapı Emlak bewerten wir diese Regionen gemeinsam nach Ihrem Budget und der Art der von Ihnen erwarteten Rendite. \n\nUnsere Anlageberatung beginnt mit der Klärung Ihrer Erwartungen: Regelmäßige Mieteinnahmen, mittelfristige Wertsteigerung oder ein Gleichgewicht aus beidem? Anschließend ermitteln wir die Immobilientypen, die zu Ihrem Ziel passen, und teilen transparent die erwarteten Mieteinnahmen, das Leerstandsrisiko und die jährlichen Betriebskosten für jede Option mit. \n\nObwohl die saisonalen Mieteinnahmen in Dalyan und Köyceğiz hoch sind, erstrecken sie sich nicht über das ganze Jahr; Im Zentrum von Ortaca sind die Mieteinnahmen aufgrund der Nachfrage von Studenten und Beamten stabiler. Bei Grundstücksinvestitionen sind der Bebauungsstatus und die Infrastrukturpläne entscheidend. Für welche Option Sie sich auch entscheiden, wir liefern Ihnen die Daten, die Sie benötigen, um Ihre Entscheidung anhand der Zahlen zu treffen.",
+    "ikon": "TrendingUp",
+    "altHizmetler": [
+      {
+        "baslik": "Analyse der Mieteinnahmen",
+        "aciklama": "Die Nettorendite wird durch Berechnung der jährlichen Mieteinnahmen, des Leerlaufrisikos und der Betriebskosten der Immobilie ermittelt.",
+        "ikon": "Calculator"
+      },
+      {
+        "baslik": "Regionsvergleich",
+        "aciklama": "Die Investitionsprofile von Ortaca, Dalyan, Köyceğiz und Dalaman werden entsprechend Ihrem Budget verglichen.",
         "ikon": "Building"
       },
       {
-        "baslik": "المشروع الكهربائي والميكانيكي",
-        "aciklama": "مشاريع التركيبات الكهربائية والإضاءة والتدفئة والتبريد والسباكة.",
-        "ikon": "Zap"
+        "baslik": "Landinvestition",
+        "aciklama": "Mittelfristige Landmöglichkeiten werden durch Prüfung des Bebauungsstatus, der Präzedenzfälle und der Infrastrukturpläne bewertet.",
+        "ikon": "Ruler"
       },
       {
-        "baslik": "استشارات الترخيص",
-        "aciklama": "استشارات بشأن طلبات تراخيص البناء، وحالة تقسيم المناطق، والإسكان، والمعاملات البلدية.",
+        "baslik": "Portfoliodiversifizierung",
+        "aciklama": "Portfolioempfehlungen zur Risikoallokation für Multi-Immobilien-Investoren.",
+        "ikon": "Building2"
+      }
+    ],
+    "bolge": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Marmaris",
+      "Bodrum",
+      "Milas",
+      "Datça",
+      "Menteşe"
+    ],
+    "sss": [
+      {
+        "soru": "Wie hoch sind die Mieteinnahmen in Ortaca?",
+        "cevap": "Die jährlichen Bruttomieteinnahmen einer Wohnung im Zentrum von Ortaca betragen etwa 4-6 % des Immobilienpreises. Aufgrund der Nachfrage von Studenten und Beamten sind die Leerlaufzeiten kurz, was die Rendite stabil macht."
+      },
+      {
+        "soru": "Ist eine saisonale Vermietung in Dalyan sinnvoll?",
+        "cevap": "Die saisonale Vermietung in Dalyan bietet täglich hohe Renditen, die Einnahmen verteilen sich jedoch nicht über das ganze Jahr und die Betriebsbelastung ist höher. Für Investoren, die ein regelmäßiges und passives Einkommen suchen, ist die Langzeitmiete im Zentrum von Ortaca im Allgemeinen besser geeignet."
+      },
+      {
+        "soru": "Soll ich ein Grundstück oder eine Wohnung kaufen?",
+        "cevap": "Die Wohnung bietet regelmäßige Mieteinnahmen und verfügt über eine hohe Liquidität. Grundstücke erwirtschaften hingegen keine Miete, können aber je nach Bebauungsplanung mittel- bis langfristig eine höhere Wertsteigerung bieten. Die Entscheidung hängt von Ihrer Haltedauer und Ihrem Cashflow-Bedarf ab."
+      },
+      {
+        "soru": "Beraten Sie ausländische Investoren?",
+        "cevap": "Ja. Wir bieten Dienstleistungen mit Inhalten in Englisch, Deutsch, Russisch und Arabisch an. Für ausländische Käufer integrieren wir auch zusätzliche Schritte wie das Militärgenehmigungsschreiben, die Steuernummer und das Devisenkaufdokument in den Prozessplan."
+      },
+      {
+        "soru": "Erheben Sie zusätzliche Gebühren für die Anlageberatung?",
+        "cevap": "Wenn Sie im Rahmen des Erwerbsprozesses mit uns zusammenarbeiten, ist unsere Anlageberatung in der üblichen Maklerprovision enthalten; Es ist kein zusätzliches Beratungshonorar erforderlich."
+      }
+    ]
+  },
+  {
+    "id": "tapu-islemleri",
+    "slug": "tapu-islemleri",
+    "baslik": "Grundbuchamt und amtliche Transaktionen",
+    "kisaAciklama": "Dokumenten- und Transaktionsverfolgung von Anfang bis Ende bei Eigentumsurkunden, Bebauungsstatus und Vertragsprozessen.",
+    "uzunAciklama": "Die kritischste Phase eines Immobilienkaufs oder -verkaufs ist nicht der Zeitpunkt des Vertragsabschlusses, sondern der Zeitpunkt, an dem die Unterlagen vollständig und korrekt ausgefüllt sind. Als Kalinda Yapı Emlak begleiten wir in Ihrem Namen den Prozess von der Annahme des Angebots bis zur Übertragung der Eigentumsurkunde. \n\nDer Prozess beginnt mit einer Prüfung der Eigentumsurkunde: Es wird geprüft, ob an der Immobilie eine Hypothek, ein Pfandrecht, eine Anmerkung oder ein Nießbrauch besteht. Anschließend werden bei Bedarf Informationen zum Bebauungsstatus und zur Gebäuderegistrierung, die obligatorische Erdbebenversicherung (DASK), der Energieausweis und die Nummerierungsbescheinigung von der Gemeinde eingeholt. \n\nZu unseren Dienstleistungen gehört auch die Vereinbarung eines Grundbuchamtstermins, die Berechnung der Gebühren und der Revolving-Fonds-Gebühren, die schriftliche Festlegung des Zahlungsplans zwischen den Parteien und die Anwesenheit beim Grundbuchamt am Tag der Übertragung. Für ausländische Käufer werden im selben Plan auch zusätzliche Schritte wie Militärgenehmigungsschreiben, Steuernummer, vereidigter Übersetzer und CMB-lizenziertes Wertgutachten durchgeführt.",
+    "ikon": "FileCheck",
+    "altHizmetler": [
+      {
+        "baslik": "Grundbuchprüfung",
+        "aciklama": "Beschränkungen der Immobilie wie Hypotheken, Pfandrechte, Anmerkungen und Nießbrauchsrechte werden vor der Übertragung geprüft.",
+        "ikon": "FileText"
+      },
+      {
+        "baslik": "Anfrage zum Zonenstatus",
+        "aciklama": "Der Bebauungsstatus, die Baubescheinigung und die Belegungsinformationen werden von der Gemeinde eingeholt und gemeinsam ausgewertet.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "Vertragsvorbereitung",
+        "aciklama": "Der Zahlungsplan, der Liefertermin und die Verpflichtungen der Parteien werden durch einen schriftlichen Vertrag festgelegt.",
+        "ikon": "FileCheck"
+      },
+      {
+        "baslik": "Verkaufstransaktionen an Ausländer",
+        "aciklama": "Verfolgung aller Schritte, einschließlich Militärgenehmigungsschreiben, Steuernummer, Übersetzer und Wertgutachten.",
+        "ikon": "Key"
+      }
+    ],
+    "bolge": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Marmaris",
+      "Milas",
+      "Menteşe",
+      "Ula",
+      "Seydikemer"
+    ],
+    "sss": [
+      {
+        "soru": "Wie lange dauert die Übertragung der Eigentumsurkunde?",
+        "cevap": "Wenn die Dokumente vollständig sind, erfolgt die Terminvereinbarung für die Eigentumsurkunde in der Regel innerhalb von 3–7 Werktagen und der Übertragungsvorgang wird noch am selben Tag abgeschlossen. Bei ausländischen Käufern kann sich die Frist aufgrund von Militärurlaub und Wertgutachten auf 2-6 Wochen verlängern."
+      },
+      {
+        "soru": "Wie hoch ist die Gebühr für die Eigentumsurkunde und wer zahlt sie?",
+        "cevap": "Die Gebühr für die Eigentumsurkunde wird in Höhe von 2 % vom Käufer und Verkäufer getrennt auf den angegebenen Verkaufspreis erhoben. In der Praxis kann es je nach Vereinbarung der Parteien vollständig von einer Partei gezahlt werden; Diese Frage klären wir bereits im Vertragsstadium."
+      },
+      {
+        "soru": "Was passiert, wenn für die Immobilie, die ich kaufen möchte, eine Hypothek besteht?",
+        "cevap": "Eine mit einer Hypothek belastete Immobilie kann verkauft werden, allerdings muss vor der Übertragung die Hypothek aufgehoben oder der Zahlungsplan gleichzeitig mit der Bank durchgeführt werden. Wir decken dieses Risiko bereits zu Beginn des Prozesses auf, indem wir das Grundbuch von Anfang an prüfen."
+      },
+      {
+        "soru": "Sind DASK- und Energieausweise obligatorisch?",
+        "cevap": "Ja. Während der Übertragung der Eigentumsurkunde ist eine obligatorische Erdbebenversicherung (DASK) erforderlich; Auch für Wohnhäuser ist ein Energieausweis erforderlich. Wir unterstützen Sie bei der Beschaffung beider Dokumente."
+      },
+      {
+        "soru": "Welche zusätzlichen Unterlagen sind für einen ausländischen Käufer erforderlich?",
+        "cevap": "Ausländische Käufer müssen während des Eigentumsurkundeprozesses über eine Steueridentifikationsnummer, eine Reisepassübersetzung, ein biometrisches Foto, ein Militärgenehmigungsschreiben, ein vom CMB lizenziertes Wertgutachten und einen vereidigten Übersetzer verfügen."
+      }
+    ]
+  }
+];
+
+export const hizmetlerRU: TranslatedHizmet[] = [
+  {
+    "id": "emlak-danismanligi",
+    "slug": "emlak-danismanligi",
+    "baslik": "Консультации по недвижимости",
+    "kisaAciklama": "Портфолио недвижимости на продажу и в аренду в Ортаче и ее окрестностях. Надежный посредник между покупателем и продавцом.",
+    "uzunAciklama": "Как Kalinda Yapı Emlak, мы предлагаем лицензированные консультационные услуги по недвижимости в районе Ортача Муглы и прилегающих регионах. Квартиры, виллы, земли и коммерческая недвижимость на продажу и в аренду в Ортадже, Дальяне, Кёйджегизе, Даламане и Фетхие собраны в одном портфолио. \n\nНаш основатель и лицензированный консультант по недвижимости Ариф Дагделен поможет вам принять правильное инвестиционное решение, опираясь на свой опыт близкого знания динамики региона. Мы проверяем каждую недвижимость, которую выставляем на продажу, проверяем право собственности и статус зонирования, а также сравниваем ожидаемую цену с текущими рыночными данными. \n\nНаши услуги включают в себя: портфель недвижимости на продажу (квартира, вилла, земля, коммерческая недвижимость), управление арендной недвижимостью, безопасное посредничество между покупателем и продавцом, управление предложениями и переговорами, подготовку контракта и сопровождение процесса до получения документа, подтверждающего право собственности. Мы помогли более чем 300 семьям найти дом своей мечты благодаря нашему прозрачному, надежному и ориентированному на результат подходу к обслуживанию.",
+    "ikon": "Home",
+    "altHizmetler": [
+      {
+        "baslik": "Продажа недвижимости",
+        "aciklama": "Продажа квартир, вилл, земельных участков и коммерческой недвижимости. Безопасное посредническое обслуживание между покупателем и продавцом.",
+        "ikon": "Building2"
+      },
+      {
+        "baslik": "Аренда недвижимости",
+        "aciklama": "Аренда жилья и рабочих мест. Профессиональная поддержка в подборе арендаторов и заключении договоров.",
+        "ikon": "Key"
+      },
+      {
+        "baslik": "Управление портфелем",
+        "aciklama": "Фотография вашей недвижимости, текст объявления, публикация и управление кандидатами на покупку выполняются из одного источника.",
+        "ikon": "Building"
+      },
+      {
+        "baslik": "Проверка на месте",
+        "aciklama": "Каждая недвижимость проверяется на месте, прежде чем она будет выставлена ​​на продажу; Право собственности и статус зонирования проверяются.",
         "ikon": "FileCheck"
       }
     ],
@@ -984,24 +864,216 @@ export const hizmetlerAR: TranslatedHizmet[] = [
     ],
     "sss": [
       {
-        "soru": "كم من الوقت يستغرق رسم المشروع المعماري؟",
-        "cevap": "اعتمادًا على حجم المشروع وتعقيده، يتم الانتهاء من رسم المشروع المعماري خلال 2-4 أسابيع. لا يتم تضمين عمليات المراجعة في هذه الفترة."
+        "soru": "Что нужно, чтобы купить дом в Ортаче?",
+        "cevap": "Чтобы купить дом в Ортаче, достаточно документа, удостоверяющего личность, вида на жительство и необходимого плана оплаты. Для иностранных покупателей могут быть запрошены дополнительные документы. Как Калинда Япы Эмлак, мы сопровождаем вас на протяжении всего процесса покупки."
       },
       {
-        "soru": "ما هي المستندات المطلوبة لطلب الترخيص؟",
-        "cevap": "تعتبر نسخة السند، ونسخة الهوية، ورسم الطلب، والمشروع المعماري، والمشروع الثابت، والمشاريع الكهربائية والميكانيكية، وتقرير المسح الأرضي، وعقد فحص البناء وعقود المسؤولية الفنية من بين المستندات الأساسية."
+        "soru": "Сколько стоят 2026 м² в Ортаче?",
+        "cevap": "В 2026 году цены на м² жилья в Ортаке будут варьироваться от 18 000 до 35 000 TL в зависимости от местоположения. Цены на виллы в Дальяне находятся в диапазоне 40 000-70 000 TL за м², а в Кёйджегизе – в пределах 15 000-25 000 TL."
       },
       {
-        "soru": "كم ستكون تكلفة المشروع في عام 2026؟",
-        "cevap": "التكلفة الإجمالية للمشروع (المعماري + الساكن + الكهربائي + الميكانيكي) لفيلا بمساحة 150 متر مربع في عام 2026 تتراوح بين 80.000-150.000 ليرة تركية. نقوم بإعداد عرض خاص لك مع استشارة أولية مجانية."
+        "soru": "Как рассчитывается стоимость консультации по недвижимости?",
+        "cevap": "2% применяется в качестве комиссии при сделках продажи, а арендная плата за 1 месяц применяется в качестве комиссии при сделках аренды. Все сборы прозрачно указаны перед заключением контракта."
       },
       {
-        "soru": "ما المدة التي تستغرقها عملية الترخيص في بلدية أورتاكا؟",
-        "cevap": "عند تقديم جميع المستندات بالكامل، تكتمل عملية مراجعة تصريح البناء في بلدية أورتاكا خلال 15-30 يوم عمل. وفي حالة فقدان المستندات، يمكن تمديد الفترة."
+        "soru": "Какой бюджет необходим для покупки виллы в Дальяне?",
+        "cevap": "Цены на отдельные виллы с бассейнами в Дальяне в 2026 году варьируются в пределах 4–18 миллионов турецких лир. В то время как места с видом на канал стоят дороже, места ближе к центру более доступны."
       },
       {
-        "soru": "هل يمكن البناء في المنطقة المحمية؟",
-        "cevap": "البناء في المناطق المحمية يخضع لتصاريح خاصة. مطلوب موافقة مجلس المحافظة ويجب أن يتوافق الهيكل الذي سيتم بناؤه مع معايير معينة. هناك مناطق محمية في داليان وكويجيز. قبل رسم مشروع في هذه المناطق، يجب التحقق من حالة تقسيم المناطق."
+        "soru": "Могут ли иностранцы купить дом в Турции?",
+        "cevap": "Да, иностранные граждане могут покупать недвижимость в Турции. В некоторых районах действуют ограничения (зоны отчуждения военных, внутренние районы деревень). Продажа иностранцам бесплатна на всей территории Ортачи и Дальяна. Для получения подробной информации вы можете обратиться к нашему консультанту."
+      }
+    ]
+  },
+  {
+    "id": "gayrimenkul-degerleme",
+    "slug": "gayrimenkul-degerleme",
+    "baslik": "Оценка недвижимости",
+    "kisaAciklama": "Мы сообщаем текущую рыночную стоимость вашей недвижимости с помощью регионального сравнительного анализа.",
+    "uzunAciklama": "Правильная цена недвижимости – важнейший фактор, определяющий сроки продажи. Недвижимость, цена которой выше рыночной, месяцами остается незаинтересованной, а недвижимость, цена которой ниже рыночной, причиняет убытки ее владельцу. Как Калинда Япы Эмлак, мы проверим вашу недвижимость на месте и определим реалистичный диапазон стоимости. \n\nНаше оценочное исследование; Он охватывает такие темы, как местоположение, квадратный метр, возраст здания, пол и фасад, система отопления, удобства на территории и статус зонирования. Мы сравниваем эти данные с аналогичными продажами, недавно осуществленными в Ортадже, Дальяне, Кёйджегизе и Даламане, и представляем диапазон значений с учетом баланса спроса и предложения в регионе. \n\nНаш отчет об оценке; Он включает в себя рекомендуемую прейскурантную цену, ожидаемое время продажи, сильные и слабые стороны объекта недвижимости, а также предложения по незначительным улучшениям, которые можно внести перед продажей. Если вы решите работать с нами в целях продажи или аренды, предварительная встреча по оценке будет бесплатной.",
+    "ikon": "Calculator",
+    "altHizmetler": [
+      {
+        "baslik": "Экспертиза на месте",
+        "aciklama": "Ваша недвижимость проверяется на месте; Детально оцениваются местоположение, возраст, этаж, фасад и общее состояние.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "Сравнительный анализ рынка",
+        "aciklama": "Проведен сравнительный анализ цен с аналогичными продажами в регионе за последнее время.",
+        "ikon": "TrendingUp"
+      },
+      {
+        "baslik": "Отчет о стоимости",
+        "aciklama": "Письменный отчет, включающий предлагаемую цену, ожидаемое время продажи и сильные стороны объекта.",
+        "ikon": "FileText"
+      },
+      {
+        "baslik": "Предпродажные рекомендации",
+        "aciklama": "Недорогие и высокодоходные предложения по улучшению, которые улучшат презентацию объекта.",
+        "ikon": "FileCheck"
+      }
+    ],
+    "bolge": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Marmaris",
+      "Milas",
+      "Menteşe",
+      "Ula",
+      "Seydikemer"
+    ],
+    "sss": [
+      {
+        "soru": "Взимается ли плата за оценку недвижимости?",
+        "cevap": "Если вы решите работать с нами в процессе продажи или аренды, наша предварительная встреча по оценке будет бесплатной. Официальные отчеты об оценке, которые должны быть представлены в банк или суд, готовятся лицензированными оценочными компаниями CMB; В этом процессе мы направим вас в нужное учреждение."
+      },
+      {
+        "soru": "Сколько времени занимает оценка?",
+        "cevap": "Осмотр объекта на месте обычно занимает 30-60 минут. Мы доставляем вам письменный отчет о стоимости, содержащий сравнительный анализ рынка, в среднем в течение 2 рабочих дней."
+      },
+      {
+        "soru": "Какие данные определяют стоимость моей недвижимости?",
+        "cevap": "Основными определяющими факторами являются местоположение, квадратный метр, возраст здания, пол и фасад, система отопления, удобства на участке, свидетельство о праве собственности и статус зонирования, а также текущий баланс спроса и предложения в регионе. Каждый из этих разделов отражается в отчете отдельно."
+      },
+      {
+        "soru": "Соответствуют ли цены на онлайн-рекламу реальной ценности?",
+        "cevap": "Нет. Рекламируемые цены отражают ожидания продавца, а не фактическую цену продажи. Часто существует значительная разница между объявленной ценой и ценой закрытия в Ортаче и ее окрестностях. По этой причине мы основываем оценку на фактических продажах."
+      },
+      {
+        "soru": "Вы также занимаетесь оценкой земли?",
+        "cevap": "Да. Статус зонирования земли, прецедент и высота этажа, фасад дороги, инфраструктура и разделение поля и земли напрямую влияют на стоимость. Мы работаем над оценкой земли, совместно изучая документ о статусе зонирования."
+      }
+    ]
+  },
+  {
+    "id": "yatirim-danismanligi",
+    "slug": "yatirim-danismanligi",
+    "baslik": "Инвестиционное консультирование",
+    "kisaAciklama": "Мы вместе оцениваем инвестиционные возможности в регионе, исходя из доходов от аренды и потенциала увеличения стоимости.",
+    "uzunAciklama": "При инвестициях в недвижимость правильный регион и правильное время определяют большую часть прибыли. Ортаджа, Дальян, Кёйджегиз и Даламан; Он предлагает самые разные инвестиционные профили, включая туризм, сельское хозяйство и доступ к аэропортам. Как Калинда Япы Эмлак, мы оцениваем эти регионы вместе в соответствии с вашим бюджетом и ожидаемым типом прибыли. \n\nНаш процесс консультирования по инвестициям начинается с выяснения ваших ожиданий: регулярный доход от аренды, среднесрочное повышение стоимости недвижимости или баланс этих двух факторов? Затем мы определяем типы недвижимости, которые соответствуют вашей цели, и прозрачно делимся ожидаемым доходом от аренды, риском незанятости и годовыми эксплуатационными расходами для каждого варианта. \n\nХотя сезонный доход от аренды в Дальяне и Кёйджегизе высок, он не распространяется на весь год; В центре Ортачи доход от аренды более стабильный благодаря спросу студентов и государственных служащих. При инвестировании в землю решающее значение имеют статус зонирования и планы развития инфраструктуры. Какой бы вариант вы ни выбрали, мы предоставим вам данные, необходимые для принятия решения на основе цифр.",
+    "ikon": "TrendingUp",
+    "altHizmetler": [
+      {
+        "baslik": "Анализ доходов от аренды",
+        "aciklama": "Чистая прибыль рассчитывается путем расчета годового дохода от аренды недвижимости, риска простоя и эксплуатационных расходов.",
+        "ikon": "Calculator"
+      },
+      {
+        "baslik": "Сравнение регионов",
+        "aciklama": "Инвестиционные профили Ортаджи, Дальяна, Кёйджегиза и Даламана сравниваются в соответствии с вашим бюджетом.",
+        "ikon": "Building"
+      },
+      {
+        "baslik": "Земельные инвестиции",
+        "aciklama": "Среднесрочные земельные возможности оцениваются путем изучения статуса зонирования, прецедентов и планов развития инфраструктуры.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "Диверсификация портфеля",
+        "aciklama": "Рекомендации по портфелю по распределению рисков для инвесторов, владеющих несколькими объектами недвижимости.",
+        "ikon": "Building2"
+      }
+    ],
+    "bolge": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Marmaris",
+      "Bodrum",
+      "Milas",
+      "Datça",
+      "Menteşe"
+    ],
+    "sss": [
+      {
+        "soru": "Какой доход от аренды в Ортаче?",
+        "cevap": "Годовой валовой доход от аренды квартиры в центре Ортачи составляет около 4-6% от стоимости недвижимости. Из-за спроса студентов и государственных служащих время простоя сокращается, что делает прибыль стабильной."
+      },
+      {
+        "soru": "Имеет ли смысл сезонная аренда в Дальяне?",
+        "cevap": "Сезонная аренда в Дальяне обеспечивает высокую посуточную прибыль, но доход не распределяется в течение года, а эксплуатационная нагрузка увеличивается. Для инвесторов, ищущих регулярный и пассивный доход, долгосрочная аренда в центре Ортачи, как правило, больше подходит."
+      },
+      {
+        "soru": "Стоит ли покупать землю или квартиру?",
+        "cevap": "Квартира приносит регулярный доход от сдачи в аренду и имеет высокую ликвидность. Земля, с другой стороны, не генерирует ренту, но может предложить более высокий рост стоимости в среднесрочной перспективе в зависимости от изменений в зонировании. Решение зависит от вашего периода владения и потребностей в денежных потоках."
+      },
+      {
+        "soru": "Предоставляете ли вы консультации иностранным инвесторам?",
+        "cevap": "Да. Мы предоставляем услуги с контентом на английском, немецком, русском и арабском языках. Для иностранных покупателей мы также включаем в план процесса дополнительные шаги, такие как письмо о военном разрешении, налоговый номер и документ о покупке иностранной валюты."
+      },
+      {
+        "soru": "Взимаете ли вы дополнительную плату за инвестиционные консультации?",
+        "cevap": "Когда вы работаете с нами в процессе приобретения, наши инвестиционные консультационные услуги включены в стандартную брокерскую комиссию; Никакой дополнительной платы за консультацию не требуется."
+      }
+    ]
+  },
+  {
+    "id": "tapu-islemleri",
+    "slug": "tapu-islemleri",
+    "baslik": "Земельный кадастр и официальные сделки",
+    "kisaAciklama": "Отслеживание документов и транзакций от начала до конца в документе о праве собственности, статусе зонирования и процессах заключения контрактов.",
+    "uzunAciklama": "Самым ответственным этапом покупки или продажи недвижимости является не момент достижения соглашения, а момент полного и правильного оформления документов. Как Калинда Япы Эмлак, мы следим за процессом от вашего имени, от принятия предложения до передачи документа, подтверждающего право собственности. \n\nПроцесс начинается с проверки записи о праве собственности: проверяется, имеется ли на объекте ипотека, залог, аннотация или узуфрукт. Затем, при необходимости, от муниципалитета получают информацию о статусе зонирования и регистрации здания, обязательное страхование от землетрясения (DASK), сертификат энергетической идентификации и сертификат нумерации. \n\nНаши услуги также включают назначение встречи в земельном реестре, расчет сборов и сборов в оборотный фонд, составление плана платежей между сторонами в письменной форме и присутствие в отделе земельного кадастра в день передачи. Для иностранных покупателей дополнительные шаги, такие как письмо о военном разрешении, налоговый номер, присяжный переводчик и лицензированный CMB отчет об оценке, также выполняются в том же плане.",
+    "ikon": "FileCheck",
+    "altHizmetler": [
+      {
+        "baslik": "Земельная кадастровая экспертиза",
+        "aciklama": "Перед передачей проверяются ограничения на имущество, такие как ипотека, залоговое право, аннотации и права узуфрукта.",
+        "ikon": "FileText"
+      },
+      {
+        "baslik": "Запрос статуса зонирования",
+        "aciklama": "Статус зонирования, свидетельство о регистрации здания и информация о занятости получаются от муниципалитета и оцениваются вместе.",
+        "ikon": "Ruler"
+      },
+      {
+        "baslik": "Подготовка контракта",
+        "aciklama": "График оплаты, дата поставки и обязательства сторон закрепляются письменным договором.",
+        "ikon": "FileCheck"
+      },
+      {
+        "baslik": "Сделки купли-продажи иностранцам",
+        "aciklama": "Последующие действия на всех этапах, включая письмо о военном разрешении, налоговый номер, услуги переводчика и отчет об оценке.",
+        "ikon": "Key"
+      }
+    ],
+    "bolge": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Fethiye",
+      "Marmaris",
+      "Milas",
+      "Menteşe",
+      "Ula",
+      "Seydikemer"
+    ],
+    "sss": [
+      {
+        "soru": "Сколько времени занимает передача права собственности?",
+        "cevap": "Когда документы готовы, назначение документа о праве собственности обычно производится в течение 3-7 рабочих дней, и процесс передачи завершается в тот же день. Для иностранных покупателей срок может продлиться до 2-6 недель в связи с военным отпуском и отчетом об оценке."
+      },
+      {
+        "soru": "Сколько стоит оформление права собственности и кто его платит?",
+        "cevap": "Плата за оформление титула взимается в размере 2% с покупателя и продавца отдельно от заявленной цены продажи. На практике он может быть уплачен полностью одной стороной в зависимости от соглашения сторон; Мы уточняем этот вопрос на этапе заключения договора."
+      },
+      {
+        "soru": "Что делать, если недвижимость, которую я куплю, находится в ипотеке?",
+        "cevap": "Заложенную недвижимость можно продать, но перед передачей ипотеку необходимо снять или провести план платежей одновременно с банком. Мы выявляем этот риск в самом начале процесса, исследуя земельный кадастр с самого начала."
+      },
+      {
+        "soru": "Являются ли DASK и сертификаты энергетической идентичности обязательными?",
+        "cevap": "Да. При передаче права собственности требуется полис обязательного страхования от землетрясения (DASK); Сертификат энергетической идентификации также требуется для жилых домов. Мы помогаем вам в процессе получения обоих документов."
+      },
+      {
+        "soru": "Какие дополнительные документы необходимы иностранному покупателю?",
+        "cevap": "Иностранные покупатели должны иметь идентификационный номер налогоплательщика, перевод паспорта, биометрическую фотографию, письмо о военном разрешении, лицензированный отчет об оценке CMB и присяжного переводчика во время процесса оформления прав собственности."
       }
     ]
   }

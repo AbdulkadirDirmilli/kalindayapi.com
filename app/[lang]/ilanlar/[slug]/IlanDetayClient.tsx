@@ -446,7 +446,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                 <div className="space-y-2 sm:space-y-3">
                   <a
                     href={createWhatsAppLink(
-                      ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905370530754",
+                      ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905321591556",
                       {
                         tr: `Merhaba, ${ilan.ilanNo || ''} numarali "${getIlanBaslik(ilan, 'tr')}" ilani hakkinda bilgi almak istiyorum.`,
                         en: `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'en')}".`,
@@ -469,7 +469,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                     </Button>
                   </a>
 
-                  <a href={`tel:+${ilan.danisman?.telefon?.replace(/\D/g, '') || "905370530754"}`} className="block">
+                  <a href={`tel:+${ilan.danisman?.telefon?.replace(/\D/g, '') || "905321591556"}`} className="block">
                     <Button
                       variant="primary"
                       size="lg"
@@ -538,7 +538,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
           <div className="flex gap-2 flex-1 sm:flex-initial justify-end">
             <a
               href={createWhatsAppLink(
-                ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905370530754",
+                ilan.danisman?.whatsapp || ilan.danisman?.telefon || "905321591556",
                 {
                   tr: `Merhaba, ${ilan.ilanNo || ''} numarali "${getIlanBaslik(ilan, 'tr')}" ilani hakkinda bilgi almak istiyorum.`,
                   en: `Hello, I would like to inquire about listing ${ilan.ilanNo || ''} "${getIlanBaslik(ilan, 'en')}".`,
@@ -561,7 +561,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                 <span className="xs:hidden">WA</span>
               </Button>
             </a>
-            <a href={`tel:+${ilan.danisman?.telefon?.replace(/\D/g, '') || "905370530754"}`} className="flex-1 sm:flex-initial">
+            <a href={`tel:+${ilan.danisman?.telefon?.replace(/\D/g, '') || "905321591556"}`} className="flex-1 sm:flex-initial">
               <Button
                 variant="primary"
                 size="md"

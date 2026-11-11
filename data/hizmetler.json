@@ -4,8 +4,8 @@
       "id": "emlak-danismanligi",
       "slug": "emlak-danismanligi",
       "baslik": "Emlak Danışmanlığı",
-      "kisaAciklama": "Ortaca ve çevresinde satılık, kiralık gayrimenkul hizmetleri. Profesyonel değerleme ve yatırım danışmanlığı.",
-      "uzunAciklama": "Kalinda Yapı olarak, Muğla'nın Ortaca ilçesinde ve çevre bölgelerde 12 yılı aşkın deneyimle kapsamlı emlak danışmanlığı hizmeti sunuyoruz. Ortaca, Dalyan, Köyceğiz, Dalaman ve Fethiye'de satılık ve kiralık daireler, villalar, arsalar ve ticari gayrimenkuller için aradığınız her şey burada.\n\nLisanslı emlak danışmanımız Zafer Soylu, bölgenin dinamiklerini yakından tanıyan deneyimiyle size en doğru yatırım kararlarını vermenizde yardımcı oluyor. 2026 yılında Ortaca'da konut fiyatları m² başına 18.000-35.000 TL, Dalyan'da villa fiyatları 4-18 milyon TL arasında değişiyor.\n\nHizmetlerimiz kapsamında: Satılık gayrimenkul portföyü (daire, villa, arsa, ticari), kiralık gayrimenkul yönetimi, profesyonel gayrimenkul değerleme, yatırım danışmanlığı ve piyasa analizi, tapu ve imar durumu kontrolü, alım-satım süreç yönetimi. Müşterilerimize şeffaf, güvenilir ve sonuç odaklı hizmet anlayışımızla 300'den fazla aileye hayallerindeki evi bulmalarında yardımcı olduk.",
+      "kisaAciklama": "Ortaca ve çevresinde satılık ve kiralık gayrimenkul portföyü. Alıcı ve satıcı arasında güvenli aracılık.",
+      "uzunAciklama": "Kalinda Yapı Emlak olarak Muğla'nın Ortaca ilçesinde ve çevre bölgelerde lisanslı emlak danışmanlığı hizmeti sunuyoruz. Ortaca, Dalyan, Köyceğiz, Dalaman ve Fethiye'de satılık ve kiralık daireler, villalar, arsalar ve ticari gayrimenkuller tek bir portföyde bir araya geliyor.\n\nKurucumuz ve lisanslı gayrimenkul danışmanımız Arif Dağdelen, bölgenin dinamiklerini yakından tanıyan deneyimiyle doğru yatırım kararını vermenizde size eşlik ediyor. Listelediğimiz her gayrimenkulü yerinde inceliyor, tapu ve imar durumunu kontrol ediyor, fiyat beklentisini güncel piyasa verisiyle karşılaştırıyoruz.\n\nHizmetlerimiz kapsamında: satılık gayrimenkul portföyü (daire, villa, arsa, ticari), kiralık gayrimenkul yönetimi, alıcı ve satıcı arasında güvenli aracılık, teklif ve pazarlık yönetimi, sözleşme hazırlığı ve tapu randevusuna kadar süreç takibi yer alıyor. Şeffaf, güvenilir ve sonuç odaklı hizmet anlayışımızla 300'den fazla aileye hayallerindeki evi bulmalarında yardımcı olduk.",
       "ikon": "Home",
       "altHizmetler": [
         {
@@ -19,21 +19,36 @@
           "ikon": "Key"
         },
         {
-          "baslik": "Gayrimenkul Değerleme",
-          "aciklama": "Mülkünüzün güncel piyasa değerini öğrenin. Bölgesel karşılaştırmalı analiz raporları.",
-          "ikon": "Calculator"
+          "baslik": "Portföy Yönetimi",
+          "aciklama": "Mülkünüzün fotoğraflanması, ilan metni, yayın ve alıcı adaylarının yönetimi tek elden yürütülür.",
+          "ikon": "Building"
         },
         {
-          "baslik": "Yatırım Danışmanlığı",
-          "aciklama": "Ortaca ve çevresinde gayrimenkul yatırım fırsatları. Kira getirisi ve değer artış analizleri.",
-          "ikon": "TrendingUp"
+          "baslik": "Yerinde İnceleme",
+          "aciklama": "Her gayrimenkul satışa sunulmadan önce yerinde görülür; tapu ve imar durumu kontrol edilir.",
+          "ikon": "FileCheck"
         }
       ],
-      "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+      "bolge": [
+        "Ortaca",
+        "Dalyan",
+        "Köyceğiz",
+        "Dalaman",
+        "Fethiye",
+        "Marmaris",
+        "Bodrum",
+        "Milas",
+        "Datça",
+        "Menteşe",
+        "Yatağan",
+        "Ula",
+        "Kavaklıdere",
+        "Seydikemer"
+      ],
       "sss": [
         {
           "soru": "Ortaca'da ev almak için ne gerekir?",
-          "cevap": "Ortaca'da ev almak için kimlik belgesi, ikametgah ve gerekli ödeme planı yeterlidir. Yabancı uyruklu alıcılar için ek belgeler talep edilebilir. Kalinda Yapı olarak tüm alım sürecinizde size rehberlik ediyoruz."
+          "cevap": "Ortaca'da ev almak için kimlik belgesi, ikametgah ve gerekli ödeme planı yeterlidir. Yabancı uyruklu alıcılar için ek belgeler talep edilebilir. Kalinda Yapı Emlak olarak tüm alım sürecinizde size rehberlik ediyoruz."
         },
         {
           "soru": "Ortaca'da 2026 m² fiyatları ne kadar?",
@@ -49,213 +64,229 @@
         },
         {
           "soru": "Yabancılar Türkiye'de ev alabilir mi?",
-          "cevap": "Evet, yabancı uyruklu kişiler Türkiye'de gayrimenkul satın alabilir. Bazı bölgelerde (askeri yasak bölgeler, köy içi alanlar) kısıtlamalar mevcuttur. Ortaca ve Dalyan genelinde yabancılara satış serbesttir. Detaylı bilgi için danışmanlarımızla görüşebilirsiniz."
+          "cevap": "Evet, yabancı uyruklu kişiler Türkiye'de gayrimenkul satın alabilir. Bazı bölgelerde (askeri yasak bölgeler, köy içi alanlar) kısıtlamalar mevcuttur. Ortaca ve Dalyan genelinde yabancılara satış serbesttir. Detaylı bilgi için danışmanımızla görüşebilirsiniz."
         }
       ]
     },
     {
-      "id": "tadilat-dekorasyon",
-      "slug": "tadilat-dekorasyon",
-      "baslik": "Tadilat & Dekorasyon",
-      "kisaAciklama": "İç mimari, mutfak-banyo yenileme, boya ve kaplama işleri. Evinizi hayalinizdeki gibi dönüştürüyoruz.",
-      "uzunAciklama": "Evinizi veya işyerinizi yenilemek, modernize etmek istiyorsanız doğru adrestesiniz. Kalinda Yapı'nın tadilat ve dekorasyon ekibi, 20 yılı aşkın deneyimle küçük dokunuşlardan komple iç mekan dönüşümlerine kadar her ölçekte projeyi profesyonel bir şekilde hayata geçirmektedir.\n\nArif Dağdelen liderliğindeki ustalarımız, kaliteli malzeme ve 2 yıl işçilik garantisiyle çalışmaktadır. Ortaca ve Muğla genelinde 500'den fazla tadilat projesi tamamladık.\n\n2026 yılı tadilat maliyetleri hakkında bilgi: Komple daire tadilatı (100 m²) 250.000-600.000 TL, banyo yenileme 60.000-150.000 TL, mutfak tadilatı 120.000-350.000 TL, boya-badana m² 80-150 TL arasında değişmektedir.\n\nHizmet kapsamımız: İç mimari tasarım ve 3D görselleştirme, mutfak dolap ve tezgah yenileme, banyo komple renovasyon, boya-badana ve dekoratif sıva, zemin kaplama (parke, seramik, laminat), alçıpan tavan ve bölme duvar, elektrik ve tesisat yenileme. Tüm projelerimiz yazılı sözleşme ile güvence altına alınır, şeffaf fiyatlandırma ve aşamalı ödeme imkanı sunulur.",
-      "ikon": "Paintbrush",
+      "id": "gayrimenkul-degerleme",
+      "slug": "gayrimenkul-degerleme",
+      "baslik": "Gayrimenkul Değerleme",
+      "kisaAciklama": "Mülkünüzün güncel piyasa değerini bölgesel karşılaştırmalı analizle raporluyoruz.",
+      "uzunAciklama": "Bir gayrimenkulün doğru fiyatlanması, satış süresini belirleyen en önemli faktördür. Piyasanın üzerinde fiyatlanan bir mülk aylarca ilgisiz kalırken, olduğundan düşük fiyatlanan bir mülk sahibine kayıp yaşatır. Kalinda Yapı Emlak olarak mülkünüzü yerinde inceleyerek gerçekçi bir değer aralığı belirliyoruz.\n\nDeğerleme çalışmamız; konum, metrekare, bina yaşı, kat ve cephe, ısıtma sistemi, site içi olanaklar ve tapu-imar durumu gibi başlıkları kapsar. Bu veriyi Ortaca, Dalyan, Köyceğiz ve Dalaman'da son dönemde gerçekleşen benzer satışlarla karşılaştırır, bölgedeki arz-talep dengesini de dikkate alarak bir değer aralığı sunarız.\n\nDeğerleme raporumuz; önerilen liste fiyatı, beklenen satış süresi, mülkün güçlü ve zayıf yönleri ile satış öncesi yapılabilecek küçük iyileştirme önerilerini içerir. Satış veya kiralama amacıyla bizimle çalışmayı tercih ettiğinizde ön değerleme görüşmesi ücretsizdir.",
+      "ikon": "Calculator",
       "altHizmetler": [
         {
-          "baslik": "İç Mimari Tasarım",
-          "aciklama": "Mekanlarınız için özel tasarım projeleri. 3D görselleştirme ile hayalinizi önceden görün.",
+          "baslik": "Yerinde Ekspertiz",
+          "aciklama": "Mülkünüz yerinde incelenir; konum, yaş, kat, cephe ve genel durum detaylı biçimde değerlendirilir.",
           "ikon": "Ruler"
         },
         {
-          "baslik": "Mutfak Yenileme",
-          "aciklama": "Modern mutfak tasarımları, dolap ve tezgah değişimi, ankastre beyaz eşya montajı.",
-          "ikon": "ChefHat"
+          "baslik": "Karşılaştırmalı Piyasa Analizi",
+          "aciklama": "Bölgede son dönemde gerçekleşen benzer satışlarla karşılaştırmalı fiyat analizi yapılır.",
+          "ikon": "TrendingUp"
         },
         {
-          "baslik": "Banyo Yenileme",
-          "aciklama": "Fayans, vitrifiye, duşakabin değişimi. Su tesisatı ve ısıtma sistemi yenileme.",
-          "ikon": "Bath"
+          "baslik": "Değer Raporu",
+          "aciklama": "Önerilen liste fiyatı, beklenen satış süresi ve mülkün güçlü yönlerini içeren yazılı rapor.",
+          "ikon": "FileText"
         },
         {
-          "baslik": "Boya & Kaplama",
-          "aciklama": "İç ve dış cephe boyama. Duvar kağıdı, dekoratif sıva ve panel kaplama uygulamaları.",
-          "ikon": "Palette"
-        }
-      ],
-      "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
-      "sss": [
-        {
-          "soru": "Tadilat için sözleşme şart mı?",
-          "cevap": "Evet, tüm tadilat projelerimiz yazılı sözleşme ile güvence altına alınmaktadır. Sözleşmede iş kapsamı, süre, ödeme planı ve garanti koşulları açıkça belirtilmektedir."
-        },
-        {
-          "soru": "Tadilat süreci nasıl işliyor?",
-          "cevap": "İlk olarak ücretsiz keşif yapıyoruz. Ardından detaylı teklif hazırlıyoruz. Onay sonrası malzeme tedariki ve işçilik başlıyor. Proje bitiminde detaylı kontrol ve teslimat yapılıyor."
-        },
-        {
-          "soru": "Tadilat garantisi veriyor musunuz?",
-          "cevap": "Evet, tüm işçilik için 2 yıl, su tesisatı için 5 yıl garanti veriyoruz. Malzeme için üretici garantisi geçerlidir. Garanti kapsamındaki sorunlar ücretsiz olarak giderilmektedir."
-        },
-        {
-          "soru": "2026'da komple daire tadilatı ne kadar tutar?",
-          "cevap": "2026 yılında 100 m² bir dairenin komple tadilatı (mutfak, banyo, boya, zemin) malzeme kalitesine göre 250.000-600.000 TL arasında değişmektedir. Ücretsiz keşif ile detaylı fiyat teklifi sunuyoruz."
-        },
-        {
-          "soru": "Muğla'da tadilat için en uygun dönem hangisi?",
-          "cevap": "İlkbahar (Mart-Mayıs) ve sonbahar (Eylül-Kasım) dönemleri tadilat için idealdir. Yaz aylarında usta bulma zorluğu yaşanabilir, kış aylarında ise bazı dış cephe işleri hava koşullarından etkilenebilir."
-        }
-      ]
-    },
-    {
-      "id": "taahhut-insaat",
-      "slug": "taahhut-insaat",
-      "baslik": "Taahhüt & İnşaat",
-      "kisaAciklama": "Sıfırdan bina inşaatı, restorasyon projeleri ve anahtar teslim yapı çözümleri.",
-      "uzunAciklama": "Kalinda Yapı, Ortaca ve Muğla bölgesinde 12 yılı aşkın deneyimle anahtar teslim inşaat projeleri gerçekleştirmektedir. Konut, villa, işyeri ve tarımsal yapı inşaatlarında deneyimli ekibimiz ve güçlü tedarikçi ağımızla kaliteli ve ekonomik çözümler sunuyoruz.\n\n2026 yılı anahtar teslim inşaat maliyetleri: Standart konut m² 25.000-35.000 TL, villa tipi yapı m² 35.000-55.000 TL, ticari yapı m² 20.000-40.000 TL arasında değişmektedir. Bu fiyatlar kaba inşaat, ince işler ve temel tesisat dahil olup, arsa maliyeti hariçtir.\n\nHizmet kapsamımız: Müstakil ev ve villa inşaatı, apartman ve konut projeleri, işyeri ve ticari bina inşaatı, depo ve tarımsal yapılar, eski bina restorasyonu, yapı güçlendirme. Ruhsat ve yapı izni süreçlerinde de müşterilerimize baştan sona danışmanlık hizmeti vermekteyiz.\n\nNeden Kalinda Yapı? Muğla'nın 1. derece deprem bölgesi olması nedeniyle yapı güvenliğine özel önem veriyoruz. Tüm inşaatlarımız güncel deprem yönetmeliğine uygun, yapı denetim kontrolünde ve sigortalı olarak gerçekleştirilmektedir. Şeffaf fiyatlandırma, yazılı sözleşme ve aşamalı ödeme planı sunuyoruz.",
-      "ikon": "HardHat",
-      "altHizmetler": [
-        {
-          "baslik": "Konut İnşaatı",
-          "aciklama": "Müstakil ev, villa ve apartman inşaatı. Arsa değerlendirme ve proje geliştirme.",
-          "ikon": "Building"
-        },
-        {
-          "baslik": "Ticari Yapı İnşaatı",
-          "aciklama": "İşyeri, mağaza, depo ve sanayi tesisi inşaatları. Profesyonel proje yönetimi.",
-          "ikon": "Factory"
-        },
-        {
-          "baslik": "Restorasyon",
-          "aciklama": "Tarihi ve eski binaların restorasyonu. Yapı güçlendirme ve modernizasyon işleri.",
-          "ikon": "Hammer"
-        },
-        {
-          "baslik": "Ruhsat & İzin Danışmanlığı",
-          "aciklama": "Yapı ruhsatı, iskan, imar durumu sorgulama. Belediye ve tapu işlemleri danışmanlığı.",
+          "baslik": "Satış Öncesi Öneriler",
+          "aciklama": "Mülkün sunumunu güçlendirecek, maliyeti düşük ve getirisi yüksek iyileştirme önerileri.",
           "ikon": "FileCheck"
         }
       ],
-      "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+      "bolge": [
+        "Ortaca",
+        "Dalyan",
+        "Köyceğiz",
+        "Dalaman",
+        "Fethiye",
+        "Marmaris",
+        "Milas",
+        "Menteşe",
+        "Ula",
+        "Seydikemer"
+      ],
       "sss": [
         {
-          "soru": "Taahhüt firması seçerken nelere bakılır?",
-          "cevap": "Referanslar, daha önce tamamlanan projeler, sigorta ve garanti koşulları, sözleşme şartları ve iletişim kalitesi önemli kriterlerdir. Kalinda Yapı olarak tüm bu kriterlerde şeffaf bir şekilde bilgi sunuyoruz."
+          "soru": "Gayrimenkul değerleme ücretli mi?",
+          "cevap": "Satış veya kiralama sürecinde bizimle çalışmayı tercih ettiğinizde ön değerleme görüşmemiz ücretsizdir. Bankaya veya mahkemeye sunulacak resmi ekspertiz raporları ise SPK lisanslı değerleme şirketleri tarafından düzenlenir; bu süreçte sizi doğru kuruma yönlendiriyoruz."
         },
         {
-          "soru": "2026'da anahtar teslim ev maliyeti ne kadar?",
-          "cevap": "2026 yılında Ortaca bölgesinde anahtar teslim inşaat maliyetleri: Standart konut m² 25.000-35.000 TL, villa tipi yapı m² 35.000-55.000 TL arasında değişmektedir. Arsa maliyeti bu rakamlara dahil değildir."
+          "soru": "Değerleme ne kadar sürer?",
+          "cevap": "Mülkün yerinde incelenmesi genellikle 30-60 dakika sürer. Karşılaştırmalı piyasa analizini içeren yazılı değer raporunu ortalama 2 iş günü içinde size iletiyoruz."
         },
         {
-          "soru": "İnşaat sürecinde kontrol yapılıyor mu?",
-          "cevap": "Evet, her aşamada müşterilerimizle birlikte kontrol yapıyoruz. Temel, kaba inşaat, ince işler ve teslim öncesi olmak üzere en az 4 kontrol noktası bulunmaktadır. Ayrıca yapı denetim firması da bağımsız denetim yapmaktadır."
+          "soru": "Mülkümün değerini hangi veriler belirliyor?",
+          "cevap": "Konum, metrekare, bina yaşı, kat ve cephe, ısıtma sistemi, site olanakları, tapu ve imar durumu ile bölgedeki güncel arz-talep dengesi temel belirleyicilerdir. Bu başlıkların her biri rapora ayrı ayrı yansıtılır."
         },
         {
-          "soru": "Villa inşaatı ne kadar sürer?",
-          "cevap": "150-200 m² bir villanın anahtar teslim inşaatı ortalama 8-12 ay sürmektedir. Ruhsat süreci 1-2 ay, kaba inşaat 3-4 ay, ince işler 3-4 ay, peyzaj ve son düzeltmeler 1-2 ay şeklinde planlanmaktadır."
+          "soru": "İnternetteki ilan fiyatları gerçek değeri gösterir mi?",
+          "cevap": "Hayır. İlan fiyatları satıcının beklentisini gösterir, gerçekleşen satış fiyatını değil. Ortaca ve çevresinde ilan fiyatı ile kapanış fiyatı arasında çoğu zaman belirgin bir fark oluşur. Bu nedenle değerlemede gerçekleşen satışları esas alıyoruz."
         },
         {
-          "soru": "İnşaat için arsam olmalı mı?",
-          "cevap": "Evet, inşaat için imarlı arsanız olmalıdır. Arsanız yoksa emlak danışmanlığı hizmetimiz kapsamında size uygun arsa bulmada yardımcı oluyoruz. İmar durumu kontrolü ve ruhsat uygunluğu değerlendirmesini de yapıyoruz."
+          "soru": "Arsa değerlemesi de yapıyor musunuz?",
+          "cevap": "Evet. Arsalarda imar durumu, emsal ve kat yüksekliği, yola cephe, altyapı ve tarla-arsa ayrımı değeri doğrudan etkiler. Arsa değerlemelerinde imar durum belgesini birlikte inceleyerek çalışıyoruz."
         }
       ]
     },
     {
-      "id": "plan-proje",
-      "slug": "plan-proje",
-      "baslik": "Plan & Proje",
-      "kisaAciklama": "Mimari, statik, elektrik-mekanik proje çizimleri ve ruhsat danışmanlığı hizmetleri.",
-      "uzunAciklama": "Kalinda Yapı olarak, yapı projelerinizin en başından itibaren yanınızdayız. Mimari projeden statik hesaplara, elektrik ve mekanik tesisat projelerinden ruhsat süreçlerine kadar tüm proje ihtiyaçlarınızı karşılıyoruz. Deneyimli mühendis ve mimar kadromuzla, projenizin yasal gerekliliklere uygun ve teknik açıdan kusursuz olmasını sağlıyoruz.\n\n2026 yılı proje maliyetleri: 150 m² villa için mimari proje 25.000-45.000 TL, statik proje 20.000-35.000 TL, elektrik-mekanik projeler toplam 15.000-30.000 TL. Ortaca Belediyesi için ruhsat başvuru süreci 15-30 iş günü sürmektedir.\n\nHizmet kapsamımız: Özgün mimari tasarım ve uygulama projeleri, betonarme ve çelik statik projeler, elektrik tesisatı ve aydınlatma projeleri, mekanik tesisat (ısıtma-soğutma-sıhhi) projeleri, peyzaj ve çevre düzenleme projeleri, yapı ruhsatı başvuru ve takibi, iskan belgesi süreç yönetimi.\n\nOrtaca, Dalyan ve Köyceğiz bölgelerinde sit alanı, koruma bölgesi ve kıyı kenar çizgisi kısıtlamalarına hakim ekibimizle, projenizin tüm yasal gerekliliklere uygun olmasını sağlıyoruz. İmar durumu sorgulama, zemin etüdü koordinasyonu ve belediye ile tüm yazışmaları sizin adınıza takip ediyoruz.",
-      "ikon": "FileText",
+      "id": "yatirim-danismanligi",
+      "slug": "yatirim-danismanligi",
+      "baslik": "Yatırım Danışmanlığı",
+      "kisaAciklama": "Kira getirisi ve değer artış potansiyeline göre bölgedeki yatırım fırsatlarını birlikte değerlendiriyoruz.",
+      "uzunAciklama": "Gayrimenkul yatırımında doğru bölge ve doğru zamanlama, getirinin büyük bölümünü belirler. Ortaca, Dalyan, Köyceğiz ve Dalaman; turizm, tarım ve havalimanı erişimiyle birbirinden çok farklı yatırım profilleri sunar. Kalinda Yapı Emlak olarak bütçenize ve beklediğiniz getiri tipine göre bu bölgeleri birlikte değerlendiriyoruz.\n\nYatırım danışmanlığı sürecimiz, beklentinizi netleştirmekle başlar: düzenli kira geliri mi, orta vadeli değer artışı mı, yoksa ikisinin dengesi mi? Ardından hedefinize uyan mülk tiplerini belirliyor, her bir seçenek için beklenen kira getirisini, boşta kalma riskini ve yıllık işletme maliyetini şeffaf biçimde paylaşıyoruz.\n\nDalyan ve Köyceğiz'de sezonluk kiralama getirisi yüksek olsa da yılın tamamına yayılmaz; Ortaca merkezde ise öğrenci ve memur talebi nedeniyle kira geliri daha istikrarlıdır. Arsa yatırımında ise imar durumu ve altyapı planları belirleyicidir. Hangi seçeneği tercih ederseniz edin, kararınızı rakamlara dayandırmanız için gereken veriyi önünüze koyuyoruz.",
+      "ikon": "TrendingUp",
       "altHizmetler": [
         {
-          "baslik": "Mimari Proje",
-          "aciklama": "Konut, villa ve ticari yapılar için özgün mimari tasarım ve uygulama projeleri.",
+          "baslik": "Kira Getirisi Analizi",
+          "aciklama": "Mülkün yıllık kira geliri, boşta kalma riski ve işletme maliyetleri hesaplanarak net getiri çıkarılır.",
+          "ikon": "Calculator"
+        },
+        {
+          "baslik": "Bölge Karşılaştırması",
+          "aciklama": "Ortaca, Dalyan, Köyceğiz ve Dalaman'ın yatırım profilleri bütçenize göre karşılaştırılır.",
+          "ikon": "Building"
+        },
+        {
+          "baslik": "Arsa Yatırımı",
+          "aciklama": "İmar durumu, emsal ve altyapı planları incelenerek orta-uzun vadeli arsa fırsatları değerlendirilir.",
           "ikon": "Ruler"
         },
         {
-          "baslik": "Statik Proje",
-          "aciklama": "Betonarme ve çelik yapılar için statik hesaplar ve taşıyıcı sistem projeleri.",
-          "ikon": "Building"
-        },
-        {
-          "baslik": "Elektrik & Mekanik Proje",
-          "aciklama": "Elektrik tesisatı, aydınlatma, ısıtma-soğutma ve sıhhi tesisat projeleri.",
-          "ikon": "Zap"
-        },
-        {
-          "baslik": "Ruhsat Danışmanlığı",
-          "aciklama": "Yapı ruhsatı başvurusu, imar durumu, iskan ve belediye işlemleri danışmanlığı.",
-          "ikon": "FileCheck"
+          "baslik": "Portföy Çeşitlendirme",
+          "aciklama": "Birden fazla mülk sahibi yatırımcılar için risk dağıtımına yönelik portföy önerileri.",
+          "ikon": "Building2"
         }
       ],
-      "bolge": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Fethiye", "Marmaris", "Bodrum", "Milas", "Datça", "Menteşe", "Yatağan", "Ula", "Kavaklıdere", "Seydikemer"],
+      "bolge": [
+        "Ortaca",
+        "Dalyan",
+        "Köyceğiz",
+        "Dalaman",
+        "Fethiye",
+        "Marmaris",
+        "Bodrum",
+        "Milas",
+        "Datça",
+        "Menteşe"
+      ],
       "sss": [
         {
-          "soru": "Mimari proje çizimi ne kadar sürer?",
-          "cevap": "Projenin büyüklüğüne ve karmaşıklığına bağlı olarak mimari proje çizimi 2-4 hafta arasında tamamlanmaktadır. Revizyon süreçleri bu süreye dahil değildir."
+          "soru": "Ortaca'da kira getirisi ne kadar?",
+          "cevap": "Ortaca merkezde bir dairenin yıllık brüt kira getirisi, mülk bedelinin yaklaşık %4-6'sı aralığında seyretmektedir. Öğrenci ve memur talebi nedeniyle boşta kalma süresi kısadır, bu da getiriyi istikrarlı kılar."
         },
         {
-          "soru": "Ruhsat başvurusu için hangi belgeler gerekli?",
-          "cevap": "Tapu fotokopisi, kimlik fotokopisi, aplikasyon krokisi, mimari proje, statik proje, elektrik-mekanik projeler, zemin etüdü raporu, yapı denetim sözleşmesi ve fenni mesul taahhütnameleri temel belgeler arasındadır."
+          "soru": "Dalyan'da sezonluk kiralama mantıklı mı?",
+          "cevap": "Dalyan'da sezonluk kiralama günlük bazda yüksek getiri sağlar, ancak gelir yılın tamamına yayılmaz ve işletme yükü daha ağırdır. Düzenli ve pasif gelir arayan yatırımcılar için Ortaca merkezdeki uzun dönem kiralama genelde daha uygundur."
         },
         {
-          "soru": "2026'da proje maliyetleri ne kadar?",
-          "cevap": "2026 yılında 150 m² villa için toplam proje bedeli (mimari+statik+elektrik+mekanik) 80.000-150.000 TL arasında değişmektedir. Ücretsiz ön görüşme ile size özel teklif hazırlıyoruz."
+          "soru": "Arsa mı daire mi almalıyım?",
+          "cevap": "Daire düzenli kira geliri sağlar ve likiditesi yüksektir. Arsa ise kira getirmez ama imar gelişmelerine bağlı olarak orta-uzun vadede daha yüksek değer artışı sunabilir. Karar, elde tutma sürenize ve nakit akışı ihtiyacınıza bağlıdır."
         },
         {
-          "soru": "Ortaca Belediyesi'nde ruhsat süreci ne kadar sürer?",
-          "cevap": "Tüm belgeler eksiksiz teslim edildiğinde Ortaca Belediyesi'nde yapı ruhsatı inceleme süreci 15-30 iş günü arasında tamamlanmaktadır. Eksik belge durumunda süre uzayabilir."
+          "soru": "Yabancı yatırımcılara danışmanlık veriyor musunuz?",
+          "cevap": "Evet. İngilizce, Almanca, Rusça ve Arapça içerikle hizmet veriyoruz. Yabancı alıcılar için askeri izin yazısı, vergi numarası ve döviz alım belgesi gibi ek adımları da süreç planına dahil ediyoruz."
         },
         {
-          "soru": "Sit alanında inşaat yapılabilir mi?",
-          "cevap": "Sit alanlarında inşaat özel izinlere tabidir. Koruma kurulu onayı gerekir ve yapılacak yapının belirli kriterlere uygun olması zorunludur. Dalyan ve Köyceğiz'de sit alanı mevcut; bu bölgelerde proje çizmeden önce mutlaka imar durumu kontrolü yapılmalıdır."
+          "soru": "Yatırım danışmanlığı için ayrıca ücret alıyor musunuz?",
+          "cevap": "Alım sürecinde bizimle çalıştığınızda yatırım danışmanlığı hizmetimiz standart aracılık komisyonuna dahildir; ayrıca bir danışmanlık ücreti talep edilmez."
+        }
+      ]
+    },
+    {
+      "id": "tapu-islemleri",
+      "slug": "tapu-islemleri",
+      "baslik": "Tapu & Resmi İşlemler",
+      "kisaAciklama": "Tapu, imar durumu ve sözleşme süreçlerinde baştan sona evrak ve işlem takibi.",
+      "uzunAciklama": "Bir gayrimenkul alım satımının en kritik aşaması, anlaşmanın sağlandığı an değil, evrakların eksiksiz ve doğru şekilde tamamlandığı andır. Kalinda Yapı Emlak olarak teklifin kabulünden tapu devrine kadar geçen süreci sizin adınıza takip ediyoruz.\n\nSüreç, tapu kaydının incelenmesiyle başlar: mülk üzerinde ipotek, haciz, şerh veya intifa hakkı bulunup bulunmadığı kontrol edilir. Ardından belediyeden imar durumu ve yapı kayıt bilgisi, gerekli hallerde zorunlu deprem sigortası (DASK), enerji kimlik belgesi ve numarataj belgesi temin edilir.\n\nTapu randevusunun alınması, harç ve döner sermaye bedellerinin hesaplanması, taraflar arasındaki ödeme planının yazılı hale getirilmesi ve devir günü tapu müdürlüğünde hazır bulunulması da hizmetimize dahildir. Yabancı uyruklu alıcılarda askeri izin yazısı, vergi numarası, yeminli tercüman ve SPK lisanslı değerleme raporu gibi ek adımlar da aynı plan içinde yürütülür.",
+      "ikon": "FileCheck",
+      "altHizmetler": [
+        {
+          "baslik": "Tapu Kaydı İncelemesi",
+          "aciklama": "Mülk üzerindeki ipotek, haciz, şerh ve intifa hakkı gibi kısıtlamalar devir öncesinde kontrol edilir.",
+          "ikon": "FileText"
+        },
+        {
+          "baslik": "İmar Durumu Sorgulama",
+          "aciklama": "Belediyeden imar durumu, yapı kayıt belgesi ve iskan bilgisi temin edilerek birlikte değerlendirilir.",
+          "ikon": "Ruler"
+        },
+        {
+          "baslik": "Sözleşme Hazırlığı",
+          "aciklama": "Ödeme planı, teslim tarihi ve tarafların yükümlülükleri yazılı sözleşmeyle güvence altına alınır.",
+          "ikon": "FileCheck"
+        },
+        {
+          "baslik": "Yabancılara Satış İşlemleri",
+          "aciklama": "Askeri izin yazısı, vergi numarası, tercüman ve değerleme raporu dahil tüm adımların takibi.",
+          "ikon": "Key"
+        }
+      ],
+      "bolge": [
+        "Ortaca",
+        "Dalyan",
+        "Köyceğiz",
+        "Dalaman",
+        "Fethiye",
+        "Marmaris",
+        "Milas",
+        "Menteşe",
+        "Ula",
+        "Seydikemer"
+      ],
+      "sss": [
+        {
+          "soru": "Tapu devri ne kadar sürer?",
+          "cevap": "Belgeler eksiksiz olduğunda tapu randevusu genellikle 3-7 iş günü içinde alınır ve devir işlemi aynı gün tamamlanır. Yabancı uyruklu alıcılarda askeri izin ve değerleme raporu nedeniyle süre 2-6 haftaya uzayabilir."
+        },
+        {
+          "soru": "Tapu harcı ne kadar, kim öder?",
+          "cevap": "Tapu harcı, beyan edilen satış bedeli üzerinden alıcı ve satıcıdan ayrı ayrı %2 oranında tahsil edilir. Uygulamada tarafların anlaşmasına göre tamamı bir tarafça da ödenebilir; bu konuyu sözleşme aşamasında netleştiriyoruz."
+        },
+        {
+          "soru": "Satın alacağım mülkte ipotek varsa ne olur?",
+          "cevap": "İpotekli bir mülk satılabilir, ancak devir öncesinde ipoteğin kaldırılması ya da ödeme planının bankayla eş zamanlı yürütülmesi gerekir. Tapu kaydını baştan inceleyerek bu riski süreç başında ortaya çıkarıyoruz."
+        },
+        {
+          "soru": "DASK ve enerji kimlik belgesi zorunlu mu?",
+          "cevap": "Evet. Tapu devri sırasında zorunlu deprem sigortası (DASK) poliçesi aranır; konutlarda enerji kimlik belgesi de talep edilmektedir. Her iki belgenin temini sürecinde size yardımcı oluyoruz."
+        },
+        {
+          "soru": "Yabancı alıcı için hangi ek belgeler gerekir?",
+          "cevap": "Yabancı uyruklu alıcılarda vergi kimlik numarası, pasaport tercümesi, biyometrik fotoğraf, askeri izin yazısı, SPK lisanslı değerleme raporu ve tapu işlemi sırasında yeminli tercüman bulunması gerekir."
         }
       ]
     }
   ],
   "ortaklar": [
     {
-      "id": "zafer-soylu",
-      "ad": "Zafer SOYLU",
-      "unvan": "Gayrimenkul & Yapı Danışmanı",
-      "telefon": "+90 537 053 07 54",
-      "whatsapp": "905370530754",
-      "email": "zafer@kalindayapi.com",
-      "biyografi": "Ortaca'da doğup büyüyen Zafer Soylu, 15 yılı aşkın emlak sektörü deneyimiyle bölgenin en tanınan emlak danışmanlarından biridir. Lisanslı emlak danışmanı olarak yüzlerce aileye hayallerindeki evi bulmalarında yardımcı olmuştur. Müşteri memnuniyetini her şeyin üstünde tutan anlayışıyla Kalinda Yapı'nın emlak departmanını yönetmektedir.",
-      "uzmanlikAlanlari": ["Konut Satış", "Kiralama", "Yatırım Danışmanlığı", "Gayrimenkul Değerleme"],
-      "foto": "/images/team/zafer-soylu.jpg"
-    },
-    {
       "id": "arif-dagdelen",
       "ad": "Arif DAĞDELEN",
-      "unvan": "Gayrimenkul & Yapı Danışmanı",
+      "unvan": "Kurucu | Lisanslı Gayrimenkul Danışmanı",
       "telefon": "+90 532 159 15 56",
       "whatsapp": "905321591556",
       "email": "arif@kalindayapi.com",
-      "biyografi": "20 yılı aşkın inşaat sektörü deneyimine sahip Arif Dağdelen, Ortaca ve çevresinde sayısız konut, villa ve ticari proje tamamlamıştır. Kalite odaklı çalışma prensibi ve detaylara verdiği önemle tanınan Arif Bey, Kalinda Yapı'nın yapı ve taahhüt operasyonlarını yönetmektedir. Müşterilerine anahtar teslim çözümler sunmaktadır.",
-      "uzmanlikAlanlari": ["İnşaat Taahhüt", "Tadilat & Renovasyon", "Proje Yönetimi", "Restorasyon"],
-      "foto": "/images/team/arif-dagdelen.jpg"
-    },
-    {
-      "id": "hikmet-karaoglan",
-      "ad": "Hikmet KARAOĞLAN",
-      "unvan": "Gayrimenkul & Yapı Danışmanı",
-      "telefon": "+90 555 453 12 07",
-      "whatsapp": "905554531207",
-      "email": "hikmet@kalindayapi.com",
-      "biyografi": "Gayrimenkul ve yapı sektöründe geniş deneyime sahip Hikmet Karaoğlan, Kalinda Yapı ekibinin en yeni üyesi olarak müşterilerimize profesyonel danışmanlık hizmeti sunmaktadır. Detaylara verdiği önem ve çözüm odaklı yaklaşımıyla projelerinizde güvenilir bir partner olmaktadır.",
-      "uzmanlikAlanlari": ["Gayrimenkul Danışmanlığı", "Yapı Danışmanlığı", "Proje Takibi", "Müşteri İlişkileri"],
-      "foto": "/hikmetkaraoglan.svg"
+      "biyografi": "Ortaca, Dalyan ve Köyceğiz bölgesinde uzun yılların saha deneyimiyle satılık ve kiralık gayrimenkul danışmanlığı sunan Arif Dağdelen, Kalinda Yapı Emlak'ın kurucusudur. Her portföyü yerinde inceleyerek, tapu ve değer analizini şeffaf biçimde paylaşarak süreci baştan sona tek elden yönetir.",
+      "uzmanlikAlanlari": [
+        "Satılık & Kiralık Portföy",
+        "Gayrimenkul Değerleme",
+        "Yatırım Danışmanlığı",
+        "Tapu & Resmi İşlemler"
+      ],
+      "foto": "/arifdagdelen.png"
     }
   ],
   "firmaInfo": {
-    "ad": "Kalinda Yapı",
-    "slogan": "Güvenilir Gayrimenkul & Yapı Çözümleri",
-    "kurulusYili": 2012,
+    "ad": "Kalinda Yapı Emlak",
+    "slogan": "Ortaca'nın Güvenilir Gayrimenkul Danışmanı",
+    "kurulusYili": 2022,
     "adres": {
-      "mahalle": "Cumhuriyet Mahallesi",
-      "cadde": "Atatürk Caddesi",
-      "no": "45/A",
+      "mahalle": "Atatürk Mahallesi",
+      "cadde": "58 Sokak",
+      "no": "2/B",
       "ilce": "Ortaca",
       "il": "Muğla",
       "postaKodu": "48600"
@@ -265,8 +296,7 @@
       "lng": 28.7667
     },
     "iletisim": {
-      "telefon1": "+90 537 053 07 54",
-      "telefon2": "+90 532 159 15 56",
+      "telefon1": "+90 532 159 15 56",
       "email": "info@kalindayapi.com",
       "web": "www.kalindayapi.com"
     },
@@ -276,15 +306,21 @@
       "pazar": "Kapalı"
     },
     "sosyalMedya": {
-      "instagram": "kalindayapi",
+      "instagram": "kalindayapiortaca",
       "facebook": "kalindayapi",
       "youtube": "kalindayapi"
     },
-    "hizmetBolgesi": ["Ortaca", "Dalyan", "Köyceğiz", "Dalaman", "Muğla"],
+    "hizmetBolgesi": [
+      "Ortaca",
+      "Dalyan",
+      "Köyceğiz",
+      "Dalaman",
+      "Muğla"
+    ],
     "istatistikler": {
-      "tamamlananProje": 500,
-      "yilDeneyim": 12,
-      "mutluAile": 300,
+      "tamamlananIslem": 102,
+      "yilDeneyim": 4,
+      "mutluAile": 302,
       "musteriMemnuniyeti": 98
     }
   }

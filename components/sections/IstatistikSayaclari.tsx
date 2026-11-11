@@ -96,13 +96,13 @@ function StatCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="text-center p-4 md:p-6 lg:p-8"
     >
       {/* Icon */}
-      <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/10 mb-3 md:mb-4">
+      <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-lg bg-white/10 mb-3 md:mb-4">
         <Icon className="w-6 h-6 md:w-8 md:h-8 text-accent" />
       </div>
 
@@ -130,14 +130,14 @@ export default function IstatistikSayaclari({ lang = 'tr', dict }: IstatistikSay
     title: "Rakamlarla Kalinda Yapı",
     subtitle: "Güvenin ve Başarının Kanıtı",
     description: "Ortaca ve Muğla bölgesinde yılların getirdiği deneyim ve müşterilerimizin güveniyle büyüyoruz.",
-    projects: "Tamamlanan Proje",
+    projects: "Tamamlanan İşlem",
     experience: "Yıl Deneyim",
     clients: "Mutlu Aile",
     satisfaction: "Müşteri Memnuniyeti",
-    projectsDesc: "Konut, villa ve ticari projeler",
+    projectsDesc: "Satış ve kiralama işlemleri",
     experienceDesc: "2022'den bu yana hizmet",
     clientsDesc: "Güvenle tercih eden müşteriler",
-    satisfactionDesc: "Kalite odaklı hizmet",
+    satisfactionDesc: "Şeffaf ve sonuç odaklı hizmet",
     note: "* Veriler gerçek işlemlerimizi yansıtmakta olup, her satış ve kiralama sonrası güncellenmektedir.",
   };
 
@@ -159,15 +159,13 @@ export default function IstatistikSayaclari({ lang = 'tr', dict }: IstatistikSay
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
@@ -197,7 +195,7 @@ export default function IstatistikSayaclari({ lang = 'tr', dict }: IstatistikSay
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
           className="text-center text-accent/80 text-sm mt-8 font-medium"
         >
           {t.note}

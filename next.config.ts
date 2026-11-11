@@ -50,6 +50,41 @@ const nextConfig: NextConfig = {
       },
 
       // =====================================================
+      // EMLAK ODAKLI GEÇİŞ: kaldırılan hizmet sayfaları
+      // Tadilat / Taahhüt & İnşaat / Plan & Proje hizmetleri
+      // sonlandırıldı; eski URL'ler yeni emlak hizmetlerine taşındı.
+      // =====================================================
+      {
+        source:
+          "/:lang(tr|en|ar|de|ru)/:hizmetler(hizmetler|services|dienstleistungen)/:slug(tadilat-dekorasyon|renovation-decoration|renovierung-dekoration)",
+        destination: "/:lang/:hizmetler",
+        permanent: true,
+      },
+      {
+        source:
+          "/:lang(tr|en|ar|de|ru)/:hizmetler(hizmetler|services|dienstleistungen)/:slug(taahhut-insaat|construction-contracting|bauunternehmen)",
+        destination: "/:lang/:hizmetler",
+        permanent: true,
+      },
+      {
+        source:
+          "/:lang(tr|en|ar|de|ru)/:hizmetler(hizmetler|services|dienstleistungen)/:slug(plan-proje|planning-design|planung-design)",
+        destination: "/:lang/:hizmetler",
+        permanent: true,
+      },
+      // Rusça ve Arapça lokalize hizmet yolları
+      {
+        source: "/ru/услуги/:slug(ремонт-декор|строительство|планирование-дизайн)",
+        destination: "/ru/услуги",
+        permanent: true,
+      },
+      {
+        source: "/ar/خدمات/:slug(تجديد-ديكور|المقاولات-البناء|التخطيط-التصميم)",
+        destination: "/ar/خدمات",
+        permanent: true,
+      },
+
+      // =====================================================
       // 404 DÜZELTME REDİRECT'LERİ
       // =====================================================
 

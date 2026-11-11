@@ -23,9 +23,9 @@ const routeRewrites: Record<string, Record<Locale, string>> = {
   kurumsal: { tr: 'kurumsal', en: 'corporate', ar: 'الشركة', de: 'unternehmen', ru: 'компания' },
   // Alt sayfalar
   'emlak-danismanligi': { tr: 'emlak-danismanligi', en: 'real-estate-consulting', ar: 'استشارات-عقارية', de: 'immobilienberatung', ru: 'консультации-по-недвижимости' },
-  'tadilat-dekorasyon': { tr: 'tadilat-dekorasyon', en: 'renovation-decoration', ar: 'تجديد-ديكور', de: 'renovierung-dekoration', ru: 'ремонт-декор' },
-  'taahhut-insaat': { tr: 'taahhut-insaat', en: 'construction-contracting', ar: 'المقاولات-البناء', de: 'bauunternehmen', ru: 'строительство' },
-  'plan-proje': { tr: 'plan-proje', en: 'planning-design', ar: 'التخطيط-التصميم', de: 'planung-design', ru: 'планирование-дизайн' },
+  'gayrimenkul-degerleme': { tr: 'gayrimenkul-degerleme', en: 'property-valuation', ar: 'تقييم-العقارات', de: 'immobilienbewertung', ru: 'оценка-недвижимости' },
+  'yatirim-danismanligi': { tr: 'yatirim-danismanligi', en: 'investment-consulting', ar: 'استشارات-استثمارية', de: 'investmentberatung', ru: 'инвестиционный-консалтинг' },
+  'tapu-islemleri': { tr: 'tapu-islemleri', en: 'title-deed-services', ar: 'خدمات-الطابو', de: 'grundbuch-service', ru: 'оформление-сделки' },
   'vizyon-misyon': { tr: 'vizyon-misyon', en: 'vision-mission', ar: 'الرؤية-المهمة', de: 'vision-mission', ru: 'миссия-видение' },
   referanslar: { tr: 'referanslar', en: 'references', ar: 'المراجع', de: 'referenzen', ru: 'рекомендации' },
   belgeler: { tr: 'belgeler', en: 'certificates', ar: 'الشهادات', de: 'zertifikate', ru: 'сертификаты' },

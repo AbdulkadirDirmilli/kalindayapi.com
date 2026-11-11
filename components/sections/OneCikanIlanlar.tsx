@@ -28,7 +28,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
@@ -82,9 +82,9 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
@@ -131,7 +131,7 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
                             alt={getIlanBaslik(ilan, lang)}
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
                             watermarkSize="md"
                           />
                         ) : (
@@ -238,9 +238,9 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
 
         {/* View All Button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
           className="text-center mt-12"
         >
           <Link href={`/${lang}/ilanlar`}>

@@ -3,28 +3,28 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { Home, Paintbrush, HardHat, ArrowRight, MessageCircle, FileText } from "lucide-react";
+import { Home, Calculator, TrendingUp, ArrowRight, MessageCircle, FileCheck } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { createWhatsAppLink } from "@/lib/utils";
-import type { Locale } from "@/lib/i18n";
+import { getLocalizedRoute, type Locale } from "@/lib/i18n";
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.08,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6 },
+    transition: { duration: 0.4 },
   },
 };
 
@@ -41,13 +41,13 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
   const t = dict?.home?.services || {
     badge: "Hizmetlerimiz",
     title: "Size Nasıl Yardımcı Olabiliriz?",
-    subtitle: "Emlak danışmanlığından inşaat taahhüdüne kadar tüm ihtiyaçlarınız için yanınızdayız. Profesyonel ekibimizle kaliteli hizmet sunuyoruz.",
+    subtitle: "Alım, satım, kiralama ve yatırım süreçlerinizin tamamında lisanslı gayrimenkul danışmanlığı sunuyoruz.",
     details: "Detaylar",
     viewAll: "Tüm Hizmetlerimizi Görün",
-    realEstate: { title: "Emlak Danışmanlığı", description: "Ortaca ve çevresinde satılık, kiralık gayrimenkul hizmetleri. Profesyonel değerleme ve yatırım danışmanlığı." },
-    renovation: { title: "Tadilat & Dekorasyon", description: "İç mimari, mutfak-banyo yenileme, boya ve kaplama işleri. Evinizi hayalinizdeki gibi dönüştürüyoruz." },
-    construction: { title: "Taahhüt & İnşaat", description: "Sıfırdan bina inşaatı, restorasyon projeleri ve anahtar teslim yapı çözümleri." },
-    planning: { title: "Plan & Proje", description: "Mimari, statik, elektrik-mekanik proje çizimleri ve ruhsat danışmanlığı hizmetleri." },
+    realEstate: { title: "Emlak Danışmanlığı", description: "Ortaca ve çevresinde satılık ve kiralık gayrimenkul portföyü. Alıcı ve satıcı arasında güvenli aracılık." },
+    valuation: { title: "Gayrimenkul Değerleme", description: "Mülkünüzün güncel piyasa değerini bölgesel karşılaştırmalı analizle raporluyoruz." },
+    investment: { title: "Yatırım Danışmanlığı", description: "Kira getirisi ve değer artış potansiyeline göre bölgedeki yatırım fırsatlarını birlikte değerlendiriyoruz." },
+    titleDeed: { title: "Tapu & Resmi İşlemler", description: "Tapu, imar durumu ve sözleşme süreçlerinde baştan sona evrak ve işlem takibi." },
   };
 
   const hizmetler = [
@@ -57,31 +57,31 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       aciklama: t.realEstate.description,
       ikon: Home,
       renk: "#C9A84C",
-      href: `/${lang}/hizmetler/emlak-danismanligi`,
+      href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("emlak-danismanligi", lang)}`,
     },
     {
-      id: "tadilat-dekorasyon",
-      baslik: t.renovation.title,
-      aciklama: t.renovation.description,
-      ikon: Paintbrush,
+      id: "gayrimenkul-degerleme",
+      baslik: t.valuation.title,
+      aciklama: t.valuation.description,
+      ikon: Calculator,
       renk: "#0B1F3A",
-      href: `/${lang}/hizmetler/tadilat-dekorasyon`,
+      href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("gayrimenkul-degerleme", lang)}`,
     },
     {
-      id: "taahhut-insaat",
-      baslik: t.construction.title,
-      aciklama: t.construction.description,
-      ikon: HardHat,
+      id: "yatirim-danismanligi",
+      baslik: t.investment.title,
+      aciklama: t.investment.description,
+      ikon: TrendingUp,
       renk: "#1a3a5c",
-      href: `/${lang}/hizmetler/taahhut-insaat`,
+      href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("yatirim-danismanligi", lang)}`,
     },
     {
-      id: "plan-proje",
-      baslik: t.planning.title,
-      aciklama: t.planning.description,
-      ikon: FileText,
+      id: "tapu-islemleri",
+      baslik: t.titleDeed.title,
+      aciklama: t.titleDeed.description,
+      ikon: FileCheck,
       renk: "#2E7D32",
-      href: `/${lang}/hizmetler/plan-proje`,
+      href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("tapu-islemleri", lang)}`,
     },
   ];
 
@@ -90,9 +90,9 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
@@ -124,7 +124,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
                 >
                   {/* Icon */}
                   <div
-                    className="w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center mb-4 md:mb-6 transition-transform duration-300 group-hover:scale-110"
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center mb-4 md:mb-6"
                     style={{ backgroundColor: `${hizmet.renk}15` }}
                   >
                     <Icon
@@ -144,7 +144,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
                     <div className="flex flex-col sm:flex-row gap-2">
                       <a
                         href={createWhatsAppLink(
-                          "905370530754",
+                          "905321591556",
                           `Merhaba, ${hizmet.baslik} hakkında bilgi almak istiyorum.`
                         )}
                         target="_blank"
@@ -180,12 +180,12 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
 
         {/* View All Services */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <Link href={`/${lang}/hizmetler`}>
+          <Link href={`/${lang}/${getLocalizedRoute("hizmetler", lang)}`}>
             <Button
               variant="primary"
               size="lg"

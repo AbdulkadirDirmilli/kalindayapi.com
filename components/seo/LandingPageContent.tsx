@@ -142,7 +142,7 @@ export default function LandingPageContent({
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:+905370530754">
+              <a href="tel:+905321591556">
                 <Button
                   variant="accent"
                   size="lg"
@@ -152,7 +152,7 @@ export default function LandingPageContent({
                 </Button>
               </a>
               <a
-                href={createWhatsAppLink("905370530754", texts.greeting)}
+                href={createWhatsAppLink("905321591556", texts.greeting)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -256,17 +256,17 @@ export default function LandingPageContent({
             {texts.ctaSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="tel:+905370530754">
+            <a href="tel:+905321591556">
               <Button
                 variant="accent"
                 size="lg"
                 leftIcon={<Phone className="w-5 h-5" />}
               >
-                0537 053 07 54
+                0532 159 15 56
               </Button>
             </a>
             <a
-              href={createWhatsAppLink("905370530754", texts.greeting)}
+              href={createWhatsAppLink("905321591556", texts.greeting)}
               target="_blank"
               rel="noopener noreferrer"
             >

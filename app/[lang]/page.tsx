@@ -3,7 +3,6 @@ import {
   HizmetKartlari,
   OneCikanIlanlar,
   IstatistikSayaclari,
-  ReferansGaleri,
   OrtaklarBolumu,
   NedenBiz,
   IletisimFormKisa,
@@ -78,11 +77,11 @@ export default async function HomePage({
       {/* Hero Section */}
       <HeroSection lang={locale} dict={dict} />
 
+      {/* Öne Çıkan İlanlar - emlak odaklı site, portföy önde */}
+      <OneCikanIlanlar lang={locale} dict={dict} />
+
       {/* Hizmet Kartları */}
       <HizmetKartlari lang={locale} dict={dict} />
-
-      {/* Öne Çıkan İlanlar */}
-      <OneCikanIlanlar lang={locale} dict={dict} />
 
       {/* İstatistik Sayaçları */}
       <IstatistikSayaclari lang={locale} dict={dict} />
@@ -90,10 +89,7 @@ export default async function HomePage({
       {/* Neden Biz */}
       <NedenBiz lang={locale} dict={dict} />
 
-      {/* Referans Galeri */}
-      <ReferansGaleri lang={locale} dict={dict} />
-
-      {/* Ortaklar Bölümü */}
+      {/* Danışman Bölümü */}
       <OrtaklarBolumu lang={locale} dict={dict} />
 
       {/* Son Blog Yazıları */}

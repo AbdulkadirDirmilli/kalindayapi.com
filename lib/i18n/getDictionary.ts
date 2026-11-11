@@ -23,12 +23,6 @@ export interface Dictionary {
     searchListings: string;
     callNow: string;
   };
-  services: {
-    realEstate: string;
-    renovation: string;
-    construction: string;
-    planning: string;
-  };
   common: {
     readMore: string;
     viewAll: string;
@@ -62,7 +56,6 @@ export interface Dictionary {
       experience: string;
       projects: string;
       clients: string;
-      area: string;
     };
     featured: {
       title: string;

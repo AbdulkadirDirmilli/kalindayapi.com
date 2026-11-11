@@ -19,7 +19,7 @@ export const faqKategorileri: Record<Locale, FAQCategory[]> = {
     { id: "genel", baslik: "Genel Sorular", ikon: "HelpCircle" },
     { id: "emlak", baslik: "Emlak Danışmanlığı", ikon: "Building2" },
     { id: "kiralik", baslik: "Kiralık İşlemleri", ikon: "Key" },
-    { id: "insaat", baslik: "İnşaat & Tadilat", ikon: "Hammer" },
+    { id: "degerleme", baslik: "Değerleme & Yatırım", ikon: "TrendingUp" },
     { id: "belge", baslik: "Belgeler & Prosedürler", ikon: "FileText" },
     { id: "odeme", baslik: "Ödeme & Finansman", ikon: "CreditCard" },
   ],
@@ -27,7 +27,7 @@ export const faqKategorileri: Record<Locale, FAQCategory[]> = {
     { id: "genel", baslik: "General Questions", ikon: "HelpCircle" },
     { id: "emlak", baslik: "Real Estate Consulting", ikon: "Building2" },
     { id: "kiralik", baslik: "Rental Services", ikon: "Key" },
-    { id: "insaat", baslik: "Construction & Renovation", ikon: "Hammer" },
+    { id: "degerleme", baslik: "Valuation & Investment", ikon: "TrendingUp" },
     { id: "belge", baslik: "Documents & Procedures", ikon: "FileText" },
     { id: "odeme", baslik: "Payment & Financing", ikon: "CreditCard" },
   ],
@@ -35,7 +35,7 @@ export const faqKategorileri: Record<Locale, FAQCategory[]> = {
     { id: "genel", baslik: "أسئلة عامة", ikon: "HelpCircle" },
     { id: "emlak", baslik: "استشارات عقارية", ikon: "Building2" },
     { id: "kiralik", baslik: "خدمات الإيجار", ikon: "Key" },
-    { id: "insaat", baslik: "البناء والتجديد", ikon: "Hammer" },
+    { id: "degerleme", baslik: "التقييم والاستثمار", ikon: "TrendingUp" },
     { id: "belge", baslik: "المستندات والإجراءات", ikon: "FileText" },
     { id: "odeme", baslik: "الدفع والتمويل", ikon: "CreditCard" },
   ],
@@ -43,7 +43,7 @@ export const faqKategorileri: Record<Locale, FAQCategory[]> = {
     { id: "genel", baslik: "Allgemeine Fragen", ikon: "HelpCircle" },
     { id: "emlak", baslik: "Immobilienberatung", ikon: "Building2" },
     { id: "kiralik", baslik: "Mietdienstleistungen", ikon: "Key" },
-    { id: "insaat", baslik: "Bau & Renovierung", ikon: "Hammer" },
+    { id: "degerleme", baslik: "Bewertung & Investition", ikon: "TrendingUp" },
     { id: "belge", baslik: "Dokumente & Verfahren", ikon: "FileText" },
     { id: "odeme", baslik: "Zahlung & Finanzierung", ikon: "CreditCard" },
   ],
@@ -51,7 +51,7 @@ export const faqKategorileri: Record<Locale, FAQCategory[]> = {
     { id: "genel", baslik: "Общие вопросы", ikon: "HelpCircle" },
     { id: "emlak", baslik: "Консультации по недвижимости", ikon: "Building2" },
     { id: "kiralik", baslik: "Услуги аренды", ikon: "Key" },
-    { id: "insaat", baslik: "Строительство и ремонт", ikon: "Hammer" },
+    { id: "degerleme", baslik: "Оценка и инвестиции", ikon: "TrendingUp" },
     { id: "belge", baslik: "Документы и процедуры", ikon: "FileText" },
     { id: "odeme", baslik: "Оплата и финансирование", ikon: "CreditCard" },
   ],
@@ -77,7 +77,7 @@ export const sssTexts: Record<Locale, {
   tr: {
     title: "Sıkça Sorulan",
     titleHighlight: "Sorular",
-    subtitle: "Emlak, tadilat ve inşaat hizmetlerimiz hakkında en çok merak edilen soruların cevaplarını burada bulabilirsiniz. Aradığınız cevabı bulamazsanız bize ulaşın.",
+    subtitle: "Gayrimenkul alım, satım ve kiralama süreçlerimiz hakkında en çok merak edilen soruların cevaplarını burada bulabilirsiniz. Aradığınız cevabı bulamazsanız bize ulaşın.",
     breadcrumb: "Sıkça Sorulan Sorular",
     categories: "Kategoriler",
     questionsCount: "soru",
@@ -162,7 +162,7 @@ export const sorularTR: FAQ[] = [
   {
     kategori: "genel",
     soru: "Kalinda Yapı hangi bölgelerde hizmet veriyor?",
-    cevap: "Kalinda Yapı olarak Muğla'nın tüm ilçelerinde aktif portföyümüz bulunuyor: Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça, Menteşe, Yatağan, Ula, Kavaklıdere ve Seydikemer. 2022'den bu yana 200+ emlak işlemi ve 100+ tadilat projesi tamamladık. Yerinde keşif için mesafe fark etmez, tüm Muğla genelinde ücretsiz ön görüşme yapıyoruz.",
+    cevap: "Kalinda Yapı Emlak olarak Muğla'nın tüm ilçelerinde aktif portföyümüz bulunuyor: Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça, Menteşe, Yatağan, Ula, Kavaklıdere ve Seydikemer. 2022'den bu yana 200'den fazla emlak işlemi tamamladık. Yerinde inceleme için mesafe fark etmez, tüm Muğla genelinde ücretsiz ön görüşme yapıyoruz.",
   },
   {
     kategori: "genel",
@@ -172,17 +172,17 @@ export const sorularTR: FAQ[] = [
   {
     kategori: "genel",
     soru: "Kalinda Yapı'ya nasıl ulaşabilirim?",
-    cevap: "Bize üç farklı kanaldan ulaşabilirsiniz: Telefon (+90 537 053 07 54 - Zafer Soylu, +90 532 159 15 56 - Arif Dağdelen), e-posta (info@kalindayapi.com) veya WhatsApp. Ofisimiz Ortaca merkezdedir: Atatürk Mahallesi, 58 Sokak No: 2/B (Belediye Arkası). Google Haritalar'da 'Kalinda Yapı' aratarak yol tarifi alabilirsiniz.",
+    cevap: "Bize üç farklı kanaldan ulaşabilirsiniz: Telefon (+90 532 159 15 56 - Arif Dağdelen), e-posta (info@kalindayapi.com) veya WhatsApp. Ofisimiz Ortaca merkezdedir: Atatürk Mahallesi, 58 Sokak No: 2/B (Belediye Arkası). Google Haritalar'da 'Kalinda Yapı Emlak' aratarak yol tarifi alabilirsiniz.",
   },
   {
     kategori: "genel",
     soru: "Kalinda Yapı lisanslı bir emlak firması mı?",
-    cevap: "Evet, Kalinda Yapı resmi emlak danışmanlığı lisansına sahip, Muğla Ticaret Odası'na kayıtlı yasal bir firmadır. Zafer Soylu ve Arif Dağdelen ortaklığında 2022'de kurulan firmamız, toplamda 20+ yıllık sektör deneyimine sahip profesyonel bir ekiple hizmet vermektedir. Tüm işlemlerimiz yasal mevzuata uygun şekilde gerçekleştirilir.",
+    cevap: "Evet, Kalinda Yapı Emlak resmi emlak danışmanlığı lisansına sahip, Muğla Ticaret Odası'na kayıtlı yasal bir firmadır. Arif Dağdelen tarafından 2022'de kurulan firmamız, lisanslı gayrimenkul danışmanlığı kapsamında hizmet vermektedir. Tüm işlemlerimiz yasal mevzuata uygun şekilde gerçekleştirilir.",
   },
   {
     kategori: "genel",
     soru: "Ücretsiz danışmanlık alabilir miyim?",
-    cevap: "Evet, emlak alım-satım, kiralama veya tadilat projeleriniz için ilk görüşme ve ön değerlendirme tamamen ücretsizdir. Telefonla veya yüz yüze ihtiyaçlarınızı dinliyor, size özel çözüm önerileri sunuyoruz. Herhangi bir taahhüt olmadan fikir alabilirsiniz.",
+    cevap: "Evet, gayrimenkul alım, satım ve kiralama talepleriniz için ilk görüşme ve ön değerleme tamamen ücretsizdir. Telefonla veya yüz yüze ihtiyaçlarınızı dinliyor, size uygun portföy seçeneklerini sunuyoruz. Herhangi bir taahhüt olmadan fikir alabilirsiniz.",
   },
 
   // Emlak Danışmanlığı
@@ -249,46 +249,46 @@ export const sorularTR: FAQ[] = [
     cevap: "Evet, Dalyan ve Ortaca'da günlük, haftalık ve aylık yazlık kiralama portföyümüz mevcuttur. Havuzlu villalar, denize yakın daireler ve doğa içinde bungalovlar seçenekler arasında. Sezon rezervasyonları için erken iletişime geçmenizi öneririz. Yüksek sezon (Temmuz-Ağustos) için Nisan'dan itibaren doluluk başlıyor.",
   },
 
-  // İnşaat & Tadilat
+  // Değerleme & Yatırım
   {
-    kategori: "insaat",
-    soru: "Anahtar teslim ev inşaatı ne kadar sürer?",
-    cevap: "Anahtar teslim ev inşaatı projenin büyüklüğüne ve karmaşıklığına göre değişir: 150-200 m² tek katlı müstakil ev 8-10 ay, iki katlı villa 12-15 ay, havuzlu ve peyzajlı projeler 15-18 ay sürmektedir. Proje başlangıcında detaylı iş programı hazırlıyor ve haftalık ilerleme raporlarıyla sizi bilgilendiriyoruz. Hava koşulları ve izin süreçleri takvimi etkileyebilir.",
+    kategori: "degerleme",
+    soru: "Mülkümün değerini nasıl öğrenebilirim?",
+    cevap: "Ücretsiz ön değerleme için bizimle iletişime geçmeniz yeterli. Mülkü yerinde inceliyor; konum, metrekare, bina yaşı, kat ve cephe, ısıtma sistemi ile tapu ve imar durumunu değerlendiriyoruz. Bu veriyi bölgede son dönemde gerçekleşen benzer satışlarla karşılaştırıp ortalama 2 iş günü içinde yazılı bir değer aralığı sunuyoruz.",
   },
   {
-    kategori: "insaat",
-    soru: "Tadilat projesi için ücretsiz keşif yapıyor musunuz?",
-    cevap: "Evet, Ortaca, Dalyan, Köyceğiz ve tüm Muğla genelinde ücretsiz yerinde keşif yapıyoruz. Keşif sırasında projenin kapsamını belirliyor, ölçüm alıyor, mevcut durumu fotoğraflıyoruz. 3-5 iş günü içinde detaylı maliyet teklifi sunuyoruz. Teklif kabul edilmezse hiçbir ücret talep etmiyoruz. Randevu için WhatsApp'tan veya telefonla ulaşın.",
+    kategori: "degerleme",
+    soru: "İnternetteki ilan fiyatları gerçek piyasa değerini gösterir mi?",
+    cevap: "Hayır. İlan fiyatları satıcının beklentisini yansıtır, gerçekleşen satış fiyatını değil. Ortaca ve çevresinde ilan fiyatı ile kapanış fiyatı arasında çoğu zaman belirgin bir fark oluşur. Bu nedenle değerleme çalışmamızda ilan fiyatlarını değil, tapuda gerçekleşen satışları esas alıyoruz.",
   },
   {
-    kategori: "insaat",
-    soru: "Mutfak ve banyo tadilatı ne kadar sürer?",
-    cevap: "Ortalama süreler: Banyo tadilatı (komple yıkım dahil) 10-15 gün, mutfak tadilatı 15-20 gün, komple daire tadilatı 6-10 hafta. Tesisat değişikliği, duvar yıkımı veya özel malzeme tedariki süreyi uzatabilir. Proje başlangıcında kesin takvim belirleniyor ve sözleşmede belirtiliyor. 100+ tamamlanmış projemizde %95 zamanında teslim oranımız var.",
+    kategori: "degerleme",
+    soru: "Bir ev ortalama ne kadar sürede satılıyor?",
+    cevap: "Doğru fiyatlanmış bir daire Ortaca merkezde ortalama 1-3 ay içinde alıcısını buluyor. Dalyan ve Köyceğiz'deki villalarda hedef kitle daha dar olduğu için bu süre 3-6 aya çıkabiliyor. Piyasa değerinin üzerinde fiyatlanan mülklerde süre belirgin şekilde uzuyor; bu nedenle doğru fiyatlama satış sürecinin en kritik adımıdır.",
   },
   {
-    kategori: "insaat",
-    soru: "İnşaat ve tadilat işlerinde garanti veriyor musunuz?",
-    cevap: "Evet, tüm işçilik ve uygulama için 2 yıl garanti veriyoruz. Su yalıtımı, çatı ve dış cephe işlerinde 5 yıl garanti sunuyoruz. Malzemeler için üretici garantisi (genellikle 2-10 yıl) ayrıca geçerlidir. Garanti kapsamındaki sorunlar 48 saat içinde yerinde değerlendirilir ve ücretsiz giderilir. Tüm garanti koşulları sözleşmede açıkça belirtilir.",
+    kategori: "degerleme",
+    soru: "Ortaca'da kira getirisi ne kadar?",
+    cevap: "Ortaca merkezde bir dairenin yıllık brüt kira getirisi, mülk bedelinin yaklaşık %4-6'sı aralığında seyrediyor. Öğrenci ve memur talebi nedeniyle boşta kalma süresi kısa olduğundan getiri istikrarlıdır. Dalyan'da sezonluk kiralama günlük bazda daha yüksek getiri sağlasa da gelir yılın tamamına yayılmaz ve işletme yükü daha ağırdır.",
   },
   {
-    kategori: "insaat",
-    soru: "Hangi marka malzemeler kullanıyorsunuz?",
-    cevap: "Sadece A sınıfı, garantili markalarla çalışıyoruz: Seramik/fayans için Vitra ve Kütahya Seramik, sıhhi tesisat için Eca, Artema ve Grohe, PVC doğrama için Winsa ve Egepen, alüminyum doğrama için Alumil, boya için Jotun ve Marshall, elektrik malzemesi için Legrand ve Viko. Müşteri talebiyle farklı markalar da temin edilebilir.",
+    kategori: "degerleme",
+    soru: "Yatırım için arsa mı daire mi almalıyım?",
+    cevap: "Daire düzenli kira geliri sağlar ve satışı daha kolaydır. Arsa ise kira getirmez, ancak imar gelişmelerine bağlı olarak orta-uzun vadede daha yüksek değer artışı sunabilir. Karar; elde tutma sürenize, nakit akışı ihtiyacınıza ve risk toleransınıza bağlıdır. Her iki seçeneği de rakamlarla karşılaştırarak önünüze koyuyoruz.",
   },
   {
-    kategori: "insaat",
-    soru: "Eski ev yenileme mi yoksa yıkıp yeniden yapma mı daha mantıklı?",
-    cevap: "Bu karar yapının durumuna, yaşına ve lokasyona göre değişir. Genel kural: Bina 30 yaşın altında ve taşıyıcı sistem sağlamsa yenileme daha ekonomik. 40+ yaşındaki binalarda veya ciddi yapısal sorunlarda (temel çökmesi, kolon hasarı) yıkıp yapma daha güvenli ve uzun vadede karlı. Ücretsiz keşfimizde mühendis gözüyle değerlendirme yapıp size en uygun seçeneği öneriyoruz.",
+    kategori: "degerleme",
+    soru: "Mülkümü portföyünüze nasıl eklerim?",
+    cevap: "Bizi arayıp randevu vermeniz yeterli. Mülkü yerinde inceliyor, profesyonel olarak fotoğraflıyor, ilan metnini hazırlıyor ve tüm yayın kanallarımızda listeliyoruz. Portföye ekleme tamamen ücretsizdir; komisyon yalnızca satış veya kiralama gerçekleştiğinde alınır.",
   },
   {
-    kategori: "insaat",
-    soru: "Tadilat için belediyeden izin almak gerekiyor mu?",
-    cevap: "Taşıyıcı sisteme dokunmayan iç tadilatlarda (boya, fayans, mutfak dolabı vb.) izin gerekmez. Ancak duvar yıkımı, balkon kapatma, çatı değişikliği, dış cephe değişikliği veya tesisat güzergah değişikliği için belediyeden tadilat ruhsatı alınması zorunludur. Ruhsatsız yapılan değişiklikler cezai işlem ve yıkım kararıyla sonuçlanabilir. Biz tüm izin süreçlerini sizin adınıza takip ediyoruz.",
+    kategori: "degerleme",
+    soru: "İlanlardaki bilgilerin doğruluğunu nasıl güvence altına alıyorsunuz?",
+    cevap: "Listelediğimiz her gayrimenkulü satışa sunmadan önce yerinde görüyor, tapu kaydını ve imar durumunu kontrol ediyoruz. Metrekare, kat, ısıtma, aidat ve iskan bilgileri mülk sahibinden alınan belgeyle doğrulanır. Doğrulayamadığımız bilgiyi ilanda yayınlamıyoruz.",
   },
   {
-    kategori: "insaat",
-    soru: "Ortaca'da tadilat maliyeti nasıl hesaplanır?",
-    cevap: "Tadilat maliyeti işçilik + malzeme + nakliye + KDV'den oluşur. 2026 güncel fiyatlarıyla: Banyo tadilatı 80.000-150.000 TL, mutfak tadilatı 100.000-200.000 TL, komple daire tadilatı m² başına 8.000-15.000 TL aralığında değişiyor. Maliyet; tercih edilen malzeme kalitesi, işin kapsamı ve mülkün durumuna göre belirlenir. Keşif sonrası net fiyat teklifi veriyoruz, sürpriz maliyet çıkmıyor.",
+    kategori: "degerleme",
+    soru: "Satış öncesinde mülkümde iyileştirme yapmalı mıyım?",
+    cevap: "Maliyeti düşük, etkisi yüksek iyileştirmeler satış süresini kısaltır: temizlik ve düzen, küçük boya rötuşları, arızalı armatürlerin değişimi ve iyi aydınlatılmış fotoğraflar. Kapsamlı tadilat ise çoğu zaman harcanan tutarı fiyata yansıtmaz. Değerleme raporumuzda mülkünüze özel önerileri paylaşıyoruz.",
   },
 
   // Belgeler & Prosedürler
@@ -332,12 +332,12 @@ export const sorularTR: FAQ[] = [
   {
     kategori: "odeme",
     soru: "Sıfır ev veya villa projelerinde taksitli satış var mı?",
-    cevap: "Evet, yeni proje ve villa satışlarında peşinat + taksit seçenekleri sunulabiliyor. Tipik ödeme planı: %30-40 peşinat, kalan tutar 12-36 ay vade ile taksit. İnşaat aşamasındaki projelerde vade inşaat süresine paralel olabilir. Ödeme planları projeye ve satıcıya göre değişir, size uygun seçenekleri sunuyoruz.",
+    cevap: "Evet, portföyümüzdeki yeni proje ve villa satışlarında satıcının sunduğu peşinat + taksit seçenekleri olabiliyor. Tipik ödeme planı: %30-40 peşinat, kalan tutar 12-36 ay vade ile taksit. Ödeme planları projeye ve satıcıya göre değişir; size uygun seçenekleri bir arada sunuyoruz.",
   },
   {
     kategori: "odeme",
-    soru: "Tadilat ve inşaat projelerinde ödeme nasıl yapılır?",
-    cevap: "Tadilat projelerinde şeffaf ödeme planı uyguluyoruz: %30 sözleşme imzasında (malzeme temini için), %40 kaba işler tamamlandığında, %30 kesin kabul ve teslimde. İnşaat projelerinde hakediş sistemine göre aylık ödemeler yapılır. Tüm ödemeler makbuz karşılığı alınır ve sözleşmede belirtilir. Nakit ödemelerde %5'e kadar indirim uygulanabilir.",
+    soru: "Aracılık komisyonu ne zaman ve nasıl ödenir?",
+    cevap: "Komisyon yalnızca işlem gerçekleştiğinde alınır. Satışta tapu devrinin tamamlandığı gün, kiralamada ise sözleşmenin imzalandığı gün tahsil edilir. Satışta oran satış bedelinin %2'si, kiralamada 1 aylık kira bedelidir. Tüm ödemeler fatura karşılığı yapılır ve oranlar sözleşme öncesinde yazılı olarak paylaşılır.",
   },
   {
     kategori: "odeme",
@@ -352,10 +352,10 @@ export const sorularTR: FAQ[] = [
 ];
 
 // Import translated FAQs
-import { sorularEN, sorularAR } from './sss-translations';
+import { sorularEN, sorularAR, sorularDE, sorularRU } from './sss-translations';
 
 // Re-export for direct access if needed
-export { sorularEN, sorularAR };
+export { sorularEN, sorularAR, sorularDE, sorularRU };
 
 // Get FAQ data by locale
 export function getSorular(locale: Locale): FAQ[] {
@@ -365,9 +365,9 @@ export function getSorular(locale: Locale): FAQ[] {
     case 'ar':
       return sorularAR.length > 0 ? sorularAR : sorularTR;
     case 'de':
-      return sorularEN.length > 0 ? sorularEN : sorularTR; // Fallback to EN then TR
+      return sorularDE.length > 0 ? sorularDE : sorularTR;
     case 'ru':
-      return sorularEN.length > 0 ? sorularEN : sorularTR; // Fallback to EN then TR
+      return sorularRU.length > 0 ? sorularRU : sorularTR;
     default:
       return sorularTR;
   }
@@ -386,13 +386,13 @@ export const popularSorular: Record<Locale, Array<{
       ikon: "Building2",
     },
     {
-      soru: "Ücretsiz keşif yapıyor musunuz?",
-      cevap: "Evet, tüm Muğla genelinde ücretsiz yerinde keşif ve detaylı fiyat teklifi sunuyoruz.",
-      ikon: "Hammer",
+      soru: "Ücretsiz değerleme yapıyor musunuz?",
+      cevap: "Evet, tüm Muğla genelinde ücretsiz yerinde inceleme ve yazılı değer raporu sunuyoruz.",
+      ikon: "Calculator",
     },
     {
-      soru: "Anahtar teslim ev ne kadar sürer?",
-      cevap: "Tek katlı ev 8-10 ay, iki katlı villa 12-15 ay, havuzlu projeler 15-18 ay.",
+      soru: "Bir ev ortalama ne kadar sürede satılır?",
+      cevap: "Doğru fiyatlanmış daire 1-3 ay, villa 3-6 ay içinde alıcısını buluyor.",
       ikon: "MapPin",
     },
     {
@@ -406,9 +406,9 @@ export const popularSorular: Record<Locale, Array<{
       ikon: "FileText",
     },
     {
-      soru: "Tadilat işlerinde garanti var mı?",
-      cevap: "Evet, 2 yıl işçilik garantisi + A sınıfı malzeme üretici garantisi.",
-      ikon: "Key",
+      soru: "Mülkümün değerini öğrenebilir miyim?",
+      cevap: "Evet, ücretsiz ön değerleme yapıyoruz. 2 iş günü içinde yazılı değer aralığı sunuyoruz.",
+      ikon: "TrendingUp",
     },
   ],
   en: [
@@ -418,13 +418,13 @@ export const popularSorular: Record<Locale, Array<{
       ikon: "Building2",
     },
     {
-      soru: "Do you provide free inspection?",
-      cevap: "Yes, we offer free on-site inspection and detailed price quotes throughout Muğla.",
-      ikon: "Hammer",
+      soru: "Do you provide free valuation?",
+      cevap: "Yes, we offer free on-site inspection and a written valuation report throughout Muğla.",
+      ikon: "Calculator",
     },
     {
-      soru: "How long does turnkey construction take?",
-      cevap: "Single-story house 8-10 months, two-story villa 12-15 months, projects with pool 15-18 months.",
+      soru: "How long does it take to sell a property?",
+      cevap: "A correctly priced apartment sells in 1-3 months, a villa in 3-6 months.",
       ikon: "MapPin",
     },
     {
@@ -438,9 +438,9 @@ export const popularSorular: Record<Locale, Array<{
       ikon: "FileText",
     },
     {
-      soru: "Is there a warranty on renovation work?",
-      cevap: "Yes, 2-year workmanship warranty + A-class material manufacturer warranty.",
-      ikon: "Key",
+      soru: "Can I find out what my property is worth?",
+      cevap: "Yes, we provide a free initial valuation and a written value range within 2 business days.",
+      ikon: "TrendingUp",
     },
   ],
   ar: [
@@ -450,13 +450,13 @@ export const popularSorular: Record<Locale, Array<{
       ikon: "Building2",
     },
     {
-      soru: "هل تقدمون معاينة مجانية؟",
-      cevap: "نعم، نقدم معاينة مجانية في الموقع وعروض أسعار مفصلة في جميع أنحاء موغلا.",
-      ikon: "Hammer",
+      soru: "هل تقدمون تقييماً مجانياً؟",
+      cevap: "نعم، نقدم معاينة مجانية في الموقع وتقرير تقييم مكتوب في جميع أنحاء موغلا.",
+      ikon: "Calculator",
     },
     {
-      soru: "كم يستغرق البناء تسليم المفتاح؟",
-      cevap: "منزل طابق واحد 8-10 أشهر، فيلا طابقين 12-15 شهراً، مشاريع مع مسبح 15-18 شهراً.",
+      soru: "كم يستغرق بيع العقار عادة؟",
+      cevap: "الشقة المسعّرة بشكل صحيح تُباع خلال 1-3 أشهر، والفيلا خلال 3-6 أشهر.",
       ikon: "MapPin",
     },
     {
@@ -470,9 +470,9 @@ export const popularSorular: Record<Locale, Array<{
       ikon: "FileText",
     },
     {
-      soru: "هل يوجد ضمان على أعمال التجديد؟",
-      cevap: "نعم، ضمان سنتين على العمالة + ضمان الشركة المصنعة للمواد من الدرجة الأولى.",
-      ikon: "Key",
+      soru: "هل يمكنني معرفة قيمة عقاري؟",
+      cevap: "نعم، نقدم تقييماً أولياً مجانياً ونطاق قيمة مكتوباً خلال يومي عمل.",
+      ikon: "TrendingUp",
     },
   ],
   de: [
@@ -482,13 +482,13 @@ export const popularSorular: Record<Locale, Array<{
       ikon: "Building2",
     },
     {
-      soru: "Bieten Sie kostenlose Besichtigungen an?",
-      cevap: "Ja, wir bieten kostenlose Vor-Ort-Besichtigungen und detaillierte Preisangebote in ganz Muğla.",
-      ikon: "Hammer",
+      soru: "Bieten Sie kostenlose Bewertungen an?",
+      cevap: "Ja, wir bieten kostenlose Vor-Ort-Besichtigungen und einen schriftlichen Wertbericht in ganz Muğla.",
+      ikon: "Calculator",
     },
     {
-      soru: "Wie lange dauert ein schlüsselfertiger Bau?",
-      cevap: "Einstöckiges Haus 8-10 Monate, zweistöckige Villa 12-15 Monate, Projekte mit Pool 15-18 Monate.",
+      soru: "Wie lange dauert der Verkauf einer Immobilie?",
+      cevap: "Eine korrekt bepreiste Wohnung verkauft sich in 1-3 Monaten, eine Villa in 3-6 Monaten.",
       ikon: "MapPin",
     },
     {
@@ -502,9 +502,9 @@ export const popularSorular: Record<Locale, Array<{
       ikon: "FileText",
     },
     {
-      soru: "Gibt es Garantie auf Renovierungsarbeiten?",
-      cevap: "Ja, 2 Jahre Arbeitsgarantie + Herstellergarantie für A-Klasse-Materialien.",
-      ikon: "Key",
+      soru: "Kann ich den Wert meiner Immobilie erfahren?",
+      cevap: "Ja, wir erstellen eine kostenlose Erstbewertung und eine schriftliche Wertspanne innerhalb von 2 Werktagen.",
+      ikon: "TrendingUp",
     },
   ],
   ru: [
@@ -514,13 +514,13 @@ export const popularSorular: Record<Locale, Array<{
       ikon: "Building2",
     },
     {
-      soru: "Вы проводите бесплатный осмотр?",
-      cevap: "Да, мы предлагаем бесплатный осмотр на месте и подробные ценовые предложения по всей Мугле.",
-      ikon: "Hammer",
+      soru: "Вы проводите бесплатную оценку?",
+      cevap: "Да, мы предлагаем бесплатный осмотр на месте и письменный отчет об оценке по всей Мугле.",
+      ikon: "Calculator",
     },
     {
-      soru: "Сколько времени занимает строительство под ключ?",
-      cevap: "Одноэтажный дом 8-10 месяцев, двухэтажная вилла 12-15 месяцев, проекты с бассейном 15-18 месяцев.",
+      soru: "Сколько времени обычно продается объект?",
+      cevap: "Правильно оцененная квартира продается за 1-3 месяца, вилла — за 3-6 месяцев.",
       ikon: "MapPin",
     },
     {
@@ -534,9 +534,9 @@ export const popularSorular: Record<Locale, Array<{
       ikon: "FileText",
     },
     {
-      soru: "Есть ли гарантия на ремонтные работы?",
-      cevap: "Да, 2 года гарантии на работу + гарантия производителя на материалы класса А.",
-      ikon: "Key",
+      soru: "Могу ли я узнать стоимость своего объекта?",
+      cevap: "Да, мы проводим бесплатную первичную оценку и выдаем письменный диапазон стоимости за 2 рабочих дня.",
+      ikon: "TrendingUp",
     },
   ],
 };

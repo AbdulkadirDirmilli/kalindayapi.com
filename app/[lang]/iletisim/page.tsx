@@ -13,7 +13,6 @@ import {
   Send,
   MessageCircle,
   Building2,
-  HardHat,
 } from "lucide-react";
 import { Instagram, Facebook, Youtube } from "@/components/icons/SocialIcons";
 import { Card } from "@/components/ui/Card";
@@ -21,36 +20,17 @@ import { Input, Textarea, Select } from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 import { createWhatsAppLink } from "@/lib/utils";
 import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/jsonld";
-import { Users } from "lucide-react";
 import { useLocale } from "@/components/providers/LocaleProvider";
 
 const yetkililer = [
-  {
-    id: "zafer",
-    telefon: "+90 537 053 07 54",
-    whatsapp: "905370530754",
-    email: "zafer@kalindayapi.com",
-    foto: "/zafersoylu.png",
-    ikon: Building2,
-    renk: "#C9A84C",
-  },
   {
     id: "arif",
     telefon: "+90 532 159 15 56",
     whatsapp: "905321591556",
     email: "arif@kalindayapi.com",
     foto: "/arifdagdelen.png",
-    ikon: HardHat,
-    renk: "#0B1F3A",
-  },
-  {
-    id: "hikmet",
-    telefon: "+90 555 453 12 07",
-    whatsapp: "905554531207",
-    email: "hikmet@kalindayapi.com",
-    foto: "/hikmetkaraoglan.svg",
-    ikon: Users,
-    renk: "#2E7D32",
+    ikon: Building2,
+    renk: "#C9A84C",
   },
 ];
 
@@ -73,7 +53,7 @@ export default function IletisimPage() {
   const t = dict?.contactPage || {
     heroTitle: "İletişim",
     heroSubtitle: "Sorularınız için bizimle iletişime geçin. Size yardımcı olmaktan mutluluk duyarız.",
-    heroDescription: "Emlak, tadilat veya inşaat projeleriniz için uzman ekibimizle görüşün.",
+    heroDescription: "Alım, satım veya kiralama planınız için lisanslı danışmanımızla görüşün.",
     infoTitle: "İletişim Bilgileri",
     address: "Adres",
     addressLine1: "Atatürk Mah. 58 Sk. No: 2/B",
@@ -83,7 +63,7 @@ export default function IletisimPage() {
     weekdaysHours: "Pazartesi - Cuma: 09:00 - 18:00",
     saturdayHours: "Cumartesi: 10:00 - 14:00",
     sundayClosed: "Pazar: Kapalı",
-    teamTitle: "Yetkililerimiz",
+    teamTitle: "Danışmanınız",
     socialTitle: "Sosyal Medya",
     formTitle: "Bize Mesaj Gönderin",
     successTitle: "Mesajınız Gönderildi!",
@@ -104,14 +84,13 @@ export default function IletisimPage() {
     },
     serviceOptions: {
       emlak: "Emlak Danışmanlığı",
-      tadilat: "Tadilat & Dekorasyon",
-      insaat: "İnşaat & Taahhüt",
+      degerleme: "Gayrimenkul Değerleme",
+      yatirim: "Yatırım Danışmanlığı",
+      tapu: "Tapu & Resmi İşlemler",
       diger: "Diğer"
     },
     team: {
-      zafer: { name: "Zafer KALINDA", title: "Kurucu Ortak & Emlak Danışmanı" },
-      arif: { name: "Arif KALINDA", title: "Kurucu Ortak & İnşaat Müdürü" },
-      hikmet: { name: "Hikmet KALINDA", title: "Kurucu Ortak & Tadilat Uzmanı" }
+      arif: { name: "Arif DAĞDELEN", title: "Kurucu | Lisanslı Gayrimenkul Danışmanı" }
     },
     mapTitle: "Kalinda Yapı Konum - Ortaca, Muğla"
   };
@@ -124,9 +103,9 @@ export default function IletisimPage() {
     { value: "", label: t.form?.serviceSelect || "Hizmet Seçin" },
     { value: "emlak-satilik", label: `${t.serviceOptions?.emlak || "Emlak"} - ${dict?.listings?.categories?.satilik || "Satılık"}` },
     { value: "emlak-kiralik", label: `${t.serviceOptions?.emlak || "Emlak"} - ${dict?.listings?.categories?.kiralik || "Kiralık"}` },
-    { value: "tadilat", label: t.serviceOptions?.tadilat || "Tadilat & Dekorasyon" },
-    { value: "taahhut", label: t.serviceOptions?.insaat || "İnşaat & Taahhüt" },
-    { value: "plan-proje", label: dict?.services?.planning || "Plan & Proje" },
+    { value: "degerleme", label: t.serviceOptions?.degerleme || "Gayrimenkul Değerleme" },
+    { value: "yatirim", label: t.serviceOptions?.yatirim || "Yatırım Danışmanlığı" },
+    { value: "tapu", label: t.serviceOptions?.tapu || "Tapu & Resmi İşlemler" },
     { value: "diger", label: t.serviceOptions?.diger || "Diğer" },
   ];
 
@@ -233,7 +212,7 @@ export default function IletisimPage() {
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              {t.heroTitle} <span className="text-[#C9A84C]">{t.heroTitle}</span>
+              <span className="text-[#C9A84C]">{t.heroTitle}</span>
             </h1>
             <p className="text-gray-300 text-lg">
               {t.heroSubtitle}

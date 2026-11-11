@@ -17,7 +17,7 @@ const texts = {
       },
       {
         title: "2. Hizmet Tanımı",
-        content: "Kalinda Yapı, emlak danışmanlığı, inşaat ve tadilat hizmetleri sunan bir şirkettir. Web sitemiz, hizmetlerimiz hakkında bilgi vermek ve potansiyel müşterilerle iletişim kurmak amacıyla kullanılmaktadır.",
+        content: "Kalinda Yapı Emlak, gayrimenkul alım, satım ve kiralama danışmanlığı sunan bir şirkettir. Web sitemiz, hizmetlerimiz ve portföyümüz hakkında bilgi vermek ve potansiyel müşterilerle iletişim kurmak amacıyla kullanılmaktadır.",
       },
       {
         title: "3. İlan Bilgileri",
@@ -60,7 +60,7 @@ const texts = {
       },
       {
         title: "2. Service Description",
-        content: "Kalinda Yapı is a company offering real estate consultancy, construction, and renovation services. Our website is used to provide information about our services and to communicate with potential customers.",
+        content: "Kalinda Yapı Emlak is a company offering property sales, rental and consultancy services. Our website is used to provide information about our services and portfolio and to communicate with potential clients.",
       },
       {
         title: "3. Listing Information",
@@ -103,7 +103,7 @@ const texts = {
       },
       {
         title: "2. وصف الخدمة",
-        content: "كاليندا يابي هي شركة تقدم خدمات الاستشارات العقارية والبناء والتجديد. يُستخدم موقعنا الإلكتروني لتقديم معلومات حول خدماتنا والتواصل مع العملاء المحتملين.",
+        content: "كاليندا يابي العقارية هي شركة تقدم خدمات بيع وتأجير العقارات والاستشارات العقارية. يُستخدم موقعنا الإلكتروني لتقديم معلومات حول خدماتنا ومحفظتنا والتواصل مع العملاء المحتملين.",
       },
       {
         title: "3. معلومات القوائم",
@@ -146,7 +146,7 @@ const texts = {
       },
       {
         title: "2. Servicebeschreibung",
-        content: "Kalinda Yapı ist ein Unternehmen, das Immobilienberatung, Bau- und Renovierungsdienstleistungen anbietet. Unsere Website dient der Information über unsere Dienstleistungen und der Kommunikation mit potenziellen Kunden.",
+        content: "Kalinda Yapı Emlak ist ein Unternehmen, das Immobilienverkauf, Vermietung und Immobilienberatung anbietet. Unsere Website dient der Information über unsere Dienstleistungen und unser Portfolio sowie der Kommunikation mit potenziellen Kunden.",
       },
       {
         title: "3. Anzeigeninformationen",
@@ -189,7 +189,7 @@ const texts = {
       },
       {
         title: "2. Описание услуг",
-        content: "Kalinda Yapı - это компания, предоставляющая услуги консультирования по недвижимости, строительства и ремонта. Наш веб-сайт используется для предоставления информации о наших услугах и для связи с потенциальными клиентами.",
+        content: "Kalinda Yapı Emlak — это компания, предоставляющая услуги по продаже, аренде и консультированию в сфере недвижимости. Наш веб-сайт используется для предоставления информации о наших услугах и портфеле объектов и для связи с потенциальными клиентами.",
       },
       {
         title: "3. Информация об объявлениях",
@@ -297,7 +297,7 @@ export default async function KullanimKosullariPage({
                 <p className="text-[#0B1F3A] font-semibold">Kalinda Yapı</p>
                 <p className="text-[#666666]">Atatürk Mah. 58 Sk. No: 2/B</p>
                 <p className="text-[#666666]">Ortaca / Muğla</p>
-                <p className="text-[#666666]">Tel: +90 537 053 07 54</p>
+                <p className="text-[#666666]">Tel: +90 532 159 15 56</p>
                 <p className="text-[#666666]">E-posta: info@kalindayapi.com</p>
               </div>
             </div>

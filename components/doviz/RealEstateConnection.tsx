@@ -105,7 +105,7 @@ export default function RealEstateConnection() {
               <ArrowRight className="w-5 h-5" />
             </Button>
           </Link>
-          <a href="tel:+905370530754" className="flex-1">
+          <a href="tel:+905321591556" className="flex-1">
             <Button
               variant="outline"
               size="lg"

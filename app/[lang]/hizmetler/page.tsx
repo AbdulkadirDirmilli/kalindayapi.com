@@ -162,7 +162,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
                       </Link>
                       <a
                         href={createWhatsAppLink(
-                          "905370530754",
+                          "905321591556",
                           formatWhatsAppMessage(messages.serviceInquiry, hizmet.baslik)
                         )}
                         target="_blank"
@@ -236,7 +236,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
             </Link>
             <a
               href={createWhatsAppLink(
-                "905370530754",
+                "905321591556",
                 messages.generalInquiry
               )}
               target="_blank"

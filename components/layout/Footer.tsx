@@ -19,7 +19,7 @@ import VisitorCounter from "@/components/ui/VisitorCounter";
 // Footer translations
 const footerTexts = {
   tr: {
-    description: "Muğla Ortaca'da 2022'den bu yana güvenilir emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri sunuyoruz. Hayalinizdeki eve veya projeye bir adım daha yakınsınız.",
+    description: "Muğla Ortaca'da 2022'den bu yana lisanslı gayrimenkul danışmanlığı sunuyoruz. Ortaca, Dalyan, Köyceğiz ve Dalaman'da satılık ve kiralık portföy.",
     quickLinks: "Hızlı Linkler",
     services: "Hizmetler",
     categories: "İlan Kategorileri",
@@ -31,9 +31,9 @@ const footerTexts = {
     faq: "SSS",
     contactPage: "İletişim",
     realEstate: "Emlak Danışmanlığı",
-    renovation: "Tadilat & Dekorasyon",
-    construction: "Taahhüt & İnşaat",
-    planning: "Plan & Proje",
+    valuation: "Gayrimenkul Değerleme",
+    investment: "Yatırım Danışmanlığı",
+    titleDeed: "Tapu & Resmi İşlemler",
     saleApartments: "Satılık Daireler",
     rentApartments: "Kiralık Daireler",
     saleVillas: "Satılık Villalar",
@@ -48,12 +48,10 @@ const footerTexts = {
     saturday: "Cumartesi: 09:00 - 14:00",
     addressLine1: "Atatürk Mah. 58 Sk. No: 2/B",
     addressLine2: "(Belediye Arkası), Ortaca / Muğla",
-    zafer: "Zafer Bey",
     arif: "Arif Bey",
-    hikmet: "Hikmet Bey",
   },
   en: {
-    description: "Since 2022, we have been providing reliable real estate consulting, renovation and construction contracting services in Ortaca, Muğla. You are one step closer to your dream home or project.",
+    description: "Since 2022, we have been providing licensed real estate consulting in Ortaca, Muğla. Properties for sale and rent in Ortaca, Dalyan, Köyceğiz and Dalaman.",
     quickLinks: "Quick Links",
     services: "Services",
     categories: "Property Categories",
@@ -64,9 +62,9 @@ const footerTexts = {
     faq: "FAQ",
     contactPage: "Contact",
     realEstate: "Real Estate Consulting",
-    renovation: "Renovation & Decoration",
-    construction: "Construction & Contracting",
-    planning: "Planning & Project",
+    valuation: "Property Valuation",
+    investment: "Investment Consulting",
+    titleDeed: "Title Deed & Legal Process",
     saleApartments: "Apartments for Sale",
     rentApartments: "Apartments for Rent",
     saleVillas: "Villas for Sale",
@@ -82,12 +80,10 @@ const footerTexts = {
     saturday: "Saturday: 09:00 - 14:00",
     addressLine1: "Atatürk Mah. 58 Sk. No: 2/B",
     addressLine2: "(Behind Municipality), Ortaca / Muğla, Turkey",
-    zafer: "Mr. Zafer",
     arif: "Mr. Arif",
-    hikmet: "Mr. Hikmet",
   },
   ar: {
-    description: "منذ عام 2022، نقدم خدمات استشارات عقارية موثوقة وخدمات تجديد ومقاولات بناء في أورتاجا، موغلا. أنت على بعد خطوة واحدة من منزل أو مشروع أحلامك.",
+    description: "منذ عام 2022، نقدم استشارات عقارية مرخّصة في أورتاجا، موغلا. عقارات للبيع والإيجار في أورتاجا وداليان وكويجيز ودالامان.",
     quickLinks: "روابط سريعة",
     services: "الخدمات",
     categories: "فئات العقارات",
@@ -98,9 +94,9 @@ const footerTexts = {
     faq: "الأسئلة الشائعة",
     contactPage: "اتصل بنا",
     realEstate: "الاستشارات العقارية",
-    renovation: "التجديد والديكور",
-    construction: "البناء والمقاولات",
-    planning: "التخطيط والمشاريع",
+    valuation: "تقييم العقارات",
+    investment: "الاستشارات الاستثمارية",
+    titleDeed: "الطابو والمعاملات الرسمية",
     saleApartments: "شقق للبيع",
     rentApartments: "شقق للإيجار",
     saleVillas: "فلل للبيع",
@@ -116,12 +112,10 @@ const footerTexts = {
     saturday: "السبت: 09:00 - 14:00",
     addressLine1: "أتاتورك ماه. 58 سك. رقم: 2/ب",
     addressLine2: "(خلف البلدية)، أورتاجا / موغلا، تركيا",
-    zafer: "السيد ظافر",
     arif: "السيد عارف",
-    hikmet: "السيد حكمت",
   },
   de: {
-    description: "Seit 2022 bieten wir zuverlässige Immobilienberatung, Renovierungs- und Baudienstleistungen in Ortaca, Muğla. Sie sind Ihrem Traumhaus oder Projekt einen Schritt näher.",
+    description: "Seit 2022 bieten wir lizenzierte Immobilienberatung in Ortaca, Muğla. Immobilien zum Verkauf und zur Miete in Ortaca, Dalyan, Köyceğiz und Dalaman.",
     quickLinks: "Schnelllinks",
     services: "Dienstleistungen",
     categories: "Immobilienkategorien",
@@ -132,9 +126,9 @@ const footerTexts = {
     faq: "FAQ",
     contactPage: "Kontakt",
     realEstate: "Immobilienberatung",
-    renovation: "Renovierung & Dekoration",
-    construction: "Bau & Vertragsarbeit",
-    planning: "Planung & Projekt",
+    valuation: "Immobilienbewertung",
+    investment: "Anlageberatung",
+    titleDeed: "Grundbuch & Behördengänge",
     saleApartments: "Wohnungen zu verkaufen",
     rentApartments: "Wohnungen zu vermieten",
     saleVillas: "Villen zu verkaufen",
@@ -150,12 +144,10 @@ const footerTexts = {
     saturday: "Samstag: 09:00 - 14:00",
     addressLine1: "Atatürk Mah. 58 Sk. Nr: 2/B",
     addressLine2: "(Hinter dem Rathaus), Ortaca / Muğla, Türkei",
-    zafer: "Herr Zafer",
     arif: "Herr Arif",
-    hikmet: "Herr Hikmet",
   },
   ru: {
-    description: "С 2022 года мы предоставляем надежные консультации по недвижимости, услуги по ремонту и строительству в Ортадже, Мугла. Вы на шаг ближе к дому или проекту своей мечты.",
+    description: "С 2022 года мы предоставляем лицензированные консультации по недвижимости в Ортадже, Мугла. Объекты на продажу и в аренду в Ортадже, Дальяне, Кёйджегизе и Даламане.",
     quickLinks: "Быстрые ссылки",
     services: "Услуги",
     categories: "Категории недвижимости",
@@ -166,9 +158,9 @@ const footerTexts = {
     faq: "FAQ",
     contactPage: "Контакты",
     realEstate: "Консультации по недвижимости",
-    renovation: "Ремонт и декор",
-    construction: "Строительство и подряд",
-    planning: "Планирование и проект",
+    valuation: "Оценка недвижимости",
+    investment: "Инвестиционный консалтинг",
+    titleDeed: "Оформление сделки и ТАПУ",
     saleApartments: "Квартиры на продажу",
     rentApartments: "Квартиры в аренду",
     saleVillas: "Виллы на продажу",
@@ -184,9 +176,7 @@ const footerTexts = {
     saturday: "Суббота: 09:00 - 14:00",
     addressLine1: "Ататюрк Мах. 58 Ск. №: 2/Б",
     addressLine2: "(За мэрией), Ортаджа / Мугла, Турция",
-    zafer: "Г-н Зафер",
     arif: "Г-н Ариф",
-    hikmet: "Г-н Хикмет",
   },
 };
 
@@ -205,9 +195,9 @@ export default function Footer() {
 
   const hizmetler = [
     { name: t.realEstate, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('emlak-danismanligi', locale)}` },
-    { name: t.renovation, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('tadilat-dekorasyon', locale)}` },
-    { name: t.construction, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('taahhut-insaat', locale)}` },
-    { name: t.planning, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('plan-proje', locale)}` },
+    { name: t.valuation, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('gayrimenkul-degerleme', locale)}` },
+    { name: t.investment, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('yatirim-danismanligi', locale)}` },
+    { name: t.titleDeed, href: `/${locale}/${getLocalizedRoute('hizmetler', locale)}/${getLocalizedRoute('tapu-islemleri', locale)}` },
   ];
 
   const ilanKategorileri = [
@@ -386,40 +376,12 @@ export default function Footer() {
                   <Phone className="w-5 h-5 text-accent flex-shrink-0" />
                   <div className="text-sm">
                     <a
-                      href="tel:+905370530754"
-                      className="text-gray-300 hover:text-accent transition-colors block"
-                    >
-                      +90 537 053 07 54
-                    </a>
-                    <span className="text-gray-500 text-xs">{t.zafer}</span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                  <div className="text-sm">
-                    <a
                       href="tel:+905321591556"
                       className="text-gray-300 hover:text-accent transition-colors block"
                     >
                       +90 532 159 15 56
                     </a>
                     <span className="text-gray-500 text-xs">{t.arif}</span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                  <div className="text-sm">
-                    <a
-                      href="tel:+905554531207"
-                      className="text-gray-300 hover:text-accent transition-colors block"
-                    >
-                      +90 555 453 12 07
-                    </a>
-                    <span className="text-gray-500 text-xs">{t.hikmet}</span>
                   </div>
                 </div>
               </li>

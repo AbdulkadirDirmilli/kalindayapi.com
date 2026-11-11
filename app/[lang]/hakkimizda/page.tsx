@@ -126,7 +126,7 @@ export default async function HakkimizdaPage({
                 <p>
                   {locale === 'tr' ? (
                     <>
-                      Zafer Soylu, <Link href={`/${locale}/hizmetler/emlak-danismanligi`} className="text-[#C9A84C] hover:underline">emlak danışmanlığı</Link> sektöründeki deneyimiyle Ortaca, Dalyan ve Köyceğiz bölgelerinin gayrimenkul dinamiklerine hakim bir profesyoneldir. Arif Dağdelen ise <Link href={`/${locale}/hizmetler/taahhut-insaat`} className="text-[#C9A84C] hover:underline">inşaat ve taahhüt</Link> sektöründeki tecrübesiyle sayısız konut, villa ve ticari proje tamamlamıştır.
+                      Arif Dağdelen, <Link href={`/${locale}/hizmetler/emlak-danismanligi`} className="text-[#C9A84C] hover:underline">emlak danışmanlığı</Link> sektöründeki saha deneyimiyle Ortaca, Dalyan, Köyceğiz ve Dalaman bölgelerinin gayrimenkul dinamiklerine hakim, lisanslı bir danışmandır. <Link href={`/${locale}/hizmetler/gayrimenkul-degerleme`} className="text-[#C9A84C] hover:underline">Değerleme</Link> ve <Link href={`/${locale}/hizmetler/yatirim-danismanligi`} className="text-[#C9A84C] hover:underline">yatırım danışmanlığı</Link> dahil tüm süreci tek elden yürütür.
                     </>
                   ) : (
                     texts.storyParagraph2
@@ -135,7 +135,7 @@ export default async function HakkimizdaPage({
                 <p>
                   {locale === 'tr' ? (
                     <>
-                      <Link href={`/${locale}/hizmetler/tadilat-dekorasyon`} className="text-[#C9A84C] hover:underline">Tadilat</Link> ve <Link href={`/${locale}/hizmetler/plan-proje`} className="text-[#C9A84C] hover:underline">proje hizmetlerimizle</Link> 100'den fazla proje tamamladık. <Link href={`/${locale}/ilanlar`} className="text-[#C9A84C] hover:underline">Emlak portföyümüzde</Link> Ortaca merkez, Dalyan kanal boyu, Köyceğiz göl manzaralı ve Dalaman havalimanı yakını seçenekler bulunuyor.
+<Link href={`/${locale}/ilanlar`} className="text-[#C9A84C] hover:underline">Emlak portföyümüzde</Link> Ortaca merkez, Dalyan kanal boyu, Köyceğiz göl manzaralı ve Dalaman havalimanı yakını daire, villa, arsa ve ticari gayrimenkul seçenekleri bulunuyor. <Link href={`/${locale}/hizmetler/tapu-islemleri`} className="text-[#C9A84C] hover:underline">Tapu ve resmi işlemleri</Link> de sizin adınıza takip ediyoruz.
                     </>
                   ) : (
                     texts.storyParagraph3
@@ -303,7 +303,7 @@ export default async function HakkimizdaPage({
             </Link>
             <a
               href={createWhatsAppLink(
-                "905370530754",
+                "905321591556",
                 texts.whatsappMessage
               )}
               target="_blank"

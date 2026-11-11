@@ -121,15 +121,30 @@
         "Muğla Emlak",
         "Ortaca Yatırım"
       ],
-      "yazar": "Zafer Soylu",
+      "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-04-03",
       "okunmaSuresi": 11,
       "internalLinks": [
-        {"text": "Muğla emlak piyasası", "url": "/blog/mugla-emlak-piyasasi-2026"},
-        {"text": "ev alırken dikkat edilecekler", "url": "/blog/gayrimenkul-alirken-dikkat-edilecekler"},
-        {"text": "Dalyan yaşam rehberi", "url": "/blog/dalyan-yasam-rehberi"},
-        {"text": "satılık daireler", "url": "/ilanlar"},
-        {"text": "emlak danışmanlığı", "url": "/hizmetler/emlak-danismanligi"}
+        {
+          "text": "Muğla emlak piyasası",
+          "url": "/blog/mugla-emlak-piyasasi-2026"
+        },
+        {
+          "text": "ev alırken dikkat edilecekler",
+          "url": "/blog/gayrimenkul-alirken-dikkat-edilecekler"
+        },
+        {
+          "text": "Dalyan yaşam rehberi",
+          "url": "/blog/dalyan-yasam-rehberi"
+        },
+        {
+          "text": "satılık daireler",
+          "url": "/ilanlar"
+        },
+        {
+          "text": "emlak danışmanlığı",
+          "url": "/hizmetler/emlak-danismanligi"
+        }
       ],
       "kapakGorsel": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=450&fit=crop&q=80",
       "icerik": [
@@ -214,16 +229,31 @@
         "Emlak Yatırımı",
         "Muğla Gayrimenkul"
       ],
-      "yazar": "Zafer Soylu",
+      "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-03-15",
       "okunmaSuresi": 12,
       "kapakGorsel": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&h=450&fit=crop&q=80",
       "internalLinks": [
-        {"text": "Ortaca emlak rehberi", "url": "/blog/ortaca-emlak-rehberi-mahalle-mahalle-2026"},
-        {"text": "arsa yatırımı rehberimiz", "url": "/blog/mugla-ilcelerinde-arsa-yatirimi"},
-        {"text": "ev alırken dikkat edilecekler", "url": "/blog/gayrimenkul-alirken-dikkat-edilecekler"},
-        {"text": "satılık dairelerimiz", "url": "/ilanlar"},
-        {"text": "emlak danışmanlığı", "url": "/hizmetler/emlak-danismanligi"}
+        {
+          "text": "Ortaca emlak rehberi",
+          "url": "/blog/ortaca-emlak-rehberi-mahalle-mahalle-2026"
+        },
+        {
+          "text": "arsa yatırımı rehberimiz",
+          "url": "/blog/mugla-ilcelerinde-arsa-yatirimi"
+        },
+        {
+          "text": "ev alırken dikkat edilecekler",
+          "url": "/blog/gayrimenkul-alirken-dikkat-edilecekler"
+        },
+        {
+          "text": "satılık dairelerimiz",
+          "url": "/ilanlar"
+        },
+        {
+          "text": "emlak danışmanlığı",
+          "url": "/hizmetler/emlak-danismanligi"
+        }
       ],
       "icerik": [
         {
@@ -336,7 +366,7 @@
         "Gayrimenkul",
         "Ruhsat"
       ],
-      "yazar": "Hikmet Karaoğlan",
+      "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-03-10",
       "okunmaSuresi": 6,
       "kapakGorsel": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=450&fit=crop&q=80",
@@ -401,9 +431,14 @@
       "yayinTarihi": "2026-03-01",
       "okunmaSuresi": 10,
       "internalLinks": [
-        {"text": "mutfak tadilatı rehberi", "url": "/blog/mutfak-tadilati-rehberi"},
-        {"text": "banyo tadilatı fikirleri", "url": "/blog/banyo-tadilati-fikirleri"},
-        {"text": "tadilat hizmetlerimiz", "url": "/hizmetler/tadilat-dekorasyon"}
+        {
+          "text": "mutfak tadilatı rehberi",
+          "url": "/blog/mutfak-tadilati-rehberi"
+        },
+        {
+          "text": "banyo tadilatı fikirleri",
+          "url": "/blog/banyo-tadilati-fikirleri"
+        }
       ],
       "kapakGorsel": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=450&fit=crop&q=80",
       "icerik": [
@@ -508,14 +543,26 @@
         "İmarlı Arsa",
         "Gayrimenkul Yatırım"
       ],
-      "yazar": "Zafer Soylu",
+      "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-02-20",
       "okunmaSuresi": 11,
       "internalLinks": [
-        {"text": "Muğla emlak piyasası", "url": "/blog/mugla-emlak-piyasasi-2026"},
-        {"text": "imar durumu sorgulama", "url": "/blog/imar-durumu-nedir-nasil-sorgulanir"},
-        {"text": "ev alırken dikkat", "url": "/blog/gayrimenkul-alirken-dikkat-edilecekler"},
-        {"text": "emlak danışmanlığı", "url": "/hizmetler/emlak-danismanligi"}
+        {
+          "text": "Muğla emlak piyasası",
+          "url": "/blog/mugla-emlak-piyasasi-2026"
+        },
+        {
+          "text": "imar durumu sorgulama",
+          "url": "/blog/imar-durumu-nedir-nasil-sorgulanir"
+        },
+        {
+          "text": "ev alırken dikkat",
+          "url": "/blog/gayrimenkul-alirken-dikkat-edilecekler"
+        },
+        {
+          "text": "emlak danışmanlığı",
+          "url": "/hizmetler/emlak-danismanligi"
+        }
       ],
       "kapakGorsel": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=450&fit=crop&q=80",
       "icerik": [
@@ -591,13 +638,14 @@
         "İmar İzni",
         "Muğla İnşaat"
       ],
-      "yazar": "Hikmet Karaoğlan",
+      "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-02-10",
       "okunmaSuresi": 12,
       "internalLinks": [
-        {"text": "imar durumu sorgulama", "url": "/blog/imar-durumu-nedir-nasil-sorgulanir"},
-        {"text": "plan proje hizmetlerimiz", "url": "/hizmetler/plan-proje"},
-        {"text": "inşaat hizmetlerimiz", "url": "/hizmetler/taahhut-insaat"}
+        {
+          "text": "imar durumu sorgulama",
+          "url": "/blog/imar-durumu-nedir-nasil-sorgulanir"
+        }
       ],
       "kapakGorsel": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=450&fit=crop&q=80",
       "icerik": [
@@ -689,14 +737,26 @@
         "Muğla Emlak",
         "Ortaca Ev"
       ],
-      "yazar": "Zafer Soylu",
+      "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-01-25",
       "okunmaSuresi": 10,
       "internalLinks": [
-        {"text": "tapu kontrolü rehberi", "url": "/blog/ev-alirken-tapu-kontrolu-nasil-yapilir"},
-        {"text": "imar durumu sorgulama", "url": "/blog/imar-durumu-nedir-nasil-sorgulanir"},
-        {"text": "emlak danışmanlığı", "url": "/hizmetler/emlak-danismanligi"},
-        {"text": "satılık daireler", "url": "/ilanlar"}
+        {
+          "text": "tapu kontrolü rehberi",
+          "url": "/blog/ev-alirken-tapu-kontrolu-nasil-yapilir"
+        },
+        {
+          "text": "imar durumu sorgulama",
+          "url": "/blog/imar-durumu-nedir-nasil-sorgulanir"
+        },
+        {
+          "text": "emlak danışmanlığı",
+          "url": "/hizmetler/emlak-danismanligi"
+        },
+        {
+          "text": "satılık daireler",
+          "url": "/ilanlar"
+        }
       ],
       "kapakGorsel": "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=800&h=450&fit=crop&q=80",
       "icerik": [
@@ -788,9 +848,14 @@
       "yayinTarihi": "2026-01-15",
       "okunmaSuresi": 10,
       "internalLinks": [
-        {"text": "tadilat rehberimiz", "url": "/blog/tadilat-yaptirirken-dikkat-edilmesi-gerekenler"},
-        {"text": "banyo tadilatı fikirleri", "url": "/blog/banyo-tadilati-fikirleri"},
-        {"text": "tadilat hizmetlerimiz", "url": "/hizmetler/tadilat-dekorasyon"}
+        {
+          "text": "tadilat rehberimiz",
+          "url": "/blog/tadilat-yaptirirken-dikkat-edilmesi-gerekenler"
+        },
+        {
+          "text": "banyo tadilatı fikirleri",
+          "url": "/blog/banyo-tadilati-fikirleri"
+        }
       ],
       "kapakGorsel": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=450&fit=crop&q=80",
       "icerik": [
@@ -867,13 +932,22 @@
         "Ortaca",
         "Muğla Yaşam"
       ],
-      "yazar": "Zafer Soylu",
+      "yazar": "Arif Dağdelen",
       "yayinTarihi": "2026-01-05",
       "okunmaSuresi": 11,
       "internalLinks": [
-        {"text": "Ortaca emlak rehberi", "url": "/blog/ortaca-emlak-rehberi-mahalle-mahalle-2026"},
-        {"text": "Muğla emlak piyasası", "url": "/blog/mugla-emlak-piyasasi-2026"},
-        {"text": "emlak danışmanlığı", "url": "/hizmetler/emlak-danismanligi"}
+        {
+          "text": "Ortaca emlak rehberi",
+          "url": "/blog/ortaca-emlak-rehberi-mahalle-mahalle-2026"
+        },
+        {
+          "text": "Muğla emlak piyasası",
+          "url": "/blog/mugla-emlak-piyasasi-2026"
+        },
+        {
+          "text": "emlak danışmanlığı",
+          "url": "/hizmetler/emlak-danismanligi"
+        }
       ],
       "kapakGorsel": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=450&fit=crop&q=80",
       "icerik": [
@@ -962,9 +1036,10 @@
       "yayinTarihi": "2025-12-20",
       "okunmaSuresi": 11,
       "internalLinks": [
-        {"text": "tadilat rehberimiz", "url": "/blog/tadilat-yaptirirken-dikkat-edilmesi-gerekenler"},
-        {"text": "tadilat hizmetlerimiz", "url": "/hizmetler/tadilat-dekorasyon"},
-        {"text": "inşaat hizmetlerimiz", "url": "/hizmetler/taahhut-insaat"}
+        {
+          "text": "tadilat rehberimiz",
+          "url": "/blog/tadilat-yaptirirken-dikkat-edilmesi-gerekenler"
+        }
       ],
       "kapakGorsel": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop&q=80",
       "icerik": [

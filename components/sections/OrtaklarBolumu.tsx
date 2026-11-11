@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { Phone, Mail, MessageCircle, Building2, HardHat, Users } from "lucide-react";
+import { Phone, Mail, MessageCircle, BadgeCheck } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { createWhatsAppLink } from "@/lib/utils";
 import type { Locale } from "@/lib/i18n";
@@ -13,60 +13,34 @@ interface OrtaklarBolumuProps {
   dict?: any;
 }
 
-const ortaklar = [
-  {
-    id: "zafer-soylu",
-    ad: "Zafer SOYLU",
-    unvan: "Gayrimenkul & Yapı Danışmanı",
-    telefon: "+90 537 053 07 54",
-    whatsapp: "905370530754",
-    email: "zafer@kalindayapi.com",
-    foto: "/zafersoylu.png",
-    biyografi:
-      "Emlak sektöründe uzun yılların deneyimiyle bölgenin tanınan emlak danışmanlarından biridir. Müşteri memnuniyetini her şeyin üstünde tutan anlayışıyla hizmet vermektedir.",
-    uzmanlikAlanlari: ["Gayrimenkul", "Yapı Danışmanlığı", "Proje Takibi"],
-    ikon: Building2,
-    renk: "#C9A84C",
-  },
-  {
-    id: "arif-dagdelen",
-    ad: "Arif DAĞDELEN",
-    unvan: "Gayrimenkul & Yapı Danışmanı",
-    telefon: "+90 532 159 15 56",
-    whatsapp: "905321591556",
-    email: "arif@kalindayapi.com",
-    foto: "/arifdagdelen.png",
-    biyografi:
-      "İnşaat sektöründe geniş deneyimiyle sayısız konut, villa ve ticari proje tamamlamıştır. Kalite odaklı çalışma prensibi ve detaylara verdiği önemle tanınmaktadır.",
-    uzmanlikAlanlari: ["Gayrimenkul", "Yapı Danışmanlığı", "Proje Takibi"],
-    ikon: HardHat,
-    renk: "#0B1F3A",
-  },
-  {
-    id: "hikmet-karaoglan",
-    ad: "Hikmet KARAOĞLAN",
-    unvan: "Gayrimenkul & Yapı Danışmanı",
-    telefon: "+90 555 453 12 07",
-    whatsapp: "905554531207",
-    email: "hikmet@kalindayapi.com",
-    foto: "/hikmetkaraoglan.svg",
-    biyografi:
-      "Gayrimenkul ve yapı sektöründe geniş deneyime sahip Hikmet Karaoğlan, çözüm odaklı yaklaşımıyla projelerinizde güvenilir bir partner olmaktadır.",
-    uzmanlikAlanlari: ["Gayrimenkul", "Yapı Danışmanlığı", "Proje Takibi"],
-    ikon: Users,
-    renk: "#2E7D32",
-  },
-];
+const danisman = {
+  id: "arif-dagdelen",
+  ad: "Arif DAĞDELEN",
+  unvan: "Kurucu | Lisanslı Gayrimenkul Danışmanı",
+  telefon: "+90 532 159 15 56",
+  whatsapp: "905321591556",
+  email: "arif@kalindayapi.com",
+  foto: "/arifdagdelen.png",
+  biyografi:
+    "Ortaca, Dalyan ve Köyceğiz bölgesinde uzun yılların saha deneyimiyle satılık ve kiralık gayrimenkul danışmanlığı sunmaktadır. Her portföyü yerinde inceleyerek, tapu ve değer analizini şeffaf biçimde paylaşarak süreci baştan sona yönetir.",
+  uzmanlikAlanlari: [
+    "Satılık & Kiralık Portföy",
+    "Gayrimenkul Değerleme",
+    "Yatırım Danışmanlığı",
+    "Tapu & Resmi İşlemler",
+  ],
+};
 
-export default function OrtaklarBolumu({ lang = 'tr', dict }: OrtaklarBolumuProps) {
+export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   // Fallback translations
   const t = dict?.home?.team || {
-    badge: "Ekibimiz",
-    title: "Kurucu Ortaklarımız",
-    subtitle: "Kalinda Yapı'nın arkasındaki deneyimli isimler. Ortaklarımız müşteri memnuniyetini en üst düzeyde tutarak hizmet vermektedir.",
+    badge: "Danışmanınız",
+    title: "Kalinda Yapı Emlak",
+    subtitle:
+      "Gayrimenkul alım, satım ve kiralama süreçlerinizde tek muhatap, net bilgi ve lisanslı danışmanlık.",
     expertise: "Uzmanlık Alanları",
     call: "Ara",
   };
@@ -76,9 +50,9 @@ export default function OrtaklarBolumu({ lang = 'tr', dict }: OrtaklarBolumuProp
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
@@ -87,124 +61,113 @@ export default function OrtaklarBolumu({ lang = 'tr', dict }: OrtaklarBolumuProp
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
             {t.title}
           </h2>
-          <p className="text-text-light max-w-2xl mx-auto">
-            {t.subtitle}
-          </p>
+          <p className="text-text-light max-w-2xl mx-auto">{t.subtitle}</p>
         </motion.div>
 
-        {/* Partners Grid */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
-          {ortaklar.map((ortak, index) => {
-            const Icon = ortak.ikon;
-            return (
-              <motion.div
-                key={ortak.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col"
-              >
-                {/* Header */}
-                <div
-                  className="p-4 md:p-6 text-white"
-                  style={{ backgroundColor: ortak.renk }}
+        {/* Consultant Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="max-w-4xl mx-auto bg-white rounded-xl border border-black/5 shadow-sm overflow-hidden"
+        >
+          <div className="grid md:grid-cols-[260px_1fr]">
+            {/* Photo panel */}
+            <div className="bg-primary p-8 flex flex-col items-center justify-center text-center text-white">
+              <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-white/25">
+                <Image
+                  src={danisman.foto}
+                  alt={danisman.ad}
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-bold mt-5">{danisman.ad}</h3>
+              <p className="text-white/70 text-sm mt-1.5 leading-snug">
+                {danisman.unvan}
+              </p>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 md:p-8 flex flex-col">
+              <p className="text-text-light leading-relaxed">
+                {danisman.biyografi}
+              </p>
+
+              {/* Expertise */}
+              <div className="mt-6">
+                <h4 className="text-sm font-semibold text-primary mb-3">
+                  {t.expertise}
+                </h4>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                  {danisman.uzmanlikAlanlari.map((alan) => (
+                    <li
+                      key={alan}
+                      className="flex items-center gap-2 text-sm text-text-light"
+                    >
+                      <BadgeCheck className="w-4 h-4 text-accent flex-shrink-0" />
+                      <span>{alan}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact */}
+              <div className="mt-6 pt-6 border-t border-black/5 space-y-2">
+                <a
+                  href={`tel:${danisman.telefon.replace(/\s/g, "")}`}
+                  className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
                 >
-                  <div className="flex items-start gap-4">
-                    {/* Avatar */}
-                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/30">
-                      <Image
-                        src={ortak.foto}
-                        alt={ortak.ad}
-                        width={80}
-                        height={80}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold">{ortak.ad}</h3>
-                      <p className="text-white/80 text-sm mt-1">{ortak.unvan}</p>
-                    </div>
-                  </div>
-                </div>
+                  <Phone className="w-4 h-4" />
+                  <span>{danisman.telefon}</span>
+                </a>
+                <a
+                  href={`mailto:${danisman.email}`}
+                  className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>{danisman.email}</span>
+                </a>
+              </div>
 
-                {/* Content */}
-                <div className="p-4 md:p-6 flex flex-col flex-1">
-                  {/* Bio */}
-                  <p className="text-text-light mb-4 leading-relaxed min-h-[4.5rem]">
-                    {ortak.biyografi}
-                  </p>
-
-                  {/* Expertise */}
-                  <div className="mb-6 flex-1">
-                    <h4 className="text-sm font-semibold text-primary mb-2">
-                      {t.expertise}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {ortak.uzmanlikAlanlari.map((alan) => (
-                        <span
-                          key={alan}
-                          className="px-3 py-1 bg-surface text-text-light text-sm rounded-full"
-                        >
-                          {alan}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Contact */}
-                  <div className="space-y-2 mb-6">
-                    <a
-                      href={`tel:${ortak.telefon.replace(/\s/g, "")}`}
-                      className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
-                    >
-                      <Phone className="w-4 h-4" />
-                      <span>{ortak.telefon}</span>
-                    </a>
-                    <a
-                      href={`mailto:${ortak.email}`}
-                      className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
-                    >
-                      <Mail className="w-4 h-4" />
-                      <span>{ortak.email}</span>
-                    </a>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mt-auto">
-                    <a
-                      href={createWhatsAppLink(
-                        ortak.whatsapp,
-                        `Merhaba ${ortak.ad}, bilgi almak istiyorum.`
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1"
-                    >
-                      <Button
-                        variant="whatsapp"
-                        size="sm"
-                        leftIcon={<MessageCircle className="w-4 h-4" />}
-                        className="w-full"
-                      >
-                        WhatsApp
-                      </Button>
-                    </a>
-                    <a href={`tel:${ortak.telefon.replace(/\s/g, "")}`} className="flex-1">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        leftIcon={<Phone className="w-4 h-4" />}
-                        className="w-full"
-                      >
-                        {t.call}
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                <a
+                  href={createWhatsAppLink(
+                    danisman.whatsapp,
+                    `Merhaba ${danisman.ad}, bilgi almak istiyorum.`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1"
+                >
+                  <Button
+                    variant="whatsapp"
+                    size="sm"
+                    leftIcon={<MessageCircle className="w-4 h-4" />}
+                    className="w-full"
+                  >
+                    WhatsApp
+                  </Button>
+                </a>
+                <a
+                  href={`tel:${danisman.telefon.replace(/\s/g, "")}`}
+                  className="flex-1"
+                >
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    leftIcon={<Phone className="w-4 h-4" />}
+                    className="w-full"
+                  >
+                    {t.call}
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

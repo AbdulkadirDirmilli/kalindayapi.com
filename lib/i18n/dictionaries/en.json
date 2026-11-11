@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Ortaca Real Estate & Property for Sale | Kalinda Yapı ✓ Licensed Agency",
-    "description": "Property for sale & rent in Ortaca, Turkey 🏠 150+ listings ✓ Licensed agents ✓ Free valuation. Serving Dalaman, Köyceğiz, Dalyan areas. ☎ +90 537 053 07 54",
+    "description": "Property for sale & rent in Ortaca, Turkey 🏠 150+ listings ✓ Licensed agents ✓ Free valuation. Serving Dalaman, Köyceğiz, Dalyan areas. ☎ +90 532 159 15 56",
     "keywords": "Ortaca property for sale, Turkey real estate, Muğla apartments, Dalaman villas, Dalyan property, Turkish Riviera investment, Mediterranean real estate, Ortaca real estate agent"
   },
   "nav": {
@@ -19,12 +19,6 @@
     "faq": "FAQ",
     "searchListings": "Search Properties",
     "callNow": "Call Now"
-  },
-  "services": {
-    "realEstate": "Real Estate Consulting",
-    "renovation": "Renovation & Decoration",
-    "construction": "Construction & Contracting",
-    "planning": "Planning & Design"
   },
   "common": {
     "readMore": "Read More",
@@ -52,12 +46,12 @@
     "hero": {
       "badge": "Serving You Since 2022",
       "title": "Your Trusted",
-      "titleHighlight": "Real Estate & Construction",
-      "titleEnd": "Partner in Turkish Riviera",
-      "subtitle": "Real estate consulting, renovation and contracting services in Ortaca, Muğla. You are one step closer to your dream home or project.",
+      "titleHighlight": "Real Estate",
+      "titleEnd": "Consultant in Ortaca",
+      "subtitle": "Property sales and rentals in Ortaca, Dalyan, Köyceğiz and Dalaman. The right portfolio, a transparent process, licensed service.",
       "cta": "Explore Properties",
-      "ctaSecondary": "Get Free Consultation",
-      "completedProjects": "Completed Projects",
+      "ctaSecondary": "Get a Free Valuation",
+      "completedProjects": "Completed Transactions",
       "yearsExperience": "Years Experience",
       "happyFamilies": "Happy Families"
     },
@@ -66,15 +60,14 @@
       "subtitle": "Proof of Trust and Success",
       "description": "Growing with years of experience and the trust of our clients in Ortaca and Muğla region.",
       "experience": "Years Experience",
-      "projects": "Completed Projects",
+      "projects": "Completed Transactions",
       "clients": "Happy Families",
       "satisfaction": "Customer Satisfaction",
-      "projectsDesc": "Residential, villa and commercial projects",
+      "projectsDesc": "Sales and rental transactions",
       "experienceDesc": "Serving since 2022",
-      "clientsDesc": "Customers who trust us",
-      "satisfactionDesc": "Quality-focused service",
-      "area": "sqm Construction",
-      "note": "* Data reflects our actual transactions and is updated after each sale and rental."
+      "clientsDesc": "Clients who chose us with confidence",
+      "satisfactionDesc": "Transparent, result-oriented service",
+      "note": "* Figures reflect our actual transactions and are updated after every sale and rental."
     },
     "featured": {
       "badge": "Featured Properties",
@@ -89,24 +82,24 @@
     "services": {
       "badge": "Our Services",
       "title": "How Can We Help You?",
-      "subtitle": "We are here for all your needs from real estate consulting to construction contracting. We provide quality service with our professional team.",
+      "subtitle": "Licensed real estate consulting across every step of buying, selling, renting and investing.",
       "details": "Details",
       "viewAll": "View All Our Services",
       "realEstate": {
         "title": "Real Estate Consulting",
-        "description": "Properties for sale and rent in Ortaca and surrounding areas. Professional valuation and investment consulting."
+        "description": "Properties for sale and rent in Ortaca and the surrounding region, with secure brokerage for buyers and sellers."
       },
-      "renovation": {
-        "title": "Renovation & Decoration",
-        "description": "Interior design, kitchen-bathroom renovation, painting and coating works. We transform your home as you dream."
+      "valuation": {
+        "title": "Property Valuation",
+        "description": "We report the current market value of your property with a comparative regional analysis."
       },
-      "construction": {
-        "title": "Construction & Contracting",
-        "description": "Building construction from scratch, restoration projects and turnkey construction solutions."
+      "investment": {
+        "title": "Investment Consulting",
+        "description": "We assess local investment opportunities together, based on rental yield and appreciation potential."
       },
-      "planning": {
-        "title": "Planning & Project",
-        "description": "Architectural, structural, electrical-mechanical project drawings and permit consulting services."
+      "titleDeed": {
+        "title": "Title Deed & Legal Process",
+        "description": "End-to-end follow-up of title deed, zoning status and contract paperwork."
       }
     },
     "whyUs": {
@@ -117,20 +110,20 @@
       "licensedConsultantDesc": "You get reliable service from our officially certified real estate consultant.",
       "localKnowledge": "Local Knowledge",
       "localKnowledgeDesc": "We know Ortaca and its surroundings like the back of our hand. We are familiar with the dynamics of the region.",
-      "guaranteedWork": "Guaranteed Workmanship",
-      "guaranteedWorkDesc": "We offer workmanship guarantee on all our renovation and construction works.",
+      "guaranteedWork": "Verified Portfolio",
+      "guaranteedWorkDesc": "We inspect every listed property on site and verify its title deed and zoning status.",
       "transparentContract": "Transparent Contract",
       "transparentContractDesc": "All our transactions are secured with written contracts. No hidden costs.",
       "personalAttention": "Personal Attention",
       "personalAttentionDesc": "We give special attention to each of our customers. Understanding your needs is our priority.",
-      "onTimeDelivery": "On-Time Delivery",
-      "onTimeDeliveryDesc": "We complete our projects on time as promised. We value time.",
+      "onTimeDelivery": "Fast Process Management",
+      "onTimeDeliveryDesc": "We handle every step on your behalf, from the offer and negotiation to the title deed appointment.",
       "serviceArea": "Service Area",
       "allDistricts": "All Districts of Muğla",
       "established": "Established",
       "since2022": "Since 2022",
       "customerSatisfaction": "Customer Satisfaction",
-      "serviceNote": "We are here with our real estate, renovation and construction services in all Muğla districts"
+      "serviceNote": "With our property sales and rental consulting, we serve every district of Muğla"
     },
     "blog": {
       "badge": "Blog & Guide",
@@ -140,35 +133,24 @@
       "viewAll": "View All Posts",
       "readTime": "min"
     },
-    "references": {
-      "badge": "Reference Projects",
-      "title": "Before - After Gallery",
-      "subtitle": "Examples from our completed projects. We make a difference with quality workmanship and professional approach.",
-      "before": "BEFORE",
-      "after": "AFTER",
-      "clickToToggle": "Click to Toggle",
-      "instruction": "Click on images to see before-after comparison",
-      "prev": "Previous",
-      "next": "Next"
-    },
     "team": {
-      "badge": "Our Team",
-      "title": "Founding Partners",
-      "subtitle": "Experienced names behind Kalinda Yapı. Our partners serve with the highest level of customer satisfaction.",
+      "badge": "Your Consultant",
+      "title": "One Contact, Clear Answers",
+      "subtitle": "You work with the same consultant from the first viewing to the title deed appointment.",
       "expertise": "Areas of Expertise",
       "call": "Call"
     },
     "faq": {
       "badge": "FAQ",
       "title": "Frequently Asked Questions",
-      "subtitle": "Most frequently asked questions and expert answers about real estate buying-selling, renovation and construction in Ortaca, Dalyan and Muğla.",
+      "subtitle": "The most frequently asked questions and consultant answers about buying, selling and renting property in Ortaca, Dalyan and Muğla.",
       "moreQuestions": "Have more questions?",
       "contactUs": "Contact us"
     },
     "contactForm": {
       "badge": "Contact",
       "title": "Get in Touch Now",
-      "subtitle": "Get free consultation for your real estate, renovation or construction projects. We will get back to you as soon as possible.",
+      "subtitle": "Get a free initial consultation for your buying, selling or rental plans. We will get back to you as soon as possible.",
       "address": "Address",
       "phone": "Phone",
       "workingHours": "Working Hours",
@@ -297,8 +279,7 @@
       "emlak": "Real Estate",
       "tadilat": "Renovation",
       "insaat": "Construction",
-      "yatirim": "Investment",
-      "dekorasyon": "Decoration"
+      "yatirim": "Investment"
     },
     "author": "Author",
     "publishDate": "Published",
@@ -309,7 +290,7 @@
     "subtitle": "Find answers to common questions"
   },
   "footer": {
-    "description": "Real estate, renovation and construction contracting services in Ortaca and surrounding areas.",
+    "description": "Property sales and rental consulting in Ortaca and the surrounding region.",
     "quickLinks": "Quick Links",
     "services": "Our Services",
     "contact": "Contact Information",
@@ -347,10 +328,8 @@
     "close": "Close"
   },
   "consultants": {
-    "zafer": "Mr. Zafer",
     "arif": "Mr. Arif",
-    "hikmet": "Mr. Hikmet",
-    "consultant": "Consultant"
+    "consultant": "Real Estate Consultant"
   },
   "address": {
     "full": "Atatürk Mah. 58 Sk. No: 2/B (Behind Municipality), Ortaca / Muğla, Turkey",
@@ -459,7 +438,7 @@
   "contactPage": {
     "heroTitle": "Contact",
     "heroSubtitle": "Get in touch with us for your questions. We are happy to help you.",
-    "heroDescription": "Meet with our expert team for your real estate, renovation or construction projects.",
+    "heroDescription": "Speak with our licensed consultant about your buying, selling or rental plans.",
     "infoTitle": "Contact Information",
     "address": "Address",
     "addressLine1": "Atatürk Mah. 58 Sk. No: 2/B",
@@ -469,7 +448,7 @@
     "weekdaysHours": "Monday - Friday: 09:00 - 18:00",
     "saturdayHours": "Saturday: 10:00 - 14:00",
     "sundayClosed": "Sunday: Closed",
-    "teamTitle": "Our Team",
+    "teamTitle": "Your Consultant",
     "socialTitle": "Social Media",
     "formTitle": "Send Us a Message",
     "successTitle": "Message Sent!",
@@ -490,22 +469,15 @@
     },
     "serviceOptions": {
       "emlak": "Real Estate Consulting",
-      "tadilat": "Renovation & Decoration",
-      "insaat": "Construction & Contracting",
+      "degerleme": "Property Valuation",
+      "yatirim": "Investment Consulting",
+      "tapu": "Title Deed & Legal Process",
       "diger": "Other"
     },
     "team": {
-      "zafer": {
-        "name": "Zafer SOYLU",
-        "title": "Co-Founder & Real Estate Consultant"
-      },
       "arif": {
         "name": "Arif DAĞDELEN",
-        "title": "Co-Founder & Construction Manager"
-      },
-      "hikmet": {
-        "name": "Hikmet KARAOĞLAN",
-        "title": "Co-Founder & Renovation Expert"
+        "title": "Founder | Licensed Real Estate Consultant"
       }
     },
     "mapTitle": "Kalinda Yapı Location - Ortaca, Muğla"

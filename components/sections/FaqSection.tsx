@@ -39,7 +39,7 @@ export default function FaqSection({
   const t = dict?.home?.faq || {
     badge: "SSS",
     title: "Sıkça Sorulan Sorular",
-    subtitle: "Ortaca, Dalyan ve Muğla'da emlak alım-satım, tadilat ve inşaat hakkında en çok merak edilen sorular ve uzman cevapları.",
+    subtitle: "Ortaca, Dalyan ve Muğla'da gayrimenkul alım, satım ve kiralama hakkında en çok merak edilen sorular ve danışman cevapları.",
     moreQuestions: "Başka sorularınız mı var?",
     contactUs: "Bize ulaşın",
   };
@@ -59,9 +59,9 @@ export default function FaqSection({
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
@@ -83,16 +83,16 @@ export default function FaqSection({
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
           className="max-w-3xl mx-auto space-y-4"
         >
           {finalSorular.map((soru, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`rounded-2xl overflow-hidden ${
+              className={`rounded-lg overflow-hidden ${
                 darkMode ? "bg-white/5" : "bg-white"
               } ${darkMode ? "" : "shadow-md"}`}
             >
@@ -151,9 +151,9 @@ export default function FaqSection({
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
           className="text-center mt-12"
         >
           <p className={darkMode ? "text-gray-400" : "text-text-light"}>

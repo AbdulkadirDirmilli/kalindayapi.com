@@ -23,7 +23,7 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
     title: "Ortaca'nın Güvenilir",
     titleHighlight: "Yapı & Emlak",
     titleEnd: "Ortağı",
-    subtitle: "Muğla Ortaca'da emlak danışmanlığı, tadilat ve taahhüt hizmetleri. Hayalinizdeki eve veya projeye bir adım daha yakınsınız.",
+    subtitle: "Ortaca, Dalyan, Köyceğiz ve Dalaman'da satılık ve kiralık gayrimenkul danışmanlığı. Doğru portföy, şeffaf süreç, lisanslı hizmet.",
     cta: "İlanları Keşfet",
     ctaSecondary: "Ücretsiz Danışmanlık Al",
     completedProjects: "Tamamlanan Proje",
@@ -41,7 +41,7 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[86vh] flex items-center justify-center overflow-hidden"
     >
       {/* Background Video - Desktop only */}
       <video
@@ -65,7 +65,7 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary/90" />
+      <div className="absolute inset-0 bg-primary/80" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
@@ -79,10 +79,10 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 mt-14 sm:mt-6 md:mt-0"
+            className="inline-flex items-center gap-2 border border-white/25 px-4 py-1.5 rounded-full mb-6 mt-14 sm:mt-6 md:mt-0"
           >
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            <span className="text-sm font-medium">{t.badge}</span>
+            <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+            <span className="text-xs font-medium uppercase tracking-wider">{t.badge}</span>
           </motion.div>
 
           {/* Main Heading */}
@@ -101,8 +101,8 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10"
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10"
           >
             {t.subtitle}
           </motion.p>
@@ -111,7 +111,7 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link href={`/${lang}/ilanlar`}>
@@ -139,8 +139,8 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mt-16"
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mt-14 pt-10 border-t border-white/15 max-w-2xl mx-auto"
           >
             {[
               { value: `${getTamamlananProjeSayisi()}+`, label: t.completedProjects },
@@ -151,7 +151,7 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
                 <p className="text-3xl md:text-4xl font-bold text-accent">
                   {stat.value}
                 </p>
-                <p className="text-sm text-gray-400 mt-1">{stat.label}</p>
+                <p className="text-sm text-white/70 mt-1">{stat.label}</p>
               </div>
             ))}
           </motion.div>
@@ -162,22 +162,14 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
+        transition={{ delay: 0.6 }}
         onClick={scrollToContent}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors"
         aria-label={lang === 'ar' ? 'انتقل لأسفل' : lang === 'en' ? 'Scroll down' : 'Aşağı kaydır'}
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-        >
-          <ChevronDown className="w-8 h-8" />
-        </motion.div>
+        <ChevronDown className="w-7 h-7" />
       </motion.button>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
     </section>
   );
 }

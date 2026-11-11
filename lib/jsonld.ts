@@ -17,13 +17,8 @@ const siteConfig = {
   },
   employees: [
     {
-      name: "Zafer Soylu",
-      jobTitle: "Emlak Danışmanı",
-      telephone: "+905370530754",
-    },
-    {
       name: "Arif Dağdelen",
-      jobTitle: "Yapı & Taahhüt Uzmanı",
+      jobTitle: "Lisanslı Gayrimenkul Danışmanı",
       telephone: "+905321591556",
     },
   ],
@@ -36,13 +31,13 @@ export function generateOrganizationSchema() {
     "@type": "LocalBusiness",
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
-    alternateName: "Kalinda Yapı Emlak & Taahhüt",
+    alternateName: "Kalinda Yapı Emlak",
     description:
-      "Muğla Ortaca'da emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri sunan profesyonel firma.",
+      "Muğla Ortaca'da satılık ve kiralık gayrimenkul danışmanlığı sunan lisanslı emlak firması.",
     url: siteConfig.url,
     logo: siteConfig.logo,
     image: `${siteConfig.url}/og-image.jpg`,
-    telephone: ["+905370530754", "+905321591556"],
+    telephone: ["+905321591556"],
     email: "info@kalindayapi.com",
     foundingDate: "2022",
     address: {
@@ -100,16 +95,24 @@ export function generateOrganizationSchema() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Tadilat & Dekorasyon",
-            description: "İç mekan tadilat ve dekorasyon hizmetleri",
+            name: "Gayrimenkul Değerleme",
+            description: "Karşılaştırmalı piyasa analiziyle güncel değer raporu",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Taahhüt & İnşaat",
-            description: "Anahtar teslim inşaat ve taahhüt hizmetleri",
+            name: "Yatırım Danışmanlığı",
+            description: "Kira getirisi ve değer artışına göre yatırım analizi",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Tapu & Resmi İşlemler",
+            description: "Tapu, imar durumu ve sözleşme süreçlerinin takibi",
           },
         },
       ],
@@ -168,7 +171,7 @@ export function generateRealEstateListingSchema(ilan: Ilan, locale: string = 'tr
     seller: {
       "@type": "RealEstateAgent",
       name: siteConfig.name,
-      telephone: "+905370530754",
+      telephone: "+905321591556",
       url: siteConfig.url,
     },
   };
@@ -246,7 +249,7 @@ export function generateWebSiteSchema() {
     name: siteConfig.name,
     url: siteConfig.url,
     description:
-      "Muğla Ortaca'da emlak, tadilat ve taahhüt hizmetleri",
+      "Muğla Ortaca'da satılık ve kiralık gayrimenkul danışmanlığı",
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
     },
@@ -274,7 +277,7 @@ export function generateRealEstateAgentSchema() {
     url: siteConfig.url,
     logo: siteConfig.logo,
     image: `${siteConfig.url}/og-image.jpg`,
-    telephone: "+905370530754",
+    telephone: "+905321591556",
     email: "info@kalindayapi.com",
     address: {
       "@type": "PostalAddress",
@@ -307,21 +310,14 @@ export function generateRealEstateAgentSchema() {
     ],
     slogan: "Ortaca'nın Güvenilir Emlak Ortağı",
     foundingDate: "2022",
-    founder: [
-      {
-        "@type": "Person",
-        name: "Zafer Soylu",
-        jobTitle: "Emlak Danışmanı",
-      },
-      {
-        "@type": "Person",
-        name: "Arif Dağdelen",
-        jobTitle: "Yapı & Taahhüt Uzmanı",
-      },
-    ],
+    founder: {
+      "@type": "Person",
+      name: "Arif Dağdelen",
+      jobTitle: "Lisanslı Gayrimenkul Danışmanı",
+    },
     numberOfEmployees: {
       "@type": "QuantitativeValue",
-      value: 3,
+      value: 1,
     },
     openingHoursSpecification: [
       {
@@ -398,9 +394,9 @@ export function generateLocalBusinessSchema() {
     "@id": `${siteConfig.url}/#localbusiness`,
     name: siteConfig.name,
     description:
-      "Ortaca, Dalaman, Dalyan ve Köyceğiz'de emlak danışmanlığı, tadilat ve inşaat taahhüt hizmetleri.",
+      "Ortaca, Dalaman, Dalyan ve Köyceğiz'de satılık ve kiralık gayrimenkul danışmanlığı.",
     url: siteConfig.url,
-    telephone: "+905370530754",
+    telephone: "+905321591556",
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.streetAddress,
@@ -473,5 +469,5 @@ export function generateLocalBusinessSchema() {
 
 // AI Summary component for GEO optimization
 export function generateAISummary(): string {
-  return `Kalinda Yapı, Muğla'nın Ortaca ilçesinde faaliyet gösteren lisanslı emlak danışmanlığı, tadilat ve inşaat taahhüt firmasıdır. Zafer Soylu (emlak danışmanı, +90 537 053 07 54) ve Arif Dağdelen (yapı & taahhüt uzmanı, +90 532 159 15 56) ortaklığıyla 2022'den bu yana bölgeye hizmet vermektedir. Muğla'nın tüm ilçelerinde (Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça, Menteşe, Yatağan, Ula, Kavaklıdere, Seydikemer) satılık ve kiralık gayrimenkuller, konut ve ticari inşaat projeleri, iç mekan tadilat ve dekorasyon hizmetleri sunmaktadır. 100'den fazla tamamlanmış proje ve 200'den fazla mutlu aile ile %98 müşteri memnuniyeti oranına sahiptir.`;
+  return `Kalinda Yapı Emlak, Muğla'nın Ortaca ilçesinde faaliyet gösteren lisanslı bir gayrimenkul danışmanlık firmasıdır. Kurucu ve lisanslı danışman Arif Dağdelen (+90 532 159 15 56) yönetiminde 2022'den bu yana bölgeye hizmet vermektedir. Muğla'nın tüm ilçelerinde (Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça, Menteşe, Yatağan, Ula, Kavaklıdere, Seydikemer) satılık ve kiralık daire, villa, arsa ve ticari gayrimenkul portföyü sunar; gayrimenkul değerleme, yatırım danışmanlığı ile tapu ve resmi işlem takibi hizmetleri verir. 200'den fazla tamamlanmış emlak işlemi ve 300'den fazla mutlu aile ile %98 müşteri memnuniyeti oranına sahiptir.`;
 }

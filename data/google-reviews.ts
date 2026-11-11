@@ -41,7 +41,7 @@ export const googleReviews: GoogleReview[] = [
     id: 4,
     isim: "Ayşe Çelik",
     konum: "Ortaca",
-    yorum: "Yatırım amaçlı arsa bakıyordum. Zafer Bey bölgeyi çok iyi tanıyor, imar durumunu detaylıca anlattı. Güvenle çalışabilirsiniz.",
+    yorum: "Yatırım amaçlı arsa bakıyordum. Arif Bey bölgeyi çok iyi tanıyor, imar durumunu detaylıca anlattı. Güvenle çalışabilirsiniz.",
     puan: 5,
     tarih: "1 ay önce",
     yapilanIs: "Emlak"
@@ -471,7 +471,13 @@ export const googleReviews: GoogleReview[] = [
 ];
 
 // Rastgele n adet yorum seçen fonksiyon
+// Site artik yalnizca emlak hizmeti verdigi icin tadilat/insaat yorumlari
+// arsivde tutulur ancak sitede gosterilmez.
+export const emlakReviews: GoogleReview[] = googleReviews.filter(
+  (r) => r.yapilanIs === "Emlak" || r.yapilanIs === "Danışmanlık"
+);
+
 export function getRandomReviews(count: number = 4): GoogleReview[] {
-  const shuffled = [...googleReviews].sort(() => 0.5 - Math.random());
+  const shuffled = [...emlakReviews].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
 }

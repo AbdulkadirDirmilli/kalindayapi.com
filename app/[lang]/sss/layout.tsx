@@ -7,7 +7,7 @@ import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 const faqData = [
   {
     soru: "Kalinda Yapı hangi bölgelerde hizmet veriyor?",
-    cevap: "Kalinda Yapı olarak Muğla'nın tüm ilçelerinde aktif portföyümüz bulunuyor: Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça, Menteşe, Yatağan, Ula, Kavaklıdere ve Seydikemer. 2022'den bu yana 200+ emlak işlemi ve 100+ tadilat projesi tamamladık.",
+    cevap: "Kalinda Yapı Emlak olarak Muğla'nın tüm ilçelerinde aktif portföyümüz bulunuyor: Ortaca, Dalyan, Köyceğiz, Dalaman, Fethiye, Marmaris, Bodrum, Milas, Datça, Menteşe, Yatağan, Ula, Kavaklıdere ve Seydikemer. 2022'den bu yana 200'den fazla emlak işlemi tamamladık.",
   },
   {
     soru: "2026'da Ortaca'da satılık daire fiyatları ne kadar?",
@@ -22,24 +22,24 @@ const faqData = [
     cevap: "Ev arayanlar için danışmanlık görüşmeleri tamamen ücretsizdir. Satış tamamlandığında satış bedelinin %2'si komisyon olarak alınır. Kiralama işlemlerinde 1 aylık kira bedeli komisyon uygulanır. Gizli maliyet yoktur.",
   },
   {
-    soru: "Anahtar teslim ev inşaatı ne kadar sürer?",
-    cevap: "Anahtar teslim ev inşaatı projenin büyüklüğüne göre değişir: 150-200 m² tek katlı müstakil ev 8-10 ay, iki katlı villa 12-15 ay, havuzlu ve peyzajlı projeler 15-18 ay sürmektedir.",
+    soru: "Mülkümün değerini öğrenmek için ne yapmalıyım?",
+    cevap: "Ücretsiz ön değerleme için bizimle iletişime geçmeniz yeterli. Mülkü yerinde inceliyor, bölgede son dönemde gerçekleşen benzer satışlarla karşılaştırıyor ve ortalama 2 iş günü içinde yazılı bir değer aralığı sunuyoruz.",
   },
   {
-    soru: "Tadilat projesi için ücretsiz keşif yapıyor musunuz?",
-    cevap: "Evet, Ortaca, Dalyan, Köyceğiz ve tüm Muğla genelinde ücretsiz yerinde keşif yapıyoruz. 3-5 iş günü içinde detaylı maliyet teklifi sunuyoruz. Teklif kabul edilmezse hiçbir ücret talep etmiyoruz.",
+    soru: "Mülkümü portföyünüze nasıl eklerim?",
+    cevap: "Bizi arayıp randevu vermeniz yeterli. Mülkü yerinde inceliyor, profesyonel fotoğraflıyor, ilan metnini hazırlıyor ve tüm yayın kanallarında listeliyoruz. Portföye ekleme ücretsizdir; komisyon yalnızca satış veya kiralama gerçekleştiğinde alınır.",
   },
   {
-    soru: "Mutfak ve banyo tadilatı ne kadar sürer?",
-    cevap: "Ortalama süreler: Banyo tadilatı 10-15 gün, mutfak tadilatı 15-20 gün, komple daire tadilatı 6-10 hafta. 100+ tamamlanmış projemizde %95 zamanında teslim oranımız var.",
+    soru: "Bir ev ortalama ne kadar sürede satılıyor?",
+    cevap: "Doğru fiyatlanmış bir daire Ortaca merkezde ortalama 1-3 ay içinde alıcısını buluyor. Dalyan ve Köyceğiz'deki villalarda bu süre hedef kitleye bağlı olarak 3-6 aya çıkabiliyor. Piyasa üzerinde fiyatlanan mülklerde süre belirgin şekilde uzuyor.",
   },
   {
-    soru: "İnşaat ve tadilat işlerinde garanti veriyor musunuz?",
-    cevap: "Tüm işçilik ve uygulama için 2 yıl garanti veriyoruz. Su yalıtımı, çatı ve dış cephe işlerinde 5 yıl garanti sunuyoruz. Malzemeler için üretici garantisi ayrıca geçerlidir.",
+    soru: "İlanlardaki bilgilerin doğruluğunu nasıl güvence altına alıyorsunuz?",
+    cevap: "Listelediğimiz her gayrimenkulü satışa sunmadan önce yerinde görüyor, tapu kaydını ve imar durumunu kontrol ediyoruz. Metrekare, kat, ısıtma ve aidat gibi bilgiler sahibinden alınan belgeyle doğrulanır.",
   },
   {
-    soru: "Ortaca'da tadilat maliyeti ne kadar?",
-    cevap: "2026 güncel fiyatlarıyla: Banyo tadilatı 80.000-150.000 TL, mutfak tadilatı 100.000-200.000 TL, komple daire tadilatı m² başına 8.000-15.000 TL aralığında değişiyor.",
+    soru: "Satış sürecinde satıcı olarak hangi masraflar beni bekliyor?",
+    cevap: "Satıcı tarafında tapu harcı (satış bedelinin %2'si), varsa emlak vergisi borcu, zorunlu deprem sigortası ve enerji kimlik belgesi masrafları bulunur. Aracılık komisyonumuz satış bedelinin %2'sidir ve yalnızca satış gerçekleştiğinde alınır.",
   },
   {
     soru: "Ev satın alırken hangi belgeler gerekli?",
@@ -63,7 +63,7 @@ const faqData = [
   },
   {
     soru: "Kalinda Yapı'ya nasıl ulaşabilirim?",
-    cevap: "Telefon: +90 537 053 07 54 (Zafer Soylu), +90 532 159 15 56 (Arif Dağdelen). E-posta: info@kalindayapi.com. Adres: Atatürk Mahallesi, 58 Sokak No: 2/B, Ortaca/Muğla. WhatsApp ile 7/24 ulaşabilirsiniz.",
+    cevap: "Telefon: +90 532 159 15 56 (Arif Dağdelen). E-posta: info@kalindayapi.com. Adres: Atatürk Mahallesi, 58 Sokak No: 2/B, Ortaca/Muğla. WhatsApp ile 7/24 ulaşabilirsiniz.",
   },
   {
     soru: "Ortaca'da yatırımlık ev almak mantıklı mı?",

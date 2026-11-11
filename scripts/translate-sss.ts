@@ -31,7 +31,7 @@ const sorularTR: FAQ[] = [
   {
     kategori: "genel",
     soru: "Kalinda Yapı'ya nasıl ulaşabilirim?",
-    cevap: "Telefon (+90 537 053 07 54 veya +90 532 159 15 56), e-posta (info@kalindayapi.com) veya WhatsApp ile ulaşabilirsiniz. Ofisimiz Ortaca merkezdedir.",
+    cevap: "Telefon (+90 532 159 15 56 veya +90 532 159 15 56), e-posta (info@kalindayapi.com) veya WhatsApp ile ulaşabilirsiniz. Ofisimiz Ortaca merkezdedir.",
   },
   {
     kategori: "genel",
@@ -125,7 +125,9 @@ const sorularTR: FAQ[] = [
   },
 ];
 
-async function translateText(text: string, targetLang: 'en' | 'ar'): Promise<string> {
+type TargetLang = 'en' | 'ar' | 'de' | 'ru';
+
+async function translateText(text: string, targetLang: TargetLang): Promise<string> {
   if (!text || text.trim().length === 0) return text;
 
   try {
@@ -137,7 +139,7 @@ async function translateText(text: string, targetLang: 'en' | 'ar'): Promise<str
   }
 }
 
-async function translateFAQs(faqs: FAQ[], targetLang: 'en' | 'ar'): Promise<FAQ[]> {
+async function translateFAQs(faqs: FAQ[], targetLang: TargetLang): Promise<FAQ[]> {
   const translated: FAQ[] = [];
 
   console.log(`\nTranslating ${faqs.length} FAQs to ${targetLang}...`);
@@ -177,6 +179,14 @@ async function main() {
     const sorularAR = await translateFAQs(sorularTR, 'ar');
     console.log('\n✓ Arabic translations completed');
 
+    // Translate to German
+    const sorularDE = await translateFAQs(sorularTR, 'de');
+    console.log('\n✓ German translations completed');
+
+    // Translate to Russian
+    const sorularRU = await translateFAQs(sorularTR, 'ru');
+    console.log('\n✓ Russian translations completed');
+
     // Generate output file
     const output = `// Auto-generated translations - ${new Date().toISOString()}
 // Do not edit manually, run scripts/translate-sss.ts to regenerate
@@ -186,6 +196,10 @@ import type { FAQ } from './sss';
 export const sorularEN: FAQ[] = ${JSON.stringify(sorularEN, null, 2)};
 
 export const sorularAR: FAQ[] = ${JSON.stringify(sorularAR, null, 2)};
+
+export const sorularDE: FAQ[] = ${JSON.stringify(sorularDE, null, 2)};
+
+export const sorularRU: FAQ[] = ${JSON.stringify(sorularRU, null, 2)};
 `;
 
     const outputPath = path.join(process.cwd(), 'data', 'sss-translations.ts');
@@ -195,6 +209,8 @@ export const sorularAR: FAQ[] = ${JSON.stringify(sorularAR, null, 2)};
     console.log(`✓ Translations saved to: ${outputPath}`);
     console.log(`  - ${sorularEN.length} English FAQs`);
     console.log(`  - ${sorularAR.length} Arabic FAQs`);
+    console.log(`  - ${sorularDE.length} German FAQs`);
+    console.log(`  - ${sorularRU.length} Russian FAQs`);
 
   } catch (error) {
     console.error('Translation failed:', error);

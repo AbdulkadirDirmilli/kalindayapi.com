@@ -264,7 +264,7 @@ export default function SSSPage() {
             </Link>
             <a
               href={createWhatsAppLink(
-                "905370530754",
+                "905321591556",
                 locale === 'en' ? "Hello, I'm coming from the FAQ page. I have a question." :
                 locale === 'ar' ? "مرحبًا، أنا قادم من صفحة الأسئلة الشائعة. لدي سؤال." :
                 "Merhaba, SSS sayfasından geliyorum. Bir sorum var."

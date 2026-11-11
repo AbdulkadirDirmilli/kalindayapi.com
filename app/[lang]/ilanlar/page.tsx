@@ -23,7 +23,7 @@ const texts = {
     title: "Emlak İlanları",
     metaTitle: "Ortaca Satılık & Kiralık Emlak İlanları 2026 | Kalinda Yapı",
     metaDescription:
-      "Ortaca, Dalaman, Dalyan ve Köyceğiz'de satılık ve kiralık daire, villa, arsa ilanları ✓ 150+ güncel ilan ✓ Lisanslı danışman. Hemen inceleyin! ☎ 0537 053 07 54",
+      "Ortaca, Dalaman, Dalyan ve Köyceğiz'de satılık ve kiralık daire, villa, arsa ilanları ✓ 150+ güncel ilan ✓ Lisanslı danışman. Hemen inceleyin! ☎ 0532 159 15 56",
     subtitle:
       "Muğla'nın tüm ilçelerinde satılık ve kiralık gayrimenkuller. Ortaca, Dalaman, Dalyan, Köyceğiz bölgelerinde hayalinizdeki evi bulun.",
     breadcrumb: "İlanlar",
@@ -39,7 +39,7 @@ const texts = {
     title: "Property Listings",
     metaTitle: "Property for Sale & Rent in Ortaca 2026 | Kalinda Yapı",
     metaDescription:
-      "Apartments, villas, and land for sale and rent in Ortaca, Dalaman, Dalyan, and Köyceğiz ✓ 150+ listings ✓ Licensed agents. Browse now! ☎ +90 537 053 07 54",
+      "Apartments, villas, and land for sale and rent in Ortaca, Dalaman, Dalyan, and Köyceğiz ✓ 150+ listings ✓ Licensed agents. Browse now! ☎ +90 532 159 15 56",
     subtitle:
       "Properties for sale and rent in all districts of Muğla. Find your dream home in Ortaca, Dalaman, Dalyan, Köyceğiz areas.",
     breadcrumb: "Listings",
@@ -55,7 +55,7 @@ const texts = {
     title: "قوائم العقارات",
     metaTitle: "عقارات للبيع والإيجار في أورتاجا 2026 | كالينداي يابي",
     metaDescription:
-      "شقق وفلل وأراضي للبيع والإيجار في أورتاجا ودالامان ودالان وكويجيز ✓ 150+ إعلان ✓ وكلاء مرخصون. تصفح الآن! ☎ 00905370530754",
+      "شقق وفلل وأراضي للبيع والإيجار في أورتاجا ودالامان ودالان وكويجيز ✓ 150+ إعلان ✓ وكلاء مرخصون. تصفح الآن! ☎ 00905321591556",
     subtitle:
       "عقارات للبيع والإيجار في جميع مناطق موغلا. اعثر على منزل أحلامك في مناطق أورتاجا ودالامان ودالان وكويجيز.",
     breadcrumb: "العقارات",
@@ -71,7 +71,7 @@ const texts = {
     title: "Immobilienanzeigen",
     metaTitle: "Immobilien zum Verkauf & zur Miete in Ortaca 2026 | Kalinda Yapı",
     metaDescription:
-      "Wohnungen, Villen und Grundstücke zum Verkauf und zur Miete in Ortaca, Dalaman, Dalyan und Köyceğiz ✓ 150+ Anzeigen ✓ Lizenzierte Makler. Jetzt ansehen! ☎ +90 537 053 07 54",
+      "Wohnungen, Villen und Grundstücke zum Verkauf und zur Miete in Ortaca, Dalaman, Dalyan und Köyceğiz ✓ 150+ Anzeigen ✓ Lizenzierte Makler. Jetzt ansehen! ☎ +90 532 159 15 56",
     subtitle:
       "Immobilien zum Verkauf und zur Miete in allen Bezirken von Muğla. Finden Sie Ihr Traumhaus in Ortaca, Dalaman, Dalyan, Köyceğiz.",
     breadcrumb: "Anzeigen",
@@ -87,7 +87,7 @@ const texts = {
     title: "Объявления о недвижимости",
     metaTitle: "Недвижимость на продажу и в аренду в Ортаке 2026 | Kalinda Yapı",
     metaDescription:
-      "Квартиры, виллы и земельные участки на продажу и в аренду в Ортаке, Даламане, Даляне и Кёйджеизе ✓ 150+ объявлений ✓ Лицензированные агенты. Смотрите сейчас! ☎ +90 537 053 07 54",
+      "Квартиры, виллы и земельные участки на продажу и в аренду в Ортаке, Даламане, Даляне и Кёйджеизе ✓ 150+ объявлений ✓ Лицензированные агенты. Смотрите сейчас! ☎ +90 532 159 15 56",
     subtitle:
       "Недвижимость на продажу и в аренду во всех районах Мугла. Найдите дом своей мечты в районах Ортака, Даламан, Далян, Кёйджеиз.",
     breadcrumb: "Объявления",

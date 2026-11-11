@@ -66,9 +66,9 @@ export const routeTranslations: Record<string, Record<Locale, string>> = {
 
   // Hizmet alt sayfaları
   'emlak-danismanligi': { tr: 'emlak-danismanligi', en: 'real-estate-consulting', ar: 'استشارات-عقارية', de: 'immobilienberatung', ru: 'консультации-по-недвижимости' },
-  'tadilat-dekorasyon': { tr: 'tadilat-dekorasyon', en: 'renovation-decoration', ar: 'تجديد-ديكور', de: 'renovierung-dekoration', ru: 'ремонт-декор' },
-  'taahhut-insaat': { tr: 'taahhut-insaat', en: 'construction-contracting', ar: 'المقاولات-البناء', de: 'bauunternehmen', ru: 'строительство' },
-  'plan-proje': { tr: 'plan-proje', en: 'planning-design', ar: 'التخطيط-التصميم', de: 'planung-design', ru: 'планирование-дизайн' },
+  'gayrimenkul-degerleme': { tr: 'gayrimenkul-degerleme', en: 'property-valuation', ar: 'تقييم-العقارات', de: 'immobilienbewertung', ru: 'оценка-недвижимости' },
+  'yatirim-danismanligi': { tr: 'yatirim-danismanligi', en: 'investment-consulting', ar: 'استشارات-استثمارية', de: 'investmentberatung', ru: 'инвестиционный-консалтинг' },
+  'tapu-islemleri': { tr: 'tapu-islemleri', en: 'title-deed-services', ar: 'خدمات-الطابو', de: 'grundbuch-service', ru: 'оформление-сделки' },
 
   // Kurumsal alt sayfalar
   'vizyon-misyon': { tr: 'vizyon-misyon', en: 'vision-mission', ar: 'الرؤية-المهمة', de: 'vision-mission', ru: 'миссия-видение' },

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Ortaca Immobilien & Wohnungen zu verkaufen | Kalinda Yapi - Lizenzierte Agentur",
-    "description": "Immobilien zum Verkauf & zur Miete in Ortaca, Türkei. 150+ Angebote. Lizenzierte Makler. Kostenlose Bewertung. Dalaman, Köycegiz, Dalyan. Tel: +90 537 053 07 54",
+    "description": "Immobilien zum Verkauf & zur Miete in Ortaca, Türkei. 150+ Angebote. Lizenzierte Makler. Kostenlose Bewertung. Dalaman, Köycegiz, Dalyan. Tel: +90 532 159 15 56",
     "keywords": "Ortaca Immobilien, Türkei Immobilien kaufen, Mugla Wohnungen, Dalaman Villen, Dalyan Immobilien, Türkische Riviera Investment"
   },
   "nav": {
@@ -19,12 +19,6 @@
     "faq": "FAQ",
     "searchListings": "Immobilien suchen",
     "callNow": "Jetzt anrufen"
-  },
-  "services": {
-    "realEstate": "Immobilienberatung",
-    "renovation": "Renovierung & Dekoration",
-    "construction": "Bau & Vertragsarbeit",
-    "planning": "Planung & Design"
   },
   "common": {
     "readMore": "Mehr lesen",
@@ -52,12 +46,12 @@
     "hero": {
       "badge": "Seit 2022 für Sie da",
       "title": "Ihr zuverlässiger",
-      "titleHighlight": "Immobilien & Bau",
-      "titleEnd": "Partner an der Türkischen Riviera",
-      "subtitle": "Immobilienberatung, Renovierung und Baudienstleistungen in Ortaca, Mugla. Ihrem Traumhaus oder Projekt einen Schritt näher.",
+      "titleHighlight": "Immobilien",
+      "titleEnd": "Berater in Ortaca",
+      "subtitle": "Verkauf und Vermietung von Immobilien in Ortaca, Dalyan, Köyceğiz und Dalaman. Das passende Portfolio, ein transparenter Ablauf, lizenzierter Service.",
       "cta": "Immobilien entdecken",
-      "ctaSecondary": "Kostenlose Beratung",
-      "completedProjects": "Abgeschlossene Projekte",
+      "ctaSecondary": "Kostenlose Bewertung",
+      "completedProjects": "Abgeschlossene Transaktionen",
       "yearsExperience": "Jahre Erfahrung",
       "happyFamilies": "Zufriedene Familien"
     },
@@ -66,15 +60,14 @@
       "subtitle": "Beweis für Vertrauen und Erfolg",
       "description": "Wachsend mit jahrelanger Erfahrung und dem Vertrauen unserer Kunden in der Region Ortaca und Mugla.",
       "experience": "Jahre Erfahrung",
-      "projects": "Abgeschlossene Projekte",
+      "projects": "Abgeschlossene Transaktionen",
       "clients": "Zufriedene Familien",
       "satisfaction": "Kundenzufriedenheit",
-      "projectsDesc": "Wohn-, Villa- und Gewerbeprojekte",
+      "projectsDesc": "Verkäufe und Vermietungen",
       "experienceDesc": "Seit 2022 im Dienst",
       "clientsDesc": "Kunden, die uns vertrauen",
-      "satisfactionDesc": "Qualitätsorientierter Service",
-      "area": "qm Bau",
-      "note": "* Daten spiegeln unsere tatsächlichen Transaktionen wider und werden nach jedem Verkauf und jeder Vermietung aktualisiert."
+      "satisfactionDesc": "Transparenter, ergebnisorientierter Service",
+      "note": "* Die Zahlen spiegeln unsere tatsächlichen Transaktionen wider und werden nach jedem Verkauf und jeder Vermietung aktualisiert."
     },
     "featured": {
       "badge": "Ausgewählte Immobilien",
@@ -89,24 +82,24 @@
     "services": {
       "badge": "Unsere Dienstleistungen",
       "title": "Wie können wir Ihnen helfen?",
-      "subtitle": "Von der Immobilienberatung bis zum Bauunternehmen - wir sind für alle Ihre Bedürfnisse da. Qualitätsservice mit unserem professionellen Team.",
+      "subtitle": "Lizenzierte Immobilienberatung bei Kauf, Verkauf, Vermietung und Investition.",
       "details": "Details",
       "viewAll": "Alle Dienstleistungen anzeigen",
       "realEstate": {
         "title": "Immobilienberatung",
-        "description": "Immobilien zum Verkauf und zur Miete in Ortaca und Umgebung. Professionelle Bewertung und Anlageberatung."
+        "description": "Immobilien zum Verkauf und zur Miete in Ortaca und Umgebung, mit sicherer Vermittlung zwischen Käufer und Verkäufer."
       },
-      "renovation": {
-        "title": "Renovierung & Dekoration",
-        "description": "Innenarchitektur, Küchen-Bad-Renovierung, Maler- und Beschichtungsarbeiten. Wir verwandeln Ihr Zuhause wie Sie es sich wünschen."
+      "valuation": {
+        "title": "Immobilienbewertung",
+        "description": "Wir ermitteln den aktuellen Marktwert Ihrer Immobilie mit einer regionalen Vergleichsanalyse."
       },
-      "construction": {
-        "title": "Bau & Vertragsarbeit",
-        "description": "Neubau von Gebäuden, Restaurierungsprojekte und schlüsselfertige Baulösungen."
+      "investment": {
+        "title": "Anlageberatung",
+        "description": "Wir bewerten gemeinsam lokale Investitionschancen nach Mietrendite und Wertsteigerungspotenzial."
       },
-      "planning": {
-        "title": "Planung & Projekt",
-        "description": "Architektonische, statische, elektrische und mechanische Projektzeichnungen und Genehmigungsberatung."
+      "titleDeed": {
+        "title": "Grundbuch & Behördengänge",
+        "description": "Durchgehende Begleitung bei Grundbuch, Bebauungsstatus und Vertragsunterlagen."
       }
     },
     "whyUs": {
@@ -117,20 +110,20 @@
       "licensedConsultantDesc": "Zuverlässiger Service von unserem offiziell zertifizierten Immobilienberater.",
       "localKnowledge": "Lokales Wissen",
       "localKnowledgeDesc": "Wir kennen Ortaca und Umgebung wie unsere Westentasche. Vertraut mit der Dynamik der Region.",
-      "guaranteedWork": "Garantierte Arbeit",
-      "guaranteedWorkDesc": "Wir bieten Arbeitsgarantie für alle unsere Renovierungs- und Bauarbeiten.",
+      "guaranteedWork": "Geprüftes Portfolio",
+      "guaranteedWorkDesc": "Wir besichtigen jede gelistete Immobilie vor Ort und prüfen Grundbuch und Bebauungsstatus.",
       "transparentContract": "Transparenter Vertrag",
       "transparentContractDesc": "Alle unsere Transaktionen sind durch schriftliche Verträge gesichert. Keine versteckten Kosten.",
       "personalAttention": "Persönliche Betreuung",
       "personalAttentionDesc": "Wir schenken jedem Kunden besondere Aufmerksamkeit. Ihre Bedürfnisse zu verstehen hat Priorität.",
-      "onTimeDelivery": "Pünktliche Lieferung",
-      "onTimeDeliveryDesc": "Wir schließen unsere Projekte termingerecht ab. Wir schätzen Zeit.",
+      "onTimeDelivery": "Schnelle Prozessabwicklung",
+      "onTimeDeliveryDesc": "Wir übernehmen für Sie jeden Schritt, vom Angebot über die Verhandlung bis zum Grundbuchtermin.",
       "serviceArea": "Servicegebiet",
       "allDistricts": "Alle Bezirke von Mugla",
       "established": "Gegründet",
       "since2022": "Seit 2022",
       "customerSatisfaction": "Kundenzufriedenheit",
-      "serviceNote": "Wir sind mit unseren Immobilien-, Renovierungs- und Baudienstleistungen in allen Bezirken von Mugla für Sie da"
+      "serviceNote": "Mit unserer Beratung für Verkauf und Vermietung sind wir in allen Bezirken von Muğla für Sie da"
     },
     "blog": {
       "badge": "Blog & Ratgeber",
@@ -140,35 +133,24 @@
       "viewAll": "Alle Beiträge anzeigen",
       "readTime": "Min"
     },
-    "references": {
-      "badge": "Referenzprojekte",
-      "title": "Vorher - Nachher Galerie",
-      "subtitle": "Beispiele aus unseren abgeschlossenen Projekten. Wir machen den Unterschied mit Qualitätsarbeit und professionellem Ansatz.",
-      "before": "VORHER",
-      "after": "NACHHER",
-      "clickToToggle": "Klicken zum Umschalten",
-      "instruction": "Klicken Sie auf Bilder, um den Vorher-Nachher-Vergleich zu sehen",
-      "prev": "Zurück",
-      "next": "Weiter"
-    },
     "team": {
-      "badge": "Unser Team",
-      "title": "Gründungspartner",
-      "subtitle": "Erfahrene Namen hinter Kalinda Yapi. Unsere Partner dienen mit höchster Kundenzufriedenheit.",
+      "badge": "Ihr Berater",
+      "title": "Ein Ansprechpartner, klare Antworten",
+      "subtitle": "Von der ersten Besichtigung bis zum Grundbuchtermin arbeiten Sie mit demselben Berater.",
       "expertise": "Fachgebiete",
       "call": "Anrufen"
     },
     "faq": {
       "badge": "FAQ",
       "title": "Häufig gestellte Fragen",
-      "subtitle": "Die am häufigsten gestellten Fragen und Expertenantworten zu Immobilienkauf/-verkauf, Renovierung und Bau in Ortaca, Dalyan und Mugla.",
+      "subtitle": "Die am häufigsten gestellten Fragen und Beraterantworten zu Kauf, Verkauf und Vermietung von Immobilien in Ortaca, Dalyan und Muğla.",
       "moreQuestions": "Weitere Fragen?",
       "contactUs": "Kontaktieren Sie uns"
     },
     "contactForm": {
       "badge": "Kontakt",
       "title": "Kontaktieren Sie uns jetzt",
-      "subtitle": "Erhalten Sie kostenlose Beratung für Ihre Immobilien-, Renovierungs- oder Bauprojekte. Wir melden uns schnellstmöglich.",
+      "subtitle": "Erhalten Sie ein kostenloses Erstgespräch zu Ihren Kauf-, Verkaufs- oder Mietplänen. Wir melden uns schnellstmöglich.",
       "address": "Adresse",
       "phone": "Telefon",
       "workingHours": "Öffnungszeiten",
@@ -297,8 +279,7 @@
       "emlak": "Immobilien",
       "tadilat": "Renovierung",
       "insaat": "Bau",
-      "yatirim": "Investment",
-      "dekorasyon": "Dekoration"
+      "yatirim": "Investment"
     },
     "author": "Autor",
     "publishDate": "Veröffentlicht",
@@ -309,7 +290,7 @@
     "subtitle": "Finden Sie Antworten auf häufige Fragen"
   },
   "footer": {
-    "description": "Immobilien-, Renovierungs- und Baudienstleistungen in Ortaca und Umgebung.",
+    "description": "Beratung zu Verkauf und Vermietung von Immobilien in Ortaca und Umgebung.",
     "quickLinks": "Schnelllinks",
     "services": "Unsere Dienstleistungen",
     "contact": "Kontaktinformationen",
@@ -347,10 +328,8 @@
     "close": "Schließen"
   },
   "consultants": {
-    "zafer": "Herr Zafer",
     "arif": "Herr Arif",
-    "hikmet": "Herr Hikmet",
-    "consultant": "Berater"
+    "consultant": "Immobilienberater"
   },
   "address": {
     "full": "Atatürk Mah. 58 Sk. Nr: 2/B (Hinter dem Rathaus), Ortaca / Mugla, Türkei",
@@ -459,7 +438,7 @@
   "contactPage": {
     "heroTitle": "Kontakt",
     "heroSubtitle": "Kontaktieren Sie uns bei Fragen. Wir helfen Ihnen gerne.",
-    "heroDescription": "Treffen Sie unser Expertenteam für Ihre Immobilien-, Renovierungs- oder Bauprojekte.",
+    "heroDescription": "Sprechen Sie mit unserem lizenzierten Berater über Ihre Kauf-, Verkaufs- oder Mietpläne.",
     "infoTitle": "Kontaktinformationen",
     "address": "Adresse",
     "addressLine1": "Atatürk Mah. 58 Sk. Nr: 2/B",
@@ -469,7 +448,7 @@
     "weekdaysHours": "Montag - Freitag: 09:00 - 18:00",
     "saturdayHours": "Samstag: 10:00 - 14:00",
     "sundayClosed": "Sonntag: Geschlossen",
-    "teamTitle": "Unser Team",
+    "teamTitle": "Ihr Berater",
     "socialTitle": "Soziale Medien",
     "formTitle": "Senden Sie uns eine Nachricht",
     "successTitle": "Nachricht gesendet!",
@@ -490,22 +469,15 @@
     },
     "serviceOptions": {
       "emlak": "Immobilienberatung",
-      "tadilat": "Renovierung & Dekoration",
-      "insaat": "Bau & Vertragsarbeit",
+      "degerleme": "Immobilienbewertung",
+      "yatirim": "Anlageberatung",
+      "tapu": "Grundbuch & Behördengänge",
       "diger": "Sonstiges"
     },
     "team": {
-      "zafer": {
-        "name": "Zafer SOYLU",
-        "title": "Mitgründer & Immobilienberater"
-      },
       "arif": {
-        "name": "Arif DAGDELEN",
-        "title": "Mitgründer & Bauleiter"
-      },
-      "hikmet": {
-        "name": "Hikmet KARAOGLAN",
-        "title": "Mitgründer & Renovierungsexperte"
+        "name": "Arif DAĞDELEN",
+        "title": "Gründer | Lizenzierter Immobilienberater"
       }
     },
     "mapTitle": "Kalinda Yapi Standort - Ortaca, Mugla"

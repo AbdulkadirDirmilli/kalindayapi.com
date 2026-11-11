@@ -30,9 +30,7 @@ const socialLinks = [
 
 // Phone numbers with translation keys
 const phoneNumbersData = [
-  { nameKey: "zafer", phone: "+905370530754", foto: "/zafersoylu.png" },
   { nameKey: "arif", phone: "+905321591556", foto: "/arifdagdelen.png" },
-  { nameKey: "hikmet", phone: "+905554531207", foto: null },
 ];
 
 export default function SideContactBar() {
@@ -48,9 +46,7 @@ export default function SideContactBar() {
   };
 
   const consultants = dict?.consultants || {
-    zafer: "Zafer Bey",
     arif: "Arif Bey",
-    hikmet: "Hikmet Bey",
     consultant: "Danışman"
   };
 

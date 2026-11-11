@@ -35,7 +35,9 @@ interface Hizmet {
   sss: HizmetSSS[];
 }
 
-async function translateText(text: string, targetLang: 'en' | 'ar'): Promise<string> {
+type TargetLang = 'en' | 'ar' | 'de' | 'ru';
+
+async function translateText(text: string, targetLang: TargetLang): Promise<string> {
   if (!text || text.trim().length === 0) return text;
 
   try {
@@ -51,7 +53,7 @@ async function delay(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function translateHizmet(hizmet: Hizmet, targetLang: 'en' | 'ar'): Promise<Hizmet> {
+async function translateHizmet(hizmet: Hizmet, targetLang: TargetLang): Promise<Hizmet> {
   // Translate main service fields
   const [baslik, kisaAciklama, uzunAciklama] = await Promise.all([
     translateText(hizmet.baslik, targetLang),
@@ -105,11 +107,13 @@ async function main() {
   console.log('='.repeat(50));
 
   const hizmetler = hizmetlerData.hizmetler as Hizmet[];
-  const targetLanguages: ('en' | 'ar')[] = ['en', 'ar'];
+  const targetLanguages: TargetLang[] = ['en', 'ar', 'de', 'ru'];
 
   const results: Record<string, Hizmet[]> = {
     en: [],
     ar: [],
+    de: [],
+    ru: [],
   };
 
   console.log(`Translating ${hizmetler.length} services...`);
@@ -172,6 +176,10 @@ export const hizmetlerEN: TranslatedHizmet[] = ${JSON.stringify(results.en, null
 
 export const hizmetlerAR: TranslatedHizmet[] = ${JSON.stringify(results.ar, null, 2)};
 
+export const hizmetlerDE: TranslatedHizmet[] = ${JSON.stringify(results.de, null, 2)};
+
+export const hizmetlerRU: TranslatedHizmet[] = ${JSON.stringify(results.ru, null, 2)};
+
 // Get translated services by locale
 export function getHizmetler(locale: Locale): TranslatedHizmet[] {
   switch (locale) {
@@ -179,6 +187,10 @@ export function getHizmetler(locale: Locale): TranslatedHizmet[] {
       return hizmetlerEN;
     case 'ar':
       return hizmetlerAR;
+    case 'de':
+      return hizmetlerDE;
+    case 'ru':
+      return hizmetlerRU;
     default:
       // Return empty array for TR - use original hizmetler.json
       return [];
@@ -199,6 +211,8 @@ export function getHizmetBySlug(slug: string, locale: Locale): TranslatedHizmet 
   console.log(`✓ Translations saved to: ${outputPath}`);
   console.log(`  - ${results.en.length} English services`);
   console.log(`  - ${results.ar.length} Arabic services`);
+  console.log(`  - ${results.de.length} German services`);
+  console.log(`  - ${results.ru.length} Russian services`);
 }
 
 main().catch(console.error);

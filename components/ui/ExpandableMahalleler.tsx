@@ -7,31 +7,31 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 const translations = {
   tr: {
     title: "{district} Mahalleleri",
-    description: "{district} ilçesinde toplam {count} mahalle bulunmaktadır. Emlak, tadilat ve inşaat hizmetlerimiz tüm mahallelerde geçerlidir.",
+    description: "{district} ilçesinde toplam {count} mahalle bulunmaktadır. Emlak danışmanlığı hizmetimiz tüm mahallelerde geçerlidir.",
     more: "+{count} mahalle daha",
     less: "Daha az göster",
   },
   en: {
     title: "{district} Neighborhoods",
-    description: "There are {count} neighborhoods in {district} district. Our real estate, renovation and construction services are available in all neighborhoods.",
+    description: "There are {count} neighborhoods in {district} district. Our real estate consulting service covers all of them.",
     more: "+{count} more neighborhoods",
     less: "Show less",
   },
   ar: {
     title: "أحياء {district}",
-    description: "يوجد {count} حي في منطقة {district}. خدماتنا العقارية والتجديد والبناء متاحة في جميع الأحياء.",
+    description: "يوجد {count} حي في منطقة {district}. خدمة الاستشارات العقارية لدينا متاحة في جميع الأحياء.",
     more: "+{count} أحياء أخرى",
     less: "عرض أقل",
   },
   de: {
     title: "Stadtteile von {district}",
-    description: "In {district} gibt es {count} Stadtteile. Unsere Immobilien-, Renovierungs- und Baudienstleistungen sind in allen Stadtteilen verfügbar.",
+    description: "In {district} gibt es {count} Stadtteile. Unsere Immobilienberatung ist in allen Stadtteilen verfügbar.",
     more: "+{count} weitere Stadtteile",
     less: "Weniger anzeigen",
   },
   ru: {
     title: "Районы {district}",
-    description: "В {district} {count} районов. Наши услуги по недвижимости, ремонту и строительству доступны во всех районах.",
+    description: "В {district} {count} районов. Наши консультации по недвижимости доступны во всех районах.",
     more: "+{count} районов ещё",
     less: "Показать меньше",
   },

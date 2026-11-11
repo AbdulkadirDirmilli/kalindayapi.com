@@ -29,7 +29,7 @@ const texts = {
     hero: {
       title: "Belgeler &",
       titleHighlight: "Sertifikalar",
-      description: "Kalinda Yapı olarak Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinde tüm yasal gerekliliklere uygun, resmi belge ve sertifikalarla hizmet veriyoruz. Şeffaflık ilkemiz gereği belgelerimizi sizlerle paylaşıyoruz. Emlak danışmanlığı, tadilat ve inşaat hizmetlerimiz resmi lisans ve sertifikalarla desteklenmektedir.",
+      description: "Kalinda Yapı Emlak olarak Ortaca, Dalyan, Köyceğiz ve tüm Muğla bölgesinde tüm yasal gerekliliklere uygun, resmi belge ve sertifikalarla hizmet veriyoruz. Şeffaflık ilkemiz gereği belgelerimizi sizlerle paylaşıyoruz. Gayrimenkul danışmanlığı hizmetimiz resmi lisans ve sertifikalarla desteklenmektedir.",
     },
     activeCerts: {
       badge: "Aktif Belgeler",
@@ -77,7 +77,7 @@ const texts = {
         baslik: "İş Güvenliği Sertifikası",
         aciklama: "İş Sağlığı ve Güvenliği eğitim sertifikası",
         tarih: "2023",
-        detay: "Şantiye ve tadilat işlerinde iş güvenliği standartları",
+        detay: "Saha ziyaretleri ve ofis operasyonunda iş güvenliği standartları",
       },
       {
         baslik: "Vergi Levhası",
@@ -94,8 +94,8 @@ const texts = {
         ilerleme: 60,
       },
       {
-        baslik: "Yeşil Bina Sertifikası",
-        aciklama: "Sürdürülebilir yapı uygulamaları belgesi",
+        baslik: "SPK Gayrimenkul Değerleme Lisansı",
+        aciklama: "Sermaye Piyasası Kurulu değerleme uzmanlığı lisansı",
         hedefTarih: "2026",
         ilerleme: 30,
       },
@@ -115,7 +115,7 @@ const texts = {
     hero: {
       title: "Certificates &",
       titleHighlight: "Documents",
-      description: "At Kalinda Yapı, we provide services with official documents and certificates in compliance with all legal requirements in Ortaca, Dalyan, Köyceğiz and the entire Muğla region. In line with our transparency principle, we share our documents with you. Our real estate consultancy, renovation, and construction services are supported by official licenses and certificates.",
+      description: "At Kalinda Yapı Emlak, we provide services with official documents and certificates in compliance with all legal requirements in Ortaca, Dalyan, Köyceğiz and the entire Muğla region. In line with our transparency principle, we share our documents with you. Our real estate consultancy is supported by official licenses and certificates.",
     },
     activeCerts: {
       badge: "Active Documents",
@@ -163,7 +163,7 @@ const texts = {
         baslik: "Occupational Safety Certificate",
         aciklama: "Occupational Health and Safety training certificate",
         tarih: "2023",
-        detay: "Occupational safety standards in construction and renovation works",
+        detay: "Occupational safety standards for site visits and office operations",
       },
       {
         baslik: "Tax Certificate",
@@ -180,8 +180,8 @@ const texts = {
         ilerleme: 60,
       },
       {
-        baslik: "Green Building Certificate",
-        aciklama: "Sustainable building practices certificate",
+        baslik: "CMB Real Estate Appraisal Licence",
+        aciklama: "Capital Markets Board property appraisal licence",
         hedefTarih: "2026",
         ilerleme: 30,
       },
@@ -201,7 +201,7 @@ const texts = {
     hero: {
       title: "الشهادات و",
       titleHighlight: "الوثائق",
-      description: "في كاليندا يابي، نقدم خدماتنا بوثائق وشهادات رسمية متوافقة مع جميع المتطلبات القانونية في أورتاجا ودالان وكويجيز وجميع أنحاء منطقة موغلا. وفقاً لمبدأ الشفافية لدينا، نشارك وثائقنا معكم. خدماتنا في الاستشارات العقارية والتجديد والبناء مدعومة بتراخيص وشهادات رسمية.",
+      description: "في كاليندا يابي العقارية، نقدم خدماتنا بوثائق وشهادات رسمية متوافقة مع جميع المتطلبات القانونية في أورتاجا وداليان وكويجيز وجميع أنحاء منطقة موغلا. وفقاً لمبدأ الشفافية لدينا، نشارك وثائقنا معكم. خدمات الاستشارات العقارية لدينا مدعومة بتراخيص وشهادات رسمية.",
     },
     activeCerts: {
       badge: "الوثائق النشطة",
@@ -249,7 +249,7 @@ const texts = {
         baslik: "شهادة السلامة المهنية",
         aciklama: "شهادة تدريب الصحة والسلامة المهنية",
         tarih: "2023",
-        detay: "معايير السلامة المهنية في أعمال البناء والتجديد",
+        detay: "معايير السلامة المهنية في الزيارات الميدانية وعمليات المكتب",
       },
       {
         baslik: "شهادة الضرائب",
@@ -266,8 +266,8 @@ const texts = {
         ilerleme: 60,
       },
       {
-        baslik: "شهادة المباني الخضراء",
-        aciklama: "شهادة ممارسات البناء المستدام",
+        baslik: "رخصة تقييم العقارات من هيئة أسواق المال",
+        aciklama: "رخصة خبير تقييم عقاري من هيئة أسواق المال",
         hedefTarih: "2026",
         ilerleme: 30,
       },
@@ -287,7 +287,7 @@ const texts = {
     hero: {
       title: "Zertifikate &",
       titleHighlight: "Dokumente",
-      description: "Bei Kalinda Yapı erbringen wir unsere Dienstleistungen mit offiziellen Dokumenten und Zertifikaten in Übereinstimmung mit allen gesetzlichen Anforderungen in Ortaca, Dalyan, Köyceğiz und der gesamten Region Muğla. Gemäß unserem Transparenzprinzip teilen wir unsere Dokumente mit Ihnen. Unsere Immobilienberatung, Renovierungs- und Baudienstleistungen werden durch offizielle Lizenzen und Zertifikate unterstützt.",
+      description: "Bei Kalinda Yapı Emlak erbringen wir unsere Dienstleistungen mit offiziellen Dokumenten und Zertifikaten in Übereinstimmung mit allen gesetzlichen Anforderungen in Ortaca, Dalyan, Köyceğiz und der gesamten Region Muğla. Gemäß unserem Transparenzprinzip teilen wir unsere Dokumente mit Ihnen. Unsere Immobilienberatung wird durch offizielle Lizenzen und Zertifikate unterstützt.",
     },
     activeCerts: {
       badge: "Aktive Dokumente",
@@ -335,7 +335,7 @@ const texts = {
         baslik: "Arbeitsschutzzertifikat",
         aciklama: "Schulungszertifikat für Arbeitsschutz und Sicherheit",
         tarih: "2023",
-        detay: "Arbeitsschutzstandards bei Bau- und Renovierungsarbeiten",
+        detay: "Arbeitsschutzstandards bei Besichtigungen und im Bürobetrieb",
       },
       {
         baslik: "Steuerbescheinigung",
@@ -352,8 +352,8 @@ const texts = {
         ilerleme: 60,
       },
       {
-        baslik: "Grünes Gebäude-Zertifikat",
-        aciklama: "Zertifikat für nachhaltige Baupraktiken",
+        baslik: "CMB-Lizenz für Immobilienbewertung",
+        aciklama: "Lizenz als Immobiliengutachter der Kapitalmarktbehörde",
         hedefTarih: "2026",
         ilerleme: 30,
       },
@@ -373,7 +373,7 @@ const texts = {
     hero: {
       title: "Сертификаты и",
       titleHighlight: "Документы",
-      description: "В Kalinda Yapı мы предоставляем услуги с официальными документами и сертификатами в соответствии со всеми законодательными требованиями в Ортаке, Даляне, Кёйджеизе и всем регионе Мугла. В соответствии с нашим принципом прозрачности мы делимся с вами нашими документами. Наши услуги по консультированию в сфере недвижимости, ремонту и строительству подкреплены официальными лицензиями и сертификатами.",
+      description: "В Kalinda Yapı Emlak мы предоставляем услуги с официальными документами и сертификатами в соответствии со всеми законодательными требованиями в Ортадже, Дальяне, Кёйджегизе и всем регионе Мугла. В соответствии с нашим принципом прозрачности мы делимся с вами нашими документами. Наши консультации по недвижимости подкреплены официальными лицензиями и сертификатами.",
     },
     activeCerts: {
       badge: "Действующие документы",
@@ -421,7 +421,7 @@ const texts = {
         baslik: "Сертификат охраны труда",
         aciklama: "Сертификат обучения по охране труда и технике безопасности",
         tarih: "2023",
-        detay: "Стандарты охраны труда при строительных и ремонтных работах",
+        detay: "Стандарты охраны труда при выездах на объекты и в офисной работе",
       },
       {
         baslik: "Налоговое свидетельство",
@@ -438,8 +438,8 @@ const texts = {
         ilerleme: 60,
       },
       {
-        baslik: "Сертификат зеленого здания",
-        aciklama: "Сертификат устойчивых строительных практик",
+        baslik: "Лицензия оценщика недвижимости CMB",
+        aciklama: "Лицензия эксперта по оценке недвижимости от Совета по рынкам капитала",
         hedefTarih: "2026",
         ilerleme: 30,
       },

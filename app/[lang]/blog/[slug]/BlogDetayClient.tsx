@@ -49,7 +49,7 @@ const texts = {
     backToBlog: "Blog'a Dön",
     readingTime: "dk okuma",
     author: "Yazar",
-    consultant: "Gayrimenkul & Yapı Danışmanı",
+    consultant: "Lisanslı Gayrimenkul Danışmanı",
     call: "Ara",
     getConsulting: "Danışmanlık Alın",
     consultingDesc: "Bu konuda profesyonel destek almak ister misiniz? Uzman ekibimiz yanınızda.",
@@ -61,7 +61,7 @@ const texts = {
     backToBlog: "Back to Blog",
     readingTime: "min read",
     author: "Author",
-    consultant: "Real Estate & Construction Consultant",
+    consultant: "Licensed Real Estate Consultant",
     call: "Call",
     getConsulting: "Get Consulting",
     consultingDesc: "Would you like professional support on this topic? Our expert team is here for you.",
@@ -73,7 +73,7 @@ const texts = {
     backToBlog: "العودة إلى المدونة",
     readingTime: "دقيقة قراءة",
     author: "الكاتب",
-    consultant: "مستشار عقاري وبناء",
+    consultant: "مستشار عقاري مرخّص",
     call: "اتصل",
     getConsulting: "احصل على استشارة",
     consultingDesc: "هل ترغب في الحصول على دعم مهني في هذا الموضوع؟ فريق خبرائنا هنا من أجلك.",
@@ -85,7 +85,7 @@ const texts = {
     backToBlog: "Zurück zum Blog",
     readingTime: "Min. Lesezeit",
     author: "Autor",
-    consultant: "Immobilien- & Bauberater",
+    consultant: "Lizenzierter Immobilienberater",
     call: "Anrufen",
     getConsulting: "Beratung erhalten",
     consultingDesc: "Möchten Sie professionelle Unterstützung zu diesem Thema? Unser Expertenteam steht Ihnen zur Seite.",
@@ -97,7 +97,7 @@ const texts = {
     backToBlog: "Вернуться в блог",
     readingTime: "мин. чтения",
     author: "Автор",
-    consultant: "Консультант по недвижимости и строительству",
+    consultant: "Лицензированный консультант по недвижимости",
     call: "Позвонить",
     getConsulting: "Получить консультацию",
     consultingDesc: "Хотите получить профессиональную поддержку по этой теме? Наша команда экспертов к вашим услугам.",
@@ -111,14 +111,9 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
   const t = texts[locale];
   // Ortak bilgisi
   const ortaklar: Record<string, { telefon: string; whatsapp: string }> = {
-    "Zafer Soylu": { telefon: "+90 537 053 07 54", whatsapp: "905370530754" },
     "Arif Dağdelen": {
       telefon: "+90 532 159 15 56",
       whatsapp: "905321591556",
-    },
-    "Hikmet Karaoğlan": {
-      telefon: "+90 555 453 12 07",
-      whatsapp: "905554531207",
     },
   };
 
