@@ -1,4 +1,5 @@
 export { default as HeroSection } from "./HeroSection";
+export { default as HeroArama } from "./HeroArama";
 export { default as HizmetKartlari } from "./HizmetKartlari";
 export { default as OneCikanIlanlar } from "./OneCikanIlanlar";
 export { default as IstatistikSayaclari } from "./IstatistikSayaclari";

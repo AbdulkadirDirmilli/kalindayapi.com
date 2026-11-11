@@ -1,5 +1,5 @@
 import {
-  HeroSection,
+  HeroArama,
   HizmetKartlari,
   OneCikanIlanlar,
   IstatistikSayaclari,
@@ -74,23 +74,23 @@ export default async function HomePage({
         {generateAISummary()}
       </section>
 
-      {/* Hero Section */}
-      <HeroSection lang={locale} dict={dict} />
+      {/* Kompakt başlık + ilan arama kutusu (büyük banner yerine) */}
+      <HeroArama lang={locale} dict={dict} />
 
-      {/* Öne Çıkan İlanlar - emlak odaklı site, portföy önde */}
+      {/* Öne Çıkan İlanlar - portföy en önde */}
       <OneCikanIlanlar lang={locale} dict={dict} />
+
+      {/* Danışman Bölümü */}
+      <OrtaklarBolumu lang={locale} dict={dict} />
 
       {/* Hizmet Kartları */}
       <HizmetKartlari lang={locale} dict={dict} />
 
-      {/* İstatistik Sayaçları */}
-      <IstatistikSayaclari lang={locale} dict={dict} />
-
       {/* Neden Biz */}
       <NedenBiz lang={locale} dict={dict} />
 
-      {/* Danışman Bölümü */}
-      <OrtaklarBolumu lang={locale} dict={dict} />
+      {/* İstatistik Sayaçları */}
+      <IstatistikSayaclari lang={locale} dict={dict} />
 
       {/* Son Blog Yazıları */}
       <SonYazilar lang={locale} dict={dict} />

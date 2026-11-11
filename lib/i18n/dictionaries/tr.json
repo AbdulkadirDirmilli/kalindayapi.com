@@ -171,6 +171,20 @@
       "privacyNote": "Formu göndererek",
       "privacyLink": "gizlilik politikamızı",
       "privacyAccept": "kabul etmiş olursunuz."
+    },
+    "search": {
+      "title": "Bölgeyi bilen danışmanla evinizi bulun",
+      "subtitle": "Ortaca, Dalyan, Köyceğiz, Dalaman ve Fethiye'de satılık ve kiralık daire, villa, arsa ve ticari gayrimenkul portföyü.",
+      "forSale": "Satılık",
+      "forRent": "Kiralık",
+      "location": "Konum",
+      "allLocations": "Tüm Konumlar",
+      "type": "Emlak Tipi",
+      "allTypes": "Tüm Tipler",
+      "minPrice": "Min. Fiyat",
+      "maxPrice": "Maks. Fiyat",
+      "submit": "İlanları Ara",
+      "priceLabel": "Hızlı fiyat aralığı"
     }
   },
   "listings": {

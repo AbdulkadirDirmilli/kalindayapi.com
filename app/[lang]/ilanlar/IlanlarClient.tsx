@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { IlanKart, IlanFiltresi, IlanPagination } from "@/components/ilan";
 import { Ilan } from "@/lib/utils";
@@ -39,15 +40,23 @@ export default function IlanlarClient({
   locale,
   texts,
 }: IlanlarClientProps) {
-  const [filters, setFilters] = useState<FilterState>({
-    kategori: "",
-    tip: "",
-    konum: "",
-    minFiyat: "",
-    maxFiyat: "",
-    arama: "",
-    eidsStatus: "",
-  });
+  const searchParams = useSearchParams();
+
+  // URL'den gelen filtreler (ana sayfadaki arama kutusu ve footer linkleri bunu kullanır)
+  const urlFilters: FilterState = {
+    kategori: searchParams.get("kategori") || "",
+    tip: searchParams.get("tip") || "",
+    konum: searchParams.get("konum") || "",
+    minFiyat: searchParams.get("minFiyat") || "",
+    maxFiyat: searchParams.get("maxFiyat") || "",
+    arama: searchParams.get("arama") || searchParams.get("search") || "",
+    eidsStatus: searchParams.get("eidsStatus") || "",
+  };
+  const hasUrlFilters = Object.values(urlFilters).some(Boolean);
+
+  const [filters, setFilters] = useState<FilterState>(urlFilters);
+  // URL senkronizasyonunda karşılaştırma için güncel filtre referansı
+  const filtersRef = useRef<FilterState>(urlFilters);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const [ilanlar, setIlanlar] = useState<Ilan[]>(initialIlanlar);
@@ -55,7 +64,8 @@ export default function IlanlarClient({
   const [error, setError] = useState<string | null>(null);
   const [totalCount, setTotalCount] = useState(initialTotal);
   const [totalPages, setTotalPages] = useState(Math.ceil(initialTotal / ITEMS_PER_PAGE));
-  const [hasUserInteracted, setHasUserInteracted] = useState(false);
+  // URL'de filtre varsa SSR verisi bu filtreyi yansıtmaz; ilk yüklemede yeniden çek
+  const [hasUserInteracted, setHasUserInteracted] = useState(hasUrlFilters);
 
   // Fetch ilanlar from API when filters change or user paginates
   useEffect(() => {
@@ -101,9 +111,36 @@ export default function IlanlarClient({
     fetchIlanlar();
   }, [currentPage, filters, locale, hasUserInteracted]);
 
+  // Sayfa içi gezinmede (örn. ana sayfadaki aramadan gelindiğinde) URL
+  // parametreleri değişir; filtre durumunu buna göre senkronla.
+  const searchParamsKey = searchParams.toString();
+  useEffect(() => {
+    const next: FilterState = {
+      kategori: searchParams.get("kategori") || "",
+      tip: searchParams.get("tip") || "",
+      konum: searchParams.get("konum") || "",
+      minFiyat: searchParams.get("minFiyat") || "",
+      maxFiyat: searchParams.get("maxFiyat") || "",
+      arama: searchParams.get("arama") || searchParams.get("search") || "",
+      eidsStatus: searchParams.get("eidsStatus") || "",
+    };
+
+    const degisti = (Object.keys(next) as (keyof FilterState)[]).some(
+      (k) => filtersRef.current[k] !== next[k]
+    );
+    if (!degisti) return;
+
+    filtersRef.current = next;
+    setFilters(next);
+    setCurrentPage(1);
+    setHasUserInteracted(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParamsKey]);
+
   // Reset page when filters change
   const handleFilterChange = (newFilters: FilterState) => {
     setHasUserInteracted(true);
+    filtersRef.current = newFilters;
     setFilters(newFilters);
     setCurrentPage(1);
   };

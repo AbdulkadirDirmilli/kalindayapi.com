@@ -171,6 +171,20 @@
       "privacyNote": "By submitting the form, you accept our",
       "privacyLink": "privacy policy",
       "privacyAccept": "."
+    },
+    "search": {
+      "title": "Find your home with a consultant who knows the region",
+      "subtitle": "Apartments, villas, land and commercial property for sale and rent in Ortaca, Dalyan, Köyceğiz, Dalaman and Fethiye.",
+      "forSale": "For Sale",
+      "forRent": "For Rent",
+      "location": "Location",
+      "allLocations": "All Locations",
+      "type": "Property Type",
+      "allTypes": "All Types",
+      "minPrice": "Min. Price",
+      "maxPrice": "Max. Price",
+      "submit": "Search Listings",
+      "priceLabel": "Quick price range"
     }
   },
   "listings": {

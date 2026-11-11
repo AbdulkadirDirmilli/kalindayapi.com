@@ -171,6 +171,20 @@
       "privacyNote": "Mit dem Absenden des Formulars akzeptieren Sie unsere",
       "privacyLink": "Datenschutzrichtlinie",
       "privacyAccept": "."
+    },
+    "search": {
+      "title": "Finden Sie Ihr Zuhause mit einem ortskundigen Berater",
+      "subtitle": "Wohnungen, Villen, Grundstücke und Gewerbeimmobilien zum Verkauf und zur Miete in Ortaca, Dalyan, Köyceğiz, Dalaman und Fethiye.",
+      "forSale": "Kaufen",
+      "forRent": "Mieten",
+      "location": "Lage",
+      "allLocations": "Alle Orte",
+      "type": "Immobilientyp",
+      "allTypes": "Alle Typen",
+      "minPrice": "Min. Preis",
+      "maxPrice": "Max. Preis",
+      "submit": "Immobilien suchen",
+      "priceLabel": "Schnelle Preisspanne"
     }
   },
   "listings": {
