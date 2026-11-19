@@ -17,8 +17,9 @@ export const SITE_URL = 'https://www.kalindayapi.com';
 export function buildLocalizedUrl(logicalPath: string, locale: Locale): string {
   const segments = (logicalPath || '').split('/').filter(Boolean);
   if (segments.length === 0) return `${SITE_URL}/${locale}`;
-  const localized = segments.map((s) => getLocalizedRoute(s, locale));
-  return `${SITE_URL}/${locale}/${localized.join('/')}`;
+  // Gercek route segmentleri (ilanlar/blog/hizmetler) kullanilir, lokalize EDILMEZ.
+  // Aksi halde canonical/hreflang 301'e duser.
+  return `${SITE_URL}/${locale}/${segments.join('/')}`;
 }
 
 /**
