@@ -14,6 +14,7 @@ import { locales, defaultLocale, type Locale } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
 import { buildSeoAlternates, resolveLocale, resolveOgImage } from "@/lib/seo";
 import { prisma } from "@/lib/prisma";
+import { getAnaDanisman } from "@/lib/danismanlar";
 import type { Metadata } from "next";
 
 // Statik parametre üretimi
@@ -73,6 +74,8 @@ export default async function HomePage({
   const locale = locales.includes(lang as Locale) ? (lang as Locale) : defaultLocale;
   const dict = await getCachedDictionary(locale);
 
+  const anaDanisman = await getAnaDanisman();
+
   const organizationSchema = generateOrganizationSchema();
   const websiteSchema = generateWebSiteSchema();
 
@@ -108,7 +111,7 @@ export default async function HomePage({
       <OneCikanIlanlar lang={locale} dict={dict} />
 
       {/* Danışman Bölümü */}
-      <OrtaklarBolumu lang={locale} dict={dict} />
+      <OrtaklarBolumu lang={locale} dict={dict} danisman={anaDanisman} />
 
       {/* Hizmet Kartları */}
       <HizmetKartlari lang={locale} dict={dict} />

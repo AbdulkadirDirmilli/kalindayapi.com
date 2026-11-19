@@ -33,6 +33,10 @@
   --color-carolina: #89D4E3;
   --color-cement: #E6DDD1;
 
+  /* Danisman avatarinda fotograf yoksa cinsiyete gore ikon rengi:
+     erkek accent mavisini, kadin bu pembeyi kullanir. */
+  --color-feminine: #D6608F;
+
   --color-success: #2F7D4F;
   --color-warning: #B7791F;
   --color-error: #C2412D;

@@ -14,6 +14,7 @@ import {
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { OrtaklarBolumu, IstatistikSayaclari } from "@/components/sections";
+import { getAnaDanisman } from "@/lib/danismanlar";
 import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/jsonld";
 import { createWhatsAppLink } from "@/lib/utils";
 import { locales, type Locale, getLocalizedRoute } from "@/lib/i18n";
@@ -56,6 +57,7 @@ export default async function HakkimizdaPage({
   const { lang } = await params;
   const locale = locales.includes(lang as Locale) ? (lang as Locale) : 'tr';
   const dict = await getCachedDictionary(locale);
+  const anaDanisman = await getAnaDanisman();
   const texts = hakkimizdaTexts[locale];
   const values = degerler[locale];
   const timelineItems = timeline[locale];
@@ -235,7 +237,7 @@ export default async function HakkimizdaPage({
       <IstatistikSayaclari lang={locale} dict={dict} />
 
       {/* Team Section */}
-      <OrtaklarBolumu lang={locale} dict={dict} />
+      <OrtaklarBolumu lang={locale} dict={dict} danisman={anaDanisman} />
 
       {/* Certificates */}
       <section className="py-20 bg-white">

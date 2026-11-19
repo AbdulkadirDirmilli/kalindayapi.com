@@ -1,37 +1,36 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
+
 import { motion, useInView } from "framer-motion";
 import { Phone, Mail, MessageCircle, BadgeCheck } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { DanismanAvatar, type Cinsiyet } from "@/components/ui";
 import { createWhatsAppLink } from "@/lib/utils";
 import type { Locale } from "@/lib/i18n";
+
+/** Veritabanindan gelen danisman kaydi (bkz. Ortak modeli). */
+export interface DanismanKarti {
+  ad: string;
+  unvan: string;
+  telefon: string;
+  whatsapp?: string | null;
+  email?: string | null;
+  biyografi?: string | null;
+  foto?: string | null;
+  cinsiyet?: string | null;
+  uzmanlikAlanlari: string[];
+}
 
 interface OrtaklarBolumuProps {
   lang?: Locale;
   dict?: any;
+  /** Gosterilecek danisman. Sunucu bileseni veritabanindan gecirir. */
+  danisman?: DanismanKarti | null;
 }
 
-const danisman = {
-  id: "arif-dagdelen",
-  ad: "Arif DAĞDELEN",
-  unvan: "Kurucu | Lisanslı Gayrimenkul Danışmanı",
-  telefon: "+90 532 159 15 56",
-  whatsapp: "905321591556",
-  email: "arif@kalindayapi.com",
-  foto: "/arifdagdelen.png",
-  biyografi:
-    "Ortaca, Dalyan ve Köyceğiz bölgesinde uzun yılların saha deneyimiyle satılık ve kiralık gayrimenkul danışmanlığı sunmaktadır. Her portföyü yerinde inceleyerek, tapu ve değer analizini şeffaf biçimde paylaşarak süreci baştan sona yönetir.",
-  uzmanlikAlanlari: [
-    "Satılık & Kiralık Portföy",
-    "Gayrimenkul Değerleme",
-    "Yatırım Danışmanlığı",
-    "Tapu & Resmi İşlemler",
-  ],
-};
 
-export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProps) {
+export default function OrtaklarBolumu({ dict, danisman }: OrtaklarBolumuProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -44,6 +43,9 @@ export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProp
     expertise: "Uzmanlık Alanları",
     call: "Ara",
   };
+
+  // Yayinda danisman yoksa bolum hic gosterilmez.
+  if (!danisman) return null;
 
   return (
     <section className="py-20 bg-surface" ref={ref}>
@@ -74,15 +76,13 @@ export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProp
           <div className="grid md:grid-cols-[260px_1fr]">
             {/* Photo panel */}
             <div className="bg-primary p-8 flex flex-col items-center justify-center text-center text-white">
-              <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-white/25">
-                <Image
-                  src={danisman.foto}
-                  alt={danisman.ad}
-                  width={160}
-                  height={160}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <DanismanAvatar
+                foto={danisman.foto}
+                cinsiyet={danisman.cinsiyet as Cinsiyet}
+                ad={danisman.ad}
+                size={128}
+                className="border-2 border-white/25"
+              />
               <h3 className="text-xl font-bold mt-5">{danisman.ad}</h3>
               <p className="text-white/70 text-sm mt-1.5 leading-snug">
                 {danisman.unvan}
@@ -122,17 +122,20 @@ export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProp
                   <Phone className="w-4 h-4" />
                   <span>{danisman.telefon}</span>
                 </a>
-                <a
-                  href={`mailto:${danisman.email}`}
-                  className="flex items-center gap-2 text-ink hover:text-primary transition-colors"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>{danisman.email}</span>
-                </a>
+                {danisman.email && (
+                  <a
+                    href={`mailto:${danisman.email}`}
+                    className="flex items-center gap-2 text-ink hover:text-primary transition-colors"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span>{danisman.email}</span>
+                  </a>
+                )}
               </div>
 
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                {danisman.whatsapp && (
                 <a
                   href={createWhatsAppLink(
                     danisman.whatsapp,
@@ -151,6 +154,7 @@ export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProp
                     WhatsApp
                   </Button>
                 </a>
+                )}
                 <a
                   href={`tel:${danisman.telefon.replace(/\s/g, "")}`}
                   className="flex-1"

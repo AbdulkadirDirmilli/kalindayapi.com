@@ -92,6 +92,7 @@ function formatIlan(ilan: any, locale: Locale = 'tr'): Ilan {
       whatsapp: ilan.danisman.whatsapp,
       email: ilan.danisman.email,
       foto: ilan.danisman.foto,
+      cinsiyet: ilan.danisman.cinsiyet,
     } : null,
   };
 }

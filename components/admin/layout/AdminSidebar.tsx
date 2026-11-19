@@ -28,7 +28,7 @@ const menuItems = [
   { href: '/admin/oncesi-sonrasi', label: 'Öncesi-Sonrası', icon: Layers },
   { href: '/admin/iletisim', label: 'Mesajlar', icon: Mail, badge: 'unreadMessages' },
   { href: '/admin/sms', label: 'SMS Yönetimi', icon: MessageSquare },
-  { href: '/admin/ortaklar', label: 'Ortaklar', icon: Users },
+  { href: '/admin/ortaklar', label: 'Danışmanlar', icon: Users },
 ]
 
 interface AdminSidebarProps {

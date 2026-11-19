@@ -63,6 +63,7 @@ export const routeTranslations: Record<string, Record<Locale, string>> = {
   'doviz-kurlari': { tr: 'doviz-kurlari', en: 'exchange-rates', ar: 'أسعار-الصرف', de: 'wechselkurse', ru: 'курсы-валют' },
   rehber: { tr: 'rehber', en: 'guide', ar: 'دليل', de: 'ratgeber', ru: 'гид' },
   kurumsal: { tr: 'kurumsal', en: 'corporate', ar: 'الشركة', de: 'unternehmen', ru: 'компания' },
+  danismanlar: { tr: 'danismanlar', en: 'consultants', ar: 'المستشارون', de: 'berater', ru: 'консультанты' },
 
   // Hizmet alt sayfaları
   'emlak-danismanligi': { tr: 'emlak-danismanligi', en: 'real-estate-consulting', ar: 'استشارات-عقارية', de: 'immobilienberatung', ru: 'консультации-по-недвижимости' },

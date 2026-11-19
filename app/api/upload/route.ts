@@ -24,6 +24,13 @@ export async function POST(request: NextRequest) {
 
     const formData = await request.formData()
     const file = formData.get('file') as File | null
+    // Hedef klasor: varsayilan 'ilanlar'. Danisman fotograflari gibi baska
+    // turler icin ayri klasor istenebilir. Beyaz liste disi deger yok sayilir.
+    const KLASORLER = ['ilanlar', 'danismanlar'] as const
+    const istenenKlasor = String(formData.get('folder') || '')
+    const hedefKlasor = (KLASORLER as readonly string[]).includes(istenenKlasor)
+      ? istenenKlasor
+      : 'ilanlar'
 
     if (!file) {
       return NextResponse.json({ error: 'Dosya bulunamadi' }, { status: 400 })
@@ -53,7 +60,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create uploads directories if they don't exist
-    const subDir = isVideo ? 'videos' : 'ilanlar'
+    const subDir = isVideo ? 'videos' : hedefKlasor
     const uploadsDir = path.join(process.cwd(), 'public', 'uploads', subDir)
     const thumbDir = path.join(process.cwd(), 'public', 'uploads', 'thumbnails')
     if (!existsSync(uploadsDir)) {

@@ -12,3 +12,6 @@ export type { InputProps, TextareaProps, SelectProps } from "./Input";
 
 export { default as Modal, Lightbox } from "./Modal";
 export type { ModalProps, LightboxProps } from "./Modal";
+
+export { default as DanismanAvatar } from "./DanismanAvatar";
+export type { Cinsiyet } from "./DanismanAvatar";

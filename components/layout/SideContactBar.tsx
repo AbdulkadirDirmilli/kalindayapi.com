@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import { DanismanAvatar, type Cinsiyet } from "@/components/ui";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, ChevronLeft, ChevronRight } from "lucide-react";
 import { Instagram, Facebook, Youtube } from "@/components/icons/SocialIcons";
 import { useLocale } from "@/components/providers/LocaleProvider";
 
@@ -28,15 +28,36 @@ const socialLinks = [
   },
 ];
 
-// Phone numbers with translation keys
-const phoneNumbersData = [
-  { nameKey: "arif", phone: "+905321591556", foto: "/arifdagdelen.png" },
-];
+/** /api/danismanlar yanitindaki alanlardan kullandiklarimiz. */
+interface BarDanismani {
+  id: string;
+  ad: string;
+  unvan: string;
+  telefon: string;
+  foto: string | null;
+  cinsiyet: string | null;
+}
 
 export default function SideContactBar() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  // Danismanlar artik sabit degil; admin panelinden eklenen herkes burada da
+  // gorunur (sira alanina gore siralanir).
+  const [danismanlar, setDanismanlar] = useState<BarDanismani[]>([]);
   const { dict } = useLocale();
+
+  useEffect(() => {
+    let iptal = false;
+    fetch("/api/danismanlar")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (!iptal && d?.danismanlar) setDanismanlar(d.danismanlar);
+      })
+      .catch(() => {});
+    return () => {
+      iptal = true;
+    };
+  }, []);
 
   // Çeviriler
   const t = dict?.sideContact || {
@@ -45,18 +66,7 @@ export default function SideContactBar() {
     closeMenu: "Menüyü kapat"
   };
 
-  const consultants = dict?.consultants || {
-    arif: "Arif Bey",
-    consultant: "Danışman"
-  };
 
-  // Generate phone numbers with translations
-  const phoneNumbers = phoneNumbersData.map(item => ({
-    name: consultants[item.nameKey as keyof typeof consultants] || item.nameKey,
-    phone: item.phone,
-    label: consultants.consultant,
-    foto: item.foto
-  }));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,28 +110,19 @@ export default function SideContactBar() {
             >
               {/* Phone Section */}
               <div className="p-2 border-b border-border">
-                {phoneNumbers.map((item, index) => (
+                {danismanlar.map((item) => (
                   <a
-                    key={item.phone}
-                    href={`tel:${item.phone}`}
+                    key={item.id}
+                    href={`tel:${item.telefon.replace(/s/g, "")}`}
                     className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface transition-colors group"
-                    title={`${item.name} - ${item.label}`}
+                    title={`${item.ad} - ${item.unvan}`}
                   >
-                    {item.foto ? (
-                      <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-accent">
-                        <Image
-                          src={item.foto}
-                          alt={item.name}
-                          width={32}
-                          height={32}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                        <Phone className="w-4 h-4 text-white" />
-                      </div>
-                    )}
+                    <DanismanAvatar
+                      foto={item.foto}
+                      cinsiyet={item.cinsiyet as Cinsiyet}
+                      ad={item.ad}
+                      size={32}
+                    />
                     <AnimatePresence>
                       {isExpanded && (
                         <motion.div
@@ -130,9 +131,9 @@ export default function SideContactBar() {
                           exit={{ opacity: 0, width: 0 }}
                           className="whitespace-nowrap overflow-hidden"
                         >
-                          <p className="text-xs text-text-light">{item.label}</p>
+                          <p className="text-xs text-text-light">{item.unvan}</p>
                           <p className="text-sm font-semibold text-ink group-hover:text-primary transition-colors">
-                            {item.name}
+                            {item.ad}
                           </p>
                         </motion.div>
                       )}

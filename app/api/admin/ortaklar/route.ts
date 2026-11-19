@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
+import { ortakSchema } from '@/lib/validations/ortak'
 
 // GET - List all ortaklar
 export async function GET() {
@@ -33,35 +34,34 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Yetkisiz erisim' }, { status: 401 })
     }
 
-    const body = await request.json()
+    const parsed = ortakSchema.safeParse(await request.json())
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: parsed.error.issues[0]?.message || 'Gecersiz veri' },
+        { status: 400 }
+      )
+    }
+    const { sira, email, ...veri } = parsed.data
 
-    // Check if slug already exists
-    const existingOrtak = await prisma.ortak.findUnique({
-      where: { slug: body.slug },
-    })
-
-    if (existingOrtak) {
+    const mevcut = await prisma.ortak.findUnique({ where: { slug: veri.slug } })
+    if (mevcut) {
       return NextResponse.json(
         { error: 'Bu slug zaten kullaniliyor' },
         { status: 400 }
       )
     }
 
-    // Get next sira
-    const lastOrtak = await prisma.ortak.findFirst({
+    // Sira verilmediyse listenin sonuna eklenir
+    const sonuncu = await prisma.ortak.findFirst({
       orderBy: { sira: 'desc' },
       select: { sira: true },
     })
-    const nextSira = (lastOrtak?.sira || 0) + 1
 
     const ortak = await prisma.ortak.create({
       data: {
-        ...body,
-        sira: body.sira ?? nextSira,
-        uzmanlikAlanlari:
-          typeof body.uzmanlikAlanlari === 'string'
-            ? body.uzmanlikAlanlari
-            : JSON.stringify(body.uzmanlikAlanlari || []),
+        ...veri,
+        email: email || null,
+        sira: sira ?? (sonuncu?.sira ?? -1) + 1,
       },
     })
 

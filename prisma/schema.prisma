@@ -102,6 +102,8 @@ model Ilan {
   fotograflar         IlanFoto[]
   translations        IlanTranslation[]
   views               IlanView[]
+
+  @@index([danismanId])
 }
 
 model IlanFoto {
@@ -210,6 +212,12 @@ model Ortak {
   biyografi        String?
   foto             String?
   uzmanlikAlanlari String
+  /// "erkek" | "kadin" — foto yoksa avatar ikonunun rengini belirler
+  cinsiyet         String?
+  /// Danismanlar sayfasinda "N yil deneyim" olarak gosterilir
+  deneyimYili      Int?
+  /// Uzmanlasilan bolgeler, JSON dizi string: '["Ortaca","Dalyan"]'
+  bolgeler         String?
   sira             Int      @default(0)
   aktif            Boolean  @default(true)
   createdAt        DateTime @default(now())

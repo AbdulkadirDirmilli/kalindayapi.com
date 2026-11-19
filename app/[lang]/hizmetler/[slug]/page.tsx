@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Home,
   Paintbrush,
@@ -28,6 +27,8 @@ import {
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import { DanismanAvatar, type Cinsiyet } from "@/components/ui";
+import { getDanismanlar } from "@/lib/danismanlar";
 import { FaqSection } from "@/components/sections";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/jsonld";
 import { createWhatsAppLink, Hizmet } from "@/lib/utils";
@@ -77,16 +78,7 @@ const ikonlar: { [key: string]: React.ComponentType<{ className?: string }> } = 
   Zap,
 };
 
-// Danışman bilgisi - tüm hizmetler için ortak
-const ekip = [
-  {
-    ad: "Arif DAĞDELEN",
-    unvan: "Kurucu | Lisanslı Gayrimenkul Danışmanı",
-    telefon: "+90 532 159 15 56",
-    whatsapp: "905321591556",
-    foto: "/arifdagdelen.png",
-  },
-];
+
 
 // Helper to get localized service data
 function getLocalizedHizmet(slug: string, locale: Locale): Hizmet | TranslatedHizmet | null {
@@ -194,6 +186,8 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
 
   const hizmet = getLocalizedHizmet(slug, locale);
   const hizmetler = getLocalizedHizmetler(locale);
+  // Danisman listesi veritabanindan gelir; admin'den eklenen herkes burada da cikar.
+  const ekip = await getDanismanlar();
 
   if (!hizmet) {
     notFound();
@@ -292,16 +286,13 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
               {/* Team Members */}
               <div className="space-y-3 mb-6">
                 {ekip.map((kisi) => (
-                  <div key={kisi.whatsapp} className="flex items-center gap-3 p-3 bg-surface rounded-xl">
-                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-accent">
-                      <Image
-                        src={kisi.foto}
-                        alt={kisi.ad}
-                        width={48}
-                        height={48}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+                  <div key={kisi.id} className="flex items-center gap-3 p-3 bg-surface rounded-xl">
+                    <DanismanAvatar
+                      foto={kisi.foto}
+                      cinsiyet={kisi.cinsiyet as Cinsiyet}
+                      ad={kisi.ad}
+                      size={48}
+                    />
                     <div className="flex-1 min-w-0">
                       <p className="font-bold text-ink text-sm truncate">{kisi.ad}</p>
                       <a
@@ -313,7 +304,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                     </div>
                     <a
                       href={createWhatsAppLink(
-                        kisi.whatsapp,
+                        kisi.whatsapp || kisi.telefon.replace(/D/g, ""),
                         formatWhatsAppMessage(messages.serviceInquiry, hizmet.baslik)
                       )}
                       target="_blank"

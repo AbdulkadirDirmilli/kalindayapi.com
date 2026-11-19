@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { IlanGaleri, IlanKart } from "@/components/ilan";
 import Button from "@/components/ui/Button";
+import { DanismanAvatar, type Cinsiyet } from "@/components/ui";
 import ShareButton from "@/components/ui/ShareButton";
 import Badge from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
@@ -417,21 +418,13 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
 
                 {/* Agent Info */}
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 p-3 sm:p-4 bg-surface rounded-lg sm:rounded-xl">
-                  {ilan.danisman?.foto ? (
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden flex-shrink-0">
-                      <Image
-                        src={ilan.danisman.foto}
-                        alt={ilan.danisman.ad}
-                        width={56}
-                        height={56}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                      <Building className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
-                    </div>
-                  )}
+                  {/* Foto yoksa cinsiyete gore ikon (bkz. DanismanAvatar) */}
+                  <DanismanAvatar
+                    foto={ilan.danisman?.foto}
+                    cinsiyet={ilan.danisman?.cinsiyet as Cinsiyet}
+                    ad={ilan.danisman?.ad || "Kalinda Yapı"}
+                    size={56}
+                  />
                   <div className="min-w-0">
                     <p className="font-bold text-ink text-sm sm:text-base">
                       {ilan.danisman?.ad || "Kalinda Yapi"}

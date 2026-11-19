@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Home,
   ChevronRight,
@@ -12,31 +11,46 @@ import {
   Clock,
   Send,
   MessageCircle,
-  Building2,
+
 } from "lucide-react";
 import { Instagram, Facebook, Youtube } from "@/components/icons/SocialIcons";
 import { Card } from "@/components/ui/Card";
 import { Input, Textarea, Select } from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
+import { DanismanAvatar, type Cinsiyet } from "@/components/ui";
 import { createWhatsAppLink } from "@/lib/utils";
 import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/jsonld";
 import { useLocale } from "@/components/providers/LocaleProvider";
 
-const yetkililer = [
-  {
-    id: "arif",
-    telefon: "+90 532 159 15 56",
-    whatsapp: "905321591556",
-    email: "arif@kalindayapi.com",
-    foto: "/arifdagdelen.png",
-    ikon: Building2,
-    renk: "#418FDE",
-  },
-];
+/** /api/danismanlar yanitindan kullandigimiz alanlar. */
+interface Yetkili {
+  id: string;
+  ad: string;
+  unvan: string;
+  telefon: string;
+  whatsapp: string | null;
+  foto: string | null;
+  cinsiyet: string | null;
+}
 
 export default function IletisimPage() {
   const { dict } = useLocale();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // Danisman listesi veritabanindan gelir; sabit kod kaldirildi.
+  const [yetkililer, setYetkililer] = useState<Yetkili[]>([]);
+
+  useEffect(() => {
+    let iptal = false;
+    fetch("/api/danismanlar")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (!iptal && d?.danismanlar) setYetkililer(d.danismanlar);
+      })
+      .catch(() => {});
+    return () => {
+      iptal = true;
+    };
+  }, []);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     ad: "",
@@ -327,25 +341,18 @@ export default function IletisimPage() {
                 </h2>
                 <div className="space-y-2">
                   {yetkililer.map((yetkili) => {
-                    const teamMember = t.team?.[yetkili.id as keyof typeof t.team] || { name: yetkili.id, title: "" };
                     return (
                       <Card key={yetkili.id} padding="md" className="!p-3">
                         <div className="flex items-center gap-3">
-                          <div
-                            className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2"
-                            style={{ borderColor: yetkili.renk }}
-                          >
-                            <Image
-                              src={yetkili.foto}
-                              alt={teamMember.name}
-                              width={40}
-                              height={40}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
+                          <DanismanAvatar
+                            foto={yetkili.foto}
+                            cinsiyet={yetkili.cinsiyet as Cinsiyet}
+                            ad={yetkili.ad}
+                            size={40}
+                          />
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-bold text-ink text-sm">
-                              {teamMember.name}
+                            <h3 className="font-bold text-ink text-sm truncate">
+                              {yetkili.ad}
                             </h3>
                             <a
                               href={`tel:${yetkili.telefon.replace(/\s/g, "")}`}
@@ -356,7 +363,7 @@ export default function IletisimPage() {
                           </div>
                           <a
                             href={createWhatsAppLink(
-                              yetkili.whatsapp,
+                              yetkili.whatsapp || yetkili.telefon.replace(/D/g, ""),
                               dict?.whatsapp?.greeting || "Merhaba, bilgi almak istiyorum."
                             )}
                             target="_blank"

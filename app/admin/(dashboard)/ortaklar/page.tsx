@@ -1,19 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import {
-  Plus,
-  Edit,
-  Trash2,
-  Phone,
-  Mail,
-  User,
-  Check,
-  X,
-  Users,
-} from 'lucide-react'
+import { Plus, Edit, Trash2, Phone, Mail, Users, MapPin } from 'lucide-react'
 import AdminHeader from '@/components/admin/layout/AdminHeader'
 import ConfirmDialog from '@/components/admin/ui/ConfirmDialog'
+import ImageUploader from '@/components/admin/ui/ImageUploader'
+import { DanismanAvatar, type Cinsiyet } from '@/components/ui'
 
 interface Ortak {
   id: string
@@ -25,43 +17,90 @@ interface Ortak {
   email: string | null
   biyografi: string | null
   foto: string | null
+  cinsiyet: string | null
+  deneyimYili: number | null
+  /** JSON dizi string */
+  bolgeler: string | null
+  /** JSON dizi string */
   uzmanlikAlanlari: string
   sira: number
   aktif: boolean
 }
 
-export default function OrtaklarPage() {
+type FormState = {
+  ad: string
+  slug: string
+  unvan: string
+  telefon: string
+  whatsapp: string
+  email: string
+  biyografi: string
+  foto: string | null
+  cinsiyet: '' | 'erkek' | 'kadin'
+  deneyimYili: string
+  /** Virgulle ayrilmis; kaydederken JSON diziye cevrilir */
+  bolgeler: string
+  uzmanlikAlanlari: string
+  sira: string
+  aktif: boolean
+}
+
+const BOS_FORM: FormState = {
+  ad: '', slug: '', unvan: '', telefon: '', whatsapp: '', email: '',
+  biyografi: '', foto: null, cinsiyet: '', deneyimYili: '',
+  bolgeler: '', uzmanlikAlanlari: '', sira: '', aktif: true,
+}
+
+/** '["a","b"]' -> 'a, b' */
+function diziToMetin(json: string | null | undefined): string {
+  if (!json) return ''
+  try {
+    const p = JSON.parse(json)
+    return Array.isArray(p) ? p.join(', ') : ''
+  } catch {
+    return ''
+  }
+}
+
+/** 'a, b' -> '["a","b"]' */
+function metinToDizi(metin: string): string {
+  return JSON.stringify(metin.split(',').map((s) => s.trim()).filter(Boolean))
+}
+
+function slugUret(ad: string): string {
+  const harita: Record<string, string> = {
+    'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
+    'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u',
+  }
+  return ad
+    .replace(/[çğıöşüÇĞİÖŞÜ]/g, (c) => harita[c] ?? c)
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+}
+
+export default function DanismanlarAdminPage() {
   const [ortaklar, setOrtaklar] = useState<Ortak[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [formAcik, setFormAcik] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [deleteId, setDeleteId] = useState<string | null>(null)
   const [isDeleting, setIsDeleting] = useState(false)
-  const [showAddForm, setShowAddForm] = useState(false)
+  const [kaydediliyor, setKaydediliyor] = useState(false)
+  const [hata, setHata] = useState<string | null>(null)
+  const [form, setForm] = useState<FormState>(BOS_FORM)
 
-  // Form state
-  const [formData, setFormData] = useState<Partial<Ortak>>({
-    ad: '',
-    slug: '',
-    unvan: '',
-    telefon: '',
-    whatsapp: '',
-    email: '',
-    biyografi: '',
-    foto: '',
-    uzmanlikAlanlari: '[]',
-    aktif: true,
-  })
+  const alan = <K extends keyof FormState>(k: K, v: FormState[K]) =>
+    setForm((p) => ({ ...p, [k]: v }))
 
   const fetchOrtaklar = async () => {
     setIsLoading(true)
     try {
-      const response = await fetch('/api/admin/ortaklar')
-      if (response.ok) {
-        const data = await response.json()
-        setOrtaklar(data)
-      }
-    } catch (error) {
-      console.error('Ortaklar yuklenemedi:', error)
+      const r = await fetch('/api/admin/ortaklar')
+      if (r.ok) setOrtaklar(await r.json())
+    } catch (e) {
+      console.error('Danismanlar yuklenemedi:', e)
     } finally {
       setIsLoading(false)
     }
@@ -71,430 +110,374 @@ export default function OrtaklarPage() {
     fetchOrtaklar()
   }, [])
 
-  const handleEdit = (ortak: Ortak) => {
-    setEditingId(ortak.id)
-    setFormData({
-      ad: ortak.ad,
-      slug: ortak.slug,
-      unvan: ortak.unvan,
-      telefon: ortak.telefon,
-      whatsapp: ortak.whatsapp || '',
-      email: ortak.email || '',
-      biyografi: ortak.biyografi || '',
-      foto: ortak.foto || '',
-      uzmanlikAlanlari: ortak.uzmanlikAlanlari,
-      aktif: ortak.aktif,
-    })
-  }
-
-  const generateSlug = (name: string) => {
-    return name
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-')
-  }
-
-  const handleSave = async (isNew = false) => {
-    try {
-      const url = isNew
-        ? '/api/admin/ortaklar'
-        : `/api/admin/ortaklar/${editingId}`
-      const method = isNew ? 'POST' : 'PUT'
-
-      const response = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          slug: formData.slug || generateSlug(formData.ad || ''),
-        }),
+  const formuAc = (o?: Ortak) => {
+    setHata(null)
+    if (o) {
+      setEditingId(o.id)
+      setForm({
+        ad: o.ad,
+        slug: o.slug,
+        unvan: o.unvan,
+        telefon: o.telefon,
+        whatsapp: o.whatsapp ?? '',
+        email: o.email ?? '',
+        biyografi: o.biyografi ?? '',
+        foto: o.foto,
+        cinsiyet: (o.cinsiyet as FormState['cinsiyet']) || '',
+        deneyimYili: o.deneyimYili?.toString() ?? '',
+        bolgeler: diziToMetin(o.bolgeler),
+        uzmanlikAlanlari: diziToMetin(o.uzmanlikAlanlari),
+        sira: o.sira?.toString() ?? '',
+        aktif: o.aktif,
       })
+    } else {
+      setEditingId(null)
+      setForm(BOS_FORM)
+    }
+    setFormAcik(true)
+  }
 
-      if (response.ok) {
-        const data = await response.json()
-        if (isNew) {
-          setOrtaklar((prev) => [...prev, data])
-          setShowAddForm(false)
-        } else {
-          setOrtaklar((prev) =>
-            prev.map((o) => (o.id === editingId ? data : o))
-          )
-          setEditingId(null)
-        }
-        setFormData({
-          ad: '',
-          slug: '',
-          unvan: '',
-          telefon: '',
-          whatsapp: '',
-          email: '',
-          biyografi: '',
-          foto: '',
-          uzmanlikAlanlari: '[]',
-          aktif: true,
-        })
+  const formuKapat = () => {
+    setFormAcik(false)
+    setEditingId(null)
+    setForm(BOS_FORM)
+    setHata(null)
+  }
+
+  const kaydet = async () => {
+    if (!form.ad.trim() || !form.unvan.trim() || !form.telefon.trim()) {
+      setHata('Ad, unvan ve telefon zorunludur.')
+      return
+    }
+    setKaydediliyor(true)
+    setHata(null)
+    try {
+      const govde = {
+        ad: form.ad.trim(),
+        slug: (form.slug || slugUret(form.ad)).trim(),
+        unvan: form.unvan.trim(),
+        telefon: form.telefon.trim(),
+        whatsapp: form.whatsapp.trim() || null,
+        email: form.email.trim() || null,
+        biyografi: form.biyografi.trim() || null,
+        foto: form.foto || null,
+        cinsiyet: form.cinsiyet || null,
+        deneyimYili: form.deneyimYili === '' ? null : Number(form.deneyimYili),
+        bolgeler: metinToDizi(form.bolgeler),
+        uzmanlikAlanlari: metinToDizi(form.uzmanlikAlanlari),
+        sira: form.sira === '' ? undefined : Number(form.sira),
+        aktif: form.aktif,
       }
-    } catch (error) {
-      console.error('Ortak kaydedilemedi:', error)
+
+      const yeni = !editingId
+      const r = await fetch(
+        yeni ? '/api/admin/ortaklar' : `/api/admin/ortaklar/${editingId}`,
+        {
+          method: yeni ? 'POST' : 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(govde),
+        }
+      )
+
+      if (!r.ok) {
+        const d = await r.json().catch(() => ({}))
+        setHata(d.error || 'Kaydedilemedi.')
+        return
+      }
+      await fetchOrtaklar()
+      formuKapat()
+    } catch (e) {
+      console.error(e)
+      setHata('Kaydedilemedi.')
+    } finally {
+      setKaydediliyor(false)
     }
   }
 
-  const handleDelete = async () => {
+  const sil = async () => {
     if (!deleteId) return
-
     setIsDeleting(true)
     try {
-      const response = await fetch(`/api/admin/ortaklar/${deleteId}`, {
-        method: 'DELETE',
-      })
-
-      if (response.ok) {
-        setOrtaklar((prev) => prev.filter((o) => o.id !== deleteId))
+      const r = await fetch(`/api/admin/ortaklar/${deleteId}`, { method: 'DELETE' })
+      if (r.ok) {
+        setOrtaklar((p) => p.filter((o) => o.id !== deleteId))
+      } else {
+        const d = await r.json().catch(() => ({}))
+        setHata(d.error || 'Silinemedi.')
       }
-    } catch (error) {
-      console.error('Ortak silinemedi:', error)
+    } catch (e) {
+      console.error(e)
     } finally {
       setIsDeleting(false)
       setDeleteId(null)
     }
   }
 
-  const parseUzmanlik = (str: string): string[] => {
-    try {
-      return JSON.parse(str)
-    } catch {
-      return []
-    }
-  }
-
   if (isLoading) {
     return (
       <div>
-        <AdminHeader title="Ortaklar" subtitle="Şirket ortaklarını yönetin" />
-        <div className="p-4 sm:p-6">
-          <div className="flex items-center justify-center py-12">
-            <div className="flex items-center gap-2 text-text-light">
-              <svg
-                className="animate-spin w-5 h-5"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                />
-              </svg>
-              Yükleniyor...
-            </div>
-          </div>
-        </div>
+        <AdminHeader title="Danışmanlar" subtitle="Gayrimenkul danışmanlarını yönetin" />
+        <div className="p-4 sm:p-6 text-text-light">Yükleniyor...</div>
       </div>
     )
   }
 
+  const girdi =
+    'w-full px-3 py-2 rounded-lg border border-border bg-white text-sm text-ink focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary'
+  const etiket = 'block text-sm font-medium text-ink mb-1.5'
+
   return (
     <div>
-      <AdminHeader title="Ortaklar" subtitle="Şirket ortaklarını yönetin" />
+      <AdminHeader title="Danışmanlar" subtitle="Gayrimenkul danışmanlarını yönetin" />
 
       <div className="p-4 sm:p-6">
-        {/* Add Button */}
         <div className="flex justify-end mb-4">
           <button
-            onClick={() => setShowAddForm(true)}
-            className="btn btn-primary"
+            onClick={() => formuAc()}
+            className="btn btn-primary inline-flex items-center gap-2"
           >
-            <Plus className="w-5 h-5" />
-            Yeni Ortak Ekle
+            <Plus className="w-4 h-4" />
+            Yeni Danışman
           </button>
         </div>
 
-        {/* Add Form */}
-        {showAddForm && (
-          <div className="bg-white rounded-xl border border-border p-4 sm:p-6 mb-4 sm:mb-6">
-            <h3 className="text-lg font-semibold text-ink mb-4">
-              Yeni Ortak Ekle
+        {formAcik && (
+          <div className="bg-white rounded-xl border border-border p-4 sm:p-6 mb-6">
+            <h3 className="text-lg font-semibold text-ink mb-5">
+              {editingId ? 'Danışmanı Düzenle' : 'Yeni Danışman Ekle'}
             </h3>
+
+            <div className="mb-5">
+              <ImageUploader
+                value={form.foto}
+                onChange={(url) => alan('foto', url)}
+                folder="danismanlar"
+                label="Profil Fotoğrafı"
+                circle
+              />
+              <p className="text-xs text-text-muted mt-2">
+                Fotoğraf yüklenmezse cinsiyete göre renkli bir kişi ikonu gösterilir.
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-text mb-1">
-                  Ad Soyad *
-                </label>
+                <label className={etiket}>Ad Soyad *</label>
                 <input
-                  type="text"
-                  value={formData.ad || ''}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      ad: e.target.value,
-                      slug: generateSlug(e.target.value),
-                    }))
-                  }
-                  className="input"
-                  placeholder="Ad Soyad"
+                  className={girdi}
+                  value={form.ad}
+                  onChange={(e) => {
+                    alan('ad', e.target.value)
+                    alan('slug', slugUret(e.target.value))
+                  }}
+                  placeholder="Örn. Ayşe YILMAZ"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-text mb-1">
-                  Unvan *
-                </label>
+                <label className={etiket}>Unvan *</label>
                 <input
-                  type="text"
-                  value={formData.unvan || ''}
-                  onChange={(e) =>
-                    setFormData((prev) => ({ ...prev, unvan: e.target.value }))
-                  }
-                  className="input"
+                  className={girdi}
+                  value={form.unvan}
+                  onChange={(e) => alan('unvan', e.target.value)}
                   placeholder="Gayrimenkul Danışmanı"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-text mb-1">
-                  Telefon *
-                </label>
+                <label className={etiket}>Telefon *</label>
                 <input
-                  type="text"
-                  value={formData.telefon || ''}
-                  onChange={(e) =>
-                    setFormData((prev) => ({ ...prev, telefon: e.target.value }))
-                  }
-                  className="input"
+                  className={girdi}
+                  value={form.telefon}
+                  onChange={(e) => alan('telefon', e.target.value)}
                   placeholder="+90 5XX XXX XX XX"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-text mb-1">
-                  Email
-                </label>
+                <label className={etiket}>WhatsApp</label>
+                <input
+                  className={girdi}
+                  value={form.whatsapp}
+                  onChange={(e) => alan('whatsapp', e.target.value)}
+                  placeholder="905XXXXXXXXX (sadece rakam)"
+                />
+              </div>
+              <div>
+                <label className={etiket}>E-posta</label>
                 <input
                   type="email"
-                  value={formData.email || ''}
-                  onChange={(e) =>
-                    setFormData((prev) => ({ ...prev, email: e.target.value }))
-                  }
-                  className="input"
-                  placeholder="email@kalindayapi.com"
+                  className={girdi}
+                  value={form.email}
+                  onChange={(e) => alan('email', e.target.value)}
+                  placeholder="ad@kalindayapi.com"
+                />
+              </div>
+              <div>
+                <label className={etiket}>Cinsiyet</label>
+                <select
+                  className={girdi}
+                  value={form.cinsiyet}
+                  onChange={(e) => alan('cinsiyet', e.target.value as FormState['cinsiyet'])}
+                >
+                  <option value="">Belirtilmedi</option>
+                  <option value="erkek">Erkek (mavi ikon)</option>
+                  <option value="kadin">Kadın (pembe ikon)</option>
+                </select>
+              </div>
+              <div>
+                <label className={etiket}>Deneyim (yıl)</label>
+                <input
+                  type="number"
+                  min={0}
+                  className={girdi}
+                  value={form.deneyimYili}
+                  onChange={(e) => alan('deneyimYili', e.target.value)}
+                  placeholder="5"
+                />
+              </div>
+              <div>
+                <label className={etiket}>Sıra</label>
+                <input
+                  type="number"
+                  min={0}
+                  className={girdi}
+                  value={form.sira}
+                  onChange={(e) => alan('sira', e.target.value)}
+                  placeholder="0 = en üstte"
                 />
               </div>
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-text mb-1">
-                  Biyografi
-                </label>
+                <label className={etiket}>Uzmanlık Bölgeleri</label>
+                <input
+                  className={girdi}
+                  value={form.bolgeler}
+                  onChange={(e) => alan('bolgeler', e.target.value)}
+                  placeholder="Ortaca, Dalyan, Köyceğiz"
+                />
+                <p className="text-xs text-text-muted mt-1">Virgülle ayırın.</p>
+              </div>
+              <div className="md:col-span-2">
+                <label className={etiket}>Uzmanlık Alanları</label>
+                <input
+                  className={girdi}
+                  value={form.uzmanlikAlanlari}
+                  onChange={(e) => alan('uzmanlikAlanlari', e.target.value)}
+                  placeholder="Konut Satış, Kiralama, Yatırım Danışmanlığı"
+                />
+                <p className="text-xs text-text-muted mt-1">Virgülle ayırın.</p>
+              </div>
+              <div className="md:col-span-2">
+                <label className={etiket}>Biyografi</label>
                 <textarea
-                  value={formData.biyografi || ''}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      biyografi: e.target.value,
-                    }))
-                  }
-                  className="input"
+                  className={girdi}
                   rows={3}
-                  placeholder="Kısa biyografi..."
+                  value={form.biyografi}
+                  onChange={(e) => alan('biyografi', e.target.value)}
+                  placeholder="Kısa tanıtım..."
                 />
               </div>
+              <div className="md:col-span-2">
+                <label className="inline-flex items-center gap-2 text-sm text-ink">
+                  <input
+                    type="checkbox"
+                    checked={form.aktif}
+                    onChange={(e) => alan('aktif', e.target.checked)}
+                    className="w-4 h-4 accent-primary"
+                  />
+                  Sitede yayında
+                </label>
+              </div>
             </div>
-            <div className="flex justify-end gap-2 mt-4">
-              <button
-                onClick={() => setShowAddForm(false)}
-                className="btn btn-outline"
-              >
+
+            {hata && <p className="text-sm text-error mt-4">{hata}</p>}
+
+            <div className="flex justify-end gap-2 mt-5">
+              <button onClick={formuKapat} className="btn btn-outline" disabled={kaydediliyor}>
                 İptal
               </button>
-              <button onClick={() => handleSave(true)} className="btn btn-primary">
-                Kaydet
+              <button onClick={kaydet} className="btn btn-primary" disabled={kaydediliyor}>
+                {kaydediliyor ? 'Kaydediliyor...' : 'Kaydet'}
               </button>
             </div>
           </div>
         )}
 
-        {/* Ortak List */}
         {ortaklar.length === 0 ? (
           <div className="bg-white rounded-xl border border-border p-12 text-center">
             <Users className="w-12 h-12 mx-auto text-text-muted mb-4" />
-            <p className="text-text-light mb-4">Henüz ortak eklenmemiş</p>
+            <p className="text-text-light">Henüz danışman eklenmemiş</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {ortaklar.map((ortak) => (
-              <div
-                key={ortak.id}
-                className="bg-white rounded-xl border border-border overflow-hidden"
-              >
-                {editingId === ortak.id ? (
-                  <div className="p-4">
-                    <div className="space-y-3">
-                      <input
-                        type="text"
-                        value={formData.ad || ''}
-                        onChange={(e) =>
-                          setFormData((prev) => ({ ...prev, ad: e.target.value }))
-                        }
-                        className="input text-sm"
-                        placeholder="Ad Soyad"
-                      />
-                      <input
-                        type="text"
-                        value={formData.unvan || ''}
-                        onChange={(e) =>
-                          setFormData((prev) => ({
-                            ...prev,
-                            unvan: e.target.value,
-                          }))
-                        }
-                        className="input text-sm"
-                        placeholder="Unvan"
-                      />
-                      <input
-                        type="text"
-                        value={formData.telefon || ''}
-                        onChange={(e) =>
-                          setFormData((prev) => ({
-                            ...prev,
-                            telefon: e.target.value,
-                          }))
-                        }
-                        className="input text-sm"
-                        placeholder="Telefon"
-                      />
-                      <input
-                        type="email"
-                        value={formData.email || ''}
-                        onChange={(e) =>
-                          setFormData((prev) => ({
-                            ...prev,
-                            email: e.target.value,
-                          }))
-                        }
-                        className="input text-sm"
-                        placeholder="Email"
-                      />
-                      <div className="flex gap-2">
-                        <button
-                          onClick={() => handleSave(false)}
-                          className="flex-1 btn btn-primary text-sm py-2"
-                        >
-                          <Check className="w-4 h-4" />
-                          Kaydet
-                        </button>
-                        <button
-                          onClick={() => setEditingId(null)}
-                          className="flex-1 btn btn-outline text-sm py-2"
-                        >
-                          <X className="w-4 h-4" />
-                          İptal
-                        </button>
-                      </div>
-                    </div>
+            {ortaklar.map((o) => (
+              <div key={o.id} className="bg-white rounded-xl border border-border p-5">
+                <div className="flex items-start gap-3">
+                  <DanismanAvatar
+                    foto={o.foto}
+                    cinsiyet={o.cinsiyet as Cinsiyet}
+                    ad={o.ad}
+                    size={56}
+                  />
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-bold text-ink truncate">{o.ad}</h3>
+                    <p className="text-sm text-text-light truncate">{o.unvan}</p>
+                    <span
+                      className={`inline-block mt-1.5 px-2 py-0.5 rounded-full text-xs font-medium ${
+                        o.aktif ? 'bg-success/10 text-success' : 'bg-surface text-text-muted'
+                      }`}
+                    >
+                      {o.aktif ? 'Yayında' : 'Pasif'}
+                    </span>
                   </div>
-                ) : (
-                  <>
-                    <div className="p-4">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                          {ortak.foto ? (
-                            <img
-                              src={ortak.foto}
-                              alt={ortak.ad}
-                              className="w-full h-full object-cover"
-                            />
-                          ) : (
-                            <User className="w-8 h-8 text-ink" />
-                          )}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-text">{ortak.ad}</h3>
-                          <p className="text-sm text-text-light">{ortak.unvan}</p>
-                          <div className="mt-2 space-y-1">
-                            <a
-                              href={`tel:${ortak.telefon}`}
-                              className="flex items-center gap-1 text-xs text-text-muted hover:text-ink"
-                            >
-                              <Phone className="w-3 h-3" />
-                              {ortak.telefon}
-                            </a>
-                            {ortak.email && (
-                              <a
-                                href={`mailto:${ortak.email}`}
-                                className="flex items-center gap-1 text-xs text-text-muted hover:text-ink"
-                              >
-                                <Mail className="w-3 h-3" />
-                                {ortak.email}
-                              </a>
-                            )}
-                          </div>
-                        </div>
-                      </div>
+                </div>
 
-                      {/* Uzmanlik Alanlari */}
-                      <div className="mt-4 flex flex-wrap gap-1">
-                        {parseUzmanlik(ortak.uzmanlikAlanlari).map(
-                          (alan, i) => (
-                            <span
-                              key={i}
-                              className="text-xs px-2 py-0.5 bg-primary/10 text-ink rounded-full"
-                            >
-                              {alan}
-                            </span>
-                          )
-                        )}
-                      </div>
-                    </div>
+                <div className="mt-4 space-y-1.5 text-sm text-text-light">
+                  <p className="flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-primary" />
+                    {o.telefon}
+                  </p>
+                  {o.email && (
+                    <p className="flex items-center gap-2 truncate">
+                      <Mail className="w-4 h-4 text-primary" />
+                      {o.email}
+                    </p>
+                  )}
+                  {diziToMetin(o.bolgeler) && (
+                    <p className="flex items-start gap-2">
+                      <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span>{diziToMetin(o.bolgeler)}</span>
+                    </p>
+                  )}
+                </div>
 
-                    {/* Actions */}
-                    <div className="px-4 py-3 border-t border-border flex items-center justify-between">
-                      <span
-                        className={`text-xs px-2 py-1 rounded-full ${
-                          ortak.aktif
-                            ? 'bg-success/10 text-success'
-                            : 'bg-text-muted/10 text-text-muted'
-                        }`}
-                      >
-                        {ortak.aktif ? 'Aktif' : 'Pasif'}
-                      </span>
-                      <div className="flex items-center gap-1">
-                        <button
-                          onClick={() => handleEdit(ortak)}
-                          className="p-2 hover:bg-surface rounded-lg transition-colors"
-                        >
-                          <Edit className="w-4 h-4 text-ink" />
-                        </button>
-                        <button
-                          onClick={() => setDeleteId(ortak.id)}
-                          className="p-2 hover:bg-error/10 rounded-lg transition-colors"
-                        >
-                          <Trash2 className="w-4 h-4 text-error" />
-                        </button>
-                      </div>
-                    </div>
-                  </>
-                )}
+                <div className="flex gap-2 mt-4 pt-4 border-t border-border">
+                  <button
+                    onClick={() => formuAc(o)}
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 text-sm rounded-lg border border-border hover:bg-surface transition-colors"
+                  >
+                    <Edit className="w-4 h-4" /> Düzenle
+                  </button>
+                  <button
+                    onClick={() => setDeleteId(o.id)}
+                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-sm rounded-lg text-error hover:bg-error/10 transition-colors"
+                  >
+                    <Trash2 className="w-4 h-4" /> Sil
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         )}
       </div>
 
-      {/* Delete Confirmation */}
       <ConfirmDialog
         isOpen={!!deleteId}
-        title="Ortağı Sil"
-        message="Bu ortağı silmek istediğinizden emin misiniz?"
+        title="Danışmanı sil"
+        message="Bu danışman kalıcı olarak silinecek. Bağlı ilanlar silinmez, ilandaki danışman bilgisi boşaltılır."
         confirmText="Sil"
-        cancelText="İptal"
-        onConfirm={handleDelete}
-        onCancel={() => setDeleteId(null)}
+        cancelText="Vazgeç"
         variant="danger"
         isLoading={isDeleting}
+        onConfirm={sil}
+        onCancel={() => setDeleteId(null)}
       />
     </div>
   )

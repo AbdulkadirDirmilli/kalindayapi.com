@@ -91,6 +91,7 @@ export async function GET(
         whatsapp: ilan.danisman.whatsapp,
         email: ilan.danisman.email,
         foto: ilan.danisman.foto,
+      cinsiyet: ilan.danisman.cinsiyet,
       } : null,
     }
 

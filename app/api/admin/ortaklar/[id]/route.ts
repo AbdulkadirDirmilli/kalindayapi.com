@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
+import { ortakGuncelleSchema } from '@/lib/validations/ortak'
 
 // GET - Get single ortak
 export async function GET(
@@ -46,7 +47,14 @@ export async function PUT(
     }
 
     const { id } = await params
-    const body = await request.json()
+    const parsed = ortakGuncelleSchema.safeParse(await request.json())
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: parsed.error.issues[0]?.message || 'Gecersiz veri' },
+        { status: 400 }
+      )
+    }
+    const body = parsed.data
 
     // Check if ortak exists
     const existingOrtak = await prisma.ortak.findUnique({
@@ -70,15 +78,10 @@ export async function PUT(
       }
     }
 
+    const { email, ...veri } = body
     const ortak = await prisma.ortak.update({
       where: { id },
-      data: {
-        ...body,
-        uzmanlikAlanlari:
-          typeof body.uzmanlikAlanlari === 'string'
-            ? body.uzmanlikAlanlari
-            : JSON.stringify(body.uzmanlikAlanlari || []),
-      },
+      data: { ...veri, ...(email !== undefined ? { email: email || null } : {}) },
     })
 
     return NextResponse.json(ortak)
@@ -104,11 +107,22 @@ export async function DELETE(
 
     const { id } = await params
 
-    await prisma.ortak.delete({
-      where: { id },
-    })
+    // Ilan.danismanId icin cascade tanimli degil; once bagli ilanlarin
+    // danisman alani bosaltilmazsa silme FK ihlaliyle 500 veriyordu.
+    const bagliIlan = await prisma.ilan.count({ where: { danismanId: id } })
+    if (bagliIlan > 0) {
+      await prisma.ilan.updateMany({
+        where: { danismanId: id },
+        data: { danismanId: null },
+      })
+    }
 
-    return NextResponse.json({ message: 'Ortak basariyla silindi' })
+    await prisma.ortak.delete({ where: { id } })
+
+    return NextResponse.json({
+      message: 'Ortak basariyla silindi',
+      bosaltilanIlan: bagliIlan,
+    })
   } catch (error) {
     console.error('Ortak silme hatasi:', error)
     return NextResponse.json(
