@@ -1,8 +1,8 @@
 # Kalinda Yapı Emlak — Dönüşüm Çalışma Notları
 
 > Son güncelleme: 19 Kasım 2026
-> Dal: `emlak-odakli-kurumsal` (4 commit + commit'lenmemiş palet/navbar
-> çalışması, `main`'e merge edilmedi, push yapılmadı)
+> Durum: **`main`'e merge edildi ve canlıya alındı.** Palet/navbar çalışması,
+> danışmanlar modülü ve video düzenlemesi yayında.
 
 Bu dosya, siteyi "emlak odaklı + kurumsal" hale getirme çalışmasının durumunu
 ve kaldığımız yeri kaydeder. Yeni oturumda önce bunu okuyun.
@@ -264,6 +264,96 @@ kayboldu (ölü sınıflar artık HTML'e basılmıyor).
 > `text-gray-300/400/500` renkli zeminde **kullanılmamalı**.
 
 ---
+
+
+## 4.5 Danışmanlar modülü (19 Kasım 2026)
+
+Danışman verisi **üç ayrı yerde sabit koddaydı**; hepsi veritabanına bağlandı.
+Artık admin panelinden eklenen her danışman otomatik olarak şurada görünür:
+danışmanlar sayfası, ana sayfa danışman bölümü, hizmet detay sayfaları,
+iletişim sayfası ve sağ kenar çubuğu.
+
+| Parça | Yer |
+|---|---|
+| Public sayfa | `app/[lang]/danismanlar/page.tsx` (5 dil) |
+| Public API | `app/api/danismanlar/route.ts` (yalnızca `aktif`, aktif ilan sayısıyla) |
+| Sunucu yardımcısı | `lib/danismanlar.ts` — `getDanismanlar()`, `getAnaDanisman()` |
+| Metinler | `data/danismanlar-i18n.ts` |
+| Admin | `app/admin/(dashboard)/ortaklar/page.tsx` — tek formda ekleme + düzenleme |
+
+**Şema eklemeleri** (`Ortak`): `cinsiyet`, `deneyimYili`, `bolgeler` (JSON dizi
+string). `Ilan` modeline `@@index([danismanId])`.
+Migration: `20261119181338_danisman_alanlari_ve_ilan_index`.
+
+> **Dikkat — deploy akışında migration adımı YOK.** Şema değişikliği yapılırsa
+> sunucudaki `prisma/dev.db`'ye elle uygulanmalı. Ayrıca production
+> veritabanında `_prisma_migrations` tablosu **hiç yok** (DB `db push`/seed ile
+> kurulmuş), bu yüzden `prisma migrate deploy` orada çalışmaz; SQL doğrudan
+> uygulanır.
+
+**Admin formunda eklenenler:** fotoğraf yükleme (önceden foto için hiçbir girdi
+yoktu), whatsapp, cinsiyet, deneyim yılı, bölgeler, uzmanlık alanları, sıra,
+aktif. Yeni paylaşılan bileşen: `components/admin/ui/ImageUploader.tsx`.
+`/api/upload` artık `folder` parametresi alıyor (`ilanlar` | `danismanlar`).
+
+**Güvenlik düzeltmeleri:** `/api/admin/ortaklar` gövdeyi doğrudan Prisma'ya
+spread ediyordu → `lib/validations/ortak.ts` ile Zod doğrulaması eklendi.
+DELETE, bağlı ilan varken FK ihlaliyle 500 dönüyordu → artık önce ilanların
+`danismanId` alanı boşaltılıyor.
+
+**Rota:** `danismanlar` hem `lib/i18n/config.ts` hem `proxy.ts`'e eklendi.
+Bu iki dosya birbirinin kopyası; **yalnızca birine eklenirse `/en/consultants`
+404 verir.** Header'da Kurumsal açılır menüsüne ve footer'a bağlantı kondu —
+üst seviyeye eklenmedi, çünkü 1024–1279px'te şerit zaten dolu (bkz. 4.2).
+
+## 4.6 Avatar ve Arif Bey'in fotoğrafı
+
+`components/ui/DanismanAvatar.tsx`: fotoğraf varsa onu, yoksa **cinsiyete göre
+ikon** gösterir — erkek `accent` mavisi, kadın `--color-feminine` (`#D6608F`,
+globals.css'e eklendi). Projede yedi yerde elle tekrarlanan
+`rounded-full + Image` kalıbının yerini aldı.
+
+Arif Bey'in fotoğrafı istek üzerine kaldırıldı; kaydında `cinsiyet: erkek`
+olduğu için mavi ikon görünüyor. Silinen dosyalar: `arifdagdelen.png`,
+`zafersoylu.png`, `hikmetkaraoglan.svg`.
+
+**Veri:** Zafer SOYLU ve Hikmet KARAOĞLAN kayıtları silindi. Siteden
+çıkarılmışlardı ama veritabanında `aktif` duruyorlardı; danışmanlar sayfası
+DB'den beslendiği için aksi halde yeniden görünürlerdi.
+
+## 4.7 Video politikası
+
+Fotoğraflar yüklemede optimize ediliyordu, **videolar hiç işlenmiyordu**.
+İki yol birden kuruldu:
+
+1. **Bağlantı (tercih edilen).** `Ilan.videoUrl` şemada vardı ama yalnızca
+   yüklenen dosyadan türetiliyordu. İlan formuna YouTube/Vimeo alanı eklendi;
+   bağlantı varsa yüklenen dosyaya göre önceliklidir. `lib/video.ts` bağlantıyı
+   gömülebilir URL'e çevirir.
+2. **Yükleme + sıkıştırma.** Dockerfile'a `ffmpeg` eklendi.
+   `lib/video-optimize.ts`: H.264 1080p, `-preset veryfast -crf 28`, AAC,
+   `+faststart`.
+
+> Sıkıştırma **arka planda** çalışır: sunucu 2 çekirdekli ve nginx
+> `proxy_read_timeout 300`. `/api/upload` önce orijinali kaydedip URL'i hemen
+> döner; ffmpeg bitince dosya **aynı adla** değiştirilir. URL değişmediği için
+> durum takibi gerekmez. Başarısız olursa orijinal yerinde kalır.
+
+## 4.8 Disk temizliği
+
+Tüm ilanlar silindiği için `public/uploads` ölü veriye dönüşmüştü:
+**506 MB → 68 KB** (ilanlar 380, thumbnails 375, originals 293, videos 4 dosya).
+
+- `originals/` klasörüne kodda ve veritabanında hiç referans yoktu.
+- `videos/` altındaki 4 dosya **aynı 78 MB'lık videonun kopyasıydı** ve hiçbir
+  ilana bağlı değildi. `.gitignore`'a rağmen izleniyorlardı (kural sonradan
+  eklenmiş); `git rm --cached` ile çıkarıldı, geçmiş değiştirilmedi.
+- `public/videos/` **korundu** — iletişim sayfası ve HeroSection kullanıyor.
+
+> Silmeden önce 18 Kasım yedeğindeki 10 ilanın referans verdiği 153 fotoğraf +
+> küçük resimleri (301 dosya, 40.8 MB) şuraya arşivlendi:
+> `/root/backups/kalindayapi-ilan-fotograflari-2026-11-18.tar.gz`
+> Bu arşiv 30 günlük yedek döngüsünün **dışında**, kalıcı.
 
 ## 5. Yarım kalan / müşteriye sorulacaklar
 
