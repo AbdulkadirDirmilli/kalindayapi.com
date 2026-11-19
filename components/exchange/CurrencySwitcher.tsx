@@ -11,14 +11,15 @@ import { useLocale } from '@/components/providers/LocaleProvider';
 
 interface CurrencySwitcherProps {
   variant?: 'default' | 'compact';
-  isScrolled?: boolean;
+  /** Koyu zemin üzerinde mi gösteriliyor (varsayılan: açık zemin) */
+  onDark?: boolean;
 }
 
 const CURRENCIES: CurrencyCode[] = ['TRY', 'USD', 'EUR'];
 
 export default function CurrencySwitcher({
   variant = 'default',
-  isScrolled = false,
+  onDark = false,
 }: CurrencySwitcherProps) {
   const { selectedCurrency, setCurrency } = useCurrency();
   const { dict } = useLocale();
@@ -48,14 +49,16 @@ export default function CurrencySwitcher({
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300',
-          isScrolled
-            ? 'bg-primary/5 text-ink hover:bg-primary/10'
-            : 'bg-white/10 text-white hover:bg-white/20'
+          'flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300',
+          onDark
+            ? 'bg-white/10 text-white hover:bg-white/20'
+            : 'bg-primary/5 text-ink hover:bg-primary/10'
         )}
         aria-label={t.selectCurrency}
       >
-        <span className="text-[#C9A84C] font-bold text-sm sm:text-base">{currentConfig.symbol}</span>
+        <span className={cn('font-bold text-sm sm:text-base', onDark ? 'text-carolina' : 'text-primary')}>
+          {currentConfig.symbol}
+        </span>
         {variant === 'default' && (
           <span className="hidden sm:inline">{selectedCurrency}</span>
         )}
@@ -74,7 +77,7 @@ export default function CurrencySwitcher({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.95 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full right-0 mt-2 w-44 bg-white rounded-xl shadow-xl overflow-hidden z-50 border border-gray-100"
+            className="absolute top-full right-0 mt-2 w-44 bg-white rounded-xl shadow-xl overflow-hidden z-50 border border-border"
           >
             <div className="p-1">
               {CURRENCIES.map((currency) => {
@@ -91,19 +94,19 @@ export default function CurrencySwitcher({
                     className={cn(
                       'w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-colors',
                       isSelected
-                        ? 'bg-[#C9A84C]/10 text-ink'
-                        : 'hover:bg-gray-50 text-gray-700'
+                        ? 'bg-primary/[0.07] text-primary'
+                        : 'hover:bg-surface text-ink'
                     )}
                   >
-                    <span className="w-6 h-6 flex items-center justify-center bg-primary/5 rounded-full text-[#C9A84C] font-bold text-sm">
+                    <span className="w-6 h-6 flex items-center justify-center bg-primary/5 rounded-full text-primary font-bold text-sm">
                       {config.symbol}
                     </span>
                     <div className="flex-1">
                       <p className="font-medium text-sm">{currency}</p>
-                      <p className="text-xs text-gray-500">{config.name}</p>
+                      <p className="text-xs text-text-light">{config.name}</p>
                     </div>
                     {isSelected && (
-                      <Check className="w-4 h-4 text-[#C9A84C]" />
+                      <Check className="w-4 h-4 text-primary" />
                     )}
                   </button>
                 );

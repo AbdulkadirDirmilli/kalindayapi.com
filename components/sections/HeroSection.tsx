@@ -94,7 +94,7 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
           >
             {t.title}
             <br />
-            <span className="text-accent">{t.titleHighlight}</span> {t.titleEnd}
+            <span className="text-carolina">{t.titleHighlight}</span> {t.titleEnd}
           </motion.h1>
 
           {/* Subtitle */}
@@ -148,7 +148,7 @@ export default function HeroSection({ lang = 'tr', dict }: HeroSectionProps) {
               { value: `${getMutluAileSayisi()}+`, label: t.happyFamilies },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-accent">
+                <p className="text-3xl md:text-4xl font-bold text-carolina">
                   {stat.value}
                 </p>
                 <p className="text-sm text-white/70 mt-1">{stat.label}</p>

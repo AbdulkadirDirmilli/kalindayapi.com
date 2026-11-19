@@ -42,14 +42,14 @@ export default function RealEstateConnection() {
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#C9A84C] rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#C9A84C] rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-accent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
         {/* Header */}
         <div className="flex items-start gap-4 mb-6">
-          <div className="w-14 h-14 rounded-2xl bg-[#C9A84C] flex items-center justify-center flex-shrink-0">
+          <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center flex-shrink-0">
             <Home className="w-7 h-7 text-ink" />
           </div>
           <div>
@@ -65,21 +65,21 @@ export default function RealEstateConnection() {
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-            <TrendingUp className="w-6 h-6 text-[#C9A84C] mb-2" />
+            <TrendingUp className="w-6 h-6 text-primary mb-2" />
             <h3 className="font-semibold text-white mb-1">{t.currencyAdvantage}</h3>
             <p className="text-sm text-white/85">
               {t.currencyAdvantageDesc}
             </p>
           </div>
           <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-            <Users className="w-6 h-6 text-[#C9A84C] mb-2" />
+            <Users className="w-6 h-6 text-primary mb-2" />
             <h3 className="font-semibold text-white mb-1">{t.expertConsulting}</h3>
             <p className="text-sm text-white/85">
               {t.expertConsultingDesc}
             </p>
           </div>
           <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-            <Home className="w-6 h-6 text-[#C9A84C] mb-2" />
+            <Home className="w-6 h-6 text-primary mb-2" />
             <h3 className="font-semibold text-white mb-1">{t.widePortfolio}</h3>
             <p className="text-sm text-white/85">
               {t.widePortfolioDesc}

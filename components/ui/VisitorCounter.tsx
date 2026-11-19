@@ -143,13 +143,13 @@ export default function VisitorCounter({ locale = "tr" }: VisitorCounterProps) {
         {/* Toplam Ziyaretçi */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-            <Users className="w-5 h-5 text-accent" />
+            <Users className="w-5 h-5 text-carolina" />
           </div>
           <div>
             <div className="text-2xl md:text-3xl font-bold text-white tabular-nums">
               {formatNumber(displayCount)}
             </div>
-            <div className="text-xs text-gray-400">{t.totalVisitors}</div>
+            <div className="text-xs text-white/65">{t.totalVisitors}</div>
           </div>
         </div>
 
@@ -167,9 +167,9 @@ export default function VisitorCounter({ locale = "tr" }: VisitorCounterProps) {
           </div>
           <div>
             <div className="text-xl md:text-2xl font-bold text-green-400 tabular-nums">
-              {stats.online} <span className="text-sm font-normal text-gray-400">{t.person}</span>
+              {stats.online} <span className="text-sm font-normal text-white/65">{t.person}</span>
             </div>
-            <div className="text-xs text-gray-400">{t.onlineNow}</div>
+            <div className="text-xs text-white/65">{t.onlineNow}</div>
           </div>
         </div>
 
@@ -177,7 +177,7 @@ export default function VisitorCounter({ locale = "tr" }: VisitorCounterProps) {
         <div className="hidden md:block w-px h-12 bg-white/20"></div>
 
         {/* Tarih */}
-        <div className="flex items-center gap-2 text-xs text-gray-500">
+        <div className="flex items-center gap-2 text-xs text-white/55">
           <Calendar className="w-4 h-4" />
           <span>
             {formatDate(stats.launchDate, locale)} {t.since}

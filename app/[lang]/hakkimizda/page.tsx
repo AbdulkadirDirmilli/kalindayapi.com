@@ -85,20 +85,20 @@ export default async function HakkimizdaPage({
       />
 
       {/* Hero */}
-      <section className="bg-primary pt-32 pb-20">
+      <section className="bg-primary pt-14 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{dict.nav.about}</span>
+            <span className="text-carolina">{dict.nav.about}</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              <span className="text-[#C9A84C]">{texts.heroTitleHighlight}</span> {texts.heroTitle}
+              <span className="text-carolina">{texts.heroTitleHighlight}</span> {texts.heroTitle}
             </h1>
             <p className="text-white/85 text-lg leading-relaxed mb-4">
               {texts.heroDescription1}
@@ -115,7 +115,7 @@ export default async function HakkimizdaPage({
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
                 {texts.storyBadge}
               </span>
               <h2 className="text-3xl font-bold text-ink mt-2 mb-6">
@@ -126,7 +126,7 @@ export default async function HakkimizdaPage({
                 <p>
                   {locale === 'tr' ? (
                     <>
-                      Arif Dağdelen, <Link href={`/${locale}/hizmetler/emlak-danismanligi`} className="text-[#C9A84C] hover:underline">emlak danışmanlığı</Link> sektöründeki saha deneyimiyle Ortaca, Dalyan, Köyceğiz ve Dalaman bölgelerinin gayrimenkul dinamiklerine hakim, lisanslı bir danışmandır. <Link href={`/${locale}/hizmetler/gayrimenkul-degerleme`} className="text-[#C9A84C] hover:underline">Değerleme</Link> ve <Link href={`/${locale}/hizmetler/yatirim-danismanligi`} className="text-[#C9A84C] hover:underline">yatırım danışmanlığı</Link> dahil tüm süreci tek elden yürütür.
+                      Arif Dağdelen, <Link href={`/${locale}/hizmetler/emlak-danismanligi`} className="text-primary hover:underline">emlak danışmanlığı</Link> sektöründeki saha deneyimiyle Ortaca, Dalyan, Köyceğiz ve Dalaman bölgelerinin gayrimenkul dinamiklerine hakim, lisanslı bir danışmandır. <Link href={`/${locale}/hizmetler/gayrimenkul-degerleme`} className="text-primary hover:underline">Değerleme</Link> ve <Link href={`/${locale}/hizmetler/yatirim-danismanligi`} className="text-primary hover:underline">yatırım danışmanlığı</Link> dahil tüm süreci tek elden yürütür.
                     </>
                   ) : (
                     texts.storyParagraph2
@@ -135,7 +135,7 @@ export default async function HakkimizdaPage({
                 <p>
                   {locale === 'tr' ? (
                     <>
-<Link href={`/${locale}/ilanlar`} className="text-[#C9A84C] hover:underline">Emlak portföyümüzde</Link> Ortaca merkez, Dalyan kanal boyu, Köyceğiz göl manzaralı ve Dalaman havalimanı yakını daire, villa, arsa ve ticari gayrimenkul seçenekleri bulunuyor. <Link href={`/${locale}/hizmetler/tapu-islemleri`} className="text-[#C9A84C] hover:underline">Tapu ve resmi işlemleri</Link> de sizin adınıza takip ediyoruz.
+<Link href={`/${locale}/ilanlar`} className="text-primary hover:underline">Emlak portföyümüzde</Link> Ortaca merkez, Dalyan kanal boyu, Köyceğiz göl manzaralı ve Dalaman havalimanı yakını daire, villa, arsa ve ticari gayrimenkul seçenekleri bulunuyor. <Link href={`/${locale}/hizmetler/tapu-islemleri`} className="text-primary hover:underline">Tapu ve resmi işlemleri</Link> de sizin adınıza takip ediyoruz.
                     </>
                   ) : (
                     texts.storyParagraph3
@@ -150,7 +150,7 @@ export default async function HakkimizdaPage({
               {timelineItems.map((item, index) => (
                 <div key={item.yil} className="flex gap-4">
                   <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-[#C9A84C] flex items-center justify-center text-ink font-bold text-sm">
+                    <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white font-bold text-sm">
                       {item.yil}
                     </div>
                     {index < timelineItems.length - 1 && (
@@ -186,7 +186,7 @@ export default async function HakkimizdaPage({
 
             <Card padding="lg">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-[#C9A84C] flex items-center justify-center">
+                <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center">
                   <Eye className="w-7 h-7 text-ink" />
                 </div>
                 <h2 className="text-2xl font-bold text-ink">{texts.visionTitle}</h2>
@@ -203,7 +203,7 @@ export default async function HakkimizdaPage({
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               {texts.valuesBadge}
             </span>
             <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
@@ -219,8 +219,8 @@ export default async function HakkimizdaPage({
               const Icon = ikonlar[deger.ikon] || Shield;
               return (
                 <Card key={deger.baslik} padding="lg" className="text-center group">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A84C]/20 transition-colors">
-                    <Icon className="w-8 h-8 text-ink group-hover:text-[#C9A84C] transition-colors" />
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
+                    <Icon className="w-8 h-8 text-ink group-hover:text-primary transition-colors" />
                   </div>
                   <h3 className="font-bold text-ink mb-2">{deger.baslik}</h3>
                   <p className="text-sm text-text-light">{deger.aciklama}</p>
@@ -241,7 +241,7 @@ export default async function HakkimizdaPage({
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               {texts.certsBadge}
             </span>
             <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
@@ -256,7 +256,7 @@ export default async function HakkimizdaPage({
             {certificates.map((belge) => (
               <Card key={belge.baslik} padding="lg" className="text-center">
                 <div className="w-16 h-16 rounded-full bg-surface flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-8 h-8 text-[#C9A84C]" />
+                  <Award className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="font-bold text-ink mb-1">{belge.baslik}</h3>
                 <p className="text-xs text-text-light">{belge.aciklama}</p>
@@ -276,7 +276,7 @@ export default async function HakkimizdaPage({
                 href="https://www.akduniverse.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#C9A84C] hover:text-ink font-semibold transition-colors"
+                className="text-primary hover:text-ink font-semibold transition-colors"
               >
                 AKD Universe
               </a>

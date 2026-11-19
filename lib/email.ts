@@ -35,15 +35,15 @@ export async function sendContactFormNotification(data: ContactFormData) {
           <style>
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: #418FDE; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+            .header { background: #012169; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
             .header h1 { margin: 0; font-size: 24px; }
             .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
             .field { margin-bottom: 15px; }
-            .field-label { font-weight: bold; color: #0F2742; margin-bottom: 5px; }
+            .field-label { font-weight: bold; color: #2D2926; margin-bottom: 5px; }
             .field-value { background: white; padding: 10px; border-radius: 4px; border: 1px solid #eee; }
-            .message-box { background: white; padding: 15px; border-radius: 4px; border-left: 4px solid #C9A84C; }
+            .message-box { background: white; padding: 15px; border-radius: 4px; border-left: 4px solid #418FDE; }
             .footer { text-align: center; padding: 15px; color: #666; font-size: 12px; }
-            .badge { display: inline-block; background: #C9A84C; color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px; }
+            .badge { display: inline-block; background: #418FDE; color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px; }
           </style>
         </head>
         <body>

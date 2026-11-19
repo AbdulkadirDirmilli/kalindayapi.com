@@ -200,7 +200,7 @@ export default function LeadForm({
                 placeholder={t.namePlaceholder}
                 required
                 minLength={2}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent transition-shadow"
+                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-shadow"
               />
             </div>
 
@@ -219,7 +219,7 @@ export default function LeadForm({
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder={t.phonePlaceholder}
                 required
-                className={`w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent transition-shadow ${
+                className={`w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-shadow ${
                   phone && !isPhoneValid
                     ? "border-red-400"
                     : "border-gray-300"
@@ -238,14 +238,14 @@ export default function LeadForm({
                 type="checkbox"
                 checked={kvkkAccepted}
                 onChange={(e) => setKvkkAccepted(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#C9A84C] focus:ring-[#C9A84C]"
+                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-primary focus:ring-accent"
               />
               <span className="text-xs text-text-light leading-relaxed">
                 {t.kvkkText}{" "}
                 <a
                   href={`/${locale}/${getLocalizedRoute('gizlilik', locale)}`}
                   target="_blank"
-                  className="text-[#C9A84C] underline"
+                  className="text-primary underline"
                 >
                   {t.kvkkLink}
                 </a>
@@ -264,7 +264,7 @@ export default function LeadForm({
             <button
               type="submit"
               disabled={!isFormValid || status === "loading"}
-              className="w-full py-3 bg-[#C9A84C] text-white rounded-lg font-semibold text-sm hover:bg-[#b8963e] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+              className="w-full py-3 bg-accent text-white rounded-lg font-semibold text-sm hover:bg-[#b8963e] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
             >
               {status === "loading" ? (
                 <>

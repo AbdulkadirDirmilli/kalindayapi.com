@@ -55,7 +55,7 @@ export default function PriceConverter({
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
       >
-        <span className={cn(sizeClasses[size], 'text-[#C9A84C]')}>
+        <span className={cn(sizeClasses[size], 'text-primary')}>
           {isLoading ? (
             <span className="inline-block w-24 h-6 bg-gray-200 animate-pulse rounded" />
           ) : (

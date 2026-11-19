@@ -182,7 +182,7 @@ export default function AdminLoginPage() {
             <div className="flex justify-center mb-4">
               <div className="p-2.5 bg-white rounded-xl border-2 border-violet-300 shadow-md">
                 <Image
-                  src="/logo.svg"
+                  src="/logo-navy.svg"
                   alt="Kalinda Yapi"
                   width={40}
                   height={40}

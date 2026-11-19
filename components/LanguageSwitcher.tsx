@@ -100,13 +100,13 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
                     className={cn(
                       "w-full flex items-center gap-3 px-4 py-3 text-sm transition-all duration-150",
                       isActive
-                        ? "bg-[#C9A84C]/10 text-[#C9A84C]"
+                        ? "bg-accent/10 text-primary"
                         : "text-gray-700 hover:bg-gray-50"
                     )}
                   >
                     <FlagIcon locale={locale} size="md" />
                     <span className="font-medium">{config.nativeName}</span>
-                    {isActive && <Check className="w-4 h-4 ml-auto text-[#C9A84C]" />}
+                    {isActive && <Check className="w-4 h-4 ml-auto text-primary" />}
                   </button>
                 );
               })}
@@ -158,13 +158,13 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
                     className={cn(
                       "w-full flex items-center gap-3 px-4 py-3 text-sm transition-all duration-150",
                       isActive
-                        ? "bg-[#C9A84C]/10 text-[#C9A84C]"
+                        ? "bg-accent/10 text-primary"
                         : "text-gray-700 hover:bg-gray-50"
                     )}
                   >
                     <FlagIcon locale={locale} size="md" />
                     <span className="font-medium">{config.nativeName}</span>
-                    {isActive && <Check className="w-4 h-4 ml-auto text-[#C9A84C]" />}
+                    {isActive && <Check className="w-4 h-4 ml-auto text-primary" />}
                   </button>
                 );
               })}
@@ -222,7 +222,7 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
                     className={cn(
                       "w-full flex items-center gap-3 px-4 py-3.5 text-sm transition-all duration-150",
                       isActive
-                        ? "bg-[#C9A84C]/10 text-[#C9A84C]"
+                        ? "bg-accent/10 text-primary"
                         : "text-gray-700 hover:bg-gray-50"
                     )}
                   >
@@ -233,10 +233,10 @@ export default function LanguageSwitcher({ variant = "full", isScrolled = false 
                     </div>
                     {isActive && (
                       <div className="flex items-center gap-1.5">
-                        <span className="text-xs font-medium text-[#C9A84C]">
+                        <span className="text-xs font-medium text-primary">
                           {t.active}
                         </span>
-                        <Check className="w-4 h-4 text-[#C9A84C]" />
+                        <Check className="w-4 h-4 text-primary" />
                       </div>
                     )}
                   </button>

@@ -255,18 +255,18 @@ export default async function IlanlarPage({
       />
 
       {/* Hero Banner */}
-      <section className="bg-primary pt-32 pb-16">
+      <section className="bg-primary pt-14 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
             <Link
               href={`/${locale}`}
-              className="hover:text-[#C9A84C] transition-colors"
+              className="hover:text-carolina transition-colors"
             >
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{t.breadcrumb}</span>
+            <span className="text-carolina">{t.breadcrumb}</span>
           </nav>
 
           <div>

@@ -150,7 +150,7 @@ export default function IlanGaleri({ fotograflar, baslik }: IlanGaleriProps) {
                 onClick={() => onThumbClick(index)}
                 className={`flex-[0_0_80px] min-w-0 relative aspect-square rounded-lg overflow-hidden transition-all ${
                   index === selectedIndex
-                    ? "ring-2 ring-[#C9A84C] ring-offset-2"
+                    ? "ring-2 ring-accent ring-offset-2"
                     : "opacity-60 hover:opacity-100"
                 }`}
               >

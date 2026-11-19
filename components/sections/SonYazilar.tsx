@@ -35,7 +35,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-semibold rounded-full mb-3"
+            className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-3"
           >
             {t.badge}
           </motion.span>
@@ -46,7 +46,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
             transition={{ delay: 0.1 }}
             className="text-2xl md:text-4xl font-bold text-ink mb-4"
           >
-            {t.title} <span className="text-accent">{t.titleHighlight}</span>
+            {t.title} <span className="text-primary">{t.titleHighlight}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -84,7 +84,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
                     <div className="absolute bottom-3 left-3">
-                      <span className="px-3 py-1 bg-[#C9A84C] text-ink text-xs font-bold rounded-full">
+                      <span className="px-3 py-1 bg-accent text-white text-xs font-bold rounded-full">
                         {yazi.kategori}
                       </span>
                     </div>
@@ -92,7 +92,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
 
                   {/* İçerik */}
                   <div className="p-5 flex-1 flex flex-col">
-                    <h3 className="text-base font-bold text-ink mb-2 line-clamp-2 group-hover:text-accent transition-colors">
+                    <h3 className="text-base font-bold text-ink mb-2 line-clamp-2 group-hover:text-primary transition-colors">
                       {yazi.baslik}
                     </h3>
                     <p className="text-text-light text-sm mb-4 line-clamp-2 flex-1">
@@ -109,7 +109,7 @@ export default function SonYazilar({ lang = 'tr', dict }: SonYazilarProps) {
                           {yazi.okunmaSuresi} {t.readTime}
                         </span>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>

@@ -87,21 +87,21 @@ export default async function HizmetlerPage({ params }: PageProps) {
       />
 
       {/* Hero */}
-      <section className="bg-primary pt-32 pb-20">
+      <section className="bg-primary pt-14 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{texts.breadcrumb}</span>
+            <span className="text-carolina">{texts.breadcrumb}</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               {texts.title}{" "}
-              <span className="text-[#C9A84C]">{texts.titleHighlight}</span>
+              <span className="text-carolina">{texts.titleHighlight}</span>
             </h1>
             <p className="text-white/85 text-lg">
               {texts.subtitle}
@@ -124,12 +124,12 @@ export default async function HizmetlerPage({ params }: PageProps) {
                   className="group"
                 >
                   {/* Icon */}
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-[#C9A84C]/20 transition-colors">
-                    <Icon className="w-8 h-8 text-ink group-hover:text-[#C9A84C] transition-colors" />
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+                    <Icon className="w-8 h-8 text-ink group-hover:text-primary transition-colors" />
                   </div>
 
                   {/* Content */}
-                  <h2 className="text-xl font-bold text-ink mb-3 group-hover:text-[#C9A84C] transition-colors">
+                  <h2 className="text-xl font-bold text-ink mb-3 group-hover:text-primary transition-colors">
                     {hizmet.baslik}
                   </h2>
                   <p className="text-text-light mb-6">{hizmet.kisaAciklama}</p>
@@ -141,7 +141,7 @@ export default async function HizmetlerPage({ params }: PageProps) {
                         key={alt.baslik}
                         className="flex items-center gap-2 text-sm text-text-light"
                       >
-                        <ChevronRight className="w-4 h-4 text-[#C9A84C]" />
+                        <ChevronRight className="w-4 h-4 text-primary" />
                         <span>{alt.baslik}</span>
                       </div>
                     ))}

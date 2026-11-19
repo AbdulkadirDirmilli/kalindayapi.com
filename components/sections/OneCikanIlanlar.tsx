@@ -87,7 +87,7 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
           transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             {t.badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-ink mt-2 mb-4">
@@ -101,7 +101,7 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
         {/* Loading State */}
         {loading && (
           <div className="flex items-center justify-center py-16">
-            <Loader2 className="w-8 h-8 animate-spin text-accent" />
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
           </div>
         )}
 
@@ -186,7 +186,7 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
                     <div className="p-5">
                       {/* Location */}
                       <div className="flex items-center gap-1 text-text-light text-sm mb-2">
-                        <MapPin className="w-4 h-4 text-accent" />
+                        <MapPin className="w-4 h-4 text-primary" />
                         <span>
                           {ilan.konum.mahalle ? `${ilan.konum.mahalle}, ` : ""}
                           {ilan.konum.ilce}
@@ -194,7 +194,7 @@ export default function OneCikanIlanlar({ lang = 'tr', dict }: OneCikanIlanlarPr
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-lg font-bold text-ink mb-3 line-clamp-2 group-hover:text-accent transition-colors">
+                      <h3 className="text-lg font-bold text-ink mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                         {getIlanBaslik(ilan, lang)}
                       </h3>
 

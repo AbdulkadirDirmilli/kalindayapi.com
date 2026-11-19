@@ -175,19 +175,19 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-24 sm:pt-28 md:pt-32 pb-6 sm:pb-8">
+      <section className="bg-primary pt-10 sm:pt-12 md:pt-14 pb-6 sm:pb-8">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-white/70 mb-4 sm:mb-6 flex-wrap">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </Link>
             <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <Link href={`/${locale}/${listingsRoute}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}/${listingsRoute}`} className="hover:text-carolina transition-colors">
               {t.listings}
             </Link>
             <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span className="text-[#C9A84C] line-clamp-1 max-w-[150px] sm:max-w-none">{getIlanBaslik(ilan, locale)}</span>
+            <span className="text-carolina line-clamp-1 max-w-[150px] sm:max-w-none">{getIlanBaslik(ilan, locale)}</span>
           </nav>
 
           <div className="flex flex-col gap-3 sm:gap-4">
@@ -227,7 +227,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                 {getIlanBaslik(ilan, locale)}
               </h1>
               <div className="flex items-center gap-1 text-white/85 text-sm sm:text-base">
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#C9A84C] flex-shrink-0" />
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-carolina flex-shrink-0" />
                 <span className="line-clamp-1">
                   {ilan.konum?.mahalle && `${ilan.konum.mahalle}, `}
                   {ilan.konum?.ilce}, {ilan.konum?.il}
@@ -286,7 +286,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                       key={ozellik.label}
                       className="flex flex-col items-center justify-center p-3 bg-white rounded-xl text-center"
                     >
-                      <Icon className="w-5 h-5 text-[#C9A84C] mb-1" />
+                      <Icon className="w-5 h-5 text-primary mb-1" />
                       <p className="text-xs text-text-muted">{ozellik.label}</p>
                       <p className="font-semibold text-ink text-sm">
                         {ozellik.value}
@@ -370,7 +370,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                         return (
                           <span
                             key={ozellik.label}
-                            className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#22c55e]/10 text-[#22c55e] rounded-full text-xs sm:text-sm font-medium"
+                            className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#2F7D4F]/10 text-[#2F7D4F] rounded-full text-xs sm:text-sm font-medium"
                           >
                             <Check className="w-3 h-3 sm:w-4 sm:h-4" />
                             {ozellik.label}
@@ -399,7 +399,7 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                     />
                   </div>
                   <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-text-light">
-                    <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1 text-[#C9A84C]" />
+                    <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1 text-primary" />
                     {ilan.konum.mahalle && `${ilan.konum.mahalle}, `}
                     {ilan.konum.ilce}, {ilan.konum.il}
                   </p>
@@ -428,8 +428,8 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                       />
                     </div>
                   ) : (
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
-                      <Building className="w-6 h-6 sm:w-7 sm:h-7 text-[#C9A84C]" />
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                      <Building className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                     </div>
                   )}
                   <div className="min-w-0">

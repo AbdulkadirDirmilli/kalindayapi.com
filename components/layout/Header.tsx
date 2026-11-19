@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Search, Phone, Home, Briefcase, Building2, TrendingUp, Users, Mail } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import { HeaderExchangeRate, CurrencySwitcher } from "@/components/exchange";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLocale } from "@/components/providers/LocaleProvider";
 import { getLocalizedRoute } from "@/lib/i18n";
@@ -112,6 +111,9 @@ const navTexts = {
   },
 };
 
+const PHONE_HREF = "tel:+905321591556";
+const PHONE_LABEL = "0532 159 15 56";
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -153,7 +155,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 8);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -173,128 +175,142 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white shadow-lg py-2"
-          : "bg-transparent py-4"
+        // Beyaz, sabit yükseklikli şerit. Sayfa kaydırılınca yalnızca alt
+        // kenarlık ve hafif gölge belirir (referans: muglaport.com.tr).
+        "sticky top-0 z-50 bg-white border-b transition-colors duration-200",
+        isScrolled ? "border-border shadow-sm" : "border-transparent"
       )}
     >
-      <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href={`/${locale}`} className="relative z-10" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            {/* Mobile: küçük logo */}
-            <div className="relative w-12 h-12 sm:hidden">
-              <Image
-                src="/logo.svg"
-                alt="Kalinda Yapı Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            {/* Desktop: transparent logo */}
-            <div className="relative w-48 h-12 hidden sm:block">
-              <Image
-                src="/logo-footer.svg"
-                alt="Kalinda Yapı Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-          </Link>
+      <div className="mx-auto flex h-16 max-w-[1320px] items-center gap-3 px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
+        <Link
+          href={`/${locale}`}
+          className="shrink-0"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          {/* Navbar daima beyaz olduğu için lacivert logo varyantı kullanılır.
+              Altın orijinaller koyu zeminler içindir (footer). */}
+          {/* Mobile: kare logo */}
+          <div className="relative w-10 h-10 sm:hidden">
+            <Image
+              src="/logo-navy.svg"
+              alt="Kalinda Yapı Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          {/* Desktop: yatay logo */}
+          <div className="relative w-44 h-10 hidden sm:block lg:w-48 lg:h-11">
+            <Image
+              src="/logo-wide-navy.svg"
+              alt="Kalinda Yapı Logo"
+              fill
+              className="object-contain object-left"
+              priority
+            />
+          </div>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-0">
-            {navigation.map((item) => (
-              <div
-                key={item.name}
-                className="relative"
-                onMouseEnter={() => item.children && setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
+        {/* Desktop Navigation — pill linkler */}
+        <nav className="hidden flex-1 items-center gap-0.5 lg:flex">
+          {navigation.map((item) => (
+            <div
+              key={item.name}
+              className="relative"
+              onMouseEnter={() => item.children && setActiveDropdown(item.name)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <Link
+                href={item.href}
+                className={cn(
+                  "flex items-center gap-1 rounded-full px-2.5 py-2 text-[15px] font-medium transition-colors",
+                  isActive(item.href)
+                    ? "bg-primary/[0.07] text-primary"
+                    : "text-ink hover:bg-primary/[0.05] hover:text-primary"
+                )}
               >
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "px-2 py-2 rounded-lg font-medium text-sm transition-all duration-300 flex items-center gap-1",
-                    isActive(item.href)
-                      ? "text-accent"
-                      : isScrolled
-                        ? "text-ink hover:text-accent"
-                        : "text-white hover:text-accent"
-                  )}
-                >
-                  {item.name}
-                  {item.children && (
-                    <ChevronDown className={cn(
-                      "w-4 h-4 transition-transform duration-300",
-                      activeDropdown === item.name && "rotate-180"
-                    )} />
-                  )}
-                </Link>
-
-                {/* Dropdown */}
+                {item.name}
                 {item.children && (
-                  <AnimatePresence>
-                    {activeDropdown === item.name && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-64 max-w-[calc(100vw-2rem)] bg-white rounded-xl shadow-xl overflow-hidden"
-                      >
+                  <ChevronDown className={cn(
+                    "w-4 h-4 transition-transform duration-200",
+                    activeDropdown === item.name && "rotate-180"
+                  )} />
+                )}
+              </Link>
+
+              {/* Dropdown */}
+              {item.children && (
+                <AnimatePresence>
+                  {activeDropdown === item.name && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 6 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 pt-2 w-64 max-w-[calc(100vw-2rem)]"
+                    >
+                      <div className="overflow-hidden rounded-xl border border-border bg-white py-1 shadow-lg">
                         {item.children.map((child) => (
                           <Link
                             key={child.name}
                             href={child.href}
                             className={cn(
-                              "block px-4 py-3 text-ink hover:bg-surface hover:text-accent transition-colors",
-                              isActive(child.href) && "bg-surface text-accent"
+                              "block px-4 py-2.5 text-sm transition-colors",
+                              isActive(child.href)
+                                ? "bg-primary/[0.07] text-primary font-medium"
+                                : "text-ink hover:bg-surface hover:text-primary"
                             )}
                           >
                             {child.name}
                           </Link>
                         ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
-              </div>
-            ))}
-          </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              )}
+            </div>
+          ))}
+        </nav>
 
-          {/* Exchange Rates & Language - Mobile & Desktop */}
-          <div className="flex items-center gap-1 lg:gap-2">
-            <Link href={`/${locale}/${getLocalizedRoute('doviz-kurlari', locale)}`} className="lg:pointer-events-none">
-              <HeaderExchangeRate isScrolled={isScrolled} />
-            </Link>
-            <CurrencySwitcher variant="compact" isScrolled={isScrolled} />
-            <LanguageSwitcher variant="minimal" isScrolled={isScrolled} />
-          </div>
+        {/* Sağ küme: dil, telefon, CTA.
+            Döviz kuru ve para birimi seçici menüden çıkarıldı — şerit dar
+            geliyor ve telefon/CTA ikinci satıra düşüyordu. Kur bilgisi ana
+            sayfadaki arama kutusunun altına, para birimi seçici ise fiyatların
+            gösterildiği yerlere (ana sayfa arama satırı + ilan sonuç çubuğu)
+            taşındı. */}
+        <div className="ml-auto flex items-center gap-1 lg:ml-0 lg:gap-1.5">
+          <LanguageSwitcher variant="minimal" isScrolled />
 
-          {/* CTA Button - Desktop */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Link href={`/${locale}/${getLocalizedRoute('ilanlar', locale)}`}>
-              <Button
-                variant="accent"
-                size="md"
-                leftIcon={<Search className="w-4 h-4" />}
-              >
-                {t.searchListings}
-              </Button>
-            </Link>
-          </div>
+          {/* Telefon — referans düzende sağda, kalın ve tabular */}
+          {/* 1024–1279px arasında logo + 7 menü + dil + CTA zaten şeridi
+              dolduruyor; telefon ancak xl'den itibaren sığıyor. */}
+          <a
+            href={PHONE_HREF}
+            className="ml-1 mr-1 hidden items-center gap-1.5 text-[15px] font-semibold tabular-nums text-primary transition-colors hover:text-primary-light xl:flex"
+          >
+            <Phone className="w-4 h-4" />
+            {PHONE_LABEL}
+          </a>
+
+          {/* CTA — Desktop */}
+          <Link href={`/${locale}/${getLocalizedRoute('ilanlar', locale)}`} className="hidden lg:block">
+            <Button
+              variant="accent"
+              size="sm"
+              leftIcon={<Search className="w-4 h-4" />}
+            >
+              {t.searchListings}
+            </Button>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
-            className={cn(
-              "lg:hidden p-2 rounded-lg transition-colors",
-              isScrolled ? "text-ink" : "text-white"
-            )}
+            className="lg:hidden p-2 rounded-lg text-ink transition-colors hover:bg-surface"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Menü"
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -302,7 +318,7 @@ export default function Header() {
               <Menu className="w-6 h-6" />
             )}
           </button>
-        </nav>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -312,7 +328,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             className="lg:hidden bg-white border-t border-border overflow-hidden"
           >
             <div className="container mx-auto px-4 py-4">
@@ -327,9 +343,9 @@ export default function Header() {
                           )
                         }
                         className={cn(
-                          "w-full flex items-center justify-between px-4 py-3 font-medium rounded-lg",
+                          "w-full flex items-center justify-between px-4 py-3 font-medium rounded-lg transition-colors",
                           isActive(item.href)
-                            ? "text-accent bg-surface"
+                            ? "text-primary bg-primary/[0.07]"
                             : "text-ink"
                         )}
                       >
@@ -339,7 +355,7 @@ export default function Header() {
                         </span>
                         <ChevronDown
                           className={cn(
-                            "w-4 h-4 transition-transform duration-300",
+                            "w-4 h-4 transition-transform duration-200",
                             activeDropdown === item.name && "rotate-180"
                           )}
                         />
@@ -357,9 +373,9 @@ export default function Header() {
                                 key={child.name}
                                 href={child.href}
                                 className={cn(
-                                  "block px-4 py-2 text-sm rounded-lg",
+                                  "block px-4 py-2 text-sm rounded-lg transition-colors",
                                   isActive(child.href)
-                                    ? "text-accent bg-surface"
+                                    ? "text-primary bg-primary/[0.07]"
                                     : "text-text-light"
                                 )}
                               >
@@ -374,9 +390,9 @@ export default function Header() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "flex items-center gap-3 px-4 py-3 font-medium rounded-lg",
+                        "flex items-center gap-3 px-4 py-3 font-medium rounded-lg transition-colors",
                         isActive(item.href)
-                          ? "text-accent bg-surface"
+                          ? "text-primary bg-primary/[0.07]"
                           : "text-ink"
                       )}
                     >
@@ -395,7 +411,7 @@ export default function Header() {
                     {t.searchListings}
                   </Button>
                 </Link>
-                <a href="tel:+905321591556" className="block">
+                <a href={PHONE_HREF} className="block">
                   <Button variant="outline" size="md" className="w-full">
                     <Phone className="w-4 h-4" />
                     {t.callNow}

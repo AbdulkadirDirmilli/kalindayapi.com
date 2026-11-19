@@ -55,7 +55,7 @@ export default function ConfirmDialog({
 
   const iconColors = {
     danger: 'text-error',
-    warning: 'text-accent',
+    warning: 'text-warning',
     info: 'text-ink',
   }
 

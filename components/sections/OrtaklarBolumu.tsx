@@ -55,7 +55,7 @@ export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProp
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             {t.badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-ink mt-2 mb-4">
@@ -106,7 +106,7 @@ export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProp
                       key={alan}
                       className="flex items-center gap-2 text-sm text-text-light"
                     >
-                      <BadgeCheck className="w-4 h-4 text-accent flex-shrink-0" />
+                      <BadgeCheck className="w-4 h-4 text-primary flex-shrink-0" />
                       <span>{alan}</span>
                     </li>
                   ))}
@@ -117,14 +117,14 @@ export default function OrtaklarBolumu({ lang = "tr", dict }: OrtaklarBolumuProp
               <div className="mt-6 pt-6 border-t border-black/5 space-y-2">
                 <a
                   href={`tel:${danisman.telefon.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2 text-ink hover:text-accent transition-colors"
+                  className="flex items-center gap-2 text-ink hover:text-primary transition-colors"
                 >
                   <Phone className="w-4 h-4" />
                   <span>{danisman.telefon}</span>
                 </a>
                 <a
                   href={`mailto:${danisman.email}`}
-                  className="flex items-center gap-2 text-ink hover:text-accent transition-colors"
+                  className="flex items-center gap-2 text-ink hover:text-primary transition-colors"
                 >
                   <Mail className="w-4 h-4" />
                   <span>{danisman.email}</span>

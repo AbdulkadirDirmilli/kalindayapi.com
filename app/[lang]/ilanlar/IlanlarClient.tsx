@@ -174,7 +174,7 @@ export default function IlanlarClient({
       {/* Loading State */}
       {loading && (
         <div className="flex items-center justify-center py-20">
-          <Loader2 className="w-10 h-10 animate-spin text-[#C9A84C]" />
+          <Loader2 className="w-10 h-10 animate-spin text-primary" />
           <span className="ml-3 text-lg text-gray-600">{texts.loading}</span>
         </div>
       )}
@@ -201,7 +201,7 @@ export default function IlanlarClient({
           <p className="text-text-light mb-6">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="px-6 py-2 bg-[#C9A84C] text-white rounded-lg hover:bg-[#b8973f] transition-colors"
+            className="px-6 py-2 bg-accent text-white rounded-lg hover:bg-accent-dark transition-colors"
           >
             {texts.retry}
           </button>
@@ -278,7 +278,7 @@ export default function IlanlarClient({
                 eidsStatus: "",
               })
             }
-            className="text-[#C9A84C] font-medium hover:underline"
+            className="text-primary font-medium hover:underline"
           >
             {texts.clearFilters}
           </button>

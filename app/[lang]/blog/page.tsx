@@ -193,7 +193,7 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero Banner */}
-      <section className="relative bg-primary pt-32 pb-16 md:pt-40 md:pb-20">
+      <section className="relative bg-primary pt-14 pb-16 md:pt-20 md:pb-20">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-light to-primary" />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.h1
@@ -202,7 +202,7 @@ export default function BlogPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-5xl font-bold text-white mb-4"
           >
-            {t.title} <span className="text-[#C9A84C]">{t.titleHighlight}</span>
+            {t.title} <span className="text-carolina">{t.titleHighlight}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -257,7 +257,7 @@ export default function BlogPage() {
           {/* Loading State */}
           {loading && (
             <div className="flex items-center justify-center py-16">
-              <Loader2 className="w-8 h-8 animate-spin text-[#C9A84C]" />
+              <Loader2 className="w-8 h-8 animate-spin text-primary" />
               <span className="ml-3 text-text-light">{t.loading}</span>
             </div>
           )}
@@ -292,7 +292,7 @@ export default function BlogPage() {
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
                         <div className="absolute bottom-3 left-3">
-                          <span className="inline-block px-3 py-1 bg-[#C9A84C] text-ink text-xs font-bold rounded-full">
+                          <span className="inline-block px-3 py-1 bg-accent text-white text-xs font-bold rounded-full">
                             {yazi.kategori}
                           </span>
                         </div>
@@ -300,7 +300,7 @@ export default function BlogPage() {
 
                       {/* İçerik */}
                       <div className="p-6 flex-1 flex flex-col">
-                        <h2 className="text-lg font-bold text-ink mb-3 line-clamp-2 group-hover:text-[#C9A84C] transition-colors">
+                        <h2 className="text-lg font-bold text-ink mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                           {yazi.baslik}
                         </h2>
                         <p className="text-text-light text-sm mb-4 line-clamp-3 flex-1">
@@ -319,7 +319,7 @@ export default function BlogPage() {
                               {yazi.okunmaSuresi} {t.min}
                             </span>
                           </div>
-                          <ArrowRight className="w-4 h-4 text-[#C9A84C] group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
                         </div>
                       </div>
                     </div>
@@ -342,7 +342,7 @@ export default function BlogPage() {
           </p>
           <Link
             href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
-            className="inline-flex items-center gap-2 bg-[#C9A84C] text-ink px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
+            className="inline-flex items-center gap-2 bg-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-dark transition-colors"
           >
             {t.ctaButton}
             <ArrowRight className="w-5 h-5" />

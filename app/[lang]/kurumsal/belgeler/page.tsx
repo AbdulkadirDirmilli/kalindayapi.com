@@ -507,24 +507,24 @@ export default async function BelgelerPage({
       />
 
       {/* Hero */}
-      <section className="bg-primary pt-32 pb-20">
+      <section className="bg-primary pt-14 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href={`/${locale}/${getLocalizedRoute('hakkimizda', locale)}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}/${getLocalizedRoute('hakkimizda', locale)}`} className="hover:text-carolina transition-colors">
               {t.breadcrumbs.corporate}
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{t.breadcrumbs.certificates}</span>
+            <span className="text-carolina">{t.breadcrumbs.certificates}</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              {t.hero.title} <span className="text-[#C9A84C]">{t.hero.titleHighlight}</span>
+              {t.hero.title} <span className="text-carolina">{t.hero.titleHighlight}</span>
             </h1>
             <p className="text-white/85 text-lg leading-relaxed">
               {t.hero.description}
@@ -537,7 +537,7 @@ export default async function BelgelerPage({
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               {t.activeCerts.badge}
             </span>
             <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
@@ -582,7 +582,7 @@ export default async function BelgelerPage({
       <section className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               {t.targetCerts.badge}
             </span>
             <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
@@ -599,8 +599,8 @@ export default async function BelgelerPage({
               return (
                 <Card key={belge.baslik} padding="lg">
                   <div className="flex gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-2xl bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-7 h-7 text-[#C9A84C]" />
+                    <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-7 h-7 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-bold text-ink">{belge.baslik}</h3>
@@ -614,7 +614,7 @@ export default async function BelgelerPage({
                     </div>
                     <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-[#C9A84C] rounded-full transition-all"
+                        className="h-full bg-accent rounded-full transition-all"
                         style={{ width: `${belge.ilerleme}%` }}
                       />
                     </div>
@@ -633,7 +633,7 @@ export default async function BelgelerPage({
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               {t.memberships.badge}
             </span>
             <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
@@ -664,7 +664,7 @@ export default async function BelgelerPage({
       <section className="py-16 bg-surface">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <Shield className="w-16 h-16 text-[#C9A84C] mx-auto mb-6" />
+            <Shield className="w-16 h-16 text-primary mx-auto mb-6" />
             <h2 className="text-2xl font-bold text-ink mb-4">
               {t.trust.title}
             </h2>

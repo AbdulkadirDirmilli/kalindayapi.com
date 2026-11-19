@@ -109,7 +109,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
             transition={{ duration: 0.4 }}
             className="text-white"
           >
-            <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+            <span className="text-carolina font-semibold text-sm uppercase tracking-wider">
               {t.badge}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
@@ -123,7 +123,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-accent" />
+                  <MapPin className="w-6 h-6 text-carolina" />
                 </div>
                 <div>
                   <p className="text-sm text-white/70">{t.address}</p>
@@ -133,7 +133,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-accent" />
+                  <Phone className="w-6 h-6 text-carolina" />
                 </div>
                 <div>
                   <p className="text-sm text-white/70">{t.phone}</p>
@@ -144,7 +144,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-accent" />
+                  <Clock className="w-6 h-6 text-carolina" />
                 </div>
                 <div>
                   <p className="text-sm text-white/70">{t.workingHours}</p>
@@ -258,7 +258,7 @@ export default function IletisimFormKisa({ lang = 'tr', dict }: IletisimFormKisa
 
                   <p className="text-xs text-text-muted text-center">
                     {t.privacyNote}{" "}
-                    <a href={`/${lang}/gizlilik`} className="text-accent hover:underline">
+                    <a href={`/${lang}/gizlilik`} className="text-primary hover:underline">
                       {t.privacyLink}
                     </a>{" "}
                     {t.privacyAccept}

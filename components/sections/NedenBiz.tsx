@@ -127,7 +127,7 @@ export default function NedenBiz({ lang = 'tr', dict }: NedenBizProps) {
           transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             {t.badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-ink mt-2 mb-4">
@@ -155,12 +155,12 @@ export default function NedenBiz({ lang = 'tr', dict }: NedenBizProps) {
               >
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
-                  <Icon className="w-7 h-7 text-ink group-hover:text-accent transition-colors" />
+                  <Icon className="w-7 h-7 text-ink group-hover:text-primary transition-colors" />
                 </div>
 
                 {/* Content */}
                 <div>
-                  <h3 className="text-lg font-bold text-ink mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="text-lg font-bold text-ink mb-2 group-hover:text-primary transition-colors">
                     {ozellik.baslik}
                   </h3>
                   <p className="text-text-light text-sm leading-relaxed">
@@ -192,14 +192,14 @@ export default function NedenBiz({ lang = 'tr', dict }: NedenBizProps) {
             <div className="hidden sm:block w-px h-12 bg-border" />
             <div className="text-center">
               <p className="text-sm text-text-muted">{t.customerSatisfaction}</p>
-              <p className="font-bold text-accent">%98</p>
+              <p className="font-bold text-primary">%98</p>
             </div>
           </div>
 
           {/* Muğla İlçeleri - SEO */}
           <div className="mt-8 pt-8 border-t border-border/50">
             <p className="text-center text-sm text-text-muted mb-4">
-              <MapPin className="inline-block w-4 h-4 mr-1 text-accent" />
+              <MapPin className="inline-block w-4 h-4 mr-1 text-primary" />
               {t.serviceNote}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2">

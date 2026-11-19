@@ -106,14 +106,14 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
               <div>
                 {/* Location */}
                 <div className="flex items-center gap-1 text-text-light text-sm mb-2">
-                  <MapPin className="w-4 h-4 text-[#C9A84C]" />
+                  <MapPin className="w-4 h-4 text-primary" />
                   <span>
                     {ilan.konum.mahalle}, {ilan.konum.ilce}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-ink mb-2 group-hover:text-[#C9A84C] transition-colors">
+                <h3 className="text-lg font-bold text-ink mb-2 group-hover:text-primary transition-colors">
                   {getIlanBaslik(ilan, locale)}
                 </h3>
 
@@ -251,14 +251,14 @@ export default function IlanKart({ ilan, variant = "grid", index = 0, locale = d
           <div className="p-5">
             {/* Location */}
             <div className="flex items-center gap-1 text-text-light text-sm mb-2">
-              <MapPin className="w-4 h-4 text-[#C9A84C]" />
+              <MapPin className="w-4 h-4 text-primary" />
               <span>
                 {ilan.konum.mahalle}, {ilan.konum.ilce}
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="text-lg font-bold text-ink mb-3 line-clamp-2 group-hover:text-[#C9A84C] transition-colors min-h-[3.5rem]">
+            <h3 className="text-lg font-bold text-ink mb-3 line-clamp-2 group-hover:text-primary transition-colors min-h-[3.5rem]">
               {getIlanBaslik(ilan, locale)}
             </h3>
 

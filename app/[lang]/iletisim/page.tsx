@@ -30,7 +30,7 @@ const yetkililer = [
     email: "arif@kalindayapi.com",
     foto: "/arifdagdelen.png",
     ikon: Building2,
-    renk: "#C9A84C",
+    renk: "#418FDE",
   },
 ];
 
@@ -184,11 +184,11 @@ export default function IletisimPage() {
       />
 
       {/* Kompakt başlık - banner yok */}
-      <section className="pt-28 md:pt-32 pb-8 bg-white border-b border-border">
+      <section className="pt-10 md:pt-14 pb-8 bg-white border-b border-border">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-text-muted mb-5">
-            <Link href="/" className="hover:text-accent transition-colors">
+            <Link href="/" className="hover:text-primary transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
@@ -295,7 +295,7 @@ export default function IletisimPage() {
                     <h3 className="font-semibold text-ink">{t.email}</h3>
                     <a
                       href="mailto:info@kalindayapi.com"
-                      className="text-primary-dark font-medium hover:text-accent transition-colors"
+                      className="text-primary-dark font-medium hover:text-primary transition-colors"
                     >
                       info@kalindayapi.com
                     </a>
@@ -349,7 +349,7 @@ export default function IletisimPage() {
                             </h3>
                             <a
                               href={`tel:${yetkili.telefon.replace(/\s/g, "")}`}
-                              className="text-xs text-text-light hover:text-[#C9A84C] transition-colors"
+                              className="text-xs text-text-light hover:text-primary transition-colors"
                             >
                               {yetkili.telefon}
                             </a>
@@ -516,7 +516,7 @@ export default function IletisimPage() {
 
                     <p className="text-xs text-text-muted text-center">
                       {homeContactForm.privacyNote}{" "}
-                      <Link href="/gizlilik" className="text-primary-dark font-medium hover:text-accent transition-colors">
+                      <Link href="/gizlilik" className="text-primary-dark font-medium hover:text-primary transition-colors">
                         {homeContactForm.privacyLink}
                       </Link>{" "}
                       {homeContactForm.privacyAccept}
@@ -533,18 +533,18 @@ export default function IletisimPage() {
       <section className="py-12 lg:py-16 bg-primary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 lg:mb-10">
-            <span className="text-[#C9A84C] font-semibold text-xs sm:text-sm uppercase tracking-wider">
+            <span className="text-carolina font-semibold text-xs sm:text-sm uppercase tracking-wider">
               {dict?.videoGallery?.badge || "Bölgemizi Keşfedin"}
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2">
-              {dict?.videoGallery?.title || "Ortaca ve"} <span className="text-[#C9A84C]">{dict?.videoGallery?.titleHighlight || "Çevresi"}</span>
+              {dict?.videoGallery?.title || "Ortaca ve"} <span className="text-carolina">{dict?.videoGallery?.titleHighlight || "Çevresi"}</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {/* Video 1 - Harita */}
             <div className="relative group">
-              <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-[#C9A84C] via-primary to-[#C9A84C] rounded-2xl sm:rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-accent via-primary to-accent rounded-2xl sm:rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative bg-white p-1.5 sm:p-2 rounded-xl sm:rounded-2xl shadow-2xl">
                 <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden">
                   <video
@@ -559,7 +559,7 @@ export default function IletisimPage() {
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
-                    <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#C9A84C] text-ink text-xs sm:text-sm font-bold rounded-full shadow-lg">
+                    <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent text-white text-xs sm:text-sm font-bold rounded-full shadow-lg">
                       {dict?.videoGallery?.mapView || "Harita Görünümü"}
                     </span>
                   </div>
@@ -569,7 +569,7 @@ export default function IletisimPage() {
 
             {/* Video 2 - Drone */}
             <div className="relative group">
-              <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-primary via-[#C9A84C] to-primary rounded-2xl sm:rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-primary via-accent to-primary rounded-2xl sm:rounded-3xl opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative bg-white p-1.5 sm:p-2 rounded-xl sm:rounded-2xl shadow-2xl">
                 <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden">
                   <video

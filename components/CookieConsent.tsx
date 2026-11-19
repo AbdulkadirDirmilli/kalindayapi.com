@@ -68,14 +68,14 @@ export default function CookieConsent() {
             {/* Icon & Text */}
             <div className="flex items-start gap-3 flex-1">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Cookie className="w-5 h-5 text-[#C9A84C]" />
+                <Cookie className="w-5 h-5 text-carolina" />
               </div>
               <div>
                 <p className="text-white text-sm md:text-base leading-relaxed">
                   {t.message}{" "}
                   <Link
                     href={`/${locale}/${getLocalizedRoute('gizlilik', locale)}`}
-                    className="text-[#C9A84C] hover:underline font-medium"
+                    className="text-carolina hover:underline font-medium"
                   >
                     {t.privacyLink}
                   </Link>{" "}
@@ -94,7 +94,7 @@ export default function CookieConsent() {
               </button>
               <button
                 onClick={handleAccept}
-                className="flex-1 md:flex-none px-5 py-2.5 text-sm font-medium text-ink bg-[#C9A84C] hover:bg-[#d4b65d] rounded-lg transition-colors"
+                className="flex-1 md:flex-none px-5 py-2.5 text-sm font-medium text-white bg-accent hover:bg-accent-dark rounded-lg transition-colors"
               >
                 {t.accept}
               </button>

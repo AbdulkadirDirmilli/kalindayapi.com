@@ -15,11 +15,11 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
 
     const variants = {
       satilik: "bg-success text-white",
-      kiralik: "bg-accent text-ink",
+      kiralik: "bg-accent text-white",
       ticari: "bg-primary text-white",
       default: "bg-surface text-text-light",
       success: "bg-success text-white",
-      warning: "bg-[#f59e0b] text-white",
+      warning: "bg-warning text-white",
       error: "bg-error text-white",
     };
 

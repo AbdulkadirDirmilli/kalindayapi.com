@@ -110,7 +110,7 @@ export default async function AdminDashboardPage() {
               </div>
               <Link
                 href="/admin/ilanlar"
-                className="text-sm text-accent hover:text-accent-dark"
+                className="text-sm text-primary hover:text-primary-dark"
               >
                 Tümünü Gör
               </Link>
@@ -136,7 +136,7 @@ export default async function AdminDashboardPage() {
                             className={`text-xs px-2 py-0.5 rounded-full ${
                               ilan.kategori === 'satilik'
                                 ? 'bg-success/10 text-success'
-                                : 'bg-accent/10 text-accent-dark'
+                                : 'bg-accent/10 text-primary-dark'
                             }`}
                           >
                             {ilan.kategori === 'satilik' ? 'Satılık' : 'Kiralık'}
@@ -169,7 +169,7 @@ export default async function AdminDashboardPage() {
               </div>
               <Link
                 href="/admin/iletisim"
-                className="text-sm text-accent hover:text-accent-dark"
+                className="text-sm text-primary hover:text-primary-dark"
               >
                 Tümünü Gör
               </Link>
@@ -237,7 +237,7 @@ export default async function AdminDashboardPage() {
               className="bg-white rounded-xl border border-border p-4 hover:border-primary transition-colors group"
             >
               <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3 group-hover:bg-accent transition-colors">
-                <Briefcase className="w-5 h-5 text-accent-dark group-hover:text-ink" />
+                <Briefcase className="w-5 h-5 text-primary-dark group-hover:text-ink" />
               </div>
               <p className="font-medium text-sm text-text">Hizmetleri Yönet</p>
             </Link>

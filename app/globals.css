@@ -1,27 +1,41 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Kalinda Yapı Emlak Renk Paleti
-     primary : açık mavi — zeminler, butonlar, şeritler
-     ink     : koyu mürekkep — başlıklar ve koyu metin
-     accent  : altın — rozet, ikon ve vurgular (logo ile uyumlu) */
-  --color-primary: #418FDE;
-  --color-primary-light: #6BA7E7;
-  --color-primary-dark: #2A6FB8;
-  --color-ink: #0F2742;
-  --color-ink-light: #1E3A5F;
-  --color-accent: #C9A84C;
-  --color-accent-light: #d4b969;
-  --color-accent-dark: #a88a3d;
+  /* Kalinda Yapı Emlak Renk Paleti — muglaport.com.tr referans alınarak
+     primary : koyu lacivert — marka rengi; başlık vurgusu, link, koyu zemin
+     accent  : açık mavi — CTA butonları, ikon dolguları, etkileşim
+     ink     : sıcak siyah — başlıklar ve gövde metni
+
+     KURAL: Açık zeminde metin için accent (açık mavi) KULLANMAYIN —
+     primary (lacivert) veya ink kullanın. Accent yalnızca dolgu/zemin içindir.
+     Koyu lacivert zeminde metin text-white / text-carolina olmalı. */
+  --color-primary: #012169;
+  --color-primary-light: #1B3C7E;
+  --color-primary-dark: #000F3D;
+  --color-accent: #418FDE;
+  --color-accent-light: #6BA7E7;
+  --color-accent-dark: #2A6FB8;
+  --color-ink: #2D2926;
+  --color-ink-light: #4A443F;
   --color-background: #FFFFFF;
-  --color-surface: #F3F6FA;
-  --color-surface-dark: #E4EAF2;
-  --color-text: #1a1a1a;
-  --color-text-light: #5A6572;
-  --color-text-muted: #8A93A0;
-  --color-border: #DCE3EC;
-  --color-success: #22c55e;
-  --color-error: #ef4444;
+  --color-surface: #EDF0F4;
+  --color-surface-dark: #E3E6EB;
+  --color-text: #2D2926;
+  --color-text-light: #5C5651;
+  --color-text-muted: #8A857F;
+  --color-border: #E3E6EB;
+  --color-border-strong: #C9CED6;
+
+  /* İkincil vurgu tonları (referans paletten) */
+  --color-ocean: #00B4BD;
+  --color-ocean-ink: #00767C;
+  --color-slate: #5C86A0;
+  --color-carolina: #89D4E3;
+  --color-cement: #E6DDD1;
+
+  --color-success: #2F7D4F;
+  --color-warning: #B7791F;
+  --color-error: #C2412D;
   --color-whatsapp: #25D366;
 
   /* Font Families */
@@ -69,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Selection */
 ::selection {
   background-color: var(--color-accent);
-  color: var(--color-ink);
+  color: #fff;
 }
 
 /* Container */
@@ -120,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(15, 39, 66, 0.12);
+  box-shadow: 0 20px 40px rgba(1, 33, 105, 0.12);
 }
 
 /* Button Base */
@@ -148,7 +162,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-accent {
   background-color: var(--color-accent);
-  color: var(--color-ink);
+  color: #fff;
 }
 
 .btn-accent:hover {
@@ -183,7 +197,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .badge-kiralik {
   background-color: var(--color-accent);
-  color: var(--color-ink);
+  color: #fff;
 }
 
 .badge-ticari {
@@ -205,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
 .input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(65, 143, 222, 0.18);
+  box-shadow: 0 0 0 3px rgba(1, 33, 105, 0.16);
 }
 
 .input::placeholder {
@@ -256,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(15, 39, 66, 0.65), rgba(15, 39, 66, 0.85));
+  background: linear-gradient(to bottom, rgba(1, 33, 105, 0.6), rgba(1, 33, 105, 0.85));
 }
 
 /* Aspect Ratios */
@@ -380,12 +394,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Döviz sembolü için özel parlama */
 @keyframes symbol-flash {
   0%, 100% {
-    color: #C9A84C;
-    text-shadow: 0 0 4px rgba(201, 168, 76, 0.5);
+    color: #418FDE;
+    text-shadow: 0 0 4px rgba(65, 143, 222, 0.5);
   }
   50% {
-    color: #FFD700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.4);
+    color: #89D4E3;
+    text-shadow: 0 0 10px rgba(137, 212, 227, 0.8), 0 0 20px rgba(137, 212, 227, 0.4);
   }
 }
 

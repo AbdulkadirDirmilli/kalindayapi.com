@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Search, MapPin, Phone } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { ExchangeRateTicker, CurrencySwitcher } from "@/components/exchange";
 import { getLocalizedRoute, type Locale } from "@/lib/i18n";
 
 interface HeroAramaProps {
@@ -73,6 +74,7 @@ export default function HeroArama({ lang = "tr", dict }: HeroAramaProps) {
   ];
 
   const ilanlarYolu = `/${lang}/${getLocalizedRoute("ilanlar", lang)}`;
+  const dovizYolu = `/${lang}/${getLocalizedRoute("doviz-kurlari", lang)}`;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,7 +92,7 @@ export default function HeroArama({ lang = "tr", dict }: HeroAramaProps) {
   const inputClass = selectClass;
 
   return (
-    <section className="pt-28 md:pt-32 pb-8 md:pb-10 bg-surface border-b border-black/5">
+    <section className="pt-10 md:pt-14 pb-8 md:pb-10 bg-surface border-b border-black/5">
       <div className="container mx-auto px-4">
         {/* Baslik - buyuk banner yerine kompakt metin */}
         <div className="max-w-3xl">
@@ -234,22 +236,34 @@ export default function HeroArama({ lang = "tr", dict }: HeroAramaProps) {
         {/* Hizli erisim satiri */}
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-sm">
           <span className="inline-flex items-center gap-1.5 text-text-light">
-            <MapPin className="w-4 h-4 text-accent" />
+            <MapPin className="w-4 h-4 text-primary" />
             Ortaca · Dalyan · Köyceğiz · Dalaman
           </span>
           <a
             href="tel:+905321591556"
-            className="inline-flex items-center gap-1.5 text-ink font-semibold hover:text-accent transition-colors"
+            className="inline-flex items-center gap-1.5 text-ink font-semibold hover:text-primary transition-colors"
           >
             <Phone className="w-4 h-4" />
             +90 532 159 15 56
           </a>
           <Link
             href={ilanlarYolu}
-            className="text-ink font-semibold hover:text-accent transition-colors"
+            className="text-ink font-semibold hover:text-primary transition-colors"
           >
             {dict?.home?.featured?.viewAll || "Tüm İlanları Gör"} →
           </Link>
+
+          {/* Güncel kur + fiyat para birimi — menüden buraya taşındı */}
+          <span className="inline-flex items-center gap-3 sm:ml-auto">
+            <Link
+              href={dovizYolu}
+              className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"
+              title={dict?.exchange?.title || "Güncel döviz kurları"}
+            >
+              <ExchangeRateTicker variant="inline" />
+            </Link>
+            <CurrencySwitcher variant="default" />
+          </span>
         </div>
       </div>
     </section>

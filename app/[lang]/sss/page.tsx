@@ -43,7 +43,7 @@ function FAQItem({ faq, isOpen, onToggle }: { faq: FAQ; isOpen: boolean; onToggl
       >
         <span className="font-semibold text-ink pr-4">{faq.soru}</span>
         <ChevronDown
-          className={`w-5 h-5 text-[#C9A84C] flex-shrink-0 transition-transform ${
+          className={`w-5 h-5 text-primary flex-shrink-0 transition-transform ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -86,20 +86,20 @@ export default function SSSPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-32 pb-16">
+      <section className="bg-primary pt-14 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{texts.breadcrumb}</span>
+            <span className="text-carolina">{texts.breadcrumb}</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              {texts.title} <span className="text-[#C9A84C]">{texts.titleHighlight}</span>
+              {texts.title} <span className="text-carolina">{texts.titleHighlight}</span>
             </h1>
             <p className="text-white/85 text-lg leading-relaxed">
               {texts.subtitle}
@@ -133,7 +133,7 @@ export default function SSSPage() {
                             : "bg-gray-100 text-text-light hover:bg-gray-200"
                         }`}
                       >
-                        <Icon className={`w-5 h-5 ${isActive ? "text-[#C9A84C]" : ""}`} />
+                        <Icon className={`w-5 h-5 ${isActive ? "text-carolina" : ""}`} />
                         <span className="text-sm font-medium">{kat.baslik}</span>
                       </button>
                     );
@@ -151,7 +151,7 @@ export default function SSSPage() {
                   <div className="space-y-2">
                     <a
                       href="tel:+905321591556"
-                      className="flex items-center gap-2 text-sm text-ink hover:text-[#C9A84C]"
+                      className="flex items-center gap-2 text-sm text-ink hover:text-primary"
                     >
                       <Phone className="w-4 h-4" />
                       +90 532 159 15 56
@@ -183,8 +183,8 @@ export default function SSSPage() {
                   const Icon = ikonlar[aktifKat?.ikon || 'HelpCircle'] || HelpCircle;
                   return (
                     <>
-                      <div className="w-12 h-12 rounded-xl bg-[#C9A84C]/20 flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-[#C9A84C]" />
+                      <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
+                        <Icon className="w-6 h-6 text-primary" />
                       </div>
                       <div>
                         <h2 className="text-xl font-bold text-ink">

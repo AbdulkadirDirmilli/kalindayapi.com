@@ -86,7 +86,7 @@ export default function CurrencyConverter() {
     >
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 rounded-xl bg-[#C9A84C] flex items-center justify-center">
+        <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
           <Calculator className="w-6 h-6 text-white" />
         </div>
         <div>
@@ -106,7 +106,7 @@ export default function CurrencyConverter() {
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="w-full px-4 py-3 sm:py-4 text-xl sm:text-2xl font-bold text-ink bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-[#C9A84C] focus:ring-0 outline-none transition-colors"
+                className="w-full px-4 py-3 sm:py-4 text-xl sm:text-2xl font-bold text-ink bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-accent focus:ring-0 outline-none transition-colors"
                 placeholder="0"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-lg sm:text-xl text-gray-400">
@@ -135,7 +135,7 @@ export default function CurrencyConverter() {
                 className={cn(
                   'px-3 py-1.5 text-sm rounded-lg transition-colors',
                   amount === qa.toString()
-                    ? 'bg-[#C9A84C] text-white'
+                    ? 'bg-accent text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 )}
               >
@@ -149,7 +149,7 @@ export default function CurrencyConverter() {
         <div className="flex justify-center">
           <button
             onClick={swapCurrencies}
-            className="p-3 bg-gray-100 hover:bg-[#C9A84C] hover:text-white rounded-full transition-colors group"
+            className="p-3 bg-gray-100 hover:bg-accent hover:text-white rounded-full transition-colors group"
           >
             <ArrowRightLeft className="w-5 h-5 rotate-90" />
           </button>
@@ -160,9 +160,9 @@ export default function CurrencyConverter() {
           <label className="text-sm font-medium text-gray-600">{t.result}</label>
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="flex-1 relative">
-              <div className="w-full px-4 py-3 sm:py-4 text-xl sm:text-2xl font-bold text-[#C9A84C] bg-[#C9A84C]/5 border-2 border-[#C9A84C]/20 rounded-xl">
+              <div className="w-full px-4 py-3 sm:py-4 text-xl sm:text-2xl font-bold text-primary bg-accent/5 border-2 border-accent/20 rounded-xl">
                 {formatResult(result)}
-                <span className="text-lg sm:text-xl text-[#C9A84C]/60 ml-2">
+                <span className="text-lg sm:text-xl text-primary/60 ml-2">
                   {CURRENCY_INFO[toCurrency].symbol}
                 </span>
               </div>

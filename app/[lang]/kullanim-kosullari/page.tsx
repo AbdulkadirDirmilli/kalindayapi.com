@@ -254,20 +254,20 @@ export default async function KullanimKosullariPage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-32 pb-12">
+      <section className="bg-primary pt-14 pb-12">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{t.breadcrumb}</span>
+            <span className="text-carolina">{t.breadcrumb}</span>
           </nav>
 
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-[#C9A84C]/20 flex items-center justify-center">
-              <FileText className="w-8 h-8 text-[#C9A84C]" />
+            <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center">
+              <FileText className="w-8 h-8 text-carolina" />
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-white">

@@ -57,12 +57,12 @@ export default function LiveRateCard({
       )}
     >
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#C9A84C]/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
 
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A84C]/20 via-[#C9A84C]/10 to-white border border-[#C9A84C]/30 flex items-center justify-center text-2xl shadow-sm">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 via-accent/10 to-white border border-accent/30 flex items-center justify-center text-2xl shadow-sm">
             {icon}
           </div>
           <div>

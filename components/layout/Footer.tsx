@@ -254,6 +254,14 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary text-white">
+      {/* Üst renk şeridi (referans: muglaport.com.tr) */}
+      <div className="grid h-1.5 grid-cols-[4fr_3fr_2fr_1fr]" aria-hidden="true">
+        <span className="bg-accent" />
+        <span className="bg-ocean" />
+        <span className="bg-carolina" />
+        <span className="bg-slate" />
+      </div>
+
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -307,13 +315,13 @@ export default function Footer() {
           {/* Quick Links & Hizmetler */}
           <div className="grid grid-cols-2 gap-4 md:gap-8">
             <div>
-              <h3 className="text-accent font-bold mb-4">{t.quickLinks}</h3>
+              <h3 className="text-carolina font-bold mb-4">{t.quickLinks}</h3>
               <ul className="space-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-white/85 hover:text-accent transition-colors text-sm flex items-center gap-1"
+                      className="text-white/85 hover:text-carolina transition-colors text-sm flex items-center gap-1"
                     >
                       <ChevronRight className="w-4 h-4" />
                       {link.name}
@@ -323,13 +331,13 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="text-accent font-bold mb-4">{t.services}</h3>
+              <h3 className="text-carolina font-bold mb-4">{t.services}</h3>
               <ul className="space-y-2">
                 {hizmetler.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-white/85 hover:text-accent transition-colors text-sm flex items-center gap-1"
+                      className="text-white/85 hover:text-carolina transition-colors text-sm flex items-center gap-1"
                     >
                       <ChevronRight className="w-4 h-4" />
                       {link.name}
@@ -342,13 +350,13 @@ export default function Footer() {
 
           {/* İlan Kategorileri */}
           <div>
-            <h3 className="text-accent font-bold mb-4">{t.categories}</h3>
+            <h3 className="text-carolina font-bold mb-4">{t.categories}</h3>
             <ul className="space-y-2">
               {ilanKategorileri.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-white/85 hover:text-accent transition-colors text-sm flex items-center gap-1"
+                    className="text-white/85 hover:text-carolina transition-colors text-sm flex items-center gap-1"
                   >
                     <ChevronRight className="w-4 h-4" />
                     {link.name}
@@ -360,11 +368,11 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-accent font-bold mb-4">{t.contact}</h3>
+            <h3 className="text-carolina font-bold mb-4">{t.contact}</h3>
             <ul className="space-y-3">
               <li>
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-carolina flex-shrink-0 mt-0.5" />
                   <span className="text-white/85 text-sm">
                     {t.addressLine1}<br />
                     {t.addressLine2}
@@ -373,11 +381,11 @@ export default function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-accent flex-shrink-0" />
+                  <Phone className="w-5 h-5 text-carolina flex-shrink-0" />
                   <div className="text-sm">
                     <a
                       href="tel:+905321591556"
-                      className="text-white/85 hover:text-accent transition-colors block"
+                      className="text-white/85 hover:text-carolina transition-colors block"
                     >
                       +90 532 159 15 56
                     </a>
@@ -387,10 +395,10 @@ export default function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-accent flex-shrink-0" />
+                  <Mail className="w-5 h-5 text-carolina flex-shrink-0" />
                   <a
                     href="mailto:info@kalindayapi.com"
-                    className="text-white/85 hover:text-accent transition-colors text-sm"
+                    className="text-white/85 hover:text-carolina transition-colors text-sm"
                   >
                     info@kalindayapi.com
                   </a>
@@ -398,7 +406,7 @@ export default function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5 text-accent flex-shrink-0" />
+                  <Clock className="w-5 h-5 text-carolina flex-shrink-0" />
                   <div className="text-white/85 text-sm">
                     <p>{t.weekdays}</p>
                     <p>{t.saturday}</p>
@@ -420,13 +428,13 @@ export default function Footer() {
       {/* Popular Searches - SEO Internal Linking */}
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-6">
-          <h3 className="text-accent font-bold mb-4 text-center">{t.popularSearches}</h3>
+          <h3 className="text-carolina font-bold mb-4 text-center">{t.popularSearches}</h3>
           <div className="flex flex-wrap justify-center gap-2">
             {popularSearches[locale].map((search) => (
               <Link
                 key={search.name}
                 href={search.href}
-                className="px-3 py-1.5 bg-white/5 hover:bg-accent/20 text-white/85 hover:text-accent text-sm rounded-full transition-colors"
+                className="px-3 py-1.5 bg-white/5 hover:bg-accent/20 text-white/85 hover:text-carolina text-sm rounded-full transition-colors"
               >
                 {search.name}
               </Link>
@@ -468,17 +476,17 @@ export default function Footer() {
             <div className="flex items-center gap-4">
               <Link
                 href="/admin/giris"
-                className="hover:text-accent transition-colors flex items-center gap-1"
+                className="hover:text-carolina transition-colors flex items-center gap-1"
                 title="Yönetim Paneli"
               >
                 <Settings className="w-4 h-4" />
               </Link>
               <span className="text-white/40">|</span>
-              <Link href={`/${locale}/${getLocalizedRoute('gizlilik', locale)}`} className="hover:text-accent transition-colors">
+              <Link href={`/${locale}/${getLocalizedRoute('gizlilik', locale)}`} className="hover:text-carolina transition-colors">
                 {t.privacy}
               </Link>
               <span className="text-white/40">|</span>
-              <Link href={`/${locale}/${getLocalizedRoute('kullanim-kosullari', locale)}`} className="hover:text-accent transition-colors">
+              <Link href={`/${locale}/${getLocalizedRoute('kullanim-kosullari', locale)}`} className="hover:text-carolina transition-colors">
                 {t.terms}
               </Link>
             </div>
@@ -490,7 +498,7 @@ export default function Footer() {
                 href="https://www.akduniverse.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent hover:text-white transition-colors"
+                className="text-carolina hover:text-white transition-colors"
               >
                 AKD Universe
               </a>

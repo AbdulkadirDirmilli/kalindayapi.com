@@ -103,13 +103,13 @@ function StatCard({
     >
       {/* Icon */}
       <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-lg bg-white/10 mb-3 md:mb-4">
-        <Icon className="w-6 h-6 md:w-8 md:h-8 text-accent" />
+        <Icon className="w-6 h-6 md:w-8 md:h-8 text-carolina" />
       </div>
 
       {/* Number */}
       <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
         {count}
-        <span className="text-accent">{stat.suffix}</span>
+        <span className="text-carolina">{stat.suffix}</span>
       </div>
 
       {/* Label */}
@@ -168,7 +168,7 @@ export default function IstatistikSayaclari({ lang = 'tr', dict }: IstatistikSay
           transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+          <span className="text-carolina font-semibold text-sm uppercase tracking-wider">
             {t.title}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
@@ -196,7 +196,7 @@ export default function IstatistikSayaclari({ lang = 'tr', dict }: IstatistikSay
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.8 }}
-          className="text-center text-accent/80 text-sm mt-8 font-medium"
+          className="text-center text-carolina/80 text-sm mt-8 font-medium"
         >
           {t.note}
         </motion.p>

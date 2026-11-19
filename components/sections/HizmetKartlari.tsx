@@ -56,7 +56,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       baslik: t.realEstate.title,
       aciklama: t.realEstate.description,
       ikon: Home,
-      renk: "#C9A84C",
+      renk: "#012169",
       href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("emlak-danismanligi", lang)}`,
     },
     {
@@ -64,7 +64,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       baslik: t.valuation.title,
       aciklama: t.valuation.description,
       ikon: Calculator,
-      renk: "#2A6FB8",
+      renk: "#418FDE",
       href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("gayrimenkul-degerleme", lang)}`,
     },
     {
@@ -72,7 +72,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       baslik: t.investment.title,
       aciklama: t.investment.description,
       ikon: TrendingUp,
-      renk: "#2A6FB8",
+      renk: "#00767C",
       href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("yatirim-danismanligi", lang)}`,
     },
     {
@@ -80,7 +80,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       baslik: t.titleDeed.title,
       aciklama: t.titleDeed.description,
       ikon: FileCheck,
-      renk: "#2E7D32",
+      renk: "#5C86A0",
       href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("tapu-islemleri", lang)}`,
     },
   ];
@@ -95,7 +95,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
           transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             {t.badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-ink mt-2 mb-4">
@@ -134,7 +134,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-ink mb-3 group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-bold text-ink mb-3 group-hover:text-primary transition-colors">
                     {hizmet.baslik}
                   </h3>
                   <p className="text-text-light mb-6 flex-1">{hizmet.aciklama}</p>

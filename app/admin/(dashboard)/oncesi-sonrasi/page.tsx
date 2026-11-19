@@ -587,7 +587,7 @@ export default function OncesiSonrasiPage() {
                             sizes="300px"
                             unoptimized
                           />
-                          <span className="absolute bottom-2 right-2 bg-accent text-ink text-xs px-2 py-1 rounded font-semibold">
+                          <span className="absolute bottom-2 right-2 bg-accent text-white text-xs px-2 py-1 rounded font-semibold">
                             Sonrası
                           </span>
                         </div>

@@ -175,7 +175,7 @@ export default function IlanlarPage() {
           className={`text-xs px-2 py-1 rounded-full ${
             ilan.kategori === 'satilik'
               ? 'bg-success/10 text-success'
-              : 'bg-accent/10 text-accent-dark'
+              : 'bg-accent/10 text-primary-dark'
           }`}
         >
           {ilan.kategori === 'satilik' ? 'Satılık' : 'Kiralık'}
@@ -250,9 +250,9 @@ export default function IlanlarPage() {
             title="Tüm Dillere Çevir (EN, AR)"
           >
             {translatingId === ilan.id ? (
-              <Loader2 className="w-4 h-4 text-accent animate-spin" />
+              <Loader2 className="w-4 h-4 text-primary animate-spin" />
             ) : (
-              <Languages className="w-4 h-4 text-accent" />
+              <Languages className="w-4 h-4 text-primary" />
             )}
           </button>
           <Link

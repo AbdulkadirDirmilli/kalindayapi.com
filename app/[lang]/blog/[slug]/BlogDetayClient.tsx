@@ -122,7 +122,7 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-primary pt-32 pb-12 md:pt-40 md:pb-16">
+      <section className="relative bg-primary pt-14 pb-12 md:pt-20 md:pb-16">
         {/* Background Image */}
         {yazi.kapakGorsel && (
           <div className="absolute inset-0">
@@ -148,13 +148,13 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
           >
             <Link
               href={`/${locale}/${getLocalizedRoute('blog', locale)}`}
-              className="inline-flex items-center gap-2 text-[#C9A84C] hover:text-white transition-colors mb-6"
+              className="inline-flex items-center gap-2 text-carolina hover:text-white transition-colors mb-6"
             >
               <ArrowLeft className="w-4 h-4" />
               {t.backToBlog}
             </Link>
 
-            <span className="inline-block px-3 py-1 bg-[#C9A84C] text-ink text-xs font-bold rounded-full mb-4">
+            <span className="inline-block px-3 py-1 bg-accent text-white text-xs font-bold rounded-full mb-4">
               {yazi.kategori}
             </span>
 
@@ -164,15 +164,15 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
 
             <div className="flex flex-wrap items-center gap-4 text-sm text-white/85">
               <span className="flex items-center gap-1.5">
-                <User className="w-4 h-4 text-[#C9A84C]" />
+                <User className="w-4 h-4 text-carolina" />
                 {yazi.yazar}
               </span>
               <span className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-[#C9A84C]" />
+                <Calendar className="w-4 h-4 text-carolina" />
                 {formatDate(yazi.yayinTarihi)}
               </span>
               <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-[#C9A84C]" />
+                <Clock className="w-4 h-4 text-carolina" />
                 {yazi.okunmaSuresi} {t.readingTime}
               </span>
             </div>
@@ -234,7 +234,7 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
               {/* Etiketler */}
               <div className="mt-10 pt-6 border-t border-border">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <Tag className="w-4 h-4 text-[#C9A84C]" />
+                  <Tag className="w-4 h-4 text-primary" />
                   {yazi.etiketler.map((etiket) => (
                     <span
                       key={etiket}
@@ -291,7 +291,7 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
 
               {/* Hızlı İletişim */}
               <div className="bg-primary rounded-2xl p-6 text-white">
-                <h3 className="text-sm font-bold mb-3 uppercase tracking-wider text-[#C9A84C]">
+                <h3 className="text-sm font-bold mb-3 uppercase tracking-wider text-carolina">
                   {t.getConsulting}
                 </h3>
                 <p className="text-sm text-white/85 mb-4">
@@ -299,7 +299,7 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
                 </p>
                 <Link
                   href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
-                  className="inline-flex items-center gap-2 bg-[#C9A84C] text-ink px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#a88a3d] transition-colors w-full justify-center"
+                  className="inline-flex items-center gap-2 bg-accent text-white px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-accent-dark transition-colors w-full justify-center"
                 >
                   {t.contactUs}
                   <ArrowRight className="w-4 h-4" />
@@ -319,10 +319,10 @@ export default function BlogDetayClient({ yazi, digerYazilar, locale = 'tr' }: B
                       className="block group"
                     >
                       <div className="bg-surface rounded-xl p-4 hover:bg-[#E5E5E5] transition-colors">
-                        <span className="text-xs text-[#C9A84C] font-semibold">
+                        <span className="text-xs text-primary font-semibold">
                           {diger.kategori}
                         </span>
-                        <h4 className="text-sm font-bold text-ink mt-1 line-clamp-2 group-hover:text-[#C9A84C] transition-colors">
+                        <h4 className="text-sm font-bold text-ink mt-1 line-clamp-2 group-hover:text-primary transition-colors">
                           {diger.baslik}
                         </h4>
                         <span className="text-xs text-text-muted mt-2 block">

@@ -103,7 +103,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
       />
 
       {/* Hero */}
-      <section className="relative bg-primary pt-32 pb-20 md:pt-40 md:pb-28">
+      <section className="relative bg-primary pt-14 pb-20 md:pt-20 md:pb-28">
         <div className="absolute inset-0">
           <Image
             src={ilce.kapakGorsel}
@@ -119,19 +119,19 @@ export default async function IlceRehberPage({ params }: PageProps) {
         <div className="container mx-auto px-4 relative z-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/85 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href={`/${locale}/${getLocalizedRoute('rehber', locale)}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}/${getLocalizedRoute('rehber', locale)}`} className="hover:text-carolina transition-colors">
               {texts.breadcrumb}
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{ilce.ad}</span>
+            <span className="text-carolina">{ilce.ad}</span>
           </nav>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-            {ilce.ad} <span className="text-[#C9A84C]">{texts.guideTitle}</span>
+            {ilce.ad} <span className="text-carolina">{texts.guideTitle}</span>
           </h1>
           <p className="text-white/85 text-lg md:text-xl max-w-3xl mb-8">
             {kisaTanitim}
@@ -140,17 +140,17 @@ export default async function IlceRehberPage({ params }: PageProps) {
           {/* Quick Stats */}
           <div className="flex flex-wrap gap-4 md:gap-6">
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg">
-              <Users className="w-5 h-5 text-[#C9A84C]" />
+              <Users className="w-5 h-5 text-carolina" />
               <span className="text-white font-medium">{ilce.nufus} {texts.population}</span>
             </div>
             {ilce.ozellikler.havalimanMesafe && (
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg">
-                <Plane className="w-5 h-5 text-[#C9A84C]" />
+                <Plane className="w-5 h-5 text-carolina" />
                 <span className="text-white font-medium">{ilce.ozellikler.havalimanMesafe}</span>
               </div>
             )}
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg">
-              <MapPin className="w-5 h-5 text-[#C9A84C]" />
+              <MapPin className="w-5 h-5 text-carolina" />
               <span className="text-white font-medium">{mahalleler.length} {texts.neighborhoods}</span>
             </div>
           </div>
@@ -215,7 +215,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
                 <div className="space-y-3">
                   <Link
                     href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
-                    className="flex items-center justify-center gap-2 w-full bg-[#C9A84C] text-ink py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
+                    className="flex items-center justify-center gap-2 w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-accent-dark transition-colors"
                   >
                     <Phone className="w-4 h-4" />
                     {texts.contactButton}
@@ -260,7 +260,7 @@ export default async function IlceRehberPage({ params }: PageProps) {
           </p>
           <Link
             href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
-            className="inline-flex items-center gap-2 bg-[#C9A84C] text-ink px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
+            className="inline-flex items-center gap-2 bg-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-dark transition-colors"
           >
             {texts.bottomCtaButton}
             <ArrowRight className="w-5 h-5" />

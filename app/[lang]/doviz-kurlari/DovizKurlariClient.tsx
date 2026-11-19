@@ -131,21 +131,21 @@ export default function DovizKurlariClient({ locale, texts, faqs }: DovizKurlari
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary via-primary to-primary-light pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-14 md:pb-12 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-primary via-primary to-primary-light pt-10 sm:pt-12 md:pt-14 pb-16 sm:pb-14 md:pb-12 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-10 w-64 h-64 bg-[#C9A84C]/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-48 h-48 bg-[#C9A84C]/5 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-10 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-primary transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{texts.breadcrumb}</span>
+            <span className="text-primary">{texts.breadcrumb}</span>
           </nav>
 
           {/* Title */}
@@ -156,7 +156,7 @@ export default function DovizKurlariClient({ locale, texts, faqs }: DovizKurlari
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
               {texts.heroTitle}{' '}
-              <span className="text-[#C9A84C] animate-ticker-glow">{texts.heroTitleHighlight}</span>
+              <span className="text-primary animate-ticker-glow">{texts.heroTitleHighlight}</span>
             </h1>
             <p className="text-lg sm:text-xl text-white/85 mb-6 speakable-rate">
               {texts.heroSubtitle}
@@ -173,7 +173,7 @@ export default function DovizKurlariClient({ locale, texts, faqs }: DovizKurlari
                 {texts.lastUpdate} <span className="text-white font-medium">{lastUpdate || '--:--:--'}</span>
               </span>
               {!isLoading && (
-                <RefreshCw className="w-4 h-4 text-[#C9A84C] animate-spin-slow" />
+                <RefreshCw className="w-4 h-4 text-primary animate-spin-slow" />
               )}
             </div>
           </motion.div>
@@ -247,7 +247,7 @@ export default function DovizKurlariClient({ locale, texts, faqs }: DovizKurlari
                 className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#C9A84C] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <h2 className="text-xl font-bold text-ink">{texts.educationalContent.whatIsExchange.title}</h2>
@@ -279,7 +279,7 @@ export default function DovizKurlariClient({ locale, texts, faqs }: DovizKurlari
                 <ul className="space-y-2 text-gray-600">
                   {texts.educationalContent.tcmb.points.map((point, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <span className="text-[#C9A84C]">•</span>
+                      <span className="text-primary">•</span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -315,7 +315,7 @@ export default function DovizKurlariClient({ locale, texts, faqs }: DovizKurlari
                 className="bg-gradient-to-br from-primary to-primary-light rounded-2xl p-6 md:p-8 shadow-lg"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#C9A84C] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
                     <Globe className="w-6 h-6 text-ink" />
                   </div>
                   <h2 className="text-xl font-bold text-white">{texts.educationalContent.digitalResources.title}</h2>
@@ -327,7 +327,7 @@ export default function DovizKurlariClient({ locale, texts, faqs }: DovizKurlari
                   href="https://www.akduniverse.com/"
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-2 text-[#C9A84C] hover:text-[#d4b969] transition-colors font-medium group"
+                  className="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-medium group"
                 >
                   <span>{texts.educationalContent.digitalResources.linkText}</span>
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -352,7 +352,7 @@ export default function DovizKurlariClient({ locale, texts, faqs }: DovizKurlari
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
               {texts.cta.title}
               <br />
-              <span className="text-[#C9A84C]">{texts.cta.titleHighlight}</span>
+              <span className="text-carolina">{texts.cta.titleHighlight}</span>
             </h2>
             <p className="text-white/85 max-w-2xl mx-auto mb-8">
               {texts.cta.subtitle}
@@ -360,7 +360,7 @@ export default function DovizKurlariClient({ locale, texts, faqs }: DovizKurlari
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href={`/${locale}/${getLocalizedRoute('ilanlar', locale)}`}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C9A84C] text-ink font-bold rounded-xl hover:bg-[#d4b969] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-light transition-colors"
               >
                 {texts.cta.viewListings}
                 <ChevronRight className="w-5 h-5" />

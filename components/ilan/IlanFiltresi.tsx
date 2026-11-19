@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, SlidersHorizontal, X, Grid3X3, List, ChevronDown, ShieldCheck } from "lucide-react";
 import { Input, Select } from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
+import { CurrencySwitcher } from "@/components/exchange";
 import { type Locale, defaultLocale } from "@/lib/i18n";
 import { useLocale } from "@/components/providers/LocaleProvider";
 
@@ -244,30 +245,36 @@ export default function IlanFiltresi({
           <span className="font-semibold text-ink">{totalCount}</span> {filtersT.listingsFound || "ilan bulundu"}
         </p>
 
-        {/* View Mode Toggle */}
-        <div className="flex items-center gap-1 bg-surface rounded-lg p-1">
-          <button
-            onClick={() => onViewModeChange("grid")}
-            className={`p-2 rounded-md transition-colors ${
-              viewMode === "grid"
-                ? "bg-white text-ink shadow-sm"
-                : "text-text-light hover:text-ink"
-            }`}
-            aria-label={filtersT.gridView || "Grid görünümü"}
-          >
-            <Grid3X3 className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => onViewModeChange("list")}
-            className={`p-2 rounded-md transition-colors ${
-              viewMode === "list"
-                ? "bg-white text-ink shadow-sm"
-                : "text-text-light hover:text-ink"
-            }`}
-            aria-label={filtersT.listView || "Liste görünümü"}
-          >
-            <List className="w-4 h-4" />
-          </button>
+        <div className="flex items-center gap-2">
+          {/* Fiyat para birimi — menüden buraya taşındı; fiyatların
+              gösterildiği yerde olması gerekiyor */}
+          <CurrencySwitcher variant="default" />
+
+          {/* View Mode Toggle */}
+          <div className="flex items-center gap-1 bg-surface rounded-lg p-1">
+            <button
+              onClick={() => onViewModeChange("grid")}
+              className={`p-2 rounded-md transition-colors ${
+                viewMode === "grid"
+                  ? "bg-white text-ink shadow-sm"
+                  : "text-text-light hover:text-ink"
+              }`}
+              aria-label={filtersT.gridView || "Grid görünümü"}
+            >
+              <Grid3X3 className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => onViewModeChange("list")}
+              className={`p-2 rounded-md transition-colors ${
+                viewMode === "list"
+                  ? "bg-white text-ink shadow-sm"
+                  : "text-text-light hover:text-ink"
+              }`}
+              aria-label={filtersT.listView || "Liste görünümü"}
+            >
+              <List className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

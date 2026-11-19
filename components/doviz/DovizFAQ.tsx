@@ -40,7 +40,7 @@ export default function DovizFAQ({ faqs }: DovizFAQProps) {
             key={index}
             className={cn(
               'border rounded-xl overflow-hidden transition-colors',
-              openIndex === index ? 'border-[#C9A84C]' : 'border-gray-200'
+              openIndex === index ? 'border-accent' : 'border-gray-200'
             )}
           >
             <button
@@ -50,7 +50,7 @@ export default function DovizFAQ({ faqs }: DovizFAQProps) {
               <span className="font-semibold text-ink pr-4">{faq.question}</span>
               <ChevronDown
                 className={cn(
-                  'w-5 h-5 text-[#C9A84C] transition-transform flex-shrink-0',
+                  'w-5 h-5 text-primary transition-transform flex-shrink-0',
                   openIndex === index && 'rotate-180'
                 )}
               />

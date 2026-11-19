@@ -11,7 +11,7 @@ type Period = 7 | 30 | 90;
 type Currency = 'USD' | 'EUR' | 'GBP';
 
 const CURRENCY_COLORS: Record<Currency, string> = {
-  USD: '#22c55e',
+  USD: '#2F7D4F',
   EUR: '#3b82f6',
   GBP: '#a855f7',
 };
@@ -189,7 +189,7 @@ export default function RateChart() {
         </div>
         <div className="bg-gray-50 rounded-xl p-3 sm:p-4">
           <p className="text-xs text-gray-500 mb-1">{t.average} ({period}g)</p>
-          <p className="text-base sm:text-lg font-bold text-[#C9A84C]">
+          <p className="text-base sm:text-lg font-bold text-primary">
             ₺{(period === 7 ? stats.avg7d : stats.avg30d).toFixed(2)}
           </p>
         </div>

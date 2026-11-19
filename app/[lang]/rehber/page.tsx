@@ -43,19 +43,19 @@ export default async function RehberPage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-32 pb-16">
+      <section className="bg-primary pt-14 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{texts.breadcrumb}</span>
+            <span className="text-carolina">{texts.breadcrumb}</span>
           </nav>
 
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            {texts.heroTitle} <span className="text-[#C9A84C]">{texts.heroTitleHighlight}</span>
+            {texts.heroTitle} <span className="text-carolina">{texts.heroTitleHighlight}</span>
           </h1>
           <p className="text-white/85 text-lg max-w-3xl">
             {texts.heroDescription}
@@ -91,18 +91,18 @@ export default async function RehberPage({
                     <div className="p-5">
                       <div className="flex items-center gap-4 text-sm text-text-light mb-3">
                         <span className="flex items-center gap-1">
-                          <Users className="w-4 h-4 text-[#C9A84C]" />
+                          <Users className="w-4 h-4 text-primary" />
                           {ilce.nufus}
                         </span>
                         <span className="flex items-center gap-1">
-                          <MapPin className="w-4 h-4 text-[#C9A84C]" />
+                          <MapPin className="w-4 h-4 text-primary" />
                           {mahalleSayisi} {texts.neighborhoods}
                         </span>
                       </div>
                       <p className="text-text-light text-sm line-clamp-2 mb-4">
                         {ilce.kisaTanitim}
                       </p>
-                      <span className="inline-flex items-center gap-1 text-ink font-semibold text-sm group-hover:text-[#C9A84C] transition-colors">
+                      <span className="inline-flex items-center gap-1 text-ink font-semibold text-sm group-hover:text-primary transition-colors">
                         {texts.viewGuide}
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </span>
@@ -126,7 +126,7 @@ export default async function RehberPage({
           </p>
           <Link
             href={`/${locale}/${getLocalizedRoute('iletisim', locale)}`}
-            className="inline-flex items-center gap-2 bg-[#C9A84C] text-ink px-8 py-3 rounded-lg font-semibold hover:bg-[#a88a3d] transition-colors"
+            className="inline-flex items-center gap-2 bg-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-dark transition-colors"
           >
             {texts.ctaButton}
             <ArrowRight className="w-5 h-5" />

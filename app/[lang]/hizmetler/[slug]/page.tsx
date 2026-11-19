@@ -241,26 +241,26 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
       />
 
       {/* Hero */}
-      <section className="bg-primary pt-32 pb-20">
+      <section className="bg-primary pt-14 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6 flex-wrap">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href={`/${locale}/${getLocalizedRoute('hizmetler', locale)}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}/${getLocalizedRoute('hizmetler', locale)}`} className="hover:text-carolina transition-colors">
               {texts.breadcrumb}
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{hizmet.baslik}</span>
+            <span className="text-carolina">{hizmet.baslik}</span>
           </nav>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               {/* Icon */}
-              <div className="w-20 h-20 rounded-2xl bg-[#C9A84C]/20 flex items-center justify-center mb-6">
-                <Icon className="w-10 h-10 text-[#C9A84C]" />
+              <div className="w-20 h-20 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
+                <Icon className="w-10 h-10 text-carolina" />
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -293,7 +293,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
               <div className="space-y-3 mb-6">
                 {ekip.map((kisi) => (
                   <div key={kisi.whatsapp} className="flex items-center gap-3 p-3 bg-surface rounded-xl">
-                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-[#C9A84C]">
+                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-accent">
                       <Image
                         src={kisi.foto}
                         alt={kisi.ad}
@@ -306,7 +306,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                       <p className="font-bold text-ink text-sm truncate">{kisi.ad}</p>
                       <a
                         href={`tel:${kisi.telefon.replace(/\s/g, "")}`}
-                        className="text-[#C9A84C] font-medium text-xs hover:underline"
+                        className="text-primary font-medium text-xs hover:underline"
                       >
                         {kisi.telefon}
                       </a>
@@ -363,8 +363,8 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
               const AltIcon = ikonlar[alt.ikon] || Check;
               return (
                 <Card key={alt.baslik} padding="lg" className="text-center group">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A84C]/20 transition-colors">
-                    <AltIcon className="w-7 h-7 text-ink group-hover:text-[#C9A84C] transition-colors" />
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
+                    <AltIcon className="w-7 h-7 text-ink group-hover:text-primary transition-colors" />
                   </div>
                   <h3 className="font-bold text-ink mb-2">{alt.baslik}</h3>
                   <p className="text-sm text-text-light">{alt.aciklama}</p>
@@ -386,7 +386,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
               <div className="space-y-4">
                 {texts.whyUsItems.map((item) => (
                   <div key={item} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-[#22c55e] flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 rounded-full bg-[#2F7D4F] flex items-center justify-center flex-shrink-0">
                       <Check className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-ink">{item}</span>
@@ -404,7 +404,7 @@ export default async function HizmetDetayPage({ params }: HizmetDetayPageProps) 
                 { value: "%98", label: texts.statsLabels.satisfactionRate },
               ].map((stat) => (
                 <Card key={stat.label} padding="lg" className="text-center">
-                  <p className="text-3xl font-bold text-[#C9A84C] mb-1">
+                  <p className="text-3xl font-bold text-primary mb-1">
                     {stat.value}
                   </p>
                   <p className="text-sm text-text-light">{stat.label}</p>

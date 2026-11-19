@@ -119,8 +119,8 @@ export default function NotFound() {
             {t.title}
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-32 h-32 rounded-full bg-[#C9A84C]/20 flex items-center justify-center">
-              <Search className="w-16 h-16 text-[#C9A84C]" />
+            <div className="w-32 h-32 rounded-full bg-accent/20 flex items-center justify-center">
+              <Search className="w-16 h-16 text-primary" />
             </div>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function NotFound() {
         {/* Helpful Links */}
         <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
           <div className="p-6">
-            <div className="flex items-center justify-center gap-2 text-[#C9A84C] mb-4">
+            <div className="flex items-center justify-center gap-2 text-primary mb-4">
               <HelpCircle className="w-5 h-5" />
               <span className="font-medium">{t.searchTitle}</span>
             </div>
@@ -170,7 +170,7 @@ export default function NotFound() {
                 <Link
                   key={link.routeKey}
                   href={`/${locale}/${getLocalizedRoute(link.routeKey, locale)}`}
-                  className="px-4 py-2 bg-white/10 hover:bg-[#C9A84C] text-white hover:text-ink rounded-full text-sm font-medium transition-colors"
+                  className="px-4 py-2 bg-white/10 hover:bg-accent text-white hover:text-white rounded-full text-sm font-medium transition-colors"
                 >
                   {link.text}
                 </Link>
@@ -182,7 +182,7 @@ export default function NotFound() {
         {/* Back Link */}
         <button
           onClick={() => typeof window !== "undefined" && window.history.back()}
-          className="mt-8 inline-flex items-center gap-2 text-white/70 hover:text-[#C9A84C] transition-colors"
+          className="mt-8 inline-flex items-center gap-2 text-white/70 hover:text-primary transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>{t.backButton}</span>

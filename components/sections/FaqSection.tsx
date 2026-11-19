@@ -64,7 +64,7 @@ export default function FaqSection({
           transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             {t.badge}
           </span>
           <h2
@@ -107,13 +107,13 @@ export default function FaqSection({
                 <div className="flex items-center gap-3 flex-1">
                   <HelpCircle
                     className={`w-5 h-5 flex-shrink-0 ${
-                      openIndex === index ? "text-accent" : darkMode ? "text-gray-400" : "text-text-muted"
+                      openIndex === index ? "text-primary" : darkMode ? "text-gray-400" : "text-text-muted"
                     }`}
                   />
                   <span
                     className={`font-semibold ${
                       darkMode ? "text-white" : "text-ink"
-                    } ${openIndex === index ? "text-accent" : ""}`}
+                    } ${openIndex === index ? "text-primary" : ""}`}
                   >
                     {soru.soru}
                   </span>
@@ -121,7 +121,7 @@ export default function FaqSection({
                 <ChevronDown
                   className={`w-5 h-5 transition-transform duration-300 flex-shrink-0 ${
                     darkMode ? "text-gray-400" : "text-text-light"
-                  } ${openIndex === index ? "rotate-180 text-accent" : ""}`}
+                  } ${openIndex === index ? "rotate-180 text-primary" : ""}`}
                 />
               </button>
 
@@ -160,7 +160,7 @@ export default function FaqSection({
             {t.moreQuestions}{" "}
             <a
               href={`/${lang}/iletisim`}
-              className="text-accent font-semibold hover:underline"
+              className="text-primary font-semibold hover:underline"
             >
               {t.contactUs}
             </a>

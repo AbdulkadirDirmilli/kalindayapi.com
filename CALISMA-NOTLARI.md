@@ -1,7 +1,8 @@
 # Kalinda Yapı Emlak — Dönüşüm Çalışma Notları
 
-> Son güncelleme: 12 Kasım 2026
-> Dal: `emlak-odakli-kurumsal` (3 commit, `main`'e merge edilmedi, push yapılmadı)
+> Son güncelleme: 19 Kasım 2026
+> Dal: `emlak-odakli-kurumsal` (4 commit + commit'lenmemiş palet/navbar
+> çalışması, `main`'e merge edilmedi, push yapılmadı)
 
 Bu dosya, siteyi "emlak odaklı + kurumsal" hale getirme çalışmasının durumunu
 ve kaldığımız yeri kaydeder. Yeni oturumda önce bunu okuyun.
@@ -42,6 +43,39 @@ ve kaldığımız yeri kaydeder. Yeni oturumda önce bunu okuyun.
 - Sıralama: Arama → İlanlar → Danışman → Hizmetler → Neden Biz → İstatistik →
   Blog → İletişim → SSS
 
+### Commit'lenmedi — Palet uyarlaması + navbar (19 Kasım 2026)
+57 dosya değişti, henüz commit edilmedi.
+
+- **Palet muglaport.com.tr'den uyarlandı**, altın kaldırıldı (Bölüm 4'e bakın).
+  211 Tailwind arbitrary value (`text-[#C9A84C]` gibi) semantik token'a taşındı;
+  19 ham hex (e-posta şablonları, `manifest.json`, `themeColor`) eşlendi.
+  Kaynakta eski palet hex'i **sıfır** kaldı.
+- 55 `text-accent` kullanımı zemin bağlamına göre ayrıldı: açık zeminde
+  `text-primary`, koyu lacivert zeminde `text-carolina`.
+- `Button` accent varyantı ve `Badge` kiralik: `text-ink` → `text-white`
+  (mavi dolguda mürekkep rengi okunmuyordu).
+- Footer'a referanstaki **4 renkli üst şerit** eklendi
+  (`accent / ocean / carolina / slate`, `grid-cols-[4fr_3fr_2fr_1fr]`).
+- `HizmetKartlari` kart renkleri palete taşındı: lacivert, accent mavi,
+  ocean-ink, slate.
+- **Navbar referans düzene çevrildi** (`components/layout/Header.tsx`):
+  `fixed` + şeffaf yerine **`sticky top-0`, daima beyaz, 64px (`h-16`)**,
+  `max-w-[1320px]`. Linkler pill (`rounded-full`), aktif/hover durumu
+  `bg-primary/[0.07] text-primary`. Sağda telefon (`tabular-nums`) +
+  accent CTA. Scroll'da yalnızca alt kenarlık + hafif gölge belirir.
+  **Hizmetler ve Kurumsal dropdown'ları korundu.**
+- Header `sticky` olduğu için sayfa başlık bantlarındaki header boşluğu
+  telafisi kaldırıldı: 19 dosyada `pt-32` → `pt-14` (ve `pt-40` → `pt-20`).
+- `VisitorCounter` (footer) `text-gray-400/500` → `text-white/65`, `/55`.
+- **Lacivert logo varyantları üretildi** (`logo-navy.svg`,
+  `logo-wide-navy.svg`) ve beyaz zeminlerde kullanılmaya başlandı —
+  Bölüm 4.1. Footer ve admin sidebar altın orijinalde kaldı.
+- **Döviz bileşenleri menüden çıkarıldı** — Bölüm 4.2.
+- **Koyu zemin kontrast onarımı** — Bölüm 4.3. Palet dönüşümünün yan etkisi
+  olarak lacivert bantlarda okunmaz hale gelen 72 kullanım düzeltildi.
+- **`cn` artık `twMerge(clsx(...))`** — Bölüm 4.4. `tailwind-merge@^3`
+  bağımlılık olarak eklendi (`package.json` değişti).
+
 ### Commit `0481eb2` — Renk paleti + iletişim sayfası
 - Koyu lacivert `#0B1F3A` sitede **sıfır** referans
 - Yeni `ink` token'ı eklendi (başlıklar için); 116 `text-primary` kullanımı taşındı
@@ -67,41 +101,185 @@ slug'larıyla birlikte.
 
 ## 4. Renk paleti referansı
 
+> **19 Kasım 2026'da palet muglaport.com.tr'den birebir uyarlandı.** Altın
+> (`#C9A84C`) tamamen kaldırıldı. Önceki açık mavi `primary` aslında
+> referansın **accent**'iydi; referansın marka rengi koyu lacivert `#012169`.
+
 `app/globals.css` → `@theme inline`
 
 ```
---color-primary        #418FDE   açık mavi — zemin, buton, şerit, footer
---color-primary-light  #6BA7E7   hover ve gradyan
---color-primary-dark   #2A6FB8   koyu buton / link
---color-ink            #0F2742   BAŞLIKLAR ve koyu metin
---color-ink-light      #1E3A5F   ikincil koyu metin
---color-accent         #C9A84C   altın — rozet, ikon, vurgu (logo ile uyumlu)
---color-surface        #F3F6FA   açık yüzey
---color-border         #DCE3EC   kenarlık
---color-text-light     #5A6572   gövde ikincil metin
---color-text-muted     #8A93A0   soluk metin
+--color-primary        #012169   KOYU LACİVERT — marka; link, başlık vurgusu, koyu zemin
+--color-primary-light  #1B3C7E   hover
+--color-primary-dark   #000F3D   basılı / koyu varyant
+--color-accent         #418FDE   AÇIK MAVİ — yalnızca CTA butonu, ikon dolgusu
+--color-accent-light   #6BA7E7
+--color-accent-dark    #2A6FB8
+--color-ink            #2D2926   sıcak siyah — BAŞLIKLAR ve gövde metni
+--color-ink-light      #4A443F
+--color-surface        #EDF0F4   açık yüzey (referans: soft)
+--color-surface-dark   #E3E6EB
+--color-border         #E3E6EB   kenarlık (referans: line)
+--color-border-strong  #C9CED6   (referans: line-strong)
+--color-text-light     #5C5651   gövde ikincil metin
+--color-text-muted     #8A857F   soluk metin
+
+ikincil vurgular (referans paletten):
+--color-ocean          #00B4BD
+--color-ocean-ink      #00767C
+--color-slate          #5C86A0
+--color-carolina       #89D4E3   koyu lacivert zeminde metin/başlık rengi
+--color-cement         #E6DDD1
+
+--color-success        #2F7D4F
+--color-warning        #B7791F
+--color-error          #C2412D
 ```
 
+Referansın kendi token'ları (doğrulama için): `--brand:#012169`,
+`--accent:#418fde`, `--ink:#2d2926`, `--paper:#fff`; marka tonları
+`color-mix(in oklab, var(--brand) N%, black)` ile türetiliyor.
+
+## 4.1 Logo varyantları
+
+Logo altın/amber gradyanlı; beyaz zeminde soluk kalıyordu. Palete uyumlu
+**lacivert varyantlar** üretildi (orijinaller silinmedi).
+
+| Dosya | Renk | Nerede kullanılır |
+|---|---|---|
+| `public/logo.svg` | altın, kare | **Koyu zemin** — admin sidebar (`bg-primary`) |
+| `public/logo-footer.svg` | altın, yatay | **Koyu zemin** — site footer |
+| `public/logo-navy.svg` | **lacivert, kare** | Beyaz zemin — navbar (mobil), admin giriş |
+| `public/logo-wide-navy.svg` | **lacivert, yatay** | Beyaz zemin — navbar (masaüstü) |
+
+Üretim yöntemi: orijinaldeki her renk jetonu lacivert karşılığına eşlendi.
+Merkez parlaması (beyaz ve açık sarılar) → `#1B3C7E`, gövde/kenar/kontur
+(altın, amber, sarı, ten) → `#012169`, gradyan ara tonları → lacivert rampa
+(`#16386F`, `#10306C`, `#0A2A6A`, `#072568`). **Kontur genişlikleri ve yol
+verileri değiştirilmedi**, siluet orijinalle birebir aynı.
+
+> Kural: **beyaz/açık zeminde lacivert varyantı, koyu lacivert zeminde altın
+> orijinali** kullanın.
+
+Not: JSON-LD'deki kurum logosu (`lib/jsonld.ts`, `lib/dovizJsonLd.ts`) hâlâ
+altın `logo.svg`'yi gösteriyor — bilinçli bırakıldı, marka logosu o. Arama
+sonuçlarında beyaz zeminde göründüğü için lacivert varyanta çevrilmesi
+tartışılabilir.
+
+## 4.2 Döviz bileşenlerinin yeri
+
+Navbar'da kur göstergesi + para birimi seçici + dil seçici + telefon + CTA
+aynı anda duruyordu; şerit taşıyor, telefon ve CTA ikinci satıra düşüyordu.
+İkisi menüden çıkarıldı — **ama aynı yere değil**, çünkü işlevleri farklı:
+
+| Bileşen | Yeni yeri | Gerekçe |
+|---|---|---|
+| `ExchangeRateTicker` ($/€ kuru) | Ana sayfa, arama kutusunun altındaki hızlı erişim satırı (`HeroArama`) | Salt bilgi. İlk ekranda kalıyor, yeni bölüm gerekmiyor, `/doviz-kurlari`'na link |
+| `CurrencySwitcher` (para birimi) | **Hem** aynı satır **hem** `/ilanlar` sonuç çubuğu (`IlanFiltresi`) | İşlevsel: `IlanKart` ve ilan detay fiyatları buna bağlı. Sadece ana sayfaya konsaydı `/ilanlar`'da para birimi değiştirilemezdi |
+| `LanguageSwitcher` | Navbar'da kaldı | Her sayfada gerekli |
+
+- `HeaderExchangeRate` → **`ExchangeRateTicker`** olarak yeniden adlandırıldı
+  (artık header'da değil). `variant: 'inline' | 'badge'` ve `onDark` prop'ları var.
+  Borsa tarzı animasyonlar (`animate-ticker-*`, `animate-symbol-flash`) inline
+  varyantta kullanılmıyor — arama kutusunun altında dikkat dağıtıyordu.
+  Animasyon tanımları `globals.css`'te duruyor, geri istenirse hazır.
+- `CurrencySwitcher`'ın `isScrolled` prop'u **`onDark`** oldu (header dışında
+  "scrolled" kavramı anlamsızdı).
+- Telefon numarası navbar'da `xl:flex` olarak kaldı. 1024–1279px arasında
+  logo + 7 menü + dil + CTA şeridi zaten dolduruyor; telefon ancak xl'den
+  itibaren sığıyor. **Menü öğesi sayısı artarsa bu yeniden kontrol edilmeli.**
+
+## 4.3 Koyu zemin kontrast onarımı (palet dönüşümünün yan etkisi)
+
+**Sorun:** Palet dönüşümünde `text-[#C9A84C]` → `text-primary` eşlemesi
+*özellik duyarlıydı ama zemin duyarlı değildi*. Altın, lacivert bant üzerinde
+okunuyordu; lacivert okunmuyor. Sonuç: alt sayfaların `bg-primary` başlık
+bantlarındaki breadcrumb, başlık vurgusu ve ikonlar görünmez oldu.
+İletişim sayfasındaki "Ortaca ve **Çevresi**" başlığı bu şekilde fark edildi.
+
+**Tespit yöntemi:** Render edilen HTML üzerinde etiket yığını tutup her
+elemanın *en yakın* zemin bağlamını belirleyen bir denetim yazıldı
+(lacivert bölüm içindeki beyaz kart tekrar açık bağlam yaratır). 15 sayfa
+tarandı: **71 bulgu → 0** (kalan 3 bulgu yanlış pozitif, aşağıya bakın).
+
+**Düzeltilenler:**
+- Koyu zeminli bölümlerde **58** `text-primary` → `text-carolina` (18 dosya)
+- Mavi `bg-accent` dolgu üzerinde **14** `text-ink` → `text-white` (11 dosya).
+  Altın dolguda koyu metin okunuyordu, mavide okunmuyor.
+- `components/CookieConsent.tsx` — banner `bg-primary`; ikon ve gizlilik
+  linki görünmezdi. Kalan son altın hex (`#d4b65d`) da buradaydı.
+- `app/[lang]/sss/page.tsx` — aktif kategori butonu `bg-primary text-white`
+  iken ikon `text-primary` kalıyordu.
+
+Denetim sonrası durum: **0 bulgu.**
+
+## 4.4 `cn` artık tailwind-merge kullanıyor
+
+**Sorun:** `lib/utils.ts` içindeki `cn` yalnızca `clsx`'ti. Çakışan sınıflar
+(ör. `Button`'ın varyant rengi `text-ink` ile çağıranın verdiği `text-white`)
+ikisi birden HTML'e basılıyordu; kazananı sınıf sırası değil, **üretilen
+CSS'teki sıra** belirliyordu. Doğru görünmesi tesadüftü.
+
+```ts
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+- `tailwind-merge@^3.7.0` eklendi. **Sürüm önemli:** v2 Tailwind v3 içindir,
+  proje Tailwind v4 kullanıyor → v3.x gerekli.
+- Özel tema token'larımız (`text-ink`, `text-carolina`, `bg-primary`,
+  `text-text-light` …) tailwind-merge'ün renk grubuna düşüyor; `text-sm` gibi
+  boyut sınıflarıyla karışmıyor (`text-ink text-[15px]` ikisi de korunur).
+
+**Dikkat — arbitrary value'larda tip ipucu şart.** tailwind-merge `bg-[...]`
+içeriğinin türünü anlayamazsa **arka plan rengi** varsayar ve `bg-white`'ı
+düşürür. `components/ui/Input.tsx` içindeki `Select` tam olarak bunu yaşadı:
+`bg-[right_12px_center]` yüzünden select'in beyaz zemini siliniyordu. Düzeltme:
+
+| Önce | Sonra |
+|---|---|
+| `bg-[url('data:image/svg+xml…')]` | `bg-[image:url('data:image/svg+xml…')]` |
+| `bg-[right_12px_center]` | `bg-[position:right_12px_center]` |
+
+> Yeni bir `bg-[...]` / `text-[...]` arbitrary değer yazarken **tip ipucunu
+> (`image:`, `position:`, `length:`, `color:`) ekleyin**, yoksa twMerge yanlış
+> sınıfı düşürebilir.
+
+**Doğrulama:** `cn` geçici olarak `clsx`'e döndürülüp 8 sayfanın HTML'i
+"önce/sonra" olarak yakalandı ve `class` nitelikleri karşılaştırıldı. Tek
+davranış farkı referanslar sayfasındaki outline butonda `border-primary`,
+`text-ink`, `hover:bg-primary` sınıflarının düşmesi; üçü de **zaten CSS
+sırasına göre kaybediyordu**, yani görünüm aynı kaldı — sadece artık
+deterministik. Bölüm 4.3 denetimindeki 3 yanlış pozitif de kendiliğinden
+kayboldu (ölü sınıflar artık HTML'e basılmıyor).
+
 ### Kritik kural
-> **Beyaz zeminde başlık için `text-primary` KULLANMAYIN — `text-ink` kullanın.**
-> `primary` artık açık mavi; beyaz üzerinde okunmaz.
-> Renkli (`bg-primary`) zeminde metin `text-white` / `text-white/85` olmalı,
-> `text-gray-300/400/500` **kullanılmamalı**.
+> **Açık zeminde metin için `text-accent` KULLANMAYIN — `text-primary`
+> (lacivert) veya `text-ink` kullanın.** `accent` açık mavi; beyaz üzerinde
+> küçük metinde kontrastı yetersiz. Accent **yalnızca dolgu/zemin** içindir
+> (`bg-accent` + `text-white`).
+>
+> **Koyu lacivert (`bg-primary`) zeminde** başlık/vurgu `text-carolina`,
+> gövde `text-white/85` veya `text-white/65` olmalı.
+> `text-gray-300/400/500` renkli zeminde **kullanılmamalı**.
 
 ---
 
 ## 5. Yarım kalan / müşteriye sorulacaklar
 
 ### Müşteri onayı bekleyenler
-1. **Footer rengi** — muglaport'un footer'ı aslında koyu lacivert (`#012169`);
-   açık mavi onların buton rengi. Biz açık mavi yaptık (müşteri öyle istedi).
-   Footer'ı koyu laciverde çekme seçeneği masada.
-2. **Açık mavi tonu** — `#418FDE` fazla soluk gelirse `#2A6FB8` alternatifi hazır.
-3. **İletişim sayfasındaki harita** — muglaport'ta yok, bizde duruyor.
+1. ~~**Footer rengi**~~ — **çözüldü (19 Kasım 2026).** Referansın footer'ı
+   `bg-brand-600` yani koyu lacivert; açık mavi onların CTA rengi. Palet
+   uyarlamasıyla footer lacivert oldu.
+2. ~~**Açık mavi tonu**~~ — **çözüldü.** Açık mavi artık geniş zeminlerde değil,
+   yalnızca CTA/dolguda; `#418FDE` referansla birebir aynı.
+3. ~~**Logo ile palet uyumu**~~ — **çözüldü (19 Kasım 2026).** Lacivert logo
+   varyantları üretildi, Bölüm 4.1'e bakın. Müşteriye yine de gösterilmeli.
+4. **İletişim sayfasındaki harita** — muglaport'ta yok, bizde duruyor.
    Kaldırılsın mı?
-4. **İçerikteki rakamlar doğrulanmalı**: "200+ emlak işlemi", "300+ mutlu aile",
+5. **İçerikteki rakamlar doğrulanmalı**: "200+ emlak işlemi", "300+ mutlu aile",
    "%2 satış komisyonu", bölge m² fiyat aralıkları. Bunlar eski içerikten taşındı.
-5. **Öne çıkan ilan sayısı** — şu an 6. muglaport'ta ~8-10 + "Haftanın evi"
+6. **Öne çıkan ilan sayısı** — şu an 6. muglaport'ta ~8-10 + "Haftanın evi"
    vurgulu tek kart var. İstenirse eklenir.
 
 ### Teknik, yapılabilir ama yapılmadı

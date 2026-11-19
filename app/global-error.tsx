@@ -30,7 +30,7 @@ export default function GlobalError({
           <div style={{ maxWidth: '28rem', width: '100%', textAlign: 'center' }}>
             <div style={{ marginBottom: '2rem' }}>
               <svg
-                style={{ margin: '0 auto', height: '4rem', width: '4rem', color: '#ef4444' }}
+                style={{ margin: '0 auto', height: '4rem', width: '4rem', color: '#C2412D' }}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

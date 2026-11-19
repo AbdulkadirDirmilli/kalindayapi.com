@@ -1,7 +1,22 @@
 import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
+/**
+ * Tailwind sınıflarını birleştirir ve ÇAKIŞANLARI çözer: aynı CSS özelliğini
+ * hedefleyen sınıflardan sonuncusu kazanır.
+ *
+ * Yalnızca `clsx` kullanıldığında çakışan sınıfların ikisi de HTML'e basılıyor
+ * ve kazananı sınıf sırası değil, üretilen CSS'teki sıra belirliyordu. Örneğin
+ * `<Button variant="outline" className="text-white">` çıktısında hem `text-ink`
+ * hem `text-white` yer alıyordu; doğru görünmesi `.text-white` kuralının CSS'te
+ * sonra gelmesi tesadüfüne bağlıydı. `twMerge` kaybeden sınıfı çıkarır.
+ *
+ * Not: Özel tema token'larımız (`text-ink`, `text-carolina`, `bg-primary` …)
+ * tailwind-merge'ün renk grubuna düşer; `text-sm` gibi boyut sınıflarıyla
+ * karışmaz, ikisi birlikte kullanılabilir.
+ */
 export function cn(...inputs: ClassValue[]) {
-  return clsx(inputs);
+  return twMerge(clsx(inputs));
 }
 
 export function formatPrice(price: number, currency: string = "TL"): string {

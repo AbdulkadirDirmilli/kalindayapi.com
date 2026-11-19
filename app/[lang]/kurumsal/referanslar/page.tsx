@@ -414,24 +414,24 @@ export default async function ReferanslarPage({
       />
 
       {/* Hero */}
-      <section className="bg-primary pt-32 pb-20">
+      <section className="bg-primary pt-14 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href={`/${locale}/${getLocalizedRoute('hakkimizda', locale)}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}/${getLocalizedRoute('hakkimizda', locale)}`} className="hover:text-carolina transition-colors">
               {t.breadcrumbs.corporate}
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{t.breadcrumbs.references}</span>
+            <span className="text-carolina">{t.breadcrumbs.references}</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              <span className="text-[#C9A84C]">{t.hero.titleHighlight}</span>
+              <span className="text-carolina">{t.hero.titleHighlight}</span>
             </h1>
             <p className="text-white/85 text-lg leading-relaxed">
               {t.hero.description}
@@ -447,7 +447,7 @@ export default async function ReferanslarPage({
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               {t.projects.badge}
             </span>
             <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
@@ -463,16 +463,16 @@ export default async function ReferanslarPage({
               const Icon = iconMap[index];
               return (
                 <Card key={proje.kategori} padding="lg" className="group hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-4 group-hover:bg-[#C9A84C] transition-colors">
+                  <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-4 group-hover:bg-accent transition-colors">
                     <Icon className="w-8 h-8 text-white group-hover:text-ink transition-colors" />
                   </div>
                   <h3 className="font-bold text-ink mb-1">{proje.kategori}</h3>
-                  <p className="text-3xl font-bold text-[#C9A84C] mb-2">{proje.sayi}</p>
+                  <p className="text-3xl font-bold text-primary mb-2">{proje.sayi}</p>
                   <p className="text-sm text-text-light mb-4">{proje.aciklama}</p>
                   <ul className="space-y-1">
                     {proje.ornekler.map((ornek, i) => (
                       <li key={i} className="text-xs text-text-light flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                         {ornek}
                       </li>
                     ))}
@@ -488,7 +488,7 @@ export default async function ReferanslarPage({
       <section className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               {t.reviews.badge}
             </span>
             <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
@@ -507,7 +507,7 @@ export default async function ReferanslarPage({
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               {t.areas.badge}
             </span>
             <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
@@ -524,7 +524,7 @@ export default async function ReferanslarPage({
                 key={bolge}
                 className="flex items-center gap-2 px-6 py-3 bg-surface rounded-full hover:bg-primary hover:text-white transition-colors group"
               >
-                <MapPin className="w-4 h-4 text-[#C9A84C]" />
+                <MapPin className="w-4 h-4 text-primary" />
                 <span className="font-medium">{bolge}</span>
               </div>
             ))}

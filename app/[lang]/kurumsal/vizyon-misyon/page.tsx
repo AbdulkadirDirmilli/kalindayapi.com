@@ -359,24 +359,24 @@ export default async function VizyonMisyonPage({
       />
 
       {/* Hero */}
-      <section className="bg-primary pt-32 pb-20">
+      <section className="bg-primary pt-14 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
-            <Link href={`/${locale}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-carolina transition-colors">
               <Home className="w-4 h-4" />
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href={`/${locale}/${getLocalizedRoute('hakkimizda', locale)}`} className="hover:text-[#C9A84C] transition-colors">
+            <Link href={`/${locale}/${getLocalizedRoute('hakkimizda', locale)}`} className="hover:text-carolina transition-colors">
               {t.breadcrumbs.corporate}
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A84C]">{t.breadcrumbs.visionMission}</span>
+            <span className="text-carolina">{t.breadcrumbs.visionMission}</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              <span className="text-[#C9A84C]">{t.hero.titleHighlight}</span> {t.hero.title}
+              <span className="text-carolina">{t.hero.titleHighlight}</span> {t.hero.title}
             </h1>
             <p className="text-white/85 text-lg leading-relaxed">
               {t.hero.description}
@@ -403,9 +403,9 @@ export default async function VizyonMisyonPage({
               </div>
             </Card>
 
-            <Card padding="lg" className="border-l-4 border-l-[#C9A84C]">
+            <Card padding="lg" className="border-l-4 border-l-[#418FDE]">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-[#C9A84C] flex items-center justify-center">
+                <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center">
                   <Eye className="w-8 h-8 text-ink" />
                 </div>
                 <h2 className="text-2xl font-bold text-ink">{t.vision.title}</h2>
@@ -424,7 +424,7 @@ export default async function VizyonMisyonPage({
       <section className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               {t.goals.badge}
             </span>
             <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
@@ -440,7 +440,7 @@ export default async function VizyonMisyonPage({
               const Icon = goalIcons[index];
               return (
                 <Card key={hedef.baslik} padding="lg" className="text-center group hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A84C] transition-colors">
+                  <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-4 group-hover:bg-accent transition-colors">
                     <Icon className="w-8 h-8 text-white group-hover:text-ink transition-colors" />
                   </div>
                   <h3 className="font-bold text-ink mb-2">{hedef.baslik}</h3>
@@ -456,7 +456,7 @@ export default async function VizyonMisyonPage({
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="text-[#C9A84C] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               {t.values.badge}
             </span>
             <h2 className="text-3xl font-bold text-ink mt-2 mb-4">
@@ -472,8 +472,8 @@ export default async function VizyonMisyonPage({
               const Icon = valueIcons[index];
               return (
                 <Card key={deger.baslik} padding="lg" className="text-center group">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C9A84C]/20 transition-colors">
-                    <Icon className="w-8 h-8 text-ink group-hover:text-[#C9A84C] transition-colors" />
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
+                    <Icon className="w-8 h-8 text-ink group-hover:text-primary transition-colors" />
                   </div>
                   <h3 className="font-bold text-ink mb-2">{deger.baslik}</h3>
                   <p className="text-sm text-text-light">{deger.aciklama}</p>
