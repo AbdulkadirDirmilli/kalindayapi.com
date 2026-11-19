@@ -303,8 +303,14 @@ DELETE, bağlı ilan varken FK ihlaliyle 500 dönüyordu → artık önce ilanla
 
 **Rota:** `danismanlar` hem `lib/i18n/config.ts` hem `proxy.ts`'e eklendi.
 Bu iki dosya birbirinin kopyası; **yalnızca birine eklenirse `/en/consultants`
-404 verir.** Header'da Kurumsal açılır menüsüne ve footer'a bağlantı kondu —
-üst seviyeye eklenmedi, çünkü 1024–1279px'te şerit zaten dolu (bkz. 4.2).
+404 verir.**
+
+**Menüdeki yeri:** üst seviyede, İlanlar'dan hemen sonra (+ footer Hızlı
+Linkler). Canlıda ölçüldü: 1100px'te menüye 673px yer var, 8 öğe 586px tutuyor.
+1024px'e inildiğinde pay ~10px'e düşüyor, yani sığıyor ama dar. Bu yüzden lg
+bandında şerit biraz sıkılaştırıldı — pill dolgusu `px-2`, yazı `text-sm`,
+öğe aralığı `gap-0`, logo `lg:w-40`; **xl'den itibaren hepsi eski değerine
+döner**. Menüye yeni bir üst seviye öğe eklenecekse bu pay yeniden ölçülmeli.
 
 ## 4.6 Avatar ve Arif Bey'in fotoğrafı
 
