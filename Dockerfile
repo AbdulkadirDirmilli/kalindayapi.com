@@ -19,8 +19,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3001
 
-# Sharp ve diğer native modüller için gerekli bağımlılıklar
-RUN apk add --no-cache libc6-compat
+# Sharp için native bağımlılıklar + yüklenen videoları sıkıştırmak için ffmpeg
+# (bkz. lib/video-optimize.ts — yükleme sonrası arka planda çalışır)
+RUN apk add --no-cache libc6-compat ffmpeg
 
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static

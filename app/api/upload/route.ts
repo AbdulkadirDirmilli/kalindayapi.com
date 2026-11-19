@@ -5,6 +5,7 @@ import { writeFile, mkdir } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 import { optimizeImage, changeExtToWebp } from '@/lib/image-optimize'
+import { videoSikistirArkaPlanda } from '@/lib/video-optimize'
 
 // Route segment config for app router
 export const maxDuration = 60 // seconds
@@ -101,10 +102,13 @@ export async function POST(request: NextRequest) {
         url = `/uploads/${subDir}/${filename}`
       }
     } else {
-      // Videos: save as-is
+      // Video: once orijinali kaydedilir ve URL hemen donulur; sikistirma
+      // arka planda calisip dosyayi ayni adla degistirir (lib/video-optimize.ts).
       filename = baseFilename
-      await writeFile(path.join(uploadsDir, filename), buffer)
+      const tamYol = path.join(uploadsDir, filename)
+      await writeFile(tamYol, buffer)
       url = `/uploads/${subDir}/${filename}`
+      videoSikistirArkaPlanda(tamYol)
     }
 
     return NextResponse.json({ url, filename, type: isVideo ? 'video' : 'image' }, { status: 201 })

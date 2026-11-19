@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   MapPin,
   Maximize2,
@@ -31,6 +30,7 @@ import {
 import { IlanGaleri, IlanKart } from "@/components/ilan";
 import Button from "@/components/ui/Button";
 import { DanismanAvatar, type Cinsiyet } from "@/components/ui";
+import { videoGomuluUrl } from "@/lib/video";
 import ShareButton from "@/components/ui/ShareButton";
 import Badge from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
@@ -305,14 +305,27 @@ export default function IlanDetayClient({ ilan, benzerIlanlar, locale, dict }: I
                     {t.video}
                   </h2>
                   <div className="aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-black">
-                    <video
-                      src={ilan.videoUrl}
-                      controls
-                      className="w-full h-full object-contain"
-                      preload="metadata"
-                    >
-                      Your browser does not support the video tag.
-                    </video>
+                    {/* YouTube/Vimeo baglantisi gomulu oynaticiyla, panelden
+                        yuklenen dosya <video> ile gosterilir. */}
+                    {videoGomuluUrl(ilan.videoUrl) ? (
+                      <iframe
+                        src={videoGomuluUrl(ilan.videoUrl) as string}
+                        title={t.video}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                      />
+                    ) : (
+                      <video
+                        src={ilan.videoUrl}
+                        controls
+                        className="w-full h-full object-contain"
+                        preload="metadata"
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    )}
                   </div>
                 </Card>
               )}

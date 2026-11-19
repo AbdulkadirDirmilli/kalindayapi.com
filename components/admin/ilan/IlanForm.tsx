@@ -612,7 +612,8 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
         zemin: emptyToNull(formData.zemin),
         ticariTip: emptyToNull(formData.ticariTip),
         tapuDurumu: emptyToNull(formData.tapuDurumu),
-        videoUrl: firstVideoUrl,
+        // Harici baglanti varsa o kullanilir; yoksa yuklenen ilk video.
+        videoUrl: formData.videoUrl?.trim() || firstVideoUrl,
         danismanId: emptyToNull(formData.danismanId),
         adaNo: emptyToNull(formData.adaNo),
         parselNo: emptyToNull(formData.parselNo),
@@ -1995,6 +1996,25 @@ export default function IlanForm({ initialData, ilanId }: IlanFormProps) {
       {/* Fotograflar ve Videolar */}
       <CollapsibleSection title="Medya (Fotoğraf ve Video)">
         <div className="space-y-6">
+          {/* Harici video baglantisi. Dosya yuklemeye gore onceliklidir ve
+              sunucuda yer kaplamadigi icin tercih edilen yoldur. */}
+          <div>
+            <label className="block text-sm font-medium text-ink mb-1.5">
+              Video Bağlantısı (YouTube / Vimeo)
+            </label>
+            <input
+              type="url"
+              value={formData.videoUrl || ''}
+              onChange={(e) => setFormData((prev) => ({ ...prev, videoUrl: e.target.value }))}
+              placeholder="https://www.youtube.com/watch?v=..."
+              className="w-full px-3 py-2 rounded-lg border border-border bg-white text-sm text-ink focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+            />
+            <p className="text-xs text-text-muted mt-1">
+              Bağlantı girilirse ilan sayfasında gömülü oynatıcı gösterilir ve
+              yüklenen video dosyası kullanılmaz. Büyük video dosyası yüklemek
+              yerine bu alanı tercih edin.
+            </p>
+          </div>
           {/* Upload Area */}
           <div
             onDrop={handleFileDrop}
