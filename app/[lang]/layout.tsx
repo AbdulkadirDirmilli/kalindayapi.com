@@ -45,14 +45,18 @@ export async function generateMetadata({
       locale: { tr: "tr_TR", en: "en_US", ar: "ar_SA", de: "de_DE", ru: "ru_RU" }[locale] || "en_US",
       url: homeUrl,
       siteName: "Kalinda Yapı",
-      title: dict.home.hero.title,
+      // Paylasim basligi sayfa basligiyla ayni kaynaktan gelmeli. Onceden
+      // dict.home.hero.title kullaniliyordu; o alan uc parcali hero
+      // basliginin ilk parcasi ("Ortacanin Guvenilir") oldugu icin WhatsApp
+      // onizlemesinde baslik yarim gorunuyordu.
+      title: dict.meta.title,
       description: dict.meta.description,
       images: [
         {
           url: "/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: `Kalinda Yapı - ${dict.home.hero.title}`,
+          alt: dict.meta.title,
         },
       ],
     },

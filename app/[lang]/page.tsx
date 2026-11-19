@@ -12,7 +12,8 @@ import {
 import { generateOrganizationSchema, generateWebSiteSchema, generateAISummary } from "@/lib/jsonld";
 import { locales, defaultLocale, type Locale } from "@/lib/i18n";
 import { getCachedDictionary } from "@/lib/i18n/getDictionary";
-import { buildSeoAlternates, resolveLocale } from "@/lib/seo";
+import { buildSeoAlternates, resolveLocale, resolveOgImage } from "@/lib/seo";
+import { prisma } from "@/lib/prisma";
 import type { Metadata } from "next";
 
 // Statik parametre üretimi
@@ -30,10 +31,36 @@ export async function generateMetadata({
   const locale = resolveLocale(lang);
   const dict = await getCachedDictionary(locale);
 
+  // Paylasim gorseli: one cikan aktif bir ilanin kapak fotografi. Ilan yoksa
+  // resolveOgImage marka kartina duser, boylece onizleme bos kalmaz.
+  let kapakFoto: string | null = null;
+  try {
+    const oneCikan = await prisma.ilan.findFirst({
+      where: { durum: 'aktif', oneCikan: true },
+      orderBy: { yayinTarihi: 'desc' },
+      select: { fotograflar: { orderBy: { sira: 'asc' }, take: 1, select: { url: true } } },
+    });
+    kapakFoto = oneCikan?.fotograflar[0]?.url ?? null;
+  } catch {
+    // Veritabanina ulasilamazsa metadata uretimi engellenmemeli.
+  }
+  const ogGorsel = resolveOgImage(kapakFoto);
+
   return {
     title: dict.meta.title,
     description: dict.meta.description,
     alternates: buildSeoAlternates('/', locale),
+    openGraph: {
+      title: dict.meta.title,
+      description: dict.meta.description,
+      images: [{ url: ogGorsel, alt: dict.meta.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: dict.meta.title,
+      description: dict.meta.description,
+      images: [ogGorsel],
+    },
   };
 }
 

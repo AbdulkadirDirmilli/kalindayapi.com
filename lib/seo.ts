@@ -64,3 +64,20 @@ export function resolveLocale(lang: string | undefined): Locale {
     ? (lang as Locale)
     : defaultLocale;
 }
+
+/** Paylasim onizlemelerinde kullanilan varsayilan marka karti (1200x630). */
+export const DEFAULT_OG_IMAGE = '/og-image.jpg';
+
+/**
+ * Bir fotograf yolunu OG gorseli icin mutlak URL'e cevirir.
+ * Yol yoksa marka kartina duser; boylece onizleme hicbir zaman bos kalmaz.
+ *
+ * Not: `width`/`height` bilerek dondurulmuyor. Onceden her yerde 1200x630
+ * sabit yaziliyordu ama ilan fotograflarinin gercek orani farkli; yanlis
+ * boyut bazi platformlarda kirpilmaya yol aciyordu.
+ */
+export function resolveOgImage(photoUrl?: string | null): string {
+  if (!photoUrl) return `${SITE_URL}${DEFAULT_OG_IMAGE}`;
+  if (photoUrl.startsWith('http://') || photoUrl.startsWith('https://')) return photoUrl;
+  return `${SITE_URL}${photoUrl.startsWith('/') ? '' : '/'}${photoUrl}`;
+}

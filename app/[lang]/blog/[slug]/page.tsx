@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import blogData from "@/data/blog-posts.json";
 import BlogDetayClient from "./BlogDetayClient";
 import { locales, defaultLocale, type Locale } from "@/lib/i18n";
-import { buildLocalizedUrl, buildSeoAlternates, resolveLocale, SITE_URL } from "@/lib/seo";
+import { buildLocalizedUrl, buildSeoAlternates, resolveLocale, resolveOgImage, SITE_URL } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string; lang: string }>;
@@ -288,6 +288,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? translations.map(t => t.locale)
     : [locale]; // fallback: sadece mevcut dil
 
+  // Kapak gorseli yoksa onceden bos dizi donuyordu ve onizlemede hic gorsel
+  // cikmiyordu; artik marka kartina dusuyor.
+  const ogGorsel = resolveOgImage(yazi.kapakGorsel);
+
   return {
     title: `${yazi.baslik} | Kalinda Yapı`,
     description: yazi.ozet,
@@ -300,8 +304,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       publishedTime: yazi.yayinTarihi,
       authors: [yazi.yazar],
-      images: yazi.kapakGorsel ? [{ url: yazi.kapakGorsel, alt: yazi.baslik }] : [],
+      siteName: "Kalinda Yapı",
+      images: [{ url: ogGorsel, alt: yazi.baslik }],
       locale: locale === 'tr' ? 'tr_TR' : locale === 'en' ? 'en_US' : 'ar_SA',
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: yazi.baslik,
+      description: yazi.ozet,
+      images: [ogGorsel],
     },
     alternates: await buildBlogAlternates(slug, locale),
   };
