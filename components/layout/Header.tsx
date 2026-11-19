@@ -142,6 +142,7 @@ export default function Header() {
       ],
     },
     { name: t.listings, href: `/${locale}/${getLocalizedRoute('ilanlar', locale)}`, icon: Building2 },
+    { name: t.consultants, href: `/${locale}/${getLocalizedRoute('danismanlar', locale)}`, icon: Users },
     { name: t.exchange, href: `/${locale}/${getLocalizedRoute('doviz-kurlari', locale)}`, icon: TrendingUp },
     { name: t.blog, href: `/${locale}/${getLocalizedRoute('blog', locale)}`, icon: Briefcase },
     {
@@ -150,7 +151,6 @@ export default function Header() {
       icon: Users,
       children: [
         { name: t.about, href: `/${locale}/${getLocalizedRoute('hakkimizda', locale)}` },
-        { name: t.consultants, href: `/${locale}/${getLocalizedRoute('danismanlar', locale)}` },
         { name: t.visionMission, href: `/${locale}/${getLocalizedRoute('kurumsal', locale)}/${getLocalizedRoute('vizyon-misyon', locale)}` },
         { name: t.references, href: `/${locale}/${getLocalizedRoute('kurumsal', locale)}/${getLocalizedRoute('referanslar', locale)}` },
         { name: t.certificates, href: `/${locale}/${getLocalizedRoute('kurumsal', locale)}/${getLocalizedRoute('belgeler', locale)}` },
@@ -207,7 +207,7 @@ export default function Header() {
             />
           </div>
           {/* Desktop: yatay logo */}
-          <div className="relative w-44 h-10 hidden sm:block lg:w-48 lg:h-11">
+          <div className="relative w-40 h-9 hidden sm:block lg:w-44 lg:h-10 xl:w-48 xl:h-11">
             <Image
               src="/logo-wide-navy.svg"
               alt="Kalinda Yapı Logo"
@@ -230,7 +230,9 @@ export default function Header() {
               <Link
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-1 rounded-full px-2.5 py-2 text-[15px] font-medium transition-colors",
+                  // lg (1024-1279px) bandinda serit dar kaliyor: dolgu ve yazi
+          // bir tik kuculur, xl'den itibaren normale doner.
+          "flex items-center gap-1 rounded-full px-2 py-2 text-sm xl:px-2.5 xl:text-[15px] font-medium transition-colors",
                   isActive(item.href)
                     ? "bg-primary/[0.07] text-primary"
                     : "text-ink hover:bg-primary/[0.05] hover:text-primary"
