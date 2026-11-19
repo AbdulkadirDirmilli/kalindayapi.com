@@ -207,7 +207,7 @@ export default function Header() {
             />
           </div>
           {/* Desktop: yatay logo */}
-          <div className="relative w-40 h-9 hidden sm:block lg:w-44 lg:h-10 xl:w-48 xl:h-11">
+          <div className="relative w-40 h-9 hidden sm:block lg:w-40 lg:h-10 xl:w-48 xl:h-11">
             <Image
               src="/logo-wide-navy.svg"
               alt="Kalinda Yapı Logo"
@@ -219,7 +219,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation — pill linkler */}
-        <nav className="hidden flex-1 items-center gap-0.5 lg:flex">
+        <nav className="hidden flex-1 items-center gap-0 xl:gap-0.5 lg:flex">
           {navigation.map((item) => (
             <div
               key={item.name}
