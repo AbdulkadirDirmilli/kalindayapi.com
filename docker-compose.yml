@@ -1,8 +1,12 @@
-version: '3.8'
-
 services:
   kalindayapi:
-    build: .
+    build:
+      context: .
+      # Build adimlari da host aginda calismali. VPS'in netif sinirinde
+      # (Virtuozzo) her RUN adimi icin veth cifti acilamiyor ve build
+      # "cannot allocate memory" ile patliyor. network_mode: host yalnizca
+      # calisan konteyneri kurtariyordu, build'i degil.
+      network: host
     container_name: kalindayapi-app
     restart: unless-stopped
     env_file:
