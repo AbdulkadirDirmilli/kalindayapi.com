@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Kalinda Yapı Emlak Renk Paleti — muglaport.com.tr referans alınarak
-     primary : koyu lacivert — marka rengi; başlık vurgusu, link, koyu zemin
-     accent  : açık mavi — CTA butonları, ikon dolguları, etkileşim
+  /* Kalinda Yapı Emlak Renk Paleti — turkuaz marka ailesi
+     primary : koyu turkuaz — marka rengi; başlık vurgusu, link, koyu zemin
+     accent  : parlak turkuaz — CTA butonları, ikon dolguları, etkileşim
      ink     : sıcak siyah — başlıklar ve gövde metni
 
-     KURAL: Açık zeminde metin için accent (açık mavi) KULLANMAYIN —
-     primary (lacivert) veya ink kullanın. Accent yalnızca dolgu/zemin içindir.
-     Koyu lacivert zeminde metin text-white / text-carolina olmalı. */
-  --color-primary: #012169;
-  --color-primary-light: #1B3C7E;
-  --color-primary-dark: #000F3D;
-  --color-accent: #418FDE;
-  --color-accent-light: #6BA7E7;
-  --color-accent-dark: #2A6FB8;
+     KURAL: Açık zeminde metin için accent (parlak turkuaz) KULLANMAYIN —
+     primary (koyu turkuaz) veya ink kullanın. Accent yalnızca dolgu/zemin içindir.
+     Koyu turkuaz zeminde metin text-white / text-carolina olmalı. */
+  --color-primary: #00767C;
+  --color-primary-light: #00989F;
+  --color-primary-dark: #00494E;
+  --color-accent: #00B4BD;
+  --color-accent-light: #4FD1D9;
+  --color-accent-dark: #00888F;
   --color-ink: #2D2926;
   --color-ink-light: #4A443F;
   --color-background: #FFFFFF;
@@ -29,12 +29,12 @@
   /* İkincil vurgu tonları (referans paletten) */
   --color-ocean: #00B4BD;
   --color-ocean-ink: #00767C;
-  --color-slate: #5C86A0;
+  --color-slate: #4A9BA3;
   --color-carolina: #89D4E3;
   --color-cement: #E6DDD1;
 
   /* Danisman avatarinda fotograf yoksa cinsiyete gore ikon rengi:
-     erkek accent mavisini, kadin bu pembeyi kullanir. */
+     erkek accent turkuazini, kadin bu pembeyi kullanir. */
   --color-feminine: #D6608F;
 
   --color-success: #2F7D4F;
@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(1, 33, 105, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 118, 124, 0.12);
 }
 
 /* Button Base */
@@ -223,7 +223,7 @@ h1, h2, h3, h4, h5, h6 {
 .input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(1, 33, 105, 0.16);
+  box-shadow: 0 0 0 3px rgba(0, 118, 124, 0.16);
 }
 
 .input::placeholder {
@@ -274,7 +274,7 @@ h1, h2, h3, h4, h5, h6 {
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(1, 33, 105, 0.6), rgba(1, 33, 105, 0.85));
+  background: linear-gradient(to bottom, rgba(0, 118, 124, 0.6), rgba(0, 118, 124, 0.85));
 }
 
 /* Aspect Ratios */
@@ -398,8 +398,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Döviz sembolü için özel parlama */
 @keyframes symbol-flash {
   0%, 100% {
-    color: #418FDE;
-    text-shadow: 0 0 4px rgba(65, 143, 222, 0.5);
+    color: #00B4BD;
+    text-shadow: 0 0 4px rgba(0, 180, 189, 0.5);
   }
   50% {
     color: #89D4E3;

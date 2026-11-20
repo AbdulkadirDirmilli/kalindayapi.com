@@ -56,7 +56,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       baslik: t.realEstate.title,
       aciklama: t.realEstate.description,
       ikon: Home,
-      renk: "#012169",
+      renk: "#00767C",
       href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("emlak-danismanligi", lang)}`,
     },
     {
@@ -64,7 +64,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       baslik: t.valuation.title,
       aciklama: t.valuation.description,
       ikon: Calculator,
-      renk: "#418FDE",
+      renk: "#00B4BD",
       href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("gayrimenkul-degerleme", lang)}`,
     },
     {
@@ -72,7 +72,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       baslik: t.investment.title,
       aciklama: t.investment.description,
       ikon: TrendingUp,
-      renk: "#00767C",
+      renk: "#005358",
       href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("yatirim-danismanligi", lang)}`,
     },
     {
@@ -80,7 +80,7 @@ export default function HizmetKartlari({ lang = 'tr', dict }: HizmetKartlariProp
       baslik: t.titleDeed.title,
       aciklama: t.titleDeed.description,
       ikon: FileCheck,
-      renk: "#5C86A0",
+      renk: "#4A9BA3",
       href: `/${lang}/${getLocalizedRoute("hizmetler", lang)}/${getLocalizedRoute("tapu-islemleri", lang)}`,
     },
   ];

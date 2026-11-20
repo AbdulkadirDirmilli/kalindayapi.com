@@ -403,7 +403,7 @@ export default async function VizyonMisyonPage({
               </div>
             </Card>
 
-            <Card padding="lg" className="border-l-4 border-l-[#418FDE]">
+            <Card padding="lg" className="border-l-4 border-l-accent">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center">
                   <Eye className="w-8 h-8 text-ink" />

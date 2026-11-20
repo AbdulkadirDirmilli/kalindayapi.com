@@ -101,19 +101,22 @@ slug'larıyla birlikte.
 
 ## 4. Renk paleti referansı
 
-> **19 Kasım 2026'da palet muglaport.com.tr'den birebir uyarlandı.** Altın
-> (`#C9A84C`) tamamen kaldırıldı. Önceki açık mavi `primary` aslında
-> referansın **accent**'iydi; referansın marka rengi koyu lacivert `#012169`.
+> **20 Kasım 2026'da mavi aile tamamen turkuaza çevrildi** — bkz. bölüm 4.9.
+> Aşağıdaki tablo güncel paleti gösterir.
+>
+> Geçmiş: 19 Kasım 2026'da palet muglaport.com.tr'den birebir uyarlanmıştı
+> (altın `#C9A84C` kaldırıldı, marka rengi koyu lacivert `#012169` olmuştu).
+> Lacivert dönemin token değerleri bölüm 4.9'daki eşleme tablosunda.
 
 `app/globals.css` → `@theme inline`
 
 ```
---color-primary        #012169   KOYU LACİVERT — marka; link, başlık vurgusu, koyu zemin
---color-primary-light  #1B3C7E   hover
---color-primary-dark   #000F3D   basılı / koyu varyant
---color-accent         #418FDE   AÇIK MAVİ — yalnızca CTA butonu, ikon dolgusu
---color-accent-light   #6BA7E7
---color-accent-dark    #2A6FB8
+--color-primary        #00767C   KOYU TURKUAZ — marka; link, başlık vurgusu, koyu zemin
+--color-primary-light  #00989F   hover
+--color-primary-dark   #00494E   basılı / koyu varyant
+--color-accent         #00B4BD   PARLAK TURKUAZ — yalnızca CTA butonu, ikon dolgusu
+--color-accent-light   #4FD1D9
+--color-accent-dark    #00888F
 --color-ink            #2D2926   sıcak siyah — BAŞLIKLAR ve gövde metni
 --color-ink-light      #4A443F
 --color-surface        #EDF0F4   açık yüzey (referans: soft)
@@ -123,11 +126,11 @@ slug'larıyla birlikte.
 --color-text-light     #5C5651   gövde ikincil metin
 --color-text-muted     #8A857F   soluk metin
 
-ikincil vurgular (referans paletten):
---color-ocean          #00B4BD
---color-ocean-ink      #00767C
---color-slate          #5C86A0
---color-carolina       #89D4E3   koyu lacivert zeminde metin/başlık rengi
+ikincil vurgular:
+--color-ocean          #00B4BD   (artık accent ile aynı — dönüşümün yan etkisi)
+--color-ocean-ink      #00767C   (artık primary ile aynı)
+--color-slate          #4A9BA3   eski #5C86A0 mavi-gri idi
+--color-carolina       #89D4E3   koyu turkuaz zeminde metin/başlık rengi
 --color-cement         #E6DDD1
 
 --color-success        #2F7D4F
@@ -135,34 +138,51 @@ ikincil vurgular (referans paletten):
 --color-error          #C2412D
 ```
 
-Referansın kendi token'ları (doğrulama için): `--brand:#012169`,
-`--accent:#418fde`, `--ink:#2d2926`, `--paper:#fff`; marka tonları
-`color-mix(in oklab, var(--brand) N%, black)` ile türetiliyor.
+> `ocean` / `ocean-ink` dönüşümden sonra `accent` / `primary` ile birebir
+> aynı değere düştü. Silinmedi çünkü kullanımda; ama **yeni kodda
+> `primary`/`accent` tercih edin**, `ocean` ayrı bir renk sanılmasın.
+
+`surface`, `border` ve `text-*` tonları hâlâ hafif **mavi-gri** (`#EDF0F4`,
+`#E3E6EB`, `#C9CED6`). Bunlar marka mavisi değil nötr yüzey olduğu için
+dönüşüme dahil edilmedi. Turkuazla birlikte soğuk durursa sıcak griye
+(ör. `#F2F1EE`) çekilebilir — açık karar, bölüm 5.
 
 ## 4.1 Logo varyantları
 
 Logo altın/amber gradyanlı; beyaz zeminde soluk kalıyordu. Palete uyumlu
-**lacivert varyantlar** üretildi (orijinaller silinmedi).
+koyu varyantlar üretildi (orijinaller silinmedi).
 
 | Dosya | Renk | Nerede kullanılır |
 |---|---|---|
 | `public/logo.svg` | altın, kare | **Koyu zemin** — admin sidebar (`bg-primary`) |
 | `public/logo-footer.svg` | altın, yatay | **Koyu zemin** — site footer |
-| `public/logo-navy.svg` | **lacivert, kare** | Beyaz zemin — navbar (mobil), admin giriş |
-| `public/logo-wide-navy.svg` | **lacivert, yatay** | Beyaz zemin — navbar (masaüstü) |
+| `public/logo-navy.svg` | **turkuaz, kare** | Beyaz zemin — navbar (mobil), admin giriş |
+| `public/logo-wide-navy.svg` | **turkuaz, yatay** | Beyaz zemin — navbar (masaüstü) |
 
-Üretim yöntemi: orijinaldeki her renk jetonu lacivert karşılığına eşlendi.
-Merkez parlaması (beyaz ve açık sarılar) → `#1B3C7E`, gövde/kenar/kontur
-(altın, amber, sarı, ten) → `#012169`, gradyan ara tonları → lacivert rampa
-(`#16386F`, `#10306C`, `#0A2A6A`, `#072568`). **Kontur genişlikleri ve yol
-verileri değiştirilmedi**, siluet orijinalle birebir aynı.
+> ⚠️ **Dosya adları hâlâ `-navy`** ama içerikleri 20 Kasım 2026'da turkuaza
+> boyandı. Yeniden adlandırma yapılmadı: `Header.tsx` ve admin giriş sayfası
+> bu adlarla referans veriyor, ayrıca tarayıcı/CDN cache'i karışmasın diye.
+> Adları düzeltmek isterseniz `components/layout/Header.tsx` (2 yer) ve
+> `app/admin/(auth)/giris/page.tsx` (1 yer) güncellenmeli.
 
-> Kural: **beyaz/açık zeminde lacivert varyantı, koyu lacivert zeminde altın
+Üretim yöntemi: orijinaldeki her renk jetonu koyu karşılığına eşlendi.
+Merkez parlaması (beyaz ve açık sarılar) → `primary-light`, gövde/kenar/kontur
+(altın, amber, sarı, ten) → `primary`, gradyan ara tonları → rampa.
+**Kontur genişlikleri ve yol verileri değiştirilmedi**, siluet orijinalle
+birebir aynı. Turkuaz dönüşümünde aynı eşleme hex-değiştirme ile uygulandı:
+
+```
+#012169 → #00767C      #1B3C7E → #00989F
+#16386F → #078C92      #10306C → #04868C
+#0A2A6A → #028086      #072568 → #017B80
+```
+
+> Kural: **beyaz/açık zeminde turkuaz varyantı, koyu turkuaz zeminde altın
 > orijinali** kullanın.
 
 Not: JSON-LD'deki kurum logosu (`lib/jsonld.ts`, `lib/dovizJsonLd.ts`) hâlâ
 altın `logo.svg`'yi gösteriyor — bilinçli bırakıldı, marka logosu o. Arama
-sonuçlarında beyaz zeminde göründüğü için lacivert varyanta çevrilmesi
+sonuçlarında beyaz zeminde göründüğü için koyu varyanta çevrilmesi
 tartışılabilir.
 
 ## 4.2 Döviz bileşenlerinin yeri
@@ -361,6 +381,92 @@ Tüm ilanlar silindiği için `public/uploads` ölü veriye dönüşmüştü:
 > `/root/backups/kalindayapi-ilan-fotograflari-2026-11-18.tar.gz`
 > Bu arşiv 30 günlük yedek döngüsünün **dışında**, kalıcı.
 
+## 4.9 Mavi → turkuaz dönüşümü (20 Kasım 2026)
+
+**İstek:** "Frontend'de kullandığımız koyu mavi renklerin tamamı turkuaz
+yapılmalıdır." Onaylanan kapsam: sadece `primary` değil, **`accent` dahil tüm
+mavi aile**; tercih edilen ton paletteki mevcut `ocean` (`#00B4BD`) ailesi.
+
+### Token eşlemesi
+
+| Token | Eski (lacivert dönem) | Yeni (turkuaz) |
+|---|---|---|
+| `primary` | `#012169` | `#00767C` |
+| `primary-light` | `#1B3C7E` | `#00989F` |
+| `primary-dark` | `#000F3D` | `#00494E` |
+| `accent` | `#418FDE` | `#00B4BD` |
+| `accent-light` | `#6BA7E7` | `#4FD1D9` |
+| `accent-dark` | `#2A6FB8` | `#00888F` |
+| `slate` | `#5C86A0` | `#4A9BA3` |
+
+`primary` koyu/metin-güvenli, `accent` parlak/dolgu ayrımı korundu — bu yüzden
+seçilen `#00B4BD`, `accent`'e verildi; `primary-light` onun bir tık altı oldu.
+
+### Değiştirilen dosyalar
+
+- `app/globals.css` — palet, bölüm başı yorumları, `rgba(1,33,105,…)` →
+  `rgba(0,118,124,…)` (card-hover gölgesi, input focus ring, hero `.overlay`),
+  döviz `symbol-flash` animasyonu
+- `app/layout.tsx` — `viewport.themeColor`
+- `public/logo-navy.svg`, `public/logo-wide-navy.svg` — bkz. 4.1
+- `components/sections/HizmetKartlari.tsx` — 4 kartın `renk` alanı. Kartların
+  **birbirinden ayırt edilebilir** olması gerektiği için düz eşleme yapılmadı,
+  4 ayrı turkuaz tonuna dağıtıldı: `#00767C`, `#00B4BD`, `#005358`, `#4A9BA3`.
+  (Düz eşlemede 1. ve 3. kart aynı renge düşüyordu.)
+- `app/error.tsx`, `app/[lang]/error.tsx` — ham `bg-blue-600/700` →
+  `bg-primary` / `hover:bg-primary-light`
+- `app/[lang]/kurumsal/vizyon-misyon/page.tsx` — `border-l-[#418FDE]` →
+  `border-l-accent`
+- `lib/email.ts`, `lib/lead-email.ts` — mail şablonu başlık ve badge renkleri
+  (frontend dışı; marka tutarlılığı için dahil edildi)
+
+### Bilinçli dokunulmayanlar
+
+- `components/ui/FlagIcon.tsx` içindeki `#012169` — **İngiltere bayrağının
+  resmi mavisi**, marka rengi değil. Değiştirilmemeli.
+- Admin panelindeki `bg-blue-50` / `text-blue-800` NetGSM bilgi kutusu
+  (`app/admin/(dashboard)/sms/ayarlar/page.tsx`) — nötr "info" rengi.
+- `components/sections/GoogleReviews.tsx` içindeki `bg-blue-500` — rastgele
+  avatar renk havuzunun bir üyesi.
+- `app/admin/(dashboard)/sms/page.tsx`, `components/admin/ilan/IlanForm.tsx` —
+  admin içi durum renkleri.
+
+### ⚠️ Açık kontrast riski (doğrulanmalı)
+
+Turkuaz, laciverten çok daha açık. Bölüm 4.3'te koyu zemin için kurulan
+`text-carolina` çözümü bu yüzden zayıfladı:
+
+| Kombinasyon | Lacivert dönemi | Turkuaz sonrası | Durum |
+|---|---|---|---|
+| `carolina` üzerine `primary` zemin | 8.9:1 | **3.2:1** | küçük metinde AA altı |
+| beyaz metin / `primary` zemin | 19:1 | 5.4:1 | AA geçer |
+| beyaz metin / `accent` zemin | 3.0:1 | **2.5:1** | ikisi de AA altı, biraz kötüleşti |
+
+`text-carolina` hero ve breadcrumb alanlarında **~40 yerde** kullanılıyor.
+İki olası düzeltme (henüz uygulanmadı, müşteri kararı):
+1. `carolina`'yı açmak (ör. `#CFF2F7`) → kontrast 4.5:1 üstüne çıkar
+2. `primary`'yi koyultmak (`#00767C` → `#005F63`) → carolina 4.5:1 olur,
+   beyaz metin 7.5:1'e çıkar
+
+`btn-accent` ve `badge-kiralik` beyaz metni `accent` üzerinde: `accent-dark`'a
+alınabilir ya da `text-ink` yapılabilir.
+
+### Doğrulama durumu
+
+- `npx tsc --noEmit`: dokunulan dosyalarda **0 hata**. Çıkan hatalar
+  `lib/i18n/getDictionary.ts` ve `scripts/` altında, bölüm 6'daki önceden
+  var olan hatalar.
+- Dev server (`npm run dev`, port 1301): `HTTP 200`, servis edilen
+  `layout.css` içinde turkuaz token'ları doğrulandı.
+- **Görsel kontrol YAPILMADI.** Tarayıcı otomasyonu engellendi: Claude
+  hesabına bağlı Chrome'ların tümü macOS'ta, dev server bu Windows
+  makinesinde → macOS'taki `localhost` bu makineyi göstermiyor. LAN IP
+  (`10.99.62.158:1301`) Windows'tan `200` dönüyor ama mac'ten erişilemedi
+  (firewall / farklı ağ). Çözüm: **bu makinedeki Chrome'a Claude in Chrome
+  eklentisini kurup hesaba bağlamak**. Sonraki oturumun ilk işi bu.
+
+---
+
 ## 5. Yarım kalan / müşteriye sorulacaklar
 
 ### Müşteri onayı bekleyenler
@@ -432,8 +538,18 @@ Türkçe kaynağı değiştirdikten sonra bunları yeniden çalıştırın.
 
 ## 8. Sonraki oturumda ilk adım
 
-1. Bu dosyayı oku
-2. `git log --oneline main..HEAD` ile 3 commit'i gör
-3. Siteyi ayağa kaldır, müşteri geri bildirimini al
-4. Bölüm 5'teki açık soruları netleştir
-5. Onay gelirse `main`'e merge + deploy
+1. Bu dosyayı oku — özellikle **bölüm 4.9** (turkuaz dönüşümü, görsel
+   kontrolü yapılmamış durumda)
+2. `git log --oneline -5` ile son commit'leri gör
+3. **Turkuaz paletin görsel kontrolünü tamamla.** Bu makinedeki Chrome'a
+   Claude in Chrome eklentisi kurulu değilse önce onu kur ve hesaba bağla
+   (macOS'taki Chrome'lar bu makinenin `localhost`'unu göremiyor).
+   Bakılacak yerler:
+   - Ana sayfa: hero, `HizmetKartlari`'nın 4 kart rengi, arama kutusu altı
+   - Bir alt sayfa (ör. `/tr/hizmetler`): `bg-primary` başlık bandı +
+     breadcrumb + `text-carolina` vurgu → **4.9'daki kontrast riski**
+   - `/tr/ilanlar`: "Kiralık" badge'i (beyaz metin / `accent` zemin)
+   - Navbar'daki turkuaz logo, beyaz zeminde yeterince okunuyor mu
+4. Kontrast kararını al (4.9'un sonundaki 2 seçenek) ve uygula
+5. Bölüm 5'teki açık soruları netleştir
+6. Onay gelirse deploy
