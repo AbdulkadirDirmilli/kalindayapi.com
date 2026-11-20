@@ -102,6 +102,10 @@ function getLocalizedHizmetler(locale: Locale): (Hizmet | TranslatedHizmet)[] {
   return hizmetlerData.hizmetler as Hizmet[];
 }
 
+// `getAnaDanisman()` ile danisman verisi okuyor — statik kalirsa admin
+// degisikligi deploy'a kadar gorunmez.
+export const revalidate = 60;
+
 export async function generateMetadata({
   params,
 }: HizmetDetayPageProps): Promise<Metadata> {

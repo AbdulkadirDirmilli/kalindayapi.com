@@ -130,7 +130,8 @@ ikincil vurgular:
 --color-ocean          #00B4BD   (artık accent ile aynı — dönüşümün yan etkisi)
 --color-ocean-ink      #00767C   (artık primary ile aynı)
 --color-slate          #4A9BA3   eski #5C86A0 mavi-gri idi
---color-carolina       #89D4E3   koyu turkuaz zeminde metin/başlık rengi
+--color-carolina       #CFF2F7   koyu turkuaz zeminde metin/başlık rengi
+                                 (turkuaz icin aciltildi, bkz. 4.9)
 --color-cement         #E6DDD1
 
 --color-success        #2F7D4F
@@ -431,25 +432,30 @@ seçilen `#00B4BD`, `accent`'e verildi; `primary-light` onun bir tık altı oldu
 - `app/admin/(dashboard)/sms/page.tsx`, `components/admin/ilan/IlanForm.tsx` —
   admin içi durum renkleri.
 
-### ⚠️ Açık kontrast riski (doğrulanmalı)
+### Kontrast onarımı (uygulandı)
 
 Turkuaz, laciverten çok daha açık. Bölüm 4.3'te koyu zemin için kurulan
-`text-carolina` çözümü bu yüzden zayıfladı:
+`text-carolina` çözümü bu yüzden zayıflamıştı:
 
-| Kombinasyon | Lacivert dönemi | Turkuaz sonrası | Durum |
+| Kombinasyon | Lacivert dönemi | Turkuaz (ilk) | Turkuaz (onarım sonrası) |
 |---|---|---|---|
-| `carolina` üzerine `primary` zemin | 8.9:1 | **3.2:1** | küçük metinde AA altı |
-| beyaz metin / `primary` zemin | 19:1 | 5.4:1 | AA geçer |
-| beyaz metin / `accent` zemin | 3.0:1 | **2.5:1** | ikisi de AA altı, biraz kötüleşti |
+| `carolina` / `primary` zemin | 8.9:1 | **3.2:1** ❌ | **~12:1** ✅ |
+| beyaz metin / `primary` zemin | 19:1 | 5.4:1 ✅ | 5.4:1 ✅ |
+| beyaz metin / `accent` zemin | 3.0:1 | 2.5:1 ⚠️ | 2.5:1 ⚠️ |
 
-`text-carolina` hero ve breadcrumb alanlarında **~40 yerde** kullanılıyor.
-İki olası düzeltme (henüz uygulanmadı, müşteri kararı):
-1. `carolina`'yı açmak (ör. `#CFF2F7`) → kontrast 4.5:1 üstüne çıkar
-2. `primary`'yi koyultmak (`#00767C` → `#005F63`) → carolina 4.5:1 olur,
-   beyaz metin 7.5:1'e çıkar
+**Yapılan:** `carolina` `#89D4E3` → **`#CFF2F7`** açıldı. Tek token
+değişikliği, `text-carolina`'nın ~40 kullanım yerine dokunulmadı.
+Alternatif olarak `primary`'yi `#005F63`'e koyultmak da düşünülmüştü;
+token değiştirmek daha az invaziv olduğu için o seçilmedi.
 
-`btn-accent` ve `badge-kiralik` beyaz metni `accent` üzerinde: `accent-dark`'a
-alınabilir ya da `text-ink` yapılabilir.
+> `globals.css`'teki `symbol-flash` keyframe'inde `#89D4E3` **bilinçli
+> bırakıldı** — döviz sembolünün açık zemindeki parlama tepesi; açılırsa
+> beyazda kaybolur. `carolina` token'ıyla ilgisi yok.
+
+**Hâlâ açık:** `btn-accent` ve `badge-kiralik` beyaz metni `accent`
+üzerinde 2.5:1. Lacivert dönemde de (3.0:1) AA altıydı, yani yeni bir
+gerileme değil ama düzeltilmedi. Seçenekler: zemini `accent-dark`'a almak
+ya da metni `text-ink` yapmak.
 
 ### Doğrulama durumu
 
@@ -464,6 +470,85 @@ alınabilir ya da `text-ink` yapılabilir.
   (`10.99.62.158:1301`) Windows'tan `200` dönüyor ama mac'ten erişilemedi
   (firewall / farklı ağ). Çözüm: **bu makinedeki Chrome'a Claude in Chrome
   eklentisini kurup hesaba bağlamak**. Sonraki oturumun ilk işi bu.
+
+---
+
+## 4.10 Danışman değişiklikleri sitede görünmüyordu (21 Kasım 2026)
+
+**Belirti:** Admin panelinden Arif DAĞDELEN'e fotoğraf eklenip kaydediliyor,
+`/tr/danismanlar` sayfasında fotoğraf görünmüyordu.
+
+**Teşhis — sorun fotoğraf yüklemede DEĞİLDİ.** Sırayla elendi:
+
+| Kontrol | Sonuç |
+|---|---|
+| DB'ye kaydediliyor mu | ✅ `/api/danismanlar` → `foto: "/uploads/danismanlar/1795207789967-cjzwab.webp"` |
+| Dosya sunucuda var mı | ✅ Ham URL `200`, `image/webp`, 4558 bayt |
+| `/_next/image` 404 veriyor | ⚠️ İlgisiz — `next.config.ts`'de `images.unoptimized: true`, optimize edici hiç kullanılmıyor |
+| Sayfanın HTML'i | ❌ Arif için avatar **ikon yedek dalı** basılmış (`bg-accent/15` + `<svg>`), yani `foto` boş gelmiş |
+
+**Kesin kanıt:** Aynı sayfada ABDULKADİR'in fotoğrafı **görünüyordu**
+(`1795128784828`, son build'den önce yüklenmiş), Arif'inki görünmüyordu
+(`1795207789967`, build'den **sonra** yüklenmiş). Ana sayfada ise hiç
+danışman fotoğrafı yoktu.
+
+**Kök neden:** Danışman verisini gösteren dört sayfanın hiçbirinde
+`dynamic` veya `revalidate` yoktu; dördü de Prisma'yı doğrudan okuyup
+**build anında statik olarak donuyordu**. Projede `revalidatePath` /
+`revalidateTag` **hiç kullanılmıyordu**. İlan sayfaları `force-dynamic`
+olduğu için ilan düzenlemeleri anında görünüyordu — bu yüzden sorun
+yalnızca danışman modülündeymiş gibi duruyordu.
+
+**Çözüm — iki katmanlı:**
+
+1. **Anında etki:** `lib/revalidate-danismanlar.ts` →
+   `revalidateDanismanSayfalari()`. Admin POST / PUT / DELETE sonrası
+   çağrılıyor (`app/api/admin/ortaklar/route.ts` ve `[id]/route.ts`).
+   Yollar `app/` route deseni olarak veriliyor, `[lang]` sayesinde tek
+   çağrı beş dili kapsıyor:
+   ```
+   /[lang]   /[lang]/danismanlar   /[lang]/hakkimizda   /[lang]/hizmetler/[slug]
+   ```
+   > Lokalize takma adlar (`/de/berater`) **gerçek route değil** —
+   > next.config redirect'leriyle Türkçe yola dönüyor. Onları
+   > tazelemek gereksizdi, ilk denemede bu hata yapıldı.
+
+2. **Emniyet payı:** dört sayfaya `export const revalidate = 60`.
+   `revalidatePath` bir şekilde çalışmazsa değişiklik en fazla 1 dakikada
+   görünür. Build çıktısında dördü de `1m` olarak doğrulandı.
+
+Ana sayfa için `force-dynamic` **bilinçli seçilmedi** — en çok gezilen
+sayfa ve sunucu 2 çekirdekli; ISR statik servisi koruyor.
+
+### Bu modülde bulunan diğer şeyler
+
+- **Yetim fotoğraf dosyaları.** Danışmanın fotoğrafı değiştirilince eskisi
+  diskten silinmiyor (`unlink` yok). Her değişiklikte bir dosya birikiyor.
+  Küçük ama bölüm 4.8 disk temizliğiyle ilgili.
+- **API katmanı sağlam.** Auth kontrolü, zod doğrulaması, slug çakışma
+  kontrolü, silmede `Ilan.danismanId` boşaltma (FK ihlali önleme) — hepsi
+  doğru. Yükleme tarafında `danismanlar` klasörü beyaz listede, dosya
+  tipi/boyut kontrolü var.
+- **Kod tekrarı.** `app/[lang]/danismanlar/page.tsx` Prisma'yı kendisi
+  sorguluyor; oysa `lib/danismanlar.ts` → `getDanismanlar()` tek kaynak
+  olarak kurulmuştu (bkz. 4.5). `jsonDizi` üç yerde kopyalanmış
+  (`lib/danismanlar.ts`, `app/api/danismanlar/route.ts`, sayfanın içinde).
+
+### ⚠️ Aynı hatanın devam ettiği yer
+
+`app/[lang]/blog/[slug]/page.tsx` de DB okuyor ve `revalidate`/`dynamic`
+**yok** → blog yazısı düzenlemeleri de ancak deploy'da görünür. Build
+çıktısında revalidate sütunu boş. **Henüz düzeltilmedi** — danışman
+modülü kapsamı dışında kaldı, müşteri onayı bekliyor.
+
+### Not: repodaki `nginx.conf` güncel değil
+
+`proxy_pass http://127.0.0.1:3000` ve `alias /var/www/kalindayapi.com/...`
+yazıyor; oysa `docker-compose.yml` `PORT=3001` kullanıyor ve kendi
+yorumunda nginx'in `172.18.0.1:3001`'e gittiğini söylüyor, deploy da
+`/root/kalindayapi.com` altında çalışıyor. Sunucudaki gerçek nginx
+yapılandırması repodakinden farklı. Siteyi etkilemiyor ama bu dosyaya
+bakıp karar vermeyin.
 
 ---
 

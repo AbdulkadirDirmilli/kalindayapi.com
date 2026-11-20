@@ -26,6 +26,10 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
 }
 
+// `getAnaDanisman()` ile danisman verisi okuyor — statik kalirsa admin
+// degisikligi deploy'a kadar gorunmez.
+export const revalidate = 60;
+
 export async function generateMetadata({
   params,
 }: {

@@ -8,6 +8,15 @@ import { buildLocalizedUrl, buildSeoAlternates, resolveLocale } from "@/lib/seo"
 import { createWhatsAppLink } from "@/lib/utils";
 import { getLocalizedRoute } from "@/lib/i18n/config";
 
+/**
+ * Danisman verisi admin panelinden degisiyor; sayfa build aninda
+ * dondurulursa yeni eklenen danisman veya yuklenen fotograf ancak bir
+ * sonraki deploy'da gorunur (Arif Bey'in fotografi boyle kaybolmustu).
+ * Admin kaydettiginde `revalidatePath` bu yolu aninda tazeliyor; asagidaki
+ * sure yalnizca emniyet payidir.
+ */
+export const revalidate = 60;
+
 export async function generateMetadata({
   params,
 }: {

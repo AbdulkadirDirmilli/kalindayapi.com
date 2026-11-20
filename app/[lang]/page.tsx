@@ -22,6 +22,10 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
 }
 
+// Ana sayfa `getAnaDanisman()` ile danisman verisi okuyor; statik kalirsa
+// admin degisikligi deploy'a kadar gorunmez. ISR ile tazeleniyor.
+export const revalidate = 60;
+
 // Dinamik metadata
 export async function generateMetadata({
   params,

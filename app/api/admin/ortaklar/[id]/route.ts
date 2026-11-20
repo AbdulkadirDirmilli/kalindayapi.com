@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { ortakGuncelleSchema } from '@/lib/validations/ortak'
+import { revalidateDanismanSayfalari } from '@/lib/revalidate-danismanlar'
 
 // GET - Get single ortak
 export async function GET(
@@ -84,6 +85,8 @@ export async function PUT(
       data: { ...veri, ...(email !== undefined ? { email: email || null } : {}) },
     })
 
+    revalidateDanismanSayfalari()
+
     return NextResponse.json(ortak)
   } catch (error) {
     console.error('Ortak guncelleme hatasi:', error)
@@ -118,6 +121,8 @@ export async function DELETE(
     }
 
     await prisma.ortak.delete({ where: { id } })
+
+    revalidateDanismanSayfalari()
 
     return NextResponse.json({
       message: 'Ortak basariyla silindi',

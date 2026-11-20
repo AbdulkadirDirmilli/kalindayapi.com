@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { ortakSchema } from '@/lib/validations/ortak'
+import { revalidateDanismanSayfalari } from '@/lib/revalidate-danismanlar'
 
 // GET - List all ortaklar
 export async function GET() {
@@ -64,6 +65,8 @@ export async function POST(request: NextRequest) {
         sira: sira ?? (sonuncu?.sira ?? -1) + 1,
       },
     })
+
+    revalidateDanismanSayfalari()
 
     return NextResponse.json(ortak, { status: 201 })
   } catch (error) {
