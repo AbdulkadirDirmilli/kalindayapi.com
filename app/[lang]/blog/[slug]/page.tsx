@@ -228,6 +228,19 @@ function getFromJson(slug: string) {
   };
 }
 
+/**
+ * Bu sayfa DB'yi sunucuda okuyor; statik kalirsa mevcut bir yazinin
+ * duzenlemesi ancak bir sonraki deploy'da gorunur (danisman modulundeki
+ * ayni hata, bkz. CALISMA-NOTLARI 4.10).
+ *
+ * Admin kaydettiginde `revalidateBlogSayfalari()` bu yolu aninda tazeliyor.
+ * Asagidaki sure iki ise yariyor: emniyet payi, ve arka planda calisan
+ * otomatik cevirilerin (`translateBlogPostAsync` fire-and-forget oldugu icin
+ * istek baglami disinda `revalidatePath` cagiramaz) en fazla bir dakikada
+ * yayina girmesi.
+ */
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   // Her dil için statik parametreler oluştur
   const params: { lang: string; slug: string }[] = [];

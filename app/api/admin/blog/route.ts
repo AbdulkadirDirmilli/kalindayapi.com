@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { translateBlogPostAsync } from '@/lib/services/translation'
+import { revalidateBlogSayfalari } from '@/lib/revalidate-blog'
 
 // GET - List all blog posts
 export async function GET(request: NextRequest) {
@@ -161,6 +162,8 @@ export async function POST(request: NextRequest) {
 
     // Otomatik çeviri başlat (arka planda)
     translateBlogPostAsync(blogPost.id, baslik, ozet, icerik)
+
+    revalidateBlogSayfalari()
 
     return NextResponse.json({
       id: blogPost.id,

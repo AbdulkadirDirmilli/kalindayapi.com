@@ -4,6 +4,24 @@ import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { ortakGuncelleSchema } from '@/lib/validations/ortak'
 import { revalidateDanismanSayfalari } from '@/lib/revalidate-danismanlar'
+import { yuklemeyiSil } from '@/lib/upload-temizle'
+
+/**
+ * Eski danisman fotografini diskten siler — ama yalnizca baska hicbir
+ * Ortak kaydi ayni dosyaya isaret etmiyorsa. Ayni gorseli iki danismana
+ * atamak mumkun oldugu icin bu kontrol sart; aksi halde birinin fotografi
+ * degistirildiginde digerinin gorseli de kaybolurdu.
+ */
+async function eskiFotoyuSil(eskiFoto: string | null, hariçTutulanId: string) {
+  if (!eskiFoto) return
+
+  const baskaKullanan = await prisma.ortak.count({
+    where: { foto: eskiFoto, id: { not: hariçTutulanId } },
+  })
+  if (baskaKullanan > 0) return
+
+  await yuklemeyiSil(eskiFoto)
+}
 
 // GET - Get single ortak
 export async function GET(
@@ -85,6 +103,12 @@ export async function PUT(
       data: { ...veri, ...(email !== undefined ? { email: email || null } : {}) },
     })
 
+    // Fotograf degistirildiyse (veya kaldirildiysa) eskisini diskten temizle.
+    // `foto` gonderilmediyse dokunulmaz; `undefined` "degismedi" demek.
+    if (veri.foto !== undefined && veri.foto !== existingOrtak.foto) {
+      await eskiFotoyuSil(existingOrtak.foto, id)
+    }
+
     revalidateDanismanSayfalari()
 
     return NextResponse.json(ortak)
@@ -110,6 +134,12 @@ export async function DELETE(
 
     const { id } = await params
 
+    // Fotograf yolu silmeden once okunmali, sonra kayit ortadan kalkiyor.
+    const silinecek = await prisma.ortak.findUnique({
+      where: { id },
+      select: { foto: true },
+    })
+
     // Ilan.danismanId icin cascade tanimli degil; once bagli ilanlarin
     // danisman alani bosaltilmazsa silme FK ihlaliyle 500 veriyordu.
     const bagliIlan = await prisma.ilan.count({ where: { danismanId: id } })
@@ -121,6 +151,10 @@ export async function DELETE(
     }
 
     await prisma.ortak.delete({ where: { id } })
+
+    // Kayit gittikten sonra fotografi da temizle. DB islemi basarili oldugu
+    // icin dosya silinemese bile istek basarisiz sayilmaz (bkz. yuklemeyiSil).
+    await eskiFotoyuSil(silinecek?.foto ?? null, id)
 
     revalidateDanismanSayfalari()
 

@@ -522,9 +522,7 @@ sayfa ve sunucu 2 çekirdekli; ISR statik servisi koruyor.
 
 ### Bu modülde bulunan diğer şeyler
 
-- **Yetim fotoğraf dosyaları.** Danışmanın fotoğrafı değiştirilince eskisi
-  diskten silinmiyor (`unlink` yok). Her değişiklikte bir dosya birikiyor.
-  Küçük ama bölüm 4.8 disk temizliğiyle ilgili.
+- **Yetim fotoğraf dosyaları** — 21 Kasım 2026'da düzeltildi, bkz. 4.12.
 - **API katmanı sağlam.** Auth kontrolü, zod doğrulaması, slug çakışma
   kontrolü, silmede `Ilan.danismanId` boşaltma (FK ihlali önleme) — hepsi
   doğru. Yükleme tarafında `danismanlar` klasörü beyaz listede, dosya
@@ -534,12 +532,10 @@ sayfa ve sunucu 2 çekirdekli; ISR statik servisi koruyor.
   olarak kurulmuştu (bkz. 4.5). `jsonDizi` üç yerde kopyalanmış
   (`lib/danismanlar.ts`, `app/api/danismanlar/route.ts`, sayfanın içinde).
 
-### ⚠️ Aynı hatanın devam ettiği yer
+### Blog tarafı (21 Kasım 2026'da düzeltildi — 4.11)
 
-`app/[lang]/blog/[slug]/page.tsx` de DB okuyor ve `revalidate`/`dynamic`
-**yok** → blog yazısı düzenlemeleri de ancak deploy'da görünür. Build
-çıktısında revalidate sütunu boş. **Henüz düzeltilmedi** — danışman
-modülü kapsamı dışında kaldı, müşteri onayı bekliyor.
+Aynı önbellek hatası `app/[lang]/blog/[slug]/page.tsx`'de de vardı.
+Bkz. bölüm 4.11.
 
 ### Not: repodaki `nginx.conf` güncel değil
 
@@ -549,6 +545,77 @@ yorumunda nginx'in `172.18.0.1:3001`'e gittiğini söylüyor, deploy da
 `/root/kalindayapi.com` altında çalışıyor. Sunucudaki gerçek nginx
 yapılandırması repodakinden farklı. Siteyi etkilemiyor ama bu dosyaya
 bakıp karar vermeyin.
+
+---
+
+## 4.11 Blog detay sayfası önbelleği (21 Kasım 2026)
+
+4.10'daki aynı hata. **Ama kapsam sanıldığından küçüktü** — ilk tahmin
+"blog liste + detay donmuş" idi, ölçünce yalnızca detay çıktı:
+
+| Sayfa / rota | Tür | Donmuş mu |
+|---|---|---|
+| `/[lang]/blog` (liste) | `"use client"`, `/api/blog`'dan çeker | Hayır |
+| `SonYazilar` (ana sayfa) | `"use client"` | Hayır |
+| `/api/blog`, `/api/blog/[slug]` | `ƒ` dinamik | Hayır |
+| **`/[lang]/blog/[slug]`** | `●` statik + sunucuda DB okur | **Evet** |
+
+> **Yeni yazı etkilenmiyordu**, yalnızca mevcut bir yazının düzenlemesi.
+> Sebep: `generateStaticParams` dışındaki slug'lar istek anında render
+> ediliyor (`dynamicParams` varsayılan `true`).
+
+**Çözüm:** `lib/revalidate-blog.ts` → `revalidateBlogSayfalari()`, admin
+blog POST / PUT / DELETE sonrası çağrılıyor. Tek yol yeterli:
+`revalidatePath('/[lang]/blog/[slug]', 'page')` — `[lang]` ve `[slug]`
+sayesinde beş dilin tüm yazılarını kapsıyor. Liste, `SonYazilar` ve API
+rotaları tazelenmiyor; zaten canlı veri çekiyorlar.
+
+Sayfaya `revalidate = 60` de eklendi ve bu **sadece emniyet payı değil**:
+otomatik çeviriler `translateBlogPostAsync` ile *fire-and-forget* çalışıyor,
+yanıt gönderildikten sonra DB'ye yazıyor. İstek bağlamı dışında
+`revalidatePath` çağrılamadığı için çevirilerin yayına girmesi bu ISR
+süresine bağlı — en fazla 1 dakika.
+
+---
+
+## 4.12 Yetim yükleme dosyaları (21 Kasım 2026)
+
+**Sorun:** Danışman fotoğrafı değiştirilince veya kayıt silinince eski
+dosya diskte kalıyordu; her düzenlemede bir yetim dosya birikiyordu.
+
+**`lib/upload-temizle.ts` → `yuklemeyiSil(publicUrl)`**
+
+Dosya silen kod olduğu için savunma katmanları:
+
+- Yalnızca `/uploads/` ile başlayan yollar
+- Beyaz liste klasörler: `danismanlar`, `ilanlar`, `videos`, `thumbnails`
+- Tam **iki** parça (`klasor/dosya`) — daha derin veya klasörsüz reddedilir
+- `decodeURIComponent` sonrası tekrar kontrol (`%2e%2e`, `..%2F` yakalanır)
+- `path.resolve` sonucu beklenen yolla **birebir** eşleşmeli, ayrıca
+  `uploads` kökünün altında olmalı
+- Ters bölü (`..\`) reddedilir — Windows'ta ayırıcı
+- **Asla hata fırlatmaz.** Dosya silinemezse `false` döner ve loglar; bir
+  dosya temizliği yüzünden admin kaydetme işlemi başarısız olmamalı. DB
+  zaten güncellenmiş olur. `ENOENT` loglanmaz (hedefe ulaşılmış sayılır).
+
+**Bağlandığı yerler** (`app/api/admin/ortaklar/[id]/route.ts`):
+- `PUT` — `foto` **gönderildiyse ve değiştiyse** eskisi silinir.
+  `undefined` "değişmedi" demek, o durumda dokunulmaz.
+- `DELETE` — fotoğraf yolu **silmeden önce** okunur, kayıt gittikten sonra
+  dosya temizlenir.
+
+> ⚠️ **`eskiFotoyuSil` önce başka kayıt kullanıyor mu diye bakar.** Aynı
+> görseli iki danışmana atamak mümkün; bu kontrol olmasa birinin fotoğrafı
+> değiştirilince diğerinin görseli de kaybolurdu.
+
+**Test edildi** (18/18 geçti). Yalıtılmış bir `cwd`'de koşturuldu, projenin
+gerçek `public/` klasörüne dokunulmadı: meşru dosya silindi, 10 yol kaçışı
+/ beyaz liste dışı deneme reddedildi, kurban dosya yerinde kaldı, boş
+girdiler (`null` / `undefined` / `""`) sessizce `false` döndü.
+
+**Not:** Aynı yetim dosya sorunu **ilan fotoğrafları için de geçerli**
+olabilir; `yuklemeyiSil` `ilanlar` klasörünü de kabul ediyor ama ilan
+API'lerine **bağlanmadı** — bu oturumun kapsamı danışman modülüydü.
 
 ---
 
